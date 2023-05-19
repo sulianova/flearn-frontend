@@ -1,0 +1,311 @@
+.homework-editor-wrapper {
+  padding: 0 set-calc($padding-x-desk-page);
+
+  @include set-media(md) {
+    padding: 0 set-calc($padding-x-mob-page);
+  }
+
+  .homework-editor-title-wrapper {
+    position: relative;
+
+    display: block;
+    margin-top: set-calc(40);
+    padding-bottom: set-calc(16);
+
+    @include set-media(md) {
+      margin-top: 0;
+    }
+  }
+
+  .homework-editor-menu {
+    position: relative;
+
+    display: grid;
+    grid-column-gap: set-calc(1.5 * $s-gap);
+    grid-template-columns: repeat(8,minmax(0,1fr));
+    padding-bottom: set-calc(80);
+
+    border-top: set-calc(calc($s-gap / 2)) solid $black-new;
+
+    &-link-wrapper {
+      position: relative;
+
+      grid-column: span 4;
+      padding-top: set-calc($s-gap);
+
+      &:not(:last-child)::after {
+        position: absolute;
+        top: -1px;
+        right: 0;
+
+        display: block;
+        width: set-calc(calc($s-gap / 2));
+        height: set-calc(30);
+
+        background-color: $black-new;
+
+        content: "";
+      }
+    }
+
+    &-link {
+      text-decoration: none;
+
+      transition: $d-hover color;
+    }
+
+    .nuxt-link-exact-active {
+      color: $orange !important;
+
+      cursor: default;
+
+      pointer-events: none;
+    }
+  }
+
+  .homework-editor-content {
+    &-upload {
+      display: grid;
+      grid-column-gap: set-calc($s-gap * 1.5);
+      grid-template-columns: repeat(8,minmax(0,1fr));
+      margin: 0 0 set-calc(16);
+  
+      @include set-media(md) {
+        display: none;
+      }
+  
+      &-deadline {
+        grid-column: 1 / 3;
+        
+        @include set-media(md) {
+          display: none;
+        }
+      }
+  
+      &-btn {
+        position: relative;
+
+        display: flex;
+        grid-column: 7 / 9;
+        align-items: center;
+        justify-content: center;
+        width: auto;
+        max-height: set-calc(48);
+
+        color: $white;
+
+        background: $black-new;
+        border-radius: set-calc(30);
+  
+        @include set-media(md) {
+          display: none;
+        }
+      }
+    }
+
+    &-upload-mobile {
+      display: none;
+  
+      @include set-media(md) {
+        display: flex;
+        flex-direction: column;
+        margin: 0 0 set-calc(80);
+      }
+  
+      &-deadline {
+        display: none;
+        
+        @include set-media(md) {
+          display: block;
+          padding-top: set-calc(16);
+
+          text-align: center;
+        }
+      }
+  
+      &-btn {
+        display: none;
+  
+        @include set-media(md) {
+          position: relative;
+
+          display: none;
+          display: flex;
+          grid-column: 7 / 9;
+          align-items: center;
+          justify-content: center;
+          width: auto;
+          min-height: set-calc(48);
+          max-height: set-calc(48);
+
+          color: $white;
+
+          background: $black-new;
+          border-radius: set-calc(30);
+        }
+      }
+    }
+
+    &-title {
+      padding-bottom: set-calc(64);
+
+      @include set-media(md) {
+        padding-bottom: set-calc(8);
+      }
+    }
+
+    &-content-section {
+      .text-section {
+        margin: 0 0 set-calc(140);
+        padding: set-calc(8) 0 0;
+  
+        border-top: set-calc(calc($s-gap / 2)) solid $black-new;
+  
+        @include set-media(md) {
+          margin: 0 0 set-calc(80);
+        }
+  
+        &-title {
+          grid-column: 1;
+          padding-bottom: set-calc(8);
+        }
+  
+        &-content {
+          grid-column: 3 / 5;
+  
+          p:not(:last-child) {
+            padding-bottom: set-calc(16);
+          }
+  
+          a {
+            display: block;
+
+            color: $text-grey;
+          }
+  
+          a:not(:last-child) {
+            padding-bottom: set-calc(16);
+          }
+        }
+      }
+    }
+  }
+
+  .homework-editor-results {
+    .text-section {
+      margin: 0 0 set-calc(140);
+      padding: set-calc(8) 0 0;
+
+      border-top: set-calc(calc($s-gap / 2)) solid $black-new;
+
+      @include set-media(md) {
+        margin: 0 0 set-calc(80);
+      }
+
+      &-title {
+        grid-column: 1;
+        padding-bottom: set-calc(8);
+      }
+
+      &-content {
+        grid-column: 3 / 5;
+
+        p:not(:last-child) {
+          padding-bottom: set-calc(16);
+        }
+
+        a {
+          display: block;
+
+          color: $text-grey;
+        }
+
+        a:not(:last-child) {
+          padding-bottom: set-calc(16);
+        }
+
+        img {
+          width: auto;
+          height: set-calc(520);
+
+          border-radius: set-calc(20);
+        }
+
+        img:not(:last-child) {
+          padding-bottom: set-calc(24);
+        }
+      }
+    }
+  }
+
+  .homework-editor-header {
+    margin-top: set-calc(140);
+    padding: set-calc(calc($s-gap / 2)) 0 set-calc(calc($s-gap));
+
+    border-top: set-calc(calc($s-gap / 2)) solid $black-new;
+
+    @include set-media(md) {
+      grid-gap: 0;
+      margin-top: set-calc(80);
+    }
+
+    &-title {
+      grid-column: span 2;
+    }
+
+    &-title-col {
+      grid-row: 1;
+      grid-column: 3 / 5;
+
+      text-align: end;
+
+      @include set-media(md) {
+        display: none;
+      }
+    }
+
+    &-lesson {
+      display: flex;
+      flex-direction: row;
+      grid-row: 1;
+      grid-column: 1 / 3;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      @include set-media(md) {
+        display: block;
+      }
+
+      &-number {
+        display: none;
+
+        @include set-media(md) {
+          display: none;
+        }
+      }
+
+      &-nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 0;
+        margin-right: auto;
+
+        &-link:not(:first-child) {
+          margin-left: set-calc(24);
+        }
+
+        @include set-media(md) {
+          margin-top: 0;
+          margin-left: 0;
+
+          .homework-editor-lesson-nav-link:last-child {
+            margin-right: 0;
+            margin-left: auto;
+          }
+
+        }
+      }
+    }
+  }
+}

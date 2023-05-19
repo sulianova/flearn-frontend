@@ -1,0 +1,72 @@
+@use "sass:math";
+@use "sass:list";
+@use "sass:map";
+@use "sass:meta";
+
+$colors: (
+  "blue": $blue,
+);
+
+@function px-to-rem($list) {
+  $rem-list: ();
+
+  @each $value in $list {
+    $rem-value: math.div($value, $rem-base) * 1rem;
+    $rem-value-rounded: math.div(math.round($rem-value * 1000), 1000);
+    $rem-list: append($rem-list, $rem-value-rounded);
+  }
+
+  @return #{$rem-list};
+}
+
+@mixin set-typography(
+  $font-size,
+  $line-height: $font-size,
+  $font-weight: 400,
+  $text-transform: inherit
+) {
+  font-weight: $font-weight;
+  font-size: calc(var(--scale)*$font-size);
+  line-height: calc(var(--scale)*$line-height);
+  text-transform: $text-transform;
+}
+
+@mixin set-media($type) {
+  @media (max-width: map-get($breakpoints, $type)) {
+    @content;
+  }
+}
+
+@mixin add-scale {
+  :root {
+     --scale: 100vw/1600;
+  }
+}
+
+@mixin add-scale-md {
+  :root {
+     --scale: 100vw/414;
+  }
+}
+
+@include add-scale;
+
+@include set-media(md) {
+  @include add-scale-md;
+}
+
+@function set-calc(
+  $value,
+  $bollean: false,
+  $value2: 0%
+  ) {
+    @if $bollean {
+      @return calc($value2 + var(--scale) * $value);
+    } @else { @return calc(var(--scale) * $value) }
+}
+
+@each $color-name, $color in $colors {
+  .#{$color-name} {
+    color: $color;
+  }
+}

@@ -1,0 +1,30 @@
+@use "sass:math";
+$rem-base: 18px;
+$font-family: TTInterphasesPro, sans-serif;
+$padding-x-desk-page: 56;
+$padding-x-mob-page: 16;
+$s-gap: 8;
+$white: #fff;
+$black: #222;
+$black-new: #131313;
+$blue: #1F59F5;
+$blue-hover: rgba(31,89,245,0.5);
+$orange: #ff2800;
+$hover: #e61e00;
+$popup-blue: #2e7cf6;
+$popup-hover-blue: #609bf8;
+$beige: #F3F3F3;
+$text-grey: #C4C4C4;
+$grey: #aaa;
+$grey-hover: #969696;
+$grey-inactive: #707070;
+$border: #d7d7d7;
+$breakpoints: (
+  xxs: 319.98px,
+  xs: 374.98px,
+  sm: 575.98px,
+  md: 767.98px,
+  lg: 991.98px,
+  xl: 1199.98px,
+);
+$d-hover: 0.2s;

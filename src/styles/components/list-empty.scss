@@ -1,0 +1,27 @@
+.list-empty {
+  display: flex;
+  flex-direction: column;
+  grid-column: 5 / 9;
+  align-items: center;
+  padding: set-calc(80) 0;
+
+  text-align: center;
+
+  &-title {
+    padding-bottom: set-calc(24);
+  }
+
+  &-text {
+    padding-bottom: set-calc(40);
+  }
+
+  &-button {
+    width: set-calc(294);
+    height: set-calc(48);
+
+    color: $white;
+
+    background-color: $blue;
+    border-radius: set-calc(20);
+  }
+}
