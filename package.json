@@ -7,11 +7,6 @@
     "frontend",
     "Flearn"
   ],
-  "homepage": "https://github.com/sulianova/flearn-frontend#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com:sulianova/flearn-frontend.git"
-  },
   "author": {
     "name": "Flearn Team",
     "email": "vfyodorov@nes.ru"
