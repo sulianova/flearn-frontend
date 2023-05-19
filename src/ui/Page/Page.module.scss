@@ -1,0 +1,18 @@
+@import 'styles/index';
+
+.Page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+  
+    background-color: $white;
+}
+  
+.Content {
+    margin-top: set-calc(16);
+  
+    @include set-media(md) {
+        margin-top: set-calc(64);
+    }
+}
