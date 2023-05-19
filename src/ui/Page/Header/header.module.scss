@@ -1,0 +1,153 @@
+@import 'styles/index';
+
+.Header {
+  position: relative;
+  z-index: 1000;
+
+  @include set-typography(18, 24, 500);
+
+  @include set-media(md) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: top .5s,transform .5s;
+    @include set-typography(20, 28, 500);
+  }
+}
+
+.Desk {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: set-calc(4) set-calc($padding-x-desk-page) set-calc(8);
+  background-color: rgba(255, 255, 255, 0);
+
+  @include is-grid-12;
+
+  @include set-media(md) {
+    flex-wrap: wrap;
+    flex-direction: row;
+    grid-gap: 0;
+    align-items: center;
+    padding: 0 set-calc($padding-x-mob-page) set-calc(8);
+  }
+}
+
+.Logo {
+  grid-column: span 1;
+
+  @include set-media(md) {
+    position: relative;
+    display: block;
+    padding-top: 0;
+  }
+
+  &Wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+
+    a:hover {
+        opacity: 0.5;
+        cursor: pointer;
+    }
+  }
+}
+
+.Nav {
+  grid-column: 2/12;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: set-calc(4);
+
+  &Item:not(:last-child) {
+    padding-right: set-calc(24);
+  }
+
+  @include set-media(md) {
+    display: none;
+  }
+}
+
+.NavLogin {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: set-calc(4);
+  grid-column: 12;
+
+  @include set-media(md) {
+    display: none;
+  }
+}
+
+.Humburger {
+  display: none;
+
+  @include set-media(md) {
+    display: block;
+    position: relative;
+    width: set-calc(68);
+    height: set-calc(56);
+
+    background: url("./menu-mobile.svg") no-repeat;
+    background-size: contain;
+    cursor: pointer;
+  }
+}
+
+.Mob {
+  transition: $d-hover opacity;
+  padding: 0 set-calc($padding-x-mob-page) set-calc(40);
+  width: 100%;
+  display: none;
+  // display: flex;
+  flex-direction: column;
+  min-height: 90vh;
+
+  &MenuMain {
+    .HeaderMobItem {
+      padding: set-calc(16) 0;
+      border-bottom: set-calc(calc($s-gap/2)) solid $black-new;
+    }
+  }
+
+  &MenuControls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &Spacing {
+    flex: 1;
+  }
+}
+
+.LoginBtn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  color: $white;
+  height: set-calc(68);
+  background-color: $black-new;
+  border-radius: set-calc(20);
+  cursor: pointer;
+  transition: color 0.2s, background-color 0.2s, opacity 0.2s;
+
+  &:active {
+    opacity: 0.9;
+  }
+}
+
+.IsMobileMenuOpened {
+  position: fixed;
+  overflow: scroll;
+  height: 100%;
+  z-index: 1000;
+}
