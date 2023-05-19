@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
+import classnames from 'classnames/bind';
 import classes from './header.module.scss';
+
+const cx = classnames.bind(classes);
 
 export default Header;
 
 function Header() {
+    const [isOpened, setIsOpened] = useState<boolean>(false);
+    const headerClass = cx({ Header: true, IsMobileMenuOpened: isOpened });
+
     return (
-        <div className={classes.Header}>
+        <div className={headerClass}>
             <div className={classes.Desk}>
                 <div className={classes.Logo}>
                     <div className={classes.LogoWrapper}>
@@ -26,7 +32,7 @@ function Header() {
                 <div className={classes.NavLogin}>
                     <a className="inline-link" href="profile.html">Войти</a>
                 </div>
-                <div className={classes.Hamburger}></div>
+                <div className={classes.Humburger} onClick={() => setIsOpened(o => !o)}></div>
             </div>
             <div className={classes.Mob}> 
                 <div className={classes.MobMenuMain}>
@@ -42,7 +48,7 @@ function Header() {
                 </div>
                 <div className={classes.MobSpacing}></div>
                 <div className={classes.MobMenuControls}>
-                    <a className="header-login-btn s-text-24">Войти</a>
+                    <a className={classes.LoginBtn + " s-text-24"}>Войти</a>
                 </div>
             </div>
         </div>
