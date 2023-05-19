@@ -4,7 +4,6 @@ import { LocationDescriptor } from 'history';
 import React from 'react';
 import { Link as RouterLink, LinkProps as IRouterLinkProps } from 'react-router-dom';
 
-
 import classes from './Link.module.scss';
 
 export default Link;
