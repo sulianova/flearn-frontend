@@ -11,6 +11,14 @@
   }
 }
 //xs
+@mixin s-text-18 {
+  @include set-typography(18, 24, 500);
+
+  @include set-media(md) {
+    @include set-typography(16, 22, 500)
+  }
+}
+
 .s-text-18 {
   @include set-typography(18, 24, 500);
 
@@ -47,6 +55,14 @@
   }
 }
 //s
+@mixin s-text-24 {
+  @include set-typography(24, 32, 500);
+
+  @include set-media(md) {
+    @include set-typography(20, 28, 500);
+  }
+}
+
 .s-text-24 {
   @include set-typography(24, 32, 500);
 
