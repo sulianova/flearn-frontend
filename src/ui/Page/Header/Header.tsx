@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import classnames from 'classnames/bind';
 import classes from './header.module.scss';
+import Link from 'ui/Link/Link';
+// import { Link } from "react-router-dom";
 
 const cx = classnames.bind(classes);
 
@@ -15,40 +17,46 @@ function Header() {
             <div className={classes.Desk}>
                 <div className={classes.Logo}>
                     <div className={classes.LogoWrapper}>
-                        <a href="free-zone.html" className="s-text-24">flearn</a>
+                        <Link to={'/free-zone'} className="s-text-24">flearn</Link>
                     </div>
                 </div>
                 <div className={classes.Nav}>
                     <div className={classes.NavItem}>
-                        <a className="inline-link" href="profile.html#profile">Moe обучение</a>
+                        <Link to={'/profile'} className="inline-link">Moe обучение</Link>
                     </div>
                     <div className={classes.NavItem}>
-                        <a className="inline-link" href="free-zone.html">Бесплатно</a>
+                        <Link to={'/free-zone'} className="inline-link">Бесплатно</Link>
                     </div>
                     <div className={classes.NavItem}>
-                        <a className="inline-link" href="catalogue.html">Программы обучения</a>
+                        <Link to={'/catalogue'} className="inline-link">Программы обучения</Link>
                     </div>
                 </div>
                 <div className={classes.NavLogin}>
-                    <a className="inline-link" href="profile.html">Войти</a>
+                    <Link to={'/profile'} className="inline-link">Войти</Link>
                 </div>
                 <div className={classes.Humburger} onClick={() => setIsOpened(o => !o)}></div>
             </div>
             <div className={classes.Mob}> 
                 <div className={classes.MobMenuMain}>
                     <div className={classes.MobItem}>
-                        <a className="inline-link s-text-24"><span className="inline-text">Мое обучение</span></a>
+                        <Link to={'/profile'} className="inline-link s-text-24">
+                            <span className="inline-text">Мое обучение</span>
+                        </Link>
                     </div>
                     <div className={classes.MobItem}>
-                        <a className="inline-link s-text-24"><span className="inline-text">Бесплатно</span></a>
+                        <Link to={'/free-zone'} className="inline-link s-text-24">
+                            <span className="inline-text">Бесплатно</span>
+                        </Link>
                     </div>
                     <div className={classes.MobItem}>
-                        <a className="inline-link s-text-24"><span className="inline-text">Программы обучения</span></a>
+                        <Link to={'/catalogue'} className="inline-link s-text-24">
+                            <span className="inline-text">Программы обучения</span>
+                        </Link>
                     </div>
                 </div>
                 <div className={classes.MobSpacing}></div>
                 <div className={classes.MobMenuControls}>
-                    <a className={classes.LoginBtn + " s-text-24"}>Войти</a>
+                    <Link to={'/profile'} className={classes.LoginBtn + " s-text-24"}>Войти</Link>
                 </div>
             </div>
         </div>
