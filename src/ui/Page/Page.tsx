@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from './Footer/Footer';
 import Header from './Header/Header';
 import classes from './Page.module.scss';
 
@@ -15,7 +16,7 @@ function Page({ children, header = false, footer = false }: IProps) {
         <div className={classes.Page}>
             {header && <Header/>}
             <div className={classes.Content}>{children}</div>
-            {/* {footer && <div className={classes.Footer}>{footer}</div>} */}
+            {footer && <Footer/>}
         </div>
     );
 }
