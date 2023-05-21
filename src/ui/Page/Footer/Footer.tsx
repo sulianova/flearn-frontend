@@ -1,3 +1,5 @@
+import Link from 'ui/Link/Link';
+
 import classes from './Footer.module.scss';
 
 export default Footer;
@@ -13,28 +15,28 @@ function Footer() {
           </div>
           <div className={classes.References}>
             <div className={classes.Row}>
-                <a className={classes.RowItem}>Курсы</a>
-                <a className={classes.RowItem}>Рекомендуемые книги</a>
-                <a className={classes.RowItem}>Статьи</a>
-                <a className={classes.RowItem}>Отзывы студентов</a>
+                <Link className={classes.RowItem}>Курсы</Link>
+                <Link className={classes.RowItem}>Рекомендуемые книги</Link>
+                <Link className={classes.RowItem}>Статьи</Link>
+                <Link className={classes.RowItem}>Отзывы студентов</Link>
             </div>
           </div>
           <div className={classes.Social}>
             <div className={classes.Row}>
-                <a className={classes.RowItem} href='https://t.me/sofiulyanova' target='_blank'>Telegram</a>
-                <a className={classes.RowItem} href='https://www.youtube.com/@sofiulyanova/featured' target='_blank'>YouTube</a>
-                <a className={classes.RowItem} href='https://dzen.ru/id/63e1220500d5cb197f2baf8b' target='_blank'>Dzen</a>
-                <a className={classes.RowItem} href='https://vk.com/club186282121' target='_blank'>Vkontakte</a>
+                <Link to={'https://t.me/sofiulyanova'} className={classes.RowItem} target='_blank'>Telegram</Link>
+                <Link to={'https://www.youtube.com/@sofiulyanova/featured'} className={classes.RowItem} target='_blank'>YouTube</Link>
+                <Link to={'https://dzen.ru/id/63e1220500d5cb197f2baf8b'} className={classes.RowItem} target='_blank'>Dzen</Link>
+                <Link to={'https://vk.com/club186282121'} className={classes.RowItem} target='_blank'>Vkontakte</Link>
             </div>
           </div>
           <div className={classes.Right}>
             <div className={classes.Row}>
-                <a className={classes.RowItem}>Политика конфидициальности</a>
-                <a className={classes.RowItem}>Условия использования</a>
+                <Link className={classes.RowItem}>Политика конфидициальности</Link>
+                <Link className={classes.RowItem}>Условия использования</Link>
             </div>
           </div>
           <div className={classes.Author}>
-            <a className={classes.AuthorTitle}>Made by Sofiia Ulianova</a>
+            <Link className={classes.AuthorTitle}>Made by Sofiia Ulianova</Link>
             </div>
         </div>
       </div>
