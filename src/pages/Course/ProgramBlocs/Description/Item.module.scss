@@ -1,0 +1,56 @@
+@import 'styles/index';
+
+._ {
+  grid-column: span 4;
+
+  @include is-grid-4;
+}
+
+.questionWrapper {
+  position: relative;
+
+  display: flex;
+  grid-column: span 1;
+  padding-right: set-calc(60);
+
+  @include set-media(md) {
+    padding-right: 0;
+  }
+}
+
+.question {
+  position: relative;
+
+  width: 100%;
+  margin-bottom: auto;
+  padding: set-calc(16) set-calc(16) set-calc(24);
+
+  text-align: center;
+
+  background-color: $beige;
+  border-radius: set-calc(20);
+
+  @include set-media(md) {
+    padding: set-calc(8) 0 set-calc(4);
+
+    text-align: left;
+
+    background-color: $white;
+    border-top: set-calc(calc($s-gap / 2)) solid $black-new;
+    border-radius: 0;
+  }
+}
+
+.answear {
+  grid-column: 2 / -1;
+}
+
+._:not(:last-child) {
+  margin-bottom: set-calc(80);
+}
+
+@include set-media(md) {
+  ._:not(:last-child) {
+    margin-bottom: set-calc(40);
+  }
+}

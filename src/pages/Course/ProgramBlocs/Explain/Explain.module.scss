@@ -1,0 +1,104 @@
+@import 'styles/index';
+
+.wrapper {
+  padding: 0;
+}
+
+.header {
+padding-bottom: set-calc(54);
+}
+
+.headerTitle {
+  padding-bottom: set-calc(24);
+}
+
+.headerDesc {
+  max-width: set-calc(600);
+}
+
+.cards {
+  display: grid;
+  grid-gap: set-calc(8);
+  grid-template-columns: 8fr 4fr;
+  grid-template-areas: "explain-intro explain-video";
+
+  @include set-media(md) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.introCard {
+  grid-area: explain-intro;
+  position: relative;
+  overflow: hidden;
+  background-color: $beige;
+  padding: set-calc(32);
+  border-radius: set-calc(20);
+}
+
+.introCardQuote {
+  position: relative;
+  max-width: calc(var(--scale)*840);
+  z-index: 2;
+}
+
+.videoCard {
+  grid-area: explain-video;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: set-calc(663);
+  overflow: hidden;
+
+  @include set-media(md) {
+    min-height: set-calc(375);
+  }
+}
+
+.videoCardContainer {
+  position: relative;
+  margin-bottom: set-calc(8);
+
+  height: 100%;
+  flex-grow: 1;
+  flex-shrink: 1;
+  min-height: calc(var(--scale)*445);
+
+  background: $black-new;
+  border-radius: set-calc(20);
+  overflow: hidden;
+
+  @include set-media(md) {
+    min-height: set-calc(375);
+  }
+}
+
+.videoCardContainer iframe {
+  border-radius: set-calc(20);
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+
+
+.videoCardDesc {
+  border-radius: set-calc(20);
+  margin-top: auto;
+  padding: set-calc(32);
+  background-color: $beige;
+
+  transform: translate(0);
+  transition: transform .35s ease;
+
+}

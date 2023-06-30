@@ -1,0 +1,121 @@
+@import 'styles/index';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  margin-bottom: set-calc(32);
+}
+
+.title {
+  padding-bottom: set-calc(24);
+}
+
+.desc {
+  padding-bottom: set-calc(32);
+  max-width: set-calc(600);
+}
+
+.tags {
+  position: relative;
+
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background: transparent;
+  border: set-calc(2) solid $black-new;
+  border-radius: set-calc(100);
+  display: inline-flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+
+  margin-right: set-calc(8);
+  margin-bottom: set-calc(8);
+
+  padding: 0 set-calc(16);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.listItem {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  grid-column-gap: set-calc($s-gap);
+
+  @include set-media(md) {
+    display: block;
+  }
+}
+
+.listItemCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: set-calc(32);
+  margin-bottom: set-calc($s-gap);
+
+  background-color: $beige;
+  border-radius: set-calc(20);
+
+  @include set-media(md) {
+    left: set-calc(-$padding-x-mob-page);
+    width: set-calc(32, true, 100%);
+    padding: set-calc($padding-x-mob-page) set-calc($padding-x-mob-page);
+  }
+}
+
+.listItemMeta {
+  position: relative;
+  padding-bottom: set-calc(8);
+
+  color: $text-grey;
+}
+
+.listItemTitle {
+  padding-bottom: set-calc(32);
+}
+
+.listItemContent {
+  padding-bottom: set-calc(16);
+
+  p {
+    font-size: inherit;
+    line-height: inherit;
+    padding-bottom: set-calc(16);
+  }
+}
+
+.listItemMedia {
+  position: relative;
+  margin: set-calc(-16);
+
+  display: block;
+  height: set-calc(340);
+}
+
+.listItemMedia img[data-v-desktop-2] {
+  position: relative;
+
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  border-radius: set-calc(20);
+}
+
+.listItemMediaDesc {
+  margin: set-calc(52) 0 0;
+
+  @include set-media(md) {
+    padding: set-calc(8) set-calc($padding-x-mob-page) set-calc(20);
+  }
+}

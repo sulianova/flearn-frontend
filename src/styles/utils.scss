@@ -3,10 +3,6 @@
 @use "sass:map";
 @use "sass:meta";
 
-$colors: (
-  "blue": $blue,
-);
-
 @function px-to-rem($list) {
   $rem-list: ();
 
@@ -55,6 +51,71 @@ $colors: (
   @include add-scale-md;
 }
 
+@mixin is-black {
+  position: relative;
+  left: set-calc(-$padding-x-desk-page);
+
+  width: set-calc(2 * $padding-x-desk-page, true, 100%);
+  margin-top: set-calc(120);
+  padding: set-calc(72) set-calc($padding-x-desk-page);
+
+  background-color: $black-new;
+  border-radius: set-calc(20);
+
+  @include set-media(md) {
+    left: set-calc(-$padding-x-mob-page);
+
+    display: block;
+    width: set-calc(32, true, 100%);
+    margin-top: set-calc(120);
+    padding: set-calc(40) 0;
+  }
+}
+
+@mixin is-grid-3 {
+  display: grid;
+  grid-gap: 0 set-calc($s-gap);
+  grid-template-columns: repeat(3,minmax(0,1fr));
+
+  @include set-media(md) {
+    display: flex;
+    flex-direction: column;
+    grid-gap: set-calc($s-gap);
+  }
+}
+
+@mixin is-grid-4 {
+  display: grid;
+  grid-gap: 0 set-calc(2 * $s-gap);
+  grid-template-columns: repeat(4,minmax(0,1fr));
+
+  @include set-media(md) {
+    display: flex;
+    flex-direction: column;
+    grid-gap: set-calc($s-gap);
+  }
+}
+
+@mixin is-grid-12 {
+  display: grid;
+  grid-gap: 0 set-calc($s-gap);
+  grid-template-columns: repeat(12,minmax(0,1fr));
+
+  @include set-media(md) {
+    display: flex;
+    flex-direction: column;
+    grid-gap: set-calc($s-gap);
+  }
+}
+
+
+@mixin is-grid-outer {
+  display: grid;
+  grid-gap: set-calc($s-gap);
+  grid-template-columns: repeat(12,minmax(0,1fr));
+  padding: 0 set-calc($padding-x-desk-page);
+}
+
 @function set-calc(
   $value,
   $bollean: false,
@@ -63,10 +124,4 @@ $colors: (
     @if $bollean {
       @return calc($value2 + var(--scale) * $value);
     } @else { @return calc(var(--scale) * $value) }
-}
-
-@each $color-name, $color in $colors {
-  .#{$color-name} {
-    color: $color;
-  }
 }

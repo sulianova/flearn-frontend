@@ -1,0 +1,16 @@
+@import 'styles/index';
+
+._ {
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  display: block;
+  padding-top: set-calc(100);
+  position: relative;
+
+  @include set-media(md) {
+    padding-top: set-calc(80);
+  }
+}

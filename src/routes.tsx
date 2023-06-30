@@ -1,7 +1,7 @@
 import { EAppSections, EURLSection, TRouteConfig } from 'types';
 
 import Catalogue from 'pages/Catalogue';
-import Course from 'pages/Course';
+import Course from 'pages/Course/Course';
 import FreeZone from 'pages/FreeZone';
 import Profile from 'pages/Profile';
 

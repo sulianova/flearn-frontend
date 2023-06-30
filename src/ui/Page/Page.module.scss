@@ -5,14 +5,34 @@
     flex-direction: column;
     justify-content: space-between;
     min-height: 100vh;
-  
+
     background-color: $white;
 }
   
-.Content {
+.content {
     margin-top: set-calc(16);
   
     @include set-media(md) {
         margin-top: set-calc(64);
     }
+}
+
+.Course-wrapper {
+    padding: 0 set-calc($padding-x-desk-page);
+  
+    @include set-media(md) {
+        padding: 0 set-calc($padding-x-mob-page);
+    }
+}
+
+.Catalogue-wrapper {
+
+}
+
+.FreeZone-wrapper {
+
+}
+
+.Profile-wrapper {
+
 }

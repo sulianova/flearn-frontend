@@ -1,0 +1,17 @@
+@import 'styles/index';
+
+.wrapper {
+  display: block;
+}
+
+.title {
+  padding-bottom: set-calc(60);
+
+  @include set-media(md) {
+    padding-bottom: set-calc(32);
+  }
+}
+
+.list {
+  @include is-grid-4
+}

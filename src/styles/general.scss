@@ -99,8 +99,6 @@ a {
   }
 }
 
-
-
 button {
   word-spacing: 1px;
   border: none;
@@ -126,104 +124,6 @@ button {
       opacity: 0.5;
     }
   }
-}
-
-.program-wrapper {
-  display: grid;
-  grid-gap: 0 set-calc($s-gap);
-  grid-template-columns: repeat(12,minmax(0,1fr));;
-  padding: 0 set-calc($padding-x-desk-page);
-
-  @include set-media(md) {
-    padding: 0 set-calc($padding-x-mob-page);
-  }
-}
-
-.program-blocks {
-  grid-column: span 12;
-}
-
-.program-blocks-item {
-  display: block;
-  padding: 0;
-  position: relative;
-}
-
-.is-black {
-
-  position: relative;
-  left: set-calc(-$padding-x-desk-page);
-
-  width: set-calc(2 * $padding-x-desk-page, true, 100%);
-  margin-top: set-calc(120);
-  padding: set-calc(72) set-calc($padding-x-desk-page);
-
-  background-color: $black-new;
-  border-radius: set-calc(20);
-
-  @include set-media(md) {
-    left: set-calc(-$padding-x-mob-page);
-
-    display: block;
-    width: set-calc(32, true, 100%);
-    margin-top: set-calc(120);
-    padding: set-calc(40) 0;
-  }
-}
-
-.is-grid-3 {
-  display: grid;
-  grid-gap: 0 set-calc($s-gap);
-  grid-template-columns: repeat(3,minmax(0,1fr));
-
-  @include set-media(md) {
-    display: flex;
-    flex-direction: column;
-    grid-gap: set-calc($s-gap);
-  }
-}
-
-.is-grid-4 {
-  display: grid;
-  grid-gap: 0 set-calc(2 * $s-gap);
-  grid-template-columns: repeat(4,minmax(0,1fr));
-
-  @include set-media(md) {
-    display: flex;
-    flex-direction: column;
-    grid-gap: set-calc($s-gap);
-  }
-}
-
-@mixin is-grid-12 {
-  display: grid;
-  grid-gap: 0 set-calc($s-gap);
-  grid-template-columns: repeat(12,minmax(0,1fr));
-
-  @include set-media(md) {
-    display: flex;
-    flex-direction: column;
-    grid-gap: set-calc($s-gap);
-  }
-}
-
-.is-grid-12 {
-  display: grid;
-  grid-gap: 0 set-calc($s-gap);
-  grid-template-columns: repeat(12,minmax(0,1fr));
-
-  @include set-media(md) {
-    display: flex;
-    flex-direction: column;
-    grid-gap: set-calc($s-gap);
-  }
-}
-
-.is-grid-outer {
-  display: grid;
-  grid-gap: set-calc($s-gap);
-  grid-template-columns: repeat(12,minmax(0,1fr));
-  padding: 0 set-calc($padding-x-desk-page);
 }
 
 .inline-link {
