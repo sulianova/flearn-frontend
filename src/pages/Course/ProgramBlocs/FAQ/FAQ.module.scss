@@ -1,0 +1,97 @@
+@import 'styles/index';
+
+.wrapper {
+  padding-top: 0;
+
+  @include set-media(md) {
+    padding-top: 0;
+  }
+}
+
+.header {
+  position: relative;
+
+  @include is-grid-12;
+
+  grid-row-gap: 0;
+  margin-bottom: set-calc(60);
+
+  @include set-media(md) {
+    position: relative;
+
+    display: block;
+    margin-bottom: set-calc(32);
+  }
+}
+
+.headerTitle {
+  grid-column: span 5;
+  margin-bottom: set-calc(24);
+}
+
+.headerDesc {
+  grid-column: 1/6;
+
+  a {
+    color: $blue;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: $blue-hover;
+  }
+
+  @include set-media(md) {
+    a:active {
+      color: $blue-hover;
+    }
+  }
+}
+
+.list {
+  position: relative;
+  left: 0;
+
+  display: grid;
+  grid-gap: set-calc($s-gap) set-calc($s-gap);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  width: 100%;
+
+  @include set-media(md) {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.item {
+  position: relative;
+  grid-column: span 4;
+
+  display: flex;
+  flex-direction: column;
+  min-height: set-calc(330);
+  padding: set-calc(24);
+
+  background-color: $beige;
+  border-radius: set-calc(20);
+
+  @include set-media(md) {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    grid-row-gap: 0;
+    min-height: set-calc(222);
+    padding: set-calc(16) set-calc($padding-x-mob-page);
+  }
+}
+
+.itemQuestion {
+  margin-bottom: set-calc(24);
+}
+
+.itemAnswer {
+  margin-top: auto;
+}

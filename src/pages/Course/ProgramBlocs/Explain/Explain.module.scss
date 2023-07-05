@@ -6,6 +6,10 @@
 
 .header {
 padding-bottom: set-calc(54);
+
+@include set-media(md) {
+  padding-bottom: set-calc(32);
+}
 }
 
 .headerTitle {
@@ -35,6 +39,10 @@ padding-bottom: set-calc(54);
   background-color: $beige;
   padding: set-calc(32);
   border-radius: set-calc(20);
+
+  @include set-media(md) {
+    padding: set-calc(24) set-calc(16);
+  }
 }
 
 .introCardQuote {
@@ -50,7 +58,7 @@ padding-bottom: set-calc(54);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  min-height: set-calc(663);
+  min-height: set-calc(450);
   overflow: hidden;
 
   @include set-media(md) {
@@ -65,7 +73,7 @@ padding-bottom: set-calc(54);
   height: 100%;
   flex-grow: 1;
   flex-shrink: 1;
-  min-height: calc(var(--scale)*445);
+  min-height: set-calc(450);
 
   background: $black-new;
   border-radius: set-calc(20);
@@ -81,8 +89,6 @@ padding-bottom: set-calc(54);
     display: block;
     position: absolute;
     left: 0;
-    right: 0;
-    bottom: 0;
     top: 0;
     height: 100%;
     width: 100%;
@@ -101,4 +107,7 @@ padding-bottom: set-calc(54);
   transform: translate(0);
   transition: transform .35s ease;
 
-}
+  @include set-media(md) {
+    padding: set-calc(24);
+  }
+ }

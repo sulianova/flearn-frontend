@@ -109,13 +109,6 @@
 }
 
 
-@mixin is-grid-outer {
-  display: grid;
-  grid-gap: set-calc($s-gap);
-  grid-template-columns: repeat(12,minmax(0,1fr));
-  padding: 0 set-calc($padding-x-desk-page);
-}
-
 @function set-calc(
   $value,
   $bollean: false,

@@ -1,0 +1,202 @@
+@import 'styles/index';
+
+.wrapper {
+  display: grid;
+  grid-gap: set-calc($s-gap);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  color: $white;
+
+  @include set-media(md) {
+    position: relative;
+    display: block;
+    left: set-calc(-$padding-x-mob-page);
+    width: set-calc(calc($padding-x-mob-page * 2), true, 100%);
+  }
+}
+
+.block {
+  grid-column: span 6;
+  position: relative;
+  padding: set-calc(32);
+  background: $black-new;
+  border-radius: set-calc(20);
+
+  @include set-media(md) {
+    margin-bottom: set-calc(8);
+    padding: set-calc(32) set-calc($padding-x-mob-page);
+  }
+}
+
+.blockDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding-right: set-calc(72);
+
+  @include set-media(md) {
+    margin-bottom: set-calc(8);
+    padding: set-calc(32) set-calc($padding-x-mob-page);
+  }
+}
+
+.title {
+  padding-bottom: set-calc(40);
+
+  @include set-media(md) {
+    padding-bottom: set-calc(24);
+  }
+}
+
+.subtitle {
+  padding-bottom: set-calc(24);
+
+  @include set-media(md) {
+    padding-bottom: set-calc(32);
+  }
+}
+
+.credit {
+  position: relative;
+
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.creditWas {
+  color: $grey-inactive;
+  letter-spacing: -0.05rem;
+  text-decoration: line-through;
+}
+
+.creditPrice {
+  position: relative;
+
+  display: inline-block;
+  letter-spacing: -0.05rem;
+}
+
+.discount {
+  position: absolute;
+  top: set-calc(-28);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: set-calc(12) set-calc(24);
+
+  color: $white;
+  letter-spacing: 0;
+
+  background: hsla(0,0%,100%,.1);
+  border-radius: set-calc(30);
+}
+
+.courseName {
+  position: relative;
+
+  display: block;
+
+  padding: set-calc(60) 0 set-calc(5);
+
+  color: $grey-inactive;
+
+  @include set-media(md) {
+    padding: set-calc(32) 0 0;
+  }
+}
+
+.form {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.inputWrap {
+  padding-bottom: set-calc(20);
+}
+
+.agreement {
+  padding: 0 0 set-calc(32);
+
+  color: $grey-inactive;
+
+  label {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    cursor: pointer;
+
+    svg {
+      width: set-calc(18);
+      height: set-calc(18);
+    }
+
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  input[type='checkbox'] {
+    box-sizing: border-box;
+    margin: set-calc(3) set-calc(3) set-calc(3) set-calc(4);
+    padding: initial;
+
+    background-color: initial;
+    border: initial;
+    cursor: default;
+
+    appearance: auto;
+  }
+
+  input[type='checkbox']:not(:checked) + label g {
+    display: none;
+
+    transition: display $d-hover linear;
+  }
+}
+
+.agreementCheckbox {
+  display: none;
+}
+
+.agreementText {
+  padding-left: set-calc(4);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+
+.submitButton {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: set-calc(68);
+  padding: 0 set-calc(40);
+
+  color: $white;
+
+  background-color: $blue;
+  border-radius: set-calc(20);
+  cursor: pointer;
+
+  transition: background-color $d-hover ease-in-out, color ease-in-out $d-hover;
+
+  @include set-media(md) {
+    height: set-calc(56);
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

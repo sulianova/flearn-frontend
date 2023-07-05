@@ -80,7 +80,7 @@
 }
 //cards – important
 .s-text-36 {
-  @include set-typography(36, 39, 500);
+  @include set-typography(36, 42, 500);
 
   @include set-media(md) {
     @include set-typography(24, 26, 500);

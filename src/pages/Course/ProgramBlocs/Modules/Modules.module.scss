@@ -26,9 +26,8 @@
 }
 
 .tag {
-  background: transparent;
-  border: set-calc(2) solid $black-new;
-  border-radius: set-calc(100);
+  background: $beige;
+  border-radius: set-calc(20);
   display: inline-flex;
   align-items: center;
   text-align: center;
@@ -37,7 +36,7 @@
   margin-right: set-calc(8);
   margin-bottom: set-calc(8);
 
-  padding: 0 set-calc(16);
+  padding: set-calc(4) set-calc(16);
 }
 
 .list {
@@ -116,6 +115,7 @@
   margin: set-calc(52) 0 0;
 
   @include set-media(md) {
-    padding: set-calc(8) set-calc($padding-x-mob-page) set-calc(20);
+    margin: set-calc(24) 0 0;
+    padding: set-calc(8) set-calc($padding-x-mob-page) set-calc(16);
   }
 }

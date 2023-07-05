@@ -1,0 +1,58 @@
+@import 'styles/index';
+
+.wrapper {
+  padding: 0;
+}
+
+.cards {
+  display: grid;
+  grid-gap: set-calc(8);
+  grid-template-columns: repeat(2,minmax(0,1fr));
+
+  @include set-media(md) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.card {
+  background: $beige;
+  border-radius: set-calc(20);
+  display: flex;
+  flex-direction: column;
+  padding: set-calc(32);
+  position: relative;
+  min-height: set-calc(143);
+  overflow: hidden;
+
+  @include set-media(md) {
+    padding: set-calc(24) set-calc(16);
+  }
+}
+
+.cardTitle {
+  padding-bottom: set-calc(24);
+}
+
+.videoCard {
+  padding: 0;
+}
+
+.videoCardContainer {
+  position: relative;
+  padding-top: 56.25%;
+  width: 100%;
+}
+
+.videoCardContainer iframe {
+  border-radius: set-calc(20);
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
