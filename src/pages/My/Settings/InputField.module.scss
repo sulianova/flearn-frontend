@@ -1,0 +1,35 @@
+@import 'styles/index';
+
+._ {
+  position: relative;
+
+  width: 100%;
+  margin-bottom: set-calc(56);
+}
+
+.label {
+  position: absolute;
+
+  display: block;
+  margin-bottom: set-calc(16);
+
+  color: $text-grey;
+
+  transform: translateY(-100%);
+}
+
+.input {
+  width: 100%;
+  padding: 0 0 set-calc(4);
+
+  background: none;
+  border: none;
+  border-bottom: set-calc(calc($s-gap / 2)) solid $black-new;
+  border-radius: 0;
+  outline: none;
+  box-shadow: none;
+}
+
+.isDisabled {
+  color: $text-grey;
+}

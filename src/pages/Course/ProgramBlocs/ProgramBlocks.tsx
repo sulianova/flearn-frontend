@@ -16,7 +16,7 @@ export default function ProgramBlocks() {
     <Teachers/>,
     <Gallery/>,
     <Explain/>,
-    <DecisionForm/>,
+    <DecisionForm creditPrice={7000} creditWas={14000}/>,
     <FAQ/>,
   ];
 

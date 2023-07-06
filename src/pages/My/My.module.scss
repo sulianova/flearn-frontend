@@ -1,0 +1,47 @@
+@import 'styles/index';
+
+.menu {
+  position: relative;
+
+  display: grid;
+  grid-column-gap: set-calc(1.5 * $s-gap);
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  padding-bottom: set-calc(80);
+
+  border-top: set-calc(calc($s-gap / 2)) solid $black-new;
+}
+
+.menuLinkWrapper {
+  position: relative;
+
+  grid-column: span 4;
+  padding-top: set-calc($s-gap);
+
+  &:not(:last-child)::after {
+    position: absolute;
+    top: -1px;
+    right: 0;
+
+    display: block;
+    width: set-calc(calc($s-gap / 2));
+    height: set-calc(30);
+
+    background-color: $black-new;
+
+    content: '';
+  }
+}
+
+.menuLink {
+  text-decoration: none;
+
+  transition: $d-hover color;
+}
+
+.isActive {
+  color: $orange !important;
+
+  cursor: default;
+
+  pointer-events: none;
+}

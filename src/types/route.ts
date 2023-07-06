@@ -9,9 +9,10 @@ export enum EAppSections {
     Lesson = 'lesson',
     Lessons = 'lessons',
     LessonWorkProfile = 'lesson-work-profile',
-    Profile = 'profile',
     Work = 'work',
     WorkProfile = 'work-profile',
+    MyProfile = 'my-profile',
+    MySettings = 'my-settings',
 }
 
 export enum EURLSection {
@@ -23,9 +24,10 @@ export enum EURLSection {
     Lesson = '/lesson',
     Lessons = '/lessons',
     LessonWorkProfile = '/lesson-work-profile',
-    Profile = '/profile',
     Work = '/work',
     WorkProfile = '/work-profile',
+    MyProfile = '/my/profile',
+    MySettings = '/my/settings',
 }
 
 export type TRouteConfig = RouteObject & {

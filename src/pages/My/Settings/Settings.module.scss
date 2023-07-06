@@ -1,0 +1,45 @@
+@import 'styles/index';
+
+._ {
+  @include is-grid-4;
+}
+
+.isBig {
+  border-top: set-calc(calc($s-gap / 2)) solid $black-new;
+}
+
+.block {
+  grid-column: span 4;
+  margin-bottom: set-calc(100);
+  padding-top: set-calc($s-gap);
+
+  @include is-grid-4;
+
+  @include set-media(md) {
+    grid-gap: 0;
+    margin-bottom: set-calc(80);
+  }
+}
+
+.blockTitle {
+  grid-column: span 2;
+  padding: 0;
+}
+
+.blockForm {
+  grid-column: 3 / 5;
+  padding-top: set-calc(56);
+
+  @include set-media(md) {
+    padding-top: set-calc(32);
+  }
+}
+
+.logoutBtn {
+  position: relative;
+
+  display: flex;
+  grid-column: 4;
+  justify-content: flex-end;
+  padding-top: 0;
+}

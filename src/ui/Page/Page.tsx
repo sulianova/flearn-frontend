@@ -9,7 +9,7 @@ interface IProps {
     children: React.ReactNode
     header?: boolean
     footer?: boolean
-    wrapper?: 'Course' | 'Catalogue' | 'FreeZone' | 'Profile'
+    wrapper?: 'Course' | 'Catalogue' | 'FreeZone' | 'My'
 }
 
 function Page({ children, header = false, footer = false, wrapper }: IProps) {

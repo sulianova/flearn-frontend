@@ -3,7 +3,7 @@ import { EAppSections, EURLSection, TRouteConfig } from 'types';
 import Catalogue from 'pages/Catalogue';
 import Course from 'pages/Course/Course';
 import FreeZone from 'pages/FreeZone';
-import Profile from 'pages/Profile';
+import My from 'pages/My/My';
 
 const routes: TRouteConfig[] = [
     {
@@ -22,9 +22,14 @@ const routes: TRouteConfig[] = [
         path: EURLSection.FreeZone,
     },
     {
-        section: EAppSections.Profile,
-        element: <Profile/>,
-        path: EURLSection.Profile,
+        section: EAppSections.MyProfile,
+        element: <My mode='Profile'/>,
+        path: EURLSection.MyProfile,
+    },
+    {
+        section: EAppSections.MySettings,
+        element: <My mode='Settings'/>,
+        path: EURLSection.MySettings,
     },
 ];
 

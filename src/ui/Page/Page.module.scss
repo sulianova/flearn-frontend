@@ -33,6 +33,10 @@
 
 }
 
-.Profile-wrapper {
+.My-wrapper {
+    padding: set-calc(40) set-calc($padding-x-desk-page) 0;
 
+    @include set-media(md) {
+      padding: 0 set-calc($padding-x-mob-page);
+    }
 }

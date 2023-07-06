@@ -23,7 +23,7 @@ function Header() {
                 </div>
                 <div className={classes.Nav}>
                     <div className={classes.NavItem}>
-                        <Link to={EURLSection.Profile} className='inline-link'>Moe обучение</Link>
+                        <Link to={EURLSection.MyProfile} className='inline-link'>Moe обучение</Link>
                     </div>
                     <div className={classes.NavItem}>
                         <Link to={EURLSection.FreeZone} className='inline-link'>Бесплатно</Link>
@@ -33,14 +33,14 @@ function Header() {
                     </div>
                 </div>
                 <div className={classes.NavLogin}>
-                    <Link to={EURLSection.Profile} className='inline-link'>Войти</Link>
+                    <Link to={EURLSection.MyProfile} className='inline-link'>Войти</Link>
                 </div>
                 <div className={classes.Humburger} onClick={() => setIsOpened(o => !o)}/>
             </div>
             <div className={classes.Mob}>
                 <div className={classes.MobMenuMain}>
                     <div className={classes.MobItem}>
-                        <Link to={EURLSection.Profile} className='inline-link s-text-24'>
+                        <Link to={EURLSection.MyProfile} className='inline-link s-text-24'>
                             <span className='inline-text'>Мое обучение</span>
                         </Link>
                     </div>
@@ -57,7 +57,7 @@ function Header() {
                 </div>
                 <div className={classes.MobSpacing}/>
                 <div className={classes.MobMenuControls}>
-                    <Link to={EURLSection.Profile} className={classes.LoginBtn + ' s-text-24'}>Войти</Link>
+                    <Link to={EURLSection.MyProfile} className={classes.LoginBtn + ' s-text-24'}>Войти</Link>
                 </div>
             </div>
         </div>
