@@ -9,18 +9,18 @@ interface IProps {
     children: React.ReactNode
     header?: boolean
     footer?: boolean
-    wrapper?: 'Course' | 'Catalogue' | 'FreeZone' | 'My'
+    wrapper?: 'Course' | 'Catalogue' | 'FreeZone' | 'My' | 'Lessons' | 'Lesson'
 }
 
 function Page({ children, header = false, footer = false, wrapper }: IProps) {
     return (
-        <div className={classes.Page}>
+        <div className={classes._}>
             {header && <Header/>}
             <div className={classes.content}>
             {wrapper ?
-                (<div className={classes[`${wrapper}-wrapper`]}>
+                (<section className={classes[`${wrapper}-wrapper`]}>
                     {children}
-                </div>)
+                </section>)
                 : children
             }
             </div>

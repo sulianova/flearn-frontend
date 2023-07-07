@@ -1,0 +1,70 @@
+@import 'styles/index';
+
+._ {
+  margin-top: set-calc(40);
+  padding: set-calc(calc($s-gap / 2)) 0 set-calc(calc($s-gap));
+
+  border-top: set-calc(calc($s-gap / 2)) solid $black-new;
+  border-bottom: set-calc(calc($s-gap / 2)) solid $black-new;
+
+  @include is-grid-4;
+
+  @include set-media(md) {
+    grid-gap: 0;
+    margin-top: 0;
+  }
+}
+
+.title {
+  grid-column: span 2;
+}
+
+.titleCol {
+  grid-column: span 2;
+
+  @include set-media(md) {
+    display: none;
+  }
+}
+
+.lesson {
+  display: flex;
+  flex-direction: row;
+  grid-column: span 2;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  @include set-media(md) {
+    display: block;
+  }
+}
+
+.lessonNumber {
+  @include set-media(md) {
+    display: none;
+  }
+}
+
+.lessonNav {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-top: 0;
+  margin-left: auto;
+
+  .lessonNavLink:not(:first-child) {
+    margin-left: set-calc(24);
+  }
+
+  @include set-media(md) {
+    margin-top: 0;
+    margin-left: 0;
+
+    .lessonNavLink:last-child {
+      margin-right: 0;
+      margin-left: auto;
+    }
+  }
+}
+

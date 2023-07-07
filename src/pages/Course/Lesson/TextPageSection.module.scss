@@ -1,0 +1,37 @@
+@import 'styles/index';
+
+._ {
+  margin: 0 0 set-calc(140);
+  padding: set-calc(8) 0 0;
+
+  border-top: set-calc(calc($s-gap / 2)) solid $black-new;
+
+  @include is-grid-4;
+
+  @include set-media(md) {
+    margin: 0 0 set-calc(80);
+  }
+}
+
+.title {
+  grid-column: 1;
+  padding-bottom: set-calc(8);
+}
+
+.content {
+  grid-column: 3 / 5;
+
+  p:not(:last-child) {
+    padding-bottom: set-calc(16);
+  }
+
+  a {
+    display: block;
+
+    color: $text-grey;
+  }
+
+  a:not(:last-child) {
+    padding-bottom: set-calc(16);
+  }
+}

@@ -1,7 +1,9 @@
 import { EAppSections, EURLSection, TRouteConfig } from 'types';
 
 import Catalogue from 'pages/Catalogue';
-import Course from 'pages/Course/Course';
+import Course from 'pages/Course/Landing/Course';
+import Lessons from 'pages/Course/Lessons/Lessons';
+import Lesson from 'pages/Course/Lesson/Lesson';
 import FreeZone from 'pages/FreeZone';
 import My from 'pages/My/My';
 
@@ -15,6 +17,16 @@ const routes: TRouteConfig[] = [
         section: EAppSections.Course,
         element: <Course/>,
         path: EURLSection.Course,
+    },
+    {
+        section: EAppSections.Lessons,
+        element: <Lessons/>,
+        path: EURLSection.Lessons,
+    },
+    {
+        section: EAppSections.Lesson,
+        element: <Lesson/>,
+        path: EURLSection.Lesson,
     },
     {
         section: EAppSections.FreeZone,

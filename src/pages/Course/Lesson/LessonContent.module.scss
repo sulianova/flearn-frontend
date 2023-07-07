@@ -1,0 +1,67 @@
+@import 'styles/index';
+
+.title {
+  margin: set-calc(8) 0;
+}
+
+.duration {
+  display: flex;
+  align-items: center;
+  margin-top: set-calc(16);
+
+  svg {
+    width: set-calc(20);
+    height: set-calc(20);
+  }
+
+  span {
+    margin-left: set-calc(4);
+  }
+}
+
+.upload {
+  display: grid;
+  grid-column-gap: set-calc($s-gap * 1.5);
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  margin: set-calc(64) 0 set-calc(16);
+
+  @include set-media(md) {
+    display: flex;
+    flex-direction: column;
+    margin: set-calc(40) 0 set-calc(24);
+  }
+}
+
+.uploadDeadline {
+  grid-column: 1 / 3;
+
+  @include set-media(md) {
+    padding-bottom: set-calc(16);
+  }
+}
+
+.uploadBtn {
+  position: relative;
+
+  display: flex;
+  grid-column: 7 / 9;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  max-height: set-calc(48);
+
+  color: $white;
+
+  background: $black-new;
+  border-radius: set-calc(30);
+
+  @include set-media(md) {
+    min-height: set-calc(48);
+  }
+}
+
+.videoSection {
+  margin: set-calc(16) 0 set-calc(80);
+
+  @include is-grid-4;
+}

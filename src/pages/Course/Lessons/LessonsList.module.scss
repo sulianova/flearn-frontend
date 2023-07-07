@@ -1,0 +1,39 @@
+@import 'styles/index';
+
+._ {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+
+  counter-reset: lessonsCounter;
+}
+
+.item {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: set-calc(8) 0;
+
+  border-top: set-calc(calc($s-gap / 2)) solid $black-new;
+
+  counter-increment: lessonsCounter;
+}
+
+.itemResults {
+  color: $orange;
+}
+
+.item::before {
+  position: absolute;
+  top: set-calc(8);
+  left: set-calc(-48);
+
+  min-width: set-calc(24);
+
+  text-align: right;
+
+  content: counter(lessonsCounter);
+}
