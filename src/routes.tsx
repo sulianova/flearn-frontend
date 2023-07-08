@@ -1,47 +1,28 @@
-import { EAppSections, EURLSection, TRouteConfig } from 'types';
+import { URLSections, TRouteConfig } from 'types';
 
 import Catalogue from 'pages/Catalogue';
 import Course from 'pages/Course/Landing/Course';
-import Lessons from 'pages/Course/Lessons/Lessons';
-import Lesson from 'pages/Course/Lesson/Lesson';
+import SubRoutesCourse from 'pages/Course/routes';
 import FreeZone from 'pages/FreeZone';
-import My from 'pages/My/My';
+import SubRoutesMy from 'pages/My/routes';
 
 const routes: TRouteConfig[] = [
     {
-        section: EAppSections.Catalogue,
         element: <Catalogue/>,
-        path: EURLSection.Catalogue,
+        path: URLSections.Catalogue.index,
     },
     {
-        section: EAppSections.Course,
         element: <Course/>,
-        path: EURLSection.Course,
+        path: URLSections.Course.index,
+        children: SubRoutesCourse,
     },
     {
-        section: EAppSections.Lessons,
-        element: <Lessons/>,
-        path: EURLSection.Lessons,
-    },
-    {
-        section: EAppSections.Lesson,
-        element: <Lesson/>,
-        path: EURLSection.Lesson,
-    },
-    {
-        section: EAppSections.FreeZone,
         element: <FreeZone/>,
-        path: EURLSection.FreeZone,
+        path: URLSections.FreeZone.index,
     },
     {
-        section: EAppSections.MyProfile,
-        element: <My mode='Profile'/>,
-        path: EURLSection.MyProfile,
-    },
-    {
-        section: EAppSections.MySettings,
-        element: <My mode='Settings'/>,
-        path: EURLSection.MySettings,
+        path: URLSections.My.index,
+        children: SubRoutesMy,
     },
 ];
 
