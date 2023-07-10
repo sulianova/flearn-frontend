@@ -1,6 +1,6 @@
 import classnames from 'classnames/bind';
 import { useState } from 'react';
-import { URLSections } from 'routes';
+import { URLSections } from 'types';
 import Link from 'ui/Link/Link';
 
 import classes from './header.module.scss';

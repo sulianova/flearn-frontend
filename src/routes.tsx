@@ -6,21 +6,7 @@ import SubRoutesCourse from 'pages/Course/routes';
 import FreeZone from 'pages/FreeZone';
 import SubRoutesMy from 'pages/My/routes';
 
-export const URLSections = {
-    FreeZone: { index: '/' },
-    Catalogue: { index: '/catalogue' },
-    Course: {
-        index: '/course',
-        Lessons: { index: '/course/lessons' },
-        Lesson: { index: '/course/lesson' },
-        Homework: { index: '/course/homework' },
-    },
-    My: {
-        index: '/my',
-        Profile: { index: '/my/profile' },
-        Settings: { index: '/my/settings' },
-    },
-} as const;
+import { URLSections } from 'types';
 
 const routes: TRouteConfig[] = [
     {
