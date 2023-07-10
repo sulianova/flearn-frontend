@@ -4,6 +4,7 @@ import Catalogue from 'pages/Catalogue';
 import Course from 'pages/Course/Landing/Course';
 import Lessons from 'pages/Course/Lessons/Lessons';
 import Lesson from 'pages/Course/Lesson/Lesson';
+import Homework from 'pages/Course/Lesson/Homework';
 import FreeZone from 'pages/FreeZone';
 import My from 'pages/My/My';
 
@@ -27,6 +28,11 @@ const routes: TRouteConfig[] = [
         section: EAppSections.Lesson,
         element: <Lesson/>,
         path: EURLSection.Lesson,
+    },
+    {
+        section: EAppSections.Homework,
+        element: <Homework/>,
+        path: EURLSection.Homework,
     },
     {
         section: EAppSections.FreeZone,
