@@ -39,7 +39,7 @@ function Textarea(props: Readonly<IProps>) {
                 textarea.removeEventListener('input', autoResize);
             };
         }
-    }, [resizable, heightLimit]);
+    },        [resizable, heightLimit]);
 
     const element = (
         <textarea
