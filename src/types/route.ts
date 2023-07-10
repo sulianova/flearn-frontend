@@ -7,6 +7,7 @@ export const URLSections = {
         index: '/course',
         Lessons: { index: '/course/lessons' },
         Lesson: { index: '/course/lesson' },
+        Homework: { index: '/course/homework' },
     },
     My: {
         index: '/my',

@@ -1,0 +1,24 @@
+@import 'styles/index';
+
+.preview {
+  display: block;
+  width: 100%;
+  max-height: set-calc(300);
+  margin-bottom: set-calc(16);
+  object-fit: cover;
+  object-position: center;
+
+  border-radius: set-calc(8);
+
+  @include set-media(md) {
+    height: set-calc(250);
+  }
+}
+
+.name {
+  color: $beige;
+}
+
+.remove {
+  color: $grey-inactive;
+}
