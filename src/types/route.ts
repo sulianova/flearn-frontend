@@ -1,33 +1,31 @@
 import { RouteObject } from 'react-router-dom';
 
-export enum EAppSections {
-    Catalogue = 'catalogue',
-    Course = 'course',
-    FreeZone = 'free-zone',
-    Homework = 'homework',
-    HomeworkMy = 'homework-my',
-    Lesson = 'lesson',
-    Lessons = 'lessons',
-    LessonWorkProfile = 'lesson-work-profile',
-    Work = 'work',
-    WorkProfile = 'work-profile',
-    MyProfile = 'my-profile',
-    MySettings = 'my-settings',
-}
+export const URLSections = {
+    FreeZone: { index: '/' },
+    Catalogue: { index: '/catalogue' },
+    Course: {
+        index: '/course/:courseId',
+        Lessons: { index: '/course/:courseId/lessons' },
+        Lesson: { index: '/course/:courseId/lesson/:lessonId' },
+        Homework: { index: '/course/:courseId/homework/:homeworkId' },
+    },
+    My: {
+        index: '/my',
+        Profile: { index: '/my/profile' },
+        Settings: { index: '/my/settings' },
+    },
+} as const;
 
-export enum EURLSection {
-    Catalogue = '/catalogue',
-    Course = '/course',
-    FreeZone = '/',
-    Homework = '/homework',
-    HomeworkMy = '/homework/my',
-    Lesson = '/lesson',
-    Lessons = '/lessons',
-    MyProfile = '/my/profile',
-    MySettings = '/my/settings',
-}
+type TGetObjectValues<T extends {}, Keys extends keyof T = keyof T> =
+    Keys extends Keys ?
+        T[Keys] extends string ?
+            T[Keys]
+        : T[Keys] extends {} ? TGetObjectValues<T[Keys]> : never
+    : never;
+
+export type TURLs = TGetObjectValues<typeof URLSections>;
 
 export type TRouteConfig = RouteObject & {
-    section: EAppSections
-    path: EURLSection
+    path: TURLs
+    children?: TRouteConfig[]
 };
