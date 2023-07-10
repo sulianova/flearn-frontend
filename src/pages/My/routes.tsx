@@ -1,4 +1,5 @@
-import { URLSections, TRouteConfig } from 'types';
+import { URLSections } from 'routes';
+import {TRouteConfig } from 'types';
 
 import My from './My';
 

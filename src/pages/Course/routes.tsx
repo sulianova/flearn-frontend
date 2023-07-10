@@ -1,8 +1,9 @@
-import { URLSections, TRouteConfig } from 'types';
+import { URLSections } from 'routes';
+import { TRouteConfig } from 'types';
 
-import Lessons from './Lessons/Lessons';
-import Lesson from './Lesson/Lesson';
 import Homework from './Lesson/Homework';
+import Lesson from './Lesson/Lesson';
+import Lessons from './Lessons/Lessons';
 
 const routes: TRouteConfig[] = [
     {
