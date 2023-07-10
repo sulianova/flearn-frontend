@@ -1,7 +1,7 @@
 import Page from 'ui/Page/Page';
 
-import ProgramIntro from './ProgramIntro/ProgramIntro';
 import ProgramBlocks from './ProgramBlocs/ProgramBlocks';
+import ProgramIntro from './ProgramIntro/ProgramIntro';
 
 import type { ICourseData } from 'types';
 
@@ -15,7 +15,7 @@ const courseData: ICourseData = {
     description: 'Поговорим о свободе в рисунке, сделаем упражнения и 3-4 законченные работы. Будем анализировать рисовальный опыт, отмечать, что вызывает сопротивление, скуку, интерес.',
     discontAmount: 30,
     discontDeadline: new Date(),
-}
+};
 
 function Course() {
     return (

@@ -6,9 +6,9 @@ function Textarea() {
   return (
     <div className={classes._}>
       <div className={classes.content}>
-        <label className="s-text-18">Описание</label>
-        <div className={classes.contentInner + " s-text-18"}>
-          <textarea rows={1} placeholder="Комментарий к работе"></textarea>
+        <label className='s-text-18'>Описание</label>
+        <div className={classes.contentInner + ' s-text-18'}>
+          <textarea rows={1} placeholder='Комментарий к работе'/>
         </div>
       </div>
     </div>

@@ -2,9 +2,9 @@ import { EAppSections, EURLSection, TRouteConfig } from 'types';
 
 import Catalogue from 'pages/Catalogue';
 import Course from 'pages/Course/Landing/Course';
-import Lessons from 'pages/Course/Lessons/Lessons';
-import Lesson from 'pages/Course/Lesson/Lesson';
 import Homework from 'pages/Course/Lesson/Homework';
+import Lesson from 'pages/Course/Lesson/Lesson';
+import Lessons from 'pages/Course/Lessons/Lessons';
 import FreeZone from 'pages/FreeZone';
 import My from 'pages/My/My';
 
