@@ -16,8 +16,9 @@ const routes: TRouteConfig[] = [
     {
         element: <Course/>,
         path: URLSections.Course.index,
-        children: SubRoutesCourse,
+        // children: SubRoutesCourse,
     },
+    ...SubRoutesCourse,
     {
         element: <FreeZone/>,
         path: URLSections.FreeZone.index,
