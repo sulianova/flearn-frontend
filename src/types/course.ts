@@ -7,3 +7,7 @@ export interface ICourseData {
   discontAmount: number
   discontDeadline: Date
 }
+
+export interface ILessonData {
+  type: 'Theory' | 'Practice'
+}

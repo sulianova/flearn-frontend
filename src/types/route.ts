@@ -5,9 +5,15 @@ export const URLSections = {
     Catalogue: { index: '/catalogue' },
     Course: {
         index: '/course/:courseId',
-        Lessons: { index: '/course/:courseId/lessons' },
-        Lesson: { index: '/course/:courseId/lesson/:lessonId' },
-        Homework: { index: '/course/:courseId/homework/:homeworkId' },
+        to: ({ courseId }: { courseId: string }) => `/course/${courseId}`,
+        Lessons: {
+            index: '/course/:courseId/lessons',
+            to: ({ courseId }: { courseId: string }) => `/course/${courseId}/lessons`,
+        },
+        Lesson: {
+            index: '/course/:courseId/lesson/:lessonId',
+            to: ({ courseId, lessonId }: { courseId: string, lessonId: string }) => `/course/${courseId}/lesson/${lessonId}`,
+        },
     },
     My: {
         index: '/my',
