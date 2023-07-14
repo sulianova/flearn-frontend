@@ -12,7 +12,7 @@ display: block;
   }
 }
 
-.section {
+.item {
   background: transparent;
   border-radius: set-calc(20);
 
@@ -56,6 +56,12 @@ display: block;
 
 .cardDesc {
   padding-bottom: set-calc(24);
+
+  p {
+    font-size: inherit;
+    line-height: inherit;
+    padding-bottom: set-calc(16);
+  }
 }
 
 .cardMedia {

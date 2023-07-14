@@ -1,6 +1,6 @@
 import { ILessonData, URLSections } from 'types';
-import classes from './LessonHeader.module.scss';
 import Link from 'ui/Link/Link';
+import classes from './LessonHeader.module.scss';
 
 import { useParams } from 'react-router';
 
@@ -15,7 +15,7 @@ function LessonHeader(props: IProps) {
   const nextLesson = Number(lessonId) + 1;
 
   if (!courseId || !lessonId || Number.isNaN(nextLesson)) {
-    return <>Error</>
+    return <>Error</>;
   }
 
   return (
@@ -27,13 +27,13 @@ function LessonHeader(props: IProps) {
       <div className={classes.lesson}>
         <div className={classes.lessonNumber + ' s-text-21'}>{props.lesson.type === 'Practice' ? 'Задание' : 'Урок'} 1</div>
         <div className={classes.lessonNav}>
-          <Link 
+          <Link
             className={classes.lessonNavLink + 'inline-link s-text-21-uppercase'} to={URLSections.Course.Lessons.to({ courseId })}
           >
             <span className='inline-link-text'>Все уроки</span>
             <span className='inline-link-arrow'>&rarr;</span>
           </Link>
-          <Link 
+          <Link
             className={classes.lessonNavLink + ' inline-link s-text-21-uppercase blue'} to={URLSections.Course.Lesson.to({ courseId, lessonId: String(nextLesson) })}
           >
             <span className='inline-link-text'>Следующий урок</span>

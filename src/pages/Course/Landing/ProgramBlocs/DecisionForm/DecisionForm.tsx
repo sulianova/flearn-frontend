@@ -2,14 +2,15 @@ import classNames from 'classnames/bind';
 import classes from './DecisionForm.module.scss';
 import classesInput from './InputField.module.scss';
 
+import type { ICourseData } from 'types';
+
 export default DecisionForm;
 
 const cx = classNames.bind(classes);
 const cx2 = classNames.bind(classesInput);
 
 interface IProps {
-  creditWas: number
-  creditPrice: number
+  data: ICourseData
 }
 
 function DecisionForm(props: IProps) {
@@ -18,10 +19,10 @@ function DecisionForm(props: IProps) {
       <div className={cx({ block: true, blockDetails: true })}>
         <h1 className={classes.title + ' s-text-56'}>Записаться на онлайн курс</h1>
         <div className={classes.credit}>
-          <s className={classes.creditWas + ' s-text-24'}>{props.creditWas} &#8381;</s>
-          <div className={classes.creditPrice + ' s-text-88'}>{props.creditPrice} &#8381;<span className={classes.discount + ' s-text-18'}>-30%</span></div>
+          <s className={classes.creditWas + ' s-text-24'}>{formatCredit(props.data.creditWas)} &#8381;</s>
+          <div className={classes.creditPrice + ' s-text-88'}>{formatCredit(props.data.creditPrice)} &#8381;<span className={classes.discount + ' s-text-18'}>{formatCourseDiscount(props.data.discontAmount)}</span></div>
         </div>
-        <div className={classes.courseName + ' s-text-18'}>Короткий курс для начинающих: “Как рисовать свободно”</div>
+        <div className={classes.courseName + ' s-text-18'}>{`Короткий курс для начинающих: “${props.data.title}”`}</div>
       </div>
       <div className={classes.block}>
         <h1 className={classes.subtitle + ' s-text-24'}>Заполните форму и я свяжусь с вами, чтобы оформить оплату</h1>
@@ -60,4 +61,13 @@ function DecisionForm(props: IProps) {
       </div>
     </div>
   );
+}
+
+function formatCredit(credit: number) {
+  const thousands = String(credit).slice(0, -3);
+  return `${thousands} 000`;
+}
+
+function formatCourseDiscount(discontAmount: number) {
+  return `-${discontAmount}%`;
 }

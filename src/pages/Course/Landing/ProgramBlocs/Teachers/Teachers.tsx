@@ -1,25 +1,40 @@
-import { Author } from 'assets/images';
 import classNames from 'classnames/bind';
+import { Fragment } from 'react';
+import Image from 'ui/Img/Img';
 import classes from './Teachers.module.scss';
+
+import { ICourseData } from 'types';
+import Text from 'ui/Text/Text';
+
+interface IProps {
+  data: ICourseData
+}
 
 export default Teachers;
 
 const cx = classNames.bind(classes);
 
-function Teachers() {
+function Teachers(props: IProps) {
   return (
     <div className={classes.wrapper}>
       <h2 className={classes.title + ' s-text-56'}> Преподаватель</h2>
-      <div className={classes.section}>
-        <div className={classes.card}>
-          <div className={classes.cardTitle + ' s-text-36'}>София Ульянова</div>
-          <div className={classes.cardDesc + ' s-text-24'}>
-            Художник, автор курса. Закончила Британскую Высшую Школу Дизайна по курсу иллюстрация.
-            Участвую в международных конкурсах для иллюстраторов. Рисую для себя и творческих проектов.
-          </div>
-        </div>
-        <div className={cx({ card: true, cardMedia: true })}><img alt='Автор курса' src={Author}/></div>
-      </div>
+      {renderItems(props.data.teachers)}
     </div>
   );
+}
+
+function renderItem(props: ICourseData['teachers'][number]) {
+  return (
+    <div className={classes.item}>
+      <div className={classes.card}>
+        <div className={classes.cardTitle + ' s-text-36'}><Text text={props.title}/></div>
+        <div className={classes.cardDesc + ' s-text-24'}><Text text={props.description}/></div>
+      </div>
+      <div className={cx({ card: true, cardMedia: true })}><Image src={props.imageSrc} alt={props.imageAlt}/></div>
+    </div>
+  );
+}
+
+function renderItems(props: ICourseData['teachers']) {
+  return props.map((d, index) => (<Fragment key={index}>{renderItem(d)}</Fragment>));
 }

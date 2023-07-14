@@ -8,16 +8,22 @@ import classes from './ProgramBlocks.module.scss';
 import Promo from './Promo/Promo';
 import Teachers from './Teachers/Teachers';
 
-export default function ProgramBlocks() {
+import type { ICourseData } from 'types';
+
+interface IProps {
+  data: ICourseData
+}
+
+export default function ProgramBlocks(props: IProps) {
   const blocks = [
-    <Description key='description'/>,
-    <Modules key='modules'/>,
-    <Promo key='promo'/>,
-    <Teachers key='teachers'/>,
-    <Gallery key='gallery'/>,
-    <Explain key='explain'/>,
-    <DecisionForm creditPrice={7000} creditWas={14000} key='decisionForm'/>,
-    <FAQ key='faq'/>,
+    <Description key='description' {...props}/>,
+    <Modules key='modules' modules={props.data.modules} {...props}/>,
+    <Teachers key='teachers' {...props}/>,
+    <Gallery key='gallery' {...props}/>,
+    <Explain key='explain' {...props}/>,
+    <DecisionForm key='decisionForm' {...props}/>,
+    <Promo key='promo' {...props}/>,
+    <FAQ key='faq' {...props}/>,
   ];
 
   return (

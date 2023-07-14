@@ -94,21 +94,22 @@
 
 .listItemMedia {
   position: relative;
-  margin: set-calc(-16);
+  margin: set-calc(-32);
+  overflow: hidden;
 
   display: block;
   height: set-calc(340);
+  border-radius: set-calc(20);
 }
 
-.listItemMedia img[data-v-desktop-2] {
+.listItemMedia img {
   position: relative;
 
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-
-  border-radius: set-calc(20);
+  transform: scale(1.1);
 }
 
 .listItemMediaDesc {

@@ -1,23 +1,62 @@
 import { FromTheWarmLights1, FromTheWarmLights2, SummerTime, TheStrangerVisitingNatureSusl, TheStrangerVisitingNatureTiger  } from 'assets/images';
 import classNames from 'classnames/bind';
+import LocomotiveScroll from 'locomotive-scroll';
+import { Fragment, useEffect, useRef } from 'react';
+import Image from 'ui/Img/Img';
 import classes from './Gallery.module.scss';
+
+import { ICourseData } from 'types';
 
 export default Gallery;
 
 const cx = classNames.bind(classes);
 
-function Gallery() {
+interface IProps {
+  data: ICourseData
+}
+
+function Gallery(props: IProps) {
+  const galleryRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (galleryRef.current) {
+      const scroll = new LocomotiveScroll({
+        el: galleryRef.current,
+        direction: 'horizontal',
+        smooth: true,
+        lerp: 0.05,
+        smartphone: {
+            smooth: true,
+        },
+      });
+    }
+  },        []);
+
   return (
     <div className={classes.wrapper}>
       <h2 className={classes.title + ' s-text-56'}> Рисунки преподавателя</h2>
-      <div className={cx({ container: true, swiperContainer: true })}>
-        <div className={cx({ wrapper: true, swiperWrapper: true })}>
-          <div className={cx({ item: true, swiperSlide: true })}><img src={SummerTime} loading='lazy' decoding='async' alt='SummerTime'/></div>
-          <div className={cx({ item: true, swiperSlide: true })}><img src={TheStrangerVisitingNatureTiger} loading='lazy' decoding='async' alt='TheStrangerVisitingNatureTiger'/></div>
-          <div className={cx({ item: true, swiperSlide: true })}><img src={TheStrangerVisitingNatureSusl} loading='lazy' decoding='async' alt='TheStrangerVisitingNatureSusl'/></div>
-          <div className={cx({ item: true, swiperSlide: true })}><img src={FromTheWarmLights1} loading='lazy' decoding='async' alt='FromTheWarmLights1'/></div>
-          <div className={cx({ item: true, swiperSlide: true })}><img src={FromTheWarmLights2} loading='lazy' decoding='async' alt='FromTheWarmLights2'/></div>
-        </div>
+        {renderScrollGallery(props.data.teacherGallery, galleryRef)}
+    </div>
+  );
+}
+
+function renderScrollSlide(props: ICourseData['teacherGallery'][number]) {
+  return (
+    <div
+      className={cx({ item: true, scrollSlide: true })}
+      data-scroll
+      data-scroll-speed='2'
+    >
+      <Image src={props.imageSrc} alt={props.imageAlt}/>
+    </div>
+  );
+}
+
+function renderScrollGallery(props: ICourseData['teacherGallery'], ref: React.RefObject<HTMLDivElement>) {
+  return (
+    <div className={cx({ container: true, scrollContainer: true })} data-scroll-container ref={ref}>
+      <div className={cx({ wrapper: true, scrollWrapper: true})} data-scroll-section>
+        {props.map((d, index) => (<Fragment key={index}>{renderScrollSlide(d)}</Fragment>))}
       </div>
     </div>
   );

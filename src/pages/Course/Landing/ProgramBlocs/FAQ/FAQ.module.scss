@@ -90,8 +90,20 @@
 
 .itemQuestion {
   margin-bottom: set-calc(24);
+
+  p {
+    font-size: inherit;
+    line-height: inherit;
+    padding-bottom: set-calc(16);
+  }
 }
 
 .itemAnswer {
   margin-top: auto;
+
+  p {
+    font-size: inherit;
+    line-height: inherit;
+    padding-bottom: set-calc(16);
+  }
 }
