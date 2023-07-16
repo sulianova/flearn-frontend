@@ -1,6 +1,7 @@
 import classNames from 'classnames/bind';
 import classes from './DecisionForm.module.scss';
 import classesInput from './InputField.module.scss';
+import { formatI18nT, i18n } from 'shared';
 
 import type { ICourseData } from 'types';
 
@@ -13,19 +14,21 @@ interface IProps {
   data: ICourseData
 }
 
+const t = formatI18nT('course.landing.form');
+
 function DecisionForm(props: IProps) {
   return (
     <div className={classes.wrapper} id='decision-form'>
       <div className={cx({ block: true, blockDetails: true })}>
-        <h1 className={classes.title + ' s-text-56'}>Записаться на онлайн курс</h1>
+        <h1 className={classes.title + ' s-text-56'}>{t('title')}</h1>
         <div className={classes.credit}>
           <s className={classes.creditWas + ' s-text-24'}>{formatCredit(props.data.creditWas)} &#8381;</s>
           <div className={classes.creditPrice + ' s-text-88'}>{formatCredit(props.data.creditPrice)} &#8381;<span className={classes.discount + ' s-text-18'}>{formatCourseDiscount(props.data.discontAmount)}</span></div>
         </div>
-        <div className={classes.courseName + ' s-text-18'}>{`Короткий курс для начинающих: “${props.data.title}”`}</div>
+        <div className={classes.courseName + ' s-text-18'}>{t('courseName', { courseName: props.data.title })}</div>
       </div>
       <div className={classes.block}>
-        <h1 className={classes.subtitle + ' s-text-24'}>Заполните форму и я свяжусь с вами, чтобы оформить оплату</h1>
+        <h1 className={classes.subtitle + ' s-text-24'}>{t('subtitle')}</h1>
         <form className={classes.form} data-hs-cf-bound='true'>
           <div className={classes.inputWrap}>
             <input className={cx2({ input: true, dark: true }) + ' s-text-24'} id='name2' name='name2' placeholder='Имя' required type='text'/>
@@ -50,12 +53,13 @@ function DecisionForm(props: IProps) {
                     <rect y='0.5' width='17' height='17' fill='white'/>
                   </clipPath>
                 </defs>
-              </svg><span className={classes.agreementText + ' s-text-18'}>
-                Я соглашаюсь&nbsp;
-                <a href=''>c правилами использования</a></span>
+              </svg>
+                <span className={classes.agreementText + ' s-text-18'}>
+                  {t('agreement1')}&nbsp;<a href=''>{t('agreement2')}</a>
+                </span>
             </label>
           </div>
-          <button className={classes.submitButton + ' s-text-24'} type='button'><span>Записаться</span></button>
+          <button className={classes.submitButton + ' s-text-24'} type='button'><span>{i18n.t('sign up')}</span></button>
         </form>
 
       </div>
