@@ -8,8 +8,8 @@ import classesInputField from './InputField.module.scss';
 import CheckboxSvg from 'assets/images/Svg/Checkbox';
 import Checkbox from 'ui/Form/Checkbox/Checkbox';
 
-import type { ICourseData } from 'types';
 import { Fragment } from 'react';
+import type { ICourseData } from 'types';
 
 export default DecisionForm;
 
@@ -53,11 +53,11 @@ function formatCourseDiscount(discontAmount: number) {
   return `-${discontAmount}%`;
 }
 
-function renderInputs(inputsType: IInputFieldProps['variant'][]) {
+function renderInputs(inputsType: Array<IInputFieldProps['variant']>) {
   return (
     <Fragment>
       {inputsType.map((type, index) => (
-      <div 
+      <div
         className={classes.inputWrap}
         key={index}
       >
@@ -71,7 +71,7 @@ function renderInputs(inputsType: IInputFieldProps['variant'][]) {
 function renderForm () {
   return (
     <form className={classes.form}>
-      {renderInputs(['Name', 'Phone', 'Email'] as IInputFieldProps['variant'][])}
+      {renderInputs(['Name', 'Phone', 'Email'] as Array<IInputFieldProps['variant']>)}
       <div className={classes.agreement}>
         <Checkbox
           id='agreement-consult'

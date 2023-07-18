@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
-import classes from './Promo.module.scss';
 import { formatI18nT } from 'shared';
+import classes from './Promo.module.scss';
 
 export default Promo;
 

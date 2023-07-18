@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
-import classes from './FAQ.module.scss';
 import { formatI18nT } from 'shared';
+import classes from './FAQ.module.scss';
 
 import type { ICourseData } from 'types';
 import Text from 'ui/Text/Text';

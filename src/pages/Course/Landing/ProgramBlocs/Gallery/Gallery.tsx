@@ -2,9 +2,9 @@ import { FromTheWarmLights1, FromTheWarmLights2, SummerTime, TheStrangerVisiting
 import classNames from 'classnames/bind';
 import LocomotiveScroll from 'locomotive-scroll';
 import { Fragment, useEffect, useRef } from 'react';
+import { formatI18nT } from 'shared';
 import Image from 'ui/Img/Img';
 import classes from './Gallery.module.scss';
-import { formatI18nT } from 'shared';
 
 import { ICourseData } from 'types';
 
@@ -32,7 +32,7 @@ function Gallery(props: IProps) {
         },
       });
     }
-  }, []);
+  },        []);
 
   return (
     <div className={classes.wrapper}>

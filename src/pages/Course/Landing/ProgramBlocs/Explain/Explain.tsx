@@ -1,5 +1,5 @@
-import classes from './Explain.module.scss';
 import { formatI18nT, i18n } from 'shared';
+import classes from './Explain.module.scss';
 
 export default Explain;
 

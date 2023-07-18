@@ -1,8 +1,8 @@
 import classNames from 'classnames/bind';
 import { Fragment } from 'react';
+import { formatI18nT } from 'shared';
 import Image from 'ui/Img/Img';
 import classes from './Teachers.module.scss';
-import { formatI18nT } from 'shared';
 
 import { ICourseData } from 'types';
 import Text from 'ui/Text/Text';
