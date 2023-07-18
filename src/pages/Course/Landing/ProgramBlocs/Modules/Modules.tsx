@@ -1,11 +1,14 @@
 import { Fragment } from 'react';
 import Image from 'ui/Img/Img';
 import classes from './Modules.module.scss';
+import { formatI18nT } from 'shared';
 
 import { ICourseData } from 'types';
 import Text from 'ui/Text/Text';
 
 export default Modules;
+
+const t = formatI18nT('courseLanding.modules');
 
 interface IProps {
   modules: ICourseData['modules']
@@ -16,12 +19,12 @@ function Modules(props: IProps) {
   return (
     <div className={classes.wrapper}>
       <div className={classes.header}>
-        <h2 className={classes.title + ' s-text-56'}>Программа</h2>
+        <h2 className={classes.title + ' s-text-56'}>{t('title')}</h2>
         <div className={classes.desc + ' s-text-24'}>{<Text text={props.data.modulesDescription}/>}</div>
         <div className={classes.tags}>
-          <div className={classes.tag + ' s-text-18'}>{props.data.videosNumber} видео-урока</div>
-          <div className={classes.tag + ' s-text-18'}>{props.data.homeworksNumber} заданий</div>
-          <div className={classes.tag + ' s-text-18'}>{props.data.durationWeeks} учебных недель</div>
+          <div className={classes.tag + ' s-text-18'}>{props.data.videosNumber} {t('videosNumber')}</div>
+          <div className={classes.tag + ' s-text-18'}>{props.data.homeworksNumber} {t('homeworksNumber')}</div>
+          <div className={classes.tag + ' s-text-18'}>{props.data.durationWeeks} {t('durationWeeks')}</div>
         </div>
       </div>
       <div className={classes.list}>

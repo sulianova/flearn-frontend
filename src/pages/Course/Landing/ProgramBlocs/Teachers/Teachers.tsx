@@ -2,6 +2,7 @@ import classNames from 'classnames/bind';
 import { Fragment } from 'react';
 import Image from 'ui/Img/Img';
 import classes from './Teachers.module.scss';
+import { formatI18nT } from 'shared';
 
 import { ICourseData } from 'types';
 import Text from 'ui/Text/Text';
@@ -13,11 +14,12 @@ interface IProps {
 export default Teachers;
 
 const cx = classNames.bind(classes);
+const t = formatI18nT('courseLanding.teachers');
 
 function Teachers(props: IProps) {
   return (
     <div className={classes.wrapper}>
-      <h2 className={classes.title + ' s-text-56'}> Преподаватель</h2>
+      <h2 className={classes.title + ' s-text-56'}>{t('title')}</h2>
       {renderItems(props.data.teachers)}
     </div>
   );

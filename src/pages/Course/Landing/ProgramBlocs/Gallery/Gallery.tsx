@@ -4,12 +4,14 @@ import LocomotiveScroll from 'locomotive-scroll';
 import { Fragment, useEffect, useRef } from 'react';
 import Image from 'ui/Img/Img';
 import classes from './Gallery.module.scss';
+import { formatI18nT } from 'shared';
 
 import { ICourseData } from 'types';
 
 export default Gallery;
 
 const cx = classNames.bind(classes);
+const t = formatI18nT('courseLanding.teacherGallery');
 
 interface IProps {
   data: ICourseData
@@ -30,11 +32,11 @@ function Gallery(props: IProps) {
         },
       });
     }
-  },        []);
+  }, []);
 
   return (
     <div className={classes.wrapper}>
-      <h2 className={classes.title + ' s-text-56'}> Рисунки преподавателя</h2>
+      <h2 className={classes.title + ' s-text-56'}>{t('title')}</h2>
         {renderScrollGallery(props.data.teacherGallery, galleryRef)}
     </div>
   );
