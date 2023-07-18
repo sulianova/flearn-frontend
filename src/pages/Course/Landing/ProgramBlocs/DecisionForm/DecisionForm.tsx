@@ -1,7 +1,8 @@
 import classNames from 'classnames/bind';
+import { formatI18nT, i18n } from 'shared';
+
 import classes from './DecisionForm.module.scss';
 import classesInput from './InputField.module.scss';
-import { formatI18nT, i18n } from 'shared';
 
 import type { ICourseData } from 'types';
 

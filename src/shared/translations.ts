@@ -1,4 +1,5 @@
 import { I18n, TranslateOptions } from 'i18n-js';
+
 import ru from 'assets/translations/ru.json';
 
 const i18n = new I18n({ ru });
