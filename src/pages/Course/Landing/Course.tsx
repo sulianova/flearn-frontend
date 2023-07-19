@@ -2,8 +2,8 @@ import { useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import store from 'store';
+import { fetchCourse } from 'store/actions/sagas';
 
-import * as images from 'assets/images';
 import Page from 'ui/Page/Page';
 
 import ProgramBlocks from './ProgramBlocs/ProgramBlocks';
@@ -26,7 +26,7 @@ function mapStateToProps(state: IRootState): IConnectedProps {
 function Course({ data }: IConnectedProps) {
 
   useEffect(() => {
-    store.dispatch({ type: 'FETCH_COURSE' });
+    store.dispatch(fetchCourse({}));
   }, []);
 
   if (!data || Object.keys(data).length === 0) {

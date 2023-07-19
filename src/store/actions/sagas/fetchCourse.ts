@@ -1,17 +1,21 @@
 import { call, put } from 'redux-saga/effects';
 import { updateState } from '../redux';
+import { createAction } from 'store/utils';
 
 import type { ICourseData } from 'types';
 
 const delay = (ms: number) => new Promise<void>(res => setTimeout(res, ms));
 
-export function* fetchCourse() {
-  yield call(delay, 1000);
+export const fetchCourse = createAction<'saga'>(
+  '***saga*** fetch Course',
+  function* execute() {
+    yield call(delay, 1000);
 
-  const data: ICourseData = yield call(getData);
+    const data: ICourseData = yield call(getData);
 
-  yield put(updateState({ stateName: 'course', payload: data}));
-}
+    yield put(updateState({ stateName: 'course', payload: data}));
+  }
+);
 
 function getData() {
   return courseData;
