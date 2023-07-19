@@ -1,4 +1,5 @@
 import { call, put } from 'redux-saga/effects';
+import { updateState } from '../redux';
 
 import type { ICourseData } from 'types';
 
@@ -9,7 +10,7 @@ export function* fetchCourse() {
 
   const data: ICourseData = yield call(getData);
 
-  yield put({ type: 'UPDATE_STATE', payload: data });
+  yield put(updateState({ stateName: 'course', payload: data}));
 }
 
 function getData() {

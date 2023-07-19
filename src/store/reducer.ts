@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import { courseReducer } from './reducers';
+import { createReducer } from './utils';
 
 import { IObject, TStateName } from 'types';
 
 export default combineReducers({
-    course: courseReducer
+    course: createReducer('course')
 } as { [key in TStateName]: () => IObject });
