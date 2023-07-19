@@ -1,7 +1,6 @@
-import { useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import store from 'store';
+import { useFetch } from 'hooks';
 import { fetchCourse } from 'store/actions/sagas';
 
 import Page from 'ui/Page/Page';
@@ -25,22 +24,20 @@ function mapStateToProps(state: IRootState): IConnectedProps {
 
 function Course({ data }: IConnectedProps) {
 
-  useEffect(() => {
-    store.dispatch(fetchCourse({}));
-  }, []);
+  useFetch(({ actionCreator: fetchCourse }));
 
   if (!data || Object.keys(data).length === 0) {
-      return (
-        <Page header footer wrapper='Course'>
-            <p>loading course</p>
-        </Page>
+    return (
+      <Page header footer wrapper='Course'>
+        <p>loading course</p>
+      </Page>
     );
   }
 
   return (
-      <Page header footer wrapper='Course'>
-          <ProgramIntro data={data}/>
-          <ProgramBlocks data={data} />
-      </Page>
+    <Page header footer wrapper='Course'>
+      <ProgramIntro data={data}/>
+      <ProgramBlocks data={data} />
+    </Page>
   );
 }

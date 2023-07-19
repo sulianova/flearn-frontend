@@ -1,4 +1,4 @@
-import { IState, TStateName } from 'types';
+import { IObject, IState, TStateName } from 'types';
 
 interface IActionParams {
   stateName?: TStateName
@@ -22,3 +22,14 @@ export type TSagaExecuter<P> = (action: TAction<P>) => Generator<any, any, any>;
 export interface IHandlers {
   [key: string]: TReduxExecuter<any>
 }
+
+export type IPayload =
+  | undefined
+  | null
+  | boolean
+  | string
+  | string[]
+  | number
+  | number[]
+  | IObject
+  | IObject[];
