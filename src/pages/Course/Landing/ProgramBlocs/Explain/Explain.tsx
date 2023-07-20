@@ -1,11 +1,17 @@
 import { formatI18nT, i18n } from 'shared';
+import { ICourseData } from 'types';
+import Iframe from 'ui/Video/Iframe';
 import classes from './Explain.module.scss';
 
 export default Explain;
 
+interface IProps {
+  data: ICourseData
+}
+
 const t = formatI18nT('courseLanding.explain');
 
-function Explain() {
+function Explain(props: IProps) {
   return (
     <div className={classes.wrapper}>
       <div className={classes.header}>
@@ -15,7 +21,7 @@ function Explain() {
       <div className={classes.cards}>
         <div className={classes.videoCard}>
           <div className={classes.videoCardContainer}>
-            <iframe src='https://www.youtube.com/embed/ag6PuGjJdbU?autoplay=1&amp;mute=1&amp;loop=1' title='YouTube video player'/>
+            <Iframe src={props.data.explainVideo.src} title={props.data.explainVideo.title}/>
           </div>
           <div className={classes.videoCardDesc + ' s-text-18'}>{t('videoCardDesc')}</div>
         </div>

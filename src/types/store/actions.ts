@@ -8,8 +8,7 @@ export type TActionParams<P> = P extends undefined ? IActionParams : IActionPara
 
 export type TAction<P = undefined> = TActionParams<P> & { type: string };
 
-export type IActionCreator<T extends 'redux' | 'saga', P = any> =
-  {
+export type IActionCreator<T extends 'redux' | 'saga', P = any> = {
     type: string
     execute: T extends 'redux' ? TReduxExecuter<P> : TSagaExecuter<P>
     (params: TActionParams<P>): TAction<P>

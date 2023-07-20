@@ -1,6 +1,6 @@
 import { call, put } from 'redux-saga/effects';
-import { updateState } from '../redux';
 import { createAction } from 'store/utils';
+import { updateState } from '../redux';
 
 import type { ICourseData } from 'types';
 
@@ -77,6 +77,14 @@ const courseData: ICourseData = {
       imageAlt: 'TheStrangerVisitingNatureSusl',
     },
   ],
+  explainVideo: {
+    title: 'YouTube video player',
+    src: 'https://www.youtube.com/embed/ag6PuGjJdbU?autoplay=1&amp;mute=1&amp;loop=1',
+  },
+  promoVideo: {
+    title: 'YouTube video player',
+    src: 'https://www.youtube.com/embed/ag6PuGjJdbU?autoplay=1&amp;mute=1&amp;loop=1',
+  },
   teachers: [
     {
       title: 'София Ульянова',

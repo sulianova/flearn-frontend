@@ -3,13 +3,13 @@ import createSagaMiddleware from 'redux-saga';
 
 import rootReducer from './reducer';
 import rootSaga from './saga';
-  
+
 const sagaMiddleware = createSagaMiddleware();
 
 const store = configureStore({
   reducer: rootReducer,
   preloadedState: { course: {} },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(sagaMiddleware),
+  middleware:getDefaultMiddleware => getDefaultMiddleware().concat(sagaMiddleware),
 });
 
 sagaMiddleware.run(rootSaga);

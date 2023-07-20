@@ -2,8 +2,8 @@ import { updateState } from './actions/redux';
 
 import type {
   IActionCreator,
-  IState,
   IHandlers,
+  IState,
   TAction,
   TActionParams,
   TReduxExecuter,
@@ -12,7 +12,7 @@ import type {
 
 export function createAction<T extends 'redux' | 'saga', P = undefined>(
   type: string,
-  execute: T extends 'redux' ? TReduxExecuter<P> : TSagaExecuter<P>,
+  execute: T extends 'redux' ? TReduxExecuter<P> : TSagaExecuter<P>
 ) {
   function action(params: TActionParams<P>): TAction<P>;
   function action(): TAction<undefined>;

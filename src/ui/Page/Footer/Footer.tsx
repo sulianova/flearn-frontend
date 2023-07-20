@@ -1,44 +1,47 @@
+import { URLSections } from 'types';
 import Link from 'ui/Link/Link';
 
+import { formatI18nT, i18n } from 'shared';
 import classes from './Footer.module.scss';
+const t = formatI18nT('footer');
 
 export default Footer;
 
 function Footer() {
-    return (
-        <div className={classes.Footer}>
-        <div className={classes.Inner}>
-          <div className={classes.Left}>
-            <div className={classes.Row}>
-              <div className={classes.Logo}>flearn</div>
-            </div>
+  return (
+      <div className={classes._}>
+      <div className={classes.inner}>
+        <div className={classes.left}>
+          <div className={classes.row}>
+            <div className={classes.logo}>{i18n.t('logo')}</div>
           </div>
-          <div className={classes.References}>
-            <div className={classes.Row}>
-                <Link className={classes.RowItem}>Курсы</Link>
-                <Link className={classes.RowItem}>Рекомендуемые книги</Link>
-                <Link className={classes.RowItem}>Статьи</Link>
-                <Link className={classes.RowItem}>Отзывы студентов</Link>
-            </div>
-          </div>
-          <div className={classes.Social}>
-            <div className={classes.Row}>
-                <Link to={'https://t.me/sofiulyanova'} className={classes.RowItem} target='_blank'>Telegram</Link>
-                <Link to={'https://www.youtube.com/@sofiulyanova/featured'} className={classes.RowItem} target='_blank'>YouTube</Link>
-                <Link to={'https://dzen.ru/id/63e1220500d5cb197f2baf8b'} className={classes.RowItem} target='_blank'>Dzen</Link>
-                <Link to={'https://vk.com/club186282121'} className={classes.RowItem} target='_blank'>Vkontakte</Link>
-            </div>
-          </div>
-          <div className={classes.Right}>
-            <div className={classes.Row}>
-                <Link className={classes.RowItem}>Политика конфидициальности</Link>
-                <Link className={classes.RowItem}>Условия использования</Link>
-            </div>
-          </div>
-          <div className={classes.Author}>
-            <Link className={classes.AuthorTitle}>Made by Sofiia Ulianova</Link>
-            </div>
         </div>
+        <div className={classes.references}>
+          <div className={classes.row}>
+            <Link to={URLSections.Catalogue.index} className={classes.rowItem} target='_blank'>{t('referencesCatalogue')}</Link>
+            <Link to={URLSections.FreeZone.index} className={classes.rowItem} target='_blank'>{t('referencesBooks')}</Link>
+            <Link to={URLSections.FreeZone.index} className={classes.rowItem} target='_blank'>{t('referencesFreeZone')}</Link>
+            <Link to={URLSections.FreeZone.index} className={classes.rowItem} target='_blank'>{t('referencesReviews')}</Link>
+          </div>
+        </div>
+        <div className={classes.social}>
+          <div className={classes.row}>
+            <Link to={t('socialYouTube.link')} className={classes.rowItem} target='_blank'>{t('socialYoutube.title')}</Link>
+            <Link to={t('socialTelegram.link')} className={classes.rowItem} target='_blank'>{t('socialTelegram.title')}</Link>
+            <Link to={t('socialVk.link')} className={classes.rowItem} target='_blank'>{t('socialVk.title')}</Link>
+            <Link to={t('socialDzen.link')} className={classes.rowItem} target='_blank'>{t('socialDzen.title')}</Link>
+        </div>
+        </div>
+        <div className={classes.documents}>
+          <div className={classes.row}>
+            <Link className={classes.rowItem} target='_blank'>{t('documentsPrivacyPolicy.title')}</Link>
+            <Link className={classes.rowItem} target='_blank'>{t('documentsTermsOfUse.title')}</Link>
+        </div>
+        </div>
+        <div className={classes.author}>
+          <Link to={t('author.link')} className={classes.authorTitle} target='_blank'>{t('author.title')}</Link>
+          </div>
       </div>
-    );
+    </div>
+  );
 }

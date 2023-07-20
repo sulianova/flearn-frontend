@@ -22,5 +22,5 @@ export function useFetch<T extends IPayload>(params: IFetchParams<T>) {
         payload: newPayload,
       })
     );
-  }, [actionCreator, newPayload]);
+  },        [actionCreator, newPayload]);
 }

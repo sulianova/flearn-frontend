@@ -1,4 +1,4 @@
-import { IObject, IPayload } from 'types'
+import { IObject, IPayload } from 'types';
 
 export function isSamePayload(payload1: IPayload, payload2: IPayload): boolean {
   if (payload1 === payload2) {
@@ -28,7 +28,7 @@ export function isSamePayload(payload1: IPayload, payload2: IPayload): boolean {
     return true;
 }
 
-if (payloadType === 'object' && payload1 !== null && payload2 !== null) {
+  if (payloadType === 'object' && payload1 !== null && payload2 !== null) {
     if (Object.prototype.toString.call(payload1) === '[object Date]') {
       const date1 = payload1 as Date;
       const date2 = payload2 as Date;

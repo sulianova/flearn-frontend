@@ -10,10 +10,10 @@
 }
   
 .content {
-    margin-top: set-calc(16);
+    margin-top: set-calc(60);
   
     @include set-media(md) {
-        margin-top: set-calc(64);
+        margin-top: set-calc(16);
     }
 }
 

@@ -9,6 +9,50 @@
   "inputEmail": {
     "placeholder": "Email"
   },
+  "logo": "flearn",
+  "header": {
+    "my": "Moe обучение",
+    "freeZone": "Бесплатно",
+    "catalogue": "Программы обучения",
+    "login": {
+      "signIn": "Войти",
+      "profile": "Профиль"
+    }
+  },
+  "footer": {
+      "referencesCatalogue": "Курсы",
+      "referencesBooks": "Рекомендуемые книги",
+      "referencesFreeZone": "Бесплатные материалы",
+      "referencesReviews": "Отзывы студентов",
+      "socialTelegram": {
+        "title": "Telegram",
+        "link": "https://t.me/sofiulyanova"
+      },
+      "socialYoutube": {
+        "title": "YouTube",
+        "link": "https://www.youtube.com/@sofiulyanova/featured"
+      },
+      "socialDzen": {
+        "title": "Dzen",
+        "link": "https://dzen.ru/sofiulyanova"
+      },
+      "socialVk": {
+        "title": "Vk",
+        "link": "https://vk.com/sofiulianova"
+      },
+      "documentsPrivacyPolicy": {
+        "title": "Политика конфидициальности",
+        "link": ""
+      },
+      "documentsTermsOfUse": {
+        "title": "Условия использования",
+        "link": ""
+      },
+      "author": {
+        "title": "Made by Sofiia Ulianova",
+        "link": "https://sofiulyanova.com"
+      }
+  },
   "courseLanding": {
       "form": {
           "title": "Записаться на онлайн курс",
