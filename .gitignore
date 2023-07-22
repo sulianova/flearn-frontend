@@ -28,3 +28,6 @@ yarn-error.log*
 # in EDIT mode you can fetch data from local files
 # ignore those files
 /src/edit-files
+
+# firebase
+.firebase
