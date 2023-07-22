@@ -1,9 +1,10 @@
 import { all, takeEvery } from 'redux-saga/effects';
 
-import { fetchCourse } from './actions/sagas';
+import * as Actions from './actions/sagas';
 
 export default function* rootSaga() {
   yield all([
-    takeEvery(fetchCourse.type, fetchCourse.execute),
+    takeEvery(Actions.fetchCourse.type, Actions.fetchCourse.execute),
+    takeEvery(Actions.saveCourse.type, Actions.saveCourse.execute),
   ]);
 }

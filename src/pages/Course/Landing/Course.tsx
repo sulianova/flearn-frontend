@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import { useParams } from 'react-router';
 
 import { useFetch } from 'hooks';
-import { fetchCourse, type IFetchCoursePayload } from 'store/actions/sagas';
+import Store from 'store';
+import { fetchCourse, saveCourse, type IFetchCoursePayload } from 'store/actions/sagas';
 
 import Page from 'ui/Page/Page';
 
@@ -15,15 +16,17 @@ export default connect(mapStateToProps)(Course);
 
 interface IConnectedProps {
   data?: ICourseData
+  courseIsStoredLocally?: boolean
 }
 
 function mapStateToProps(state: IRootState): IConnectedProps {
   return {
-    data: state.course,
+    data: state.course?.data,
+    courseIsStoredLocally: state.course?.courseIsStoredLocally,
   };
 }
 
-function Course({ data }: IConnectedProps) {
+function Course({ data, courseIsStoredLocally }: IConnectedProps) {
   const { courseId } = useParams();
 
   useFetch<IFetchCoursePayload>(({
@@ -31,7 +34,7 @@ function Course({ data }: IConnectedProps) {
     payload: { courseId: courseId! },
   }));
 
-  if (!data || Object.keys(data).length === 0) {
+  if (!data) {
     return (
       <Page header footer wrapper='Course'>
         <p>loading course</p>
@@ -43,6 +46,9 @@ function Course({ data }: IConnectedProps) {
     <Page header footer wrapper='Course'>
       <ProgramIntro data={data}/>
       <ProgramBlocks data={data} />
+      {courseIsStoredLocally && 
+      (<button onClick={() => Store.dispatch(saveCourse({ payload: { courseId: courseId! } }))}>Save course</button>)
+      }
     </Page>
   );
 }

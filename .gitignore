@@ -24,3 +24,7 @@ yarn-error.log*
 
 # to not violate copy rights
 /src/assets/fonts
+
+# in EDIT mode you can fetch data from local files
+# ignore those files
+/src/edit-files

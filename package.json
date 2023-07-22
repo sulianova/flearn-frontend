@@ -44,6 +44,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start:edit": "env REACT_APP_DATA_MODE=EDIT react-scripts start",
     "build": "react-scripts build",
     "deploy": "npm run build && firebase deploy",
     "test": "react-scripts test",

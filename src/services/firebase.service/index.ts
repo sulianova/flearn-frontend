@@ -1,11 +1,12 @@
 import { initializeApp } from 'firebase/app';
 import { doc as getDocRef, getDoc, getFirestore, setDoc} from 'firebase/firestore';
+import { courseConverter } from './courseConverter';
 import firebaseConfig from './firebase.config.json';
 
 import { ECollections } from 'types';
 
 import type { FirebaseApp, FirebaseOptions } from 'firebase/app';
-import type { Firestore } from 'firebase/firestore';
+import type { DocumentData, Firestore, FirestoreDataConverter } from 'firebase/firestore';
 import type { ICourseData, IObject } from 'types';
 
 class FirebaseService {
@@ -15,16 +16,16 @@ class FirebaseService {
   }
 
   public async getCourse(id: string) {
-    return await this._getDoc(ECollections.Course, id);
+    return await this._getDoc(ECollections.Course, id, courseConverter);
   }
 
   public async setCourse(id: string, data: ICourseData) {
-    return await this._setDoc(ECollections.Course, id, data);
+    return await this._setDoc(ECollections.Course, id, data, courseConverter);
   }
 
-  private async _getDoc(collectionName: ECollections, id: string) {
+  private async _getDoc(collectionName: ECollections, id: string, converter: FirestoreDataConverter<DocumentData, DocumentData> | null = null) {
     try {
-      const docRef = getDocRef(this._db, collectionName, id);
+      const docRef = converter ? getDocRef(this._db, collectionName, id).withConverter(converter) : getDocRef(this._db, collectionName, id);
       const doc = await getDoc(docRef);
       if (doc.exists()) {
         return doc.data();
@@ -36,12 +37,12 @@ class FirebaseService {
     }
   }
 
-  private async _setDoc(collectionName: ECollections, id: string, data: IObject) {
+  private async _setDoc(collectionName: ECollections, id: string, data: IObject, converter: FirestoreDataConverter<DocumentData, DocumentData> | null = null) {
     try {
-      const docRef = getDocRef(this._db, collectionName, id);
+      const docRef = converter ? getDocRef(this._db, collectionName, id).withConverter(converter) : getDocRef(this._db, collectionName, id);
       await setDoc(docRef, data);
-      const doc = await getDoc(docRef);
-      return doc;
+      const savedDoc = await this._getDoc(collectionName, id, converter);
+      return savedDoc;
     } catch(e) {
       console.error(e);
     }
