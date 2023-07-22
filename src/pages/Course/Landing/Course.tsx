@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
+import { useParams } from 'react-router';
 
 import { useFetch } from 'hooks';
-import { fetchCourse } from 'store/actions/sagas';
+import { fetchCourse, type IFetchCoursePayload } from 'store/actions/sagas';
 
 import Page from 'ui/Page/Page';
 
@@ -18,13 +19,17 @@ interface IConnectedProps {
 
 function mapStateToProps(state: IRootState): IConnectedProps {
   return {
-      data: state.course,
+    data: state.course,
   };
 }
 
 function Course({ data }: IConnectedProps) {
+  const { courseId } = useParams();
 
-  useFetch(({ actionCreator: fetchCourse }));
+  useFetch<IFetchCoursePayload>(({
+    actionCreator: fetchCourse,
+    payload: { courseId: courseId! },
+  }));
 
   if (!data || Object.keys(data).length === 0) {
     return (

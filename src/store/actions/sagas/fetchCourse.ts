@@ -1,19 +1,32 @@
 import { call, put } from 'redux-saga/effects';
-import { updateState } from '../redux';
+import { firebaseService } from 'services';
 import { createAction } from 'store/utils';
+import { updateState } from '../redux';
 
-import type { ICourseData } from 'types';
+import type { ICourseData, TAction } from 'types';
 
-const delay = (ms: number) => new Promise<void>(res => setTimeout(res, ms));
+const delay = async (ms: number) => new Promise<void>(res => setTimeout(res, ms));
 
-export const fetchCourse = createAction<'saga'>(
+export interface IFetchCoursePayload {
+  courseId: string
+}
+
+export const fetchCourse = createAction<'saga', IFetchCoursePayload>(
   '***saga*** fetch Course',
-  function* execute() {
-    yield call(delay, 1000);
+  function* execute(action: TAction<IFetchCoursePayload>) {
+    try {
+      const { courseId } = action.payload;
+      yield call(delay, 1000);
 
-    const data: ICourseData = yield call(getData);
+      const data: ICourseData = yield call(getData);
+      const remoteData = yield firebaseService.getCourse(courseId);
 
-    yield put(updateState({ stateName: 'course', payload: data}));
+      console.log('remoteData: ', remoteData);
+
+      yield put(updateState({ stateName: 'course', payload: data}));
+    } catch(e) {
+      console.log(`Faild to fetch course: ${action.payload.courseId}`);
+    }
   }
 );
 

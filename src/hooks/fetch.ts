@@ -16,11 +16,13 @@ export function useFetch<T extends IPayload>(params: IFetchParams<T>) {
   const [newPayload] = useMemoize(payload);
 
   // refetch data when payload changed
-  useEffect(() => {
+  useEffect(
+  () => {
     Store.dispatch(
       actionCreator({
         payload: newPayload,
       })
     );
-  }, [actionCreator, newPayload]);
+  },
+  [actionCreator, newPayload]);
 }
