@@ -18,11 +18,11 @@ export default function ProgramBlocks(props: IProps) {
   const blocks = [
     <Description key='description' {...props}/>,
     <Modules key='modules' modules={props.data.modules} {...props}/>,
-    <Teachers key='teachers' {...props}/>,
-    <Gallery key='gallery' {...props}/>,
-    <Explain key='explain' {...props}/>,
-    <DecisionForm key='decisionForm' {...props}/>,
+    // <Teachers key='teachers' {...props}/>,
     <Promo key='promo' {...props}/>,
+    <Explain key='explain' {...props}/>,
+    <Gallery key='gallery' {...props}/>,
+    <DecisionForm key='decisionForm' {...props}/>,
     <FAQ key='faq' {...props}/>,
   ];
 

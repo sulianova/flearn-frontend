@@ -4,7 +4,7 @@
   display: grid;
   grid-gap: set-calc($s-gap);
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  color: $white;
+  // color: $white;
 
   @include set-media(md) {
     position: relative;
@@ -18,12 +18,13 @@
   grid-column: span 6;
   position: relative;
   padding: set-calc(32);
-  background: $black-new;
+  // background: $black-new;
+  background: $beige;
   border-radius: set-calc(20);
 
   @include set-media(md) {
     margin-bottom: set-calc(8);
-    padding: set-calc(32) set-calc($padding-x-mob-page);
+    padding: set-calc($padding-x-mob-page);
   }
 }
 
@@ -33,19 +34,10 @@
   justify-content: space-between;
 
   padding-right: set-calc(72);
-
-  @include set-media(md) {
-    margin-bottom: set-calc(8);
-    padding: set-calc(32) set-calc($padding-x-mob-page);
-  }
 }
 
 .title {
   padding-bottom: set-calc(40);
-
-  @include set-media(md) {
-    padding-bottom: set-calc(24);
-  }
 }
 
 .subtitle {
@@ -63,12 +55,21 @@
   flex: 1;
   flex-direction: column;
   justify-content: flex-end;
+
+  s:after {
+    margin-top: 1px;
+    border-bottom: 1px solid var(--keyColor,rgb(227,0,22));
+    content: "";
+    left: -2px;
+    position: absolute;
+    right: -2px;
+    top: 50%;
+  }
 }
 
 .creditWas {
-  color: $grey-inactive;
+  width: max-content;
   letter-spacing: -0.05rem;
-  text-decoration: line-through;
 }
 
 .creditPrice {
@@ -76,6 +77,7 @@
 
   display: inline-block;
   letter-spacing: -0.05rem;
+  color: $orange;
 }
 
 .discount {
@@ -87,10 +89,10 @@
   justify-content: center;
   padding: set-calc(12) set-calc(24);
 
-  color: $white;
+  // color: $white;
   letter-spacing: 0;
 
-  background: hsla(0,0%,100%,.1);
+  background: hsla(0,0%,100%,.8);
   border-radius: set-calc(30);
 }
 
@@ -98,10 +100,7 @@
   position: relative;
 
   display: block;
-
   padding: set-calc(60) 0 set-calc(5);
-
-  color: $grey-inactive;
 
   @include set-media(md) {
     padding: set-calc(32) 0 0;
@@ -124,8 +123,6 @@
 .agreement {
   padding: 0 0 set-calc(32);
 
-  color: $grey-inactive;
-
   label {
     position: relative;
 
@@ -137,10 +134,6 @@
     svg {
       width: set-calc(18);
       height: set-calc(18);
-    }
-
-    a {
-      text-decoration: underline;
     }
   }
 
@@ -186,7 +179,7 @@
 
   color: $white;
 
-  background-color: $blue;
+  background-color: $green;
   border-radius: set-calc(20);
   cursor: pointer;
 
@@ -197,6 +190,6 @@
   }
 
   &:hover {
-    opacity: 0.8;
+    background-color: $green-hover;
   }
 }

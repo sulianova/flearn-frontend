@@ -23,7 +23,7 @@
 }
 
 .itemResults {
-  color: $orange;
+  padding-right: set-calc(4);
 }
 
 .item::before {
@@ -35,5 +35,6 @@
 
   text-align: right;
 
-  content: counter(lessonsCounter);
+  // content: counter(lessonsCounter);
+  content: ' ';
 }

@@ -100,6 +100,10 @@
   display: block;
   height: set-calc(340);
   border-radius: set-calc(20);
+
+  @include set-media(md) {
+    margin: set-calc(-16);
+  }
 }
 
 .listItemMedia img {
