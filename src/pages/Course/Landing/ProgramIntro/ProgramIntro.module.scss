@@ -101,7 +101,7 @@ position: relative;
   justify-content: center;
 
   background: none;
-  background-color: $blue;
+  background-color: $black-new;
   color: $white;
 
   border-radius: set-calc(20);
@@ -119,7 +119,7 @@ position: relative;
   }
 
   &:hover {
-    opacity: 0.7;
+    background-color: $orange;
   }
 }
 
@@ -139,21 +139,41 @@ position: relative;
 
   padding: set-calc(16) set-calc(80);
 
-  color: $black;
+  color: $orange;
 
   @include set-media(md) {
     flex: 1 1 max-content;
   }
 }
 
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
 .cover img {
   position: absolute;
   top: 0;
-  left: 0;
+  right: 5%;
   z-index: 100;
 
   display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  scale: 0.8;
+  object-fit: contain;
+
+  // animation: rotate 24s linear infinite;
+  // animation-play-state: paused;
+  // animation-delay: calc(var(--scroll) * -1s);
+
+  // animation-iteration-count: 1;
+  // animation-fill-mode: both;
+
+  @include set-media(md) {
+    scale: 0.6;
+
+    top: 24%;
+    right: -55%;
+  }
 }

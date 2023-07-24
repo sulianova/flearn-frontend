@@ -23,7 +23,14 @@ function Explain(props: IProps) {
           <div className={classes.videoCardContainer}>
             <Iframe src={props.data.explainVideo.src} title={props.data.explainVideo.title}/>
           </div>
-          <div className={classes.videoCardDesc + ' s-text-18'}>{t('videoCardDesc')}</div>
+          <div className={classes.videoCardDesc}>
+            <div className={classes.videoCardTitle + ' s-text-24'}>
+              {t('videoCardTitle')}
+            </div>
+            <div className='s-text-18'>
+              {t('videoCardText')}
+            </div>
+          </div>
         </div>
         <div className={classes.introCard}>
           <div className={classes.introCardQuote + ' s-text-36'}>{t('introCardQuote')}</div>

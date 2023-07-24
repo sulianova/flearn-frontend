@@ -31,6 +31,7 @@
   display: flex;
   justify-content: space-between;
   padding: set-calc(4) set-calc($padding-x-desk-page) set-calc(8);
+  background-color: $white;
 
   @include is-grid-12;
 
@@ -40,10 +41,26 @@
     grid-gap: 0;
     align-items: center;
     padding: set-calc(8) set-calc($padding-x-mob-page) set-calc(8);
+    background-color: transparent;
 
     .logo {
       visibility: hidden;
     }
+  }
+}
+
+.desc::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 106px);
+  height: 20px;
+  background: url('./left-conner.png') 0 100% / 20px 20px no-repeat, url('./right-corner.png') 100% 0 / 13px 12px no-repeat;
+
+  @include set-media(md) {
+    display: none;
   }
 }
 
@@ -116,7 +133,7 @@
 
 .mob {
   transition: $d-hover opacity;
-  padding: 0 set-calc($padding-x-mob-page) set-calc(40);
+  padding: 0 set-calc($padding-x-mob-page) 0;
   width: 100%;
   display: none;
   flex-direction: column;

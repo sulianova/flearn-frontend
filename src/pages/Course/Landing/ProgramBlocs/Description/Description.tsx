@@ -28,9 +28,9 @@ function renderItem(props: { question: string, answer: string }) {
   return (
     <div className={classesItem._}>
       <div className={classesItem.questionWrapper}>
-        <div className={classesItem.question + ' s-text-18'}>{props.question}</div>
+        <div className={classesItem.question + ' s-text-28'}>{props.question}</div>
       </div>
-      <div className={classesItem.answear + ' s-text-28'}>{props.answer}</div>
+      <div className={classesItem.answear + ' s-text-24'}>{props.answer}</div>
     </div>
   );
 }

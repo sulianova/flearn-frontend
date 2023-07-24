@@ -1,5 +1,5 @@
 {
-  "sign up": "Записаться",
+  "signUp": "Записаться",
   "inputName": {
     "placeholder": "Имя"
   },
@@ -10,6 +10,7 @@
     "placeholder": "Email"
   },
   "logo": "flearn",
+  "logoLong": "Freedom to Learn the Arts",
   "header": {
     "my": "Moe обучение",
     "freeZone": "Бесплатно",
@@ -40,6 +41,14 @@
         "title": "Vk",
         "link": "https://vk.com/sofiulianova"
       },
+      "socialInstagram": {
+        "title": "Instagram",
+        "link": "https://www.instagram.com/sofiulyanova"
+      },
+      "socialTiktok": {
+        "title": "Tiktok",
+        "link": "https://www.tiktok.com/@sofiulyanova"
+      },
       "documentsPrivacyPolicy": {
         "title": "Политика конфидициальности",
         "link": ""
@@ -48,10 +57,20 @@
         "title": "Условия использования",
         "link": ""
       },
-      "author": {
-        "title": "Made by Sofiia Ulianova",
+      "creatorDesign": {
+        "title": "Дизайн и разработка",
+        "name": "Sofi Ulyanova",
         "link": "https://sofiulyanova.com"
-      }
+      },
+      "creatorFrontend": {
+        "title": "Разработка",
+        "name": "Vladimir Fyodorov",
+        "link": "https://github.com/VladimirFyodorov"
+      },
+      "copyright": "© 2023 flearn",
+      "email": "ulianova.sofia@gmail.com",
+      "emailTo": "mailto:ulianova.sofia@gmail.com",
+      "emailComment": "Пишите, разберемся!"
   },
   "courseLanding": {
       "form": {
@@ -67,7 +86,8 @@
       "explain": {
         "headerTitle": "Любой может научиться иллюстрации",
         "headerDesc": "Чтобы рисовать, необязательно иметь релевантный опыт или творческие способности.",
-        "videoCardDesc": "София Ульянова — иллюстратор и преподаватель курсов об иллюстрации.",
+        "videoCardTitle": "Автор курса — София Ульянова",
+        "videoCardText": "Закончила Британскую Высшую Школу Дизайна по курсу иллюстрация. Участвует в международных конкурсах. Рисует для себя и творческих проектов.",
         "introCardQuote": "“У меня не было академического образования, когда я начала рисовать. Я училась на курсах,  которые казались мне интересными, постепенно собирая свой личный набор инструментов.”"
       },
       "faq": {
@@ -82,7 +102,7 @@
       "modules": {
         "title": "Программа",
         "videosNumber": " видео-урока",
-        "homeworksNumber": " заданий",
+        "homeworksNumber": " практических заданий",
         "durationWeeks": " учебных недель"
       },
       "promo": {

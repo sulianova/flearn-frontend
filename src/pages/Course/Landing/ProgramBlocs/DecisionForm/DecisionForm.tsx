@@ -61,7 +61,7 @@ function renderInputs(inputsType: Array<IInputFieldProps['variant']>) {
         className={classes.inputWrap}
         key={index}
       >
-        <InputField className={cx2({ input: true, dark: true }) + ' s-text-24'} variant={type}/>
+        <InputField className={cx2({ input: true, light: true }) + ' s-text-24'} variant={type}/>
       </div>)
       )}
     </Fragment>
@@ -79,11 +79,11 @@ function renderForm () {
         >
           <CheckboxSvg/>
           <span className={classes.agreementText + ' s-text-18'}>
-            {t('agreement1')}&nbsp;<a href=''>{t('agreement2')}</a>
+            {t('agreement1')}&nbsp;<a className='key-link' href=''>{t('agreement2')}</a>
           </span>
         </Checkbox>
       </div>
-      <button className={classes.submitButton + ' s-text-24'} type='button'><span>{i18n.t('sign up')}</span></button>
+      <button className={classes.submitButton + ' s-text-24'} type='button'><span>{i18n.t('signUp')}</span></button>
     </form>
   );
 }

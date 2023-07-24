@@ -20,7 +20,7 @@ function FAQ(props: IProps) {
         <h2 className={classes.headerTitle + ' s-text-56'}>{t('headerTitle')}</h2>
         <div className={classes.headerDesc + ' s-text-24'}>
           {t('headerDesc1')}
-          <a>{t('headerDesc2')}</a>
+          <a className='key-link'>{t('headerDesc2')}</a>
           {t('headerDesc3')}
         </div>
       </div>

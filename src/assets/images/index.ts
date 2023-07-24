@@ -9,3 +9,5 @@ export { default as FromTheWarmLights2 } from './30.05.2023-2.jpg';
 export { default as SummerTime } from './7.06.2023.jpg';
 export { default as DrawFreeCard } from './draw-free-card.png';
 export { default as CheckBox } from './checkbox.svg';
+export { default as freeDrawDesk } from './freeDrawDesk.png';
+export { default as freeDrawMobile } from './freeDrawMobile.png';

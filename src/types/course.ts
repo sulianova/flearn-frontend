@@ -7,6 +7,8 @@ export interface ICourseData {
   feild: 'Иллюстрация' | 'Adobe'
   title: string
   introDescription: string
+  introImageSrc: keyof typeof images
+  introImageAlt: string
   discontAmount: number
   discontDeadline: Date
   creditWas: number
@@ -30,4 +32,10 @@ export interface IText {
 
 export interface ILessonData {
   type: 'Theory' | 'Practice'
+}
+
+export interface ICourseInfo {
+  startDate: Date
+  durationWeeks: number
+  title: string
 }
