@@ -3,6 +3,7 @@ import { formatI18nT, i18n } from 'shared';
 import Image from 'ui/Img/Img';
 import Link from 'ui/Link/Link';
 import classes from './ProgramIntro.module.scss';
+import classesDiscount from './discountBanner.module.scss';
 
 import type { ICourseData } from 'types';
 
@@ -29,6 +30,9 @@ function ProgramIntro(props: IProps) {
         </div>
         <div className={classes.cover}><Image src={props.data.introImageSrc} alt={props.data.introImageAlt}/></div>
       </div>
+      <div className={classesDiscount._}>
+        
+      </div>
     </div>
   );
 }
@@ -49,3 +53,4 @@ function formatCourseDiscount(discontAmount: number, discontDeadline: Date) {
   );
   return `${discontAmountStr} до ${discontDeadlineStr}`;
 }
+

@@ -2,6 +2,8 @@ import { Fragment } from 'react';
 import type { ICourseData } from 'types';
 import classes from './Description.module.scss';
 import classesItem from './Item.module.scss';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 import { formatI18nT, i18n } from 'shared';
 
@@ -14,6 +16,28 @@ interface IProps {
 }
 
 function Description(props: IProps) {
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  ScrollTrigger.create({
+    trigger: '.revealUp',
+    start: "top 100%",
+    end: "bottom 20%",
+    markers: true,
+    onEnter: function () {
+      gsap.fromTo(
+        '.revealUp',
+        { y: 100, autoAlpha: 0 },
+        {
+          duration: 1.25,
+          y: 0,
+          autoAlpha: 1,
+          ease: "back",
+          overwrite: "auto"
+        }
+      );
+    },
+  });
   return (
     <div className={classes.wrapper}>
       <h2 className={classes.title + ' s-text-56'}>{t('title')}</h2>
@@ -26,7 +50,7 @@ function Description(props: IProps) {
 
 function renderItem(props: { question: string, answer: string }) {
   return (
-    <div className={classesItem._}>
+    <div className={classesItem._ + ' revealUp'}>
       <div className={classesItem.questionWrapper}>
         <div className={classesItem.question + ' s-text-28'}>{props.question}</div>
       </div>
