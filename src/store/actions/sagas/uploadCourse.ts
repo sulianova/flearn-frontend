@@ -24,6 +24,7 @@ export const uploadCourse = createAction<'saga', IUploadCoursePayload>(
         }
         localData = localFilesServise.Course.localToFR(file.courseData);
       } catch(e) {
+        // tslint:disable-next-line
         console.log(e);
         localData = undefined;
       }
@@ -48,7 +49,7 @@ export const uploadCourse = createAction<'saga', IUploadCoursePayload>(
         hasLocal,
         hasRemote: true,
         data: remoteData,
-      }
+      };
 
       yield put(updateState({ stateName: 'course', payload: state }));
     } catch(e) {

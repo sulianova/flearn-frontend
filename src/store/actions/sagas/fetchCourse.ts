@@ -26,6 +26,7 @@ export const fetchCourse = createAction<'saga', IFetchCoursePayload>(
         }
         localData = localFilesServise.Course.localToFR(file.courseData);
       } catch(e) {
+        // tslint:disable-next-line
         console.log(e);
         localData = undefined;
       }
@@ -40,8 +41,8 @@ export const fetchCourse = createAction<'saga', IFetchCoursePayload>(
         hasLocal,
         hasRemote,
         data: source === 'remote' ? remoteData : localData,
-      }
-      console.log('state: ', state);
+      };
+
       yield put(updateState({ stateName: 'course', payload: state }));
     } catch(e) {
       // tslint:disable-next-line

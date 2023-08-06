@@ -1,12 +1,13 @@
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router';
 
 import { envService} from 'services';
 import Store from 'store';
 import { downloadCourse, fetchCourse, uploadCourse } from 'store/actions/sagas';
 
+import type { ICourseState, ILessonsState, IRootState } from 'types';
+
 import classes from './EditBar.module.scss';
-import { ICourseState, ILessonsState, IRootState } from 'types';
-import { useParams } from 'react-router';
 
 interface IProps {
   variant: 'Course' | 'Lessons' | 'Lesson'
@@ -101,7 +102,6 @@ function handleUpload(props: TProps) {
 function handleDownload(props: TProps) {
   switch (props.variant) {
     case 'Course':
-      console.log('handleDownload');
       Store.dispatch(downloadCourse({ payload: { courseId: props.courseId } }));
       break;
     case 'Lessons':

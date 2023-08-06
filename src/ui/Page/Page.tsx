@@ -18,22 +18,21 @@ interface IProps {
 function Page({ children, header = false, footer = false, wrapper }: IProps) {
   const ref = useHeightToCss();
 
-    return (
-        <div className={classes._} ref={ref}>
-            {header && <Header/>}
-            <div className={classes.content}>
-            {wrapper ?
-                (<section className={classes[`${wrapper}-wrapper`]}>
-                    {children}
-                    {
-                        ['Course', 'Lessons', 'Lesson'].includes(wrapper || '')
-                        && (<EditBar variant={wrapper as 'Course' | 'Lessons' | 'Lesson'}/>)
-                    }
-                </section>)
-                : children
-            }
-            </div>
-            {footer && <Footer/>}
-        </div>
-    );
+  return (
+    <div className={classes._} ref={ref}>
+      {header && <Header/>}
+      <div className={classes.content}>
+        {wrapper ?
+          (<section className={classes[`${wrapper}-wrapper`]}>
+              {children}
+              {['Course', 'Lessons', 'Lesson'].includes(wrapper || '')
+                && (<EditBar variant={wrapper as 'Course' | 'Lessons' | 'Lesson'}/>)
+              }
+          </section>)
+          : children
+        }
+      </div>
+      {footer && <Footer/>}
+    </div>
+  );
 }
