@@ -46,7 +46,7 @@ function Course({ data, courseIsStoredLocally }: IConnectedProps) {
     <Page header footer wrapper='Course'>
       <ProgramIntro data={data}/>
       <ProgramBlocks data={data} />
-      {courseIsStoredLocally && 
+      {courseIsStoredLocally &&
       (<button onClick={() => Store.dispatch(saveCourse({ payload: { courseId: courseId! } }))}>Save course</button>)
       }
     </Page>
