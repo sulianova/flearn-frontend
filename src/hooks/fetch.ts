@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
+import { useMemoize } from 'hooks';
 import Store from 'store';
-import { useMemoize } from './memoize';
 
 import type { IPayload } from 'types';
 

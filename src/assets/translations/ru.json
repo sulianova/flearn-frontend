@@ -1,14 +1,115 @@
 {
-    "sign up": "Записаться",
-    "course": {
-        "landing": {
-            "form": {
-                "title": "Записаться на онлайн курс",
-                "subtitle": "Заполните форму и я свяжусь с вами, чтобы оформить оплату",
-                "courseName": "Короткий курс для начинающих: “%{courseName}”",
-                "agreement1": "Я соглашаюсь",
-                "agreement2": "c правилами использования"
-            }
-        }
+  "signUp": "Записаться",
+  "inputName": {
+    "placeholder": "Имя"
+  },
+  "inputPhone": {
+    "placeholder": "+78888888888"
+  },
+  "inputEmail": {
+    "placeholder": "Email"
+  },
+  "logo": "flearn",
+  "logoLong": "Freedom to Learn the Arts",
+  "header": {
+    "my": "Moe обучение",
+    "freeZone": "Бесплатно",
+    "catalogue": "Программы обучения",
+    "login": {
+      "signIn": "Войти",
+      "profile": "Профиль"
     }
+  },
+  "footer": {
+      "referencesCatalogue": "Курсы",
+      "referencesBooks": "Рекомендуемые книги",
+      "referencesFreeZone": "Бесплатные материалы",
+      "referencesReviews": "Отзывы студентов",
+      "socialTelegram": {
+        "title": "Telegram",
+        "link": "https://t.me/sofiulyanova"
+      },
+      "socialYoutube": {
+        "title": "YouTube",
+        "link": "https://www.youtube.com/@sofiulyanova/featured"
+      },
+      "socialDzen": {
+        "title": "Dzen",
+        "link": "https://dzen.ru/sofiulyanova"
+      },
+      "socialVk": {
+        "title": "Vk",
+        "link": "https://vk.com/sofiulianova"
+      },
+      "socialInstagram": {
+        "title": "Instagram",
+        "link": "https://www.instagram.com/sofiulyanova"
+      },
+      "socialTiktok": {
+        "title": "Tiktok",
+        "link": "https://www.tiktok.com/@sofiulyanova"
+      },
+      "documentsPrivacyPolicy": {
+        "title": "Политика конфидициальности",
+        "link": ""
+      },
+      "documentsTermsOfUse": {
+        "title": "Условия использования",
+        "link": ""
+      },
+      "creatorDesign": {
+        "title": "Дизайн и разработка",
+        "name": "Sofi Ulyanova",
+        "link": "https://sofiulyanova.com"
+      },
+      "creatorFrontend": {
+        "title": "Разработка",
+        "name": "Vladimir Fyodorov",
+        "link": "https://github.com/VladimirFyodorov"
+      },
+      "copyright": "© 2023 flearn",
+      "email": "ulianova.sofia@gmail.com",
+      "emailTo": "mailto:ulianova.sofia@gmail.com",
+      "emailComment": "Пишите, разберемся!"
+  },
+  "courseLanding": {
+      "form": {
+          "title": "Записаться на онлайн курс",
+          "subtitle": "Заполните форму и я свяжусь с вами, чтобы оформить оплату",
+          "courseName": "Короткий курс для начинающих: “%{courseName}”",
+          "agreement1": "Я соглашаюсь",
+          "agreement2": "c правилами использования"
+      },
+      "description": {
+        "title": "Курс подойдeт тем, кто"
+      },
+      "explain": {
+        "headerTitle": "Любой может научиться иллюстрации",
+        "headerDesc": "Чтобы рисовать, необязательно иметь релевантный опыт или творческие способности.",
+        "videoCardTitle": "Автор курса — София Ульянова",
+        "videoCardText": "Закончила Британскую Высшую Школу Дизайна по курсу иллюстрация. Участвует в международных конкурсах. Рисует для себя и творческих проектов.",
+        "introCardQuote": "“У меня не было академического образования, когда я начала рисовать. Я училась на курсах,  которые казались мне интересными, постепенно собирая свой личный набор инструментов.”"
+      },
+      "faq": {
+        "headerTitle": "Ответы на вопросы",
+        "headerDesc1": "Если у вас остались вопросы по курсу, вы можете ",
+        "headerDesc2": "оставить заявку",
+        "headerDesc3": " и я помогу вам разобраться."
+      },
+      "teacherGallery": {
+        "title": "Рисунки преподавателя"
+      },
+      "modules": {
+        "title": "Программа",
+        "videosNumber": " видео-урока",
+        "homeworksNumber": " практических заданий",
+        "durationWeeks": " учебных недель"
+      },
+      "promo": {
+        "cardTitle": "Больше о курсе в коротком видео"
+      },
+      "teachers": {
+        "title": "Преподаватель"
+      }
+  }
 }

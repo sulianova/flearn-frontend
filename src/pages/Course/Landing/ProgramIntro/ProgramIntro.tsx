@@ -1,4 +1,6 @@
 import { DrawFree } from 'assets/images';
+import { formatI18nT, i18n } from 'shared';
+import Image from 'ui/Img/Img';
 import Link from 'ui/Link/Link';
 import classes from './ProgramIntro.module.scss';
 
@@ -11,6 +13,7 @@ interface IProps {
 }
 
 function ProgramIntro(props: IProps) {
+
   return (
     <div className={classes._} id='program-intro'>
       <div className={classes.inner}>
@@ -21,10 +24,10 @@ function ProgramIntro(props: IProps) {
         <h1 className={classes.title + ' s-text-88'}>{props.data.title}</h1>
         <div className={classes.block + ' s-text-24'}>{props.data.introDescription}</div>
         <div className={classes.actions}>
-          <a className={classes.actionsBtn + ' s-text-24'} href='#decision-form'>Записаться</a>
-          <div className={classes.actionsDiscount + ' s-text-24'} >{formatCourseDiscount(props.data.discontAmount, props.data.discontDeadline)}</div>
+          <a className={classes.actionsBtn + ' s-text-24'} href='#decision-form'>{i18n.t('signUp')}</a>
+          {/* <div className={classes.actionsDiscount + ' s-text-36'} >{formatCourseDiscount(props.data.discontAmount, props.data.discontDeadline)}</div> */}
         </div>
-        <div className={classes.cover}><img data-v-desktop alt='Как рисовать похоже' src={DrawFree}/></div>
+        <div className={classes.cover}><Image src={props.data.introImageSrc} alt={props.data.introImageAlt}/></div>
       </div>
     </div>
   );

@@ -28,7 +28,6 @@ html {
 
   color: $black;
   background-color: $white;
-  overflow-x: hidden;
 }
 
 body,
@@ -40,6 +39,10 @@ ul,
 button {
   margin: 0;
   padding: 0;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 .ss01 {
@@ -94,10 +97,6 @@ a {
   text-decoration: none;
   cursor: pointer;
   transition: background-color $d-hover, color $d-hover, opacity $d-hover;
-
-  &:hover {
-    opacity: 0.5;
-  }
 }
 
 button {
@@ -115,16 +114,12 @@ button {
   -webkit-text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+}
 
-  &:hover {
-    opacity: 0.5;
-  }
-
-  @include set-media(md) {
-    &:active {
-      opacity: 0.5;
-    }
-  }
+s {
+  position: relative;
+  text-decoration: none;
+  white-space: nowrap;
 }
 
 .inline-link {
@@ -132,11 +127,11 @@ button {
   cursor: pointer;
 
   &:hover {
-    opacity: 0.5;
+    color: $orange;
   }
 
   &:active {
-    opacity: 0.5;
+    color: $orange;
   }
 
   &-text {
@@ -175,10 +170,56 @@ button {
   transition-duration: $d-hover;
 
   &:hover {
-    opacity: 0.5;
+    color: $orange;
   }
 }
 
-.blue {
-  color: $blue;
+.key-link {
+  background-image: linear-gradient(to bottom, $orange-underline 0, $orange-underline 100%);
+  background-position: 0 90%;
+  background-repeat: repeat-x;
+  background-size: set-calc(1) set-calc(1);
+  color: $orange;
+  width: fit-content;
+
+  &:hover {
+    background-image: linear-gradient(to bottom, $orange 0, $orange 100%);
+    background-position: 0 90%;
+    background-repeat: repeat-x;
+    background-size: set-calc(1) set-calc(1);
+  }
+}
+
+.link {
+  background-image: linear-gradient(to bottom, $link-underline 0, $link-underline 100%);
+  background-position: 0 90%;
+  background-repeat: repeat-x;
+  background-size: set-calc(1) set-calc(1);
+  color: $link;
+  width: fit-content;
+
+  &:hover {
+    background-image: linear-gradient(to bottom, $orange 0, $orange 100%);
+    background-position: 0 90%;
+    background-repeat: repeat-x;
+    background-size: set-calc(1) set-calc(1);
+    color: $orange;
+  }
+
+  &:visited {
+    background-image: linear-gradient(to bottom, $link-visited-underline 0, $link-visited-underline 100%);
+    background-position: 0 90%;
+    background-repeat: repeat-x;
+    background-size: set-calc(1) set-calc(1);
+    color: $link-visited;
+    width: fit-content;
+  
+    &:hover {
+      background-image: linear-gradient(to bottom, $orange 0, $orange 100%);
+      background-position: 0 90%;
+      background-repeat: repeat-x;
+      background-size: set-calc(1) set-calc(1);
+      color: $orange;
+    }
+  }
 }

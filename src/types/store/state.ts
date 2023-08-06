@@ -1,14 +1,16 @@
-import { ICourseData } from 'types/course';
+import { ICourseData, ILessonsState } from 'types';
 
 export interface IRootState {
     user?: IUserState
     course?: ICourseState
+    lessons?: ILessonsState
     ui?: IBasicState
 }
 
 export type IState =
     | IUserState
     | ICourseState
+    | ILessonsState
     | IBasicState;
 
 export type TStateName = keyof IRootState;

@@ -2,8 +2,13 @@
 
 ._ {
   grid-column: span 4;
+  align-items: start;
 
   @include is-grid-4;
+
+  @include set-media(md) {
+    align-items: start;
+  }
 }
 
 .questionWrapper {
@@ -23,20 +28,21 @@
 
   width: 100%;
   margin-bottom: auto;
-  padding: set-calc(16) set-calc(16) set-calc(24);
+  padding: set-calc(2) 0 0;
 
-  text-align: center;
+  // text-align: center;
 
-  background-color: $beige;
+  // background-color: $beige;
+  color: $orange;
   border-radius: set-calc(20);
 
   @include set-media(md) {
-    padding: set-calc(8) 0 set-calc(4);
+    // padding: set-calc(8) 0 set-calc(4);
 
     text-align: left;
 
     background-color: $white;
-    border-top: set-calc(calc($s-gap / 2)) solid $black-new;
+    // border-top: set-calc(calc($s-gap / 2)) solid $black-new;
     border-radius: 0;
   }
 }

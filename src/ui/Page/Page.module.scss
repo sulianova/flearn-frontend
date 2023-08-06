@@ -1,28 +1,28 @@
 @import 'styles/index';
 
 ._ {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
 
-    background-color: $white;
+  background-color: $white;
 }
-  
+
 .content {
-    margin-top: set-calc(16);
-  
-    @include set-media(md) {
-        margin-top: set-calc(64);
-    }
+  margin-top: set-calc(64);
+
+  @include set-media(md) {
+      margin-top: set-calc(16);
+  }
 }
 
 .Course-wrapper {
-    padding: 0 set-calc($padding-x-desk-page);
-  
-    @include set-media(md) {
-        padding: 0 set-calc($padding-x-mob-page);
-    }
+  padding: 0 set-calc($padding-x-desk-page);
+
+  @include set-media(md) {
+      padding: 0 set-calc($padding-x-mob-page);
+  }
 }
 
 .Catalogue-wrapper {
@@ -34,25 +34,28 @@
 }
 
 .My-wrapper {
-    padding: set-calc(40) set-calc($padding-x-desk-page) 0;
+  padding: 0 set-calc($padding-x-desk-page) 0;
 
-    @include set-media(md) {
-      padding: 0 set-calc($padding-x-mob-page);
-    }
+  @include set-media(md) {
+    padding: 0 set-calc($padding-x-mob-page);
+  }
 }
 
 .Lessons-wrapper {
-    padding: 0 set-calc($padding-x-desk-page);
+  position: relative;
 
-    @include set-media(md) {
-      padding: 0 set-calc($padding-x-mob-page);
-    }
+  display: block;
+  padding: 0 set-calc($padding-x-desk-page) 0;
+
+  @include set-media(md) {
+    padding: 0 set-calc($padding-x-mob-page);
+  }
 }
 
 .Lesson-wrapper {
-    padding: 0 set-calc($padding-x-desk-page);
-  
-    @include set-media(md) {
-      padding: 0 set-calc($padding-x-mob-page);
-    }
+  padding: 0 set-calc($padding-x-desk-page);
+
+  @include set-media(md) {
+    padding: 0 set-calc($padding-x-mob-page);
+  }
 }

@@ -1,63 +1,74 @@
 import classnames from 'classnames/bind';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { formatI18nT, i18n } from 'shared';
 import { URLSections } from 'types';
 import Link from 'ui/Link/Link';
 
 import classes from './header.module.scss';
 
 const cx = classnames.bind(classes);
+const t = formatI18nT('header');
 
 export default Header;
 
 function Header() {
     const [isOpened, setIsOpened] = useState<boolean>(false);
-    const headerClass = cx({ Header: true, IsMobileMenuOpened: isOpened });
+    const headerClass = cx({ _: true, IsMobileMenuOpened: isOpened });
+
+    useEffect(() => {
+        if (isOpened) {
+            document.body.style.overflowY = 'hidden';
+
+            return () => {
+                document.body.style.overflowY = '';
+            };
+        }
+    },        [isOpened]);
 
     return (
         <div className={headerClass}>
-            <div className={classes.Desk}>
-                <div className={classes.Logo}>
-                    <div className={classes.LogoWrapper}>
-                        <Link to={URLSections.FreeZone.index} className='s-text-24'>flearn</Link>
+            <div className={classes.desc}>
+                <div className={classes.logo}>
+                    <div className={classes.logoWrapper}>
+                        <Link to={URLSections.FreeZone.index} className='s-text-24'>{i18n.t('logo')}</Link>
                     </div>
                 </div>
-                <div className={classes.Nav}>
-                    <div className={classes.NavItem}>
-                        <Link to={URLSections.My.Profile.index} className='inline-link'>Moe обучение</Link>
+                <div className={classes.nav}>
+                    <div className={classes.navItem}>
+                        <Link to={URLSections.My.Profile.index} className='inline-link'>{t('my')}</Link>
                     </div>
-                    <div className={classes.NavItem}>
-                        <Link to={URLSections.FreeZone.index} className='inline-link'>Бесплатно</Link>
+                    <div className={classes.navItem}>
+                        <Link to={URLSections.FreeZone.index} className='inline-link'>{t('freeZone')}</Link>
                     </div>
-                    <div className={classes.NavItem}>
-                        <Link to={URLSections.Catalogue.index} className='inline-link'>Программы обучения</Link>
+                    <div className={classes.navItem}>
+                        <Link to={URLSections.Catalogue.index} className='inline-link'>{t('catalogue')}</Link>
                     </div>
                 </div>
-                <div className={classes.NavLogin}>
-                    <Link to={URLSections.My.Profile.index} className='inline-link'>Войти</Link>
+                <div className={classes.navLogin}>
+                    <Link to={URLSections.My.Profile.index} className='inline-link'>{t('login.signIn')}</Link>
                 </div>
-                <div className={classes.Humburger} onClick={() => setIsOpened(o => !o)}/>
+                <div className={classes.humburger} onClick={() => setIsOpened(o => !o)}/>
             </div>
-            <div className={classes.Mob}>
-                <div className={classes.MobMenuMain}>
-                    <div className={classes.MobItem}>
-                        <Link to={URLSections.My.Profile.index} className='inline-link s-text-24'>
-                            <span className='inline-text'>Мое обучение</span>
+            <div className={classes.mob}>
+                <div className={classes.mobMenuMain}>
+                    <div className={classes.mobItem}>
+                        <Link to={URLSections.My.Profile.index} className='inline-link s-text-36'>
+                            <span className='inline-text'>{t('my')}</span>
                         </Link>
                     </div>
-                    <div className={classes.MobItem}>
-                        <Link to={URLSections.FreeZone.index} className='inline-link s-text-24'>
-                            <span className='inline-text'>Бесплатно</span>
+                    <div className={classes.mobItem}>
+                        <Link to={URLSections.FreeZone.index} className='inline-link s-text-36'>
+                            <span className='inline-text'>{t('freeZone')}</span>
                         </Link>
                     </div>
-                    <div className={classes.MobItem}>
-                        <Link to={URLSections.Catalogue.index} className='inline-link s-text-24'>
-                            <span className='inline-text'>Программы обучения</span>
+                    <div className={classes.mobItem}>
+                        <Link to={URLSections.Catalogue.index} className='inline-link s-text-36'>
+                            <span className='inline-text'>{t('catalogue')}</span>
                         </Link>
                     </div>
                 </div>
-                <div className={classes.MobSpacing}/>
-                <div className={classes.MobMenuControls}>
-                    <Link to={URLSections.My.Profile.index} className={classes.LoginBtn + ' s-text-24'}>Войти</Link>
+                <div className={classes.mobMenuControls}>
+                    <Link to={URLSections.My.Profile.index} className={classes.loginBtn + ' s-text-24'}>{t('login.signIn')}</Link>
                 </div>
             </div>
         </div>
