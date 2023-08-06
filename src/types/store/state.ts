@@ -21,8 +21,11 @@ export interface IUserState {
 }
 
 export interface ICourseState {
+    courseId: string
+    source: 'local' | 'remote'
+    hasLocal: boolean
+    hasRemote: boolean
     data?: ICourseData
-    courseIsStoredLocally?: boolean
 }
 
 export interface IBasicState {

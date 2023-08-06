@@ -33,6 +33,7 @@ class FirebaseService {
         throw new Error(`doc doesn't exist`);
       }
     } catch(e) {
+      // tslint:disable-next-line
       console.error(e);
     }
   }
@@ -44,6 +45,7 @@ class FirebaseService {
       const savedDoc = await this._getDoc(collectionName, id, converter);
       return savedDoc;
     } catch(e) {
+      // tslint:disable-next-line
       console.error(e);
     }
   }

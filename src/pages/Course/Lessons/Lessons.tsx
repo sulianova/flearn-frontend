@@ -58,18 +58,5 @@ function Lessons({ data }: IConnectedProps) {
         </ul>
       </div>
     </div>
-
-    <section className={classesContent.editBar}>
-      <div className={classesContent.stickyBtnStaff}>
-        <div className={classesContent.stickyBtnShaftInner}>
-          <div className={classesContent.stickyBtn + ' s-text-24'}>
-            Save
-          </div>
-          <div className={classesContent.stickyBtn + ' s-text-24'}>
-            Push
-          </div>
-        </div>
-      </div>
-    </section>
   </Page>);
 }

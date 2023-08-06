@@ -1,4 +1,5 @@
+export * from './downloadCourse';
 export * from './fetchCourse';
-export * from './saveCourse';
+export * from './uploadCourse';
 
 export * from './fetchLessons';

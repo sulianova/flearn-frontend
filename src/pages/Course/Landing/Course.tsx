@@ -2,8 +2,7 @@ import { connect } from 'react-redux';
 import { useParams } from 'react-router';
 
 import { useFetch } from 'hooks';
-import Store from 'store';
-import { fetchCourse, saveCourse, type IFetchCoursePayload } from 'store/actions/sagas';
+import { fetchCourse, type IFetchCoursePayload } from 'store/actions/sagas';
 
 import Page from 'ui/Page/Page';
 
@@ -16,17 +15,15 @@ export default connect(mapStateToProps)(Course);
 
 interface IConnectedProps {
   data?: ICourseData
-  courseIsStoredLocally?: boolean
 }
 
 function mapStateToProps(state: IRootState): IConnectedProps {
   return {
     data: state.course?.data,
-    courseIsStoredLocally: state.course?.courseIsStoredLocally,
   };
 }
 
-function Course({ data, courseIsStoredLocally }: IConnectedProps) {
+function Course({ data }: IConnectedProps) {
   const { courseId } = useParams();
 
   useFetch<IFetchCoursePayload>(({
@@ -46,9 +43,6 @@ function Course({ data, courseIsStoredLocally }: IConnectedProps) {
     <Page header footer wrapper='Course'>
       <ProgramIntro data={data}/>
       <ProgramBlocks data={data} />
-      {courseIsStoredLocally &&
-      (<button onClick={() => Store.dispatch(saveCourse({ payload: { courseId: courseId! } }))}>Save course</button>)
-      }
     </Page>
   );
 }
