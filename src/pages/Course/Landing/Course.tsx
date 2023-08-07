@@ -5,6 +5,7 @@ import { fetchCourse } from 'store/actions/sagas';
 
 import Page from 'ui/Page/Page';
 
+import DiscountBanner from './DiscountBanner/DiscountBanner';
 import ProgramBlocks from './ProgramBlocs/ProgramBlocks';
 import ProgramIntro from './ProgramIntro/ProgramIntro';
 
@@ -37,6 +38,7 @@ function Course({ data }: IConnectedProps) {
   return (
     <Page header footer wrapper='Course'>
       <ProgramIntro data={data}/>
+      <DiscountBanner data={data}/>
       <ProgramBlocks data={data} />
     </Page>
   );

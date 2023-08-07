@@ -1,5 +1,7 @@
+import classNames from 'classnames/bind';
 import { formatI18nT, i18n } from 'shared';
 import { ICourseData } from 'types';
+import Animated from 'ui/Animated';
 import Iframe from 'ui/Video/Iframe';
 import classes from './Explain.module.scss';
 
@@ -10,6 +12,7 @@ interface IProps {
 }
 
 const t = formatI18nT('courseLanding.explain');
+const cx = classNames.bind(classes);
 
 function Explain(props: IProps) {
   return (
@@ -24,16 +27,22 @@ function Explain(props: IProps) {
             <Iframe src={props.data.explainVideo.src} title={props.data.explainVideo.title}/>
           </div>
           <div className={classes.videoCardDesc}>
-            <div className={classes.videoCardTitle + ' s-text-24'}>
-              {t('videoCardTitle')}
-            </div>
-            <div className='s-text-18'>
-              {t('videoCardText')}
-            </div>
+            <Animated.Scroll>
+              {(id, className) => (<div className={cx({ videoCardTitle: true }, className) + ' s-text-24'} id={id}>
+                {t('videoCardTitle')}
+              </div>)}
+            </Animated.Scroll>
+            <Animated.Scroll>
+              {(id, className) => (<div className={className + ' s-text-18'} id={id}>
+                {t('videoCardText')}
+              </div>)}
+              </Animated.Scroll>
           </div>
         </div>
         <div className={classes.introCard}>
-          <div className={classes.introCardQuote + ' s-text-36'}>{t('introCardQuote')}</div>
+          <Animated.Scroll>
+            {(id, className) => (<div className={cx({ introCardQuote: true }, className) + ' s-text-36'} id={id}>{t('introCardQuote')}</div>)}
+          </Animated.Scroll>
         </div>
       </div>
     </div>
