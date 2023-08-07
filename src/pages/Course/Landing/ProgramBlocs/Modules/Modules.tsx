@@ -1,5 +1,7 @@
+import classNames from 'classnames/bind';
 import { Fragment } from 'react';
 import { formatI18nT } from 'shared';
+import Animated from 'ui/Animated';
 import Image from 'ui/Img/Img';
 import classes from './Modules.module.scss';
 
@@ -9,6 +11,7 @@ import Text from 'ui/Text/Text';
 export default Modules;
 
 const t = formatI18nT('courseLanding.modules');
+const cx = classNames.bind(classes);
 
 interface IProps {
   modules: ICourseData['modules']
@@ -19,7 +22,7 @@ function Modules(props: IProps) {
   return (
     <div className={classes.wrapper}>
       <div className={classes.header}>
-        <h2 className={classes.title + ' s-text-56'}>{t('title')}</h2>
+        <h2 className={cx({ title: true }) + ' s-text-56'} >{t('title')}</h2>
         <div className={classes.desc + ' s-text-24'}>{<Text text={props.data.modulesDescription}/>}</div>
         <div className={classes.tags}>
           <div className={classes.tag + ' s-text-18'}>{props.data.videosNumber} {t('videosNumber')}</div>
@@ -37,15 +40,23 @@ function Modules(props: IProps) {
 function renderItem(props: ICourseData['modules'][number]) {
   return (
     <div className={classes.listItem}>
-      <div className={classes.listItemCard}>
-        <div className={classes.listItemMeta + ' s-text-16'}><Text text={props.meta}/></div>
-        <div className={classes.listItemTitle + ' s-text-36'}><Text text={props.title}/></div>
-        <div className={classes.listItemContent + ' s-text-24'}><Text text={props.content}/></div>
-      </div>
-      <div className={classes.listItemCard}>
-        <div className={classes.listItemMedia}><Image src={props.imageSrc} alt={props.imageAlt}/></div>
-        <div className={classes.listItemMediaDesc + ' s-text-18'}><Text text={props.imageDesc}/></div>
-      </div>
+      <Animated.Scroll>
+        {(id, className) => (
+          <div className={cx({ listItemCard: true }, className)} id={id}>
+            <div className={classes.listItemMeta + ' s-text-16'}><Text text={props.meta}/></div>
+            <div className={classes.listItemTitle + ' s-text-36'}><Text text={props.title}/></div>
+            <div className={classes.listItemContent + ' s-text-24'}><Text text={props.content}/></div>
+          </div>
+        )}
+      </Animated.Scroll>
+      <Animated.Scroll>
+        {(id, className) => (
+          <div className={cx({ listItemCard: true }, className)} id={id}>
+            <div className={classes.listItemMedia}><Image src={props.imageSrc} alt={props.imageAlt}/></div>
+            <div className={classes.listItemMediaDesc + ' s-text-18'}><Text text={props.imageDesc}/></div>
+          </div>
+        )}
+      </Animated.Scroll>
     </div>
   );
 }

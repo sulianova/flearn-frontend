@@ -11,6 +11,16 @@
   },
   "logo": "flearn",
   "logoLong": "Freedom to Learn the Arts",
+  "discountBanner": {
+    "percentage": "%",
+    "discount": "скидка",
+    "text1": "Успейте записаться",
+    "text2": "со скидкой",
+    "day": "д",
+    "hour": "ч",
+    "minute": "м",
+    "second": "с"
+  },
   "header": {
     "my": "Moe обучение",
     "freeZone": "Бесплатно",
