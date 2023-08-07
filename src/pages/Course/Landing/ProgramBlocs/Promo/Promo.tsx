@@ -1,6 +1,7 @@
 import classNames from 'classnames/bind';
 import { formatI18nT } from 'shared';
 import { ICourseData } from 'types';
+import Animated from 'ui/Animated';
 import Iframe from 'ui/Video/Iframe';
 import classes from './Promo.module.scss';
 
@@ -17,7 +18,9 @@ function Promo(props: IProps) {
     <div className={classes.wrapper}>
       <div className={classes.cards}>
         <div className={classes.card}>
-        <h2 className={classes.cardTitle + ' s-text-56'}>{t('cardTitle')}</h2>
+          <Animated.Scroll>
+            {(id, className) => (<h2 className={cx({ listItemCard: true }, className)  + ' s-text-56'} id={id}>{t('cardTitle')}</h2>)}
+          </Animated.Scroll>
         </div>
         <div className={cx({ card: true, videoCard: true })}>
           <div className={classes.videoCardContainer}>

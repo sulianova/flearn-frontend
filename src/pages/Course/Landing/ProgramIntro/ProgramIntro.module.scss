@@ -3,36 +3,42 @@
 ._ {
   display: flex;
   flex-direction: column;
-  min-height: set-calc(-150, true, 100vh);
-  overflow: hidden;
+  height: set-calc(-150, true, 100vh);
+  overflow: visible;
 
   @include set-media(md) {
     position: relative;
     left: set-calc(-$padding-x-mob-page);
 
-    display: block;
     width: set-calc(2 * $padding-x-mob-page, true, 100%);
-    min-height: 90%;
+    min-height: 95vh;
+    // min-height: -moz-available;
+    // min-height: -webkit-fill-available;
+    // min-height: fill-available;
   }
 }
 
 .inner {
-position: relative;
-
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  height: 100%;
+  position: relative;
+  @include is-grid-4;
   padding: set-calc(32);
-  overflow: hidden;
-
   background: $beige;
   border-radius: set-calc(20);
+  overflow: hidden;
+
+  flex-grow: 1;
+  height: 100%;
 
   @include set-media(md) {
-    height: set-calc(660);
-    padding: set-calc($padding-x-mob-page) set-calc($padding-x-mob-page) 0;
+    padding: set-calc(16);
   }
+}
+
+.info {
+  grid-column: span 2;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .categories {
@@ -152,28 +158,19 @@ position: relative;
   }
 }
 
+.cover {
+  grid-column: span 2;
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+  // aspect-ratio: 1/0.95;
+  overflow: hidden;
+  border-radius: set-calc(20);
+}
 
 .cover img {
-  position: absolute;
-  top: 0;
-  right: 5%;
   z-index: 100;
-
-  display: block;
-  scale: 0.8;
-  object-fit: contain;
-
-  // animation: rotate 24s linear infinite;
-  // animation-play-state: paused;
-  // animation-delay: calc(var(--scroll) * -1s);
-
-  // animation-iteration-count: 1;
-  // animation-fill-mode: both;
-
-  @include set-media(md) {
-    scale: 0.6;
-
-    top: 24%;
-    right: -55%;
-  }
+  width: 100%;
+  object-fit: cover;
 }

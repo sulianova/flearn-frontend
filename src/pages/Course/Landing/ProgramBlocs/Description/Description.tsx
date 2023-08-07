@@ -1,13 +1,16 @@
-import { Fragment } from 'react';
 import type { ICourseData } from 'types';
 import classes from './Description.module.scss';
-import classesItem from './Item.module.scss';
 
-import { formatI18nT, i18n } from 'shared';
+import classNames from 'classnames/bind';
+import { formatI18nT } from 'shared';
+import Animated from 'ui/Animated';
+
+import Item from './Item/Item';
 
 export default Description;
 
 const t = formatI18nT('courseLanding.description');
+const cx = classNames.bind(classes);
 
 interface IProps {
   data: ICourseData
@@ -16,7 +19,9 @@ interface IProps {
 function Description(props: IProps) {
   return (
     <div className={classes.wrapper}>
-      <h2 className={classes.title + ' s-text-56'}>{t('title')}</h2>
+      <Animated.Scroll>
+        {(id, className) => (<h2 className={cx({ title: true }, className) + ' s-text-56'} id={id}>{t('title')}</h2>)}
+      </Animated.Scroll>
       <div className={classes.list}>
         {renderItems(props.data.description)}
       </div>
@@ -24,17 +29,6 @@ function Description(props: IProps) {
   );
 }
 
-function renderItem(props: { question: string, answer: string }) {
-  return (
-    <div className={classesItem._}>
-      <div className={classesItem.questionWrapper}>
-        <div className={classesItem.question + ' s-text-28'}>{props.question}</div>
-      </div>
-      <div className={classesItem.answear + ' s-text-24'}>{props.answer}</div>
-    </div>
-  );
-}
-
 function renderItems(props: Array<{ question: string, answer: string }> ) {
-  return props.map((d, index) => (<Fragment key={index}>{renderItem(d)}</Fragment>));
+  return props.map((d, index) => (<Item key={index} {...d}/>));
 }

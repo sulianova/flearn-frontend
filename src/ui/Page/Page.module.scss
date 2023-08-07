@@ -19,6 +19,7 @@
 
 .Course-wrapper {
   padding: 0 set-calc($padding-x-desk-page);
+  overflow: hidden;
 
   @include set-media(md) {
       padding: 0 set-calc($padding-x-mob-page);
