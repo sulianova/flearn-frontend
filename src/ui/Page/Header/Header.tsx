@@ -1,5 +1,6 @@
 import classnames from 'classnames/bind';
 import { useEffect, useState } from 'react';
+import { firebaseService } from 'services';
 import { formatI18nT, i18n } from 'shared';
 import { URLSections } from 'types';
 import Link from 'ui/Link/Link';
@@ -35,6 +36,9 @@ function Header() {
                 </div>
                 <div className={classes.nav}>
                     <div className={classes.navItem}>
+                        <Link to={URLSections.Course.to({ courseId: 'how-to-draw' })} className='inline-link'>Best courses</Link>
+                    </div>
+                    <div className={classes.navItem}>
                         <Link to={URLSections.My.Profile.index} className='inline-link'>{t('my')}</Link>
                     </div>
                     <div className={classes.navItem}>
@@ -45,7 +49,14 @@ function Header() {
                     </div>
                 </div>
                 <div className={classes.navLogin}>
-                    <Link to={URLSections.My.Profile.index} className='inline-link'>{t('login.signIn')}</Link>
+                    <span className='inline-link' onClick={() => firebaseService.authenticate()}>
+                        {t('login.signIn')}
+                    </span>
+                    {/* <Link
+                        to={URLSections.My.Profile.index}
+                        className='inline-link'
+                        onClick={() => firebaseService.authenticate()}
+                    >{t('login.signIn')}</Link> */}
                 </div>
                 <div className={classes.humburger} onClick={() => setIsOpened(o => !o)}/>
             </div>
