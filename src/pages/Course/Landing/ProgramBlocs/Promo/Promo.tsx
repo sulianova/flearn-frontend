@@ -19,7 +19,7 @@ function Promo(props: IProps) {
       <div className={classes.cards}>
         <div className={classes.card}>
           <Animated.Scroll>
-            {(id, className) => (<h2 className={cx({ listItemCard: true }, className)  + ' s-text-56'} id={id}>{t('cardTitle')}</h2>)}
+            {(id, className) => (<h2 className={cx({ cardTitle: true }, className)  + ' s-text-56'} id={id}>{t('cardTitle')}</h2>)}
           </Animated.Scroll>
         </div>
         <div className={cx({ card: true, videoCard: true })}>

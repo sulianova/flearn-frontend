@@ -28,7 +28,25 @@ const courseData: ILessonsState = {
     title: 'Как рисовать свободно',
   },
   lessonsInfo: [
-    { title: 'Учимся' },
-    { title: 'Рисуем' },
+    {
+      title: 'Первая тема',
+      dates: '12–16 июня',
+      lectureLink: 'lesson.html',
+    },
+    {
+      title: 'Вторая тема',
+      dates: '16–20 июня',
+      lectureLink: 'lesson.html',
+      homeworkLink: 'homework.html',
+      resultsLink: 'homework-editor.html',
+    },
+    {
+      title: 'Третья самая интересная тема',
+      dates: '20–17 июня',
+      lectureLink: 'lesson.html',
+      homeworkLink: 'homework.html',
+      webinarLink: 'homework.html',
+      resultsLink: 'homework-editor.html',
+    },
   ],
 };

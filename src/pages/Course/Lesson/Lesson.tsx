@@ -1,23 +1,45 @@
 import Page from 'ui/Page/Page';
 import LessonContent from './Components/LessonContent/LessonContent';
+import LessonUppload from './Components/LessonContent/LessonUppload/LessonUppload';
+import LessonWorks from './Components/LessonContent/LessonWorks/LessonWorks';
 import LessonHeader from './Components/LessonHeader/LessonHeader';
-import LessonUppload from './Components/LessonUppload/LessonUppload';
-import LessonWorks from './Components/LessonWorks/LessonWorks';
 
-import type { ILessonData } from 'types';
+import { connect } from 'react-redux';
 
-export default Lesson;
+import { useFetch } from 'hooks';
+import { fetchCourse, fetchLesson } from 'store/actions/sagas';
 
-const lesson: ILessonData = {
-  type: 'Theory',
-};
+import type { ILessonData, IRootState } from 'types';
 
-function Lesson() {
+export default connect(mapStateToProps)(Lesson);
+
+interface IConnectedProps {
+  data?: ILessonData
+}
+
+function mapStateToProps(state: IRootState): IConnectedProps {
+  return {
+      data: state.lesson?.data,
+  };
+}
+
+function Lesson({ data }: IConnectedProps) {
+
+  useFetch(({ actionCreator: fetchLesson }));
+
+  if (!data || Object.keys(data).length === 0) {
+    return (
+      <Page header footer wrapper='Lesson'>
+        <p>loading leasson</p>
+      </Page>
+    );
+  }
+
   return (
     <Page header footer wrapper='Lesson'>
-      <LessonHeader lesson={lesson}/>
-      <LessonContent/>
-      {lesson.type === 'Practice' &&
+      <LessonHeader lesson={data}/>
+      <LessonContent blocks={data.content}/>
+      {data.type === 'Practice' &&
       <>
         <LessonUppload/>
         <LessonWorks/>

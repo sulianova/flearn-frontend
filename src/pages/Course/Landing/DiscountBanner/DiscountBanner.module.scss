@@ -100,6 +100,8 @@
   justify-content: center;
   text-align: center;
 
+  font-family: $font-family-serif;
+
   color: $white;
   transform: rotate(-14deg);
   width: 100%;
@@ -148,6 +150,8 @@
   display: flex;
   justify-content: flex-end;
 
+  font-variant-numeric: normal;
+
   @include set-media(md) {
     justify-content: flex-start;
   }
@@ -167,5 +171,5 @@
 }
 
 .realtimeCountDownSection:not(:last-child) {
-  margin-right: set-calc(8);
+  margin-right: set-calc(16);
 }

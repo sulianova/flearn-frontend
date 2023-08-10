@@ -1,17 +1,22 @@
 @import 'styles/index';
 
 ._ {
-  padding-bottom: set-calc(40);
+  padding-bottom: set-calc(56);
   @include is-grid-4;
 
   @include set-media(md) {
-    padding-bottom: set-calc(62);
+    padding-bottom: set-calc(56);
   }
 }
 
 .title {
   grid-column: span 3;
-  padding-bottom: set-calc(16);
+  padding-bottom: set-calc(24);
+}
+
+.subTitle {
+  grid-column: span 2;
+  padding-bottom: set-calc(8);
 }
 
 .links {

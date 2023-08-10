@@ -1,0 +1,18 @@
+@import 'styles/index';
+
+.factoid {
+  grid-column: 4 / 5;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: set-calc(24);
+  padding-left: set-calc(48);
+
+  @include set-media(md) {
+    padding-left: 0;
+  }
+}
+
+.factoid p, a:not(:last-child) {
+  margin-bottom: set-calc(8);
+
+}

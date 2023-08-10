@@ -9,15 +9,15 @@
 }
 
 
-// @font-face {
-//   font-weight: 500;
-//   font-family: TTInterphasesPro;
-//   src: url("../assets/fonts/TTInterphasesPro-DemiBold.ttf");
-// }
+@font-face {
+  font-weight: 500;
+  font-family: TTNormsProSerif;
+  src: url("../assets/fonts/TTNormsProSerif-Medium.ttf");
+}
 
 
 html {
-  font-family: $font-family !important;
+  font-family: $font-family;
   font-size: set-calc(18);
   line-height: set-calc(28);
   font-weight: 500;
@@ -43,6 +43,7 @@ button {
 
 body {
   overflow-x: hidden;
+  font-variant-numeric: oldstyle-nums;
 }
 
 .ss01 {

@@ -1,4 +1,6 @@
 import * as images from 'assets/images';
+import { HTMLAttributes } from 'react';
+import type { IProps as ILinkProps } from 'ui/Link/Link';
 export interface ICourseData {
   startDate: Date
   durationWeeks: number
@@ -25,14 +27,22 @@ export interface ICourseData {
 
 export type TText = string | IText;
 
-export interface IText {
-  tag: 'p' | 'span' | 'h1' | 'h2' | 'h3'
+export type IText = {
   content: TText | IText[]
-}
-
-export interface ILessonData {
-  type: 'Theory' | 'Practice'
-}
+} & (
+  {
+    tag: 'p'
+    props?: HTMLAttributes<HTMLParagraphElement>
+  }
+  | {
+    tag: 'span' | 'h1' | 'h2' | 'h3'
+    props?: undefined
+  }
+  | {
+    tag: 'a'
+    props?: ILinkProps
+  }
+);
 
 export interface ICourseInfo {
   startDate: Date
