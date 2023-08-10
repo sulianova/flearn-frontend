@@ -1,0 +1,12 @@
+@import 'styles/index';
+
+.textImportant {
+  grid-column: span 3;
+
+  color: $orange;
+  padding-bottom: set-calc(36);
+
+  @include set-media(md) {
+    padding-bottom: set-calc(24);
+  }
+}

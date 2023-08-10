@@ -1,0 +1,18 @@
+@import 'styles/index';
+
+.title {
+  grid-column: span 3;
+  padding: set-calc(72) 0 set-calc(36);
+
+  @include set-media(md) {
+    padding: set-calc(56) 0 set-calc(24);
+  }
+}
+
+div + [data-lesson-title] {
+  padding-top: 0;
+}
+
+.title:first-child {
+  padding-top: 0;
+}

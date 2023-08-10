@@ -1,8 +1,50 @@
-import TextPageSection from '../TextPageSection/TextPageSection';
-import LessonVideo from './../LessonVideo/LessonVideo';
+import { Fragment } from 'react';
+import { ILessonContent, TText } from 'types';
 import classes from './LessonContent.module.scss';
+import LessonFactoid from './LessonFactoid/LessonFactoid';
+import LessonImage from './LessonImage/LessonImage';
+import LessonQoute from './LessonQoute/LessonQoute';
+import LessonText from './LessonText/LessonText';
+import LessonTextImportant from './LessonTextImportant/LessonTextImportant';
+import LessonTitle from './LessonTitle/LessonTitle';
+import LessonVideo from './LessonVideo/LessonVideo';
 
 export default LessonContent;
+
+interface IProps {
+  blocks: ILessonContent
+}
+
+function LessonContent(props: IProps) {
+  return (
+    <div className={classes._}>
+      {renderBlocks(props.blocks)}
+    </div>
+  );
+}
+
+function renderBlocks(blocks: ILessonContent) {
+  return blocks.map((block, index) => <Fragment key={index}>{renderBlock(block)}</Fragment>);
+}
+
+function renderBlock(block: ILessonContent[number]) {
+  switch(block.type) {
+    case 'title':
+      return (<LessonTitle data={block}/>);
+    case 'text':
+      return (<LessonText data={block}/>);
+    case 'textImportant':
+      return (<LessonTextImportant data={block}/>);
+    case 'qoute':
+      return (<LessonQoute data={block}/>);
+    case 'factoid':
+      return (<LessonFactoid data={block}/>);
+    case 'video':
+      return (<LessonVideo data={block}/>);
+    case 'image':
+      return (<LessonImage data={block}/>);
+  }
+}
 
 function Uppload() {
   return (
@@ -13,29 +55,6 @@ function Uppload() {
         4 сентября, 23:59 по мск
       </div>
       <a className={classes.upploadBtn + ' s-text-21-uppercase'} href='#upload-form'>Загрузить работу</a>
-    </div>
-  );
-}
-
-function Duration() {
-  return (
-    <div className={classes.duration}>
-      <svg width='15' height='15' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'>
-        <circle cx='7.5' cy='7.5' r='7' stroke='#131313'/>
-        <path d='M11 7.5L5.75 10.5311V4.46891L11 7.5Z' fill='#131313'/>
-      </svg><span className='s-text-18'>00:20:01</span>
-    </div>
-  );
-}
-
-function LessonContent() {
-  return (
-    <div className={classes._}>
-      <h2 className={classes.title + ' s-text-56'}>Тема первая</h2>
-        <section className={classes.videoSection}>
-          <LessonVideo/>
-        </section>
-        <TextPageSection/>
     </div>
   );
 }

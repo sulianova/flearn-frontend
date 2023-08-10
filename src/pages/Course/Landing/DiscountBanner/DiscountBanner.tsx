@@ -36,20 +36,20 @@ function DiscountBanner(props: IProps) {
             <div className={classes.timer}>
               <div className={classes.realtimeCountDown}>
                 <div className={classes.realtimeCountDownSection}>
-                  <span className='s-text-88'>00</span>
-                  <small className='s-text24'>{t('day')}</small>
+                  <span className='s-text-88'>03</span>
+                  <small className='s-text-24'>{t('day')}</small>
+                </div>
+                <div className={classes.realtimeCountDownSection}>
+                  <span className='s-text-88'>22</span>
+                  <small className='s-text-24'>{t('hour')}</small>
                 </div>
                 <div className={classes.realtimeCountDownSection}>
                   <span className='s-text-88'>00</span>
-                  <small className='s-text24'>{t('hour')}</small>
+                  <small className='s-text-24'>{t('minute')}</small>
                 </div>
                 <div className={classes.realtimeCountDownSection}>
                   <span className='s-text-88'>00</span>
-                  <small className='s-text24'>{t('minute')}</small>
-                </div>
-                <div className={classes.realtimeCountDownSection}>
-                  <span className='s-text-88'>00</span>
-                  <small className='s-text24'>{t('second')}</small>
+                  <small className='s-text-24'>{t('second')}</small>
                 </div>
               </div>
             </div>

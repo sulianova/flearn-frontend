@@ -14,6 +14,7 @@ padding-bottom: set-calc(54);
 
 .headerTitle {
   padding-bottom: set-calc(24);
+  font-family: $font-family-serif;
 }
 
 .headerDesc {
@@ -49,6 +50,7 @@ padding-bottom: set-calc(54);
   position: relative;
   max-width: calc(var(--scale)*840);
   z-index: 2;
+  font-family: $font-family-serif;
 }
 
 .videoCard {

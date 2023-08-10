@@ -1,0 +1,33 @@
+@import 'styles/index';
+
+.qouteWrapper {
+  grid-column: span 3;
+  font-family: $font-family-serif;
+
+  border-left: set-calc(4) solid $black-new;
+  padding-left: set-calc(24);
+
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: set-calc(36);
+
+  @include set-media(md) {
+    margin-bottom: set-calc(24);
+  }
+}
+
+.qouteWrapper > *:not(:last-child) {
+  padding-bottom: set-calc(36);
+
+  @include s-text-21;
+
+  @include set-media(md) {
+    padding-bottom: set-calc(16);
+  }
+}
+
+.qouteWrapper > * {
+  @include s-text-21;
+
+}

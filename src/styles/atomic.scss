@@ -44,6 +44,15 @@
     @include set-typography(16, 22, 500);
   }
 }
+
+@mixin s-text-21  {
+  @include set-typography(21, 28, 500);
+
+  @include set-media(md) {
+    @include set-typography(16, 22, 500);
+  }
+}
+
 //links & headers in table
 .s-text-21-uppercase  {
   @include set-typography(21, 28, 500);

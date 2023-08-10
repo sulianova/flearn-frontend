@@ -1,7 +1,15 @@
 @import 'styles/index';
 
+._ {
+  @include is-grid-4;
+
+  @include set-media(md) {
+    grid-gap: 0;
+  }
+}
+
 .title {
-  margin: set-calc(8) 0;
+  padding-bottom: set-calc(16);
 }
 
 .duration {
@@ -58,10 +66,4 @@
   @include set-media(md) {
     min-height: set-calc(48);
   }
-}
-
-.videoSection {
-  margin: set-calc(16) 0 set-calc(80);
-
-  @include is-grid-4;
 }

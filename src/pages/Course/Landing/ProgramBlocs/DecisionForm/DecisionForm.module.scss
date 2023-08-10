@@ -38,6 +38,7 @@
 
 .title {
   padding-bottom: set-calc(40);
+  font-family: $font-family-serif;
 }
 
 .subtitle {
@@ -55,6 +56,9 @@
   flex: 1;
   flex-direction: column;
   justify-content: flex-end;
+
+  font-variant-numeric: normal;
+  font-family: $font-family-serif;
 
   s:after {
     margin-top: 1px;
