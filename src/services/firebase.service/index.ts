@@ -22,7 +22,7 @@ class FirebaseService {
   }
 
   public async getCourse(id: string) {
-    await this._checkCourseAccess(id);
+    // await this._checkCourseAccess(id);
     return await this._getDoc(ECollections.Course, id, courseConverter);
   }
 
