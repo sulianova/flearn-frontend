@@ -38,6 +38,10 @@ class AuthService {
     return this.user!;
   }
 
+  public get isAuthenticated() {
+    return this.user !== null;
+  }
+
   private _auth: Auth;
   private _authProvider: GoogleAuthProvider;
   private _authenticationInProgress: boolean;
