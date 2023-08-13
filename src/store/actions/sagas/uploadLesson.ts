@@ -5,17 +5,16 @@ import { updateState } from '../redux';
 
 import type { ILessonData, ILessonState, TAction } from 'types';
 
-export interface IFetchLessonPayload {
+export interface IUploadLessonPayload {
   courseId: string
   lessonId: string
-  source?: 'local' | 'remote'
 }
 
-export const fetchLesson = createAction<'saga', IFetchLessonPayload>(
-  '***saga*** fetch Lesson',
-  function* execute(action: TAction<IFetchLessonPayload>) {
+export const uploadLesson = createAction<'saga', IUploadLessonPayload>(
+  '***saga*** upload Lesson',
+  function* execute(action: TAction<IUploadLessonPayload>) {
     try {
-      const { courseId, lessonId: lessonPartialId, source = 'remote' } = action.payload;
+      const { courseId, lessonId: lessonPartialId } = action.payload;
       const lessonId = `${courseId}_${lessonPartialId}`;
       let localData: ILessonData | undefined;
       try {
@@ -31,23 +30,33 @@ export const fetchLesson = createAction<'saga', IFetchLessonPayload>(
         console.log(e);
         localData = undefined;
       }
+
       const hasLocal = localData !== undefined;
 
-      const remoteData: ILessonData | undefined = yield dataService.getLesson(lessonId);
-      const hasRemote = remoteData !== undefined;
+      if (!hasLocal) {
+        throw new Error();
+      }
+
+      const remoteData: ILessonData | undefined = yield dataService.setLesson(lessonId, localData!);
+
+      // tslint:disable-next-line
+      console.log('saved data: ', remoteData);
+      if (!remoteData) {
+        throw new Error();
+      }
 
       const state: ILessonState = {
         lessonId,
-        source,
+        source: 'remote',
         hasLocal,
-        hasRemote,
-        data: source === 'remote' ? remoteData : localData,
+        hasRemote: true,
+        data: remoteData,
       };
 
       yield put(updateState({ stateName: 'lesson', payload: state }));
     } catch(e) {
       // tslint:disable-next-line
-      console.log(`Faild to fetch lesson: ${action.payload.courseId}:${action.payload.lessonId}`);
+      console.log(`Faild to upload lesson: ${action.payload.courseId}:${action.payload.lessonId}`);
     }
   }
 );

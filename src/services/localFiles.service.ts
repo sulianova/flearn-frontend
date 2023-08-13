@@ -1,4 +1,4 @@
-import { ICourseData, ICourseDataLocal, IObject } from 'types';
+import { ICourseData, ICourseDataLocal, ILessonData, ILessonDataLocal, IObject } from 'types';
 
 class LocalFilesService {
   public Course = ({
@@ -36,6 +36,33 @@ class LocalFilesService {
         && typeof dataLocal.discontDeadline === 'string'
         && typeof dataLocal.creditWas === 'number'
         && typeof dataLocal.creditPrice === 'number';
+      // TODO add other tests
+      return res;
+    },
+  });
+
+  public Lesson = ({
+    localToFR(dataLocal: ILessonDataLocal) {
+      try {
+        const startDate = new Date(dataLocal.startDate);
+        const endDate = new Date(dataLocal.endDate);
+
+        const dataFr: ILessonData = {
+          ...dataLocal,
+          startDate,
+          endDate,
+        };
+
+        return dataFr;
+      } catch(e) {
+        return undefined;
+      }
+    },
+    test(dataLocal: IObject | undefined) {
+      if (dataLocal === undefined) {
+        return false;
+      }
+      const res = true;
       // TODO add other tests
       return res;
     },

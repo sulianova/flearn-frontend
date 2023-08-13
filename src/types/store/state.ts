@@ -1,4 +1,4 @@
-import { ICourseData, ILessonsState, ILessonState } from 'types';
+import { ICourseData, ILessonData, ILessonsState } from 'types';
 
 export interface IRootState {
   user?: IUserState
@@ -28,6 +28,14 @@ export interface ICourseState {
   hasLocal: boolean
   hasRemote: boolean
   data?: ICourseData
+}
+
+export interface ILessonState {
+  lessonId: string
+  source: 'local' | 'remote'
+  hasLocal: boolean
+  hasRemote: boolean
+  data?: ILessonData
 }
 
 export interface IBasicState {

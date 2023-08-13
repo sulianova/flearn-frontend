@@ -1,5 +1,5 @@
 import { put } from 'redux-saga/effects';
-import {firebaseService } from 'services';
+import { dataService } from 'services';
 import { createAction } from 'store/utils';
 import { updateState } from '../redux';
 
@@ -14,7 +14,7 @@ export const downloadCourse = createAction<'saga', IDownloadCoursePayload>(
   function* execute(action: TAction<IDownloadCoursePayload>) {
     try {
       const { courseId } = action.payload;
-      const remoteData: ICourseData | undefined = yield firebaseService.getCourse(courseId);
+      const remoteData: ICourseData | undefined = yield dataService.getCourse(courseId);
 
       if (!remoteData) {
         throw new Error();

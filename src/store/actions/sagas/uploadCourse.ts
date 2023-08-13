@@ -1,5 +1,5 @@
 import { put } from 'redux-saga/effects';
-import { firebaseService, localFilesServise } from 'services';
+import { dataService, localFilesServise } from 'services';
 import { createAction } from 'store/utils';
 import { updateState } from '../redux';
 
@@ -35,7 +35,7 @@ export const uploadCourse = createAction<'saga', IUploadCoursePayload>(
         throw new Error();
       }
 
-      const remoteData: ICourseData | undefined = yield firebaseService.setCourse(courseId, localData!);
+      const remoteData: ICourseData | undefined = yield dataService.setCourse(courseId, localData!);
 
       // tslint:disable-next-line
       console.log('saved data: ', remoteData);

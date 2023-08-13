@@ -1,6 +1,6 @@
 import classnames from 'classnames/bind';
 import { useEffect, useState } from 'react';
-import { firebaseService } from 'services';
+import { authService } from 'services';
 import { formatI18nT, i18n } from 'shared';
 import { URLSections } from 'types';
 import Link from 'ui/Link/Link';
@@ -24,7 +24,7 @@ function Header() {
         document.body.style.overflowY = '';
       };
     }
-  }, [isOpened]);
+  },        [isOpened]);
 
   return (
     <div className={headerClass}>
@@ -54,7 +54,7 @@ function Header() {
           </div>
         </div>
         <div className={classes.navLogin}>
-          <span className='inline-link' onClick={() => firebaseService.authenticate()}>
+          <span className='inline-link' onClick={() => authService.authenticate()}>
             {t('login.signIn')}
           </span>
           {/* <Link to={URLSections.My.Profile.index} className='inline-link'>{t('login.signIn')}</Link> */}

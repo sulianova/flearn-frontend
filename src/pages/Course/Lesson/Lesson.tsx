@@ -5,9 +5,10 @@ import LessonWorks from './Components/LessonContent/LessonWorks/LessonWorks';
 import LessonHeader from './Components/LessonHeader/LessonHeader';
 
 import { connect } from 'react-redux';
+import { useParams } from 'react-router';
 
 import { useFetch } from 'hooks';
-import { fetchCourse, fetchLesson } from 'store/actions/sagas';
+import { fetchLesson, type IFetchLessonPayload } from 'store/actions/sagas';
 
 import type { ILessonData, IRootState } from 'types';
 
@@ -24,8 +25,15 @@ function mapStateToProps(state: IRootState): IConnectedProps {
 }
 
 function Lesson({ data }: IConnectedProps) {
+  const { courseId, lessonId } = useParams();
 
-  useFetch(({ actionCreator: fetchLesson }));
+  useFetch<IFetchLessonPayload>(({
+    actionCreator: fetchLesson,
+    payload: {
+      courseId: courseId!,
+      lessonId: lessonId!,
+    },
+  }));
 
   if (!data || Object.keys(data).length === 0) {
     return (

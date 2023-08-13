@@ -1,5 +1,5 @@
 import { put } from 'redux-saga/effects';
-import { firebaseService, localFilesServise } from 'services';
+import { dataService, localFilesServise } from 'services';
 import { createAction } from 'store/utils';
 import { updateState } from '../redux';
 
@@ -32,7 +32,7 @@ export const fetchCourse = createAction<'saga', IFetchCoursePayload>(
       }
       const hasLocal = localData !== undefined;
 
-      const remoteData: ICourseData | undefined = yield firebaseService.getCourse(courseId);
+      const remoteData: ICourseData | undefined = yield dataService.getCourse(courseId);
       const hasRemote = remoteData !== undefined;
 
       const state: ICourseState = {

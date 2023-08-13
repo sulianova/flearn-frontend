@@ -3,9 +3,9 @@ import { useParams } from 'react-router';
 
 import { envService} from 'services';
 import Store from 'store';
-import { downloadCourse, fetchCourse, uploadCourse } from 'store/actions/sagas';
+import { downloadCourse, downloadLesson, fetchCourse, fetchLesson, uploadCourse, uploadLesson } from 'store/actions/sagas';
 
-import type { ICourseState, ILessonsState, IRootState } from 'types';
+import type { ICourseState, ILessonsState, ILessonState, IRootState } from 'types';
 
 import classes from './EditBar.module.scss';
 
@@ -16,7 +16,7 @@ interface IProps {
 export default function EditBar({ variant }: IProps) {
   const courseState = useSelector<IRootState, ICourseState | undefined>(state => state.course);
   const lessonsState = useSelector<IRootState, ILessonsState | undefined>(state => state.lessons);
-  const lessonState = undefined;
+  const lessonState = useSelector<IRootState, ILessonState | undefined>(state => state.lesson);
 
   const { courseId, lessonId } = useParams();
 
@@ -29,11 +29,10 @@ export default function EditBar({ variant }: IProps) {
     return null;
   }
 
-  if (!courseState) {
-    return null;
-  }
-
-  const { source } = courseState;
+  const { source } =
+    variant === 'Course' ? courseState!
+    : variant === 'Lessons' ? { source: 'local' }
+    : variant === 'Lesson' ? lessonState! : { source: 'local' };
 
   return (
     <section className={classes._}>
@@ -89,9 +88,7 @@ function handleUpload(props: TProps) {
       console.log('saving lessons for course: ', props.courseId);
       break;
     case 'Lesson':
-      // save lessons
-      // tslint:disable-next-line
-      console.log(`saving lesson ${props.lessonId} for course: ${props.courseId}`);
+      Store.dispatch(uploadLesson({ payload: { courseId: props.courseId, lessonId: props.lessonId } }));
       break;
     default:
       // @ts-ignore
@@ -110,9 +107,7 @@ function handleDownload(props: TProps) {
       console.log('saving lessons for course: ', props.courseId);
       break;
     case 'Lesson':
-      // save lessons
-      // tslint:disable-next-line
-      console.log(`saving lesson ${props.lessonId} for course: ${props.courseId}`);
+      Store.dispatch(downloadLesson({ payload: { courseId: props.courseId, lessonId: props.lessonId } }));
       break;
     default:
       // @ts-ignore
@@ -132,9 +127,7 @@ function handleSwitch(props: TProps, targetSource: 'local' | 'remote') {
         console.log('switch lessons source to local for course: ', props.courseId);
         break;
       case 'Lesson':
-        // save lessons
-        // tslint:disable-next-line
-        console.log(`saving lesson ${props.lessonId} for course: ${props.courseId}`);
+        Store.dispatch(fetchLesson({ payload: { courseId: props.courseId, lessonId: props.lessonId, source: 'local' } }));
         break;
       default:
         // @ts-ignore
@@ -151,9 +144,7 @@ function handleSwitch(props: TProps, targetSource: 'local' | 'remote') {
         console.log('switch lessons source to remote for course: ', props.courseId);
         break;
       case 'Lesson':
-        // save lessons
-        // tslint:disable-next-line
-        console.log(`switch lesson (${props.lessonId}) source to remote for course: ${props.courseId}`);
+        Store.dispatch(fetchLesson({ payload: { courseId: props.courseId, lessonId: props.lessonId, source: 'remote' } }));
         break;
       default:
         // @ts-ignore
