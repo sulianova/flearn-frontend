@@ -29,6 +29,15 @@ class AuthService {
     this.user = result.user;
   }
 
+  public async getAuthenticatedUser() {
+    if (this.user) {
+      return this.user;
+    }
+
+    await this.authenticate();
+    return this.user!;
+  }
+
   private _auth: Auth;
   private _authProvider: GoogleAuthProvider;
   private _authenticationInProgress: boolean;

@@ -14,12 +14,12 @@ export const uploadLesson = createAction<'saga', IUploadLessonPayload>(
   '***saga*** upload Lesson',
   function* execute(action: TAction<IUploadLessonPayload>) {
     try {
-      const { courseId, lessonId: lessonPartialId } = action.payload;
-      const lessonId = `${courseId}_${lessonPartialId}`;
+      const { courseId, lessonId } = action.payload;
       let localData: ILessonData | undefined;
       try {
+        const fullId = dataService.lesson.getFullId(courseId, lessonId);
         // @ts-ignore
-        const file = yield import(`edit-files/lesson-${lessonId}.json`);
+        const file = yield import(`edit-files/lesson-${fullId}.json`);
         const isValid = localFilesServise.Lesson.test(file.lessonData);
         if (!isValid) {
           throw new Error('Local file is corrupt');
@@ -37,7 +37,7 @@ export const uploadLesson = createAction<'saga', IUploadLessonPayload>(
         throw new Error();
       }
 
-      const remoteData: ILessonData | undefined = yield dataService.setLesson(lessonId, localData!);
+      const remoteData: ILessonData | undefined = yield dataService.lesson.set(courseId, lessonId, localData!);
 
       // tslint:disable-next-line
       console.log('saved data: ', remoteData);
@@ -46,6 +46,7 @@ export const uploadLesson = createAction<'saga', IUploadLessonPayload>(
       }
 
       const state: ILessonState = {
+        courseId,
         lessonId,
         source: 'remote',
         hasLocal,
@@ -55,8 +56,9 @@ export const uploadLesson = createAction<'saga', IUploadLessonPayload>(
 
       yield put(updateState({ stateName: 'lesson', payload: state }));
     } catch(e) {
+      const fullId = dataService.lesson.getFullId(action.payload.courseId, action.payload.lessonId);
       // tslint:disable-next-line
-      console.log(`Faild to upload lesson: ${action.payload.courseId}:${action.payload.lessonId}`);
+      console.log(`Faild to upload lesson: ${fullId}`);
     }
   }
 );

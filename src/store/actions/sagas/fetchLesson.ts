@@ -15,12 +15,12 @@ export const fetchLesson = createAction<'saga', IFetchLessonPayload>(
   '***saga*** fetch Lesson',
   function* execute(action: TAction<IFetchLessonPayload>) {
     try {
-      const { courseId, lessonId: lessonPartialId, source = 'remote' } = action.payload;
-      const lessonId = `${courseId}_${lessonPartialId}`;
+      const { courseId, lessonId, source = 'remote' } = action.payload;
       let localData: ILessonData | undefined;
       try {
+        const fullId = dataService.lesson.getFullId(courseId, lessonId);
         // @ts-ignore
-        const file = yield import(`edit-files/lesson-${lessonId}.json`);
+        const file = yield import(`edit-files/lesson-${fullId}.json`);
         const isValid = localFilesServise.Lesson.test(file.lessonData);
         if (!isValid) {
           throw new Error('Local file is corrupt');
@@ -33,10 +33,11 @@ export const fetchLesson = createAction<'saga', IFetchLessonPayload>(
       }
       const hasLocal = localData !== undefined;
 
-      const remoteData: ILessonData | undefined = yield dataService.getLesson(lessonId);
+      const remoteData: ILessonData | undefined = yield dataService.lesson.get(courseId, lessonId);
       const hasRemote = remoteData !== undefined;
 
       const state: ILessonState = {
+        courseId,
         lessonId,
         source,
         hasLocal,
@@ -46,8 +47,9 @@ export const fetchLesson = createAction<'saga', IFetchLessonPayload>(
 
       yield put(updateState({ stateName: 'lesson', payload: state }));
     } catch(e) {
+      const fullId = dataService.lesson.getFullId(action.payload.courseId, action.payload.lessonId);
       // tslint:disable-next-line
-      console.log(`Faild to fetch lesson: ${action.payload.courseId}:${action.payload.lessonId}`);
+      console.log(`Faild to fetch lesson: ${fullId}`);
     }
   }
 );

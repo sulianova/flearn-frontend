@@ -31,6 +31,7 @@ export interface ICourseState {
 }
 
 export interface ILessonState {
+  courseId: string
   lessonId: string
   source: 'local' | 'remote'
   hasLocal: boolean

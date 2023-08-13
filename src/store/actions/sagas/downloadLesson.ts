@@ -14,9 +14,8 @@ export const downloadLesson = createAction<'saga', IDownloadLessonPayload>(
   '***saga*** download Lesson',
   function* execute(action: TAction<IDownloadLessonPayload>) {
     try {
-      const { courseId, lessonId: lessonPartialId } = action.payload;
-      const lessonId = `${courseId}_${lessonPartialId}`;
-      const remoteData: ILessonData | undefined = yield dataService.getLesson(lessonId);
+      const { courseId, lessonId } = action.payload;
+      const remoteData: ILessonData | undefined = yield dataService.lesson.get(courseId, lessonId);
 
       if (!remoteData) {
         throw new Error();
@@ -26,6 +25,7 @@ export const downloadLesson = createAction<'saga', IDownloadLessonPayload>(
         {
           lessonData: remoteData,
           lessonMeta: {
+            courseId,
             lessonId,
           },
         },
@@ -43,6 +43,7 @@ export const downloadLesson = createAction<'saga', IDownloadLessonPayload>(
       link.click();
 
       const state: ILessonState = {
+        courseId,
         lessonId,
         source: 'local',
         hasLocal: true,
@@ -52,8 +53,9 @@ export const downloadLesson = createAction<'saga', IDownloadLessonPayload>(
 
       yield put(updateState({ stateName: 'lesson', payload: state }));
     } catch(e) {
+      const fullId = dataService.lesson.getFullId(action.payload.courseId, action.payload.lessonId);
       // tslint:disable-next-line
-      console.log(`Faild to download lesson: ${action.payload.courseId}:${action.payload.lessonId}`);
+      console.log(`Faild to download lesson: ${fullId}`);
     }
   }
 );

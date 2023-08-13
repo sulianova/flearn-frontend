@@ -32,7 +32,7 @@ export const fetchCourse = createAction<'saga', IFetchCoursePayload>(
       }
       const hasLocal = localData !== undefined;
 
-      const remoteData: ICourseData | undefined = yield dataService.getCourse(courseId);
+      const remoteData: ICourseData | undefined = yield dataService.course.get(courseId);
       const hasRemote = remoteData !== undefined;
 
       const state: ICourseState = {

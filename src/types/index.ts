@@ -1,3 +1,4 @@
+export * from './access';
 export * from './backend';
 export * from './course';
 export * from './lessons';

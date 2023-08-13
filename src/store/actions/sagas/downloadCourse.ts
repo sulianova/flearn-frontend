@@ -14,7 +14,7 @@ export const downloadCourse = createAction<'saga', IDownloadCoursePayload>(
   function* execute(action: TAction<IDownloadCoursePayload>) {
     try {
       const { courseId } = action.payload;
-      const remoteData: ICourseData | undefined = yield dataService.getCourse(courseId);
+      const remoteData: ICourseData | undefined = yield dataService.course.get(courseId);
 
       if (!remoteData) {
         throw new Error();

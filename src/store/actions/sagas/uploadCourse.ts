@@ -35,7 +35,7 @@ export const uploadCourse = createAction<'saga', IUploadCoursePayload>(
         throw new Error();
       }
 
-      const remoteData: ICourseData | undefined = yield dataService.setCourse(courseId, localData!);
+      const remoteData: ICourseData | undefined = yield dataService.course.set(courseId, localData!);
 
       // tslint:disable-next-line
       console.log('saved data: ', remoteData);
