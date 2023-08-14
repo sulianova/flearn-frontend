@@ -1,4 +1,6 @@
 export * from './auth';
+export * from './fetchUser';
+export * from './logout';
 
 export * from './downloadCourse';
 export * from './fetchCourse';

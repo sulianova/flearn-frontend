@@ -11,7 +11,8 @@ import classesTitle from './Title.module.scss';
 
 import Profile from './Profile/Profile';
 import Settings from './Settings/Settings';
-import { IRootState, IUserData } from 'types';
+import { IRootState, IUserData, URLSections } from 'types';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(classes);
 
@@ -40,7 +41,7 @@ function My(props: IProps) {
   if (!user) {
     return (
       <Page header footer wrapper='My'>
-        Faild to authenticate
+        Failed to authenticate
       </Page>
     );
   }
@@ -52,10 +53,22 @@ function My(props: IProps) {
       </div>
       <div className={classes.menu}>
         <div className={classes.menuLinkWrapper}>
-          <a className={cx({ menuLink: true, isActive: true }) + ' s-text-20-uppercase'} href='#' aria-current='page'>Профиль</a>
+        <Link
+            className={cx({ menuLink: true, isActive: mode === 'Profile' }) + ' s-text-20-uppercase'}
+            to={URLSections.My.Profile.index}
+            aria-current='page'
+          >
+            Профиль
+          </Link>
         </div>
         <div className={classes.menuLinkWrapper}>
-          <a className={cx({ menuLink: true, isActive: false }) + ' s-text-20-uppercase'}  href='#' aria-current='page'>Настройки</a>
+          <Link
+            className={cx({ menuLink: true, isActive: mode === 'Settings' }) + ' s-text-20-uppercase'}
+            to={URLSections.My.Settings.index}
+            aria-current='page'
+          >
+            Настройки
+          </Link>
         </div>
       </div>
       {mode === 'Profile' ? <Profile user={user}/> : <Settings user={user}/>}
