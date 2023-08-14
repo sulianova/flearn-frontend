@@ -1,4 +1,4 @@
-import { authService, firebaseService } from 'services';
+import { firebaseService } from 'services';
 
 import { courseConverter } from './courseConverter';
 
@@ -7,7 +7,6 @@ import type { ICourseData } from 'types';
 
 class Course {
   public async get(id: string) {
-    // await this._checkCourseAccess(id);
     return await firebaseService.getDoc(ECollections.Course, id, courseConverter);
   }
 
