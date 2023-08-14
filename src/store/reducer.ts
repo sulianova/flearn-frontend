@@ -4,6 +4,7 @@ import { createReducer } from './utils';
 import { IObject, TStateName } from 'types';
 
 export default combineReducers({
+    user: createReducer('user'),
     course: createReducer('course'),
     lesson: createReducer('lesson'),
     lessons: createReducer('lessons'),

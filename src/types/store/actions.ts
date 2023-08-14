@@ -32,3 +32,12 @@ export type IPayload =
   | number[]
   | IObject
   | IObject[];
+
+export interface IPayloadWithEffects {
+  effects?: {
+    onStart?: () => void
+    onSuccess?: () => void
+    onFail?: () => void
+    onFinish: () => void
+  }
+}

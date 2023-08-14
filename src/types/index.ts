@@ -6,3 +6,4 @@ export * from './lesson';
 export * from './object';
 export * from './route';
 export * from './store';
+export * from './user';

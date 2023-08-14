@@ -4,6 +4,8 @@ import * as Actions from './actions/sagas';
 
 export default function* rootSaga() {
   yield all([
+    takeEvery(Actions.auth.type, Actions.auth.execute),
+
     takeEvery(Actions.downloadCourse.type, Actions.downloadCourse.execute),
     takeEvery(Actions.fetchCourse.type, Actions.fetchCourse.execute),
     takeEvery(Actions.uploadCourse.type, Actions.uploadCourse.execute),

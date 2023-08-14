@@ -27,6 +27,8 @@ class AuthService {
     }
 
     this.user = result.user;
+
+    console.log('user: ', result.user);
   }
 
   public async getAuthenticatedUser() {

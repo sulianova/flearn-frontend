@@ -1,11 +1,16 @@
 import classNames from 'classnames/bind';
 import classesInputField from './InputField.module.scss';
 import classes from './Settings.module.scss';
+import { IUserData } from 'types';
 
 const cx = classNames.bind(classes);
 const cx2 = classNames.bind(classesInputField);
 
-export default function Settings() {
+interface IProps {
+  user: IUserData
+}
+
+export default function Settings(props: IProps) {
   return (
     <div className={classes._}>
       <div className={cx({ block: true, isBig: true })}>

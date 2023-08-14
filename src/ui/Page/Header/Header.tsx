@@ -1,12 +1,10 @@
 import classnames from 'classnames/bind';
 import { useEffect, useState } from 'react';
-import { authService } from 'services';
 import { formatI18nT, i18n } from 'shared';
 import { URLSections } from 'types';
 import Link from 'ui/Link/Link';
 
 import classes from './header.module.scss';
-import { useNavigate, type NavigateFunction } from 'react-router-dom';
 
 const cx = classnames.bind(classes);
 const t = formatI18nT('header');
@@ -16,7 +14,6 @@ export default Header;
 function Header() {
   const [isOpened, setIsOpened] = useState<boolean>(false);
   const headerClass = cx({ _: true, IsMobileMenuOpened: isOpened });
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (isOpened) {
@@ -48,12 +45,7 @@ function Header() {
           </div>
         </div>
         <div className={classes.navLogin}>
-          <span
-            className='inline-link'
-            onClick={() => authenticateAndNavigateToMyProfile(navigate)}
-          >
-            {t('login.signIn')}
-          </span>
+            <Link to={URLSections.My.Profile.index} className='inline-link'>{t('login.signIn')}</Link>
         </div>
         <div className={classes.humburger} onClick={() => setIsOpened(o => !o)}/>
       </div>
@@ -76,27 +68,9 @@ function Header() {
           </div>
         </div>
         <div className={classes.mobMenuControls}>
-          <span
-            className={classes.loginBtn + ' s-text-24'}
-            onClick={() => authenticateAndNavigateToMyProfile(navigate)}
-          >
-            {t('login.signIn')}
-          </span>
           <Link to={URLSections.My.Profile.index} className={classes.loginBtn + ' s-text-24'}>{t('login.signIn')}</Link>
         </div>
       </div>
     </div>
   );
-}
-
-async function authenticateAndNavigateToMyProfile(navigate: NavigateFunction) {
-  if (authService.isAuthenticated) {
-    navigate(URLSections.My.Profile.index);
-    return;
-  }
-
-  await authService.authenticate();
-  if (authService.isAuthenticated) {
-    navigate(URLSections.My.Profile.index);
-  }
 }
