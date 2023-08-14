@@ -40,6 +40,10 @@ class AuthService {
     return this.user!;
   }
 
+  public logout() {
+    this.user = null;
+  }
+
   public get isAuthenticated() {
     return this.user !== null;
   }

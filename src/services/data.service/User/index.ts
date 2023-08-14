@@ -14,6 +14,18 @@ class User {
     return await firebaseService.setDoc(ECollections.User, email, data, userConverter);
   }
 
+  public async update(email: string, data: Partial<IUserData>) {
+    const user = await this.get(email) as IUserData | undefined;
+    if (!user) {
+      throw new Error(`Cannot update user: user for ${email} is not created`);
+    }
+    const fullData: IUserData = {
+      ...user,
+      ...data,
+    };
+    return await this.set(email, fullData);
+  }
+
   public async create(email: string, data: Omit<IUserData, 'firstSignInAt' | 'lastSignInAt'>) {
     const alreadyHas = Boolean(await this.get(email));
     if (alreadyHas) {
