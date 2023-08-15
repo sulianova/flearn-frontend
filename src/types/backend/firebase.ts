@@ -3,4 +3,5 @@ export enum ECollections {
   Lesson = 'lesson',
   Access = 'access',
   User = 'user',
+  Order = 'order',
 }

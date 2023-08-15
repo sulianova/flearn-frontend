@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { doc as getDocRef, getDoc, getFirestore, setDoc } from 'firebase/firestore';
+import { doc as getDocRef, getDoc, getFirestore, setDoc, collection } from 'firebase/firestore';
 import firebaseConfig from './firebase.config.json';
 
 import { ECollections } from 'types';
@@ -35,6 +35,26 @@ export class FirebaseService {
       await setDoc(docRef, data);
       const savedDoc = await this.getDoc(collectionName, id, converter);
       return savedDoc;
+    } catch(e) {
+      // tslint:disable-next-line
+      console.error(e);
+    }
+  }
+
+  public async createWithGeneratedId(collectionName: ECollections, data: IObject, converter: FirestoreDataConverter<DocumentData, DocumentData> | null = null) {
+    try {
+      const collectionRef = collection(this._db, collectionName);
+      const id = collectionRef.id;
+      console.log('createWithGeneratedId: id: ', id);
+      // const res = await this._db.collection('cities').add({
+      //   name: 'Tokyo',
+      //   country: 'Japan'
+      // });
+
+      // const docRef = converter ? getDocRef(this._db, collectionName).withConverter(converter) : getDocRef(this._db, collectionName);
+      // const erty = await setDoc(docRef, data);
+      // const savedDoc = await this.getDoc(collectionName, id, converter);
+      // return savedDoc;
     } catch(e) {
       // tslint:disable-next-line
       console.error(e);

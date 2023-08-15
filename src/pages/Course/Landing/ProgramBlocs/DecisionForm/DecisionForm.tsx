@@ -8,8 +8,9 @@ import classesInputField from './InputField.module.scss';
 import CheckboxSvg from 'assets/images/Svg/Checkbox';
 import Checkbox from 'ui/Form/Checkbox/Checkbox';
 
-import { Fragment } from 'react';
-import type { ICourseData } from 'types';
+import { Fragment, useEffect, useState } from 'react';
+import type { ICourseData, IRootState } from 'types';
+import store from 'store';
 
 export default DecisionForm;
 
@@ -22,7 +23,22 @@ interface IProps {
 
 const t = formatI18nT('courseLanding.form');
 
+interface IFormData {
+  email: string
+  name: string
+  phone: string
+}
+
 function DecisionForm(props: IProps) {
+  const [formData, setFormData] = useState<IFormData>({ email: '', name: '', phone: '' });
+
+  useEffect(() => {
+    const user = (store.getState() as IRootState).user?.user;
+    if (user) {
+      setFormData(d => ({ ...d, email: user.email, name: user.displayName ?? '' }));
+    }
+  }, [])
+
   return (
     <div className={classes.wrapper} id='decision-form'>
       <div className={cx({ block: true, blockDetails: true })}>
@@ -38,7 +54,7 @@ function DecisionForm(props: IProps) {
       </div>
       <div className={classes.block}>
         <h1 className={classes.subtitle + ' s-text-24'}>{t('subtitle')}</h1>
-        {renderForm()}
+        {renderForm(formData, setFormData)}
       </div>
     </div>
   );
@@ -68,7 +84,7 @@ function renderInputs(inputsType: Array<IInputFieldProps['variant']>) {
   );
 }
 
-function renderForm () {
+function renderForm(formData: IFormData, setFormData: React.Dispatch<React.SetStateAction<IFormData>>) {
   return (
     <form className={classes.form}>
       {renderInputs(['Name', 'Phone', 'Email'] as Array<IInputFieldProps['variant']>)}
