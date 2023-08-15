@@ -1,6 +1,6 @@
 import { put } from 'redux-saga/effects';
 import { createAction } from 'store/utils';
-import { updateState } from '../redux';
+import { updateState } from '../../redux';
 import { authService } from 'services';
 
 export const logout = createAction<'saga'>(

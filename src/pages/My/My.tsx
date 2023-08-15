@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import Store from 'store';
-import { auth } from 'store/actions/sagas';
+import { login } from 'store/actions/sagas';
 
 import classNames from 'classnames/bind';
 import Page from 'ui/Page/Page';
@@ -35,7 +35,7 @@ function My(props: IProps) {
   const { mode, user } = props;
 
   useEffect(() => {
-    Store.dispatch(auth({ payload: {} }));
+    Store.dispatch(login({ payload: {} }));
   }, []);
 
   if (!user) {

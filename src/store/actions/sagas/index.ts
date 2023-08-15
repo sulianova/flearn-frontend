@@ -1,6 +1,10 @@
+export * from './init';
+
 export * from './auth';
+export * from './auth/login';
+export * from './auth/logout';
+
 export * from './fetchUser';
-export * from './logout';
 
 export * from './downloadCourse';
 export * from './fetchCourse';
