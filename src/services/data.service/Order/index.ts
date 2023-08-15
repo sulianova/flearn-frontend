@@ -31,7 +31,7 @@ class Order {
     };
 
     // firebaseService.setDoc(ECollections.Order, )
-    firebaseService.createWithGeneratedId(ECollections.Order, data);
+    await firebaseService.createWithGeneratedId(ECollections.Order, data);
   }
 }
 
