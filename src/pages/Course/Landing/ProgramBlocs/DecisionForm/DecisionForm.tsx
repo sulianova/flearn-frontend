@@ -29,10 +29,10 @@ interface IFormData {
   name: string
   phone: string
   termsAgreed: boolean
-  pending: boolean
+  state: { type: 'idle' } |  { type: 'pending' } | { type: 'success' } | { type: 'error', error: Error }
 }
 
-const initialFormData: IFormData = { email: '', name: '', phone: '', termsAgreed: true, pending: false };
+const initialFormData: IFormData = { email: '', name: '', phone: '', termsAgreed: true, state: { type: 'idle' } };
 
 function DecisionForm(props: IProps) {
   const [formData, setFormData] = useState<IFormData>(initialFormData);
@@ -45,11 +45,14 @@ function DecisionForm(props: IProps) {
   }, []);
 
   const handleSubmit = useCallback(async (formData: IFormData) => {
-    console.log('start submit: formData: ', formData);
-    setFormData(d => ({ ...d, pending: true }));
+    setFormData(d => ({ ...d, state: { type: 'pending' } }));
     const { email, name, phone } = formData;
-    await dataService.order.create({ email, name, phone });
-    setFormData(initialFormData);
+    try {
+      await dataService.order.create({ email, name, phone });
+      setFormData({ ...initialFormData, state: { type: 'success' } });
+    } catch (e) {
+      setFormData(d => ({ ...d, state: { type: 'error', error: e as Error } }));
+    }
   }, []);
 
   return (
@@ -92,6 +95,8 @@ function renderForm(
       className={classes.form}
       onSubmit={isValid(formData) ? () => handleSubmit(formData) : undefined}
     >
+      {formData.state.type === 'error' && <span className={classes.Error}>{formData.state.error.message}</span>}
+      {formData.state.type === 'success' && <span className={classes.Success}>Order is created!</span>}
       <div className={classes.inputWrap}>
         <InputField
           className={cx2({ input: true, light: true }) + ' s-text-24'}
@@ -135,13 +140,13 @@ function renderForm(
         disabled={!isValid(formData)}
         onClick={() => handleSubmit(formData)}
       >
-        <span>{i18n.t('signUp')}</span>
+        <span>{formData.state.type === 'pending' ? 'отправляем' : i18n.t('signUp')}</span>
       </button>
     </form>
   );
 }
 
 function isValid(formData: IFormData) {
-  const { termsAgreed, name, email, phone, pending } = formData;
-  return termsAgreed && name  && email  && phone && !pending;
+  const { termsAgreed, name, email, phone, state } = formData;
+  return termsAgreed && name  && email && phone && state.type !== 'pending';
 }

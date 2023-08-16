@@ -11,9 +11,17 @@ class Order {
     if (!courseData || !courseId) {
       throw new Error('Cannot create order: courseData or courseId is undefined');
     }
+    const id = `${courseId}_${userFromForm.email}`;
+    const oldOrder = await firebaseService.getDoc(ECollections.Order, id);
+
+    if (oldOrder) {
+      throw new Error('Cannot create duplicated order');
+    }
+
     const { discontAmount, discontDeadline, creditPrice, creditWas } = courseData;
 
     const data: IOrderData = {
+      status: 'created',
       userFromForm,
       currentAuthedUser: state.user?.user,
       course: {
@@ -30,8 +38,7 @@ class Order {
       },
     };
 
-    // firebaseService.setDoc(ECollections.Order, )
-    await firebaseService.createWithGeneratedId(ECollections.Order, data);
+    await firebaseService.setDoc(ECollections.Order, id, data);
   }
 }
 

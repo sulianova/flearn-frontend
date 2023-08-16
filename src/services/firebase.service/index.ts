@@ -41,26 +41,6 @@ export class FirebaseService {
     }
   }
 
-  public async createWithGeneratedId(collectionName: ECollections, data: IObject, converter: FirestoreDataConverter<DocumentData, DocumentData> | null = null) {
-    try {
-      const collectionRef = collection(this._db, collectionName);
-      const id = collectionRef.id;
-      console.log('createWithGeneratedId: id: ', id);
-      // const res = await this._db.collection('cities').add({
-      //   name: 'Tokyo',
-      //   country: 'Japan'
-      // });
-
-      // const docRef = converter ? getDocRef(this._db, collectionName).withConverter(converter) : getDocRef(this._db, collectionName);
-      // const erty = await setDoc(docRef, data);
-      // const savedDoc = await this.getDoc(collectionName, id, converter);
-      // return savedDoc;
-    } catch(e) {
-      // tslint:disable-next-line
-      console.error(e);
-    }
-  }
-
   private _app: FirebaseApp;
   private _db: Firestore;
 }

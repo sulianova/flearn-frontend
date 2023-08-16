@@ -1,6 +1,7 @@
 import { IUserData } from './user';
 
 export interface IOrderData {
+    status: 'created' | 'rejected' | 'closed'
     userFromForm: {
         email: string
         name: string
