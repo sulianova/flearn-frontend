@@ -1,7 +1,7 @@
 import { createAction } from 'store/utils';
 import { authService, dataService } from 'services';
 import { put } from 'redux-saga/effects';
-import { IUserState } from 'types';
+import { IUserData, IUserState } from 'types';
 import { updateState } from '../../redux';
 
 export const loginFromStorage = createAction<'saga'>(
@@ -18,7 +18,11 @@ export const loginFromStorage = createAction<'saga'>(
         throw new Error(`Cannot authenticate with email: ${email}`);
       }
 
-      const user = yield dataService.user.getOrCreate(email, { email, displayName, photoURL });
+      const user: IUserData = yield dataService.user.getOrCreate(email, { email, displayName, photoURL, role: 'user' });
+
+      // send update request to work in the background
+      dataService.user.update(user.email, { lastSignInAt: new Date() });
+
       const state: IUserState = {
         user,
       };

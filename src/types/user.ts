@@ -4,6 +4,7 @@ export interface IUserData {
   photoURL: string | null
   firstSignInAt: Date
   lastSignInAt: Date
+  role: 'user' | 'support'
 }
 
 export interface IUserDataDB {
@@ -12,4 +13,5 @@ export interface IUserDataDB {
   photoURL: string | null
   firstSignInAt: { seconds: number, nanoseconds: number }
   lastSignInAt: { seconds: number, nanoseconds: number }
+  role: 'user' | 'support'
 }
