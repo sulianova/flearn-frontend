@@ -20,6 +20,8 @@ class AuthService {
     this._app = initializeApp(config);
     this._auth = getAuth(this._app);
     this._authProvider = new GoogleAuthProvider();
+    this._authProvider.setCustomParameters({ prompt: 'consent' });
+
     this._authenticationInProgress = false;
     this._resolveAwaitPersistedUser = undefined;
 
@@ -34,7 +36,7 @@ class AuthService {
   }
 
   public async authUsingPersistance() {
-    // setPersistence end work before authUsingPersistance was called => 
+    // setPersistence ends work before authUsingPersistance was called => 
     // if persisted user existed he will be already in this.user
     if (this._resolveAwaitPersistedUser === null) {
       return this.user;
@@ -52,7 +54,7 @@ class AuthService {
 
     this._authenticationInProgress = true;
 
-    const result = await signInWithPopup(this._auth, this._authProvider);
+    const result = await signInWithPopup(this._auth, this._authProvider, );
 
     this._authenticationInProgress = false;
     if (!result.user) {
@@ -60,8 +62,6 @@ class AuthService {
     }
 
     this.user = result.user;
-
-    console.log('user: ', result.user);
   }
 
   public async getAuthenticatedUser() {
