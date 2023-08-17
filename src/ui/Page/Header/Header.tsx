@@ -1,17 +1,30 @@
 import classnames from 'classnames/bind';
 import { useEffect, useState } from 'react';
 import { formatI18nT, i18n } from 'shared';
-import { URLSections } from 'types';
+import { IRootState, IUserData, URLSections } from 'types';
 import Link from 'ui/Link/Link';
 
 import classes from './header.module.scss';
+import { connect } from 'react-redux';
+import store from 'store';
+import { login } from 'store/actions/sagas';
 
 const cx = classnames.bind(classes);
 const t = formatI18nT('header');
 
-export default Header;
+export default connect(mapStateToProps)(Header);
 
-function Header() {
+interface IConnectedProps {
+  user?: IUserData
+}
+
+function mapStateToProps(state: IRootState): IConnectedProps {
+  return {
+    user: state.user?.user,
+  };
+}
+
+function Header(props: IConnectedProps) {
   const [isOpened, setIsOpened] = useState<boolean>(false);
   const headerClass = cx({ _: true, IsMobileMenuOpened: isOpened });
 
@@ -45,7 +58,10 @@ function Header() {
           </div>
         </div>
         <div className={classes.navLogin}>
-            <Link to={URLSections.My.Profile.index} className='inline-link'>{t('login.signIn')}</Link>
+          {props.user ?
+            (<Link to={URLSections.My.Profile.index} className='inline-link'>{t('login.profile')}</Link>)
+            : (<div className='inline-link' onClick={handleLogin}>{t('login.signIn')}</div>)
+          }
         </div>
         <div className={classes.humburger} onClick={() => setIsOpened(o => !o)}/>
       </div>
@@ -68,9 +84,16 @@ function Header() {
           </div>
         </div>
         <div className={classes.mobMenuControls}>
-          <Link to={URLSections.My.Profile.index} className={classes.loginBtn + ' s-text-24'}>{t('login.signIn')}</Link>
+          {props.user ?
+            (<Link to={URLSections.My.Profile.index} className={classes.loginBtn + ' s-text-24'}>{t('login.profile')}</Link>)
+            : (<div className={classes.loginBtn + ' s-text-24'} onClick={handleLogin}>{t('login.signIn')}</div>)
+          }
         </div>
       </div>
     </div>
   );
+}
+
+function handleLogin() {
+  store.dispatch(login({ payload: {}}));
 }

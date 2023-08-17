@@ -2,6 +2,7 @@ export * from './init';
 
 export * from './auth';
 export * from './auth/login';
+export * from './auth/loginFromStorage';
 export * from './auth/logout';
 
 export * from './fetchUser';

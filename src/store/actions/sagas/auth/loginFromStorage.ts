@@ -1,17 +1,14 @@
 import { createAction } from 'store/utils';
 import { authService, dataService } from 'services';
 import { put } from 'redux-saga/effects';
-import { IPayloadWithEffects, IUserState, TAction } from 'types';
+import { IUserState } from 'types';
 import { updateState } from '../../redux';
 
-export const login = createAction<'saga', IPayloadWithEffects>(
-  '***saga*** login',
-  function* execute(action: TAction<IPayloadWithEffects>) {
+export const loginFromStorage = createAction<'saga'>(
+  '***saga*** login from storage',
+  function* execute() {
     try {
-      action.payload.effects?.onStart?.();
-
-      yield authService.authenticate();
-
+      yield authService.authUsingPersistance();
       if (!authService.isAuthenticated) {
         throw new Error('failed to authenticate');
       }
@@ -20,19 +17,16 @@ export const login = createAction<'saga', IPayloadWithEffects>(
       if (!email) {
         throw new Error(`Cannot authenticate with email: ${email}`);
       }
-      const user = yield dataService.user.getOrCreate(email, { email, displayName, photoURL });
 
+      const user = yield dataService.user.getOrCreate(email, { email, displayName, photoURL });
       const state: IUserState = {
         user,
       };
 
       yield put(updateState({ stateName: 'user', payload: state }));
 
-      action.payload.effects?.onSuccess?.();
-
       return state;
     } catch(e) {
-      action.payload.effects?.onFail?.();
 
       // tslint:disable-next-line
       console.log(`Failed to authenticate`);
@@ -41,9 +35,8 @@ export const login = createAction<'saga', IPayloadWithEffects>(
       const state: IUserState = {
         user: undefined,
       };
+      yield put(updateState({ stateName: 'user', payload: state }));
       return state;
-    } finally {
-      action.payload.effects?.onFinish?.();
     }
   },
 );

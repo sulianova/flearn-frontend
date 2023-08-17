@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { doc as getDocRef, getDoc, getFirestore, setDoc, collection } from 'firebase/firestore';
+import { doc as getDocRef, getDoc, getFirestore, setDoc } from 'firebase/firestore';
 import firebaseConfig from './firebase.config.json';
 
 import { ECollections } from 'types';
