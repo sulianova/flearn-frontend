@@ -46,8 +46,6 @@ export const downloadLesson = createAction<'saga', IDownloadLessonPayload>(
         courseId,
         lessonId,
         source: 'local',
-        hasLocal: true,
-        hasRemote: true,
         data: remoteData,
       };
 

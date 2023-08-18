@@ -2,18 +2,23 @@ import { authService, firebaseService } from 'services';
 
 import { lessonConverter } from './lessonConverter';
 
-import { ECollections } from 'types';
+import { ECollections, ELessonErrorTypes } from 'types';
 import type { IAccessData, ILessonData } from 'types';
 
 class Lesson {
   public async get(courseId: string, lessonId: string) {
     const fullLessonId = this.getFullId(courseId, lessonId);
     const userHasAccess = await this._checkCourseAccess(courseId);
-    if (userHasAccess) {
-      return await firebaseService.getDoc(ECollections.Lesson, fullLessonId, lessonConverter);
-    } else {
-      return undefined;
+
+    if (!userHasAccess) {
+      throw new Error(ELessonErrorTypes.Restricted);
     }
+    const lessonData = await firebaseService.getDoc(ECollections.Lesson, fullLessonId, lessonConverter);
+    if (!lessonData) {
+      throw new Error(ELessonErrorTypes.FailedToFindLesson);
+    }
+
+    return lessonData;
   }
 
   public async set(courseId: string, lessonId: string, data: ILessonData) {
@@ -26,9 +31,17 @@ class Lesson {
   }
 
   private async _checkCourseAccess(courseId: string) {
-    const user = await authService.getAuthenticatedUser();
+    const user = authService.user;
+    if (!user) {
+      throw new Error(ELessonErrorTypes.Unauthorized);
+    }
+
     const accessData = await firebaseService.getDoc(ECollections.Access, courseId) as IAccessData | undefined;
-    const userHasAccess = Boolean(accessData && user.email && accessData.users[user.email]);
+    if (!accessData) {
+      throw new Error(ELessonErrorTypes.FailedToFindLesson);
+    }
+
+    const userHasAccess = Boolean(user.email && accessData.users[user.email]);
     return userHasAccess;
   }
 }

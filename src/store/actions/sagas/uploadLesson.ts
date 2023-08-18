@@ -49,8 +49,6 @@ export const uploadLesson = createAction<'saga', IUploadLessonPayload>(
         courseId,
         lessonId,
         source: 'remote',
-        hasLocal,
-        hasRemote: true,
         data: remoteData,
       };
 
