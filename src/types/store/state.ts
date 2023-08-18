@@ -1,10 +1,10 @@
 import { ICourseData, ILessonData, ILessonsState, IUserData } from 'types';
 
 export interface IRootState {
-  user?: IUserState
-  course?: ICourseState
-  lessons?: ILessonsState
-  lesson?: ILessonState
+  user: IUserState
+  course: ICourseState
+  lessons: ILessonsState
+  lesson: ILessonState
   ui?: IBasicState
 }
 
