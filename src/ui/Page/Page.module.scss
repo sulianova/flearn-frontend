@@ -60,3 +60,16 @@
     padding: 0 set-calc($padding-x-mob-page);
   }
 }
+
+.Fallback-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: set-calc(16);
+
+  padding: set-calc(16) set-calc($padding-x-desk-page);
+
+  @include set-media(md) {
+    padding: 0 set-calc($padding-x-mob-page);
+  }
+}
