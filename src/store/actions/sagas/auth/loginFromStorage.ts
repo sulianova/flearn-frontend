@@ -13,15 +13,15 @@ export const loginFromStorage = createAction<'saga'>(
         throw new Error('failed to authenticate');
       }
 
-      const { email, displayName, photoURL } = authService.user!;
+      const { uid: id, email, displayName, photoURL } = authService.user!;
       if (!email) {
         throw new Error(`Cannot authenticate with email: ${email}`);
       }
 
-      const user: IUserData = yield dataService.user.getOrCreate(email, { email, displayName, photoURL, role: 'user' });
+      const user: IUserData = yield dataService.user.getOrCreate(id, { id, email, displayName, photoURL, role: 'user' });
 
       // send update request to work in the background
-      dataService.user.update(user.email, { lastSignInAt: new Date() });
+      dataService.user.update(user.id, { lastSignInAt: new Date() });
 
       const state: IUserState = {
         user,

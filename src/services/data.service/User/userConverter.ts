@@ -3,8 +3,8 @@ import type { DocumentData, FirestoreDataConverter } from 'firebase/firestore';
 import type { IUserData, IUserDataDB } from 'types';
 
 export const userConverter: FirestoreDataConverter<DocumentData, DocumentData> = {
-  toFirestore: (lessonData: IUserData) => {
-    return lessonData;
+  toFirestore: (userData: IUserData) => {
+    return userData;
   },
   fromFirestore: (snapshot, options) => {
     const dataDB = snapshot.data(options) as IUserDataDB;

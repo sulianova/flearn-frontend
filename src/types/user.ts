@@ -1,4 +1,5 @@
 export interface IUserData {
+  id: string
   email: string
   displayName: string | null
   photoURL: string | null
@@ -8,6 +9,7 @@ export interface IUserData {
 }
 
 export interface IUserDataDB {
+  id: string
   email: string
   displayName: string | null
   photoURL: string | null
