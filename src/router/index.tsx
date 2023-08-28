@@ -40,7 +40,8 @@ function MyRouter({ userState }: IProps) {
           <Route path={URLSections.Course.index} element={<Course />} />
           <Route path={URLSections.Course.Lessons.index} element={<Lessons />} />
           <Route element={<ProtectedRoute />}>
-            <Route path={URLSections.Course.Lesson.index} element={<Lesson />} />
+            <Route path={URLSections.Course.Lesson.index} element={<Lesson practice='task'/>} />
+            <Route path={URLSections.Course.Lesson.Results.index} element={<Lesson practice='results'/>} />
             <Route path={URLSections.My.Profile.index} element={<My mode='Profile'/>} />
             <Route path={URLSections.My.Settings.index} element={<My mode='Settings'/>} />
           </Route>

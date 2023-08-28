@@ -1,29 +1,24 @@
+import { useState } from 'react';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router';
 
 import { useFetch } from 'hooks';
-import { fetchLesson, type IFetchLessonPayload } from 'store/actions/sagas';
+import { fetchHomework, fetchLesson, type IFetchHomeworkPayload, type IFetchLessonPayload } from 'store/actions/sagas';
 
 import Page from 'ui/Page/Page';
 import LessonContent from './Components/LessonContent/LessonContent';
 import LessonUppload from './Components/LessonContent/LessonUppload/LessonUppload';
-import LessonWork from './Components/LessonContent/LessonWork/LessonWork';
 import LessonWorks from './Components/LessonContent/LessonWorks/LessonWorks';
 import LessonHeader from './Components/LessonHeader/LessonHeader';
 
 import useLessonFallback from './useLessonFallback';
 
-import { useFetch } from 'hooks';
-import { fetchCourse, fetchHomework, fetchLesson, type IFetchHomeworkPayload, type IFetchLessonPayload } from 'store/actions/sagas';
-
-import { useState } from 'react';
-import { useParams } from 'react-router';
 import type { IHomeworkData, ILessonState, IRootState } from 'types';
 
 export default connect(mapStateToProps)(Lesson);
 
 interface IConnectedProps {
-  lessonState?: ILessonState
+  lessonState: ILessonState
   homework?: IHomeworkData
 }
 

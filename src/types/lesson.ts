@@ -69,6 +69,7 @@ export interface ILessonData {
 }
 
 export interface ILessonDataDB {
+  id: string
   title: string
   type: 'Theory' | 'Practice'
   startDate: { seconds: number, nanoseconds: number }
@@ -81,6 +82,7 @@ export interface ILessonDataDB {
 }
 
 export interface ILessonDataLocal {
+  id: string
   title: string
   type: 'Theory' | 'Practice'
   startDate: string
