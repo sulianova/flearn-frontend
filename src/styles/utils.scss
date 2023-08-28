@@ -51,15 +51,14 @@
   @include add-scale-md;
 }
 
-@mixin is-black {
+@mixin is-beige {
   position: relative;
   left: set-calc(-$padding-x-desk-page);
 
   width: set-calc(2 * $padding-x-desk-page, true, 100%);
-  margin-top: set-calc(120);
   padding: set-calc(72) set-calc($padding-x-desk-page);
 
-  background-color: $black-new;
+  background-color: $beige;
   border-radius: set-calc(20);
 
   @include set-media(md) {
@@ -67,7 +66,6 @@
 
     display: block;
     width: set-calc(32, true, 100%);
-    margin-top: set-calc(120);
     padding: set-calc(40) 0;
   }
 }

@@ -130,5 +130,28 @@
     "homework": "Задание",
     "webinar": "Вебинар",
     "results": "Итоги"
+  },
+  "courseLesson": {
+    "deadlineUploadText": "Загрузить до ",
+    "deadlineUploadTime": " 23:59 по Мск",
+    "upload": {
+      "fieldsTitle": "Результаты задания",
+      "filesTitle": "Файлы",
+      "filesBtn": "Добавить",
+      "submitBtn": "Сохранить",
+      "submitDescription": "Все изменения сохранены!"
+    },
+    "homework": {
+      "title": "Описание"
+    },
+    "review": {
+      "title": "Ответ преподавателя"
+    },
+    "works": {
+      "ownTitle": "Моя работа",
+      "subTitle": "Вы не загрузили свою работу до дедлайна",
+      "listTitle": "Работы других студентов",
+      "showMoreBtn": "показать больше"
+    }
   }
 }

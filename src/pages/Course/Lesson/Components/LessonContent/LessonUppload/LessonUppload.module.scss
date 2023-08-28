@@ -5,11 +5,9 @@
 
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  z-index: 3000;
 
-  color: $beige;
-
-  @include is-black;
+  @include is-beige;
 
   @include set-media(md) {
     padding: set-calc(2 * $padding-x-mob-page) set-calc($padding-x-mob-page);
@@ -47,15 +45,20 @@
 
 .fieldsInner {
   margin-bottom: set-calc(56);
+
+  @include set-media(md) {
+    margin-bottom: set-calc(24);
+  }
 }
 
 .submit {
-  margin-top: auto;
+  margin-top: set-calc(40);
 
   @include set-media(md) {
     order: 3;
     width: auto;
-    margin-top: set-calc(40);
+    margin-top: 0;
+    margin-bottom: set-calc(56);
     padding: 0 set-calc($padding-x-mob-page);
   }
 }
@@ -69,9 +72,9 @@
   min-height: set-calc(48);
   padding: set-calc(4) set-calc(40);
 
-  color: $black;
+  color: $grey-inactive;
 
-  background: $grey-inactive;
+  background: $grey;
   border-radius: set-calc(20);
 
   pointer-events: none;
@@ -129,14 +132,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  max-height: set-calc(48);
-  padding: set-calc(4) set-calc(30);
+  min-height: set-calc(48);
+  padding: set-calc(4) set-calc(40);
 
-  color: $beige;
+  color: $black-new;
   text-align: center;
 
-  border: set-calc(1) solid $beige;
-  border-radius: set-calc(30);
+  border: set-calc(2) solid $black-new;
+  border-radius: set-calc(20);
 }
 
 .filesContent {
