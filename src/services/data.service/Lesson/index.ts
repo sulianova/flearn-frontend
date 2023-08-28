@@ -30,7 +30,7 @@ class Lesson {
     return `${courseId}_${lessonId}`;
   }
 
-  private async _checkCourseAccess(courseId: string) {
+  public async _checkCourseAccess(courseId: string) {
     const user = authService.user;
     if (!user) {
       throw new Error(ELessonErrorTypes.Unauthorized);
@@ -46,4 +46,4 @@ class Lesson {
   }
 }
 
-export default Lesson;
+export default new Lesson();

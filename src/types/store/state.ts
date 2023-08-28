@@ -38,6 +38,7 @@ export enum ELessonErrorTypes {
   LessonDataIsCorrupted = 'lesson data is corrupted',
   Other = 'other',
 }
+
 export interface ILessonState {
   courseId: string
   lessonId: string

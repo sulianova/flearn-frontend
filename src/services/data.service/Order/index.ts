@@ -42,4 +42,4 @@ class Order {
   }
 }
 
-export default Order;
+export default new Order();
