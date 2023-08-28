@@ -1,10 +1,11 @@
-import { ICourseData, ILessonData, ILessonsState, IUserData } from 'types';
+import { ICourseData, IHomeworkData, ILessonData, ILessonsState, IUserData } from 'types';
 
 export interface IRootState {
   user: IUserState
   course: ICourseState
   lessons: ILessonsState
   lesson: ILessonState
+  homework?: IHomeworkState
   ui?: IBasicState
 }
 
@@ -13,6 +14,7 @@ export type IState =
   | ICourseState
   | ILessonsState
   | ILessonState
+  | IHomeworkState
   | IBasicState;
 
 export type TStateName = keyof IRootState;
@@ -51,4 +53,8 @@ type TStateState<T> =
 
 export interface IBasicState {
   [key: string]: {}
+}
+
+export interface IHomeworkState {
+  data?: IHomeworkData
 }

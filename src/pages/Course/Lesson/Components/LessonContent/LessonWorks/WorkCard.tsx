@@ -1,27 +1,31 @@
+import UserImage from 'assets/images/Svg/UserImage';
 import classNames from 'classnames/bind';
-import Image from './Image';
+import { IHomeworkData } from 'types';
+import Img from 'ui/Img/Img';
 import classes from './WorkCard.module.scss';
 
 const cx = classNames.bind(classes);
 
 export default WorkCard;
 
-function WorkCard() {
+interface IProps {
+  handleClick: (u: { id: string, displayName: string } | null) => void
+  homework: IHomeworkData
+}
+
+function WorkCard({ handleClick, homework}: IProps) {
   return (
-      <a className={cx({ _: true, hidden: true })} href='homework-editor.html'>
+      <div className={cx({ _: true, hidden: false })} onClick={() => handleClick({ id: 'sonia', displayName: 'Sofiia ulianova' })}>
         <div className={classes.preview}>
-          <Image/>
+          {homework.images?.[0] && (<Img alt={homework.images[0].imageAlt} src={homework.images[0].imageSrc}/>)}
           <div className={classes.overlay}/>
         </div>
         <div className={classes.user}>
           <div className={classes.userImage}>
-            <svg className='svg-user' width='32' height='31' viewBox='0 0 32 31' fill='none' xmlns='http://www.w3.org/2000/svg'>
-              <path d='M24 23C24 24 20.4183 24 16 24C11.5817 24 8 24 8 23C8 18.5817 11.5817 15 16 15C20.4183 15 24 18.5817 24 23Z' fill='#131313'/>
-              <ellipse cx='16' cy='9.88615' rx='4' ry='3.88615' fill='#131313'/>
-            </svg>
+            <UserImage/>
           </div>
           <div className={classes.userName + ' s-text-16'}>Лиза Смирнова</div>
         </div>
-      </a>
+      </div>
   );
 }

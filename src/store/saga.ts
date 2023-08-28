@@ -19,5 +19,7 @@ export default function* rootSaga() {
     takeEvery(Actions.downloadLesson.type, Actions.downloadLesson.execute),
     takeEvery(Actions.fetchLesson.type, Actions.fetchLesson.execute),
     takeEvery(Actions.uploadLesson.type, Actions.uploadLesson.execute),
+
+    takeEvery(Actions.fetchHomework.type, Actions.fetchHomework.execute),
   ]);
 }

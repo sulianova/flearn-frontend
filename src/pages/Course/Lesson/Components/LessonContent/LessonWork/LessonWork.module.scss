@@ -1,0 +1,10 @@
+@import 'styles/index';
+
+._{
+  @include is-grid-4;
+
+  padding-top: 0;
+
+  @include set-media(md) {
+  }
+}

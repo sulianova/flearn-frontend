@@ -58,7 +58,7 @@ function Lessons({ data }: IConnectedProps) {
 function renderItem(props: ILessonsState['lessonsInfo'][number]) {
   return (
     <div className={classesList.itemWrapper}>
-      <div className={classesList.itemDate + ' s-text-21'}>{props.dates}</div>
+      <div className={classesList.itemDate + ' s-text-18'}>{props.dates}</div>
       <div className={classesList.item}>
         <div className={classesList.itemTitle + ' s-text-21'}>{props.title}</div>
         <div className={classesList.itemLinks}>

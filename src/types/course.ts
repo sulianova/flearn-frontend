@@ -81,12 +81,10 @@ export type IText = {
   {
     tag: 'p'
     props?: HTMLAttributes<HTMLParagraphElement>
-  }
-  | {
-    tag: 'span' | 'h1' | 'h2' | 'h3'
-    props?: undefined
-  }
-  | {
+  } | {
+    tag: 'span'
+    props?: HTMLAttributes<HTMLSpanElement>
+  } | {
     tag: 'a'
     props?: ILinkProps
   }

@@ -10,6 +10,11 @@ export interface ILessonTitleBlock extends ILessonBlock {
   title: string
 }
 
+export interface ILessonGalleryBlock extends ILessonBlock {
+  type: 'gallery'
+  images: Array<{ imageSrc: keyof typeof images, imageAlt: string }>
+}
+
 export interface ILessonFactoidBlock extends ILessonBlock {
   type: 'factoid'
   factoid: TText | TText[]
@@ -17,7 +22,7 @@ export interface ILessonFactoidBlock extends ILessonBlock {
 
 export interface ILessonTextBlock extends ILessonBlock {
   type: 'text'
-  text: string
+  text: TText | TText[]
 }
 
 export interface ILessonQouteBlock extends ILessonBlock {
@@ -51,6 +56,7 @@ export interface ILessonImageBlock extends ILessonBlock {
 export type ILessonContent = Array<ILessonTextBlock | ILessonFactoidBlock | ILessonQouteBlock | ILessonTextImportantBlock | ILessonTitleBlock  | ILessonVideoBlock | ILessonImageBlock>;
 
 export interface ILessonData {
+  id: string
   title: string
   type: 'Theory' | 'Practice'
   startDate: Date

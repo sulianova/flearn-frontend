@@ -20,6 +20,14 @@
   padding-bottom: set-calc(16);
 }
 
+.navTubs {
+  display: flex;
+}
+
 .type {
 
+}
+
+.type:not(:last-child) {
+  margin-right: set-calc(24);
 }

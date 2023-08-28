@@ -6,7 +6,7 @@
 
   text-align: left;
 
-  border-bottom: set-calc(2) solid $grey;
+  border-bottom: set-calc(2) solid rgb(196 196 196 / 45% );
 }
 
 .content {
@@ -22,7 +22,7 @@
     width: set-calc(210);
     margin-right: set-calc(4);
 
-    color: $grey;
+    color: $grey-inactive;
 
     @include set-media(md) {
       display: none;
@@ -34,7 +34,7 @@
     margin: 0;
     padding: 0;
 
-    color: $beige;
+    color: $black;
     font: inherit;
 
     background: none;

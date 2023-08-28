@@ -57,7 +57,8 @@
   transform: translateX(-50%);
   width: calc(100% - 106px);
   height: 20px;
-  background: url('./left-conner.png') 0 100% / 20px 20px no-repeat, url('./right-corner.png') 100% 0 / 13px 12px no-repeat;
+  z-index: 800;
+  background: url('./left-conner.png') 0 100% / 20px 20px no-repeat, url('./right-corner.png') 100% 0 / 20px 20px no-repeat;
 
   @include set-media(md) {
     display: none;

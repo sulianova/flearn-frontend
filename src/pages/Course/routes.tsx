@@ -5,12 +5,16 @@ import Lessons from './Lessons/Lessons';
 
 const routes: TRouteConfig[] = [
     {
-        element: <Lesson/>,
+        element: <Lessons/>,
+        path: URLSections.Course.Lessons.index,
+    },
+    {
+        element: <Lesson practice='task'/>,
         path: URLSections.Course.Lesson.index,
     },
     {
-        element: <Lessons/>,
-        path: URLSections.Course.Lessons.index,
+        element: <Lesson practice='results'/>,
+        path: URLSections.Course.Lesson.Results.index,
     },
 ];
 

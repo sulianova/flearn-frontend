@@ -162,7 +162,6 @@ s {
       line-height: set-calc(22);
     }
   }
-
 }
 
 .s-hoverable {
@@ -223,4 +222,54 @@ s {
       color: $orange;
     }
   }
+}
+
+.nav-link {
+  transition: $d-hover color;
+  color: $link;
+  cursor: pointer;
+
+  &:hover {
+    color: $orange;
+  }
+
+  &:active {
+    color: $orange;
+  }
+
+  &-text {
+    display: inline;
+    vertical-align: top;
+    color: inherit;
+  }
+  
+  &-arrow {
+    display: inline-block;
+    vertical-align: top;
+    line-height: set-calc(28);
+    margin-left: set-calc(6);
+
+    @include set-media(md) {
+      line-height: set-calc(22);
+    }
+  }
+
+  &-arrow-left {
+    display: inline-block;
+    vertical-align: top;
+    line-height: set-calc(28);
+    margin-right: set-calc(6);
+
+    @include set-media(md) {
+      line-height: set-calc(22);
+    }
+  }
+}
+
+.isActive {
+  color: $orange !important;
+}
+
+.textSmall {
+  font-variant: small-caps;
 }

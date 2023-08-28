@@ -1,60 +1,56 @@
 import { Fragment } from 'react';
-import { ILessonContent, TText } from 'types';
+import { IHomeworkData, ILessonContent, ILessonData } from 'types';
 import classes from './LessonContent.module.scss';
-import LessonFactoid from './LessonFactoid/LessonFactoid';
-import LessonImage from './LessonImage/LessonImage';
-import LessonQoute from './LessonQoute/LessonQoute';
-import LessonText from './LessonText/LessonText';
-import LessonTextImportant from './LessonTextImportant/LessonTextImportant';
-import LessonTitle from './LessonTitle/LessonTitle';
-import LessonVideo from './LessonVideo/LessonVideo';
+
+import Article from 'ui/Article/Article';
+
+import { formatI18nT } from 'shared';
 
 export default LessonContent;
 
+const t = formatI18nT('courseLesson');
+
 interface IProps {
   blocks: ILessonContent
+  data: ILessonData
+  homework?: IHomeworkData
 }
 
 function LessonContent(props: IProps) {
   return (
     <div className={classes._}>
-      {renderBlocks(props.blocks)}
+      {props.data.type === 'Practice' && <Uppload endDate={props.data.endDate}/>}
+      <Article blocks={props.blocks}/>
     </div>
   );
 }
 
-function renderBlocks(blocks: ILessonContent) {
-  return blocks.map((block, index) => <Fragment key={index}>{renderBlock(block)}</Fragment>);
+interface IUpploadProps {
+  endDate: Date
 }
 
-function renderBlock(block: ILessonContent[number]) {
-  switch(block.type) {
-    case 'title':
-      return (<LessonTitle data={block}/>);
-    case 'text':
-      return (<LessonText data={block}/>);
-    case 'textImportant':
-      return (<LessonTextImportant data={block}/>);
-    case 'qoute':
-      return (<LessonQoute data={block}/>);
-    case 'factoid':
-      return (<LessonFactoid data={block}/>);
-    case 'video':
-      return (<LessonVideo data={block}/>);
-    case 'image':
-      return (<LessonImage data={block}/>);
-  }
-}
-
-function Uppload() {
+function Uppload({ endDate }: IUpploadProps) {
   return (
-    <div className={classes.uppload}>
-      <div className={classes.upploadDeadline + ' s-text-21-uppercase'}>
-        загрузить до воскресенья,
+    <Fragment>
+      <div className={classes.uploadDeadline + ' s-text-24'}>
+        {t('deadlineUploadText')} {getWeekDay(endDate)},
         <br/>
-        4 сентября, 23:59 по мск
+        {formatLessonDate(endDate)} {t('deadlineUploadTime')}
       </div>
-      <a className={classes.upploadBtn + ' s-text-21-uppercase'} href='#upload-form'>Загрузить работу</a>
-    </div>
+      <div className={classes.uploadBtnWrapper}><a className={classes.uploadBtn + ' s-text-24'} href='#upload-form'>Загрузить работу</a></div>
+    </Fragment>
   );
+}
+
+function getWeekDay(date: Date) {
+  const weekday = ['воскресенье','понедельник','вторник','среда','четверг','пятница','суббота'];
+  return weekday[date.getDay()];
+}
+
+function formatLessonDate(date: Date) {
+  const dateStr = date.toLocaleDateString(
+    ['ru-RU'],
+    { month: 'long', day: 'numeric' }
+  );
+  return `${dateStr}, `;
 }

@@ -1,16 +1,16 @@
 import { Fragment } from 'react';
-import type { ILessonQouteBlock } from 'types';
-import classes from './LessonQoute.module.scss';
+import type { IArticleQouteBlock } from 'types';
+import classes from './Qoute.module.scss';
 
 import UIText from 'ui/Text/Text';
 
-export default LessonQoute;
+export default Qoute;
 
 interface IProps {
-  data: ILessonQouteBlock
+  data: IArticleQouteBlock
 }
 
-function LessonQoute(props: IProps) {
+function Qoute(props: IProps) {
   return (
     <Fragment>
       {props.data.qoute && <div className={classes.qouteWrapper}><UIText text={props.data.qoute}/></div>}

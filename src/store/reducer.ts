@@ -8,4 +8,5 @@ export default combineReducers({
     course: createReducer('course'),
     lesson: createReducer('lesson'),
     lessons: createReducer('lessons'),
+    homework: createReducer('homework'),
 } as { [key in TStateName]: () => IObject });

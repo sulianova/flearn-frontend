@@ -20,8 +20,6 @@
 .qouteWrapper > *:not(:last-child) {
   padding-bottom: set-calc(36);
 
-  @include s-text-21;
-
   @include set-media(md) {
     padding-bottom: set-calc(16);
   }

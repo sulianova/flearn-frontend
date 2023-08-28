@@ -2,68 +2,60 @@
 
 ._ {
   @include is-grid-4;
+  position: relative;
 
   @include set-media(md) {
     grid-gap: 0;
   }
 }
 
-.title {
-  padding-bottom: set-calc(16);
-}
-
-.duration {
-  display: flex;
-  align-items: center;
-  margin-top: set-calc(16);
-
-  svg {
-    width: set-calc(20);
-    height: set-calc(20);
-  }
-
-  span {
-    margin-left: set-calc(4);
-  }
-}
-
-.upload {
-  display: grid;
-  grid-column-gap: set-calc($s-gap * 1.5);
-  grid-template-columns: repeat(8, minmax(0, 1fr));
-  margin: set-calc(64) 0 set-calc(16);
-
-  @include set-media(md) {
-    display: flex;
-    flex-direction: column;
-    margin: set-calc(40) 0 set-calc(24);
-  }
-}
-
 .uploadDeadline {
-  grid-column: 1 / 3;
+  grid-column: 1 / 2;
 
   @include set-media(md) {
     padding-bottom: set-calc(16);
   }
 }
 
-.uploadBtn {
-  position: relative;
-
-  display: flex;
-  grid-column: 7 / 9;
-  align-items: center;
-  justify-content: center;
-  width: auto;
-  max-height: set-calc(48);
-
-  color: $white;
-
-  background: $black-new;
-  border-radius: set-calc(30);
+.uploadBtnWrapper {
+  position: sticky;
+  top: set-calc(60);
+  grid-column: 4 / 5;
 
   @include set-media(md) {
-    min-height: set-calc(48);
+    position: relative;
+    top: 0;
   }
+}
+
+.uploadBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+
+  padding: set-calc(4) set-calc(80);
+
+  color: $black;
+
+  background: transparent;
+  border: set-calc(2) solid $black-new;
+  border-radius: set-calc(20);
+
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, color ease-in-out 0.2s;
+
+  margin-bottom:  set-calc(72);
+
+  @include set-media(md) {
+    width: 100%;
+    min-height: set-calc(48);
+    margin-bottom:  set-calc(48);
+    margin-top: set-calc(8);
+  }
+}
+
+.uploadBtn:hover {
+  background-color: $black-new;
+  color: $white;
 }
