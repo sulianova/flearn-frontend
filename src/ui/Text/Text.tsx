@@ -23,7 +23,7 @@ export default function Text({ text }: IProps) {
       return (<p {...props}><Text text={content}/></p>);
     case 'a':
       return (<Link {...props}><Text text={content}/></Link>);
-    default:
-      return (<span><Text text={content}/></span>);
+    case 'span':
+      return (<span {...props}><Text text={content}/></span>);
   }
 }

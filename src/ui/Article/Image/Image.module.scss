@@ -27,4 +27,6 @@
 
 .imageCaption {
   @include s-text-18;
+
+  padding-top: set-calc(4);
 }

@@ -12,7 +12,10 @@
   }
 }
 
-.factoid p, a:not(:last-child) {
+.factoid p, .factoid a:not(:last-child) {
   margin-bottom: set-calc(8);
+}
 
+.factoid > * {
+  @include s-text-21;
 }

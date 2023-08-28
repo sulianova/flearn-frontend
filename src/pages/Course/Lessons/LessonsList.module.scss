@@ -36,7 +36,6 @@
   flex-direction: column;
   align-items: start;
   justify-content: space-between;
-  margin-left: set-calc(52);
 }
 
 .itemLinks {
@@ -55,30 +54,12 @@
 }
 
 .itemDate {
-  padding-bottom: set-calc(4);
+  margin-bottom: set-calc(8);
   
   @include set-media(md) {
-    padding-bottom: set-calc(4);
+    margin-bottom: set-calc(4);
   }
 }
 
 .itemTitle {
-}
-
-.item::before {
-  position: absolute;
-  top: set-calc(6);
-  left: set-calc(-52);
-
-  width: set-calc(40);
-  height: set-calc(40);
-
-  @include set-media(md) {
-    top: 0;
-    left: set-calc(-50);
-  }
-
-  text-align: right;
-
-  content: url(./itemLesson.svg);
 }

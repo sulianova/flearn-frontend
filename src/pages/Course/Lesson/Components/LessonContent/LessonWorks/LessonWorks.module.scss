@@ -1,10 +1,10 @@
 @import 'styles/index';
 
 ._ {
-  padding: set-calc(80) 0;
+  padding: 00;
 
   @include set-media(md) {
-    padding: set-calc(80) 0;
+    padding: 0;
   }
 }
 

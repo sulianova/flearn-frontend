@@ -13,6 +13,10 @@ export const URLSections = {
         Lesson: {
             index: '/course/:courseId/lesson/:lessonId',
             to: ({ courseId, lessonId }: { courseId: string, lessonId: string }) => `/course/${courseId}/lesson/${lessonId}`,
+            Results: {
+                index: '/course/:courseId/lesson/:lessonId/results',
+                to: ({ courseId, lessonId }: { courseId: string, lessonId: string }) => `/course/${courseId}/lesson/${lessonId}/results`,
+            },
         },
     },
     My: {

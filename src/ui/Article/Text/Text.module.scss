@@ -1,12 +1,14 @@
 @import 'styles/index';
 
-.textImportant {
+.text {
   grid-column: span 3;
+  font-family: $font-family-serif;
+}
 
-  color: $orange;
+.text:not(:last-child) {
   padding-bottom: set-calc(36);
 
   @include set-media(md) {
-    padding-bottom: set-calc(24);
+    padding-bottom: set-calc(16);
   }
 }
