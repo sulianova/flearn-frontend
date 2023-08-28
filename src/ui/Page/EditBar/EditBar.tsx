@@ -1,38 +1,38 @@
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 
+import { useURLSection } from 'hooks';
+
 import { envService} from 'services';
 import Store from 'store';
 import { downloadCourse, downloadLesson, fetchCourse, fetchLesson, uploadCourse, uploadLesson } from 'store/actions/sagas';
 
-import type { ICourseState, ILessonsState, ILessonState, IRootState } from 'types';
+import { type ICourseState, type ILessonState, type IRootState } from 'types';
 
 import classes from './EditBar.module.scss';
 
-interface IProps {
-  variant: 'Course' | 'Lessons' | 'Lesson'
-}
-
-export default function EditBar({ variant }: IProps) {
+export default function EditBar() {
+  const variant = useURLSection();
   const courseState = useSelector<IRootState, ICourseState | undefined>(state => state.course);
-  const lessonsState = useSelector<IRootState, ILessonsState | undefined>(state => state.lessons);
+  // const lessonsState = useSelector<IRootState, ILessonsState | undefined>(state => state.lessons);
   const lessonState = useSelector<IRootState, ILessonState | undefined>(state => state.lesson);
 
   const { courseId, lessonId } = useParams();
 
   if (
-    envService.dataMode !== 'EDIT'
-    || (variant === 'Course' && (!courseState || !courseId ))
-    || (variant === 'Lessons' && (!lessonsState || !courseId ))
-    || (variant === 'Lesson' && (!lessonState || !courseId || !lessonId))
+    variant === 'Other'
+    || envService.dataMode !== 'EDIT'
+    || (variant === 'Course' && !courseId)
+    || (variant === 'Lessons' && !courseId)
+    || (variant === 'Lesson'  && (!courseId || !lessonId))
   ) {
     return null;
   }
 
-  const { source } =
-    variant === 'Course' ? courseState!
-    : variant === 'Lessons' ? { source: 'local' }
-    : variant === 'Lesson' ? lessonState! : { source: 'local' };
+  const source =
+    variant === 'Course' ? courseState?.source ?? 'remote'
+    : variant === 'Lesson' ? lessonState?.source ?? 'remote'
+    : 'local';
 
   return (
     <section className={classes._}>

@@ -23,15 +23,13 @@ function Page({ children, header = false, footer = false, wrapper }: IProps) {
     <div className={classes._} ref={ref}>
       {header && <Header/>}
       <div className={classes.content}>
-      {wrapper ?
-        (<section className={classes[`${wrapper}-wrapper`]}>
-          {children}
-          {['Course', 'Lessons', 'Lesson'].includes(wrapper || '')
-            && (<EditBar variant={wrapper as 'Course' | 'Lessons' | 'Lesson'}/>)
-          }
-        </section>)
-        : children
-      }
+        {wrapper ?
+          (<section className={classes[`${wrapper}-wrapper`]}>
+            {children}
+          </section>)
+          : children
+        }
+        <EditBar/>
       </div>
       {footer && <Footer/>}
     </div>

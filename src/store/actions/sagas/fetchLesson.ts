@@ -28,23 +28,29 @@ export const fetchLesson = createAction<'saga', IFetchLessonPayload>(
   
         yield put(updateState({ stateName: 'lesson', payload: state }));
       } else {
-        const fullId = dataService.lesson.getFullId(courseId, lessonId);
-        let file: any
-        try {
-          // @ts-ignore
-          file = yield import(`edit-files/lesson-${fullId}.json`);
-        } catch (e) {
-          throw new Error(ELessonErrorTypes.FailedToFindLesson);
-        }
+      //   const fullId = dataService.lesson.getFullId(courseId, lessonId);
+      //   let file: any
+      //   try {
+      //     // @ts-ignore
+      //     file = yield import(`edit-files/lesson-${fullId}.json`);
+      //   } catch (e) {
+      //     throw new Error(ELessonErrorTypes.FailedToFindLesson);
+      //   }
 
-        const isValid = localFilesServise.Lesson.test(file.lessonData);
-        if (!isValid) {
-          throw new Error(ELessonErrorTypes.LessonDataIsCorrupted);
-        }
-        const data = localFilesServise.Lesson.localToFR(file.lessonData);
-        if (!data) {
-          throw new Error(ELessonErrorTypes.LessonDataIsCorrupted);
-        }
+      //   const isValid = localFilesServise.Lesson.test(file.lessonData);
+      //   if (!isValid) {
+      //     throw new Error(ELessonErrorTypes.LessonDataIsCorrupted);
+      //   }
+      //   const data = localFilesServise.Lesson.localToFR(file.lessonData);
+      //   if (!data) {
+      //     throw new Error(ELessonErrorTypes.LessonDataIsCorrupted);
+      //   }
+      //   const state: ILessonState = { courseId, lessonId, source, data, state: { type: 'idle' } };
+  
+      //   yield put(updateState({ stateName: 'lesson', payload: state }));
+      // } else {
+        const fullId = dataService.lesson.getFullId(courseId, lessonId);
+        const data = getData(lessonId);
         const state: ILessonState = { courseId, lessonId, source, data, state: { type: 'idle' } };
   
         yield put(updateState({ stateName: 'lesson', payload: state }));
@@ -73,8 +79,12 @@ export const fetchLesson = createAction<'saga', IFetchLessonPayload>(
   }
 );
 
+function getData(id: string) {
+  return allLessons.find(l => l.id === id);
+}
+
 const lessonData1: ILessonData = {
-  id: '1',
+  id: 'draw-doodles',
   title: 'Тема первая',
   type: 'Theory',
   startDate: new Date('2023.07.12'),
@@ -188,7 +198,7 @@ const lessonData1: ILessonData = {
 };
 
 const lessonData2: ILessonData = {
-  id: '2',
+  id: 'draw-noodles',
   title: 'Тема первая',
   type: 'Practice',
   startDate: new Date('2023.07.12'),

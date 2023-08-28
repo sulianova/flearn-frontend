@@ -1,9 +1,9 @@
-import { put } from 'redux-saga/effects';
+import { put, select } from 'redux-saga/effects';
 import { dataService, localFilesServise } from 'services';
 import { createAction } from 'store/utils';
 import { updateState } from '../redux';
 
-import type { ILessonData, ILessonState, TAction } from 'types';
+import type { ILessonData, ILessonState, IRootState, TAction } from 'types';
 
 export interface IUploadLessonPayload {
   courseId: string
@@ -15,34 +15,29 @@ export const uploadLesson = createAction<'saga', IUploadLessonPayload>(
   function* execute(action: TAction<IUploadLessonPayload>) {
     try {
       const { courseId, lessonId } = action.payload;
-      let localData: ILessonData | undefined;
-      try {
-        const fullId = dataService.lesson.getFullId(courseId, lessonId);
-        // @ts-ignore
-        const file = yield import(`edit-files/lesson-${fullId}.json`);
-        const isValid = localFilesServise.Lesson.test(file.lessonData);
-        if (!isValid) {
-          throw new Error('Local file is corrupt');
-        }
-        localData = localFilesServise.Lesson.localToFR(file.lessonData);
-      } catch(e) {
-        // tslint:disable-next-line
-        console.log(e);
-        localData = undefined;
+      const lessonState: ILessonState = yield select((state: IRootState) => state.lesson);
+      const localData = lessonState.data;
+      
+      if (courseId !== lessonState.courseId || lessonId !== lessonState.lessonId) {
+        const logData = {
+          wantedCourseId: courseId,
+          currentCourseId: lessonState.courseId,
+          wantedLessonId: lessonId,
+          currentLessonId: lessonState.lessonId,
+        };
+        throw new Error(`Failed to upload: ids are diff ${JSON.stringify(logData, undefined, 2)}`);
       }
 
-      const hasLocal = localData !== undefined;
-
-      if (!hasLocal) {
-        throw new Error();
+      if (!localData) {
+        throw new Error(`Failed to upload: local data not found`);
       }
 
-      const remoteData: ILessonData | undefined = yield dataService.lesson.set(courseId, lessonId, localData!);
+      const remoteData: ILessonData | undefined = yield dataService.lesson.set(courseId, lessonId, localData);
 
       // tslint:disable-next-line
       console.log('saved data: ', remoteData);
       if (!remoteData) {
-        throw new Error();
+        throw new Error(`Failed to upload: uploaded data not found`);
       }
 
       const state: ILessonState = {
@@ -56,7 +51,7 @@ export const uploadLesson = createAction<'saga', IUploadLessonPayload>(
     } catch(e) {
       const fullId = dataService.lesson.getFullId(action.payload.courseId, action.payload.lessonId);
       // tslint:disable-next-line
-      console.log(`Faild to upload lesson: ${fullId}`);
+      console.log(`Failed to upload lesson: ${fullId}`);
     }
   }
 );
