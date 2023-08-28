@@ -41,7 +41,7 @@ class Lesson {
       throw new Error(ELessonErrorTypes.FailedToFindLesson);
     }
 
-    const userHasAccess = Boolean(user.email && accessData.users[user.email]);
+    const userHasAccess = Boolean(accessData.users[user.uid]);
     return userHasAccess;
   }
 }
