@@ -1,8 +1,15 @@
 import { DrawFreeCard } from 'assets/images';
 import classesCourseCard from './CourseCard.module.scss';
 import classes from './Profile.module.scss';
+import { IUserData } from 'types';
 
-export default function Profile() {
+export default Profile;
+
+interface IProps {
+  user: IUserData
+}
+
+function Profile(props: IProps) {
   return (
     <div className='Profile'>
       <div className={classes.courseGroup}>

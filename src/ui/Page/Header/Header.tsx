@@ -1,76 +1,99 @@
 import classnames from 'classnames/bind';
 import { useEffect, useState } from 'react';
 import { formatI18nT, i18n } from 'shared';
-import { URLSections } from 'types';
+import { IRootState, IUserData, URLSections } from 'types';
 import Link from 'ui/Link/Link';
 
 import classes from './header.module.scss';
+import { connect } from 'react-redux';
+import store from 'store';
+import { login } from 'store/actions/sagas';
 
 const cx = classnames.bind(classes);
 const t = formatI18nT('header');
 
-export default Header;
+export default connect(mapStateToProps)(Header);
 
-function Header() {
-    const [isOpened, setIsOpened] = useState<boolean>(false);
-    const headerClass = cx({ _: true, IsMobileMenuOpened: isOpened });
+interface IConnectedProps {
+  user?: IUserData
+}
 
-    useEffect(() => {
-        if (isOpened) {
-            document.body.style.overflowY = 'hidden';
+function mapStateToProps(state: IRootState): IConnectedProps {
+  return {
+    user: state.user?.user,
+  };
+}
 
-            return () => {
-                document.body.style.overflowY = '';
-            };
-        }
-    },        [isOpened]);
+function Header(props: IConnectedProps) {
+  const [isOpened, setIsOpened] = useState<boolean>(false);
+  const headerClass = cx({ _: true, IsMobileMenuOpened: isOpened });
 
-    return (
-        <div className={headerClass}>
-            <div className={classes.desc}>
-                <div className={classes.logo}>
-                    <div className={classes.logoWrapper}>
-                        <Link to={URLSections.FreeZone.index} className='s-text-24'>{i18n.t('logo')}</Link>
-                    </div>
-                </div>
-                <div className={classes.nav}>
-                    <div className={classes.navItem}>
-                        <Link to={URLSections.My.Profile.index} className='inline-link'>{t('my')}</Link>
-                    </div>
-                    <div className={classes.navItem}>
-                        <Link to={URLSections.FreeZone.index} className='inline-link'>{t('freeZone')}</Link>
-                    </div>
-                    <div className={classes.navItem}>
-                        <Link to={URLSections.Catalogue.index} className='inline-link'>{t('catalogue')}</Link>
-                    </div>
-                </div>
-                <div className={classes.navLogin}>
-                    <Link to={URLSections.My.Profile.index} className='inline-link'>{t('login.signIn')}</Link>
-                </div>
-                <div className={classes.humburger} onClick={() => setIsOpened(o => !o)}/>
-            </div>
-            <div className={classes.mob}>
-                <div className={classes.mobMenuMain}>
-                    <div className={classes.mobItem}>
-                        <Link to={URLSections.My.Profile.index} className='inline-link s-text-36'>
-                            <span className='inline-text'>{t('my')}</span>
-                        </Link>
-                    </div>
-                    <div className={classes.mobItem}>
-                        <Link to={URLSections.FreeZone.index} className='inline-link s-text-36'>
-                            <span className='inline-text'>{t('freeZone')}</span>
-                        </Link>
-                    </div>
-                    <div className={classes.mobItem}>
-                        <Link to={URLSections.Catalogue.index} className='inline-link s-text-36'>
-                            <span className='inline-text'>{t('catalogue')}</span>
-                        </Link>
-                    </div>
-                </div>
-                <div className={classes.mobMenuControls}>
-                    <Link to={URLSections.My.Profile.index} className={classes.loginBtn + ' s-text-24'}>{t('login.signIn')}</Link>
-                </div>
-            </div>
+  useEffect(() => {
+    if (isOpened) {
+      document.body.style.overflowY = 'hidden';
+
+      return () => {
+        document.body.style.overflowY = '';
+      };
+    }
+  },        [isOpened]);
+
+  return (
+    <div className={headerClass}>
+      <div className={classes.desc}>
+        <div className={classes.logo}>
+          <div className={classes.logoWrapper}>
+            <Link to={URLSections.FreeZone.index} className='s-text-24'>{i18n.t('logo')}</Link>
+          </div>
         </div>
-    );
+        <div className={classes.nav}>
+          <div className={classes.navItem}>
+            <Link to={URLSections.My.Profile.index} className='inline-link'>{t('my')}</Link>
+          </div>
+          <div className={classes.navItem}>
+            <Link to={URLSections.FreeZone.index} className='inline-link'>{t('freeZone')}</Link>
+          </div>
+          <div className={classes.navItem}>
+            <Link to={URLSections.Catalogue.index} className='inline-link'>{t('catalogue')}</Link>
+          </div>
+        </div>
+        <div className={classes.navLogin}>
+          {props.user ?
+            (<Link to={URLSections.My.Profile.index} className='inline-link'>{t('login.profile')}</Link>)
+            : (<div className='inline-link' onClick={handleLogin}>{t('login.signIn')}</div>)
+          }
+        </div>
+        <div className={classes.humburger} onClick={() => setIsOpened(o => !o)}/>
+      </div>
+      <div className={classes.mob}>
+        <div className={classes.mobMenuMain}>
+          <div className={classes.mobItem}>
+            <Link to={URLSections.My.Profile.index} className='inline-link s-text-36'>
+              <span className='inline-text'>{t('my')}</span>
+            </Link>
+          </div>
+          <div className={classes.mobItem}>
+            <Link to={URLSections.FreeZone.index} className='inline-link s-text-36'>
+              <span className='inline-text'>{t('freeZone')}</span>
+            </Link>
+          </div>
+          <div className={classes.mobItem}>
+            <Link to={URLSections.Catalogue.index} className='inline-link s-text-36'>
+              <span className='inline-text'>{t('catalogue')}</span>
+            </Link>
+          </div>
+        </div>
+        <div className={classes.mobMenuControls}>
+          {props.user ?
+            (<Link to={URLSections.My.Profile.index} className={classes.loginBtn + ' s-text-24'}>{t('login.profile')}</Link>)
+            : (<div className={classes.loginBtn + ' s-text-24'} onClick={handleLogin}>{t('login.signIn')}</div>)
+          }
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function handleLogin() {
+  store.dispatch(login({ payload: {}}));
 }

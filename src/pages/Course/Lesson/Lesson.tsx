@@ -1,29 +1,30 @@
+import { useState } from 'react';
+import { connect } from 'react-redux';
+import { useParams } from 'react-router';
+
+import { useFetch } from 'hooks';
+import { fetchHomework, fetchLesson, type IFetchHomeworkPayload, type IFetchLessonPayload } from 'store/actions/sagas';
+
 import Page from 'ui/Page/Page';
 import LessonContent from './Components/LessonContent/LessonContent';
 import LessonUppload from './Components/LessonContent/LessonUppload/LessonUppload';
-import LessonWork from './Components/LessonContent/LessonWork/LessonWork';
 import LessonWorks from './Components/LessonContent/LessonWorks/LessonWorks';
 import LessonHeader from './Components/LessonHeader/LessonHeader';
 
-import { connect } from 'react-redux';
+import useLessonFallback from './useLessonFallback';
 
-import { useFetch } from 'hooks';
-import { fetchCourse, fetchHomework, fetchLesson, type IFetchHomeworkPayload, type IFetchLessonPayload } from 'store/actions/sagas';
-
-import { useState } from 'react';
-import { useParams } from 'react-router';
-import type { IHomeworkData, ILessonData, IRootState } from 'types';
+import type { IHomeworkData, ILessonState, IRootState } from 'types';
 
 export default connect(mapStateToProps)(Lesson);
 
 interface IConnectedProps {
-  data?: ILessonData
+  lessonState: ILessonState
   homework?: IHomeworkData
 }
 
 function mapStateToProps(state: IRootState): IConnectedProps {
   return {
-    data: state.lesson?.data,
+    lessonState: state.lesson,
     homework: state.homework?.data,
   };
 }
@@ -32,13 +33,16 @@ interface IProps extends IConnectedProps {
   practice: 'task' | 'results'
 }
 
-function Lesson({ data, practice, homework }: IProps) {
-  const { lessonId } = useParams();
+function Lesson({ lessonState, practice, homework }: IProps) {
+  const { courseId, lessonId } = useParams();
   const [selectedUser, setSelectedUser] = useState<{ id: string, displayName: string } | null>(null);
 
   useFetch<IFetchLessonPayload>({
     actionCreator: fetchLesson,
-    payload: { lessonId },
+    payload: {
+      courseId: courseId!,
+      lessonId: lessonId!,
+    },
   });
 
   useFetch<IFetchHomeworkPayload>({
@@ -46,26 +50,23 @@ function Lesson({ data, practice, homework }: IProps) {
     payload: { homeworkId: lessonId ? `${lessonId}_some-user-id` : undefined },
   });
 
-  if (!data || Object.keys(data).length === 0) {
-    return (
-      <Page header footer wrapper='Lesson'>
-        <p>loading leasson</p>
-      </Page>
-    );
+  const fallback = useLessonFallback(lessonState);
+  if (!lessonState.data) {
+    return fallback;
   }
 
   return (
     <Page header footer wrapper='Lesson'>
       <LessonHeader
-        lesson={data}
+        lesson={lessonState.data}
         practice={practice}
         selectedUser={selectedUser}
         handleDisselectUser={() => setSelectedUser(null)}
       />
       {practice === 'task' ?
         (<>
-          <LessonContent blocks={data.content} data={data} homework={homework}/>
-          {(data.type === 'Practice' && homework) && (<LessonUppload/>)}
+          <LessonContent blocks={lessonState.data.content} data={lessonState.data} homework={homework}/>
+          {(lessonState.data.type === 'Practice' && homework) && (<LessonUppload/>)}
         </>)
       : (<LessonWorks
           selectedUser={selectedUser}

@@ -6,8 +6,10 @@ import { Fragment } from 'react';
 export default InputField;
 
 export interface IProps {
-  className: string
+  className?: string
   variant: 'Name' | 'Email' | 'Phone'
+  value?: string
+  onChange?: (v: string) => void
 }
 
 const type = {
@@ -28,6 +30,8 @@ function InputField(props: IProps) {
         placeholder={i18n.t(`input${props.variant}.placeholder`)}
         className={props.className}
         required
+        value={props.value}
+        onChange={e => props.onChange?.(e.target.value)}
       />
     </Fragment>
   );

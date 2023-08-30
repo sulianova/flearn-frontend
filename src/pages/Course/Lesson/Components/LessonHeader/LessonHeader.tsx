@@ -15,9 +15,8 @@ interface IProps {
 
 function LessonHeader(props: IProps) {
   const { courseId, lessonId } = useParams();
-  const nextLesson = Number(lessonId) + 1;
 
-  if (!courseId || !lessonId || Number.isNaN(nextLesson)) {
+  if (!courseId || !lessonId) {
     return <>Error</>;
   }
 

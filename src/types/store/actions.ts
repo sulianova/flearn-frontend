@@ -9,10 +9,10 @@ export type TActionParams<P> = P extends undefined ? IActionParams : IActionPara
 export type TAction<P = undefined> = TActionParams<P> & { type: string };
 
 export type IActionCreator<T extends 'redux' | 'saga', P = any> = {
-    type: string
-    execute: T extends 'redux' ? TReduxExecuter<P> : TSagaExecuter<P>
-    (params: TActionParams<P>): TAction<P>
-  };
+  type: string
+  execute: T extends 'redux' ? TReduxExecuter<P> : TSagaExecuter<P>
+  (params: TActionParams<P>): TAction<P>
+};
 
 export type TReduxExecuter<P> = (state: IState, action: TAction<P>) => IState;
 export type TSagaExecuter<P> = (action: TAction<P>) => Generator<any, any, any>;
@@ -32,3 +32,12 @@ export type IPayload =
   | number[]
   | IObject
   | IObject[];
+
+export interface IPayloadWithEffects {
+  effects?: {
+    onStart?: () => void
+    onSuccess?: () => void
+    onFail?: () => void
+    onFinish: () => void
+  }
+}

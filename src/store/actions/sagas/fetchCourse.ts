@@ -1,145 +1,52 @@
-import { call, put } from 'redux-saga/effects';
+import { put } from 'redux-saga/effects';
+import { dataService, localFilesServise } from 'services';
 import { createAction } from 'store/utils';
 import { updateState } from '../redux';
 
-import type { ICourseData } from 'types';
+import type { ICourseData, ICourseState, TAction } from 'types';
 
-const delay = (ms: number) => new Promise<void>(res => setTimeout(res, ms));
-
-export const fetchCourse = createAction<'saga'>(
-  '***saga*** fetch Course',
-  function* execute() {
-    yield call(delay, 1000);
-
-    const data: ICourseData = yield call(getData);
-
-    yield put(updateState({ stateName: 'course', payload: data}));
-  }
-);
-
-function getData() {
-  return courseData;
+export interface IFetchCoursePayload {
+  courseId: string
+  source?: 'local' | 'remote'
 }
 
-const courseData: ICourseData = {
-  startDate: new Date('2023-05-27'),
-  durationWeeks: 5,
-  homeworksNumber: 8,
-  videosNumber: 10,
-  feild: 'Иллюстрация',
-  title: 'Как рисовать свободно',
-  introDescription: 'Практический курс для тех, кто хочет рисовать крепкие и выразительные иллюстрации. Сделаем упражнения и 5-6 законченных работ',
-  introImageSrc: 'freeDrawDesk',
-  introImageAlt: 'freeDrawDesk',
-  discontAmount: 30,
-  discontDeadline: new Date(),
-  creditWas: 14000,
-  creditPrice: 7000,
-  description: [
-    {
-      question: 'Не знает с чего начать',
-      answer: 'Преподаватель подскажет, какие материалы купить, как держать ручку, ответит на вопросы, поддержит.',
-    },
-    {
-      question: 'Уверен, что всё зря, если рисунок «не как на фотографии»',
-      answer: 'Фотографическая точность — одно из возможных средств выразительности. Еще есть контраст, выразительные линии, фактура. На вебинаре будем учиться делать выразительные рисунки, не копируя фотографию.',
-    },
-    {
-      question: 'Боится, что не получится',
-      answer: 'На первых этапах в рисовании мешает не столько отсутствие навыков, сколько предубеждения и страхи: «а если не получится», «не знаю, как правильно». Поэтому в начале важна поддержка и дружелюбная атмосфера. Будем анализировать рисовальный опыт, отмечать, что вызывает сопротивление, скуку, интерес',
-    },
-    {
-      question: 'Не знает, как передать то, что хочется',
-      answer: 'Преподаватель лично общается с учениками, обсуждает с ними рисунки. Помогает понять, что пошло не так. Подсказывает, что сделать, чтобы получилось.',
-    },
-  ],
-  modulesDescription: 'Программа рассчитана на 1 месяц, ей будет нужно посвящать 5-6 часов в неделю.',
-  modules: [
-    {
-      meta: [
-        {tag: 'span', content: 'Неделя 1'},
-      ],
-      title: 'Тема первой недели',
-      content: 'На первых этапах в рисовании мешает не столько отсутствие навыков, сколько предубеждения и страхи: «а если не получится», «не знаю, как правильно». Поэтому в начале важна поддержка и дружелюбная атмосфера. На вебинаре можно все, преподаватель поддержит любые идеи и эксперименты.',
-      imageDesc: 'София Ульянова',
-      imageSrc: 'TheStrangerVisitingNatureSusl',
-      imageAlt: 'TheStrangerVisitingNatureSusl',
-    },
-    {
-      meta: [
-        {tag: 'span', content: 'Неделя 2'},
-      ],
-      title: 'Тема второй недели',
-      content: [
-        { tag: 'p', content: 'На первых этапах в рисовании мешает не столько отсутствие навыков, сколько предубеждения и страхи: «а если не получится», «не знаю, как правильно». Поэтому в начале важна поддержка и дружелюбная атмосфера. На вебинаре можно все, преподаватель поддержит любые идеи и эксперименты'},
-        { tag: 'p', content: 'На первых этапах в рисовании мешает не столько отсутствие навыков, сколько предубеждения и страхи: «а если не получится», «не знаю, как правильно». Поэтому в начале важна поддержка и дружелюбная атмосфера. На вебинаре можно все, преподаватель поддержит любые идеи и эксперименты'},
-      ],
-      imageDesc: 'София Ульянова',
-      imageSrc: 'TheStrangerVisitingNatureSusl',
-      imageAlt: 'TheStrangerVisitingNatureSusl',
-    },
-  ],
-  explainVideo: {
-    title: 'YouTube video player',
-    src: 'https://www.youtube.com/embed/ag6PuGjJdbU?autoplay=1&amp;mute=1&amp;loop=1',
-  },
-  promoVideo: {
-    title: 'YouTube video player',
-    src: 'https://www.youtube.com/embed/ag6PuGjJdbU?autoplay=1&amp;mute=1&amp;loop=1',
-  },
-  teachers: [
-    {
-      title: 'София Ульянова',
-      description: 'Художник, автор курса. Закончила Британскую Высшую Школу Дизайна по курсу иллюстрация. Участвую в международных конкурсах для иллюстраторов. Рисую для себя и творческих проектов.',
-      imageSrc: 'Author',
-      imageAlt: 'Author',
-    },
-  ],
-  teacherGallery: [
-    {
-      imageSrc: 'SummerTime',
-      imageAlt: 'TSummerTime',
-    },
-    {
-      imageSrc: 'TheStrangerVisitingNatureTiger',
-      imageAlt: 'TheStrangerVisitingNatureTiger',
-    },
-    {
-      imageSrc: 'TheStrangerVisitingNatureSusl',
-      imageAlt: 'TheStrangerVisitingNatureSusl',
-    },
-    {
-      imageSrc: 'FromTheWarmLights1',
-      imageAlt: 'FromTheWarmLights1',
-    },
-    {
-      imageSrc: 'FromTheWarmLights2',
-      imageAlt: 'FromTheWarmLights2',
-    },
-  ],
-  faq: [
-    {
-      question: 'Как проходит онлайн обучение',
-      answer: [
-        { tag: 'p', content: 'Ответ на вопросы'},
-        { tag: 'p', content: 'Ответ на вопросы'},
-      ],
-    },
-    {
-      question: 'Сколько времени дается на домашние задания',
-      answer: 'Ответ на вопросы',
-    },
-    {
-      question: 'Какие материалы нужны для курса',
-      answer: 'Ответ на вопросы',
-    },
-    {
-      question: 'Подойдет ли мне курс, если я раньше не рисовал',
-      answer: 'Ответ на вопросы',
-    },
-    {
-      question: 'Что будет, если я пропустил вебинар',
-      answer: 'Ответ на вопросы',
-    },
-  ],
-};
+export const fetchCourse = createAction<'saga', IFetchCoursePayload>(
+  '***saga*** fetch Course',
+  function* execute(action: TAction<IFetchCoursePayload>) {
+    try {
+      const { courseId, source = 'remote' } = action.payload;
+
+      let localData: ICourseData | undefined;
+      try {
+        // @ts-ignore
+        const file = yield import(`edit-files/course-${courseId}.json`);
+        const isValid = localFilesServise.Course.test(file.courseData);
+        if (!isValid) {
+          throw new Error('Local file is corrupt');
+        }
+        localData = localFilesServise.Course.localToFR(file.courseData);
+      } catch(e) {
+        // tslint:disable-next-line
+        console.log(e);
+        localData = undefined;
+      }
+      const hasLocal = localData !== undefined;
+
+      const remoteData: ICourseData | undefined = yield dataService.course.get(courseId);
+      const hasRemote = remoteData !== undefined;
+
+      const state: ICourseState = {
+        courseId,
+        source,
+        hasLocal,
+        hasRemote,
+        data: source === 'remote' ? remoteData : localData,
+      };
+
+      yield put(updateState({ stateName: 'course', payload: state }));
+    } catch(e) {
+      // tslint:disable-next-line
+      console.log(`Faild to fetch course: ${action.payload.courseId}`);
+    }
+  }
+);
