@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { doc as getDocRef, getDoc, getFirestore, setDoc } from 'firebase/firestore';
-import firebaseConfig from './firebase.config.json';
+import { getFirebaseConfig } from './firebase.config';
 
 import { ECollections } from 'types';
 
@@ -45,4 +45,4 @@ export class FirebaseService {
   private _db: Firestore;
 }
 
-export const firebaseService = new FirebaseService(firebaseConfig);
+export const firebaseService = new FirebaseService(getFirebaseConfig());

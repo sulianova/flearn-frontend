@@ -7,7 +7,7 @@ import {
   setPersistence,
   browserLocalPersistence,
 } from 'firebase/auth';
-import firebaseConfig from './firebase.service/firebase.config.json';
+import { getFirebaseConfig } from './firebase.service/firebase.config';
 
 import type { FirebaseApp, FirebaseOptions } from 'firebase/app';
 import type { Auth, User } from 'firebase/auth';
@@ -90,4 +90,4 @@ class AuthService {
   private _resolveAwaitPersistedUser: ((user: User | null) => {}) | undefined | null;
 }
 
-export const authService = new AuthService(firebaseConfig);
+export const authService = new AuthService(getFirebaseConfig());
