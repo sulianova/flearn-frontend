@@ -5,9 +5,6 @@ import InputField, { IProps as IInputFieldProps } from 'ui/Form/Input/InputField
 import classes from './DecisionForm.module.scss';
 import classesInputField from './InputField.module.scss';
 
-import CheckboxSvg from 'assets/images/Svg/Checkbox';
-import Checkbox from 'ui/Form/Checkbox/Checkbox';
-
 import { useCallback, useEffect, useState } from 'react';
 import type { ICourseData, IRootState } from 'types';
 import store from 'store';
@@ -64,8 +61,8 @@ function DecisionForm(props: IProps) {
             <h1 className={classes.title}>{t('courseName', { courseName: props.data.title })}</h1>
           </div>
           <div className={classes.courseInfo}>
-            <div className={' s-text-18'}>13 сентября — 28 октября</div>
-            <div className={' s-text-18'}>5 недель</div>
+            <div className={' s-text-18'}>{formatCourseDate(props.data.startDate, props.data.durationWeeks)}</div>
+            <div className={' s-text-18'}>{formatDurationWeeks(props.data.durationWeeks)}</div>
           </div>
         </div>
         <div className={classes.credit}>
@@ -137,4 +134,19 @@ function renderForm(
 function isValid(formData: IFormData) {
   const { termsAgreed, name, email, phone, state } = formData;
   return termsAgreed && name  && email && phone && state.type !== 'pending';
+}
+
+
+function formatCourseDate(startDate: Date, durationWeeks: number) {
+  const startDateStr = startDate.toLocaleDateString(
+    ['ru-RU'],
+    { month: 'long', day: 'numeric' }
+  );
+  const endDateStr = 'посчитать';
+
+  return `${startDateStr} – ${endDateStr}`;
+}
+
+function formatDurationWeeks(durationWeeks: number) {
+  return `${durationWeeks} недель`
 }
