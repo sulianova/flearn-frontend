@@ -58,8 +58,15 @@ function Lessons({ data }: IConnectedProps) {
 function renderItem(props: ILessonsState['lessonsInfo'][number]) {
   return (
     <div className={classesList.itemWrapper}>
-      <div className={classesList.itemDate + ' s-text-18'}>{props.dates}</div>
+      <div className={classesList.itemDate + ' s-text-28'}>{props.dates}</div>
       <div className={classesList.item}>
+        <div className={classesList.itemTitle + ' s-text-21'}>{props.title}</div>
+        <div className={classesList.itemLinks}>
+          {props.lectureLink && <div className={classesList.itemLink}><a className='link s-text-18' href={props.lectureLink}>{t('lecture')}</a></div>}
+          {props.homeworkLink && <div className={classesList.itemLink}><a className='link s-text-18' href={props.homeworkLink}>{t('homework')}</a></div>}
+          {props.webinarLink && <div className={classesList.itemLink}><a className='link s-text-18' href={props.webinarLink}>{t('webinar')}</a></div>}
+          {props.resultsLink && <div className={classesList.itemLink}><a className='link s-text-18' href={props.resultsLink}>{t('results')}</a></div>}
+        </div>
         <div className={classesList.itemTitle + ' s-text-21'}>{props.title}</div>
         <div className={classesList.itemLinks}>
           {props.lectureLink && <div className={classesList.itemLink}><a className='link s-text-18' href={props.lectureLink}>{t('lecture')}</a></div>}
