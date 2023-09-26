@@ -24,10 +24,10 @@ function Footer() {
             <div className={'s-text-36'}>{i18n.t('logoLong')}</div>
         </div>
         <div className={cx({ nav: true, col: true })}>
-            <Link to={URLSections.Catalogue.index} className={classes.colItem + ' s-text-18 link'} target='_blank'>{t('referencesCatalogue')}</Link>
+            {/* <Link to={URLSections.Catalogue.index} className={classes.colItem + ' s-text-18 link'} target='_blank'>{t('referencesCatalogue')}</Link>
             <Link to={URLSections.FreeZone.index} className={classes.colItem + ' s-text-18 link'} target='_blank'>{t('referencesBooks')}</Link>
             <Link to={URLSections.FreeZone.index} className={classes.colItem + ' s-text-18 link'} target='_blank'>{t('referencesFreeZone')}</Link>
-            <Link to={URLSections.FreeZone.index} className={classes.colItem + ' s-text-18 link'} target='_blank'>{t('referencesReviews')}</Link>
+            <Link to={URLSections.FreeZone.index} className={classes.colItem + ' s-text-18 link'} target='_blank'>{t('referencesReviews')}</Link> */}
         </div>
         <div className={cx({ creator: true, col: true })}>
           <Link to={t('creatorDesign.link')}  target='_blank'>

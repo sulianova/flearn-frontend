@@ -43,11 +43,12 @@ function Header(props: IConnectedProps) {
       <div className={classes.desc}>
         <div className={classes.logo}>
           <div className={classes.logoWrapper}>
-            <Link to={URLSections.FreeZone.index} className='s-text-24'>{i18n.t('logo')}</Link>
+            <div className='s-text-24'>{i18n.t('logo')}</div>
+            {/* <Link to={URLSections.FreeZone.index} className='s-text-24'>{i18n.t('logo')}</Link> */}
           </div>
         </div>
         <div className={classes.nav}>
-          <div className={classes.navItem}>
+          {/* <div className={classes.navItem}>
             <Link to={URLSections.My.Profile.index} className='inline-link'>{t('my')}</Link>
           </div>
           <div className={classes.navItem}>
@@ -55,7 +56,7 @@ function Header(props: IConnectedProps) {
           </div>
           <div className={classes.navItem}>
             <Link to={URLSections.Catalogue.index} className='inline-link'>{t('catalogue')}</Link>
-          </div>
+          </div> */}
         </div>
         <div className={classes.navLogin}>
           {props.user ?
@@ -67,7 +68,7 @@ function Header(props: IConnectedProps) {
       </div>
       <div className={classes.mob}>
         <div className={classes.mobMenuMain}>
-          <div className={classes.mobItem}>
+          {/* <div className={classes.mobItem}>
             <Link to={URLSections.My.Profile.index} className='inline-link s-text-36'>
               <span className='inline-text'>{t('my')}</span>
             </Link>
@@ -81,7 +82,7 @@ function Header(props: IConnectedProps) {
             <Link to={URLSections.Catalogue.index} className='inline-link s-text-36'>
               <span className='inline-text'>{t('catalogue')}</span>
             </Link>
-          </div>
+          </div> */}
         </div>
         <div className={classes.mobMenuControls}>
           {props.user ?

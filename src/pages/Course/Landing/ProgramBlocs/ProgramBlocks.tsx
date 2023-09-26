@@ -6,7 +6,7 @@ import Gallery from './Gallery/Gallery';
 import Modules from './Modules/Modules';
 import classes from './ProgramBlocks.module.scss';
 import Promo from './Promo/Promo';
-import Teachers from './Teachers/Teachers';
+import StudentsWorks from './StudentsWorks/StudentsWorks';
 
 import type { ICourseData } from 'types';
 
@@ -17,13 +17,13 @@ interface IProps {
 export default function ProgramBlocks(props: IProps) {
   const blocks = [
     <Description key='description' {...props}/>,
-    <Modules key='modules' modules={props.data.modules} {...props}/>,
-    // <Teachers key='teachers' {...props}/>,
-    <Promo key='promo' {...props}/>,
     <Explain key='explain' {...props}/>,
     <Gallery key='gallery' {...props}/>,
-    <DecisionForm key='decisionForm' {...props}/>,
+    <Modules key='modules' modules={props.data.modules} {...props}/>,
+    <StudentsWorks key='studentsWorks' {...props}/>,
     <FAQ key='faq' {...props}/>,
+    <Promo key='promo' {...props}/>,
+    <DecisionForm key='decisionForm' {...props}/>,
   ];
 
   return (

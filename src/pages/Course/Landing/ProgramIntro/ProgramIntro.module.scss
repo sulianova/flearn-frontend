@@ -12,9 +12,6 @@
 
     width: set-calc(2 * $padding-x-mob-page, true, 100%);
     min-height: 95vh;
-    // min-height: -moz-available;
-    // min-height: -webkit-fill-available;
-    // min-height: fill-available;
   }
 }
 
@@ -42,7 +39,7 @@
 }
 
 .categories {
-  z-index: 200;
+  z-index: 100;
 
   display: flex;
   flex-wrap: wrap;
@@ -69,7 +66,7 @@
 }
 
 .title {
-  z-index: 200;
+  z-index: 100;
   font-family: $font-family-serif;
 
   max-width: set-calc(620);
@@ -81,7 +78,7 @@
 }
 
 .block {
-  z-index: 200;
+  z-index: 100;
 
   max-width: set-calc(620);
   padding-bottom: set-calc(32);
@@ -92,7 +89,7 @@
 }
 
 .actions {
-  z-index: 300;
+  z-index: 500;
 
   display: flex;
   flex-wrap: wrap;

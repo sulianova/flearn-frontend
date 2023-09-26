@@ -18,7 +18,6 @@
   grid-column: span 6;
   position: relative;
   padding: set-calc(32);
-  // background: $black-new;
   background: $beige;
   border-radius: set-calc(20);
 
@@ -33,19 +32,35 @@
   flex-direction: column;
   justify-content: space-between;
 
-  padding-right: set-calc(72);
+  padding-right: set-calc(24);
+}
+
+.titleWrapper{
+  display: flex;
+  justify-content: space-between;
+
+  @include set-media(md) {
+    flex-direction: column;
+  }
 }
 
 .title {
   padding-bottom: set-calc(40);
   font-family: $font-family-serif;
+  @include s-text-36;
+
+  @include set-media(md) {
+    padding-bottom: set-calc(16);
+
+    @include s-text-56;
+  }
 }
 
 .subtitle {
-  padding-bottom: set-calc(24);
+  padding-bottom: set-calc(8);
 
   @include set-media(md) {
-    padding-bottom: set-calc(32);
+    padding-bottom: set-calc(8);
   }
 }
 
@@ -92,28 +107,29 @@
   align-items: center;
   justify-content: center;
   padding: set-calc(12) set-calc(24);
-
-  // color: $white;
   letter-spacing: 0;
 
   background: hsla(0,0%,100%,.8);
   border-radius: set-calc(30);
 }
 
-.courseName {
+.courseInfo {
   position: relative;
 
-  display: block;
-  padding: set-calc(60) 0 set-calc(5);
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  padding: 0 0 set-calc(5);
 
   @include set-media(md) {
-    padding: set-calc(32) 0 0;
+    align-items: start;
+    padding-top: set-calc(24);
+    padding-bottom: set-calc(16);
   }
 }
 
 .form {
   position: relative;
-
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -121,47 +137,18 @@
 }
 
 .inputWrap {
-  padding-bottom: set-calc(20);
+  padding-bottom: set-calc(8);
+  display: flex;
 }
 
 .agreement {
-  padding: 0 0 set-calc(32);
+  padding: 0 set-calc(8) set-calc(32);
 
-  label {
-    position: relative;
-
-    display: flex;
-    align-items: center;
-
-    cursor: pointer;
-
-    svg {
-      width: set-calc(18);
-      height: set-calc(18);
-    }
+  @include set-media(md) {
+    padding-left: set-calc(2);
+    padding-bottom: 0;
   }
 
-  input[type='checkbox'] {
-    box-sizing: border-box;
-    margin: set-calc(3) set-calc(3) set-calc(3) set-calc(4);
-    padding: initial;
-
-    background-color: initial;
-    border: initial;
-    cursor: default;
-
-    appearance: auto;
-  }
-
-  input[type='checkbox']:not(:checked) + label g {
-    display: none;
-
-    transition: display $d-hover linear;
-  }
-}
-
-.agreementCheckbox {
-  display: none;
 }
 
 .agreementText {
@@ -177,29 +164,33 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: set-calc(68);
-  padding: 0 set-calc(40);
+  padding: set-calc(16) set-calc(16);
+  min-width: set-calc(58);
 
   color: $white;
 
   background-color: $green;
-  border-radius: set-calc(20);
+  border-radius: 0 set-calc(15) set-calc(15) 0;
   cursor: pointer;
 
   transition: background-color $d-hover ease-in-out, color ease-in-out $d-hover;
-
-  @include set-media(md) {
-    height: set-calc(56);
-  }
 
   &:hover {
     background-color: $green-hover;
   }
 }
 
+.isDisabled {
+  background-color: $grey;
+  pointer-events: none;
+
+  &:hover {
+    background-color: $grey;
+  }
+}
+
 .Error {
-  color: red;
+  color: $orange;
 }
 
 .Success {

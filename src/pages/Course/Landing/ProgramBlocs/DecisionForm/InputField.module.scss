@@ -4,12 +4,12 @@
   position: relative;
 
   width: 100%;
-  padding: set-calc(22) set-calc(30);
+  padding: set-calc(16) set-calc(30);
 
   position: relative;
   background: none;
   border: none;
-  border-radius: set-calc(15);
+  border-radius: set-calc(15) 0 0 set-calc(15);
   box-shadow: none;
   outline: none;
 
@@ -28,6 +28,15 @@
 
   @include set-media(md) {
     padding: set-calc(20) set-calc(16);
+  }
+
+  &Caption {
+    padding-bottom: set-calc(16);
+    padding-left: set-calc(8);
+
+    @include set-media(md) {
+      padding-left: set-calc(2);
+    }
   }
 }
 

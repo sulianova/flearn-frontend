@@ -53,8 +53,8 @@ function createScroll(id: string) {
         `#${id}`,
         { y: 100, autoAlpha: 0.8 },
         {
-          duration: 1.25,
-          delay: 0.5,
+          duration: 1.1,
+          delay: 0.2,
           immediateRender: false,
           y: 0,
           autoAlpha: 1,

@@ -7,6 +7,7 @@
   padding-top: set-calc(0);
 }
 
+
 .title {
   padding-bottom: set-calc(60);
   font-family: $font-family-serif;
@@ -20,7 +21,7 @@
   display: flex;
   box-sizing: content-box;
   width: 100%;
-  @include is-grid-3;
+  @include is-grid-4;
 }
 
 .item {

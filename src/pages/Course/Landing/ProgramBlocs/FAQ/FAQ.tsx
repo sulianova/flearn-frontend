@@ -2,6 +2,7 @@ import { Fragment } from 'react';
 import { formatI18nT } from 'shared';
 import Animated from 'ui/Animated';
 import classes from './FAQ.module.scss';
+import Link from 'ui/Link/Link';
 
 import classNames from 'classnames/bind';
 import type { ICourseData } from 'types';
@@ -23,7 +24,9 @@ function FAQ(props: IProps) {
             <h2 className={classes.headerTitle + ' s-text-56'}>{t('headerTitle')}</h2>
             <div className={classes.headerDesc + ' s-text-24'}>
               {t('headerDesc1')}
-              <a className='key-link'>{t('headerDesc2')}</a>
+              <Link to={t('creatorLink')}  target='_blank'>
+                <span className='key-link'>{t('headerDesc2')}</span>
+              </Link>
               {t('headerDesc3')}
             </div>
           </div>

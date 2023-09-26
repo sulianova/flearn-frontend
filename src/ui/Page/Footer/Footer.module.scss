@@ -46,8 +46,8 @@
 }
 
 .logo {
-  grid-column: span 1;
-  width: 50%;
+  grid-column: span 2;
+  width: 100%;
 
   @include set-media(md) {
     width: 100%;

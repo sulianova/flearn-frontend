@@ -1,7 +1,7 @@
 @use "sass:math";
 $rem-base: 18px;
 $font-family: TTInterphasesPro, sans-serif;
-$font-family-serif: TTInterphasesPro, serif;
+$font-family-serif: TTNormsProSerif, serif;
 $padding-x-desk-page: 56;
 $padding-x-mob-page: 16;
 $s-gap: 8;
@@ -28,6 +28,11 @@ $grey: #aaa;
 $grey-hover: #969696;
 $grey-inactive: #707070;
 $border: #d7d7d7;
+$pastelPink: #ffc4c4;;
+$pastelViolet: #b6c0ff;
+$pastelWarmGreen: #e4ecb7;
+$pastelColdGreen: #97dec8;
+
 $breakpoints: (
   xxs: 319.98px,
   xs: 374.98px,

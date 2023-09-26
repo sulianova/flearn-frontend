@@ -58,20 +58,34 @@ function DecisionForm(props: IProps) {
   return (
     <div className={classes.wrapper} id='decision-form'>
       <div className={cx({ block: true, blockDetails: true })}>
-        <h1 className={classes.title + ' s-text-56'}>{t('title')}</h1>
+        <div className={classes.titleWrapper}>
+          <div>
+            <div className={classes.subtitle + ' s-text-24'}>{t('title')}</div>
+            <h1 className={classes.title}>{t('courseName', { courseName: props.data.title })}</h1>
+          </div>
+          <div className={classes.courseInfo}>
+            <div className={' s-text-18'}>13 сентября — 28 октября</div>
+            <div className={' s-text-18'}>5 недель</div>
+          </div>
+        </div>
         <div className={classes.credit}>
           <s className={classes.creditWas + ' s-text-24'}>{formatCredit(props.data.creditWas)} &#8381;</s>
           <div className={classes.creditPrice + ' s-text-88'}>
             {formatCredit(props.data.creditPrice)} &#8381;
             <span className={classes.discount + ' s-text-18'}>{formatCourseDiscount(props.data.discontAmount)}</span>
-            </div>
+          </div>
         </div>
-        <div className={classes.courseName + ' s-text-18'}>{t('courseName', { courseName: props.data.title })}</div>
       </div>
       <div className={classes.block}>
-        <h1 className={classes.subtitle + ' s-text-24'}>{t('subtitle')}</h1>
         {renderForm(formData, setFormData, handleSubmit)}
+        <div className={classesInputField.inputCaption + ' s-text-18'}>{t('emailCaption')}</div>
+        <div className={classes.agreement}>
+          <span className={classes.agreementText + ' s-text-18'}>
+            <a className='key-link' href=''>{t('agreement')}</a>
+          </span>
+        </div>
       </div>
+
     </div>
   );
 }
@@ -100,48 +114,22 @@ function renderForm(
       <div className={classes.inputWrap}>
         <InputField
           className={cx2({ input: true, light: true }) + ' s-text-24'}
-          variant='Name'
-          value={formData.name}
-          onChange={v => setFormData(d => ({ ...d, name: v }))}
-        />
-      </div>
-      <div className={classes.inputWrap}>
-        <InputField
-          className={cx2({ input: true, light: true }) + ' s-text-24'}
-          variant='Phone'
-          value={formData.phone}
-          onChange={v => setFormData(d => ({ ...d, phone: v }))}
-        />
-      </div>
-      <div className={classes.inputWrap}>
-        <InputField
-          className={cx2({ input: true, light: true }) + ' s-text-24'}
           variant='Email'
           value={formData.email}
           onChange={v => setFormData(d => ({ ...d, email: v }))}
         />
-      </div>
-      <div className={classes.agreement}>
-        <Checkbox
-          id='agreement-consult'
-          className={classes.agreementCheckbox}
-          value={formData.termsAgreed}
-          onChange={v => setFormData(d => ({ ...d, termsAgreed: v }))}
+        <button
+          className={cx({ submitButton: true, isDisabled: false }) + ' s-text-36'}
+          type="submit"
+          disabled={!isValid(formData)}
+          onClick={() => handleSubmit(formData)}
         >
-          <CheckboxSvg/>
-          <span className={classes.agreementText + ' s-text-18'}>
-            {t('agreement1')}&nbsp;<a className='key-link' href=''>{t('agreement2')}</a>
-          </span>
-        </Checkbox>
+          <span className={classes.isDefault}>→</span>
+          {/* <span className={classes.isSuccess}>✓</span> */}
+          {/* <span className={classes.isLoading}></span> */}
+          {/* <span className={classes.isReset}>↻</span> */}
+        </button>
       </div>
-      <button
-        className={classes.submitButton + ' s-text-24'}
-        type='button'
-        disabled={!isValid(formData)}
-        onClick={() => handleSubmit(formData)}
-      >
-        <span>{formData.state.type === 'pending' ? 'отправляем' : i18n.t('signUp')}</span>
-      </button>
     </form>
   );
 }

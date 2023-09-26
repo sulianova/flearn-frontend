@@ -95,8 +95,25 @@
     @include set-typography(24, 26, 500);
   }
 }
+
+@mixin s-text-36 {
+  @include set-typography(36, 42, 500);
+
+  @include set-media(md) {
+    @include set-typography(24, 26, 500);
+  }
+}
 //h2
 .s-text-56 {
+  @include set-typography(56, 61, 500);
+  letter-spacing: -.01rem;
+
+  @include set-media(md) {
+    @include set-typography(40, 44, 500);
+  }
+}
+
+@mixin s-text-56 {
   @include set-typography(56, 61, 500);
   letter-spacing: -.01rem;
 
