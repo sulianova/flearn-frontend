@@ -72,16 +72,28 @@
   min-height: set-calc(48);
   padding: set-calc(4) set-calc(40);
 
-  color: $grey-inactive;
+  color: $white;
 
-  background: $grey;
+  background: $green;
   border-radius: set-calc(20);
+  cursor: pointer;
 
-  pointer-events: none;
+  transition: background-color $d-hover ease-in-out, color ease-in-out $d-hover;
 
   @include set-media(md) {
     width: 100%;
   }
+}
+
+.submitBtn:hover {
+  background-color: $green-hover;
+}
+
+.isDisabled {
+  color: $grey-inactive;
+  background: $grey;
+
+  pointer-events: none;
 }
 
 .submitDescription {
@@ -140,6 +152,14 @@
 
   border: set-calc(2) solid $black-new;
   border-radius: set-calc(20);
+
+  cursor: pointer;
+  transition: opacity, color;
+  transition-duration: $d-hover;
+}
+
+.filesBtn:hover {
+  opacity: 0.5;
 }
 
 .filesContent {
