@@ -33,11 +33,15 @@ function Uppload({ endDate }: IUpploadProps) {
   return (
     <Fragment>
       <div className={classes.uploadDeadline + ' s-text-24'}>
-        {t('deadlineUploadText')} {getWeekDay(endDate)},
+        {t('deadlineUploadText')} {getWeekDay(endDate)} {formatLessonDate(endDate)} {t('deadlineUploadTime')}
         <br/>
-        {formatLessonDate(endDate)} {t('deadlineUploadTime')}
+        Публикация результатов: 
       </div>
-      <div className={classes.uploadBtnWrapper}><a className={classes.uploadBtn + ' s-text-24'} href='#upload-form'>Загрузить работу</a></div>
+      {/* <div className={classes.uploadBtnWrapper}><a className={classes.uploadBtn + ' s-text-24'} href='#upload-form'>Загрузить работу</a></div> */}
+      <div className={classes.resultsLinkWrapper}>
+        <h3 className={classes.resultsLinkTitle + ' s-text-24'}>Результаты задания</h3>
+        <a className={classes.resultsLink + ' s-text-18 key-link'} href='#upload-form'>Sofiia Ulianova</a>
+      </div>
     </Fragment>
   );
 }
@@ -52,5 +56,5 @@ function formatLessonDate(date: Date) {
     ['ru-RU'],
     { month: 'long', day: 'numeric' }
   );
-  return `${dateStr}, `;
+  return `${dateStr} 2023, `;
 }
