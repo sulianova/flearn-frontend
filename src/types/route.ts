@@ -24,6 +24,10 @@ export const URLSections = {
         Profile: { index: '/my/profile' },
         Settings: { index: '/my/settings' },
     },
+    Static: {
+        Policy: { index: '/policy' },
+        Oferta: { index: '/oferta' },
+    },
 } as const;
 
 type TGetObjectValues<T extends {}, Keys extends keyof T = keyof T> =

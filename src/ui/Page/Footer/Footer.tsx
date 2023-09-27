@@ -49,8 +49,8 @@ function Footer() {
           <p className={'s-text-18'}>{t('emailComment')}</p>
         </div>
         <div className={cx({ documents: true, col: true })}>
-          <Link className={'s-text-18 link'} target='_blank'>{t('documentsPrivacyPolicy.title')}</Link>
-          <Link className={'s-text-18 link'} target='_blank'>{t('documentsTermsOfUse.title')}</Link>
+          <Link to={URLSections.Static.Policy.index} className={'s-text-18 link'} target='_blank'>{t('documentsPrivacyPolicy.title')}</Link>
+          <Link to={URLSections.Static.Oferta.index} className={'s-text-18 link'} target='_blank'>{t('documentsTermsOfUse.title')}</Link>
         </div>
         <div className={cx({ social: true, col: false })}>
           <div className={classes.socialLink}>

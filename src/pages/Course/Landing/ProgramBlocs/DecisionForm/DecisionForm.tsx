@@ -2,11 +2,12 @@ import classNames from 'classnames/bind';
 import { formatI18nT, i18n } from 'shared';
 
 import InputField, { IProps as IInputFieldProps } from 'ui/Form/Input/InputField';
+import Link from 'ui/Link/Link';
 import classes from './DecisionForm.module.scss';
 import classesInputField from './InputField.module.scss';
 
 import { useCallback, useEffect, useState } from 'react';
-import type { ICourseData, IRootState } from 'types';
+import { URLSections, type ICourseData, type IRootState } from 'types';
 import store from 'store';
 import { dataService } from 'services';
 
@@ -77,9 +78,15 @@ function DecisionForm(props: IProps) {
         {renderForm(formData, setFormData, handleSubmit)}
         <div className={classesInputField.inputCaption + ' s-text-18'}>{t('emailCaption')}</div>
         <div className={classes.agreement}>
-          <span className={classes.agreementText + ' s-text-18'}>
-            <a className='key-link' href=''>{t('agreement')}</a>
-          </span>
+          <Link
+            className='key-link'
+            to={URLSections.Static.Oferta.index}
+            target='_blank'
+          >
+            <span className={classes.agreementText + ' s-text-18'}>
+              {t('agreement')}
+            </span>
+          </Link>
         </div>
       </div>
 

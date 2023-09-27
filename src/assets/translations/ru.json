@@ -60,12 +60,10 @@
         "link": "https://www.tiktok.com/@sofiulyanova"
       },
       "documentsPrivacyPolicy": {
-        "title": "Политика конфидициальности",
-        "link": ""
+        "title": "Политика конфидициальности"
       },
       "documentsTermsOfUse": {
-        "title": "Условия использования",
-        "link": ""
+        "title": "Оферта и Договор"
       },
       "creatorDesign": {
         "title": "Дизайн и разработка",
@@ -88,7 +86,7 @@
           "subtitle": "Заполните форму и я свяжусь с вами, чтобы оформить оплату",
           "courseName": " “%{courseName}”",
           "emailCaption": "Адрес, к которому хотите привязать покупку. Если у вас есть профиль с другими покупками, используйте адрес оттуда",
-          "agreement": "Условия использования"
+          "agreement": "Оферта и Договор"
       },
       "description": {
         "title": "Курс подойдeт тем, кто"
