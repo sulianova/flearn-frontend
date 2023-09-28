@@ -10,6 +10,9 @@ import Lesson from 'pages/Course/Lesson/Lesson';
 import Lessons from 'pages/Course/Lessons/Lessons';
 import My from 'pages/My/My';
 
+import Oferta from 'pages/Static/Oferta';
+import Policy from 'pages/Static/Policy';
+
 import ProtectedRoute from './ProtectedRoute';
 
 export default connect(mapStateToProps)(MyRouter);
@@ -45,6 +48,8 @@ function MyRouter({ userState }: IProps) {
             <Route path={URLSections.My.Profile.index} element={<My mode='Profile'/>} />
             <Route path={URLSections.My.Settings.index} element={<My mode='Settings'/>} />
           </Route>
+          <Route path={URLSections.Static.Oferta.index} element={<Oferta />}/>
+          <Route path={URLSections.Static.Policy.index} element={<Policy />}/>
         </Routes>
       </BrowserRouter>
     </AuthContext.Provider>
