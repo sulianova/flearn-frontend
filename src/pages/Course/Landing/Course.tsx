@@ -4,7 +4,7 @@ import { useParams } from 'react-router';
 import { useFetch } from 'hooks';
 import { fetchCourse, type IFetchCoursePayload } from 'store/actions/sagas';
 
-import Page from 'ui/Page/Page';
+import Page, { EFooter } from 'ui/Page/Page';
 
 import DiscountBanner from './DiscountBanner/DiscountBanner';
 import ProgramBlocks from './ProgramBlocs/ProgramBlocks';
@@ -34,14 +34,14 @@ function Course({ data }: IConnectedProps) {
 
   if (!data) {
     return (
-      <Page header footer wrapper='Course'>
+      <Page header footer={EFooter.Big} wrapper='Course'>
         <p>loading course</p>
       </Page>
     );
   }
 
   return (
-    <Page header footer wrapper='Course'>
+    <Page header footer={EFooter.Big} wrapper='Course'>
       <ProgramIntro data={data}/>
       <DiscountBanner data={data}/>
       <ProgramBlocks data={data} />
