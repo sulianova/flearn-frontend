@@ -3,7 +3,7 @@ import { authService, firebaseService } from 'services';
 import { lessonConverter } from './lessonConverter';
 
 import { ECollections, ELessonErrorTypes } from 'types';
-import type { IAccessData, ILessonData } from 'types';
+import type { IAccessData, ILessonData, ILessonDataDB } from 'types';
 
 class Lesson {
   public async get(courseId: string, lessonId: string) {
@@ -13,17 +13,19 @@ class Lesson {
     if (!userHasAccess) {
       throw new Error(ELessonErrorTypes.Restricted);
     }
-    const lessonData = await firebaseService.getDoc(ECollections.Lesson, fullLessonId, lessonConverter);
-    if (!lessonData) {
+    const lessonDataDB = (await firebaseService.getDoc(ECollections.Lesson, fullLessonId)) as ILessonDataDB | undefined;
+    if (!lessonDataDB) {
       throw new Error(ELessonErrorTypes.FailedToFindLesson);
     }
+
+    const lessonData = await lessonConverter.fromFirestore(lessonDataDB, courseId);
 
     return lessonData;
   }
 
   public async set(courseId: string, lessonId: string, data: ILessonData) {
     const fullLessonId = this.getFullId(courseId, lessonId);
-    return await firebaseService.setDoc(ECollections.Lesson, fullLessonId, data, lessonConverter);
+    return await firebaseService.setDoc(ECollections.Lesson, fullLessonId, data);
   }
 
   public getFullId(courseId: string, lessonId: string) {
