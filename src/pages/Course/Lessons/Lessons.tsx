@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import { useFetch } from 'hooks';
-import { Fragment } from 'react';
+import { Fragment, useMemo } from 'react';
 import { formatI18nT, i18n } from 'shared';
 import { fetchCourse, fetchLessons } from 'store/actions/sagas';
 
@@ -28,6 +28,33 @@ const t = formatI18nT('courseLessons');
 
 function Lessons({ data }: IConnectedProps) {
   useFetch(({ actionCreator: fetchLessons }));
+
+  const groupes: IGroup[] = useMemo(() => {
+    if (!data?.lessonsInfo) {
+      return [];
+    }
+
+    return [...data.lessonsInfo
+      .reduce((acc, lesson) => {
+        if (!acc.has(lesson.week)) {
+          acc.set(lesson.week, {
+            week: lesson.week,
+            startDate: lesson.startDate,
+            endDate: lesson.endDate,
+            lessonsInfos: [lesson],
+          })
+        } else {
+          acc.get(lesson.week)!.lessonsInfos.push(lesson);
+        }
+
+        return acc;
+      }, new Map() as Map<number, IGroup>)
+      .values()]
+      // TODO sort lessons infos by ???
+      .sort((a, b) => a.week - b.week);
+
+  }, [data?.lessonsInfo]);
+
   if (!data || Object.keys(data).length === 0) {
     return (
       <Page header footer wrapper='Lessons'>
@@ -49,36 +76,46 @@ function Lessons({ data }: IConnectedProps) {
     </div>
     <div className={classesList.wrapper}>
       <div className={classesList.list}>
-        {renderItems(data.lessonsInfo)}
+        {renderGroups(groupes)}
       </div>
     </div>
   </Page>);
 }
 
-function renderItem(props: ILessonsState['lessonsInfo'][number]) {
+interface IGroup {
+  lessonsInfos: ILessonsState['lessonsInfo']
+  week: number
+  startDate: Date
+  endDate: Date
+}
+
+function renderGroups(props: IGroup[]) {
+  return props.map((d, index) => (<Fragment key={index}>{renderGroup(d)}</Fragment>));
+}
+
+function renderGroup(props: IGroup) {
   return (
     <div className={classesList.itemWrapper}>
-      <div className={classesList.itemDate + ' s-text-28'}>{props.dates}</div>
-      <div className={classesList.item}>
-        <div className={classesList.itemTitle + ' s-text-21'}>{props.title}</div>
-        <div className={classesList.itemLinks}>
-          {props.lectureLink && <div className={classesList.itemLink}><a className='link s-text-18' href={props.lectureLink}>{t('lecture')}</a></div>}
-          {props.homeworkLink && <div className={classesList.itemLink}><a className='link s-text-18' href={props.homeworkLink}>{t('homework')}</a></div>}
-          {props.webinarLink && <div className={classesList.itemLink}><a className='link s-text-18' href={props.webinarLink}>{t('webinar')}</a></div>}
-          {props.resultsLink && <div className={classesList.itemLink}><a className='link s-text-18' href={props.resultsLink}>{t('results')}</a></div>}
-        </div>
-        <div className={classesList.itemTitle + ' s-text-21'}>{props.title}</div>
-        <div className={classesList.itemLinks}>
-          {props.lectureLink && <div className={classesList.itemLink}><a className='link s-text-18' href={props.lectureLink}>{t('lecture')}</a></div>}
-          {props.homeworkLink && <div className={classesList.itemLink}><a className='link s-text-18' href={props.homeworkLink}>{t('homework')}</a></div>}
-          {props.webinarLink && <div className={classesList.itemLink}><a className='link s-text-18' href={props.webinarLink}>{t('webinar')}</a></div>}
-          {props.resultsLink && <div className={classesList.itemLink}><a className='link s-text-18' href={props.resultsLink}>{t('results')}</a></div>}
-        </div>
-      </div>
+      <div className={classesList.itemDate + ' s-text-28'}>{props.startDate.getDate()} - {props.endDate.getDate()}</div>
+      {renderItems(props.lessonsInfos)}
     </div>
   );
 }
 
 function renderItems(props: ILessonsState['lessonsInfo'] ) {
   return props.map((d, index) => (<Fragment key={index}>{renderItem(d)}</Fragment>));
+}
+
+function renderItem(props: ILessonsState['lessonsInfo'][number]) {
+  return (
+    <div className={classesList.item}>
+      <div className={classesList.itemTitle + ' s-text-21'}>{props.title}</div>
+      <div className={classesList.itemLinks}>
+        {props.lectureLink && <div className={classesList.itemLink}><a className='link s-text-18' href={props.lectureLink}>{t('lecture')}</a></div>}
+        {props.homeworkLink && <div className={classesList.itemLink}><a className='link s-text-18' href={props.homeworkLink}>{t('homework')}</a></div>}
+        {props.webinarLink && <div className={classesList.itemLink}><a className='link s-text-18' href={props.webinarLink}>{t('webinar')}</a></div>}
+        {props.resultsLink && <div className={classesList.itemLink}><a className='link s-text-18' href={props.resultsLink}>{t('results')}</a></div>}
+      </div>
+    </div>
+  );
 }
