@@ -56,7 +56,7 @@ function Lesson({ lessonState, practice, homework }: IProps) {
   }
 
   return (
-    <Page header footer wrapper='Lesson'>
+    <Page header wrapper='Lesson'>
       <LessonHeader
         lesson={lessonState.data}
         practice={practice}

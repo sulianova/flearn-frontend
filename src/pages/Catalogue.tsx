@@ -1,7 +1,7 @@
-import Page from 'ui/Page/Page';
+import Page, { EFooter } from 'ui/Page/Page';
 
 export default Catalogue;
 
 function Catalogue() {
-    return (<Page header footer>This is a Catalogue page</Page>);
+    return (<Page header footer={EFooter.Big}>This is a Catalogue page</Page>);
 }

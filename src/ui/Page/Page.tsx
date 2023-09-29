@@ -1,6 +1,6 @@
 import React from 'react';
 import EditBar from './EditBar/EditBar';
-import Footer from './Footer/Footer';
+import Footer, { EFooter } from './Footer/Footer';
 import Header from './Header/Header';
 
 import useHeightToCss from './useHeightToCss';
@@ -8,15 +8,16 @@ import useHeightToCss from './useHeightToCss';
 import classes from './Page.module.scss';
 
 export default Page;
+export { EFooter } from './Footer/Footer';
 
 interface IProps {
   children: React.ReactNode
   header?: boolean
-  footer?: boolean
+  footer?: boolean | EFooter
   wrapper?: 'Course' | 'Catalogue' | 'FreeZone' | 'My' | 'Lessons' | 'Lesson' | 'Fallback'
 }
 
-function Page({ children, header = false, footer = false, wrapper }: IProps) {
+function Page({ children, header = false, footer, wrapper }: IProps) {
   const ref = useHeightToCss();
 
   return (
@@ -31,7 +32,7 @@ function Page({ children, header = false, footer = false, wrapper }: IProps) {
         }
         <EditBar/>
       </div>
-      {footer && <Footer/>}
+      {footer !== false && <Footer type={footer === true ? EFooter.Default : footer}/>}
     </div>
   );
 }
