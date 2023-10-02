@@ -1,8 +1,6 @@
-import * as images from 'assets/images';
-
 interface IProps {
   alt: string
-  src: keyof typeof images
+  src: string
   lazy?: boolean
 }
 
@@ -11,7 +9,7 @@ export default function Img(props: Readonly<IProps>) {
   return (
     <img
       alt={alt}
-      src={images[src]}
+      src={src}
       loading={lazy ? 'lazy' : undefined }
     />
   );

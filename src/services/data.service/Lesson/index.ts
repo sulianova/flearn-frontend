@@ -23,9 +23,16 @@ class Lesson {
     return lessonData;
   }
 
-  public async set(courseId: string, lessonId: string, data: ILessonData) {
+  public async set(courseId: string, lessonId: string, lessonData: ILessonData): Promise<ILessonData> {
     const fullLessonId = this.getFullId(courseId, lessonId);
-    return await firebaseService.setDoc(ECollections.Lesson, fullLessonId, data);
+    const lessonDataDB = lessonConverter.toFirestore(lessonData);
+    const newLessonDataDB = (await firebaseService.setDoc(ECollections.Lesson, fullLessonId, lessonDataDB)) as ILessonDataDB | undefined;
+
+    if (!newLessonDataDB) {
+      throw new Error('Failed to update lesson');
+    }
+
+    return await lessonConverter.fromFirestore(newLessonDataDB, courseId);
   }
 
   public getFullId(courseId: string, lessonId: string) {

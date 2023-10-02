@@ -2,16 +2,32 @@ import { firebaseService } from 'services';
 
 import { courseConverter } from './courseConverter';
 
-import { ECollections } from 'types';
-import type { ICourseData } from 'types';
+import {
+  ECollections,
+  type ICourseData,
+  type ICourseDataDB
+} from 'types';
 
 class Course {
-  public async get(id: string) {
-    return await firebaseService.getDoc(ECollections.Course, id, courseConverter);
+  public async get(id: string): Promise<ICourseData> {
+    const courseDataDB = (await firebaseService.getDoc(ECollections.Course, id)) as ICourseDataDB | undefined;
+
+    if (!courseDataDB) {
+      throw new Error('Failed to fetch course data');
+    }
+
+    return await courseConverter.fromFirestore(courseDataDB);
   }
 
-  public async set(id: string, data: ICourseData) {
-    return await firebaseService.setDoc(ECollections.Course, id, data, courseConverter);
+  public async set(id: string, courseData: ICourseData): Promise<ICourseData> {
+    const courseDataDB = courseConverter.toFirestore(courseData);
+    const newCourseDataDB = (await firebaseService.setDoc(ECollections.Course, id, courseDataDB)) as ICourseDataDB | undefined;
+
+    if (!newCourseDataDB) {
+      throw new Error('Failed to update course data');
+    }
+
+    return await courseConverter.fromFirestore(newCourseDataDB);
   }
 };
 
