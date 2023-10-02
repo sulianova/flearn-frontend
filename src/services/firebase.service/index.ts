@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { doc as getDocRef, getDoc, getFirestore, setDoc } from 'firebase/firestore';
+import { collection, doc as getDocRef, getDoc, getDocs, getFirestore, setDoc, query, where } from 'firebase/firestore';
 import { getStorage, ref as getStorageRef, getDownloadURL } from 'firebase/storage';
 import { getFirebaseConfig } from './firebase.config';
 
@@ -38,6 +38,23 @@ export class FirebaseService {
       await setDoc(docRef, data);
       const savedDoc = await this.getDoc(collectionName, id, converter);
       return savedDoc;
+    } catch(e) {
+      // tslint:disable-next-line
+      console.error(e);
+    }
+  }
+
+  public async getDocs(collectionName: ECollections, whereProps: { param: string, value: unknown }) {
+    try {
+      const q = query(collection(this._db, collectionName), where(whereProps.param, '==', whereProps.value));
+      const querySnapshot = await getDocs(q);
+      const data = [] as DocumentData[];
+      querySnapshot.forEach((doc) => {
+        console.log(doc.id, " => ", doc.data());
+        data.push(doc.data());
+      });
+
+      return data;
     } catch(e) {
       // tslint:disable-next-line
       console.error(e);
