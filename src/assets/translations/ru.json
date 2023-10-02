@@ -136,6 +136,7 @@
   "courseLesson": {
     "deadlineUploadText": "Дедлайн: ",
     "deadlineUploadTime": " 23:59 по Мск",
+    "deadlineResultsText": "Публикация результатов: ",
     "upload": {
       "fieldsTitle": "Результаты задания",
       "filesTitle": "Файлы",

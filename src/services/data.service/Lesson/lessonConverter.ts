@@ -12,6 +12,7 @@ export const lessonConverter: FirestoreDataConverter<DocumentData, DocumentData>
       ...dataDB,
       startDate: new Date(dataDB.startDate.seconds * 1_000 + dataDB.startDate.nanoseconds/1_000_000),
       endDate: new Date(dataDB.endDate.seconds * 1_000 + dataDB.endDate.nanoseconds/1_000_000),
+      resultsEndDate: new Date(dataDB.resultsEndDate.seconds * 1_000 + dataDB.resultsEndDate.nanoseconds/1_000_000),
     };
 
     return dataFR;

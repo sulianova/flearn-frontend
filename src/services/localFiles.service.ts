@@ -48,11 +48,13 @@ class LocalFilesService {
       try {
         const startDate = new Date(dataLocal.startDate);
         const endDate = new Date(dataLocal.endDate);
+        const resultsEndDate = new Date(dataLocal.resultsEndDate);
 
         const dataFr: ILessonData = {
           ...dataLocal,
           startDate,
           endDate,
+          resultsEndDate,
         };
 
         return dataFr;
