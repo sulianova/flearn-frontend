@@ -44,15 +44,26 @@ export interface ILessonVideoBlock extends ILessonBlock {
   }
 }
 
-export interface ILessonImageBlock extends ILessonBlock {
+export interface ILessonImageBlockDB extends ILessonBlock {
   type: 'image'
   imageData: {
-    src: keyof typeof images
+    id: string
     alt: string
     caption?: TText | TText[]
   }
 }
 
+export interface ILessonImageBlock extends ILessonBlock {
+  type: 'image'
+  imageData: {
+    id: string
+    src: string
+    alt: string
+    caption?: TText | TText[]
+  }
+}
+
+export type ILessonContentDB = Array<ILessonTextBlock | ILessonFactoidBlock | ILessonQouteBlock | ILessonTextImportantBlock | ILessonTitleBlock  | ILessonVideoBlock | ILessonImageBlockDB>;
 export type ILessonContent = Array<ILessonTextBlock | ILessonFactoidBlock | ILessonQouteBlock | ILessonTextImportantBlock | ILessonTitleBlock  | ILessonVideoBlock | ILessonImageBlock>;
 
 export interface ILessonData {
@@ -73,20 +84,6 @@ export interface ILessonDataDB {
   id: string
   title: string
   type: 'Theory' | 'Practice'
-  startDate: { seconds: number, nanoseconds: number }
-  endDate: { seconds: number, nanoseconds: number }
-  resultsEndDate: { seconds: number, nanoseconds: number }
-  lectureLink?: string
-  homeworkLink?: string
-  webinarLink?: string
-  resultsLink?: string
-  content: ILessonContent
-}
-
-export interface ILessonDataLocal {
-  id: string
-  title: string
-  type: 'Theory' | 'Practice'
   startDate: string
   endDate: string
   resultsEndDate: string
@@ -94,5 +91,5 @@ export interface ILessonDataLocal {
   homeworkLink?: string
   webinarLink?: string
   resultsLink?: string
-  content: ILessonContent
+  content: ILessonContentDB
 }

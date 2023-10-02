@@ -151,8 +151,9 @@ const lessonData1: ILessonData = {
     {
       type: 'image',
       imageData: {
-        src: 'TheStrangerVisitingNatureSusl',
-        alt: 'YouTube video player',
+        id: 'TheStrangerVisitingNatureSusl.jpg',
+        src: '',
+        alt: 'TheStrangerVisitingNatureSusl',
         caption: [
           {
             tag: 'a',
@@ -191,8 +192,9 @@ const lessonData1: ILessonData = {
     {
       type: 'image',
       imageData: {
-        src: 'SummerTime',
-        alt: 'YouTube video player',
+        id: 'TheStrangerVisitingNatureSusl.jpg',
+        src: '',
+        alt: 'TheStrangerVisitingNatureSusl',
       },
     },
   ],

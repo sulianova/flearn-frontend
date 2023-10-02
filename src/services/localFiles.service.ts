@@ -1,21 +1,19 @@
-import { ICourseData, ICourseDataLocal, ILessonData, ILessonDataLocal, IObject } from 'types';
+import { courseDataDB2FR } from './utils/course';
+import { lessonDataDB2FR } from './utils/lesson';
+
+import type {
+  ICourseData,
+  ICourseDataDB,
+  ILessonData,
+  ILessonDataDB,
+  IObject
+} from 'types';
 
 class LocalFilesService {
   public Course = ({
-    localToFR(dataLocal: ICourseDataLocal) {
+    async localToFR(courseDB: ICourseDataDB): Promise<ICourseData | undefined> {
       try {
-        const startDate = new Date(dataLocal.startDate);
-        const endDate = new Date(dataLocal.endDate);
-        const discontDeadline = new Date(dataLocal.discontDeadline);
-
-        const dataFr: ICourseData = {
-          ...dataLocal,
-          startDate,
-          endDate,
-          discontDeadline,
-        };
-
-        return dataFr;
+        return courseDataDB2FR(courseDB);
       } catch(e) {
         return undefined;
       }
@@ -24,40 +22,29 @@ class LocalFilesService {
       if (dataLocal === undefined) {
         return false;
       }
-      const res =
-        typeof dataLocal.startDate === 'string'
-        && typeof dataLocal.durationWeeks === 'number'
-        && typeof dataLocal.homeworksNumber === 'number'
-        && typeof dataLocal.videosNumber === 'number'
-        && (dataLocal.feild === 'Иллюстрация' || dataLocal.feild === 'Adobe')
-        && typeof dataLocal.title === 'string'
-        && typeof dataLocal.introDescription === 'string'
-        && typeof dataLocal.introImageSrc === 'string'
-        && typeof dataLocal.introImageAlt === 'string'
-        && typeof dataLocal.discontAmount === 'number'
-        && typeof dataLocal.discontDeadline === 'string'
-        && typeof dataLocal.creditWas === 'number'
-        && typeof dataLocal.creditPrice === 'number';
+      const res = true;
+        // typeof dataLocal.startDate === 'string'
+        // && typeof dataLocal.durationWeeks === 'number'
+        // && typeof dataLocal.homeworksNumber === 'number'
+        // && typeof dataLocal.videosNumber === 'number'
+        // && (dataLocal.feild === 'Иллюстрация' || dataLocal.feild === 'Adobe')
+        // && typeof dataLocal.title === 'string'
+        // && typeof dataLocal.introDescription === 'string'
+        // && typeof dataLocal.introImageSrc === 'string'
+        // && typeof dataLocal.introImageAlt === 'string'
+        // && typeof dataLocal.discontAmount === 'number'
+        // && typeof dataLocal.discontDeadline === 'string'
+        // && typeof dataLocal.creditWas === 'number'
+        // && typeof dataLocal.creditPrice === 'number';
       // TODO add other tests
       return res;
     },
   });
 
   public Lesson = ({
-    localToFR(dataLocal: ILessonDataLocal) {
+    async localToFR(lessonDB: ILessonDataDB, courseId: string): Promise<ILessonData | undefined> {
       try {
-        const startDate = new Date(dataLocal.startDate);
-        const endDate = new Date(dataLocal.endDate);
-        const resultsEndDate = new Date(dataLocal.resultsEndDate);
-
-        const dataFr: ILessonData = {
-          ...dataLocal,
-          startDate,
-          endDate,
-          resultsEndDate,
-        };
-
-        return dataFr;
+        return await lessonDataDB2FR(lessonDB, courseId);
       } catch(e) {
         return undefined;
       }

@@ -3,7 +3,7 @@ import { authService, firebaseService } from 'services';
 import { lessonConverter } from './lessonConverter';
 
 import { ECollections, ELessonErrorTypes } from 'types';
-import type { IAccessData, ILessonData } from 'types';
+import type { IAccessData, ILessonData, ILessonDataDB } from 'types';
 
 class Lesson {
   public async get(courseId: string, lessonId: string) {
@@ -13,17 +13,26 @@ class Lesson {
     if (!userHasAccess) {
       throw new Error(ELessonErrorTypes.Restricted);
     }
-    const lessonData = await firebaseService.getDoc(ECollections.Lesson, fullLessonId, lessonConverter);
-    if (!lessonData) {
+    const lessonDataDB = (await firebaseService.getDoc(ECollections.Lesson, fullLessonId)) as ILessonDataDB | undefined;
+    if (!lessonDataDB) {
       throw new Error(ELessonErrorTypes.FailedToFindLesson);
     }
+
+    const lessonData = await lessonConverter.fromFirestore(lessonDataDB, courseId);
 
     return lessonData;
   }
 
-  public async set(courseId: string, lessonId: string, data: ILessonData) {
+  public async set(courseId: string, lessonId: string, lessonData: ILessonData): Promise<ILessonData> {
     const fullLessonId = this.getFullId(courseId, lessonId);
-    return await firebaseService.setDoc(ECollections.Lesson, fullLessonId, data, lessonConverter);
+    const lessonDataDB = lessonConverter.toFirestore(lessonData);
+    const newLessonDataDB = (await firebaseService.setDoc(ECollections.Lesson, fullLessonId, lessonDataDB)) as ILessonDataDB | undefined;
+
+    if (!newLessonDataDB) {
+      throw new Error('Failed to update lesson');
+    }
+
+    return await lessonConverter.fromFirestore(newLessonDataDB, courseId);
   }
 
   public getFullId(courseId: string, lessonId: string) {
