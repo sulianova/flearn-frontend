@@ -83,24 +83,11 @@ export interface ILessonDataDB {
   id: string
   title: string
   type: 'Theory' | 'Practice'
-  startDate: { seconds: number, nanoseconds: number }
-  endDate: { seconds: number, nanoseconds: number }
-  lectureLink?: string
-  homeworkLink?: string
-  webinarLink?: string
-  resultsLink?: string
-  content: ILessonContentDB
-}
-
-export interface ILessonDataLocal {
-  id: string
-  title: string
-  type: 'Theory' | 'Practice'
   startDate: string
   endDate: string
   lectureLink?: string
   homeworkLink?: string
   webinarLink?: string
   resultsLink?: string
-  content: ILessonContent
+  content: ILessonContentDB
 }

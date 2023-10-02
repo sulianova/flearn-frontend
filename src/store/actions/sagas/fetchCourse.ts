@@ -24,7 +24,7 @@ export const fetchCourse = createAction<'saga', IFetchCoursePayload>(
         if (!isValid) {
           throw new Error('Local file is corrupt');
         }
-        localData = localFilesServise.Course.localToFR(file.courseData);
+        localData = yield localFilesServise.Course.localToFR(file.courseData);
       } catch(e) {
         // tslint:disable-next-line
         console.log(e);

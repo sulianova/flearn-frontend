@@ -50,7 +50,7 @@ export interface IArticleVideoBlock extends IArticleBlock {
 export interface IArticleImageBlock extends IArticleBlock {
   type: 'image'
   imageData: {
-    src: keyof typeof images
+    src: string
     alt: string
     caption?: TText | TText[]
   }
