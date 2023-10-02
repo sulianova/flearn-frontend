@@ -172,6 +172,7 @@
   background-color: $green;
   border-radius: 0 set-calc(15) set-calc(15) 0;
   cursor: pointer;
+  pointer-events: all;
 
   transition: background-color $d-hover ease-in-out, color ease-in-out $d-hover;
 
@@ -180,13 +181,27 @@
   }
 }
 
+.isSuccess {
+  pointer-events: none;
+}
+
+.isLoading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.isReset {
+  background-color: $yellow;
+  transition: background-color $d-hover ease-in-out, color ease-in-out $d-hover;
+
+  &:hover {
+    background-color: $yellow-hover;
+  }
+}
+
 .isDisabled {
   background-color: $grey;
   pointer-events: none;
-
-  &:hover {
-    background-color: $grey;
-  }
 }
 
 .Error {

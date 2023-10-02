@@ -11,6 +11,7 @@ export const courseConverter: FirestoreDataConverter<DocumentData, DocumentData>
     const dataFR: ICourseData = {
       ...dataDB,
       startDate: new Date(dataDB.startDate.seconds * 1_000 + dataDB.startDate.nanoseconds/1_000_000),
+      endDate: new Date(dataDB.endDate.seconds * 1_000 + dataDB.endDate.nanoseconds/1_000_000),
       discontDeadline: new Date(dataDB.discontDeadline.seconds * 1_000 + dataDB.discontDeadline.nanoseconds/1_000_000),
     };
 

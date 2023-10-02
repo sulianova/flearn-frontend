@@ -5,11 +5,13 @@ class LocalFilesService {
     localToFR(dataLocal: ICourseDataLocal) {
       try {
         const startDate = new Date(dataLocal.startDate);
+        const endDate = new Date(dataLocal.endDate);
         const discontDeadline = new Date(dataLocal.discontDeadline);
 
         const dataFr: ICourseData = {
           ...dataLocal,
           startDate,
+          endDate,
           discontDeadline,
         };
 
