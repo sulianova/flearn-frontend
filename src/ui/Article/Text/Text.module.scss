@@ -3,6 +3,14 @@
 .text {
   grid-column: span 3;
   font-family: $font-family-serif;
+
+  p {
+    @include s-text-24;
+  }
+
+  span {
+    @include s-text-24;
+  }
 }
 
 .text:not(:last-child) {
