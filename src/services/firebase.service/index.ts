@@ -1,17 +1,20 @@
 import { initializeApp } from 'firebase/app';
 import { doc as getDocRef, getDoc, getFirestore, setDoc } from 'firebase/firestore';
+import { getStorage, ref as getStorageRef, getDownloadURL } from 'firebase/storage';
 import { getFirebaseConfig } from './firebase.config';
 
 import { ECollections } from 'types';
 
 import type { FirebaseApp, FirebaseOptions } from 'firebase/app';
 import type { DocumentData, Firestore, FirestoreDataConverter } from 'firebase/firestore';
+import type { FirebaseStorage } from 'firebase/storage';
 import type { IObject } from 'types';
 
 export class FirebaseService {
   constructor(config: FirebaseOptions) {
     this._app = initializeApp(config);
     this._db = getFirestore(this._app);
+    this._storage = getStorage(this._app);
   }
 
   public async getDoc(collectionName: ECollections, id: string, converter: FirestoreDataConverter<DocumentData, DocumentData> | null = null) {
@@ -41,8 +44,23 @@ export class FirebaseService {
     }
   }
 
+  public async getImageURL(props: { courseId: string, imageId: string }) {
+    try {
+      const { courseId, imageId } = props;
+      const path = `${courseId}/image/${imageId}`;
+      const ref = getStorageRef(this._storage, path);
+      const url = await getDownloadURL(ref);
+
+      return url;
+    } catch(e) {
+        // tslint:disable-next-line
+        console.error('Failed to get image from storage', { props, e});
+    }
+  }
+
   private _app: FirebaseApp;
   private _db: Firestore;
+  private _storage: FirebaseStorage;
 }
 
 export const firebaseService = new FirebaseService(getFirebaseConfig());
