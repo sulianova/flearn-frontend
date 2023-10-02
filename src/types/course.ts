@@ -32,7 +32,6 @@ export interface ICourseDataDB {
   id: string
   startDate: string
   endDate: string
-  endDate: string
   durationWeeks: number
   homeworksNumber: number
   videosNumber: number
