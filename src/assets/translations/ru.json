@@ -80,6 +80,15 @@
       "emailTo": "mailto:ulianova.sofia@gmail.com",
       "emailComment": "Пишите, разберемся!"
   },
+  "my": {
+    "profile": {
+      "title": "Профиль",
+      "courseGroupTitle":"Ваши курсы"
+    },
+    "settings": {
+      "title": "Настройки"
+    }
+  },
   "courseLanding": {
       "form": {
           "title": "Записаться на онлайн курс",

@@ -1,30 +1,38 @@
+import classNames from 'classnames/bind';
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import Store from 'store';
-import { login } from 'store/actions/sagas';
+import { formatI18nT } from 'shared';
 
-import classNames from 'classnames/bind';
+import Store from 'store';
+import { fetchCourse, type IFetchCoursePayload, login } from 'store/actions/sagas';
+
+import { useFetch } from 'hooks';
+import Link from 'ui/Link/Link';
 import Page from 'ui/Page/Page';
+
 import classes from './My.module.scss';
 import classesTitle from './Title.module.scss';
-
 import Profile from './Profile/Profile';
 import Settings from './Settings/Settings';
-import { IRootState, IUserData, URLSections } from 'types';
-import { Link } from 'react-router-dom';
+
+import { URLSections } from 'types';
+import type { IRootState, IUserData, ICourseData } from 'types';
 
 const cx = classNames.bind(classes);
+const t = formatI18nT('my');
 
 export default connect(mapStateToProps)(My);
 
 interface IConnectedProps {
   user?: IUserData
+  course?: ICourseData
 }
 
 function mapStateToProps(state: IRootState): IConnectedProps {
   return {
     user: state.user?.user,
+    course: state.course?.data,
   };
 }
 interface IProps extends IConnectedProps {
@@ -32,16 +40,29 @@ interface IProps extends IConnectedProps {
 }
 
 function My(props: IProps) {
-  const { mode, user } = props;
+  const { mode, user, course } = props;
 
   useEffect(() => {
     Store.dispatch(login({ payload: {} }));
   }, []);
 
+  useFetch<IFetchCoursePayload>({
+    actionCreator: fetchCourse,
+    payload: { courseId: 'how-to-draw' },
+  })
+
   if (!user) {
     return (
       <Page header footer wrapper='My'>
         Failed to authenticate
+      </Page>
+    );
+  }
+
+  if (!course) {
+    return (
+      <Page header footer wrapper='My'>
+        Loading...
       </Page>
     );
   }
@@ -58,7 +79,7 @@ function My(props: IProps) {
             to={URLSections.My.Profile.index}
             aria-current='page'
           >
-            Профиль
+            {t('profile.title')}
           </Link>
         </div>
         <div className={classes.menuLinkWrapper}>
@@ -67,11 +88,11 @@ function My(props: IProps) {
             to={URLSections.My.Settings.index}
             aria-current='page'
           >
-            Настройки
+            {t('settings.title')}
           </Link>
         </div>
       </div>
-      {mode === 'Profile' ? <Profile user={user}/> : <Settings user={user}/>}
+      {mode === 'Profile' ? <Profile user={user} data={course}/> : <Settings user={user}/>}
     </Page>
   );
 }
