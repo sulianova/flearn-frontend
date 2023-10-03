@@ -19,7 +19,7 @@ interface IProps {
 function LessonContent(props: IProps) {
   return (
     <div className={classes._}>
-      {props.data.type === 'Practice' && <Uppload endDate={props.data.endDate}/>}
+      {props.data.type === 'Practice' && <Uppload endDate={props.data.endDate} resultsEndDate={props.data.resultsEndDate}/>}
       <Article blocks={props.blocks}/>
     </div>
   );
@@ -27,15 +27,16 @@ function LessonContent(props: IProps) {
 
 interface IUpploadProps {
   endDate: Date
+  resultsEndDate: Date
 }
 
-function Uppload({ endDate }: IUpploadProps) {
+function Uppload({ endDate, resultsEndDate }: IUpploadProps) {
   return (
     <Fragment>
       <div className={classes.uploadDeadline + ' s-text-24'}>
         {t('deadlineUploadText')} {getWeekDay(endDate)} {formatLessonDate(endDate)} {t('deadlineUploadTime')}
         <br/>
-        Публикация результатов: 
+        {t('deadlineResultsText')} {getWeekDay(resultsEndDate)} {formatLessonResultsDate(resultsEndDate)}
       </div>
       {/* <div className={classes.uploadBtnWrapper}><a className={classes.uploadBtn + ' s-text-24'} href='#upload-form'>Загрузить работу</a></div> */}
       <div className={classes.resultsLinkWrapper}>
@@ -57,4 +58,12 @@ function formatLessonDate(date: Date) {
     { month: 'long', day: 'numeric' }
   );
   return `${dateStr} 2023, `;
+}
+
+function formatLessonResultsDate(date: Date) {
+  const dateStr = date.toLocaleDateString(
+    ['ru-RU'],
+    { month: 'long', day: 'numeric' }
+  );
+  return `${dateStr}`;
 }

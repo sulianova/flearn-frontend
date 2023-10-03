@@ -16,6 +16,7 @@ export async function lessonDataDB2FR(lessonDB: ILessonDataDB, courseId: string)
     content: await lessonContencDB2FR(lessonDB.content, courseId),
     startDate: dateDB2FR(lessonDB.startDate),
     endDate: dateDB2FR(lessonDB.endDate),
+    resultsEndDate: dateDB2FR(lessonDB.resultsEndDate),
   };
 }
 

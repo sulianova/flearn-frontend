@@ -43,10 +43,12 @@ export const fetchCourse = createAction<'saga', IFetchCoursePayload>(
         data: source === 'remote' ? remoteData : localData,
       };
 
+      console.log({ state });
+
       yield put(updateState({ stateName: 'course', payload: state }));
     } catch(e) {
       // tslint:disable-next-line
-      console.log(`Faild to fetch course: ${action.payload.courseId}`);
+      console.log(`Failed to fetch course: ${action.payload.courseId}`);
     }
   }
 );

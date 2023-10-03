@@ -4,6 +4,7 @@ import type { IProps as ILinkProps } from 'ui/Link/Link';
 export interface ICourseData {
   id: string
   startDate: Date
+  endDate: Date
   durationWeeks: number
   homeworksNumber: number
   videosNumber: number
@@ -30,6 +31,7 @@ export interface ICourseData {
 export interface ICourseDataDB {
   id: string
   startDate: string
+  endDate: string
   durationWeeks: number
   homeworksNumber: number
   videosNumber: number
@@ -71,6 +73,7 @@ export type IText = {
 
 export interface ICourseInfo {
   startDate: Date
+  endDate: Date
   durationWeeks: number
   title: string
 }

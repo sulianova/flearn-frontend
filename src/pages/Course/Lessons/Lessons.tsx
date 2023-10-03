@@ -96,7 +96,7 @@ function renderGroups(props: IGroup[]) {
 function renderGroup(props: IGroup) {
   return (
     <div className={classesList.itemWrapper}>
-      <div className={classesList.itemDate + ' s-text-28'}>{props.startDate.getDate()} - {props.endDate.getDate()}</div>
+      <div className={classesList.itemDate + ' s-text-28'}>{formatWeekDate(props.startDate, props.endDate)}</div>
       {renderItems(props.lessonsInfos)}
     </div>
   );
@@ -118,4 +118,17 @@ function renderItem(props: ILessonsState['lessonsInfo'][number]) {
       </div>
     </div>
   );
+}
+
+function formatWeekDate(startDate: Date, endDate: Date) {
+  const startDateStr = startDate.toLocaleDateString(
+    ['ru-RU'],
+    { month: 'long', day: 'numeric' }
+  );
+  const endDateStr = endDate.toLocaleDateString(
+    ['ru-RU'],
+    { month: 'long', day: 'numeric' }
+  );
+
+  return `${startDateStr} – ${endDateStr}`;
 }

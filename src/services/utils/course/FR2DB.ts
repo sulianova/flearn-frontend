@@ -8,6 +8,7 @@ export function courseDataFR2DB(course: ICourseData): ICourseDataDB {
   return {
     ...courseRest,
     startDate: dateFR2DB(course.startDate),
+    endDate: dateFR2DB(course.endDate),
     discontDeadline: dateFR2DB(course.discontDeadline),
     modules: courseModulesFR2DB(course.modules),
     teachers: courseTeachersFR2DB(course.teachers),
