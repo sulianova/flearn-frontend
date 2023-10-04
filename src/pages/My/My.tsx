@@ -70,7 +70,7 @@ function My(props: IProps) {
   return (
     <Page header footer wrapper='My'>
       <div className={classesTitle.wrapper}>
-        <h1 className={classesTitle.text}>{user.displayName}</h1>
+        <h1 className={classesTitle.text + ' s-text-88'}>{user.displayName}</h1>
       </div>
       <div className={classes.menu}>
         <div className={classes.menuLinkWrapper}>
