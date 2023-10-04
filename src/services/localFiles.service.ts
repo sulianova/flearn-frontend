@@ -44,7 +44,7 @@ class LocalFilesService {
   public Lesson = ({
     async localToFR(lessonDB: ILessonDataDB, courseId: string): Promise<ILessonData | undefined> {
       try {
-        return await lessonDataDB2FR(lessonDB, courseId);
+        return await lessonDataDB2FR(lessonDB);
       } catch(e) {
         return undefined;
       }

@@ -1,8 +1,11 @@
-import { ICourseInfo } from './course';
+import { ICourseData, ICourseInfo } from './course';
+import { ILessonData } from './lesson';
 
-export interface ILessonsState {
-  lessonsInfo: ILessonInfo[]
-  courseInfo: ICourseInfo
+export interface ILessonsData {
+  lesson: ILessonData
+  populate?: {
+    course?: ICourseData
+  }
 }
 
 export interface ILessonInfoDB {

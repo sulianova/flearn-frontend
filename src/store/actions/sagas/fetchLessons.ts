@@ -1,71 +1,125 @@
-import { call, put } from 'redux-saga/effects';
+import { call, put, select } from 'redux-saga/effects';
 import { createAction } from 'store/utils';
 import { updateState } from '../redux';
 
 import { lessonInfoDB2FR } from './utils';
 
-import type { ICourseInfo, ILessonInfo, ILessonInfoDB, ILessonsState } from 'types';
+import { ECommonErrorTypes, type ICourseData, type ICourseInfo, type ILessonData, type ILessonInfo, type ILessonInfoDB, type ILessonsData, type ILessonsState, type IRootState, type TAction } from 'types';
+import { dataService } from 'services';
 
 const delay = (ms: number) => new Promise<void>(res => setTimeout(res, ms));
 
-export const fetchLessons = createAction<'saga'>(
+export interface IFetchLessonsPayload {
+  filter: {
+    courseId: string
+  }
+  populate?: {
+    course?: boolean
+  }
+}
+
+export const fetchLessons = createAction<'saga', IFetchLessonsPayload>(
   '***saga*** fetch Lessons',
-  function* execute() {
-    yield call(delay, 1000);
+  function* execute(action: TAction<IFetchLessonsPayload>) {
+    const { filter, populate } = action.payload;
 
-    const courseInfo: ICourseInfo = yield call(getCourseInfo);
-    const lessonsInfoDB: ILessonInfoDB[] = yield call(getLessonsInfo);
-    const lessonsInfo: ILessonInfo[] = lessonsInfoDB.map(l => lessonInfoDB2FR(l, courseInfo));
-    const state: ILessonsState = {
-      courseInfo,
-      lessonsInfo,
-    };
+    try {
+      const prevState: ILessonsState = yield select((state: IRootState): ILessonsState => state.lessons);
+      const pendingState: ILessonsState = { ...prevState, state: { type: 'pending' } };
+      yield put(updateState({ stateName: 'lessons', payload: pendingState }));
 
-    yield put(updateState({ stateName: 'lessons', payload: state }));
+      // fetch lessons
+      const lessonsData: ILessonData[] = yield dataService.lesson.getAll(filter);
+
+      // populate
+      let populateMap: Map<string, ILessonsData['populate']>;
+      if (populate) {
+        populateMap = new Map();
+
+        let populateCourseMap: Map<string, ICourseData>;
+        if (populate.course) {
+          const courseIds = [...new Set(lessonsData.map(l => l.courseId))];
+          const coursesData: ICourseData[] = yield dataService.course.getAll(courseIds);
+          populateCourseMap = new Map(coursesData.map(c => [c.id, c] as const));
+        }
+        // add here other populated values
+
+        // fill populate map
+        for (const lesson of lessonsData) {
+          populateMap.set(lesson.id, {
+            ...populateCourseMap! && { course: populateCourseMap.get(lesson.courseId) }
+          });
+        }
+      }
+      const lessons: ILessonsData[] = lessonsData.map(lesson => ({
+        lesson,
+        ...populateMap && { populate: populateMap.get(lesson.id) },
+      }));
+    
+      const state: ILessonsState = { lessons, state: { type: 'idle' } };
+
+      yield put(updateState({ stateName: 'lessons', payload: state }));
+    } catch (err) {
+      const error = err as Error;
+      const errorIsUnknown = !([...Object.values(ECommonErrorTypes)] as string[]).includes(error.message);
+      const state: ILessonsState = {
+        lessons: [],
+        state: {
+          type: 'error',
+          error,
+          errorType: errorIsUnknown ? ECommonErrorTypes.Other : error.message as ECommonErrorTypes
+        },
+      };
+  
+      yield put(updateState({ stateName: 'lessons', payload: state }));
+
+      // tslint:disable-next-line
+      console.log(`Failed to fetch lessons`, { action, state });
+    }
   }
 );
 
-function getCourseInfo() {
-  return courseInfo;
-}
+// function getCourseInfo() {
+//   return courseInfo;
+// }
 
-function getLessonsInfo() {
-  return lessonsInfo;
-}
+// function getLessonsInfo() {
+//   return lessonsInfo;
+// }
 
-const courseInfo: ICourseInfo = {
-  startDate: new Date('2023-05-27'),
-  endDate: new Date('2023-06-27'),
-  durationWeeks: 5,
-  title: 'Как рисовать свободно',
-};
+// const courseInfo: ICourseInfo = {
+//   startDate: new Date('2023-05-27'),
+//   endDate: new Date('2023-06-27'),
+//   durationWeeks: 5,
+//   title: 'Как рисовать свободно',
+// };
 
-const lessonsInfo: ILessonInfoDB[] = [
-  {
-    title: 'Первая тема',
-    week: 1,
-    lectureLink: 'lesson.html',
-  },
-  {
-    title: 'Вторая тема',
-    week: 1,
-    lectureLink: 'lesson.html',
-    homeworkLink: 'homework.html',
-    resultsLink: 'homework-editor.html',
-  },
-  {
-    title: 'JJOHIU тема',
-    week: 2,
-    lectureLink: 'lesson.html',
-    homeworkLink: 'homework.html',
-    resultsLink: 'homework-editor.html',
-  },
-  {
-    title: 'Третья самая интересная тема',
-    week: 3,
-    lectureLink: 'lesson.html',
-    homeworkLink: 'homework.html',
-    webinarLink: 'homework.html',
-    resultsLink: 'homework-editor.html',
-  },
-];
+// const lessonsInfo: ILessonInfoDB[] = [
+//   {
+//     title: 'Первая тема',
+//     week: 1,
+//     lectureLink: 'lesson.html',
+//   },
+//   {
+//     title: 'Вторая тема',
+//     week: 1,
+//     lectureLink: 'lesson.html',
+//     homeworkLink: 'homework.html',
+//     resultsLink: 'homework-editor.html',
+//   },
+//   {
+//     title: 'JJOHIU тема',
+//     week: 2,
+//     lectureLink: 'lesson.html',
+//     homeworkLink: 'homework.html',
+//     resultsLink: 'homework-editor.html',
+//   },
+//   {
+//     title: 'Третья самая интересная тема',
+//     week: 3,
+//     lectureLink: 'lesson.html',
+//     homeworkLink: 'homework.html',
+//     webinarLink: 'homework.html',
+//     resultsLink: 'homework-editor.html',
+//   },
+// ];

@@ -1,4 +1,4 @@
-import { ICourseData, IHomeworkData, ILessonData, ILessonsState, IUserData } from 'types';
+import { ICourseData, IHomeworkData, ILessonData, ILessonsData, IUserData } from 'types';
 
 export interface IRootState {
   user: IUserState
@@ -31,12 +31,15 @@ export interface ICourseState {
   data?: ICourseData
 }
 
-export enum ELessonErrorTypes {
+export enum ECommonErrorTypes {
   Unauthorized = 'unauthorized',
   Restricted = 'restricted',
-  FailedToFindLesson = 'failed to find lesson',
-  LessonDataIsCorrupted = 'lesson data is corrupted',
+  DataIsCorrupted = 'data is corrupted',
   Other = 'other',
+}
+
+export enum ELessonErrorTypes {
+  FailedToFindLesson = 'failed to find lesson',
 }
 
 export interface ILessonState {
@@ -44,7 +47,12 @@ export interface ILessonState {
   lessonId: string
   source: 'local' | 'remote'
   data?: ILessonData
-  state?: TStateState<ELessonErrorTypes>
+  state?: TStateState<ECommonErrorTypes | ELessonErrorTypes>
+}
+
+export interface ILessonsState {
+  lessons: ILessonsData[]
+  state?: TStateState<ECommonErrorTypes>
 }
 
 type TStateState<T> =

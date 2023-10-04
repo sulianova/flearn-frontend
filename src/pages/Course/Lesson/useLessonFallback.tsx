@@ -1,6 +1,6 @@
 import Fallback from 'ui/Fallback';
 
-import { ELessonErrorTypes, type ILessonState } from 'types';
+import { ECommonErrorTypes, ELessonErrorTypes, type ILessonState } from 'types';
 
 export default function useLessonFallback(lessonState: ILessonState) {
   if (lessonState.state) {
@@ -10,15 +10,15 @@ export default function useLessonFallback(lessonState: ILessonState) {
   
     if (lessonState.state.type === 'error') {
       switch(lessonState.state.errorType) {
-        case ELessonErrorTypes.Unauthorized:
+        case ECommonErrorTypes.Unauthorized:
           return <Fallback.Unauthorized/>
-        case ELessonErrorTypes.Restricted:
+        case ECommonErrorTypes.Restricted:
           return <Fallback.Restricted/>
         case ELessonErrorTypes.FailedToFindLesson:
           return <Fallback.Error text='404 Failed to find lesson'/>
-        case ELessonErrorTypes.LessonDataIsCorrupted:
+        case ECommonErrorTypes.DataIsCorrupted:
           return <Fallback.Error text='500 Server error'/>
-        case ELessonErrorTypes.Other:
+        case ECommonErrorTypes.Other:
           return <Fallback.Error error={lessonState.state.error}/>
       }
     }

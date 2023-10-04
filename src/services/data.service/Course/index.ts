@@ -19,6 +19,10 @@ class Course {
     return await courseConverter.fromFirestore(courseDataDB);
   }
 
+  public async getAll(ids: string[]): Promise<ICourseData[]> {
+    return Promise.all(ids.map(id => this.get(id)));
+  }
+
   public async set(id: string, courseData: ICourseData): Promise<ICourseData> {
     const courseDataDB = courseConverter.toFirestore(courseData);
     const newCourseDataDB = (await firebaseService.setDoc(ECollections.Course, id, courseDataDB)) as ICourseDataDB | undefined;

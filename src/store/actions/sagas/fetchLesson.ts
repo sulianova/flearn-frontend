@@ -3,7 +3,7 @@ import { dataService, localFilesServise } from 'services';
 import { createAction } from 'store/utils';
 import { updateState } from '../redux';
 
-import { ELessonErrorTypes, ILessonData, ILessonState, IRootState, TAction } from 'types';
+import { ECommonErrorTypes, ELessonErrorTypes, ILessonData, ILessonState, IRootState, TAction } from 'types';
 
 export interface IFetchLessonPayload {
   courseId: string
@@ -57,7 +57,7 @@ export const fetchLesson = createAction<'saga', IFetchLessonPayload>(
       }
     } catch(e) {
       const error = e as Error;
-      const errorIsUnknown = !(Object.values(ELessonErrorTypes) as string[]).includes(error.message);
+      const errorIsUnknown = !([...Object.values(ECommonErrorTypes), ...Object.values(ELessonErrorTypes)] as string[]).includes(error.message);
       const state: ILessonState = {
         courseId,
         lessonId,
@@ -66,7 +66,7 @@ export const fetchLesson = createAction<'saga', IFetchLessonPayload>(
         state: {
           type: 'error',
           error,
-          errorType: errorIsUnknown ? ELessonErrorTypes.Other : error.message as ELessonErrorTypes
+          errorType: errorIsUnknown ? ECommonErrorTypes.Other : error.message as (ECommonErrorTypes | ELessonErrorTypes)
         },
       };
   
@@ -74,7 +74,7 @@ export const fetchLesson = createAction<'saga', IFetchLessonPayload>(
 
       const fullId = dataService.lesson.getFullId(action.payload.courseId, action.payload.lessonId);
       // tslint:disable-next-line
-      console.log(`Faild to fetch lesson: ${fullId}`, state);
+      console.log(`Failed to fetch lesson: ${fullId}`, state);
     }
   }
 );
@@ -85,8 +85,10 @@ function getData(id: string) {
 
 const lessonData1: ILessonData = {
   id: 'draw-doodles',
+  courseId: 'how-to-draw',
   title: 'Тема первая',
   type: 'Theory',
+  week: 1,
   startDate: new Date('2023.07.12'),
   endDate: new Date('2023.07.22'),
   resultsEndDate: new Date('2023.07.25'),
@@ -202,8 +204,10 @@ const lessonData1: ILessonData = {
 
 const lessonData2: ILessonData = {
   id: 'draw-noodles',
+  courseId: 'how-to-draw',
   title: 'Тема первая',
   type: 'Practice',
+  week: 2,
   startDate: new Date('2023.07.12'),
   endDate: new Date('2023.07.22'),
   resultsEndDate: new Date('2023.07.25'),

@@ -10,10 +10,10 @@ import type {
   ILessonImageBlockDB
 } from 'types';
 
-export async function lessonDataDB2FR(lessonDB: ILessonDataDB, courseId: string): Promise<ILessonData> {
+export async function lessonDataDB2FR(lessonDB: ILessonDataDB): Promise<ILessonData> {
   return {
     ...lessonDB,
-    content: await lessonContencDB2FR(lessonDB.content, courseId),
+    content: await lessonContencDB2FR(lessonDB.content, lessonDB.courseId),
     startDate: dateDB2FR(lessonDB.startDate),
     endDate: dateDB2FR(lessonDB.endDate),
     resultsEndDate: dateDB2FR(lessonDB.resultsEndDate),

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { useFetch } from 'hooks';
 import { Fragment, useMemo } from 'react';
 import { formatI18nT, i18n } from 'shared';
-import { fetchCourse, fetchLessons } from 'store/actions/sagas';
+import { IFetchLessonsPayload, fetchCourse, fetchLessons } from 'store/actions/sagas';
 
 import Page from 'ui/Page/Page';
 import classesHeader from './LessonsHeader.module.scss';
@@ -13,38 +13,44 @@ import type { ILessonsState, IRootState } from 'types';
 export default connect(mapStateToProps)(Lessons);
 
 interface IConnectedProps {
-  data?: ILessonsState
-  lessons?: ILessonsState['lessonsInfo']
+  lessonsState?: ILessonsState
 }
 
 function mapStateToProps(state: IRootState): IConnectedProps {
   return {
-    data: state.lessons,
-    lessons: state.lessons?.lessonsInfo,
+    lessonsState: state.lessons
   };
 }
 
 const t = formatI18nT('courseLessons');
 
-function Lessons({ data }: IConnectedProps) {
-  useFetch(({ actionCreator: fetchLessons }));
+function Lessons({ lessonsState }: IConnectedProps) {
+  useFetch<IFetchLessonsPayload>(({
+    actionCreator: fetchLessons,
+    payload: {
+      filter: { courseId: 'hot-to-draw' },
+      populate: { course: true },
+    }
+  }));
+
+  const lessons = lessonsState?.lessons;
 
   const groupes: IGroup[] = useMemo(() => {
-    if (!data?.lessonsInfo) {
+    if (!lessons) {
       return [];
     }
 
-    return [...data.lessonsInfo
-      .reduce((acc, lesson) => {
-        if (!acc.has(lesson.week)) {
-          acc.set(lesson.week, {
-            week: lesson.week,
-            startDate: lesson.startDate,
-            endDate: lesson.endDate,
-            lessonsInfos: [lesson],
+    return [...lessons
+      .reduce((acc, lessonData) => {
+        if (!acc.has(lessonData.lesson.week)) {
+          acc.set(lessonData.lesson.week, {
+            week: lessonData.lesson.week,
+            startDate: lessonData.lesson.startDate,
+            endDate: lessonData.lesson.endDate,
+            lessons: [lessonData],
           })
         } else {
-          acc.get(lesson.week)!.lessonsInfos.push(lesson);
+          acc.get(lessonData.lesson.week)!.lessons.push(lessonData);
         }
 
         return acc;
@@ -53,12 +59,22 @@ function Lessons({ data }: IConnectedProps) {
       // TODO sort lessons infos by ???
       .sort((a, b) => a.week - b.week);
 
-  }, [data?.lessonsInfo]);
+  }, [lessons]);
 
-  if (!data || Object.keys(data).length === 0) {
+  if (!lessons) {
     return (
       <Page header footer wrapper='Lessons'>
         <p>loading lessons</p>
+      </Page>
+    );
+  }
+
+  const courseData = lessonsState.lessons[0]?.populate?.course;
+
+  if (!courseData) {
+    return (
+      <Page header footer wrapper='Lessons'>
+        <p>Error</p>
       </Page>
     );
   }
@@ -67,7 +83,7 @@ function Lessons({ data }: IConnectedProps) {
   <Page header footer wrapper='Lessons'>
 
     <div className={classesHeader._}>
-    <div className={classesHeader.title + ' s-text-56'}>{data.courseInfo.title}</div>
+    <div className={classesHeader.title + ' s-text-56'}>{courseData.title}</div>
       <div className={classesHeader.subTitle + ' s-text-24'}>{t('subTitle')}</div>
       <div className={classesHeader.links}>
         <a className='key-link  s-text-18'>{t('linksAbout')}</a>
@@ -83,7 +99,7 @@ function Lessons({ data }: IConnectedProps) {
 }
 
 interface IGroup {
-  lessonsInfos: ILessonsState['lessonsInfo']
+  lessons: ILessonsState['lessons']
   week: number
   startDate: Date
   endDate: Date
@@ -97,24 +113,24 @@ function renderGroup(props: IGroup) {
   return (
     <div className={classesList.itemWrapper}>
       <div className={classesList.itemDate + ' s-text-28'}>{formatWeekDate(props.startDate, props.endDate)}</div>
-      {renderItems(props.lessonsInfos)}
+      {renderItems(props.lessons)}
     </div>
   );
 }
 
-function renderItems(props: ILessonsState['lessonsInfo'] ) {
+function renderItems(props: ILessonsState['lessons'] ) {
   return props.map((d, index) => (<Fragment key={index}>{renderItem(d)}</Fragment>));
 }
 
-function renderItem(props: ILessonsState['lessonsInfo'][number]) {
+function renderItem(props: ILessonsState['lessons'][number]) {
   return (
     <div className={classesList.item}>
-      <div className={classesList.itemTitle + ' s-text-21'}>{props.title}</div>
+      <div className={classesList.itemTitle + ' s-text-21'}>{props.lesson.title}</div>
       <div className={classesList.itemLinks}>
-        {props.lectureLink && <div className={classesList.itemLink}><a className='link s-text-18' href={props.lectureLink}>{t('lecture')}</a></div>}
-        {props.homeworkLink && <div className={classesList.itemLink}><a className='link s-text-18' href={props.homeworkLink}>{t('homework')}</a></div>}
-        {props.webinarLink && <div className={classesList.itemLink}><a className='link s-text-18' href={props.webinarLink}>{t('webinar')}</a></div>}
-        {props.resultsLink && <div className={classesList.itemLink}><a className='link s-text-18' href={props.resultsLink}>{t('results')}</a></div>}
+        {props.lesson.lectureLink && <div className={classesList.itemLink}><a className='link s-text-18' href={props.lesson.lectureLink}>{t('lecture')}</a></div>}
+        {props.lesson.homeworkLink && <div className={classesList.itemLink}><a className='link s-text-18' href={props.lesson.homeworkLink}>{t('homework')}</a></div>}
+        {props.lesson.webinarLink && <div className={classesList.itemLink}><a className='link s-text-18' href={props.lesson.webinarLink}>{t('webinar')}</a></div>}
+        {props.lesson.resultsLink && <div className={classesList.itemLink}><a className='link s-text-18' href={props.lesson.resultsLink}>{t('results')}</a></div>}
       </div>
     </div>
   );
