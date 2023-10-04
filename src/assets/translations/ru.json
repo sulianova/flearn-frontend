@@ -80,6 +80,15 @@
       "emailTo": "mailto:ulianova.sofia@gmail.com",
       "emailComment": "Пишите, разберемся!"
   },
+  "my": {
+    "profile": {
+      "title": "Профиль",
+      "courseGroupTitle":"Ваши курсы"
+    },
+    "settings": {
+      "title": "Настройки"
+    }
+  },
   "courseLanding": {
       "form": {
           "title": "Записаться на онлайн курс",
@@ -136,6 +145,7 @@
   "courseLesson": {
     "deadlineUploadText": "Дедлайн: ",
     "deadlineUploadTime": " 23:59 по Мск",
+    "deadlineResultsText": "Публикация результатов: ",
     "upload": {
       "fieldsTitle": "Результаты задания",
       "filesTitle": "Файлы",

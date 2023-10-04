@@ -12,7 +12,7 @@ interface IProps {
 function Text(props: IProps) {
   return (
     <Fragment>
-      {props.data.text && <p className={classes.text + ' s-text-21'}><UIText text={props.data.text}/></p>}
+      {props.data.text && <p className={classes.text}><UIText text={props.data.text}/></p>}
     </Fragment>
   );
 }

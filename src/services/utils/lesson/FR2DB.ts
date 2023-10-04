@@ -15,6 +15,7 @@ export function lessonDataFR2DB(lesson: ILessonData): ILessonDataDB {
     content: lessonContentFR2DB(lesson.content),
     startDate: dateFR2DB(lesson.startDate),
     endDate: dateFR2DB(lesson.endDate),
+    resultsEndDate: dateFR2DB(lesson.resultsEndDate),
   };
 }
 

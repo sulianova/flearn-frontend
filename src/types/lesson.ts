@@ -72,6 +72,7 @@ export interface ILessonData {
   type: 'Theory' | 'Practice'
   startDate: Date
   endDate: Date
+  resultsEndDate: Date
   lectureLink?: string
   homeworkLink?: string
   webinarLink?: string
@@ -85,6 +86,7 @@ export interface ILessonDataDB {
   type: 'Theory' | 'Practice'
   startDate: string
   endDate: string
+  resultsEndDate: string
   lectureLink?: string
   homeworkLink?: string
   webinarLink?: string

@@ -35,6 +35,7 @@ function getLessonsInfo() {
 
 const courseInfo: ICourseInfo = {
   startDate: new Date('2023-05-27'),
+  endDate: new Date('2023-06-27'),
   durationWeeks: 5,
   title: 'Как рисовать свободно',
 };

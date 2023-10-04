@@ -62,7 +62,7 @@ function DecisionForm(props: IProps) {
             <h1 className={classes.title}>{t('courseName', { courseName: props.data.title })}</h1>
           </div>
           <div className={classes.courseInfo}>
-            <div className={' s-text-18'}>{formatCourseDate(props.data.startDate, props.data.durationWeeks)}</div>
+            <div className={' s-text-18'}>{formatCourseDate(props.data.startDate, props.data.endDate, props.data.durationWeeks)}</div>
             <div className={' s-text-18'}>{formatDurationWeeks(props.data.durationWeeks)}</div>
           </div>
         </div>
@@ -117,21 +117,21 @@ function renderForm(
       {formData.state.type === 'success' && <span className={classes.Success}>Order is created!</span>}
       <div className={classes.inputWrap}>
         <InputField
-          className={cx2({ input: true, light: true }) + ' s-text-24'}
+          className={cx2({ input: true, light: true, isReset: false }) + ' s-text-24'}
           variant='Email'
           value={formData.email}
           onChange={v => setFormData(d => ({ ...d, email: v }))}
         />
         <button
-          className={cx({ submitButton: true, isDisabled: false }) + ' s-text-36'}
+          className={cx({ submitButton: true, isDisabled: true, isSuccess: false, isLoading: false, isReset: false }) + ' s-text-36'}
           type="submit"
           disabled={!isValid(formData)}
           onClick={() => handleSubmit(formData)}
         >
-          <span className={classes.isDefault}>→</span>
-          {/* <span className={classes.isSuccess}>✓</span> */}
-          {/* <span className={classes.isLoading}></span> */}
-          {/* <span className={classes.isReset}>↻</span> */}
+          <span data-isDefault>→</span>
+          {/* <span data-isSuccess>✓</span> */}
+          {/* <span data-isLoading></span> */}
+          {/* <span data-isReset >↻</span> */}
         </button>
       </div>
     </form>
@@ -144,12 +144,15 @@ function isValid(formData: IFormData) {
 }
 
 
-function formatCourseDate(startDate: Date, durationWeeks: number) {
+function formatCourseDate(startDate: Date, endDate: Date, durationWeeks: number) {
   const startDateStr = startDate.toLocaleDateString(
     ['ru-RU'],
     { month: 'long', day: 'numeric' }
   );
-  const endDateStr = 'посчитать';
+  const endDateStr = endDate.toLocaleDateString(
+    ['ru-RU'],
+    { month: 'long', day: 'numeric' }
+  );
 
   return `${startDateStr} – ${endDateStr}`;
 }
