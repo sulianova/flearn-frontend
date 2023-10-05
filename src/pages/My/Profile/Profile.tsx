@@ -5,6 +5,7 @@ import { IUserData } from 'types';
 import { formatI18nT } from 'shared';
 import { Fragment } from 'react';
 import { ICourseData } from 'types';
+import { addDays } from 'utils';
 
 
 const t = formatI18nT('my');
@@ -35,15 +36,22 @@ function renderCourseCard (props: ICourseData) {
   return (
     <div className={classesCourseCard.item}>
       <div className={classesCourseCard.info}>
-        <a className={classesCourseCard.titleLink + ' s-text-21-uppercase'} href='lessons.html' target='_blank'>
-          <span className='inline-link-text'>Как рисовать свободно</span>
+        <a className={classesCourseCard.titleLink + ' s-hoverable'} href='lessons.html' target='_blank'>
+          <div className={classesCourseCard.title}>{props.title}</div>
+          <div className={classesCourseCard.date + ' s-text-24'}>{formatEndDate(props.endDate)}</div>
         </a>
         <div className={classesCourseCard.cover}><img src={DrawFreeCard} alt='' decoding='async'/></div>
-        <div className={classesCourseCard.date + ' s-text-21-uppercase'}>
-          <span>доступ до 5 мая 2023 года</span>
-          {/* <a href='#'><span className='inline-link-text'>продлить</span><span className='inline-link-arrow'>→</span></a> */}
-        </div>
       </div>
     </div>
   );
+}
+
+function formatEndDate(endDate: Date) {
+  const endDateOfAccess = addDays(endDate, 14);
+  const endDateStr = endDateOfAccess.toLocaleDateString(
+    ['ru-RU'],
+    { month: 'long', day: 'numeric' }
+  );
+
+  return `${t('profile.endDate')}${endDateStr}`;
 }

@@ -80,6 +80,14 @@
   }
 }
 //cards
+@mixin s-text-28 {
+  @include set-typography(28, 37, 500);
+
+  @include set-media(md) {
+    @include set-typography(20, 28, 500);
+  }
+}
+
 .s-text-28 {
   @include set-typography(28, 37, 500);
 

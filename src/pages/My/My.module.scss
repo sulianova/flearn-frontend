@@ -9,6 +9,10 @@
   padding-bottom: set-calc(80);
 
   border-top: set-calc(calc($s-gap / 2)) solid $black-new;
+
+  @include set-media(md) {
+    padding-bottom: set-calc(56);
+  }
 }
 
 .menuLinkWrapper {
