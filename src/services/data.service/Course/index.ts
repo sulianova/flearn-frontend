@@ -4,6 +4,7 @@ import { courseConverter } from './courseConverter';
 
 import {
   ECollections,
+  ECommonErrorTypes,
   type ICourseData,
   type ICourseDataDB
 } from 'types';
@@ -11,9 +12,9 @@ import {
 class Course {
   public async get(id: string): Promise<ICourseData> {
     const courseDataDB = (await firebaseService.getDoc(ECollections.Course, id)) as ICourseDataDB | undefined;
-    console.log({ courseDataDB });
+
     if (!courseDataDB) {
-      throw new Error('Failed to fetch course data');
+      throw new Error(ECommonErrorTypes.FailedToFindData);
     }
 
     return await courseConverter.fromFirestore(courseDataDB);

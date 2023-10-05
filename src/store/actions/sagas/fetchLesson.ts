@@ -3,7 +3,7 @@ import { dataService, localFilesServise } from 'services';
 import { createAction } from 'store/utils';
 import { updateState } from '../redux';
 
-import { ECommonErrorTypes, ELessonErrorTypes, ILessonData, ILessonState, IRootState, TAction } from 'types';
+import { ECommonErrorTypes, ILessonData, ILessonState, IRootState, TAction } from 'types';
 
 export interface IFetchLessonPayload {
   courseId: string
@@ -57,7 +57,7 @@ export const fetchLesson = createAction<'saga', IFetchLessonPayload>(
       }
     } catch(e) {
       const error = e as Error;
-      const errorIsUnknown = !([...Object.values(ECommonErrorTypes), ...Object.values(ELessonErrorTypes)] as string[]).includes(error.message);
+      const errorIsUnknown = !(Object.values(ECommonErrorTypes) as string[]).includes(error.message);
       const state: ILessonState = {
         courseId,
         lessonId,
@@ -66,7 +66,7 @@ export const fetchLesson = createAction<'saga', IFetchLessonPayload>(
         state: {
           type: 'error',
           error,
-          errorType: errorIsUnknown ? ECommonErrorTypes.Other : error.message as (ECommonErrorTypes | ELessonErrorTypes)
+          errorType: errorIsUnknown ? ECommonErrorTypes.Other : error.message as ECommonErrorTypes
         },
       };
   

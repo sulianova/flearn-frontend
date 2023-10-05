@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router';
 
-import { useFetch } from 'hooks';
+import { useFetch, useGuid } from 'hooks';
 import { fetchHomework, fetchLesson, type IFetchHomeworkPayload, type IFetchLessonPayload } from 'store/actions/sagas';
 
 import Page from 'ui/Page/Page';
@@ -14,18 +14,21 @@ import LessonHeader from './Components/LessonHeader/LessonHeader';
 import useLessonFallback from './useLessonFallback';
 
 import type { IHomeworkData, ILessonState, IRootState } from 'types';
+import { authService } from 'services';
 
 export default connect(mapStateToProps)(Lesson);
 
 interface IConnectedProps {
   lessonState: ILessonState
   homework?: IHomeworkData
+  authedUserId?: string
 }
 
 function mapStateToProps(state: IRootState): IConnectedProps {
   return {
     lessonState: state.lesson,
     homework: state.homework?.data,
+    authedUserId: state.user?.user?.id,
   };
 }
 
@@ -33,21 +36,30 @@ interface IProps extends IConnectedProps {
   practice: 'task' | 'results'
 }
 
-function Lesson({ lessonState, practice, homework }: IProps) {
+function Lesson({ lessonState, practice, homework, authedUserId }: IProps) {
   const { courseId, lessonId } = useParams();
+  const [guid, refetch] = useGuid();
   const [selectedUser, setSelectedUser] = useState<{ id: string, displayName: string } | null>(null);
 
-  useFetch<IFetchLessonPayload>({
+  useEffect(() => {
+    refetch();
+  }, [authedUserId]);
+
+  useFetch<IFetchLessonPayload  & { guid: string }>({
     actionCreator: fetchLesson,
     payload: {
       courseId: courseId!,
       lessonId: lessonId!,
+      guid,
     },
   });
 
-  useFetch<IFetchHomeworkPayload>({
+  useFetch<IFetchHomeworkPayload  & { guid: string }>({
     actionCreator: fetchHomework,
-    payload: { homeworkId: lessonId ? `${lessonId}_some-user-id` : undefined },
+    payload: {
+      homeworkId: lessonId ? `${lessonId}_some-user-id` : undefined,
+      guid,
+    },
   });
 
   const fallback = useLessonFallback(lessonState);

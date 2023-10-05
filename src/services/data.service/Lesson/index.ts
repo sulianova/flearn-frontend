@@ -2,7 +2,7 @@ import { authService, firebaseService } from 'services';
 
 import { lessonConverter } from './lessonConverter';
 
-import { ECollections, ECommonErrorTypes, ELessonErrorTypes } from 'types';
+import { ECollections, ECommonErrorTypes } from 'types';
 import type { IAccessData, ILessonData, ILessonDataDB } from 'types';
 
 interface ILessonsFilter {
@@ -19,7 +19,7 @@ class Lesson {
     }
     const lessonDataDB = (await firebaseService.getDoc(ECollections.Lesson, fullLessonId)) as ILessonDataDB | undefined;
     if (!lessonDataDB) {
-      throw new Error(ELessonErrorTypes.FailedToFindLesson);
+      throw new Error(ECommonErrorTypes.FailedToFindData);
     }
 
     const lessonData = await lessonConverter.fromFirestore(lessonDataDB);
@@ -66,7 +66,7 @@ class Lesson {
 
     const accessData = await firebaseService.getDoc(ECollections.Access, courseId) as IAccessData | undefined;
     if (!accessData) {
-      throw new Error(ELessonErrorTypes.FailedToFindLesson);
+      throw new Error('Server error: failed to find access table');
     }
 
     const userHasAccess = Boolean(accessData.users[user.uid]);

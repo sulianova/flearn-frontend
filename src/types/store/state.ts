@@ -19,6 +19,19 @@ export type IState =
 
 export type TStateName = keyof IRootState;
 
+export enum ECommonErrorTypes {
+  Unauthorized = 'unauthorized',
+  Restricted = 'restricted',
+  DataIsCorrupted = 'data is corrupted',
+  FailedToFindData = 'failed to find data',
+  Other = 'other',
+}
+
+type TStateState<T> =
+  | { type: 'idle' }
+  | { type: 'pending' }
+  | { type: 'error', error: Error, errorType: T };
+
 export interface IUserState {
   user?: IUserData
 }
@@ -26,20 +39,8 @@ export interface IUserState {
 export interface ICourseState {
   courseId: string
   source: 'local' | 'remote'
-  hasLocal: boolean
-  hasRemote: boolean
   data?: ICourseData
-}
-
-export enum ECommonErrorTypes {
-  Unauthorized = 'unauthorized',
-  Restricted = 'restricted',
-  DataIsCorrupted = 'data is corrupted',
-  Other = 'other',
-}
-
-export enum ELessonErrorTypes {
-  FailedToFindLesson = 'failed to find lesson',
+  state?: TStateState<ECommonErrorTypes.DataIsCorrupted | ECommonErrorTypes.FailedToFindData | ECommonErrorTypes.Other>
 }
 
 export interface ILessonState {
@@ -47,18 +48,13 @@ export interface ILessonState {
   lessonId: string
   source: 'local' | 'remote'
   data?: ILessonData
-  state?: TStateState<ECommonErrorTypes | ELessonErrorTypes>
+  state?: TStateState<ECommonErrorTypes>
 }
 
 export interface ILessonsState {
   lessons: ILessonsData[]
   state?: TStateState<ECommonErrorTypes>
 }
-
-type TStateState<T> =
-  | { type: 'idle' }
-  | { type: 'pending' }
-  | { type: 'error', error: Error, errorType: T };
 
 export interface IBasicState {
   [key: string]: {}

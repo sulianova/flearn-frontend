@@ -1,35 +1,57 @@
 import { connect } from 'react-redux';
+import { useParams } from 'react-router';
 
-import { useFetch } from 'hooks';
-import { Fragment, useMemo } from 'react';
+import { useFetch, useGuid } from 'hooks';
+import { Fragment, useEffect, useMemo } from 'react';
 import { formatI18nT, i18n } from 'shared';
-import { IFetchLessonsPayload, fetchCourse, fetchLessons } from 'store/actions/sagas';
+import { IFetchCoursePayload, IFetchLessonsPayload, fetchCourse, fetchLessons } from 'store/actions/sagas';
+
+import useFallback from './useFallback';
 
 import Page from 'ui/Page/Page';
 import classesHeader from './LessonsHeader.module.scss';
 import classesList from './LessonsList.module.scss';
 
-import type { ILessonsState, IRootState } from 'types';
+import type { ICourseState, ILessonsState, IRootState } from 'types';
+
 export default connect(mapStateToProps)(Lessons);
 
 interface IConnectedProps {
-  lessonsState?: ILessonsState
+  courseState: ICourseState
+  lessonsState: ILessonsState
+  authedUserId?: string
 }
 
 function mapStateToProps(state: IRootState): IConnectedProps {
   return {
-    lessonsState: state.lessons
+    courseState: state.course,
+    lessonsState: state.lessons,
+    authedUserId: state.user?.user?.id,
   };
 }
 
 const t = formatI18nT('courseLessons');
 
-function Lessons({ lessonsState }: IConnectedProps) {
-  useFetch<IFetchLessonsPayload>(({
+function Lessons({ courseState, lessonsState, authedUserId }: IConnectedProps) {
+  const { courseId } = useParams();
+  const [guid, refetch] = useGuid();
+
+  useEffect(() => {
+    refetch();
+  }, [authedUserId]);
+
+  useFetch<IFetchCoursePayload>(({
+    actionCreator: fetchCourse,
+    payload: {
+      courseId: courseId ?? '',
+    }
+  }));
+
+  useFetch<IFetchLessonsPayload & { guid: string }>(({
     actionCreator: fetchLessons,
     payload: {
-      filter: { courseId: 'hot-to-draw' },
-      populate: { course: true },
+      filter: { courseId: courseId ?? '' },
+      guid,
     }
   }));
 
@@ -61,29 +83,16 @@ function Lessons({ lessonsState }: IConnectedProps) {
 
   }, [lessons]);
 
-  if (!lessons) {
-    return (
-      <Page header footer wrapper='Lessons'>
-        <p>loading lessons</p>
-      </Page>
-    );
-  }
-
-  const courseData = lessonsState.lessons[0]?.populate?.course;
-
-  if (!courseData) {
-    return (
-      <Page header footer wrapper='Lessons'>
-        <p>Error</p>
-      </Page>
-    );
+  const fallback = useFallback({ courseState, lessonsState });
+  if (!courseState.data || !lessonsState.lessons || !lessonsState.lessons.length) {
+    return fallback;
   }
 
   return (
   <Page header footer wrapper='Lessons'>
 
     <div className={classesHeader._}>
-    <div className={classesHeader.title + ' s-text-56'}>{courseData.title}</div>
+    <div className={classesHeader.title + ' s-text-56'}>{courseState.data.title}</div>
       <div className={classesHeader.subTitle + ' s-text-24'}>{t('subTitle')}</div>
       <div className={classesHeader.links}>
         <a className='key-link  s-text-18'>{t('linksAbout')}</a>
