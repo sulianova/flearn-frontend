@@ -66,7 +66,7 @@ function Lesson({ lessonState, practice, homework }: IProps) {
       {practice === 'task' ?
         (<>
           <LessonContent blocks={lessonState.data.content} data={lessonState.data} homework={homework}/>
-          {(lessonState.data.type === 'Practice' && homework) && (<LessonUppload/>)}
+          {(lessonState.data.type === 'Practice' && !homework) && (<LessonUppload/>)}
         </>)
       : (<LessonWorks
           selectedUser={selectedUser}

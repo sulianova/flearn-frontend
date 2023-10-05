@@ -144,15 +144,17 @@
     "results": "Итоги"
   },
   "courseLesson": {
+    "navTubsPractice": "Задание",
+    "navTubsResults": "Итоги",
     "deadlineUploadText": "Дедлайн: ",
     "deadlineUploadTime": " 23:59 по Мск",
-    "deadlineResultsText": "Публикация результатов: ",
+    "deadlineResultsText": "Публикация итогов: ",
     "upload": {
       "fieldsTitle": "Результаты задания",
       "filesTitle": "Файлы",
       "filesBtn": "Добавить",
-      "submitBtn": "Сохранить",
-      "submitDescription": "Все изменения сохранены!"
+      "submitBtn": "Отправить на проверку",
+      "submitDescription": "до дедлайна, чтобы получить обратную связь"
     },
     "homework": {
       "title": "Описание"
@@ -162,7 +164,7 @@
     },
     "works": {
       "ownTitle": "Моя работа",
-      "subTitle": "Вы не загрузили свою работу до дедлайна",
+      "subTitle": "Вы не загрузили работу до дедлайна",
       "listTitle": "Работы других студентов",
       "showMoreBtn": "показать больше"
     }

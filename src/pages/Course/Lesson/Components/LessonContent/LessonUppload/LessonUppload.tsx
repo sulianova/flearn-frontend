@@ -21,10 +21,10 @@ function LessonUppload() {
               <Textarea/>
               <Input/>
             </div>
-            <div className={classes.submit}>
-              <button className={cx({submitBtn: true, isDisabled: true})+ ' s-text-18'} type='submit' disabled>{t('submitBtn')}</button>
-              <div className={classes.submitDescription + ' s-text-14'}>{t('submitDescription')} </div>
-            </div>
+            <div className={classes.save}>
+                <button className={cx({submitBtn: true, isDisabled: true})+ ' s-text-18'} type='submit' disabled>{t('submitBtn')}</button>
+                <div className={classes.submitDescription + ' s-text-14'}>{t('submitDescription')} </div>
+              </div>
           </div>
           <div className={classes.files}>
             <div className={classes.filesHeader}>
@@ -33,9 +33,12 @@ function LessonUppload() {
               <label className={classes.filesBtn} htmlFor='added-files'>{t('filesBtn')}</label>
             </div>
             <div className={classes.filesContent}>
-              {/* <div className={classes.file}> <File/></div>
               <div className={classes.file}> <File/></div>
-              <div className={classes.file}> <File/></div> */}
+              <div className={classes.file}> <File/></div>
+              <div className={classes.file}> <File/></div>
+              <div className={classes.file}> <File/></div>
+              <div className={classes.file}> <File/></div>
+              <div className={classes.file}> <File/></div>
             </div>
           </div>
         </div>
