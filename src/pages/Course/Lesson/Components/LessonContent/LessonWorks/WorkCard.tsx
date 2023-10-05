@@ -1,8 +1,8 @@
 import UserImage from 'assets/images/Svg/UserImage';
 import classNames from 'classnames/bind';
 import { IHomeworkData } from 'types';
-import Img from 'ui/Img/Img';
 import classes from './WorkCard.module.scss';
+import * as images from 'assets/images';
 
 const cx = classNames.bind(classes);
 
@@ -17,7 +17,7 @@ function WorkCard({ handleClick, homework}: IProps) {
   return (
       <div className={cx({ _: true, hidden: false })} onClick={() => handleClick({ id: 'sonia', displayName: 'Sofiia ulianova' })}>
         <div className={classes.preview}>
-          {homework.images?.[0] && (<Img alt={homework.images[0].imageAlt} src={homework.images[0].imageSrc}/>)}
+          {homework.images?.[0] && (<img alt={homework.images[0].imageAlt} src={images[homework.images[0].imageSrc]}/>)}
           <div className={classes.overlay}/>
         </div>
         <div className={classes.user}>

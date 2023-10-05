@@ -2,8 +2,7 @@
 
 .courseGroup {
   padding-top: 0;
-  padding-bottom: set-calc(100);
-
+  
   @include is-grid-4;
 
   @include set-media(md) {

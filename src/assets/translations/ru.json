@@ -83,7 +83,8 @@
   "my": {
     "profile": {
       "title": "Профиль",
-      "courseGroupTitle":"Ваши курсы"
+      "courseGroupTitle":"Ваши онлайн-курсы",
+      "endDate": "Доступ до "
     },
     "settings": {
       "title": "Настройки"
