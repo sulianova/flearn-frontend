@@ -11,12 +11,8 @@ import type {
 
 class LocalFilesService {
   public Course = ({
-    async localToFR(courseDB: ICourseDataDB): Promise<ICourseData | undefined> {
-      try {
-        return courseDataDB2FR(courseDB);
-      } catch(e) {
-        return undefined;
-      }
+    async localToFR(courseDB: ICourseDataDB): Promise<ICourseData> {
+      return courseDataDB2FR(courseDB);
     },
     test(dataLocal: IObject | undefined) {
       if (dataLocal === undefined) {
@@ -44,7 +40,7 @@ class LocalFilesService {
   public Lesson = ({
     async localToFR(lessonDB: ILessonDataDB, courseId: string): Promise<ILessonData | undefined> {
       try {
-        return await lessonDataDB2FR(lessonDB, courseId);
+        return await lessonDataDB2FR(lessonDB);
       } catch(e) {
         return undefined;
       }

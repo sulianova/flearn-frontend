@@ -68,8 +68,10 @@ export type ILessonContent = Array<ILessonTextBlock | ILessonFactoidBlock | ILes
 
 export interface ILessonData {
   id: string
+  courseId: string
   title: string
   type: 'Theory' | 'Practice'
+  week: number
   startDate: Date
   endDate: Date
   resultsEndDate: Date
@@ -82,8 +84,10 @@ export interface ILessonData {
 
 export interface ILessonDataDB {
   id: string
+  courseId: string
   title: string
   type: 'Theory' | 'Practice'
+  week: number
   startDate: string
   endDate: string
   resultsEndDate: string

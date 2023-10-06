@@ -14,11 +14,7 @@ export const downloadCourse = createAction<'saga', IDownloadCoursePayload>(
   function* execute(action: TAction<IDownloadCoursePayload>) {
     try {
       const { courseId } = action.payload;
-      const remoteData: ICourseData | undefined = yield dataService.course.get(courseId);
-
-      if (!remoteData) {
-        throw new Error();
-      }
+      const remoteData: ICourseData = yield dataService.course.get(courseId);
 
       const jsonData = JSON.stringify(
         {
@@ -43,9 +39,8 @@ export const downloadCourse = createAction<'saga', IDownloadCoursePayload>(
       const state: ICourseState = {
         courseId,
         source: 'local',
-        hasLocal: true,
-        hasRemote: true,
         data: remoteData,
+        state: { type: 'idle' },
       };
 
       yield put(updateState({ stateName: 'course', payload: state }));
