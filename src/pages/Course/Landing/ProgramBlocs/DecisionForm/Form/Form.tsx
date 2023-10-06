@@ -1,0 +1,90 @@
+import classNames from 'classnames/bind';
+import { useCallback, useState } from 'react';
+import { connect } from 'react-redux';
+
+import { formatI18nT } from 'shared';
+
+import InputField from 'ui/Form/Input/InputField';
+import classes from './Form.module.scss';
+import classesInputField from './InputField.module.scss';
+
+import type { IRootState, IUserData } from 'types';
+import { dataService } from 'services';
+
+export default connect(mapStateToProps)(Form);
+
+const cx = classNames.bind(classes);
+const cx2 = classNames.bind(classesInputField);
+const t = formatI18nT('courseLanding.form');
+
+interface IFormData {
+  email: string
+  state: { type: 'idle' } |  { type: 'pending' } | { type: 'success' } | { type: 'error', error: Error }
+}
+
+const initialFormData: IFormData = { email: '', state: { type: 'idle' } };
+
+interface IConnectedProps {
+  user?: IUserData
+}
+
+function mapStateToProps(state: IRootState): IConnectedProps {
+  return {
+    user: state.user.user,
+  };
+}
+
+interface IProps extends IConnectedProps {}
+
+function Form(props: IProps) {
+  const [formData, setFormData] = useState<IFormData>(() => props.user ? ({ ...initialFormData, email: props.user.email }) : initialFormData);
+  const handleSubmit = useCallback((formData: IFormData) => submit(formData, setFormData), []);
+
+  return (
+    <>
+      <form
+        className={classes.form}
+        onSubmit={isValid(formData) ? () => handleSubmit(formData) : undefined}
+      >
+        {formData.state.type === 'error' && <span className={classes.Error}>{formData.state.error.message}</span>}
+        {formData.state.type === 'success' && <span className={classes.Success}>Order is created!</span>}
+        <div className={classes.inputWrap}>
+          <InputField
+            className={cx2({ input: true, light: true, isReset: false }) + ' s-text-24'}
+            variant='Email'
+            value={formData.email}
+            onChange={v => setFormData(d => ({ ...d, email: v }))}
+          />
+          <button
+            className={cx({ submitButton: true, isDisabled: true, isSuccess: false, isLoading: false, isReset: false }) + ' s-text-36'}
+            type="submit"
+            disabled={!isValid(formData)}
+            onClick={() => handleSubmit(formData)}
+          >
+            <span data-isDefault>→</span>
+            {/* <span data-isSuccess>✓</span> */}
+            {/* <span data-isLoading></span> */}
+            {/* <span data-isReset >↻</span> */}
+          </button>
+        </div>
+      </form>
+      <div className={classesInputField.inputCaption + ' s-text-18'}>{t('emailCaption')}</div>
+    </>
+  );
+}
+
+function isValid(formData: IFormData) {
+  const { email, state } = formData;
+  return email && state.type !== 'pending';
+}
+
+async function submit(formData: IFormData, setFormData: React.Dispatch<React.SetStateAction<IFormData>>) {
+  setFormData(d => ({ ...d, state: { type: 'pending' } }));
+  const { email } = formData;
+  try {
+    await dataService.order.create({ email });
+    setFormData({ ...initialFormData, state: { type: 'success' } });
+  } catch (e) {
+    setFormData(d => ({ ...d, state: { type: 'error', error: e as Error } }));
+  }
+}
