@@ -4,7 +4,11 @@ import classes from './LessonHeader.module.scss';
 
 import { useParams } from 'react-router';
 
+import { formatI18nT } from 'shared';
+
 export default LessonHeader;
+
+const t = formatI18nT('courseLesson');
 
 interface IProps {
   lesson: ILessonData
@@ -35,14 +39,14 @@ function LessonHeader(props: IProps) {
             className={classes.type + ' nav-link s-text-18' + (props.practice === 'task' ? ' isActive' : '')}
             to={URLSections.Course.Lesson.to({ courseId, lessonId })}
           >
-            Задание
+            {t('navTubsPractice')}
           </Link>
           <Link
             className={classes.type + ' nav-link s-text-18' + (props.practice === 'results' && !props.selectedUser ? ' isActive' : '')}
             to={URLSections.Course.Lesson.Results.to({ courseId, lessonId })}
             onClick={() => props.selectedUser && props.handleDisselectUser()}
           >
-            Результаты
+            {t('navTubsResults')}
           </Link>
           {props.selectedUser &&
             (<span

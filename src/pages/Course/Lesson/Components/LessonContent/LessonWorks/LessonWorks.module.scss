@@ -37,6 +37,7 @@
 }
 
 .ownWorkEmpty {
+  pointer-events: none;
   display: flex;
   flex-flow: column;
   align-items: center;
