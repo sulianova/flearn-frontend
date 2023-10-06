@@ -4,6 +4,12 @@
   grid-column: span 3;
   font-family: $font-family-serif;
 
+  padding-right: set-calc(160);
+
+  @include set-media(md) {
+    padding-right: 0;
+  }
+
   p {
     @include s-text-24;
   }
@@ -11,12 +17,20 @@
   span {
     @include s-text-24;
   }
+
+  p:not(:last-child) {
+    padding-bottom: set-calc(36);
+  
+    @include set-media(md) {
+      padding-bottom: set-calc(16);
+    }
+  }
 }
 
-.text:not(:last-child) {
-  padding-bottom: set-calc(36);
+.text + .text {
+  padding-top: set-calc(36);
 
   @include set-media(md) {
-    padding-bottom: set-calc(16);
+    padding-top: set-calc(16);
   }
 }

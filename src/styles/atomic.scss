@@ -10,6 +10,14 @@
     @include set-typography(14, 19, 500)
   }
 }
+
+@mixin s-text-16 {
+  @include set-typography(16, 22, 500);
+
+  @include set-media(md) {
+    @include set-typography(14, 19, 500)
+  }
+}
 //xs
 @mixin s-text-18 {
   @include set-typography(18, 24, 500);

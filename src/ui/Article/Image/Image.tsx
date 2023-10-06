@@ -13,7 +13,7 @@ function Image(props: IProps) {
   const { imageData } = props.data;
   return (
       <div className={classes.image}>
-        {imageData.src && <UIImage src={imageData.src} alt={imageData.alt}/>}
+        {<UIImage src={imageData.src} alt={imageData.alt}/>}
         {imageData.caption && <div className={classes.imageCaption}><UIText text={imageData.caption}/></div>}
       </div>
   );

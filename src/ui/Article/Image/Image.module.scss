@@ -9,9 +9,19 @@
   overflow: hidden;
 
   padding-bottom: set-calc(72);
+  padding-top: set-calc(36);
 
   @include set-media(md) {
     padding-bottom: set-calc(56);
+    padding-top: set-calc(16);
+  }
+}
+
+.image + .image {
+  padding-top: 0;
+
+  @include set-media(md) {
+    padding-top: 0;
   }
 }
 
@@ -25,8 +35,9 @@
   object-position: top left;
 }
 
-.imageCaption {
-  @include s-text-18;
+.imageCaption > * {
+  @include s-text-16;
+  color: $grey !important;
 
-  padding-top: set-calc(4);
+  padding-top: set-calc(8);
 }

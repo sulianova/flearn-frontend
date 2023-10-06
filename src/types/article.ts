@@ -15,7 +15,7 @@ export interface IArticleTitleBlock extends IArticleBlock {
  */
 export interface IArticleGalleryBlock extends IArticleBlock {
   type: 'gallery'
-  images: Array<{ imageSrc: keyof typeof images, imageAlt: string }>
+  images: Array<{ imageSrc: string, imageAlt: string }>
 }
 
 export interface IArticleFactoidBlock extends IArticleBlock {
