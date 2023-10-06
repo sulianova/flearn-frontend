@@ -12,7 +12,7 @@ import Page from 'ui/Page/Page';
 import classesHeader from './LessonsHeader.module.scss';
 import classesList from './LessonsList.module.scss';
 
-import type { ICourseState, ILessonsState, IRootState } from 'types';
+import { URLSections, type ICourseState, type ILessonsState, type IRootState } from 'types';
 
 export default connect(mapStateToProps)(Lessons);
 
@@ -132,12 +132,17 @@ function renderItems(props: ILessonsState['lessons'] ) {
 }
 
 function renderItem(props: ILessonsState['lessons'][number]) {
+  const { courseId, id } = props.lesson;
+
+  const lectureLink = props.lesson.type === 'Theory' ? URLSections.Course.Lesson.to({ courseId, lessonId: id }) : props.lesson.lectureLink;
+  const homeworkLink = props.lesson.type === 'Practice' ? URLSections.Course.Lesson.to({ courseId, lessonId: id }) : props.lesson.homeworkLink;
+
   return (
     <div className={classesList.item}>
       <div className={classesList.itemTitle + ' s-text-21'}>{props.lesson.title}</div>
       <div className={classesList.itemLinks}>
-        {props.lesson.lectureLink && <div className={classesList.itemLink}><a className='link s-text-18' href={props.lesson.lectureLink}>{t('lecture')}</a></div>}
-        {props.lesson.homeworkLink && <div className={classesList.itemLink}><a className='link s-text-18' href={props.lesson.homeworkLink}>{t('homework')}</a></div>}
+        {lectureLink && <div className={classesList.itemLink}><a className='link s-text-18' href={lectureLink}>{t('lecture')}</a></div>}
+        {homeworkLink && <div className={classesList.itemLink}><a className='link s-text-18' href={homeworkLink}>{t('homework')}</a></div>}
         {props.lesson.webinarLink && <div className={classesList.itemLink}><a className='link s-text-18' href={props.lesson.webinarLink}>{t('webinar')}</a></div>}
         {props.lesson.resultsLink && <div className={classesList.itemLink}><a className='link s-text-18' href={props.lesson.resultsLink}>{t('results')}</a></div>}
       </div>
