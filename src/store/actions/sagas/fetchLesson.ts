@@ -1091,7 +1091,7 @@ const lessonData3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: '1.3.DimaGorelyshev5.jpeg',
+        id: '1.3.DimaGorelyshev5.jpg',
         alt: '1.3.DimaGorelyshev5',
         caption: [
           {
@@ -1105,7 +1105,7 @@ const lessonData3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: '1.3.DimaGorelyshev6.jpeg',
+        id: '1.3.DimaGorelyshev6.jpg',
         alt: '1.3.DimaGorelyshev6',
         caption: [
           {
@@ -1119,7 +1119,7 @@ const lessonData3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: '1.3.DimaGorelyshev7.jpeg',
+        id: '1.3.DimaGorelyshev7.jpg',
         alt: '1.3.DimaGorelyshev7',
         caption: [
           {
@@ -1133,7 +1133,7 @@ const lessonData3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: '1.3.DimaGorelyshev14.jpeg',
+        id: '1.3.DimaGorelyshev14.jpg',
         alt: '1.3.DimaGorelyshev14',
         caption: [
           {
@@ -1157,7 +1157,7 @@ const lessonData3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: '1.3.DimaGorelyshev18.jpeg',
+        id: '1.3.DimaGorelyshev18.jpg',
         alt: '1.3.DimaGorelyshev18',
         caption: [
           {
@@ -1171,7 +1171,7 @@ const lessonData3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: '1.3.DimaGorelyshev40.jpeg',
+        id: '1.3.DimaGorelyshev40.jpg',
         alt: '1.3.DimaGorelyshev40',
         caption: [
           {
