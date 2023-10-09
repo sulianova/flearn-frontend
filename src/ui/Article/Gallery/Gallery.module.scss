@@ -18,10 +18,10 @@
   position: relative;
   display: block;
 
-  border-radius: set-calc(10);
+  border-radius: 0;
   overflow: hidden;
 
-  height: set-calc(500);
+  height: set-calc(350);
 
   @include set-media(md) {
     width: 100%;

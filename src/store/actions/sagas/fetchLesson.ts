@@ -1190,8 +1190,124 @@ const lessonData3: ILessonDataDB = {
       type: 'gallery',
       images: [
         {
-          id: '1.3.DimaGorelyshev40.jpeg',
-          alt: '1.3.DimaGorelyshev40',
+          id: 'LineCat1.jpg',
+          alt: 'LineCat1',
+        },
+        {
+          id: 'LineCat2.jpg',
+          alt: 'LineCat2',
+        },
+        {
+          id: 'LineCat3.jpg',
+          alt: 'LineCat3',
+        },
+        {
+          id: 'LineCat4.jpg',
+          alt: 'LineCat4',
+        },
+        {
+          id: 'LineCat5.jpg',
+          alt: 'LineCat5',
+        },
+        {
+          id: 'LineCat6.jpg',
+          alt: 'LineCat6',
+        },
+        {
+          id: 'LineCat7.jpg',
+          alt: 'LineCat7',
+        },
+        {
+          id: 'LineCat8.jpg',
+          alt: 'LineCat8',
+        },
+        {
+          id: 'LineCat9.jpg',
+          alt: 'LineCat9',
+        },
+        {
+          id: 'LineCat10.jpg',
+          alt: 'LineCat10',
+        },
+        {
+          id: 'LineCat11.jpg',
+          alt: 'LineCat11',
+        },
+        {
+          id: 'LineCat12.jpg',
+          alt: 'LineCat12',
+        },
+        {
+          id: 'LineCat13.jpg',
+          alt: 'LineCat13',
+        },
+        {
+          id: 'LineCat14.jpg',
+          alt: 'LineCat14',
+        },
+        {
+          id: 'LineCat15.jpg',
+          alt: 'LineCat15',
+        },
+        {
+          id: 'LineCat16.jpg',
+          alt: 'LineCat16',
+        },
+        {
+          id: 'LineCat17.jpg',
+          alt: 'LineCat17',
+        },
+        {
+          id: 'LineCat18.jpg',
+          alt: 'LineCat18',
+        },
+        {
+          id: 'LineCat19.jpg',
+          alt: 'LineCat19',
+        },
+        {
+          id: 'LineCat20.jpg',
+          alt: 'LineCat20',
+        },
+        {
+          id: 'LineCat21.jpg',
+          alt: 'LineCat21',
+        },
+        {
+          id: 'LineCat22.jpg',
+          alt: 'LineCat22',
+        },
+        {
+          id: 'LineCat23.jpg',
+          alt: 'LineCat23',
+        },
+        {
+          id: 'LineCat24.jpg',
+          alt: 'LineCat24',
+        },
+        {
+          id: 'LineCat25.jpg',
+          alt: 'LineCat25',
+        },
+        {
+          id: 'LineCat26.jpg',
+          alt: 'LineCat26',
+        },
+        {
+          id: 'LineCat27.jpg',
+          alt: 'LineCat27',
+        },
+        {
+          id: 'LineCat28.jpg',
+          alt: 'LineCat28',
+        },
+        {
+          id: 'LineCat29.jpg',
+          alt: 'LineCat29',
+        },
+        {
+          id: 'LineCat30.jpg',
+          alt: 'LineCat30',
         },
       ]
     },
