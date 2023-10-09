@@ -93,10 +93,6 @@ const lessonData1: ILessonDataDB = {
   startDate: '2023.07.12', //new Date('2023.07.12'),
   endDate: '2023.07.22', //new Date('2023.07.22'),
   resultsEndDate: '2023.07.25', //new Date('2023.07.25'),
-  lectureLink: 'string',
-  homeworkLink: 'string',
-  webinarLink: 'string',
-  resultsLink: 'string',
   content: [
     {
       type: 'text',
@@ -427,7 +423,6 @@ const lessonData2: ILessonDataDB = {
   startDate: '2023.07.12', //new Date('2023.07.12'),
   endDate: '2023.07.22', //new Date('2023.07.22'),
   resultsEndDate: '2023.07.25', //new Date('2023.07.25'),
-  lectureLink: 'string',
   content: [
     {
       type: 'title',
@@ -696,7 +691,6 @@ const lessonData3: ILessonDataDB = {
   startDate: '2023.07.12', //new Date('2023.07.12'),
   endDate: '2023.07.22', //new Date('2023.07.22'),
   resultsEndDate: '2023.07.25', //new Date('2023.07.25'),
-  lectureLink: 'string',
   content: [
     {
       type: 'text',
@@ -1204,7 +1198,6 @@ const lessonData4: ILessonDataDB = {
   startDate: '2023.07.12', //new Date('2023.07.12'),
   endDate: '2023.07.22', //new Date('2023.07.22'),
   resultsEndDate: '2023.07.25', //new Date('2023.07.25'),
-  lectureLink: 'string',
   content: [
     {
       type: 'text',
@@ -1409,7 +1402,6 @@ const lessonData5: ILessonDataDB = {
   startDate: '2023.07.12', //new Date('2023.07.12'),
   endDate: '2023.07.22', //new Date('2023.07.22'),
   resultsEndDate: '2023.07.25', //new Date('2023.07.25'),
-  lectureLink: 'string',
   content: [
     {
       type: 'title',

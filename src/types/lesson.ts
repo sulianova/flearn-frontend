@@ -75,10 +75,6 @@ export interface ILessonData {
   startDate: Date
   endDate: Date
   resultsEndDate: Date
-  lectureLink?: string
-  homeworkLink?: string
-  webinarLink?: string
-  resultsLink?: string
   content: ILessonContent
 }
 
@@ -91,9 +87,5 @@ export interface ILessonDataDB {
   startDate: string
   endDate: string
   resultsEndDate: string
-  lectureLink?: string
-  homeworkLink?: string
-  webinarLink?: string
-  resultsLink?: string
   content: ILessonContentDB
 }
