@@ -8,6 +8,7 @@ import { IFetchCoursePayload, IFetchLessonsPayload, fetchCourse, fetchLessons } 
 
 import useFallback from './useFallback';
 
+import Link from 'ui/Link/Link';
 import Page from 'ui/Page/Page';
 import classesHeader from './LessonsHeader.module.scss';
 import classesList from './LessonsList.module.scss';
@@ -57,7 +58,7 @@ function Lessons({ courseState, lessonsState, authedUserId }: IConnectedProps) {
 
   const lessons = lessonsState?.lessons;
 
-  const groupes: IGroup[] = useMemo(() => {
+  const groupes: IGroupOfGroupes[] = useMemo(() => {
     if (!lessons) {
       return [];
     }
@@ -76,8 +77,29 @@ function Lessons({ courseState, lessonsState, authedUserId }: IConnectedProps) {
         }
 
         return acc;
-      }, new Map() as Map<number, IGroup>)
+      }, new Map() as Map<number, { lessons: ILessonsState['lessons'], week: number, startDate: Date, endDate: Date }>)
       .values()]
+      .map(p => {
+        const groupes = [...p.lessons
+          .reduce((acc, lesson) => {
+            if (!acc.has(lesson.lesson.title)) {
+              acc.set(lesson.lesson.title, {
+                lessonTitle: lesson.lesson.title,
+                lessons: [lesson],
+              });
+            } else {
+              acc.get(lesson.lesson.title)!.lessons.push(lesson);
+            }
+            return acc;
+          }, new Map() as Map<string, IGroup>)
+          .values()];
+          return {
+            groupes,
+            week: p.week,
+            startDate: p.startDate,
+            endDate: p.endDate,
+          };
+      })
       // TODO sort lessons infos by ???
       .sort((a, b) => a.week - b.week);
 
@@ -107,42 +129,72 @@ function Lessons({ courseState, lessonsState, authedUserId }: IConnectedProps) {
   </Page>);
 }
 
-interface IGroup {
-  lessons: ILessonsState['lessons']
+interface IGroupOfGroupes {
+  groupes: IGroup[]
   week: number
   startDate: Date
   endDate: Date
 }
 
-function renderGroups(props: IGroup[]) {
+interface IGroup {
+  lessonTitle: string
+  lessons: ILessonsState['lessons']
+}
+
+function renderGroups(props: IGroupOfGroupes[]) {
   return props.map((d, index) => (<Fragment key={index}>{renderGroup(d)}</Fragment>));
 }
 
-function renderGroup(props: IGroup) {
+function renderGroup(props: IGroupOfGroupes) {
   return (
     <div className={classesList.itemWrapper}>
       <div className={classesList.itemDate + ' s-text-28'}>{formatWeekDate(props.startDate, props.endDate)}</div>
-      {renderItems(props.lessons)}
+      {renderItems(props.groupes)}
     </div>
   );
 }
 
-function renderItems(props: ILessonsState['lessons'] ) {
-  return props.map((d, index) => (<Fragment key={index}>{renderItem(d)}</Fragment>));
+function renderItems(props: IGroup[]) {
+  return props.map((g, index) => (<Fragment key={index}>{renderItem(g.lessons, g.lessonTitle)}</Fragment>));
 }
 
-function renderItem(props: ILessonsState['lessons'][number]) {
+function getLinks(props: ILessonsState['lessons'][number]) {
   const { courseId, id } = props.lesson;
 
-  const lectureLink = props.lesson.type === 'Theory' && URLSections.Course.Lesson.to({ courseId, lessonId: id });
-  const homeworkLink = props.lesson.type === 'Practice' && URLSections.Course.Lesson.to({ courseId, lessonId: id });
+  const lectureLink = props.lesson.type === 'Theory' ? URLSections.Course.Lesson.to({ courseId, lessonId: id }) : null;
+  const homeworkLink = props.lesson.type === 'Practice' ? URLSections.Course.Lesson.to({ courseId, lessonId: id }) : null;
+
+  return { lectureLink, homeworkLink };
+}
+
+function renderItem(lessons: ILessonsState['lessons'], lessonTitle: string) {
+  const links = lessons.map(getLinks);
+
+  const lectureLinks = (links
+    .map(link => link.lectureLink)
+    .filter(lectureLink => lectureLink != null) as string[])
+    .map(lectureLink => (
+      <div className={classesList.itemLink}>
+        <Link className='link s-text-18' to={lectureLink}>{t('lecture')}</Link>
+      </div>
+      )
+    );
+  const homeworkLinks = (links
+    .map(link => link.homeworkLink)
+    .filter(homeworkLink => homeworkLink != null) as string[])
+    .map(homeworkLink => (
+      <div className={classesList.itemLink}>
+        <Link className='link s-text-18' to={homeworkLink}>{t('homework')}</Link>
+      </div>
+      )
+    );
 
   return (
     <div className={classesList.item}>
-      <div className={classesList.itemTitle + ' s-text-21'}>{props.lesson.title}</div>
+      <div className={classesList.itemTitle + ' s-text-21'}>{lessonTitle}</div>
       <div className={classesList.itemLinks}>
-        {lectureLink && <div className={classesList.itemLink}><a className='link s-text-18' href={lectureLink}>{t('lecture')}</a></div>}
-        {homeworkLink && <div className={classesList.itemLink}><a className='link s-text-18' href={homeworkLink}>{t('homework')}</a></div>}
+        {lectureLinks}
+        {homeworkLinks}
         {/* {props.lesson.webinarLink && <div className={classesList.itemLink}><a className='link s-text-18' href={props.lesson.webinarLink}>{t('webinar')}</a></div>} */}
         {/* {props.lesson.resultsLink && <div className={classesList.itemLink}><a className='link s-text-18' href={props.lesson.resultsLink}>{t('results')}</a></div>} */}
       </div>
