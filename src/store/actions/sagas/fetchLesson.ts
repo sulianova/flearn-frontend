@@ -450,7 +450,7 @@ const lessonData2: ILessonDataDB = {
           {
             tag: 'a',
             content: 'Ханоя Пивен, портерт Мадонны',
-            props: { className: 's-hoverable', to: 'https://pivenworld.com/art' },
+            props: { className: 's-hoverable', target: "_blank", to: 'https://pivenworld.com/art' },
           },
         ],
       },
@@ -464,7 +464,7 @@ const lessonData2: ILessonDataDB = {
           {
             tag: 'a',
             content: 'Maria Picassó i Piquer, портрет Минервы Макгонагалл',
-            props: { className: 's-hoverable', to: 'https://www.instagram.com/maria_picasso_piquer/?ysclid=ln30o7h1q7888015831' },
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/maria_picasso_piquer/?ysclid=ln30o7h1q7888015831' },
           },
         ],
       },
@@ -478,7 +478,7 @@ const lessonData2: ILessonDataDB = {
           {
             tag: 'a',
             content: 'Natalia Averianova',
-            props: { className: 's-hoverable', to: 'https://www.instagram.com/averianova_works/' },
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/averianova_works/' },
           },
         ],
       },
@@ -492,7 +492,7 @@ const lessonData2: ILessonDataDB = {
           {
             tag: 'a',
             content: 'Natalia Averianova',
-            props: { className: 's-hoverable', to: 'https://www.instagram.com/averianova_works/' },
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/averianova_works/' },
           },
         ],
       },
@@ -545,7 +545,7 @@ const lessonData2: ILessonDataDB = {
           {
             tag: 'a',
             content: 'H A N N A / 이 한 나',
-            props: { className: 's-hoverable', to: 'https://www.instagram.com/hannaleejoshi/' },
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/hannaleejoshi/' },
           },
         ],
       },
@@ -559,7 +559,7 @@ const lessonData2: ILessonDataDB = {
           {
             tag: 'a',
             content: 'Varya Yakovleva',
-            props: { className: 's-hoverable', to: 'https://www.instagram.com/varya__yakovleva/?g=5' },
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/varya__yakovleva/?g=5' },
           },
         ],
       },
@@ -577,7 +577,7 @@ const lessonData2: ILessonDataDB = {
           {
             tag: 'a',
             content: 'Victor Melamed, Frank Zappa Hot Rats',
-            props: { className: 's-hoverable', to: 'https://www.behance.net/melamed' },
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/melamed' },
           },
         ],
       },
@@ -591,7 +591,7 @@ const lessonData2: ILessonDataDB = {
           {
             tag: 'a',
             content: 'Victor Melamed, портрет Стивена Хокинга',
-            props: { className: 's-hoverable', to: 'https://www.behance.net/melamed' },
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/melamed' },
           },
         ],
       },
@@ -605,7 +605,7 @@ const lessonData2: ILessonDataDB = {
           {
             tag: 'a',
             content: 'Victor Melamed, портрет Sean Penn',
-            props: { className: 's-hoverable', to: 'https://www.behance.net/melamed' },
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/melamed' },
           },
         ],
       },
@@ -619,7 +619,7 @@ const lessonData2: ILessonDataDB = {
           {
             tag: 'a',
             content: 'Masha Shishova, автопортрет',
-            props: { className: 's-hoverable', to: 'https://www.behance.net/MariaShishova' },
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/MariaShishova' },
           },
         ],
       },
@@ -633,7 +633,7 @@ const lessonData2: ILessonDataDB = {
           {
             tag: 'a',
             content: 'Masha Shishova, портрет Zinaida Gippius',
-            props: { className: 's-hoverable', to: 'https://www.behance.net/MariaShishova' },
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/MariaShishova' },
           },
         ],
       },
@@ -660,7 +660,7 @@ const lessonData2: ILessonDataDB = {
           {
             tag: 'a',
             content: 'Elena Bulay',
-            props: { className: 's-hoverable', to: 'https://www.instagram.com/elena_bulay/?hl=ru' },
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/elena_bulay/?hl=ru' },
           },
         ],
       },
@@ -674,7 +674,7 @@ const lessonData2: ILessonDataDB = {
           {
             tag: 'a',
             content: 'Elena Bulay, разные позы одной собаки',
-            props: { className: 's-hoverable', to: 'https://www.instagram.com/elena_bulay/?hl=ru' },
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/elena_bulay/?hl=ru' },
           },
         ],
       },
@@ -1014,7 +1014,7 @@ const lessonData3: ILessonDataDB = {
           {
             tag: 'a',
             content: 'Robert Henderson Blyth',
-            props: { className: 's-hoverable', to: 'https://all-drawings.livejournal.com/867721.html' },
+            props: { className: 's-hoverable', target: "_blank", to: 'https://all-drawings.livejournal.com/867721.html' },
           },
         ],
       },
@@ -1042,7 +1042,7 @@ const lessonData3: ILessonDataDB = {
           {
             tag: 'a',
             content: 'David Hockney',
-            props: { className: 's-hoverable', to: 'https://all-drawings.livejournal.com/869696.html' },
+            props: { className: 's-hoverable', target: "_blank", to: 'https://all-drawings.livejournal.com/869696.html' },
           },
         ],
       },
@@ -1083,7 +1083,7 @@ const lessonData3: ILessonDataDB = {
           {
             tag: 'a',
             content: 'Дмитрий Горелышев',
-            props: { className: 's-hoverable', to: 'https://www.instagram.com/dima_gorelyshev/' },
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
           },
         ],
       },
@@ -1097,7 +1097,7 @@ const lessonData3: ILessonDataDB = {
           {
             tag: 'a',
             content: 'Дмитрий Горелышев',
-            props: { className: 's-hoverable', to: 'https://www.instagram.com/dima_gorelyshev/' },
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
           },
         ],
       },
@@ -1111,7 +1111,7 @@ const lessonData3: ILessonDataDB = {
           {
             tag: 'a',
             content: 'Дмитрий Горелышев',
-            props: { className: 's-hoverable', to: 'https://www.instagram.com/dima_gorelyshev/' },
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
           },
         ],
       },
@@ -1125,7 +1125,7 @@ const lessonData3: ILessonDataDB = {
           {
             tag: 'a',
             content: 'Дмитрий Горелышев',
-            props: { className: 's-hoverable', to: 'https://www.instagram.com/dima_gorelyshev/' },
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
           },
         ],
       },
@@ -1139,7 +1139,7 @@ const lessonData3: ILessonDataDB = {
           {
             tag: 'a',
             content: 'Дмитрий Горелышев',
-            props: { className: 's-hoverable', to: 'https://www.instagram.com/dima_gorelyshev/' },
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
           },
         ],
       },
@@ -1163,7 +1163,7 @@ const lessonData3: ILessonDataDB = {
           {
             tag: 'a',
             content: 'Дмитрий Горелышев',
-            props: { className: 's-hoverable', to: 'https://www.instagram.com/dima_gorelyshev/' },
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
           },
         ],
       },
@@ -1177,7 +1177,7 @@ const lessonData3: ILessonDataDB = {
           {
             tag: 'a',
             content: 'Дмитрий Горелышев',
-            props: { className: 's-hoverable', to: 'https://www.instagram.com/dima_gorelyshev/' },
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
           },
         ],
       },
