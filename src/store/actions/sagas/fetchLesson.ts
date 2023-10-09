@@ -1186,6 +1186,15 @@ const lessonData3: ILessonDataDB = {
       type: 'title',
       title: 'Примеры линейных рисунков',
     },
+    {
+      type: 'gallery',
+      images: [
+        {
+          id: '1.3.DimaGorelyshev40.jpeg',
+          alt: '1.3.DimaGorelyshev40',
+        },
+      ]
+    },
   ],
 };
 

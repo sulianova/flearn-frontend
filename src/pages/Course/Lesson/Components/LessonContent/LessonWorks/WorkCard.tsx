@@ -17,7 +17,7 @@ function WorkCard({ handleClick, homework}: IProps) {
   return (
       <div className={cx({ _: true, hidden: false })}>
         <div className={classes.preview} onClick={() => handleClick({ id: 'sonia', displayName: 'Sofiia ulianova' })}>
-          {homework.images?.[0] && (<img alt={homework.images[0].imageAlt} src={images[homework.images[0].imageSrc]}/>)}
+          {homework.images?.[0] && (<img alt={homework.images[0].alt} src={images[homework.images[0].src]}/>)}
           <div className={classes.overlay}/>
         </div>
         <div className={classes.user}>

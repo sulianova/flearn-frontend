@@ -100,40 +100,40 @@ const allHomeworks: IHomeworkData[] = [
     },
     images: [
       {
-        imageSrc: 'TheStrangerVisitingNatureSusl',
-        imageAlt: 'TheStrangerVisitingNatureSusl',
+        src: 'TheStrangerVisitingNatureSusl',
+        alt: 'TheStrangerVisitingNatureSusl',
       },
       {
-        imageSrc: 'TheStrangerVisitingNatureSusl',
-        imageAlt: 'TheStrangerVisitingNatureSusl',
+        src: 'TheStrangerVisitingNatureSusl',
+        alt: 'TheStrangerVisitingNatureSusl',
       },
       {
-        imageSrc: 'TheStrangerVisitingNatureSusl',
-        imageAlt: 'TheStrangerVisitingNatureSusl',
+        src: 'TheStrangerVisitingNatureSusl',
+        alt: 'TheStrangerVisitingNatureSusl',
       },
       {
-        imageSrc: 'SummerTime',
-        imageAlt: 'SummerTime',
+        src: 'SummerTime',
+        alt: 'SummerTime',
       },
       {
-        imageSrc: 'TheStrangerVisitingNatureSusl',
-        imageAlt: 'TheStrangerVisitingNatureSusl',
+        src: 'TheStrangerVisitingNatureSusl',
+        alt: 'TheStrangerVisitingNatureSusl',
       },
       {
-        imageSrc: 'TheStrangerVisitingNatureSusl',
-        imageAlt: 'TheStrangerVisitingNatureSusl',
+        src: 'TheStrangerVisitingNatureSusl',
+        alt: 'TheStrangerVisitingNatureSusl',
       },
       {
-        imageSrc: 'SummerTime',
-        imageAlt: 'SummerTime',
+        src: 'SummerTime',
+        alt: 'SummerTime',
       },
       {
-        imageSrc: 'SummerTime',
-        imageAlt: 'SummerTime',
+        src: 'SummerTime',
+        alt: 'SummerTime',
       },
       {
-        imageSrc: 'SummerTime',
-        imageAlt: 'SummerTime',
+        src: 'SummerTime',
+        alt: 'SummerTime',
       },
     ],
     review: [
@@ -155,12 +155,12 @@ const allHomeworks: IHomeworkData[] = [
       ]},
       { type: 'gallery', images: [
         {
-          imageSrc: 'TheStrangerVisitingNatureSusl',
-          imageAlt: 'TheStrangerVisitingNatureSusl',
+          src: 'TheStrangerVisitingNatureSusl',
+          alt: 'TheStrangerVisitingNatureSusl',
         },
         {
-          imageSrc: 'SummerTime',
-          imageAlt: 'SummerTime',
+          src: 'SummerTime',
+          alt: 'SummerTime',
         },
       ] },
     ],
@@ -178,40 +178,40 @@ const allHomeworks: IHomeworkData[] = [
     },
     images: [
       {
-        imageSrc: 'TheStrangerVisitingNatureSusl',
-        imageAlt: 'TheStrangerVisitingNatureSusl',
+        src: 'TheStrangerVisitingNatureSusl',
+        alt: 'TheStrangerVisitingNatureSusl',
       },
       {
-        imageSrc: 'TheStrangerVisitingNatureSusl',
-        imageAlt: 'TheStrangerVisitingNatureSusl',
+        src: 'TheStrangerVisitingNatureSusl',
+        alt: 'TheStrangerVisitingNatureSusl',
       },
       {
-        imageSrc: 'TheStrangerVisitingNatureSusl',
-        imageAlt: 'TheStrangerVisitingNatureSusl',
+        src: 'TheStrangerVisitingNatureSusl',
+        alt: 'TheStrangerVisitingNatureSusl',
       },
       {
-        imageSrc: 'SummerTime',
-        imageAlt: 'SummerTime',
+        src: 'SummerTime',
+        alt: 'SummerTime',
       },
       {
-        imageSrc: 'TheStrangerVisitingNatureSusl',
-        imageAlt: 'TheStrangerVisitingNatureSusl',
+        src: 'TheStrangerVisitingNatureSusl',
+        alt: 'TheStrangerVisitingNatureSusl',
       },
       {
-        imageSrc: 'TheStrangerVisitingNatureSusl',
-        imageAlt: 'TheStrangerVisitingNatureSusl',
+        src: 'TheStrangerVisitingNatureSusl',
+        alt: 'TheStrangerVisitingNatureSusl',
       },
       {
-        imageSrc: 'SummerTime',
-        imageAlt: 'SummerTime',
+        src: 'SummerTime',
+        alt: 'SummerTime',
       },
       {
-        imageSrc: 'SummerTime',
-        imageAlt: 'SummerTime',
+        src: 'SummerTime',
+        alt: 'SummerTime',
       },
       {
-        imageSrc: 'SummerTime',
-        imageAlt: 'SummerTime',
+        src: 'SummerTime',
+        alt: 'SummerTime',
       },
     ],
   },

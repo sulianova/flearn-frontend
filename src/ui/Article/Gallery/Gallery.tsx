@@ -24,7 +24,7 @@ function renderItems(props: IArticleGalleryBlock['images']) {
 function renderItem(props: IArticleGalleryBlock['images'][number]) {
   return (
     <div className={classes.item}>
-      <Img src={props.imageSrc} alt={props.imageAlt}/>
+      <Img src={props.src} alt={props.alt}/>
     </div>
   );
 }
