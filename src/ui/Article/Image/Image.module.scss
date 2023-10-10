@@ -37,7 +37,6 @@
 
 .imageCaption > * {
   @include s-text-16;
-  color: $grey !important;
 
   margin-top: set-calc(8);
 }

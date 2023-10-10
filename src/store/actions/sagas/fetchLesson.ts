@@ -85,7 +85,7 @@ function getData(courseId: string, lessonId: string) {
 }
 
 const lessonData1: ILessonDataDB = {
-  id: 'draw-doodles',
+  id: 'DrawingExercises_h3dx7k',
   courseId: 'illustration',
   title: '1.1. Упражнения, чтобы разрисоваться',
   type: 'Theory',
@@ -182,7 +182,7 @@ const lessonData1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: '1.1.Tasks1.png',
+        id: 'Tasks1.png',
         alt: 'Tasks1',
         caption: [
           {
@@ -317,7 +317,7 @@ const lessonData1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: '1.1.Tasks2.png',
+        id: 'Tasks2.png',
         alt: 'Tasks2',
         caption: [
           {
@@ -401,7 +401,7 @@ const lessonData1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: '1.1.Tasks3.jpg',
+        id: 'Tasks3.jpg',
         alt: 'Tasks3',
         caption: [
           {
@@ -415,7 +415,7 @@ const lessonData1: ILessonDataDB = {
 };
 
 const lessonData2: ILessonDataDB = {
-  id: 'draw-noodles',
+  id: 'HowToDrawSimilarPicture_bah4tw',
   courseId: 'illustration',
   title: '1.2. Как рисовать похоже',
   type: 'Theory',
@@ -444,8 +444,8 @@ const lessonData2: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: '1.2.ХанояПивен1.png',
-        alt: '1.2.ХанояПивен1',
+        id: 'ХанояПивен1.png',
+        alt: 'ХанояПивен1',
         caption: [
           {
             tag: 'a',
@@ -458,8 +458,8 @@ const lessonData2: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: '1.2.MariaPicassóiPiquer1.jpeg',
-        alt: '1.2.MariaPicassóiPiquer1',
+        id: 'MariaPicassóiPiquer1.jpeg',
+        alt: 'MariaPicassóiPiquer1',
         caption: [
           {
             tag: 'a',
@@ -472,8 +472,8 @@ const lessonData2: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: '1.2.NataliaAverianova1.jpeg',
-        alt: '1.2.NataliaAverianova1',
+        id: 'NataliaAverianova1.jpeg',
+        alt: 'NataliaAverianova1',
         caption: [
           {
             tag: 'a',
@@ -486,8 +486,8 @@ const lessonData2: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: '1.2.NataliaAverianova2.jpg',
-        alt: '1.2.NataliaAverianova2',
+        id: 'NataliaAverianova2.jpg',
+        alt: 'NataliaAverianova2',
         caption: [
           {
             tag: 'a',
@@ -539,8 +539,8 @@ const lessonData2: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: '1.2.hannaleejoshi1.jpeg',
-        alt: '1.2.hannaleejoshi1',
+        id: 'hannaleejoshi1.jpeg',
+        alt: 'hannaleejoshi1',
         caption: [
           {
             tag: 'a',
@@ -553,8 +553,8 @@ const lessonData2: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: '1.2.VaryaYakovleva3.jpeg',
-        alt: '1.2.VaryaYakovleva3',
+        id: 'VaryaYakovleva3.jpeg',
+        alt: 'VaryaYakovleva3',
         caption: [
           {
             tag: 'a',
@@ -571,8 +571,8 @@ const lessonData2: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: '1.2.VictorMelamed3.jpg',
-        alt: '1.2.VictorMelamed3',
+        id: 'VictorMelamed3.jpg',
+        alt: 'VictorMelamed3',
         caption: [
           {
             tag: 'a',
@@ -585,8 +585,8 @@ const lessonData2: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: '1.2.VictorMelamed2.jpg',
-        alt: '1.2.VictorMelamed2',
+        id: 'VictorMelamed2.jpg',
+        alt: 'VictorMelamed2',
         caption: [
           {
             tag: 'a',
@@ -599,8 +599,8 @@ const lessonData2: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: '1.2.VictorMelamed1.jpg',
-        alt: '1.2.VictorMelamed1',
+        id: 'VictorMelamed1.jpg',
+        alt: 'VictorMelamed1',
         caption: [
           {
             tag: 'a',
@@ -613,8 +613,8 @@ const lessonData2: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: '1.2.MashaShishova1.jpg',
-        alt: '1.2.MashaShishova1',
+        id: 'MashaShishova1.jpg',
+        alt: 'MashaShishova1',
         caption: [
           {
             tag: 'a',
@@ -627,8 +627,8 @@ const lessonData2: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: '1.2.MashaShishova4.jpg',
-        alt: '1.2.MashaShishova4',
+        id: 'MashaShishova4.jpg',
+        alt: 'MashaShishova4',
         caption: [
           {
             tag: 'a',
@@ -654,8 +654,8 @@ const lessonData2: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: '1.2.ElenaBulay2.jpg',
-        alt: '1.2.ElenaBulay2',
+        id: 'ElenaBulay2.jpg',
+        alt: 'ElenaBulay2',
         caption: [
           {
             tag: 'a',
@@ -668,8 +668,8 @@ const lessonData2: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: '1.2.ElenaBulay1.jpg',
-        alt: '1.2.ElenaBulay1',
+        id: 'ElenaBulay1.jpg',
+        alt: 'ElenaBulay1',
         caption: [
           {
             tag: 'a',
@@ -683,7 +683,7 @@ const lessonData2: ILessonDataDB = {
 };
 
 const lessonData3: ILessonDataDB = {
-  id: 'draw-poodles',
+  id: 'HowToDrawSimilarPictureLine_t6qrnq',
   courseId: 'illustration',
   title: '1.3. Как рисовать похоже. Линия',
   type: 'Theory',
@@ -721,8 +721,8 @@ const lessonData3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: '1.3.Comparison.jpg',
-        alt: '1.3.Comparison',
+        id: 'Comparison.jpg',
+        alt: 'Comparison',
       },
     },
     {
@@ -768,8 +768,8 @@ const lessonData3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: '1.3.DetailsLine1.jpeg',
-        alt: '1.3.DetailsLine1',
+        id: 'DetailsLine1.jpeg',
+        alt: 'DetailsLine1',
       },
     },
     {
@@ -788,8 +788,8 @@ const lessonData3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: '1.3.ProportionLine1.png',
-        alt: '1.3.ProportionLine1',
+        id: 'ProportionLine1.png',
+        alt: 'ProportionLine1',
       },
     },
     {
@@ -804,8 +804,8 @@ const lessonData3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: '1.3.ProportionLine3.png',
-        alt: '1.3.ProportionLine3',
+        id: 'ProportionLine3.png',
+        alt: 'ProportionLine3',
       },
     },
     {
@@ -824,8 +824,8 @@ const lessonData3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: '1.3.ProportionLine4.png',
-        alt: '1.3.ProportionLine4',
+        id: 'ProportionLine4.png',
+        alt: 'ProportionLine4',
       },
     },
     {
@@ -840,8 +840,8 @@ const lessonData3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: '1.3.ProportionLine5.png',
-        alt: '1.3.ProportionLine5',
+        id: 'ProportionLine5.png',
+        alt: 'ProportionLine5',
       },
     },
     {
@@ -869,8 +869,8 @@ const lessonData3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: '1.3.ProportionLine6.png',
-        alt: '1.3.ProportionLine6',
+        id: 'ProportionLine6.png',
+        alt: 'ProportionLine6',
       },
     },
     {
@@ -885,8 +885,8 @@ const lessonData3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: '1.3.ProportionLine7.png',
-        alt: '1.3.ProportionLine7',
+        id: 'ProportionLine7.png',
+        alt: 'ProportionLine7',
       },
     },
     {
@@ -950,8 +950,8 @@ const lessonData3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: '1.3.ProportionLine2.jpeg',
-        alt: '1.3.ProportionLine2',
+        id: 'ProportionLine2.jpeg',
+        alt: 'ProportionLine2',
       },
     },
     {
@@ -966,8 +966,8 @@ const lessonData3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: '1.3.DetailsLine2.png',
-        alt: '1.3.DetailsLine2',
+        id: 'DetailsLine2.png',
+        alt: 'DetailsLine2',
       },
     },
     {
@@ -1008,8 +1008,8 @@ const lessonData3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: '1.3.ShapeLine1.jpeg',
-        alt: '1.3.ShapeLine1',
+        id: 'ShapeLine1.jpeg',
+        alt: 'ShapeLine1',
         caption: [
           {
             tag: 'a',
@@ -1036,8 +1036,8 @@ const lessonData3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: '1.3.ShapeLine2.jpeg',
-        alt: '1.3.ShapeLine2',
+        id: 'ShapeLine2.jpeg',
+        alt: 'ShapeLine2',
         caption: [
           {
             tag: 'a',
@@ -1077,8 +1077,8 @@ const lessonData3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: '1.3.ShapeLine3.png',
-        alt: '1.3.ShapeLine3',
+        id: 'ShapeLine3.png',
+        alt: 'ShapeLine3',
         caption: [
           {
             tag: 'a',
@@ -1091,8 +1091,8 @@ const lessonData3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: '1.3.DimaGorelyshev5.jpg',
-        alt: '1.3.DimaGorelyshev5',
+        id: 'DimaGorelyshev5.jpg',
+        alt: 'DimaGorelyshev5',
         caption: [
           {
             tag: 'a',
@@ -1105,8 +1105,8 @@ const lessonData3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: '1.3.DimaGorelyshev6.jpg',
-        alt: '1.3.DimaGorelyshev6',
+        id: 'DimaGorelyshev6.jpg',
+        alt: 'DimaGorelyshev6',
         caption: [
           {
             tag: 'a',
@@ -1119,8 +1119,8 @@ const lessonData3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: '1.3.DimaGorelyshev7.jpg',
-        alt: '1.3.DimaGorelyshev7',
+        id: 'DimaGorelyshev7.jpg',
+        alt: 'DimaGorelyshev7',
         caption: [
           {
             tag: 'a',
@@ -1133,8 +1133,8 @@ const lessonData3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: '1.3.DimaGorelyshev14.jpg',
-        alt: '1.3.DimaGorelyshev14',
+        id: 'DimaGorelyshev14.jpg',
+        alt: 'DimaGorelyshev14',
         caption: [
           {
             tag: 'a',
@@ -1157,8 +1157,8 @@ const lessonData3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: '1.3.DimaGorelyshev18.jpg',
-        alt: '1.3.DimaGorelyshev18',
+        id: 'DimaGorelyshev18.jpg',
+        alt: 'DimaGorelyshev18',
         caption: [
           {
             tag: 'a',
@@ -1171,8 +1171,8 @@ const lessonData3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: '1.3.DimaGorelyshev40.jpg',
-        alt: '1.3.DimaGorelyshev40',
+        id: 'DimaGorelyshev40.jpg',
+        alt: 'DimaGorelyshev40',
         caption: [
           {
             tag: 'a',
@@ -1315,7 +1315,7 @@ const lessonData3: ILessonDataDB = {
 };
 
 const lessonData4: ILessonDataDB = {
-  id: 'draw-poodles-2',
+  id: 'HowToDrawSimilarPictureLine_t6qrnq_Practice_iqln35',
   courseId: 'illustration',
   title: '1.3. Как рисовать похоже. Линия',
   type: 'Practice',
