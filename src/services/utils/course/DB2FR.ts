@@ -8,7 +8,7 @@ export async function courseDataDB2FR(courseDB: ICourseDataDB): Promise<ICourseD
 
   return {
     ...courseDB,
-    introImageSrc: (await firebaseService.getImageURL({ courseId, imageId: courseDB.introImageId })) ?? '',
+    introImageSrc: (await firebaseService.getImageURL({ courseId, folder: 'landing', imageId: courseDB.introImageId })) ?? '',
     startDate: dateDB2FR(courseDB.startDate),
     endDate: dateDB2FR(courseDB.endDate),
     discontDeadline: dateDB2FR(courseDB.discontDeadline),
@@ -26,7 +26,7 @@ async function courseModulesDB2FR(modules: ICourseDataDB['modules'], courseId: s
 async function courseModuleDB2FR(module: ICourseDataDB['modules'][number], courseId: string): Promise<ICourseData['modules'][number]> {
   return {
     ...module,
-    imageSrc: (await firebaseService.getImageURL({ courseId, imageId: module.imageId })) ?? '',
+    imageSrc: (await firebaseService.getImageURL({ courseId, folder: 'landing', imageId: module.imageId })) ?? '',
   };
 }
 
@@ -38,7 +38,7 @@ async function courseTeachersDB2FR(teachers: ICourseDataDB['teachers'], courseId
 async function courseTeacherDB2FR(teacher: ICourseDataDB['teachers'][number], courseId: string): Promise<ICourseData['teachers'][number]> {
   return {
     ...teacher,
-    imageSrc: (await firebaseService.getImageURL({ courseId, imageId: teacher.imageId })) ?? '',
+    imageSrc: (await firebaseService.getImageURL({ courseId, folder: 'landing', imageId: teacher.imageId })) ?? '',
   };
 }
 
@@ -50,6 +50,6 @@ async function courseTeacherGallerysDB2FR(teacherGallerys: ICourseDataDB['teache
 async function courseTeacherGalleryDB2FR(teacherGallery: ICourseDataDB['teacherGallery'][number], courseId: string): Promise<ICourseData['teacherGallery'][number]> {
   return {
     ...teacherGallery,
-    imageSrc: (await firebaseService.getImageURL({ courseId, imageId: teacherGallery.imageId })) ?? '',
+    imageSrc: (await firebaseService.getImageURL({ courseId, folder: 'landing', imageId: teacherGallery.imageId })) ?? '',
   };
 }

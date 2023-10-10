@@ -15,21 +15,21 @@ import type {
 export async function lessonDataDB2FR(lessonDB: ILessonDataDB): Promise<ILessonData> {
   return {
     ...lessonDB,
-    content: await lessonContencDB2FR(lessonDB.content, lessonDB.courseId),
+    content: await lessonContencDB2FR(lessonDB.content, lessonDB.courseId, lessonDB.id),
     startDate: dateDB2FR(lessonDB.startDate),
     endDate: dateDB2FR(lessonDB.endDate),
     resultsEndDate: dateDB2FR(lessonDB.resultsEndDate),
   };
 }
 
-export async function lessonContencDB2FR(contentDB: ILessonContentDB, courseId: string) {
+export async function lessonContencDB2FR(contentDB: ILessonContentDB, courseId: string, lessonId: string) {
   const contentFR: ILessonContent = await Promise.all(
     contentDB.map(c => {
       switch(c.type) {
         case 'image':
-          return lessonImageBlockDB2FR(c, courseId);
+          return lessonImageBlockDB2FR(c, courseId, lessonId);
         case 'gallery':
-          return lessonGalleryBlockDB2FR(c, courseId);
+          return lessonGalleryBlockDB2FR(c, courseId, lessonId);
         default:
           return c;
       }
@@ -39,26 +39,26 @@ export async function lessonContencDB2FR(contentDB: ILessonContentDB, courseId: 
   return contentFR;
 }
 
-export async function lessonImageBlockDB2FR(imageBlockDB: ILessonImageBlockDB, courseId: string) {
+export async function lessonImageBlockDB2FR(imageBlockDB: ILessonImageBlockDB, courseId: string, lessonId: string) {
   const imageBlockFR: ILessonImageBlock = {
     ...imageBlockDB,
-    imageData: await addSrc(imageBlockDB.imageData, courseId),
+    imageData: await addSrc(imageBlockDB.imageData, courseId, lessonId),
   };
   return imageBlockFR;
 }
 
-export async function lessonGalleryBlockDB2FR(imageBlockDB: ILessonGalleryBlockDB, courseId: string) {
+export async function lessonGalleryBlockDB2FR(imageBlockDB: ILessonGalleryBlockDB, courseId: string, lessonId: string) {
   const galleryBlockFR: ILessonGalleryBlock =
   {
     ...imageBlockDB,
-    images: await Promise.all(imageBlockDB.images.map(image => addSrc(image, courseId))),
+    images: await Promise.all(imageBlockDB.images.map(image => addSrc(image, courseId, lessonId))),
   };
   return galleryBlockFR;
 }
 
-async function addSrc<T extends { id: string }>(image: T, courseId: string): Promise<T & { src: string }> {
+async function addSrc<T extends { id: string }>(image: T, courseId: string, lessonId: string): Promise<T & { src: string }> {
   return {
     ...image,
-    src: (await firebaseService.getImageURL({ courseId, imageId: image.id })) ?? ''
+    src: (await firebaseService.getImageURL({ courseId, folder: lessonId, imageId: image.id })) ?? ''
   };
 }

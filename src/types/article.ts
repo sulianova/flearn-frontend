@@ -1,4 +1,3 @@
-import * as images from 'assets/images';
 import { TText } from './course';
 
 export interface IArticleBlock {
