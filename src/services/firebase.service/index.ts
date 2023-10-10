@@ -61,17 +61,17 @@ export class FirebaseService {
     }
   }
 
-  public async getImageURL(props: { courseId: string, imageId: string }) {
+  public async getImageURL(props: { courseId: string, folder: TLessonId | 'landing', imageId: string }) {
     try {
-      const { courseId, imageId } = props;
-      const path = `${courseId}/image/${imageId}`;
+      const { courseId, folder, imageId } = props;
+      const path = `${courseId}/${folder}/images/${imageId}`;
       const ref = getStorageRef(this._storage, path);
       const url = await getDownloadURL(ref);
 
       return url;
     } catch(e) {
         // tslint:disable-next-line
-        console.error('Failed to get image from storage', { props, e});
+        console.error('Failed to get image from storage', { props, e });
     }
   }
 
@@ -81,3 +81,5 @@ export class FirebaseService {
 }
 
 export const firebaseService = new FirebaseService(getFirebaseConfig());
+
+type TLessonId = string;
