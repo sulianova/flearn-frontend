@@ -10,9 +10,14 @@ export interface ILessonTitleBlock extends ILessonBlock {
   title: string
 }
 
+export interface ILessonGalleryBlockDB extends ILessonBlock {
+  type: 'gallery'
+  images: Array<{ id: string, alt: string }>
+}
+
 export interface ILessonGalleryBlock extends ILessonBlock {
   type: 'gallery'
-  images: Array<{ imageSrc: keyof typeof images, imageAlt: string }>
+  images: Array<{ id: string, src: string, alt: string }>
 }
 
 export interface ILessonFactoidBlock extends ILessonBlock {
@@ -63,8 +68,8 @@ export interface ILessonImageBlock extends ILessonBlock {
   }
 }
 
-export type ILessonContentDB = Array<ILessonTextBlock | ILessonFactoidBlock | ILessonQouteBlock | ILessonTextImportantBlock | ILessonTitleBlock  | ILessonVideoBlock | ILessonImageBlockDB>;
-export type ILessonContent = Array<ILessonTextBlock | ILessonFactoidBlock | ILessonQouteBlock | ILessonTextImportantBlock | ILessonTitleBlock  | ILessonVideoBlock | ILessonImageBlock>;
+export type ILessonContentDB = Array<ILessonTextBlock | ILessonFactoidBlock | ILessonQouteBlock | ILessonTextImportantBlock | ILessonTitleBlock  | ILessonVideoBlock | ILessonImageBlockDB | ILessonGalleryBlockDB>;
+export type ILessonContent = Array<ILessonTextBlock | ILessonFactoidBlock | ILessonQouteBlock | ILessonTextImportantBlock | ILessonTitleBlock  | ILessonVideoBlock | ILessonImageBlock | ILessonGalleryBlock>;
 
 export interface ILessonData {
   id: string
@@ -75,10 +80,6 @@ export interface ILessonData {
   startDate: Date
   endDate: Date
   resultsEndDate: Date
-  lectureLink?: string
-  homeworkLink?: string
-  webinarLink?: string
-  resultsLink?: string
   content: ILessonContent
 }
 
@@ -91,9 +92,5 @@ export interface ILessonDataDB {
   startDate: string
   endDate: string
   resultsEndDate: string
-  lectureLink?: string
-  homeworkLink?: string
-  webinarLink?: string
-  resultsLink?: string
   content: ILessonContentDB
 }

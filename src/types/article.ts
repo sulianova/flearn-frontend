@@ -13,10 +13,6 @@ export interface IArticleTitleBlock extends IArticleBlock {
 /**
  * This is type i sused to ...
  */
-export interface IArticleGalleryBlock extends IArticleBlock {
-  type: 'gallery'
-  images: Array<{ imageSrc: keyof typeof images, imageAlt: string }>
-}
 
 export interface IArticleFactoidBlock extends IArticleBlock {
   type: 'factoid'
@@ -54,6 +50,11 @@ export interface IArticleImageBlock extends IArticleBlock {
     alt: string
     caption?: TText | TText[]
   }
+}
+
+export interface IArticleGalleryBlock extends IArticleBlock {
+  type: 'gallery'
+  images: Array<{ src: string, alt: string }>
 }
 
 export type TArticleBlocks =

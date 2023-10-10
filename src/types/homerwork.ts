@@ -6,7 +6,7 @@ export interface IHomeworkData {
   id: string
   text?: TText | TText[],
   reference?: TText | TText[]
-  images?: Array<{ imageSrc: keyof typeof images, imageAlt: string }>
+  images?: Array<{ src: keyof typeof images, alt: string }>
   user: {
     id: string
     displayName: string
