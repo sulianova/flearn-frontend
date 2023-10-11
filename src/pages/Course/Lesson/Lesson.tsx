@@ -14,7 +14,6 @@ import LessonHeader from './Components/LessonHeader/LessonHeader';
 import useLessonFallback from './useLessonFallback';
 
 import type { IHomeworkData, ILessonState, IRootState } from 'types';
-import { authService } from 'services';
 
 export default connect(mapStateToProps)(Lesson);
 
