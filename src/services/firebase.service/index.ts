@@ -17,6 +17,24 @@ export class FirebaseService {
     this._storage = getStorage(this._app);
   }
 
+  public async docExists(collectionName: ECollections, id: string, throws?: boolean) {
+    try {
+      const docRef = getDocRef(this._db, collectionName, id);
+      const doc = await getDoc(docRef);
+      const docExists = doc.exists();
+
+      if (!docExists && throws) {
+        throw new Error(`Doc doesn't exist`);
+      } else {
+        return docExists;
+      }
+    } catch(e) {
+      // tslint:disable-next-line
+      console.error(e);
+      throw new Error(`Failed to get doc`);
+    }
+  }
+
   public async getDoc(collectionName: ECollections, id: string, converter: FirestoreDataConverter<DocumentData, DocumentData> | null = null) {
     try {
       const docRef = converter ? getDocRef(this._db, collectionName, id).withConverter(converter) : getDocRef(this._db, collectionName, id);
@@ -24,11 +42,12 @@ export class FirebaseService {
       if (doc.exists()) {
         return doc.data();
       } else {
-        throw new Error(`doc doesn't exist`);
+        throw new Error(`Doc doesn't exist`);
       }
     } catch(e) {
       // tslint:disable-next-line
       console.error(e);
+      throw new Error(`Failed to get doc`);
     }
   }
 
@@ -41,6 +60,7 @@ export class FirebaseService {
     } catch(e) {
       // tslint:disable-next-line
       console.error(e);
+      throw new Error('Failed to save doc');
     }
   }
 
@@ -58,6 +78,7 @@ export class FirebaseService {
     } catch(e) {
       // tslint:disable-next-line
       console.error(e);
+      throw new Error('Failed to get docs');
     }
   }
 

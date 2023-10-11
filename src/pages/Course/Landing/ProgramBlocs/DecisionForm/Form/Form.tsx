@@ -2,14 +2,16 @@ import classNames from 'classnames/bind';
 import { useCallback, useState } from 'react';
 import { connect } from 'react-redux';
 
+import { dataService } from 'services';
 import { formatI18nT } from 'shared';
 
 import InputField from 'ui/Form/Input/InputField';
+import Spinner from 'ui/Spinner/Spinner';
+
 import classes from './Form.module.scss';
 import classesInputField from './InputField.module.scss';
 
 import type { IRootState, IUserData } from 'types';
-import { dataService } from 'services';
 
 export default connect(mapStateToProps)(Form);
 
@@ -64,7 +66,7 @@ function Form(props: IProps) {
             <span>
               {
                 formData.state.type === 'Idle' ? '→' :
-                formData.state.type === 'Pending' ? '' :
+                formData.state.type === 'Pending' ? <Spinner/> :
                 formData.state.type === 'Success' ? '✓' :
                 formData.state.type === 'Error' ? '↻' : ''
               }
@@ -87,7 +89,7 @@ async function submit(formData: IFormData, setFormData: React.Dispatch<React.Set
   const { email } = formData;
   try {
     await dataService.order.create({ email });
-    setFormData({ ...initialFormData, state: { type: 'Success' } });
+    setFormData(d => ({ ...d, state: { type: 'Success' } }));
   } catch (e) {
     setFormData(d => ({ ...d, state: { type: 'Error', error: e as Error } }));
   }

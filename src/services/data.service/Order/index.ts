@@ -4,41 +4,48 @@ import { ECollections, IOrderData, IRootState } from 'types';
 
 class Order {
   public async create(userFromForm: IOrderData['userFromForm']) {
-    const state = Store.getState() as IRootState;
-    const courseData = state.course?.data;
-    const courseId = state.course?.courseId;
+    try {
+      const state = Store.getState() as IRootState;
+      const courseData = state.course?.data;
+      const courseId = state.course?.courseId;
+  
+      if (!courseData || !courseId) {
+        throw new Error('Cannot create order: courseData or courseId is undefined');
+      }
+      const id = `${courseId}_${userFromForm.email}`;
 
-    if (!courseData || !courseId) {
-      throw new Error('Cannot create order: courseData or courseId is undefined');
-    }
-    const id = `${courseId}_${userFromForm.email}`;
-    const oldOrder = await firebaseService.getDoc(ECollections.Order, id);
+      const orderAlreadyExists = await firebaseService.docExists(ECollections.Order, id);
+      if (orderAlreadyExists) {
+        throw new Error('Cannot create duplicated order');
+      }
 
-    if (oldOrder) {
-      throw new Error('Cannot create duplicated order');
-    }
-
-    const { discontAmount, discontDeadline, creditPrice, creditWas } = courseData;
-
-    const data: IOrderData = {
-      status: 'created',
-      userFromForm,
-      currentAuthedUser: state.user?.user,
-      course: {
-        id: courseId,
-        dataSnapshot: {
-          discontAmount,
-          discontDeadline,
-          creditPrice,
-          creditWas,
+      const { discontAmount, discontDeadline, creditPrice, creditWas } = courseData;
+  
+      const data: IOrderData = {
+        status: 'created',
+        userFromForm,
+        currentAuthedUser: state.user?.user,
+        course: {
+          id: courseId,
+          dataSnapshot: {
+            discontAmount,
+            discontDeadline,
+            creditPrice,
+            creditWas,
+          },
         },
-      },
-      meta: {
-        createdAt: new Date(),
-      },
-    };
-
-    await firebaseService.setDoc(ECollections.Order, id, data);
+        meta: {
+          createdAt: new Date(),
+        },
+      };
+  
+      await firebaseService.setDoc(ECollections.Order, id, data);
+    } catch (err) {
+      const error = err as Error;
+      // tslint:disable-next-line
+      console.error(error);
+      throw new Error(`Failed to create Order: ${error.message}`);
+    }
   }
 }
 
