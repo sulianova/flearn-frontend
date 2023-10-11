@@ -49,4 +49,5 @@ class Order {
   }
 }
 
-export default new Order();
+const order = new Order();
+export default order;
