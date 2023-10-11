@@ -1,4 +1,5 @@
 import Page from 'ui/Page/Page';
+import Spinner from 'ui/Spinner/Spinner';
 
 interface IProps {
   text?: string
@@ -7,8 +8,8 @@ interface IProps {
 export default function Pending(props: IProps) {
   return (
     <Page header footer wrapper='Fallback'>
-      {props.text && <p>{props.text}</p>}
-      <p>Some future spinner</p>
+        <Spinner variant='global'/>
+        {props.text && <p>{props.text}</p>}
     </Page>
   );
 }
