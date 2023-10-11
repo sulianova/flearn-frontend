@@ -39,6 +39,18 @@ export class FirebaseService {
     try {
       const docRef = converter ? getDocRef(this._db, collectionName, id).withConverter(converter) : getDocRef(this._db, collectionName, id);
       const doc = await getDoc(docRef);
+      return doc.data();
+    } catch(e) {
+      // tslint:disable-next-line
+      console.error(e);
+      throw new Error(`Failed to get doc`);
+    }
+  }
+
+  public async getDocOrThrow(collectionName: ECollections, id: string, converter: FirestoreDataConverter<DocumentData, DocumentData> | null = null) {
+    try {
+      const docRef = converter ? getDocRef(this._db, collectionName, id).withConverter(converter) : getDocRef(this._db, collectionName, id);
+      const doc = await getDoc(docRef);
       if (doc.exists()) {
         return doc.data();
       } else {
