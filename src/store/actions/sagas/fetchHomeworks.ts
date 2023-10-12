@@ -5,20 +5,20 @@ import { createAction } from 'store/utils';
 import { updateState } from 'store/actions/redux';
 
 import { ECommonErrorTypes } from 'types';
-import type { ICourseData, ILessonData, ILessonsData, ILessonsState, IRootState, TAction } from 'types';
+import type { IHomeworkData, IHomeworkState, IUserData, IRootState, TAction } from 'types';
 
-export interface IFetchLessonsPayload {
+export interface IFetchHomeworksPayload {
   filter: {
-    courseId: string
+    lessonId: string
   }
   populate?: {
-    course?: boolean
+    user?: boolean
   }
 }
 
-export const fetchLessons = createAction<'saga', IFetchLessonsPayload>(
-  '***saga*** fetch Lessons',
-  function* execute(action: TAction<IFetchLessonsPayload>) {
+export const fetchLessons = createAction<'saga', IFetchHomeworksPayload>(
+  '***saga*** fetch Homeworks',
+  function* execute(action: TAction<IFetchHomeworksPayload>) {
     const { filter, populate } = action.payload;
 
     try {
@@ -76,48 +76,3 @@ export const fetchLessons = createAction<'saga', IFetchLessonsPayload>(
     }
   }
 );
-
-// function getCourseInfo() {
-//   return courseInfo;
-// }
-
-// function getLessonsInfo() {
-//   return lessonsInfo;
-// }
-
-// const courseInfo: ICourseInfo = {
-//   startDate: new Date('2023-05-27'),
-//   endDate: new Date('2023-06-27'),
-//   durationWeeks: 5,
-//   title: 'Как рисовать свободно',
-// };
-
-// const lessonsInfo: ILessonInfoDB[] = [
-//   {
-//     title: 'Первая тема',
-//     week: 1,
-//     lectureLink: 'lesson.html',
-//   },
-//   {
-//     title: 'Вторая тема',
-//     week: 1,
-//     lectureLink: 'lesson.html',
-//     homeworkLink: 'homework.html',
-//     resultsLink: 'homework-editor.html',
-//   },
-//   {
-//     title: 'JJOHIU тема',
-//     week: 2,
-//     lectureLink: 'lesson.html',
-//     homeworkLink: 'homework.html',
-//     resultsLink: 'homework-editor.html',
-//   },
-//   {
-//     title: 'Третья самая интересная тема',
-//     week: 3,
-//     lectureLink: 'lesson.html',
-//     homeworkLink: 'homework.html',
-//     webinarLink: 'homework.html',
-//     resultsLink: 'homework-editor.html',
-//   },
-// ];

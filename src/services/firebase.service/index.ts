@@ -61,10 +61,10 @@ export class FirebaseService {
     }
   }
 
-  public async getImageURL(props: { courseId: string, folder: TLessonId | 'landing', imageId: string }) {
+  public async getImageURL(props: { courseId: string, folder: TLessonId | 'landing', imageId: string, variant?: 'images' | 'homeworks' }) {
     try {
-      const { courseId, folder, imageId } = props;
-      const path = `${courseId}/${folder}/images/${imageId}`;
+      const { courseId, folder, imageId, variant = 'images' } = props;
+      const path = `${courseId}/${folder}/${variant}/${imageId}`;
       const ref = getStorageRef(this._storage, path);
       const url = await getDownloadURL(ref);
 

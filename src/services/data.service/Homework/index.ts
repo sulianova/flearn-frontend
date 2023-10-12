@@ -1,6 +1,7 @@
-import { authService, dataService, firebaseService } from 'services';
+import { dataService, firebaseService } from 'services';
 
-import { ECollections, type IHomeworkData } from 'types';
+import { ECollections, IHomeworkDataDB, type IHomeworkData, ECommonErrorTypes } from 'types';
+import { homeworkConverter } from './homeworkConverter';
 
 class Homework {
   public async get(courseId: string, lessonId: string, userId: string) {
@@ -11,8 +12,13 @@ class Homework {
     }
 
     const id = this.getFullId(courseId, lessonId, userId);
+    const homeworkDataDB = await firebaseService.getDoc(ECollections.Homework, id) as IHomeworkDataDB | undefined;
 
-    return await firebaseService.getDoc(ECollections.Homework, id);
+    if (!homeworkDataDB) {
+      throw new Error(ECommonErrorTypes.FailedToFindData);
+    }
+
+    return await homeworkConverter.fromFirestore(homeworkDataDB);
   }
 
   public async set(courseId: string, lessonId: string, userId: string, data: IHomeworkData) {

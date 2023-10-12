@@ -1,5 +1,4 @@
-import { firebaseService } from 'services/firebase.service';
-import { dateDB2FR } from '../shared';
+import { addImageSrc, dateDB2FR } from '../shared';
 
 import type {
   ILessonContent,
@@ -42,7 +41,7 @@ export async function lessonContencDB2FR(contentDB: ILessonContentDB, courseId: 
 export async function lessonImageBlockDB2FR(imageBlockDB: ILessonImageBlockDB, courseId: string, lessonId: string) {
   const imageBlockFR: ILessonImageBlock = {
     ...imageBlockDB,
-    imageData: await addSrc(imageBlockDB.imageData, courseId, lessonId),
+    imageData: await addImageSrc(imageBlockDB.imageData, { courseId, folder: lessonId, imageId: imageBlockDB.imageData.id }),
   };
   return imageBlockFR;
 }
@@ -51,14 +50,7 @@ export async function lessonGalleryBlockDB2FR(imageBlockDB: ILessonGalleryBlockD
   const galleryBlockFR: ILessonGalleryBlock =
   {
     ...imageBlockDB,
-    images: await Promise.all(imageBlockDB.images.map(image => addSrc(image, courseId, lessonId))),
+    images: await Promise.all(imageBlockDB.images.map(image => addImageSrc(image, { courseId, folder: lessonId, imageId: image.id }))),
   };
   return galleryBlockFR;
-}
-
-async function addSrc<T extends { id: string }>(image: T, courseId: string, lessonId: string): Promise<T & { src: string }> {
-  return {
-    ...image,
-    src: (await firebaseService.getImageURL({ courseId, folder: lessonId, imageId: image.id })) ?? ''
-  };
 }
