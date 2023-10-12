@@ -1,9 +1,9 @@
 import { createContext } from 'react';
 import { connect } from 'react-redux';
 import { IRootState, IUserState, URLSections } from 'types';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
-import FreeZone from 'pages/FreeZone';
+// import FreeZone from 'pages/FreeZone';
 import Catalogue from 'pages/Catalogue';
 import Course from 'pages/Course/Landing/Course';
 import Lesson from 'pages/Course/Lesson/Lesson';
@@ -38,7 +38,7 @@ function MyRouter({ userState }: IProps) {
     <AuthContext.Provider value={userState}>
       <BrowserRouter>
         <Routes>
-          <Route index path={URLSections.FreeZone.index} element={<FreeZone />} />
+          <Route index path={URLSections.FreeZone.index} element={<Navigate to={URLSections.Course.to({ courseId: 'illustration' })} />} />
           <Route path={URLSections.Catalogue.index} element={<Catalogue />} />
           <Route path={URLSections.Course.index} element={<Course />} />
           <Route path={URLSections.Course.Lessons.index} element={<Lessons />} />
