@@ -1,20 +1,15 @@
 import classNames from 'classnames/bind';
-import { formatI18nT, i18n } from 'shared';
+import { formatI18nT } from 'shared';
 
-import InputField, { IProps as IInputFieldProps } from 'ui/Form/Input/InputField';
 import Link from 'ui/Link/Link';
+import Form from './Form/Form';
 import classes from './DecisionForm.module.scss';
-import classesInputField from './InputField.module.scss';
 
-import { useCallback, useEffect, useState } from 'react';
-import { URLSections, type ICourseData, type IRootState } from 'types';
-import store from 'store';
-import { dataService } from 'services';
+import { URLSections, type ICourseData } from 'types';
 
 export default DecisionForm;
 
 const cx = classNames.bind(classes);
-const cx2 = classNames.bind(classesInputField);
 
 interface IProps {
   data: ICourseData
@@ -22,37 +17,7 @@ interface IProps {
 
 const t = formatI18nT('courseLanding.form');
 
-interface IFormData {
-  email: string
-  name: string
-  phone: string
-  termsAgreed: boolean
-  state: { type: 'idle' } |  { type: 'pending' } | { type: 'success' } | { type: 'error', error: Error }
-}
-
-const initialFormData: IFormData = { email: '', name: '', phone: '', termsAgreed: true, state: { type: 'idle' } };
-
 function DecisionForm(props: IProps) {
-  const [formData, setFormData] = useState<IFormData>(initialFormData);
-
-  useEffect(() => {
-    const user = (store.getState() as IRootState).user?.user;
-    if (user) {
-      setFormData(d => ({ ...d, email: user.email, name: user.displayName ?? '' }));
-    }
-  }, []);
-
-  const handleSubmit = useCallback(async (formData: IFormData) => {
-    setFormData(d => ({ ...d, state: { type: 'pending' } }));
-    const { email, name, phone } = formData;
-    try {
-      await dataService.order.create({ email, name, phone });
-      setFormData({ ...initialFormData, state: { type: 'success' } });
-    } catch (e) {
-      setFormData(d => ({ ...d, state: { type: 'error', error: e as Error } }));
-    }
-  }, []);
-
   return (
     <div className={classes.wrapper} id='decision-form'>
       <div className={cx({ block: true, blockDetails: true })}>
@@ -75,8 +40,7 @@ function DecisionForm(props: IProps) {
         </div>
       </div>
       <div className={classes.block}>
-        {renderForm(formData, setFormData, handleSubmit)}
-        <div className={classesInputField.inputCaption + ' s-text-18'}>{t('emailCaption')}</div>
+        <Form/>
         <div className={classes.agreement}>
           <Link
             className='key-link'
@@ -102,47 +66,6 @@ function formatCredit(credit: number) {
 function formatCourseDiscount(discontAmount: number) {
   return `-${discontAmount}%`;
 }
-
-function renderForm(
-  formData: IFormData,
-  setFormData: React.Dispatch<React.SetStateAction<IFormData>>,
-  handleSubmit: (formData: IFormData) => void
-) {
-  return (
-    <form
-      className={classes.form}
-      onSubmit={isValid(formData) ? () => handleSubmit(formData) : undefined}
-    >
-      {formData.state.type === 'error' && <span className={classes.Error}>{formData.state.error.message}</span>}
-      {formData.state.type === 'success' && <span className={classes.Success}>Order is created!</span>}
-      <div className={classes.inputWrap}>
-        <InputField
-          className={cx2({ input: true, light: true, isReset: false }) + ' s-text-24'}
-          variant='Email'
-          value={formData.email}
-          onChange={v => setFormData(d => ({ ...d, email: v }))}
-        />
-        <button
-          className={cx({ submitButton: true, isDisabled: true, isSuccess: false, isLoading: false, isReset: false }) + ' s-text-36'}
-          type="submit"
-          disabled={!isValid(formData)}
-          onClick={() => handleSubmit(formData)}
-        >
-          <span data-isDefault>→</span>
-          {/* <span data-isSuccess>✓</span> */}
-          {/* <span data-isLoading></span> */}
-          {/* <span data-isReset >↻</span> */}
-        </button>
-      </div>
-    </form>
-  );
-}
-
-function isValid(formData: IFormData) {
-  const { termsAgreed, name, email, phone, state } = formData;
-  return termsAgreed && name  && email && phone && state.type !== 'pending';
-}
-
 
 function formatCourseDate(startDate: Date, endDate: Date, durationWeeks: number) {
   const startDateStr = startDate.toLocaleDateString(
