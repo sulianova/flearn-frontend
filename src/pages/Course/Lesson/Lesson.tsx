@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { useParams } from 'react-router';
 
 import { useFetch, useGuid } from 'hooks';
-import { fetchHomework, fetchLesson, type IFetchHomeworkPayload, type IFetchLessonPayload } from 'store/actions/sagas';
+import { dataService } from 'services';
+import { fetchHomeworks, fetchLesson } from 'store/actions/sagas';
 
 import Page from 'ui/Page/Page';
 import LessonContent from './Components/LessonContent/LessonContent';
@@ -13,21 +14,21 @@ import LessonHeader from './Components/LessonHeader/LessonHeader';
 
 import useLessonFallback from './useLessonFallback';
 
-import type { IHomeworkData, ILessonState, IRootState } from 'types';
-import { authService } from 'services';
+import type { IFetchHomeworksPayload, IFetchLessonPayload } from 'store/actions/sagas';
+import type { IHomeworksState, ILessonState, IRootState } from 'types';
 
 export default connect(mapStateToProps)(Lesson);
 
 interface IConnectedProps {
   lessonState: ILessonState
-  homework?: IHomeworkData
+  homeworksState: IHomeworksState
   authedUserId?: string
 }
 
 function mapStateToProps(state: IRootState): IConnectedProps {
   return {
     lessonState: state.lesson,
-    homework: state.homework?.data,
+    homeworksState: state.homeworks,
     authedUserId: state.user?.user?.id,
   };
 }
@@ -36,7 +37,9 @@ interface IProps extends IConnectedProps {
   practice: 'task' | 'results'
 }
 
-function Lesson({ lessonState, practice, homework, authedUserId }: IProps) {
+function Lesson(props: IProps) {
+  const { lessonState, practice, homeworksState, authedUserId } = props;
+
   const { courseId, lessonId } = useParams();
   const [guid, refetch] = useGuid();
   const [selectedUser, setSelectedUser] = useState<{ id: string, displayName: string } | null>(null);
@@ -54,10 +57,14 @@ function Lesson({ lessonState, practice, homework, authedUserId }: IProps) {
     },
   });
 
-  useFetch<IFetchHomeworkPayload  & { guid: string }>({
-    actionCreator: fetchHomework,
+  useFetch<IFetchHomeworksPayload  & { guid: string }>({
+    actionCreator: fetchHomeworks,
     payload: {
-      homeworkId: lessonId ? `${lessonId}_some-user-id` : undefined,
+      filter: {
+        id: dataService.homework.getFullId(courseId!, lessonId!, authedUserId ?? ''),
+        courseId: courseId!,
+        lessonId: lessonId!,
+      },
       guid,
     },
   });
@@ -66,6 +73,8 @@ function Lesson({ lessonState, practice, homework, authedUserId }: IProps) {
   if (!lessonState.data) {
     return fallback;
   }
+
+  const homework = homeworksState.homeworks?.[0];
 
   return (
     <Page header wrapper='Lesson'>

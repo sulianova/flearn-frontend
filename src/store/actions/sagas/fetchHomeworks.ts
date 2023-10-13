@@ -5,10 +5,12 @@ import { createAction } from 'store/utils';
 import { updateState } from 'store/actions/redux';
 
 import { ECommonErrorTypes } from 'types';
-import type { IHomeworkData, IHomeworkState, IUserData, IRootState, TAction } from 'types';
+import type { IHomeworkData, IHomeworksState, IUserData, IRootState, TAction, IHomeworkDataWPopulate } from 'types';
 
 export interface IFetchHomeworksPayload {
   filter: {
+    id?: string
+    courseId: string
     lessonId: string
   }
   populate?: {
@@ -16,52 +18,52 @@ export interface IFetchHomeworksPayload {
   }
 }
 
-export const fetchLessons = createAction<'saga', IFetchHomeworksPayload>(
+export const fetchHomeworks = createAction<'saga', IFetchHomeworksPayload>(
   '***saga*** fetch Homeworks',
   function* execute(action: TAction<IFetchHomeworksPayload>) {
     const { filter, populate } = action.payload;
 
     try {
-      const prevState: ILessonsState = yield select((state: IRootState): ILessonsState => state.lessons);
-      const pendingState: ILessonsState = { ...prevState, state: { type: 'pending' } };
-      yield put(updateState({ stateName: 'lessons', payload: pendingState }));
+      const prevState: IHomeworksState = yield select((state: IRootState): IHomeworksState => state.homeworks);
+      const pendingState: IHomeworksState = { ...prevState, state: { type: 'pending' } };
+      yield put(updateState({ stateName: 'homeworks', payload: pendingState }));
 
-      // fetch lessons
-      const lessonsData: ILessonData[] = yield dataService.lesson.getAll(filter);
+      // fetch homeworks
+      const homeworksData: IHomeworkData[] = yield dataService.homework.getAll(filter);
 
       // populate
-      let populateMap: Map<string, ILessonsData['populate']>;
+      let populateMap: Map<string, IHomeworkDataWPopulate['populate']>;
       if (populate) {
         populateMap = new Map();
 
-        let populateCourseMap: Map<string, ICourseData>;
-        if (populate.course) {
-          const courseIds = [...new Set(lessonsData.map(l => l.courseId))];
-          const coursesData: ICourseData[] = yield dataService.course.getAll(courseIds);
-          populateCourseMap = new Map(coursesData.map(c => [c.id, c] as const));
+        let populateUserMap: Map<string, IUserData>;
+        if (populate.user) {
+          const userIds = [...new Set(homeworksData.map(l => l.userId))];
+          const usersData: IUserData[] = yield dataService.user.getAll(userIds);
+          populateUserMap = new Map(usersData.map(c => [c.id, c] as const));
         }
         // add here other populated values
 
         // fill populate map
-        for (const lesson of lessonsData) {
-          populateMap.set(lesson.id, {
-            ...populateCourseMap! && { course: populateCourseMap.get(lesson.courseId) }
+        for (const homework of homeworksData) {
+          populateMap.set(homework.id, {
+            ...populateUserMap! && { user: populateUserMap.get(homework.userId) }
           });
         }
       }
-      const lessons: ILessonsData[] = lessonsData.map(lesson => ({
-        lesson,
-        ...populateMap && { populate: populateMap.get(lesson.id) },
+      const homeworks: IHomeworkDataWPopulate[] = homeworksData.map(homework => ({
+        homework,
+        ...populateMap && { populate: populateMap.get(homework.id) },
       }));
     
-      const state: ILessonsState = { lessons, state: { type: 'idle' } };
+      const state: IHomeworksState = { homeworks, state: { type: 'idle' } };
 
-      yield put(updateState({ stateName: 'lessons', payload: state }));
+      yield put(updateState({ stateName: 'homeworks', payload: state }));
     } catch (err) {
       const error = err as Error;
       const errorIsUnknown = !([...Object.values(ECommonErrorTypes)] as string[]).includes(error.message);
-      const state: ILessonsState = {
-        lessons: [],
+      const state: IHomeworksState = {
+        homeworks: [],
         state: {
           type: 'error',
           error,
@@ -69,10 +71,10 @@ export const fetchLessons = createAction<'saga', IFetchHomeworksPayload>(
         },
       };
   
-      yield put(updateState({ stateName: 'lessons', payload: state }));
+      yield put(updateState({ stateName: 'homeworks', payload: state }));
 
       // tslint:disable-next-line
-      console.log(`Failed to fetch lessons`, { action, state });
+      console.log(`Failed to fetch homeworks`, { action, state });
     }
   }
 );

@@ -4,23 +4,24 @@ import Article from 'ui/Article/Article';
 
 import classes from './LessonWork.module.scss';
 
-import { IHomeworkData } from 'types';
+import type { IHomeworkDataWPopulate } from 'types';
 
 export default LessonWork;
 
 interface IProps {
-  homework: IHomeworkData
+  homework: IHomeworkDataWPopulate
 }
 
 const t = formatI18nT('courseLesson.homework');
 
 function LessonWork(props: IProps) {
+  const homework = props.homework.homework;
   return (
     <div className={classes._}>
       <Article.Title data={{ type: 'title', title: t('title') }}/>
-      {props.homework.text &&  <Article.Text data={{ type: 'text', text: props.homework.text}}/>}
-      {props.homework.reference && <Article.Text data={{type: 'text', text: props.homework.reference}}/>}
-      {props.homework.images && <Article.Gallery data={props.homework.images}/>}
+      {homework.text &&  <Article.Text data={{ type: 'text', text: homework.text}}/>}
+      {homework.reference && <Article.Text data={{type: 'text', text: homework.reference}}/>}
+      {homework.images && <Article.Gallery data={homework.images}/>}
     </div>
   );
 }

@@ -2,16 +2,26 @@ import { firebaseService } from 'services';
 
 import { userConverter } from './userConverter';
 
-import { ECollections } from 'types';
-import type { IUserData } from 'types';
+import { ECollections, ECommonErrorTypes } from 'types';
+import type { IUserData, IUserDataDB } from 'types';
 
 class User {
   public async get(id: string) {
-    return await firebaseService.getDoc(ECollections.User, id, userConverter);
+    const userData = await firebaseService.getDoc(ECollections.User, id, userConverter) as IUserData | undefined;
+
+    if (!userData) {
+      throw new Error(ECommonErrorTypes.FailedToFindData);
+    }
+
+    return userData;
   }
 
   public async set(id: string, data: IUserData) {
     return await firebaseService.setDoc(ECollections.User, id, data, userConverter);
+  }
+
+  public async getAll(ids: string[]): Promise<IUserData[]> {
+    return Promise.all(ids.map(id => this.get(id)));
   }
 
   public async update(id: string, data: Partial<IUserData>) {

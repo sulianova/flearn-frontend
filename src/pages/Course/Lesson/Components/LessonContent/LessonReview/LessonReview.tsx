@@ -4,21 +4,23 @@ import Article from 'ui/Article/Article';
 
 import classes from './LessonReview.module.scss';
 
-import { IHomeworkData } from 'types';
+import { IHomeworkDataWPopulate } from 'types';
 
 export default LessonReview;
 
 interface IProps {
-  homework: IHomeworkData
+  homework: IHomeworkDataWPopulate
 }
 
 const t = formatI18nT('courseLesson.review');
 
 function LessonReview(props: IProps) {
+  const homework = props.homework.homework;
+
   return (
     <div className={classes._}>
       <Article.Title data={{ type: 'title', title: t('title') }}/>
-      {props.homework.review?.length && <Article blocks={props.homework.review}/>}
+      {homework.review?.length && <Article blocks={homework.review}/>}
     </div>
   );
 }

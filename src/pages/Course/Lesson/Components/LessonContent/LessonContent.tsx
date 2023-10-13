@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { IHomeworkData, ILessonContent, ILessonData } from 'types';
+import { IHomeworkData, IHomeworkDataWPopulate, ILessonContent, ILessonData } from 'types';
 import classes from './LessonContent.module.scss';
 
 import Article from 'ui/Article/Article';
@@ -15,7 +15,7 @@ const t = formatI18nT('courseLesson');
 interface IProps {
   blocks: ILessonContent
   data: ILessonData
-  homework?: IHomeworkData
+  homework?: IHomeworkDataWPopulate
 }
 
 function LessonContent(props: IProps) {

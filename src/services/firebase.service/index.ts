@@ -44,9 +44,10 @@ export class FirebaseService {
     }
   }
 
-  public async getDocs(collectionName: ECollections, whereProps: { param: string, value: unknown }) {
+  public async getDocs(collectionName: ECollections, whereProps: { param: string, value: unknown }[]) {
     try {
-      const q = query(collection(this._db, collectionName), where(whereProps.param, '==', whereProps.value));
+      const queryConstraints = whereProps.map(({ param, value}) => where(param, '==', value));
+      const q = query(collection(this._db, collectionName), ...queryConstraints);
       const querySnapshot = await getDocs(q);
       const data = [] as DocumentData[];
       querySnapshot.forEach((doc) => {

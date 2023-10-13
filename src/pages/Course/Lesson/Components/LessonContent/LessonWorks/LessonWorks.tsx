@@ -2,28 +2,65 @@ import classNames from 'classnames/bind';
 import { useMemo, useState } from 'react';
 import { Fragment } from 'react';
 import { formatI18nT } from 'shared';
-import { IHomeworkData } from 'types';
+import { IHomeworkData, IHomeworkDataWPopulate, IHomeworksState, IRootState } from 'types';
 import LessonReview from '../LessonReview/LessonReview';
 import LessonWork from '../LessonWork/LessonWork';
 import classes from './LessonWorks.module.scss';
 import WorkCard from './WorkCard';
+import { useParams } from 'react-router';
+import { useFetch } from 'hooks';
+import { IFetchHomeworksPayload, fetchHomeworks } from 'store/actions/sagas';
+import { dataService } from 'services';
+import { connect } from 'react-redux';
 
-export default LessonWorks;
+export default connect(mapStateToProps)(LessonWorks);
+
 const cx = classNames.bind(classes);
 const t = formatI18nT('courseLesson.works');
 
-interface IProps {
-  selectedUser: { id: string, displayName: string } | null
-  setSelectedUser: (u: { id: string, displayName: string } | null) => void
-  homework?: IHomeworkData
+interface IConnectedProps {
+  homeworksState: IHomeworksState
+  authedUserId?: string
 }
 
-function LessonWorks({ selectedUser, setSelectedUser, homework }: IProps) {
-  const fetchedHomeworks = getHomeworks();
+function mapStateToProps(state: IRootState): IConnectedProps {
+  return {
+    homeworksState: state.homeworks,
+    authedUserId: state.user?.user?.id,
+  };
+}
+
+interface IProps extends IConnectedProps {
+  selectedUser: { id: string, displayName: string } | null
+  setSelectedUser: (u: { id: string, displayName: string } | null) => void
+  homework?: IHomeworkDataWPopulate
+}
+
+function LessonWorks({ selectedUser, setSelectedUser, homework, homeworksState, authedUserId }: IProps) {
+  const { courseId, lessonId } = useParams();
+
+  useFetch<IFetchHomeworksPayload>({
+    actionCreator: fetchHomeworks,
+    payload: {
+      filter: {
+        id: dataService.homework.getFullId(courseId!, lessonId!, authedUserId ?? ''),
+        courseId: courseId!,
+        lessonId: lessonId!,
+      },
+      populate: {
+        user: true,
+      },
+    },
+  });
 
   const selectedHomework = useMemo(() => {
-    return fetchedHomeworks.find(hw => hw.user.id === selectedUser?.id);
-  },                               [fetchedHomeworks, selectedUser]);
+    return homeworksState.homeworks?.find(data => data.homework.userId === selectedUser?.id);
+  }, [homeworksState.homeworks, selectedUser]);
+
+  
+  if (!homeworksState.homeworks) {
+    return <>Loading...</>
+  }
 
   if (selectedHomework) {
     return (
@@ -48,7 +85,7 @@ function LessonWorks({ selectedUser, setSelectedUser, homework }: IProps) {
           <div className={classes.list}>
             <div className={classes.listTitle + ' s-text-36'}>{t('listTitle')}</div>
             <div className={classes.listInner}>
-              {renderWorkCards({ setSelectedUser, homeworks: fetchedHomeworks })}
+              {renderWorkCards({ setSelectedUser, homeworks: homeworksState.homeworks })}
             </div>
             <div className={classes.showMore}>
               <button className={classes.showMoreBtn + ' s-text-21-uppercase inline-link'}>
@@ -64,7 +101,7 @@ function LessonWorks({ selectedUser, setSelectedUser, homework }: IProps) {
 
 interface IRenderWorkCardProps {
   setSelectedUser: (u: { id: string, displayName: string } | null) => void
-  homework: IHomeworkData
+  homework: IHomeworkDataWPopulate
 }
 
 function renderWorkCard({ setSelectedUser, homework }: IRenderWorkCardProps) {
@@ -75,7 +112,7 @@ function renderWorkCard({ setSelectedUser, homework }: IRenderWorkCardProps) {
 
 interface IRenderWorkCardsProps {
   setSelectedUser: (u: { id: string, displayName: string } | null) => void
-  homeworks: IHomeworkData[]
+  homeworks: IHomeworkDataWPopulate[]
 }
 
 function renderWorkCards({ setSelectedUser, homeworks }: IRenderWorkCardsProps) {
@@ -86,133 +123,135 @@ function getHomeworks() {
   return allHomeworks;
 }
 
-const allHomeworks: IHomeworkData[] = [
-  {
-    id: '2_some-user-id',
-    user: {
-      id: 'sonia',
-      displayName: 'Sofiia ulianova',
-    },
-    text: 'Это мое описание первого задания на курса. Это мое описание первого задания на курса. Это мое описание первого задания на курса. Это мое описание первого задания на курса. Это мое описание первого задания на курса.',
-    reference: {
-      tag: 'a',
-      content: 'Это мое описание первого задания на курса.',
-    },
-    images: [
-      {
-        src: 'TheStrangerVisitingNatureSusl',
-        alt: 'TheStrangerVisitingNatureSusl',
-      },
-      {
-        src: 'TheStrangerVisitingNatureSusl',
-        alt: 'TheStrangerVisitingNatureSusl',
-      },
-      {
-        src: 'TheStrangerVisitingNatureSusl',
-        alt: 'TheStrangerVisitingNatureSusl',
-      },
-      {
-        src: 'SummerTime',
-        alt: 'SummerTime',
-      },
-      {
-        src: 'TheStrangerVisitingNatureSusl',
-        alt: 'TheStrangerVisitingNatureSusl',
-      },
-      {
-        src: 'TheStrangerVisitingNatureSusl',
-        alt: 'TheStrangerVisitingNatureSusl',
-      },
-      {
-        src: 'SummerTime',
-        alt: 'SummerTime',
-      },
-      {
-        src: 'SummerTime',
-        alt: 'SummerTime',
-      },
-      {
-        src: 'SummerTime',
-        alt: 'SummerTime',
-      },
-    ],
-    review: [
-      { type: 'text', text: [
-        {
-          tag: 'p',
-          content: [
-            {
-              tag: 'span',
-              props: { className: 'textSmall' },
-              content: 'Обратная связь по первому заданию. ',
-            },
-            {
-              tag: 'span',
-              content: 'Это мое описание первого задания на курса. Это мое описание первого задания на курса. Это мое описание первого задания на курса. Это мое описание первого задания на курса.',
-            },
-          ],
-        },
-      ]},
-      { type: 'gallery', images: [
-        {
-          src: 'TheStrangerVisitingNatureSusl',
-          alt: 'TheStrangerVisitingNatureSusl',
-        },
-        {
-          src: 'SummerTime',
-          alt: 'SummerTime',
-        },
-      ] },
-    ],
-  },
-  {
-    id: '2_some-user-id',
-    user: {
-      id: 'vova',
-      displayName: 'Vladimir',
-    },
-    text: 'Это мое описание первого задания на курса. Это мое описание первого задания на курса. Это мое описание первого задания на курса. Это мое описание первого задания на курса. Это мое описание первого задания на курса.',
-    reference: {
-      tag: 'a',
-      content: 'Это мое описание первого задания на курса.',
-    },
-    images: [
-      {
-        src: 'TheStrangerVisitingNatureSusl',
-        alt: 'TheStrangerVisitingNatureSusl',
-      },
-      {
-        src: 'TheStrangerVisitingNatureSusl',
-        alt: 'TheStrangerVisitingNatureSusl',
-      },
-      {
-        src: 'TheStrangerVisitingNatureSusl',
-        alt: 'TheStrangerVisitingNatureSusl',
-      },
-      {
-        src: 'SummerTime',
-        alt: 'SummerTime',
-      },
-      {
-        src: 'TheStrangerVisitingNatureSusl',
-        alt: 'TheStrangerVisitingNatureSusl',
-      },
-      {
-        src: 'TheStrangerVisitingNatureSusl',
-        alt: 'TheStrangerVisitingNatureSusl',
-      },
-      {
-        src: 'SummerTime',
-        alt: 'SummerTime',
-      },
-      {
-        src: 'SummerTime',
-        alt: 'SummerTime',
-      },
-      {
-        src: 'SummerTime',
-        alt: 'SummerTime',
-      },
-    ],
-  },
-];
+const allHomeworks: IHomeworkData[] = [];
+
+// const allHomeworks: IHomeworkData[] = [
+//   {
+//     id: '2_some-user-id',
+//     user: {
+//       id: 'sonia',
+//       displayName: 'Sofiia ulianova',
+//     },
+//     text: 'Это мое описание первого задания на курса. Это мое описание первого задания на курса. Это мое описание первого задания на курса. Это мое описание первого задания на курса. Это мое описание первого задания на курса.',
+//     reference: {
+//       tag: 'a',
+//       content: 'Это мое описание первого задания на курса.',
+//     },
+//     images: [
+//       {
+//         src: 'TheStrangerVisitingNatureSusl',
+//         alt: 'TheStrangerVisitingNatureSusl',
+//       },
+//       {
+//         src: 'TheStrangerVisitingNatureSusl',
+//         alt: 'TheStrangerVisitingNatureSusl',
+//       },
+//       {
+//         src: 'TheStrangerVisitingNatureSusl',
+//         alt: 'TheStrangerVisitingNatureSusl',
+//       },
+//       {
+//         src: 'SummerTime',
+//         alt: 'SummerTime',
+//       },
+//       {
+//         src: 'TheStrangerVisitingNatureSusl',
+//         alt: 'TheStrangerVisitingNatureSusl',
+//       },
+//       {
+//         src: 'TheStrangerVisitingNatureSusl',
+//         alt: 'TheStrangerVisitingNatureSusl',
+//       },
+//       {
+//         src: 'SummerTime',
+//         alt: 'SummerTime',
+//       },
+//       {
+//         src: 'SummerTime',
+//         alt: 'SummerTime',
+//       },
+//       {
+//         src: 'SummerTime',
+//         alt: 'SummerTime',
+//       },
+//     ],
+//     review: [
+//       { type: 'text', text: [
+//         {
+//           tag: 'p',
+//           content: [
+//             {
+//               tag: 'span',
+//               props: { className: 'textSmall' },
+//               content: 'Обратная связь по первому заданию. ',
+//             },
+//             {
+//               tag: 'span',
+//               content: 'Это мое описание первого задания на курса. Это мое описание первого задания на курса. Это мое описание первого задания на курса. Это мое описание первого задания на курса.',
+//             },
+//           ],
+//         },
+//       ]},
+//       { type: 'gallery', images: [
+//         {
+//           src: 'TheStrangerVisitingNatureSusl',
+//           alt: 'TheStrangerVisitingNatureSusl',
+//         },
+//         {
+//           src: 'SummerTime',
+//           alt: 'SummerTime',
+//         },
+//       ] },
+//     ],
+//   },
+//   {
+//     id: '2_some-user-id',
+//     user: {
+//       id: 'vova',
+//       displayName: 'Vladimir',
+//     },
+//     text: 'Это мое описание первого задания на курса. Это мое описание первого задания на курса. Это мое описание первого задания на курса. Это мое описание первого задания на курса. Это мое описание первого задания на курса.',
+//     reference: {
+//       tag: 'a',
+//       content: 'Это мое описание первого задания на курса.',
+//     },
+//     images: [
+//       {
+//         src: 'TheStrangerVisitingNatureSusl',
+//         alt: 'TheStrangerVisitingNatureSusl',
+//       },
+//       {
+//         src: 'TheStrangerVisitingNatureSusl',
+//         alt: 'TheStrangerVisitingNatureSusl',
+//       },
+//       {
+//         src: 'TheStrangerVisitingNatureSusl',
+//         alt: 'TheStrangerVisitingNatureSusl',
+//       },
+//       {
+//         src: 'SummerTime',
+//         alt: 'SummerTime',
+//       },
+//       {
+//         src: 'TheStrangerVisitingNatureSusl',
+//         alt: 'TheStrangerVisitingNatureSusl',
+//       },
+//       {
+//         src: 'TheStrangerVisitingNatureSusl',
+//         alt: 'TheStrangerVisitingNatureSusl',
+//       },
+//       {
+//         src: 'SummerTime',
+//         alt: 'SummerTime',
+//       },
+//       {
+//         src: 'SummerTime',
+//         alt: 'SummerTime',
+//       },
+//       {
+//         src: 'SummerTime',
+//         alt: 'SummerTime',
+//       },
+//     ],
+//   },
+// ];

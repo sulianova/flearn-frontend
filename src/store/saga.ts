@@ -20,6 +20,6 @@ export default function* rootSaga() {
     takeEvery(Actions.fetchLesson.type, Actions.fetchLesson.execute),
     takeEvery(Actions.uploadLesson.type, Actions.uploadLesson.execute),
 
-    takeEvery(Actions.fetchHomework.type, Actions.fetchHomework.execute),
+    takeEvery(Actions.fetchHomeworks.type, Actions.fetchHomeworks.execute),
   ]);
 }
