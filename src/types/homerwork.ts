@@ -8,7 +8,7 @@ export interface IHomeworkData {
   lessonId: string
   text?: TText | TText[],
   reference?: TText | TText[]
-  images?: Array<{ id: string, src: string, alt: string }>
+  images?: IHomeworkImageData[]
   userId: string
   review?: IArticleContent
 }
@@ -20,8 +20,21 @@ export interface IHomeworkDataDB {
   userId: string
   text?: TText | TText[],
   reference?: TText | TText[]
-  images?: Array<{ id: string, alt: string }>
+  images?: IHomeworkImageDataDB[]
   review?: IArticleContent
+}
+
+interface IHomeworkImageData {
+  id: string
+  src: string
+  alt: string // same as originalName
+  originalName: string
+}
+
+interface IHomeworkImageDataDB {
+  id: string
+  alt: string // same as originalName
+  originalName: string
 }
 
 export type IHomeworkPopulateRequest = {

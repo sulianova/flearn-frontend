@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { collection, doc as getDocRef, getDoc, getDocs, getFirestore, setDoc, query, where } from 'firebase/firestore';
-import { getStorage, ref as getStorageRef, getDownloadURL } from 'firebase/storage';
+import { getStorage, ref as getStorageRef, getDownloadURL, uploadBytes } from 'firebase/storage';
 import { getFirebaseConfig } from './firebase.config';
 
 import { ECollections } from 'types';
@@ -73,6 +73,18 @@ export class FirebaseService {
     } catch(e) {
         // tslint:disable-next-line
         console.error('Failed to get image from storage', { props, e });
+    }
+  }
+
+  public async uploadImage(props: { courseId: string, folder: TLessonId | 'landing', imageId: string, variant?: 'images' | 'homeworks', file: File }) {
+    try {
+      const { courseId, folder, imageId, variant = 'images', file } = props;
+      const path = `${courseId}/${folder}/${variant}/${imageId}`;
+      const ref = getStorageRef(this._storage, path);
+      await uploadBytes(ref, file);
+    } catch(e) {
+        // tslint:disable-next-line
+        console.error('Failed to upload image to storage', { props, e });
     }
   }
 
