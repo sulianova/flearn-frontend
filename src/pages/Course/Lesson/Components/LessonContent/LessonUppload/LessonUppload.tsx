@@ -1,24 +1,38 @@
 import classNames from 'classnames/bind';
-import { useState } from 'react';
+import { useReducer, useState } from 'react';
 import { useParams } from 'react-router';
 
 import { firebaseService } from 'services';
 import { formatI18nT } from 'shared';
 
-import File from './File';
-import Input from './Input';
-import Textarea from './Textarea';
+import File from './File/File';
+import Input from './Input/Input';
+import Textarea from './Textarea/Textarea';
 
 import classes from './LessonUppload.module.scss';
 
-export default LessonUppload;
+import { TAction, TImageDataWState, TState } from './types';
+import { IHomeworkImageDataDB, IRootState, IUserData } from 'types';
+import { connect } from 'react-redux';
+
+export default connect(mapStateToProps)(LessonUppload);
 
 const t = formatI18nT('courseLesson.upload');
 const cx = classNames.bind(classes);
 
-function LessonUppload() {
-  const { courseId, lessongId } = useParams();
-  const [url, setUrl] = useState<string>('');
+interface IConnectedProps {
+  user: IUserData
+}
+
+function mapStateToProps(state: IRootState): IConnectedProps {
+  return {
+    user: state.user.user!
+  }
+}
+
+function LessonUppload({ user }: IConnectedProps) {
+  const { courseId, lessonId } = useParams();
+  const [state, dispatch] = useReducer(reducer, { user, courseId: courseId!, lessonId: lessonId! }, initState);
 
   return (
       <form className={classes._} action='' id='upload-form'>
@@ -37,34 +51,132 @@ function LessonUppload() {
           <div className={classes.files}>
             <div className={classes.filesHeader}>
               <div className={classes.filesTitle + ' s-text-36'}>{t('filesTitle')}</div>
-              <input onChange={handleAddFiles} type='file' multiple hidden id='added-files'/>
+              <input onChange={handleAddImages} type='file' multiple hidden id='added-files'/>
               <label className={classes.filesBtn} htmlFor='added-files'>{t('filesBtn')}</label>
             </div>
             <div className={classes.filesContent}>
-              {url && <div className={classes.file}> <File src={url}/></div>}
-              <div className={classes.file}> <File/></div>
-              <div className={classes.file}> <File/></div>
-              <div className={classes.file}> <File/></div>
-              <div className={classes.file}> <File/></div>
-              <div className={classes.file}> <File/></div>
-              <div className={classes.file}> <File/></div>
+              {state.images.map(imageDataWState => (
+                <div
+                  key={imageDataWState.imageData.id}
+                  className={classes.file}
+                >
+                  <File imageDataWState={imageDataWState}/>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </form>
   );
 
-  async function handleAddFiles(e: React.ChangeEvent<HTMLInputElement>) {
+  async function handleAddImages(e: React.ChangeEvent<HTMLInputElement>) {
     const files = e.target.files;
     console.log({ files });
     if (files) {
-      const file = files[0];
-      const imageId = file.name;
-      await firebaseService.uploadImage({ courseId: courseId!, folder: lessongId!, imageId, variant: 'homeworks', file });
-      const imageSrc = await firebaseService.getImageURL({ courseId: courseId!, folder: lessongId!, imageId, variant: 'homeworks' });
-      if (imageSrc) {
-        setUrl(imageSrc);
-      }
+      console.log('start add files');
+      await Promise.all([...files].map(handleAddImage));
+      console.log('end add files');
     }
   }
+
+  async function handleAddImage(file: File) {
+    const imageId = file.name;
+    console.log(`start add imageId: ${imageId}`);
+    if (state.images.findIndex(i => i.imageData.id === imageId) !== -1) {
+      console.log('Cannot add image with same id');
+      return;
+    }
+
+    const newImageDataDB: IHomeworkImageDataDB = {
+      id: imageId,
+      alt: file.name,
+      originalName: file.name,
+    };
+
+    dispatch({ type: 'START_ADD_IMAGE', payload: { imageData: newImageDataDB }});
+
+    try {
+      console.log(`start upload imageId: ${imageId}`);
+      await firebaseService.uploadImage({ courseId: courseId!, folder: state.lessonId, imageId, variant: 'homeworks', file });
+      const imageSrc = await firebaseService.getImageURL({ courseId: courseId!, folder: state.lessonId, imageId, variant: 'homeworks' });
+      console.log(`start end imageId: ${imageId}`);
+      if (!imageSrc) {
+        throw new Error('Failed to fetch image src');
+      }
+
+      dispatch({ type: 'CHANGE_IMAGE', payload: {
+        imageDataWState: {
+          loadingState: { type: 'success' },
+          imageData: { ...newImageDataDB, src: imageSrc },
+        },
+      }});
+    } catch (err) {
+      console.error('Failed to upload image', { err });
+
+      dispatch({ type: 'CHANGE_IMAGE', payload: {
+        imageDataWState: {
+          loadingState: { type: 'error', error: String(err), },
+          imageData: newImageDataDB,
+        },
+      }});
+    }
+  }
+}
+
+function initState(props: { user: IUserData, courseId: string, lessonId: string }): TState {
+  return {
+    userId: props.user.id,
+    courseId: props.courseId,
+    lessonId: props.lessonId,
+    description: '',
+    externalHomeworkLink: '',
+    images: [],
+  };
+}
+
+function reducer(state: TState, action: TAction): TState {
+  switch(action.type) {
+    case 'START_ADD_IMAGE': {
+      const newImageWState: TImageDataWState = {
+        imageData: action.payload.imageData,
+        loadingState: { type: 'pending' },
+      };
+      return {
+        ...state,
+        images: [newImageWState, ...state.images],
+      };
+    }
+
+    case 'END_DELETE_IMAGE': {
+      const imageIndex = findImageIndexOrFail(state, action.payload.imageId);
+
+      // change images array wo re-asigning array object
+      state.images.splice(imageIndex, 1);
+      return {
+        ...state,
+      };
+    }
+
+    case 'CHANGE_IMAGE': {
+      const imageIndex = findImageIndexOrFail(state, action.payload.imageDataWState.imageData.id);
+      // change images array wo re-asigning array object
+      state.images.splice(imageIndex, 1, action.payload.imageDataWState);
+      return {
+        ...state,
+      };
+    }
+
+    default:
+      return state;
+  }
+}
+
+function findImageIndexOrFail(state: TState, imageId: string) {
+  const imageIndex = state.images.findIndex(i => i.imageData.id === imageId);
+  if (imageIndex === -1) {
+    // TODO add logger
+    console.error('Failed to find image in array');
+  }
+
+  return imageIndex;
 }

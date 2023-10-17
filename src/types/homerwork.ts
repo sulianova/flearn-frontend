@@ -24,14 +24,14 @@ export interface IHomeworkDataDB {
   review?: IArticleContent
 }
 
-interface IHomeworkImageData {
+export interface IHomeworkImageData {
   id: string
   src: string
   alt: string // same as originalName
   originalName: string
 }
 
-interface IHomeworkImageDataDB {
+export interface IHomeworkImageDataDB {
   id: string
   alt: string // same as originalName
   originalName: string
