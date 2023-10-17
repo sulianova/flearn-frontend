@@ -128,19 +128,6 @@
   }
 }
 
-.form {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin-bottom: 0;
-}
-
-.inputWrap {
-  padding-bottom: set-calc(8);
-  display: flex;
-}
-
 .agreement {
   padding: 0 set-calc(8) set-calc(32);
 
@@ -148,66 +135,10 @@
     padding-left: set-calc(2);
     padding-bottom: 0;
   }
-
 }
 
 .agreementText {
   padding-left: set-calc(4);
   cursor: pointer;
   white-space: nowrap;
-}
-
-
-.submitButton {
-  position: relative;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: set-calc(16) set-calc(16);
-  min-width: set-calc(58);
-
-  color: $white;
-
-  background-color: $green;
-  border-radius: 0 set-calc(15) set-calc(15) 0;
-  cursor: pointer;
-  pointer-events: all;
-
-  transition: background-color $d-hover ease-in-out, color ease-in-out $d-hover;
-
-  &:hover {
-    background-color: $green-hover;
-  }
-}
-
-.isSuccess {
-  pointer-events: none;
-}
-
-.isLoading {
-  opacity: 0.7;
-  pointer-events: none;
-}
-
-.isReset {
-  background-color: $yellow;
-  transition: background-color $d-hover ease-in-out, color ease-in-out $d-hover;
-
-  &:hover {
-    background-color: $yellow-hover;
-  }
-}
-
-.isDisabled {
-  background-color: $grey;
-  pointer-events: none;
-}
-
-.Error {
-  color: $orange;
-}
-
-.Success {
-  color: $green;
 }

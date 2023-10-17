@@ -1,0 +1,19 @@
+@mixin sized($width, $height: $width) {
+  width: $width;
+  height: $height;
+  min-width: $width;
+  min-height: $height;
+}
+
+.Base {
+  display: block;
+  margin: auto;
+}
+
+.Local {
+  @include sized(3rem);
+}
+
+.Global {
+  @include sized(6rem);
+}

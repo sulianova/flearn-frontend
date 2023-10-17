@@ -4,8 +4,6 @@ export interface IOrderData {
     status: 'created' | 'rejected' | 'closed'
     userFromForm: {
         email: string
-        name: string
-        phone: string
     }
     currentAuthedUser?: IUserData
     course: {
