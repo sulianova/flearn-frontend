@@ -55,6 +55,11 @@ function LessonUppload({ user }: IConnectedProps) {
               <label className={classes.filesBtn} htmlFor='added-files'>{t('filesBtn')}</label>
             </div>
             <div className={classes.filesContent}>
+              <div
+                  className={classes.file}
+                >
+                  <File imageDataWState={{ imageData: { id: '', originalName: 'pic.png', alt: '' }, loadingState: { type: 'pending' }}}/>
+                </div>
               {state.images.map(imageDataWState => (
                 <div
                   key={imageDataWState.imageData.id}
@@ -81,9 +86,7 @@ function LessonUppload({ user }: IConnectedProps) {
 
   async function handleAddImage(file: File) {
     const imageId = file.name;
-    console.log(`start add imageId: ${imageId}`);
     if (state.images.findIndex(i => i.imageData.id === imageId) !== -1) {
-      console.log('Cannot add image with same id');
       return;
     }
 
@@ -96,10 +99,9 @@ function LessonUppload({ user }: IConnectedProps) {
     dispatch({ type: 'START_ADD_IMAGE', payload: { imageData: newImageDataDB }});
 
     try {
-      console.log(`start upload imageId: ${imageId}`);
       await firebaseService.uploadImage({ courseId: courseId!, folder: state.lessonId, imageId, variant: 'homeworks', file });
       const imageSrc = await firebaseService.getImageURL({ courseId: courseId!, folder: state.lessonId, imageId, variant: 'homeworks' });
-      console.log(`start end imageId: ${imageId}`);
+
       if (!imageSrc) {
         throw new Error('Failed to fetch image src');
       }
@@ -111,8 +113,6 @@ function LessonUppload({ user }: IConnectedProps) {
         },
       }});
     } catch (err) {
-      console.error('Failed to upload image', { err });
-
       dispatch({ type: 'CHANGE_IMAGE', payload: {
         imageDataWState: {
           loadingState: { type: 'error', error: String(err), },

@@ -1,4 +1,4 @@
-import {Image3} from 'assets/images';
+import { Image3 } from 'assets/images';
 import classes from './File.module.scss';
 
 import type { TImageDataWState } from '../types';
@@ -8,6 +8,7 @@ export default File;
 interface IProps {
   imageDataWState: TImageDataWState
 }
+
 function File(props: IProps) {
   const { loadingState, imageData } = props.imageDataWState;
   const stateTxt =
