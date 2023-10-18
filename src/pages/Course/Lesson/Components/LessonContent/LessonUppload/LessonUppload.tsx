@@ -1,19 +1,23 @@
 import classNames from 'classnames/bind';
-import { useReducer, useState } from 'react';
+import { useEffect, useReducer } from 'react';
+import { connect } from 'react-redux';
 import { useParams } from 'react-router';
 
-import { firebaseService } from 'services';
+import { dataService, firebaseService } from 'services';
 import { formatI18nT } from 'shared';
+import { type IFetchHomeworksPayload, fetchHomeworks } from 'store/actions/sagas';
+
+import { useFetch } from 'hooks';
 
 import File from './File/File';
 import Input from './Input/Input';
 import Textarea from './Textarea/Textarea';
+import Spinner from 'ui/Spinner/Spinner';
 
 import classes from './LessonUppload.module.scss';
 
 import { TAction, TImageDataWState, TState } from './types';
-import { IHomeworkImageDataDB, IRootState, IUserData } from 'types';
-import { connect } from 'react-redux';
+import { IHomeworkData, IHomeworkImageData, IHomeworkImageDataDB, IHomeworksState, IRootState, IUserData } from 'types';
 
 export default connect(mapStateToProps)(LessonUppload);
 
@@ -22,17 +26,52 @@ const cx = classNames.bind(classes);
 
 interface IConnectedProps {
   user: IUserData
+  homeworksState: IHomeworksState
 }
 
 function mapStateToProps(state: IRootState): IConnectedProps {
   return {
-    user: state.user.user!
+    user: state.user.user!,
+    homeworksState: state.homeworks,
   }
 }
 
-function LessonUppload({ user }: IConnectedProps) {
+function LessonUppload({ user, homeworksState }: IConnectedProps) {
   const { courseId, lessonId } = useParams();
   const [state, dispatch] = useReducer(reducer, { user, courseId: courseId!, lessonId: lessonId! }, initState);
+
+  useFetch<IFetchHomeworksPayload>({
+    actionCreator: fetchHomeworks,
+    payload: {
+      filter: {
+        id: dataService.homework.getFullId(courseId!, lessonId!, user.id ?? ''),
+        courseId: courseId!,
+        lessonId: lessonId!,
+      },
+    },
+  });
+
+  const initialHomeworkFetched = homeworksState.state?.type === 'idle';
+  useEffect(() => {
+    const homework = homeworksState.homeworks?.[0]?.homework;
+    if (initialHomeworkFetched && homework) {
+      dispatch({
+        type: 'CHANGE_INPUT',
+        payload: {
+          description: homework.description,
+          externalHomeworkLink: homework.externalHomeworkLink,
+        },
+      });
+      const images = homework.images ?? [];
+      images.forEach(imageData => {
+        dispatch({ type: 'CHANGE_IMAGE', payload: {
+          imageDataWState: { imageData, loadingState: { type: 'idle' } },
+        }});
+      });
+    }
+    // ignore because we need to fill state only on init form
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [initialHomeworkFetched]);
 
   return (
       <form className={classes._} action='' id='upload-form'>
@@ -40,13 +79,30 @@ function LessonUppload({ user }: IConnectedProps) {
           <div className={classes.fields}>
             <div className={classes.fieldsTitle + ' s-text-36'}>{t('fieldsTitle')}</div>
             <div className={classes.fieldsInner}>
-              <Textarea/>
-              <Input/>
+              <Textarea
+                value={state.description}
+                onChange={description => dispatch({ type: 'CHANGE_INPUT', payload: { description } })}
+              />
+              <Input
+                  value={state.externalHomeworkLink}
+                  onChange={externalHomeworkLink => dispatch({ type: 'CHANGE_INPUT', payload: { externalHomeworkLink } })}
+              />
             </div>
             <div className={classes.save}>
-                <button className={cx({submitBtn: true, isDisabled: true})+ ' s-text-18'} type='submit' disabled>{t('submitBtn')}</button>
-                <div className={classes.submitDescription + ' s-text-14'}>{t('submitDescription')} </div>
-              </div>
+              <button
+                onClick={() => handleSubmit(state)}
+                className={cx({ submitBtn: true, isDisabled: isDisabled(state) })+ ' s-text-18'}
+                type='submit'
+                disabled={isDisabled(state)}
+              >
+                {
+                  state.formState.type === 'pending' ? <Spinner/>
+                  : state.formState.type === 'success' ? 'Отправлено'
+                  : t('submitBtn')
+                }
+              </button>
+              <div className={classes.submitDescription + ' s-text-14'}>{t('submitDescription')} </div>
+            </div>
           </div>
           <div className={classes.files}>
             <div className={classes.filesHeader}>
@@ -76,11 +132,8 @@ function LessonUppload({ user }: IConnectedProps) {
 
   async function handleAddImages(e: React.ChangeEvent<HTMLInputElement>) {
     const files = e.target.files;
-    console.log({ files });
     if (files) {
-      console.log('start add files');
       await Promise.all([...files].map(handleAddImage));
-      console.log('end add files');
     }
   }
 
@@ -121,6 +174,34 @@ function LessonUppload({ user }: IConnectedProps) {
       }});
     }
   }
+
+  async function handleSubmit(state: TState) {
+    if (isDisabled(state)) {
+      return;
+    }
+
+    try {
+      dispatch({ type: 'CHANGE_STATE', payload: { formState: { type: 'pending' }}});
+
+      const id = dataService.homework.getFullId(state.courseId, state.lessonId!, state.userId);
+      const homework: IHomeworkData = {
+        id,
+        userId: state.userId,
+        courseId: state.courseId,
+        lessonId: state.lessonId,
+        description: state.description,
+        externalHomeworkLink: state.externalHomeworkLink,
+        images: state.images.map(i => i.imageData as IHomeworkImageData),
+      };
+      await dataService.homework.set(id, homework);
+
+      dispatch({ type: 'CHANGE_STATE', payload: { formState: { type: 'success' }}});
+    } catch (err) {
+      const error = err as Error;
+      console.error('Failed to submit HW', { error });
+      dispatch({ type: 'CHANGE_STATE', payload: { formState: { type: 'error', error: `Error: Failed to submit homework. ${error.message}.`}}});
+    }
+  }
 }
 
 function initState(props: { user: IUserData, courseId: string, lessonId: string }): TState {
@@ -131,11 +212,20 @@ function initState(props: { user: IUserData, courseId: string, lessonId: string 
     description: '',
     externalHomeworkLink: '',
     images: [],
+    formState: { type: 'idle' },
   };
 }
 
 function reducer(state: TState, action: TAction): TState {
   switch(action.type) {
+    case 'CHANGE_STATE':
+    case 'CHANGE_INPUT': {
+      return {
+        ...state,
+        ...action.payload,
+      };
+    }
+
     case 'START_ADD_IMAGE': {
       const newImageWState: TImageDataWState = {
         imageData: action.payload.imageData,
@@ -179,4 +269,12 @@ function findImageIndexOrFail(state: TState, imageId: string) {
   }
 
   return imageIndex;
+}
+
+function isDisabled(state: TState) {
+  const formIsPending = state.formState.type === 'pending';
+  const hasNoSource = !state.images.length && !state.externalHomeworkLink;
+  const someImagesArePendingOrFailed = state.images.some(({ loadingState }) => ['pending', 'error'].includes(loadingState.type));
+
+  return formIsPending || hasNoSource || someImagesArePendingOrFailed;
 }

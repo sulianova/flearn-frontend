@@ -4,23 +4,27 @@ import type { IUserData } from './user';
 
 export interface IHomeworkData {
   id: string
+  userId: string
   courseId: string
   lessonId: string
+  description: string
+  externalHomeworkLink: string
+  images: IHomeworkImageData[]
   text?: TText | TText[],
   reference?: TText | TText[]
-  images?: IHomeworkImageData[]
-  userId: string
   review?: IArticleContent
 }
 
 export interface IHomeworkDataDB {
   id: string
+  userId: string
   courseId: string
   lessonId: string
-  userId: string
+  description: string
+  externalHomeworkLink: string
+  images: IHomeworkImageDataDB[]
   text?: TText | TText[],
   reference?: TText | TText[]
-  images?: IHomeworkImageDataDB[]
   review?: IArticleContent
 }
 

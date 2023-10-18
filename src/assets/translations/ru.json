@@ -154,7 +154,10 @@
       "filesTitle": "Файлы",
       "filesBtn": "Добавить",
       "submitBtn": "Отправить на проверку",
-      "submitDescription": "до дедлайна, чтобы получить обратную связь"
+      "submitDescription": "до дедлайна, чтобы получить обратную связь",
+      "descriptionInputLabel": "Описание",
+      "descriptionInputPlaceholder": "Комментарий к работе",
+      "externalHomeworkLinkInputLabel": "Ссылка"
     },
     "homework": {
       "title": "Описание"

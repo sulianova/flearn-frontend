@@ -2,8 +2,12 @@ import { IHomeworkImageData, IHomeworkImageDataDB } from 'types';
 
 export type TAction =
   | {
+    type: 'CHANGE_STATE'
+    payload: { formState: TFormState }
+  }
+  | {
     type: 'CHANGE_INPUT'
-    payload: { description: string } | { externalHomeworkLink: string }
+    payload: { description: string } | { externalHomeworkLink: string } | { description: string, externalHomeworkLink: string }
   }
   | {
     type: 'START_ADD_IMAGE'
@@ -31,6 +35,7 @@ export type TState = {
   description: string
   externalHomeworkLink: string
   images: TImageDataWState[]
+  formState: TFormState
 }
 
 export type TImageDataWState =
@@ -43,8 +48,8 @@ export type TImageDataWState =
     imageData: IHomeworkImageDataDB & { src?: string }
   };
 
-// type TLoadingState =
-//   | { type: 'idle' }
-//   | { type: 'pending' }
-//   | { type: 'success' }
-//   | { type: 'error', error: string };
+type TFormState =
+  | { type: 'idle' }
+  | { type: 'pending' }
+  | { type: 'success' }
+  | { type: 'error', error: string };

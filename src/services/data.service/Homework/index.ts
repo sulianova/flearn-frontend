@@ -41,8 +41,7 @@ class Homework {
     return homeworksData;
   }
 
-  public async set(courseId: string, lessonId: string, userId: string, data: IHomeworkData) {
-    const id = this.getFullId(courseId, lessonId, userId);
+  public async set(id: string, data: IHomeworkData) {
     return await firebaseService.setDoc(ECollections.Homework, id, data);
   }
 
