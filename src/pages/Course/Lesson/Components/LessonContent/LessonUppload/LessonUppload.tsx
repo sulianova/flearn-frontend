@@ -17,7 +17,7 @@ import Spinner from 'ui/Spinner/Spinner';
 import classes from './LessonUppload.module.scss';
 
 import { TAction, TImageDataWState, TState } from './types';
-import { IHomeworkData, IHomeworkImageData, IHomeworkImageDataDB, IHomeworksState, IRootState, IUserData } from 'types';
+import { IHomeworkData, IHomeworkImageData, IHomeworksState, IRootState, IUserData } from 'types';
 
 export default connect(mapStateToProps)(LessonUppload);
 
@@ -44,7 +44,7 @@ function LessonUppload({ user, homeworksState }: IConnectedProps) {
     actionCreator: fetchHomeworks,
     payload: {
       filter: {
-        id: dataService.homework.getFullId(courseId!, lessonId!, user.id ?? ''),
+        id: dataService.homework.getFullId(courseId!, lessonId!, user.id),
         courseId: courseId!,
         lessonId: lessonId!,
       },
@@ -53,8 +53,25 @@ function LessonUppload({ user, homeworksState }: IConnectedProps) {
 
   const initialHomeworkFetched = homeworksState.state?.type === 'idle';
   useEffect(() => {
-    const homework = homeworksState.homeworks?.[0]?.homework;
-    if (initialHomeworkFetched && homework) {
+    let homework = homeworksState.homeworks?.[0]?.homework;
+    if (initialHomeworkFetched) {
+      if (!homework) {
+        const newHomework: IHomeworkData = {
+          id: state.id,
+          userId: state.userId,
+          courseId: state.courseId,
+          lessonId: state.lessonId,
+          description: '',
+          externalHomeworkLink: '',
+          images: [],
+          state: 'DRAFT',
+        };
+        dataService.homework.set(state.id, newHomework)
+          .then(() => console.log('HW created', { newHomework }))
+          .catch(err => dispatch({ type: 'CHANGE_STATE', payload: { formState: { type: 'error', error: String(err) }} }));
+        return;
+      }
+
       dispatch({
         type: 'CHANGE_INPUT',
         payload: {
@@ -111,11 +128,11 @@ function LessonUppload({ user, homeworksState }: IConnectedProps) {
               <label className={classes.filesBtn} htmlFor='added-files'>{t('filesBtn')}</label>
             </div>
             <div className={classes.filesContent}>
-              <div
+              {/* <div
                   className={classes.file}
                 >
                   <File imageDataWState={{ imageData: { id: '', originalName: 'pic.png', alt: '' }, loadingState: { type: 'pending' }}}/>
-                </div>
+                </div> */}
               {state.images.map(imageDataWState => (
                 <div
                   key={imageDataWState.imageData.id}
@@ -131,29 +148,41 @@ function LessonUppload({ user, homeworksState }: IConnectedProps) {
   );
 
   async function handleAddImages(e: React.ChangeEvent<HTMLInputElement>) {
-    const files = e.target.files;
-    if (files) {
-      await Promise.all([...files].map(handleAddImage));
+    try {
+      const files = e.target.files;
+      if (files) {
+        const imageDatas = [...files].map(file => ({ imageData: getImageDataFromFile(file), file }));
+        imageDatas.forEach(({ imageData }) => dispatch({ type: 'START_ADD_IMAGE', payload: { imageData }}));
+        const images = await Promise.all(imageDatas.map(handleUploadImage));
+        const newImages = images.filter(Boolean) as IHomeworkImageData[];
+        await dataService.homework.get(state.courseId, state.lessonId, state.userId)
+          .then(hw => dataService.homework.patch(state.id, { images: [...newImages, ...hw.images] }))
+      }
+    } catch (err) {
+      const error = err as Error;
+      console.error('Failed to add images', { error });
+      dispatch({ type: 'CHANGE_STATE', payload: { formState: { type: 'error', error: `Error: Failed to add images. ${error.message}.`}}});
     }
   }
 
-  async function handleAddImage(file: File) {
+  function getImageDataFromFile(file: File) {
     const imageId = file.name;
-    if (state.images.findIndex(i => i.imageData.id === imageId) !== -1) {
-      return;
-    }
 
-    const newImageDataDB: IHomeworkImageDataDB = {
+    const imageData: IHomeworkImageData = {
       id: imageId,
       alt: file.name,
       originalName: file.name,
+      src: URL.createObjectURL(file),
     };
 
-    dispatch({ type: 'START_ADD_IMAGE', payload: { imageData: newImageDataDB }});
+    return imageData;
+  }
 
+  async function handleUploadImage(props: { file: File, imageData: IHomeworkImageData }) {
+    const { file, imageData } = props;
     try {
-      await firebaseService.uploadImage({ courseId: courseId!, folder: state.lessonId, imageId, variant: 'homeworks', file });
-      const imageSrc = await firebaseService.getImageURL({ courseId: courseId!, folder: state.lessonId, imageId, variant: 'homeworks' });
+      await firebaseService.uploadImage({ courseId: courseId!, folder: state.lessonId, imageId: imageData.id, variant: 'homeworks', file });
+      const imageSrc = await firebaseService.getImageURL({ courseId: courseId!, folder: state.lessonId, imageId: imageData.id, variant: 'homeworks' });
 
       if (!imageSrc) {
         throw new Error('Failed to fetch image src');
@@ -162,14 +191,16 @@ function LessonUppload({ user, homeworksState }: IConnectedProps) {
       dispatch({ type: 'CHANGE_IMAGE', payload: {
         imageDataWState: {
           loadingState: { type: 'success' },
-          imageData: { ...newImageDataDB, src: imageSrc },
+          imageData: { ...imageData, src: imageSrc },
         },
       }});
+
+      return { ...imageData, src: imageSrc };
     } catch (err) {
       dispatch({ type: 'CHANGE_IMAGE', payload: {
         imageDataWState: {
           loadingState: { type: 'error', error: String(err), },
-          imageData: newImageDataDB,
+          imageData,
         },
       }});
     }
@@ -183,17 +214,7 @@ function LessonUppload({ user, homeworksState }: IConnectedProps) {
     try {
       dispatch({ type: 'CHANGE_STATE', payload: { formState: { type: 'pending' }}});
 
-      const id = dataService.homework.getFullId(state.courseId, state.lessonId!, state.userId);
-      const homework: IHomeworkData = {
-        id,
-        userId: state.userId,
-        courseId: state.courseId,
-        lessonId: state.lessonId,
-        description: state.description,
-        externalHomeworkLink: state.externalHomeworkLink,
-        images: state.images.map(i => i.imageData as IHomeworkImageData),
-      };
-      await dataService.homework.set(id, homework);
+      await dataService.homework.patch(state.id, { state: 'SENT_FOR_REVIEW' });
 
       dispatch({ type: 'CHANGE_STATE', payload: { formState: { type: 'success' }}});
     } catch (err) {
@@ -206,12 +227,14 @@ function LessonUppload({ user, homeworksState }: IConnectedProps) {
 
 function initState(props: { user: IUserData, courseId: string, lessonId: string }): TState {
   return {
+    id: dataService.homework.getFullId(props.courseId, props.lessonId, props.user.id),
     userId: props.user.id,
     courseId: props.courseId,
     lessonId: props.lessonId,
     description: '',
     externalHomeworkLink: '',
     images: [],
+    homeworkState: 'DRAFT',
     formState: { type: 'idle' },
   };
 }

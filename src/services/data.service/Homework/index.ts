@@ -45,6 +45,11 @@ class Homework {
     return await firebaseService.setDoc(ECollections.Homework, id, data);
   }
 
+  public async patch(id: string, patch: Partial<IHomeworkData>) {
+    const homeworkData = await firebaseService.getDocOrThrow(ECollections.Homework, id);
+    return await firebaseService.setDoc(ECollections.Homework, id, { ...homeworkData, ...patch });
+  }
+
   public getFullId(courseId: string, lessonId: string, userId: string) {
     return `${courseId}_${lessonId}_hw-${userId}`;
   }

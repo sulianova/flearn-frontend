@@ -87,7 +87,7 @@ function Lesson(props: IProps) {
       {practice === 'task' ?
         (<>
           <LessonContent blocks={lessonState.data.content} data={lessonState.data} homework={homework}/>
-          {(lessonState.data.type === 'Practice' && !homework) && (<LessonUppload/>)}
+          {(lessonState.data.type === 'Practice' && (!homework || ['DRAFT', 'SENT_FOR_REVIEW'].includes(homework.homework.state))) && (<LessonUppload/>)}
         </>)
       : (<LessonWorks
           selectedUser={selectedUser}

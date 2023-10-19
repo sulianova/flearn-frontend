@@ -10,6 +10,7 @@ export interface IHomeworkData {
   description: string
   externalHomeworkLink: string
   images: IHomeworkImageData[]
+  state: THomeworkState
   text?: TText | TText[],
   reference?: TText | TText[]
   review?: IArticleContent
@@ -23,10 +24,17 @@ export interface IHomeworkDataDB {
   description: string
   externalHomeworkLink: string
   images: IHomeworkImageDataDB[]
+  state: THomeworkState
   text?: TText | TText[],
   reference?: TText | TText[]
   review?: IArticleContent
 }
+
+export type THomeworkState =
+  | 'DRAFT'
+  | 'SENT_FOR_REVIEW'
+  | 'IN_REVIEW'
+  | 'REVIEWED'
 
 export interface IHomeworkImageData {
   id: string
