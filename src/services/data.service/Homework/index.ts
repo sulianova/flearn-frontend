@@ -1,4 +1,4 @@
-import { v4, v1 } from 'uuid';
+import { v4 } from 'uuid';
 
 import { dataService, firebaseService } from 'services';
 
@@ -49,8 +49,9 @@ class Homework {
   }
 
   public async patch(id: string, patch: Partial<IHomeworkData>) {
-    const homeworkData = await firebaseService.getDocOrThrow(ECollections.Homework, id);
-    return await firebaseService.setDoc(ECollections.Homework, id, { ...homeworkData, ...patch });
+    const homeworkData = await firebaseService.getDocOrThrow(ECollections.Homework, id) as IHomeworkData;
+    const homeworkDataDB = homeworkConverter.toFirestore({ ...homeworkData, ...patch });
+    return await firebaseService.setDoc(ECollections.Homework, id, homeworkDataDB);
   }
 
   public async uploadImage(props: { courseId: string, lessonId: string, userId: string, imageId: string, file: File }) {
