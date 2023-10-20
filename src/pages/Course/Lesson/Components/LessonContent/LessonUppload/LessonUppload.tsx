@@ -67,7 +67,6 @@ function LessonUppload({ user, homeworksState }: IConnectedProps) {
           state: 'DRAFT',
         };
         dataService.homework.set(state.id, newHomework)
-          .then(() => console.log('HW created', { newHomework }))
           .catch(err => dispatch({ type: 'CHANGE_STATE', payload: { formState: { type: 'error', error: String(err) }} }));
         return;
       }

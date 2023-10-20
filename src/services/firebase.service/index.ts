@@ -83,7 +83,6 @@ export class FirebaseService {
       const querySnapshot = await getDocs(q);
       const data = [] as DocumentData[];
       querySnapshot.forEach((doc) => {
-        console.log(doc.id, " => ", doc.data());
         data.push(doc.data());
       });
 
