@@ -1,3 +1,5 @@
+import { v4, v1 } from 'uuid';
+
 import { dataService, firebaseService } from 'services';
 
 import { ECollections, IHomeworkDataDB, type IHomeworkData, ECommonErrorTypes } from 'types';
@@ -41,8 +43,9 @@ class Homework {
     return homeworksData;
   }
 
-  public async set(id: string, data: IHomeworkData) {
-    return await firebaseService.setDoc(ECollections.Homework, id, data);
+  public async set(id: string, homeworkData: IHomeworkData) {
+    const homeworkDataDB = homeworkConverter.toFirestore(homeworkData);
+    return await firebaseService.setDoc(ECollections.Homework, id, homeworkDataDB);
   }
 
   public async patch(id: string, patch: Partial<IHomeworkData>) {
@@ -50,8 +53,47 @@ class Homework {
     return await firebaseService.setDoc(ECollections.Homework, id, { ...homeworkData, ...patch });
   }
 
+  public async uploadImage(props: { courseId: string, lessonId: string, userId: string, imageId: string, file: File }) {
+    try {
+      const path = this._getImagePath(props);
+      await firebaseService._uploadImage({ path, file: props.file });
+    } catch (err) {
+      // tslint:disable-next-line
+      console.error(err);
+      throw new Error('Failed to upload homework image');
+    }
+  }
+
+  public async getImageURL(props: { courseId: string, lessonId: string, userId: string, imageId: string }) {
+    try {
+      const path = this._getImagePath(props);
+      return await firebaseService._getImageURL({ path });
+    } catch (err) {
+      // tslint:disable-next-line
+      console.error(err);
+      throw new Error('Failed to get homework image URL');
+    }
+  }
+
   public getFullId(courseId: string, lessonId: string, userId: string) {
     return `${courseId}_${lessonId}_hw-${userId}`;
+  }
+
+  public generateImageId(props: { originalName: string }) {
+    const type = props.originalName.split('.').at(-1) ?? '';
+    const randomPart = '_' + v4().slice(0, 5);
+
+    if (!['png', 'jpg', 'jpeg'].includes(type.toLocaleLowerCase())) {
+      return props.originalName + randomPart;
+    }
+
+    const fileName = props.originalName.replace(`.${type}`, '');
+    const id = fileName + randomPart + `.${type}`;
+    return id;
+  }
+
+  private _getImagePath(props: { courseId: string, lessonId: string, userId: string, imageId: string }) {
+    return `${props.courseId}/${props.lessonId}/homeworks/${props.userId}/${props.imageId}`;
   }
 };
 

@@ -109,6 +109,17 @@ export class FirebaseService {
     }
   }
 
+  public async _getImageURL(props: { path: string }) {
+    try {
+      const ref = getStorageRef(this._storage, props.path);
+      return await getDownloadURL(ref);;
+    } catch(err) {
+        // tslint:disable-next-line
+        console.error('Failed to get image from storage', { props, err });
+        throw new Error('Failed to get image from storage');
+    }
+  }
+
   public async uploadImage(props: { courseId: string, folder: TLessonId | 'landing', imageId: string, variant?: 'images' | 'homeworks', file: File }) {
     try {
       const { courseId, folder, imageId, variant = 'images', file } = props;
@@ -118,6 +129,17 @@ export class FirebaseService {
     } catch(e) {
         // tslint:disable-next-line
         console.error('Failed to upload image to storage', { props, e });
+    }
+  }
+
+  public async _uploadImage(props: { path: string, file: File }) {
+    try {
+      const ref = getStorageRef(this._storage, props.path);
+      await uploadBytes(ref, props.file);
+    } catch(err) {
+        // tslint:disable-next-line
+        console.error('Failed to get image from storage', { props, err });
+        throw new Error('Failed to upload image to storage');
     }
   }
 

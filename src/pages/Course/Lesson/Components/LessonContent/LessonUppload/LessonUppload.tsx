@@ -3,7 +3,7 @@ import { useEffect, useReducer } from 'react';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router';
 
-import { dataService, firebaseService } from 'services';
+import { dataService } from 'services';
 import { formatI18nT } from 'shared';
 import { type IFetchHomeworksPayload, fetchHomeworks } from 'store/actions/sagas';
 
@@ -148,6 +148,7 @@ function LessonUppload({ user, homeworksState }: IConnectedProps) {
   );
 
   async function handleAddImages(e: React.ChangeEvent<HTMLInputElement>) {
+    dataService.homework.generateImageId({ originalName: 'log.png' });
     try {
       const files = e.target.files;
       if (files) {
@@ -165,28 +166,21 @@ function LessonUppload({ user, homeworksState }: IConnectedProps) {
     }
   }
 
-  function getImageDataFromFile(file: File) {
-    const imageId = file.name;
-
-    const imageData: IHomeworkImageData = {
-      id: imageId,
+  function getImageDataFromFile(file: File): IHomeworkImageData {
+    return {
+      id: dataService.homework.generateImageId({ originalName: file.name }),
       alt: file.name,
       originalName: file.name,
       src: URL.createObjectURL(file),
     };
-
-    return imageData;
   }
 
   async function handleUploadImage(props: { file: File, imageData: IHomeworkImageData }) {
     const { file, imageData } = props;
     try {
-      await firebaseService.uploadImage({ courseId: courseId!, folder: state.lessonId, imageId: imageData.id, variant: 'homeworks', file });
-      const imageSrc = await firebaseService.getImageURL({ courseId: courseId!, folder: state.lessonId, imageId: imageData.id, variant: 'homeworks' });
+      await dataService.homework.uploadImage({ courseId: state.courseId, lessonId: state.lessonId, userId: state.userId, imageId: imageData.id, file });
 
-      if (!imageSrc) {
-        throw new Error('Failed to fetch image src');
-      }
+      const imageSrc = await dataService.homework.getImageURL({ courseId: state.courseId, lessonId: state.lessonId, userId: state.userId, imageId: imageData.id });
 
       dispatch({ type: 'CHANGE_IMAGE', payload: {
         imageDataWState: {
