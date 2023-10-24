@@ -147,17 +147,22 @@
     "navTubsPractice": "Задание",
     "navTubsResults": "Итоги",
     "deadlineUploadText": "Дедлайн: ",
-    "deadlineUploadTime": " 23:59 по Мск",
+    "deadlineUploadTime": " 23:59\u00A0по\u00A0Мск",
     "deadlineResultsText": "Публикация итогов: ",
+    "uploadBtn": "Загрузить работу",
+    "resultLinkTitle": "Результаты задания",
+    "editTitle": "Редактировать...",
     "upload": {
       "fieldsTitle": "Результаты задания",
       "filesTitle": "Файлы",
       "filesBtn": "Добавить",
       "submitBtn": "Отправить на проверку",
       "submitDescription": "до дедлайна, чтобы получить обратную связь",
-      "descriptionInputLabel": "Описание",
-      "descriptionInputPlaceholder": "Комментарий к работе",
-      "externalHomeworkLinkInputLabel": "Ссылка"
+      "addCaption": "Добавить описание",
+      "contentInputLabel": "Ссылка",
+      "contentTextareaLabel": "Описание",
+      "filesEmpty1": "Загрузите файлы",
+      "filesEmpty2": "Картинка должна весить меньше 3 мб"
     },
     "homework": {
       "title": "Описание"

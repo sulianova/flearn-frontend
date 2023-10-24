@@ -14,6 +14,9 @@
 
   @include set-media(md) {
     padding-bottom: set-calc(16);
+    p {
+      padding-bottom: set-calc(8);
+    }
   }
 }
 
@@ -33,7 +36,11 @@
 }
 
 .resultLinkTitle {
-  padding-bottom: set-calc(8);
+  padding-bottom: set-calc(16);
+
+  @include set-media(md) {
+    padding-bottom: set-calc(8);
+  }
 }
 
 .resultLinkGroup {
@@ -43,42 +50,46 @@
 
 .resultLink {
   cursor: pointer;
-  margin-right: set-calc(24);
+  margin-right: set-calc(28);
   transition: background-color 0.2s ease-in-out, color ease-in-out 0.2s;
+
+  @include set-media(md) {
+    margin-right: set-calc(32);
+  }
 }
 
-.remove {
+.edit {
   cursor: pointer;
   display: flex;
-  align-items: end;
+  align-items: center;
   padding-bottom: set-calc(1);
+  transition: fill $d-hover ease-in-out, color ease-in-out $d-hover;
 }
 
-.remove:hover {
-  .removeTitle {
+.edit:hover {
+  .editTitle {
     color: $black;
   }
-  .removeImg svg {
-    stroke: $black;
+  .editImg path{
+    fill: $black;
   }
 
 }
 
-.removeImg {
-  padding-bottom: set-calc(2);
+.editImg {
   margin-right: set-calc(4);
 }
 
-.removeImg svg {
-  width: set-calc(8);
-  height: set-calc(8);
+.editImg svg {
+  width: set-calc(24);
+  height: set-calc(24);
 
-  stroke: $grey-inactive;
-  stroke-linecap: round;
-  stroke-width: 2;
+  path {
+    fill: $grey-inactive;
+  }
 }
 
-.removeTitle {
+.editTitle {
   color: $grey-inactive;
 }
 
@@ -86,12 +97,12 @@
   position: sticky;
   top: set-calc(60);
   grid-column: 4 / 5;
-  margin-bottom:  set-calc(72);
+  margin-bottom: set-calc(72);
 
   @include set-media(md) {
     position: relative;
     top: 0;
-    margin-bottom:  set-calc(48);
+    margin-bottom: set-calc(48);
   }
 }
 

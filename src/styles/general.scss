@@ -275,7 +275,8 @@ s {
 }
 
 .keyText {
-  color: $keyText;
+  color: $grey;
+  font-family: $font-family!important;
 }
 
 .grey {

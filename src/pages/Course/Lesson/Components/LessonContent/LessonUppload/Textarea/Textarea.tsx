@@ -3,6 +3,10 @@ import { formatI18nT } from 'shared';
 
 import classes from './Textarea.module.scss';
 
+import { formatI18nT } from 'shared';
+
+const t = formatI18nT('courseLesson.upload');
+
 export default Textarea;
 
 const t = formatI18nT('courseLesson.upload');
@@ -17,7 +21,7 @@ function Textarea(props: Readonly<IProps>) {
   return (
     <div className={classes._}>
       <div className={classes.content}>
-        <label className='s-text-18' htmlFor={getId('description')}>{t('descriptionInputLabel')}</label>
+        <label className='s-text-18'>{t('contentTextareaLabel')}</label>
         <div className={classes.contentInner + ' s-text-18'}>
           <textarea
             value={props.value}

@@ -3,6 +3,14 @@
   @include set-typography(14, 19, 500);
 }
 //xxs
+.s-text-16-18 {
+  @include set-typography(16, 22, 500);
+
+  @include set-media(md) {
+    @include set-typography(18, 24, 500);
+  }
+}
+
 .s-text-16 {
   @include set-typography(16, 22, 500);
 
@@ -33,6 +41,15 @@
   @include set-media(md) {
     @include set-typography(16, 22, 500)
   }
+}
+
+//article
+.s-text-20 {
+  @include set-typography(20, 30, 500);
+}
+
+@mixin s-text-20 {
+  @include set-typography(20, 30, 500);
 }
 // tabs
 .s-text-20-uppercase  {
