@@ -3,10 +3,9 @@ import { IHomeworkData, IHomeworkDataWPopulate, ILessonContent, ILessonData } fr
 import classes from './LessonContent.module.scss';
 
 import Article from 'ui/Article/Article';
+import Edit from 'assets/images/Svg/Edit';
 
 import { formatI18nT } from 'shared';
-
-import Cross from 'assets/images/Svg/Cross';
 
 export default LessonContent;
 
@@ -35,25 +34,28 @@ interface IUpploadProps {
 function Uppload({ endDate, resultsEndDate }: IUpploadProps) {
   return (
     <Fragment>
-      <div className={classes.uploadDeadline + ' s-text-24'}>
-        {t('deadlineUploadText')} {getWeekDay(endDate)} {formatLessonDate(endDate)} {t('deadlineUploadTime')}
-        <br/>
-        {t('deadlineResultsText')} {getWeekDay(resultsEndDate)} {formatLessonResultsDate(resultsEndDate)}
+      <div className={classes.uploadDeadline}>
+        <p className='s-text-24'>
+          {t('deadlineUploadText')} {getWeekDay(endDate)} {formatLessonDate(endDate)} {t('deadlineUploadTime')}
+        </p>
+        <p className='s-text-24'>
+          {t('deadlineResultsText')} {getWeekDay(resultsEndDate)} {formatLessonResultsDate(resultsEndDate)}
+        </p>
       </div>
-      <div className={classes.uploadBtnWrapper}>
-        <a className={classes.uploadBtn + ' s-text-24'} href='#upload-form'>Загрузить работу</a>
-      </div>
-      {/* <div className={classes.resultLinkWrapper}>
-        <h3 className={classes.resultLinkTitle + ' s-text-24'}>Результаты задания</h3>
+      <div className={classes.resultLinkWrapper}>
+        <h3 className={classes.resultLinkTitle + ' s-text-28'}>{t('resultLinkTitle')}</h3>
         <div className={classes.resultLinkGroup}>
           <a className={classes.resultLink + ' s-text-18 key-link'} href='#upload-form'>Sofiia Ulianova</a>
-          <button className={classes.remove}>
-            <div className={classes.removeImg}>
-              <Cross/>
+          <button className={classes.edit}>
+            <div className={classes.editImg}>
+              <Edit/>
             </div>
-            <div className={classes.removeTitle + ' s-text-14'}>Удалить</div>
+            {/* <div className={classes.editTitle + ' s-text-16'}>{t('editTitle')}</div> */}
           </button>
         </div>
+      </div>
+      {/* <div className={classes.uploadBtnWrapper}>
+        <a className={classes.uploadBtn + ' s-text-24'} href='#upload-form'>{t('uploadBtn')}</a>
       </div> */}
     </Fragment>
   );

@@ -55,20 +55,20 @@ function Footer({ type =  EFooter.Default }: IProps) {
       }
       <div className={cx({ row: true, card: false })}>
         <div className={cx({ copyright: true, col: true })}>
-          <p className={classes.colItem + ' s-text-21'}>{t('copyright')}</p>
+          <p className={classes.colItem + ' s-text-16-18'}>{t('copyright')}</p>
         </div>
         <div className={cx({ contacts: true, col: true })}>
-          <Link to={t('emailTo')} className={'s-text-18 key-link'} target='_blank'>{t('email')}</Link>
-          <p className={'s-text-18'}>{t('emailComment')}</p>
+          <Link to={t('emailTo')} className={'s-text-16-18 key-link'} target='_blank'>{t('email')}</Link>
+          <p className={'s-text-16-18'}>{t('emailComment')}</p>
         </div>
         <div className={cx({ documents: true, col: true })}>
-          <Link to={URLSections.Static.Policy.index} className={'s-text-18 link'} target='_blank'>{t('documentsPrivacyPolicy.title')}</Link>
-          <Link to={URLSections.Static.Oferta.index} className={'s-text-18 link'} target='_blank'>{t('documentsTermsOfUse.title')}</Link>
+          <Link to={URLSections.Static.Policy.index} className={'s-text-16-18 link'} target='_blank'>{t('documentsPrivacyPolicy.title')}</Link>
+          <Link to={URLSections.Static.Oferta.index} className={'s-text-16-18 link'} target='_blank'>{t('documentsTermsOfUse.title')}</Link>
         </div>
         <div className={cx({ social: true, col: false })}>
-          <div className={classes.socialLink}>
+          {/* <div className={classes.socialLink}>
             <Link to={t('socialInstagram.link')} target='_blank'>{<Instagram/>}</Link>
-          </div>
+          </div> */}
           <div className={classes.socialLink}>
             <Link to={t('socialTiktok.link')} target='_blank'>{<Tiktok/>}</Link>
           </div>

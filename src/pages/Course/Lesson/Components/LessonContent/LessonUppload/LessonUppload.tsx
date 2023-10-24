@@ -9,6 +9,8 @@ import File from './File/File';
 import Input from './Input/Input';
 import Textarea from './Textarea/Textarea';
 
+import Upload from 'assets/images/Svg/Upload';
+
 import classes from './LessonUppload.module.scss';
 
 import { TAction, TImageDataWState, TState } from './types';
@@ -36,6 +38,12 @@ function LessonUppload({ user }: IConnectedProps) {
 
   return (
       <form className={classes._} action='' id='upload-form'>
+          <div className={classes.nav}>
+            <div className={classes.submit}>
+              <button className={cx({submitBtn: true, isDisabled: false})+ ' s-text-16-18'} type='submit' disabled>{t('submitBtn')}</button>
+              {/* <div className={classes.submitDescription + ' s-text-14'}>{t('submitDescription')} </div> */}
+            </div>
+          </div>
         <div className={classes.inner}>
           <div className={classes.fields}>
             <div className={classes.fieldsTitle + ' s-text-36'}>{t('fieldsTitle')}</div>
@@ -43,23 +51,44 @@ function LessonUppload({ user }: IConnectedProps) {
               <Textarea/>
               <Input/>
             </div>
-            <div className={classes.save}>
+            {/* <div className={classes.submit}>
                 <button className={cx({submitBtn: true, isDisabled: true})+ ' s-text-18'} type='submit' disabled>{t('submitBtn')}</button>
                 <div className={classes.submitDescription + ' s-text-14'}>{t('submitDescription')} </div>
-              </div>
+            </div> */}
           </div>
           <div className={classes.files}>
             <div className={classes.filesHeader}>
               <div className={classes.filesTitle + ' s-text-36'}>{t('filesTitle')}</div>
-              <input onChange={handleAddImages} type='file' multiple hidden id='added-files'/>
-              <label className={classes.filesBtn} htmlFor='added-files'>{t('filesBtn')}</label>
+              {/* <input onChange={handleAddImages} type='file' multiple hidden id='added-files'/>
+              <label className={classes.filesBtn} htmlFor='added-files'>{t('filesBtn')}</label> */}
             </div>
             <div className={classes.filesContent}>
+              <input onChange={handleAddImages} type='file' multiple hidden id='added-files'/>
+              <label className={classes.filesEmpty} htmlFor='added-files'>
+                <Upload/>
+                <div className='s-text18'>{t('filesEmpty1')}</div>
+                <div className='s-text-14'>{t('filesEmpty2')}</div>
+              </label>
               <div
+                className={classes.file}
+              >
+                <File imageDataWState={{ imageData: { id: '', originalName: 'pic.png', alt: '' }, loadingState: { type: 'pending' }}}/>
+              </div>
+                {/* <div
                   className={classes.file}
                 >
                   <File imageDataWState={{ imageData: { id: '', originalName: 'pic.png', alt: '' }, loadingState: { type: 'pending' }}}/>
                 </div>
+                <div
+                className={classes.file}
+              >
+                <File imageDataWState={{ imageData: { id: '', originalName: 'pic.png', alt: '' }, loadingState: { type: 'pending' }}}/>
+              </div>
+                <div
+                  className={classes.file}
+                >
+                  <File imageDataWState={{ imageData: { id: '', originalName: 'pic.png', alt: '' }, loadingState: { type: 'pending' }}}/>
+                </div> */}
               {state.images.map(imageDataWState => (
                 <div
                   key={imageDataWState.imageData.id}

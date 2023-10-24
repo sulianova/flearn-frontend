@@ -15,6 +15,10 @@
 .row {
   @include is-grid-4;
   padding: set-calc(32) 0 0;
+
+  @include set-media(md) {
+    padding-top: 0;
+  }
 }
 
 .card {
@@ -107,7 +111,7 @@
   justify-content: end;
 
   @include set-media(md) {
-    justify-content: space-between;
+    justify-content: start;
   }
 
   svg {
@@ -120,7 +124,7 @@
     }
 
     @include set-media(md) {
-      height: set-calc(44);
+      height: set-calc(48);
     }
   }
 

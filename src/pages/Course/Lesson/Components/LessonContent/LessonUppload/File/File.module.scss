@@ -3,15 +3,14 @@
 .preview {
   display: block;
   width: 100%;
-  max-height: set-calc(300);
-  margin-bottom: set-calc(16);
+  margin-bottom: set-calc(8);
   object-fit: cover;
   object-position: center;
 
   border-radius: set-calc(8);
 
   @include set-media(md) {
-    height: set-calc(250);
+    max-height: 90vh;
   }
 }
 
@@ -21,4 +20,99 @@
 
 .remove {
   color: $grey-inactive;
+}
+
+.deleteBtn {
+  opacity: 0;
+  transition: opacity;
+  transition-duration: $d-hover;
+
+  @include set-media(md) {
+    opacity: 1;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.deleteBtnBackground {
+  background-color: $black-new;
+  width: set-calc(48);
+  height: set-calc(48);
+  border-radius: 999em;
+}
+
+.deleteBtnBackgroundWrapper {
+  display: flex;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 9;
+  margin: 0;
+  padding: set-calc(12);
+  border: none;
+  outline: none;
+  opacity: 0.5;
+}
+
+.deleteSvgWrapper {
+  display: flex;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 10;
+  margin: 0;
+  padding: set-calc(12);
+  border: none;
+  outline: none;
+  opacity: 1;
+}
+
+.deleteSvg {
+  cursor: pointer;
+  border-radius: 999em;
+  margin-left: set-calc(12);
+  padding: set-calc(12);
+}
+
+.deleteSvg svg {
+  vertical-align: middle;
+  overflow: hidden;
+  width: set-calc(24);
+  height: set-calc(24);
+  fill: none;
+
+  path {
+    stroke: $white;
+  }
+
+  rect {
+    fill: $white;
+  }
+}
+
+.addCaptionWrapper {
+  position: relative;
+}
+
+.addCaption {
+  color: $black;
+  font: inherit;
+
+  background: none;
+  border: none;
+  outline: none;
+
+  border-radius: set-calc(2);
+  text-align: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.addCaption::placeholder {
+  color: $grey;
+
+  @include set-typography(16, 22, 500);
 }
