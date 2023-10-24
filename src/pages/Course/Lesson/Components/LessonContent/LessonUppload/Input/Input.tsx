@@ -3,10 +3,6 @@ import { formatI18nT } from 'shared';
 
 import classes from './Input.module.scss';
 
-import { formatI18nT } from 'shared';
-
-const t = formatI18nT('courseLesson.upload');
-
 export default Input;
 
 const t = formatI18nT('courseLesson.upload');
@@ -21,8 +17,17 @@ function Input(props: Readonly<IProps>) {
   return (
     <div className={classes._}>
       <div className={classes.content}>
-        <label className='s-text-18'>{t('contentInputLabel')}</label>
-        <input placeholder='https://' type='text'/>
+        <label
+          htmlFor={getId('contentInput')}
+          className='s-text-18'
+        >
+          {t('contentInputLabel')}
+        </label>
+        <input
+          id={getId('contentInput')}
+          placeholder='https://'
+          type='text'
+        />
       </div>
     </div>
   );

@@ -144,7 +144,7 @@ function LessonUppload({ user, homeworksState }: IConnectedProps) {
               <div
                 className={classes.file}
               >
-                <File imageDataWState={{ imageData: { id: '', originalName: 'pic.png', alt: '' }, loadingState: { type: 'pending' }}}/>
+                <File imageDataWState={{ imageData: { id: '', originalName: 'pic.png', alt: '', src: '' }, loadingState: { type: 'pending' }}}/>
               </div>
                 {/* <div
                   className={classes.file}

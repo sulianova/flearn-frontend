@@ -3,10 +3,6 @@ import { formatI18nT } from 'shared';
 
 import classes from './Textarea.module.scss';
 
-import { formatI18nT } from 'shared';
-
-const t = formatI18nT('courseLesson.upload');
-
 export default Textarea;
 
 const t = formatI18nT('courseLesson.upload');
@@ -28,7 +24,7 @@ function Textarea(props: Readonly<IProps>) {
             onChange={e => props.onChange(e.target.value)}
             id={getId('description')}
             rows={1}
-            placeholder={t('descriptionInputPlaceholder')}
+            placeholder={t('contentTextareaPlaceholder')}
           />
         </div>
       </div>
