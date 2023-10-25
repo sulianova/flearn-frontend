@@ -25,6 +25,7 @@ export default connect(mapStateToProps)(LessonUppload);
 
 const t = formatI18nT('courseLesson.upload');
 const cx = classNames.bind(classes);
+const MAX_IMAGE_SIZE_B = 5 * 1_000_000;
 
 interface IConnectedProps {
   user: IUserData
@@ -184,6 +185,10 @@ function LessonUppload({ user, homeworksState }: IConnectedProps) {
   async function handleUploadImage(props: { file: File, imageData: IHomeworkImageData }) {
     const { file, imageData } = props;
     try {
+      if (file.size > MAX_IMAGE_SIZE_B) {
+        throw new Error('Image size is bigger than 5Mb');
+      }
+
       await dataService.homework.uploadImage({ courseId: state.courseId, lessonId: state.lessonId, userId: state.userId, imageId: imageData.id, file });
 
       const imageSrc = await dataService.homework.getImageURL({ courseId: state.courseId, lessonId: state.lessonId, userId: state.userId, imageId: imageData.id });

@@ -30,27 +30,42 @@ function File(props: IProps) {
           <button className={classes.deleteSvg}><Trash/></button>
         </div>
       </div>
-      <Img className={classes.preview} src={imageData.src} alt={'alt'}/>
-      <State loadingState={loadingState}/>
-      <div className={classes.addCaptionWrapper}>
-        <input className={classes.addCaption} type="text" placeholder="Добавить описание"/>
-      </div>
+      <Img className={classes.preview} src={imageData.src} alt={imageData.alt} />
+      <State originalName={imageData.originalName} loadingState={loadingState} />
+      <ImageCaption loadingState={loadingState} />
     </Fragment>
   );
 }
 
-function State(props: { loadingState: TLoadingState }) {
+function State(props: { originalName: string, loadingState: TLoadingState }) {
   if (props.loadingState.type === 'pending') {
     return <Spinner/>;
   }
 
   if (props.loadingState.type === 'error') {
     return (
-      <div className={classes.error}>
-        {props.loadingState.error ? props.loadingState.error : 'Error'}
-      </div>
+      <>
+        <div className={classes.error}>
+          {props.loadingState.error ? props.loadingState.error : 'Error'}
+        </div>
+        <div className={classes.originalName}>
+          {props.originalName}
+        </div>
+      </>
     );
   }
 
   return null;
+}
+
+function ImageCaption(props: { loadingState: TLoadingState }) {
+  if (props.loadingState.type === 'error') {
+    return null;
+  }
+
+  return (
+    <div className={classes.addCaptionWrapper}>
+      <input className={classes.addCaption} type="text" placeholder="Добавить описание"/>
+    </div>
+  );
 }
