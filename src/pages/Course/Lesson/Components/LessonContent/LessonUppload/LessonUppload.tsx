@@ -160,6 +160,7 @@ function LessonUppload({ user, homeworksState }: IConnectedProps) {
                     userId={state.userId}
                     imageDataWState={imageDataWState}
                     onCaptionError={onCaptionError}
+                    handleDeleteImage={handleDeleteImage}
                   />
                 </div>
               ))}
@@ -227,6 +228,42 @@ function LessonUppload({ user, homeworksState }: IConnectedProps) {
     }
   }
 
+  async function handleDeleteImage(props: { imageId: string }) {
+    const image = state.images.find(i => i.imageData.id === props.imageId);
+    if (!image) {
+      return;
+    }
+
+    dispatch({ type: 'CHANGE_IMAGE', payload: {
+      imageDataWState: {
+        loadingState: { type: 'pending' },
+        imageData: image.imageData,
+      }
+    }});
+
+    await dataService.homework.get(state.courseId, state.lessonId, state.userId)
+      .then(hw => {
+        const imageIndex =  hw.images.findIndex(i => i.id === props.imageId);
+
+        if (imageIndex === -1) {
+          return;
+        }
+
+        // change images array wo re-asigning array object
+        hw.images.splice(imageIndex, 1);
+        return dataService.homework.patch(state.id, { images: hw.images });
+      })
+      .then(() => dispatch({ type: 'END_DELETE_IMAGE', payload: props }))
+      .catch(err => {
+        dispatch({ type: 'CHANGE_IMAGE', payload: {
+          imageDataWState: {
+            loadingState: { type: 'error', error: String(err) },
+            imageData: image.imageData,
+          }
+        }});
+      })
+  }
+
   async function handleSubmit(state: TState) {
     if (isDisabled(state)) {
       return;
@@ -282,7 +319,11 @@ function reducer(state: TState, action: TAction): TState {
     }
 
     case 'END_DELETE_IMAGE': {
-      const imageIndex = findImageIndexOrFail(state, action.payload.imageId);
+      const imageIndex =  state.images.findIndex(i => i.imageData.id === action.payload.imageId);
+
+      if (imageIndex === -1) {
+        return state;
+      }
 
       // change images array wo re-asigning array object
       state.images.splice(imageIndex, 1);

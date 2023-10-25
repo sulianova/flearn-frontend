@@ -22,6 +22,7 @@ interface IProps {
   lessonId: string
   userId: string
   imageDataWState: TImageDataWState
+  handleDeleteImage: (props: { imageId: string }) => void
   onCaptionError: (imageData: IHomeworkImageData, error: Error) => void
 }
 
@@ -35,7 +36,13 @@ function File(props: IProps) {
           <div className={classes.deleteBtnBackground}></div>
         </div>
         <div className={classes.deleteSvgWrapper}>
-          <button className={classes.deleteSvg}><Trash/></button>
+          <button
+            type='button'
+            className={classes.deleteSvg}
+            onClick={() => props.handleDeleteImage({ imageId: imageData.id })}
+          >
+            <Trash/>
+          </button>
         </div>
       </div>
       <Img className={classes.preview} src={imageData.src} alt={imageData.alt} />
