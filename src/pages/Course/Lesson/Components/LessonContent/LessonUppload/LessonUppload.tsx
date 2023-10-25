@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import { useEffect, useReducer } from 'react';
+import { useCallback, useEffect, useReducer } from 'react';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router';
 
@@ -92,6 +92,15 @@ function LessonUppload({ user, homeworksState }: IConnectedProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialHomeworkFetched]);
 
+  const onCaptionError = useCallback((imageData: IHomeworkImageData, error: Error) => {
+    dispatch({ type: 'CHANGE_IMAGE', payload: {
+      imageDataWState: {
+        loadingState: { type: 'error', error: String(error) },
+        imageData: imageData,
+      },
+    }});
+  }, []);
+
   return (
       <form className={classes._} action='' id='upload-form'>
           <div className={classes.nav}>
@@ -145,7 +154,13 @@ function LessonUppload({ user, homeworksState }: IConnectedProps) {
                   key={imageDataWState.imageData.id}
                   className={classes.file}
                 >
-                  <File imageDataWState={imageDataWState}/>
+                  <File
+                    courseId={state.courseId}
+                    lessonId={state.lessonId}
+                    userId={state.userId}
+                    imageDataWState={imageDataWState}
+                    onCaptionError={onCaptionError}
+                  />
                 </div>
               ))}
             </div>
@@ -179,6 +194,7 @@ function LessonUppload({ user, homeworksState }: IConnectedProps) {
       alt: file.name,
       originalName: file.name,
       src: URL.createObjectURL(file),
+      caption: '',
     };
   }
 

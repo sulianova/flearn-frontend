@@ -41,12 +41,14 @@ export interface IHomeworkImageData {
   src: string
   alt: string // same as originalName
   originalName: string
+  caption: string
 }
 
 export interface IHomeworkImageDataDB {
   id: string
   alt: string // same as originalName
   originalName: string
+  caption: string
 }
 
 export type IHomeworkPopulateRequest = {
