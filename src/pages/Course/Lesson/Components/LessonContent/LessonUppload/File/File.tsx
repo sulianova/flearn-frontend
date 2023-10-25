@@ -5,7 +5,9 @@ import Trash from 'assets/images/Svg/Trash';
 
 import { formatI18nT } from 'shared';
 
-import type { TImageDataWState } from '../types';
+import type { TImageDataWState, TLoadingState } from '../types';
+import Spinner from 'ui/Spinner/Spinner';
+import Img from 'ui/Img/Img';
 
 export default File;
 
@@ -17,10 +19,6 @@ interface IProps {
 
 function File(props: IProps) {
   const { loadingState, imageData } = props.imageDataWState;
-  const stateTxt =
-    loadingState.type === 'pending' ? ' - Pending' :
-    loadingState.type === 'success' ? ' - Loaded' :
-    loadingState.type === 'error' ? ` - ${loadingState.error}` : undefined;
 
   return (
     <Fragment>
@@ -32,11 +30,27 @@ function File(props: IProps) {
           <button className={classes.deleteSvg}><Trash/></button>
         </div>
       </div>
-      <img className={classes.preview} src={imageData.src ?? Image3}/>
+      <Img className={classes.preview} src={imageData.src} alt={'alt'}/>
+      <State loadingState={loadingState}/>
       <div className={classes.addCaptionWrapper}>
         <input className={classes.addCaption} type="text" placeholder="Добавить описание"/>
       </div>
-      {/* <div className={classes.name + ' s-text-18'}>{imageData.originalName}{stateTxt}</div> */}
     </Fragment>
   );
+}
+
+function State(props: { loadingState: TLoadingState }) {
+  if (props.loadingState.type === 'pending') {
+    return <Spinner/>;
+  }
+
+  if (props.loadingState.type === 'error') {
+    return (
+      <div className={classes.error}>
+        {props.loadingState.error ? props.loadingState.error : 'Error'}
+      </div>
+    );
+  }
+
+  return null;
 }

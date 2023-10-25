@@ -45,7 +45,7 @@ export type TImageDataWState = {
   imageData: IHomeworkImageData
 };
 
-type TLoadingState =
+export type TLoadingState =
   | { type: 'idle' }
   | { type: 'pending' }
   | { type: 'success' }

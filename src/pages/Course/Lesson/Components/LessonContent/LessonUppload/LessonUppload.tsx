@@ -131,8 +131,6 @@ function LessonUppload({ user, homeworksState }: IConnectedProps) {
           <div className={classes.files}>
             <div className={classes.filesHeader}>
               <div className={classes.filesTitle + ' s-text-36'}>{t('filesTitle')}</div>
-              {/* <input onChange={handleAddImages} type='file' multiple hidden id='added-files'/>
-              <label className={classes.filesBtn} htmlFor='added-files'>{t('filesBtn')}</label> */}
             </div>
             <div className={classes.filesContent}>
               <input onChange={handleAddImages} type='file' multiple hidden id='added-files'/>
@@ -141,26 +139,6 @@ function LessonUppload({ user, homeworksState }: IConnectedProps) {
                 <div className='s-text18'>{t('filesEmpty1')}</div>
                 <div className='s-text-14'>{t('filesEmpty2')}</div>
               </label>
-              <div
-                className={classes.file}
-              >
-                <File imageDataWState={{ imageData: { id: '', originalName: 'pic.png', alt: '', src: '' }, loadingState: { type: 'pending' }}}/>
-              </div>
-                {/* <div
-                  className={classes.file}
-                >
-                  <File imageDataWState={{ imageData: { id: '', originalName: 'pic.png', alt: '' }, loadingState: { type: 'pending' }}}/>
-                </div>
-                <div
-                className={classes.file}
-              >
-                <File imageDataWState={{ imageData: { id: '', originalName: 'pic.png', alt: '' }, loadingState: { type: 'pending' }}}/>
-              </div>
-                <div
-                  className={classes.file}
-                >
-                  <File imageDataWState={{ imageData: { id: '', originalName: 'pic.png', alt: '' }, loadingState: { type: 'pending' }}}/>
-                </div> */}
               {state.images.map(imageDataWState => (
                 <div
                   key={imageDataWState.imageData.id}
