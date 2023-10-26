@@ -30,14 +30,8 @@ function Img(props: Readonly<IProps>) {
         src={src}
         className={cx(className, { Hidden: imgStatus !== 'loaded' })}
         loading={lazy ? 'lazy' : undefined }
-        onLoad={() => {
-          console.log('onLoad');
-          setImgStatus('loaded')
-        }}
-        onError={() => {
-          console.log('onFailed');
-          setImgStatus('failed')
-        }}
+        onLoad={() => setImgStatus('loaded')}
+        onError={() => setImgStatus('failed')}
       />
     );
   }
