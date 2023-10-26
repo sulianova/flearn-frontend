@@ -1,6 +1,8 @@
 import { useGetId } from 'hooks';
 import { formatI18nT } from 'shared';
 
+import UITextarea from 'ui/Form/Textarea/Textarea';
+
 import classes from './Textarea.module.scss';
 
 export default Textarea;
@@ -19,13 +21,21 @@ function Textarea(props: Readonly<IProps>) {
       <div className={classes.content}>
         <label className='s-text-18'>{t('contentTextareaLabel')}</label>
         <div className={classes.contentInner + ' s-text-18'}>
-          <textarea
+          <UITextarea
+              value={props.value}
+              onChange={e => props.onChange(e.target.value)}
+              id={getId('description')}
+              rows={1}
+              placeholder={t('contentTextareaPlaceholder')}
+              resizable='vertical-auto'
+          />
+          {/* <textarea
             value={props.value}
             onChange={e => props.onChange(e.target.value)}
             id={getId('description')}
             rows={1}
             placeholder={t('contentTextareaPlaceholder')}
-          />
+          /> */}
         </div>
       </div>
     </div>
