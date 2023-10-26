@@ -1,4 +1,4 @@
-import { IHomeworkImageData, IHomeworkImageDataDB, THomeworkState } from 'types';
+import { IHomeworkImageData, THomeworkState } from 'types';
 
 export type TAction =
   | {

@@ -20,6 +20,7 @@ import classes from './LessonUppload.module.scss';
 
 import { TAction, TImageDataWState, TState } from './types';
 import { IHomeworkData, IHomeworkImageData, IHomeworksState, IRootState, IUserData } from 'types';
+import { debounce } from 'lodash';
 
 export default connect(mapStateToProps)(LessonUppload);
 
@@ -97,11 +98,23 @@ function LessonUppload({ user, homeworksState }: IConnectedProps) {
     }});
   }, []);
 
+  const handleSaveDescriptionAndLink = useCallback(debounce(async (props: {
+    id: string
+    description: string
+    externalHomeworkLink: string
+  }) => {
+    const { id, ...patch } = props;
+    return dataService.homework.patch(id, patch)
+      .catch(err => {
+        dispatch({ type: 'PATCH_STATE', payload: { formState: { type: 'error', error: String(err) } } });
+      });
+  }, 300), []);
+
   return (
       <form className={classes._} action='' id='upload-form'>
           <div className={classes.nav}>
             <div className={classes.submit}>
-              <button className={cx({submitBtn: true, isDisabled: false})+ ' s-text-16-18'} type='submit' disabled>{t('submitBtn')}</button>
+              <button className={cx({submitBtn: true, isDisabled: false })+ ' s-text-16-18'} type='submit' disabled>{t('submitBtn')}</button>
               {/* <div className={classes.submitDescription + ' s-text-14'}>{t('submitDescription')} </div> */}
             </div>
           </div>
@@ -111,11 +124,17 @@ function LessonUppload({ user, homeworksState }: IConnectedProps) {
             <div className={classes.fieldsInner}>
               <Textarea
                 value={state.description}
-                onChange={description => dispatch({ type: 'PATCH_STATE', payload: { description } })}
+                onChange={description => {
+                  dispatch({ type: 'PATCH_STATE', payload: { description } });
+                  handleSaveDescriptionAndLink({ id: state.id, description, externalHomeworkLink: state.externalHomeworkLink });
+                }}
               />
               <Input
                   value={state.externalHomeworkLink}
-                  onChange={externalHomeworkLink => dispatch({ type: 'PATCH_STATE', payload: { externalHomeworkLink } })}
+                  onChange={externalHomeworkLink => {
+                    dispatch({ type: 'PATCH_STATE', payload: { externalHomeworkLink } });
+                    handleSaveDescriptionAndLink({ id: state.id, description: state.description, externalHomeworkLink });
+                  }}
               />
             </div>
             <div className={classes.save}>
@@ -356,4 +375,12 @@ function isDisabled(state: TState) {
   const someImagesArePendingOrFailed = state.images.some(({ loadingState }) => ['pending', 'error'].includes(loadingState.type));
 
   return formIsPending || hasNoSource || someImagesArePendingOrFailed;
+}
+
+async function handleSaveDescriptionAndLink(props: {
+  id: string
+  description: string
+  externalHomeworkLink: string
+}) {
+  await dataService.homework.patch(props.id, { description: props.description, externalHomeworkLink: props.externalHomeworkLink })
 }

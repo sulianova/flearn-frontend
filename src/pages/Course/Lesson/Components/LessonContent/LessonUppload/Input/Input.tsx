@@ -27,6 +27,8 @@ function Input(props: Readonly<IProps>) {
           id={getId('contentInput')}
           placeholder='https://'
           type='text'
+          value={props.value}
+          onChange={e => props.onChange(e.target.value)}
         />
       </div>
     </div>
