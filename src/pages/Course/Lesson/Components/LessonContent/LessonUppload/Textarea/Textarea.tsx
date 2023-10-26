@@ -29,13 +29,6 @@ function Textarea(props: Readonly<IProps>) {
               placeholder={t('contentTextareaPlaceholder')}
               resizable='vertical-auto'
           />
-          {/* <textarea
-            value={props.value}
-            onChange={e => props.onChange(e.target.value)}
-            id={getId('description')}
-            rows={1}
-            placeholder={t('contentTextareaPlaceholder')}
-          /> */}
         </div>
       </div>
     </div>
