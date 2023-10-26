@@ -1,13 +1,11 @@
 import classNames from 'classnames/bind';
+import { debounce } from 'lodash';
 import { useCallback, useEffect, useReducer } from 'react';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router';
 
 import { dataService } from 'services';
 import { formatI18nT } from 'shared';
-import { type IFetchHomeworksPayload, fetchHomeworks } from 'store/actions/sagas';
-
-import { useFetch } from 'hooks';
 
 import File from './File/File';
 import Input from './Input/Input';
@@ -19,8 +17,7 @@ import Upload from 'assets/images/Svg/Upload';
 import classes from './LessonUppload.module.scss';
 
 import { TAction, TImageDataWState, TState } from './types';
-import { IHomeworkData, IHomeworkImageData, IHomeworksState, IRootState, IUserData } from 'types';
-import { debounce } from 'lodash';
+import { IHomeworkData, IHomeworkDataWPopulate, IHomeworkImageData, IRootState, IUserData } from 'types';
 
 export default connect(mapStateToProps)(LessonUppload);
 
@@ -30,68 +27,54 @@ const MAX_IMAGE_SIZE_B = 5 * 1_000_000;
 
 interface IConnectedProps {
   user: IUserData
-  homeworksState: IHomeworksState
 }
 
 function mapStateToProps(state: IRootState): IConnectedProps {
   return {
     user: state.user.user!,
-    homeworksState: state.homeworks,
   }
 }
 
-function LessonUppload({ user, homeworksState }: IConnectedProps) {
+interface IProps extends IConnectedProps {
+  homeworkWPopulate?: IHomeworkDataWPopulate
+  setUploadIsVisible: (value: boolean) => void
+}
+
+function LessonUppload({ homeworkWPopulate, setUploadIsVisible, user }: IProps) {
   const { courseId, lessonId } = useParams();
   const [state, dispatch] = useReducer(reducer, { user, courseId: courseId!, lessonId: lessonId! }, initState);
 
-  useFetch<IFetchHomeworksPayload>({
-    actionCreator: fetchHomeworks,
-    payload: {
-      filter: {
-        id: dataService.homework.getFullId(courseId!, lessonId!, user.id),
-        courseId: courseId!,
-        lessonId: lessonId!,
-      },
-      populate: {
-        user: true,
-      },
-    },
-  });
-
-  const initialHomeworkFetched = homeworksState.state?.type === 'idle';
   useEffect(() => {
-    let homework = homeworksState.homeworks?.[0]?.homework;
-    if (initialHomeworkFetched) {
-      if (!homework) {
-        const newHomework: IHomeworkData = {
-          id: state.id,
-          userId: state.userId,
-          courseId: state.courseId,
-          lessonId: state.lessonId,
-          description: '',
-          externalHomeworkLink: '',
-          images: [],
-          state: 'DRAFT',
-        };
-        dataService.homework.set(state.id, newHomework)
-          .catch(err => dispatch({ type: 'PATCH_STATE', payload: { formState: { type: 'error', error: String(err) }} }));
+    let homework = homeworkWPopulate?.homework;
+    if (!homework) {
+      const newHomework: IHomeworkData = {
+        id: state.id,
+        userId: state.userId,
+        courseId: state.courseId,
+        lessonId: state.lessonId,
+        description: '',
+        externalHomeworkLink: '',
+        images: [],
+        state: 'DRAFT',
+      };
+      dataService.homework.set(state.id, newHomework)
+        .catch(err => dispatch({ type: 'PATCH_STATE', payload: { formState: { type: 'error', error: String(err) }} }));
 
-        return;
-      }
-
-      dispatch({
-        type: 'PATCH_STATE',
-        payload: {
-          description: homework.description,
-          externalHomeworkLink: homework.externalHomeworkLink,
-          images: homework.images.map(imageData => ({ imageData, loadingState: { type: 'idle' } })),
-          homeworkState: homework.state,
-        },
-      });
+      return;
     }
+
+    dispatch({
+      type: 'PATCH_STATE',
+      payload: {
+        description: homework.description,
+        externalHomeworkLink: homework.externalHomeworkLink,
+        images: homework.images.map(imageData => ({ imageData, loadingState: { type: 'idle' } })),
+        homeworkState: homework.state,
+      },
+    });
     // ignore because we need to fill state only on init form
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [initialHomeworkFetched]);
+  }, []);
 
   const onCaptionError = useCallback((imageData: IHomeworkImageData, error: Error) => {
     dispatch({ type: 'CHANGE_IMAGE', payload: {
@@ -288,6 +271,7 @@ function LessonUppload({ user, homeworksState }: IConnectedProps) {
       await dataService.homework.patch(state.id, { state: 'SENT_FOR_REVIEW' });
 
       dispatch({ type: 'PATCH_STATE', payload: { formState: { type: 'success' }}});
+      setUploadIsVisible(false);
     } catch (err) {
       const error = err as Error;
       console.error('Failed to submit HW', { error });

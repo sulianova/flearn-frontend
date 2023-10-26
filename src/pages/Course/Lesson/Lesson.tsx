@@ -73,6 +73,15 @@ function Lesson(props: IProps) {
     },
   });
 
+  useEffect(() => {
+    if (homeworksState.state?.type === 'idle') {
+      const homework = homeworksState.homeworks?.[0];
+      if (!homework || homework.homework.state === 'DRAFT') {
+        setUploadIsVisible(true);
+      }
+    }
+  }, [homeworksState.state?.type])
+
   const fallback = useLessonFallback(lessonState);
   if (!lessonState.data) {
     return fallback;
@@ -99,7 +108,10 @@ function Lesson(props: IProps) {
         />)
       }
       {section === 'task' && uploadIsVisible && (!homework || ['DRAFT', 'SENT_FOR_REVIEW'].includes(homework.homework.state)) &&
-        <LessonUppload/>
+        <LessonUppload
+          homeworkWPopulate={homework}
+          setUploadIsVisible={setUploadIsVisible}
+        />
       }
       {section === 'results' &&
         (<LessonWorks
