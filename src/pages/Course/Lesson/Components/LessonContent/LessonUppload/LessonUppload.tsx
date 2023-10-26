@@ -70,22 +70,18 @@ function LessonUppload({ user, homeworksState }: IConnectedProps) {
           state: 'DRAFT',
         };
         dataService.homework.set(state.id, newHomework)
-          .catch(err => dispatch({ type: 'CHANGE_STATE', payload: { formState: { type: 'error', error: String(err) }} }));
+          .catch(err => dispatch({ type: 'PATCH_STATE', payload: { formState: { type: 'error', error: String(err) }} }));
+
         return;
       }
 
       dispatch({
-        type: 'CHANGE_INPUT',
+        type: 'PATCH_STATE',
         payload: {
           description: homework.description,
           externalHomeworkLink: homework.externalHomeworkLink,
+          images: homework.images.map(imageData => ({ imageData, loadingState: { type: 'idle' } })),
         },
-      });
-      const images = homework.images ?? [];
-      images.forEach(imageData => {
-        dispatch({ type: 'CHANGE_IMAGE', payload: {
-          imageDataWState: { imageData, loadingState: { type: 'idle' } },
-        }});
       });
     }
     // ignore because we need to fill state only on init form
@@ -115,11 +111,11 @@ function LessonUppload({ user, homeworksState }: IConnectedProps) {
             <div className={classes.fieldsInner}>
               <Textarea
                 value={state.description}
-                onChange={description => dispatch({ type: 'CHANGE_INPUT', payload: { description } })}
+                onChange={description => dispatch({ type: 'PATCH_STATE', payload: { description } })}
               />
               <Input
                   value={state.externalHomeworkLink}
-                  onChange={externalHomeworkLink => dispatch({ type: 'CHANGE_INPUT', payload: { externalHomeworkLink } })}
+                  onChange={externalHomeworkLink => dispatch({ type: 'PATCH_STATE', payload: { externalHomeworkLink } })}
               />
             </div>
             <div className={classes.save}>
@@ -171,7 +167,6 @@ function LessonUppload({ user, homeworksState }: IConnectedProps) {
   );
 
   async function handleAddImages(e: React.ChangeEvent<HTMLInputElement>) {
-    dataService.homework.generateImageId({ originalName: 'log.png' });
     try {
       const files = e.target.files;
       if (files) {
@@ -185,7 +180,7 @@ function LessonUppload({ user, homeworksState }: IConnectedProps) {
     } catch (err) {
       const error = err as Error;
       console.error('Failed to add images', { error });
-      dispatch({ type: 'CHANGE_STATE', payload: { formState: { type: 'error', error: `Error: Failed to add images. ${error.message}.`}}});
+      dispatch({ type: 'PATCH_STATE', payload: { formState: { type: 'error', error: `Error: Failed to add images. ${error.message}.`}}});
     }
   }
 
@@ -270,15 +265,15 @@ function LessonUppload({ user, homeworksState }: IConnectedProps) {
     }
 
     try {
-      dispatch({ type: 'CHANGE_STATE', payload: { formState: { type: 'pending' }}});
+      dispatch({ type: 'PATCH_STATE', payload: { formState: { type: 'pending' }}});
 
       await dataService.homework.patch(state.id, { state: 'SENT_FOR_REVIEW' });
 
-      dispatch({ type: 'CHANGE_STATE', payload: { formState: { type: 'success' }}});
+      dispatch({ type: 'PATCH_STATE', payload: { formState: { type: 'success' }}});
     } catch (err) {
       const error = err as Error;
       console.error('Failed to submit HW', { error });
-      dispatch({ type: 'CHANGE_STATE', payload: { formState: { type: 'error', error: `Error: Failed to submit homework. ${error.message}.`}}});
+      dispatch({ type: 'PATCH_STATE', payload: { formState: { type: 'error', error: `Error: Failed to submit homework. ${error.message}.`}}});
     }
   }
 }
@@ -299,8 +294,7 @@ function initState(props: { user: IUserData, courseId: string, lessonId: string 
 
 function reducer(state: TState, action: TAction): TState {
   switch(action.type) {
-    case 'CHANGE_STATE':
-    case 'CHANGE_INPUT': {
+    case 'PATCH_STATE': {
       return {
         ...state,
         ...action.payload,

@@ -2,12 +2,8 @@ import { IHomeworkImageData, IHomeworkImageDataDB, THomeworkState } from 'types'
 
 export type TAction =
   | {
-    type: 'CHANGE_STATE'
-    payload: { formState: TLoadingState }
-  }
-  | {
-    type: 'CHANGE_INPUT'
-    payload: { description: string } | { externalHomeworkLink: string } | { description: string, externalHomeworkLink: string }
+    type: 'PATCH_STATE'
+    payload: Partial<TState>
   }
   | {
     type: 'START_ADD_IMAGE'
