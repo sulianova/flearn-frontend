@@ -52,6 +52,9 @@ function LessonUppload({ user, homeworksState }: IConnectedProps) {
         courseId: courseId!,
         lessonId: lessonId!,
       },
+      populate: {
+        user: true,
+      },
     },
   });
 
@@ -82,6 +85,7 @@ function LessonUppload({ user, homeworksState }: IConnectedProps) {
           description: homework.description,
           externalHomeworkLink: homework.externalHomeworkLink,
           images: homework.images.map(imageData => ({ imageData, loadingState: { type: 'idle' } })),
+          homeworkState: homework.state,
         },
       });
     }
@@ -114,8 +118,18 @@ function LessonUppload({ user, homeworksState }: IConnectedProps) {
       <form className={classes._} action='' id='upload-form'>
           <div className={classes.nav}>
             <div className={classes.submit}>
-              <button className={cx({submitBtn: true, isDisabled: false })+ ' s-text-16-18'} type='submit' disabled>{t('submitBtn')}</button>
-              {/* <div className={classes.submitDescription + ' s-text-14'}>{t('submitDescription')} </div> */}
+              <button
+                onClick={() => handleSubmit(state)}
+                className={cx({submitBtn: true, isDisabled: isDisabled(state) })+ ' s-text-16-18'}
+                type='submit'
+                disabled={isDisabled(state)}
+              >
+                {
+                  state.formState.type === 'pending' ? <Spinner/>
+                  : state.formState.type === 'success' ? 'Отправлено'
+                  : t('submitBtn')
+                }
+              </button>
             </div>
           </div>
         <div className={classes.inner}>
@@ -136,21 +150,6 @@ function LessonUppload({ user, homeworksState }: IConnectedProps) {
                     handleSaveDescriptionAndLink({ id: state.id, description: state.description, externalHomeworkLink });
                   }}
               />
-            </div>
-            <div className={classes.save}>
-              <button
-                onClick={() => handleSubmit(state)}
-                className={cx({ submitBtn: true, isDisabled: isDisabled(state) })+ ' s-text-18'}
-                type='submit'
-                disabled={isDisabled(state)}
-              >
-                {
-                  state.formState.type === 'pending' ? <Spinner/>
-                  : state.formState.type === 'success' ? 'Отправлено'
-                  : t('submitBtn')
-                }
-              </button>
-              <div className={classes.submitDescription + ' s-text-14'}>{t('submitDescription')} </div>
             </div>
           </div>
           <div className={classes.files}>
@@ -375,12 +374,4 @@ function isDisabled(state: TState) {
   const someImagesArePendingOrFailed = state.images.some(({ loadingState }) => ['pending', 'error'].includes(loadingState.type));
 
   return formIsPending || hasNoSource || someImagesArePendingOrFailed;
-}
-
-async function handleSaveDescriptionAndLink(props: {
-  id: string
-  description: string
-  externalHomeworkLink: string
-}) {
-  await dataService.homework.patch(props.id, { description: props.description, externalHomeworkLink: props.externalHomeworkLink })
 }

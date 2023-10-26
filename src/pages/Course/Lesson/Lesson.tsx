@@ -34,15 +34,16 @@ function mapStateToProps(state: IRootState): IConnectedProps {
 }
 
 interface IProps extends IConnectedProps {
-  practice: 'task' | 'results'
+  section: 'task' | 'results'
 }
 
 function Lesson(props: IProps) {
-  const { lessonState, practice, homeworksState, authedUserId } = props;
+  const { lessonState, section, homeworksState, authedUserId } = props;
 
   const { courseId, lessonId } = useParams();
   const [guid, refetch] = useGuid();
   const [selectedUser, setSelectedUser] = useState<{ id: string, displayName: string } | null>(null);
+  const [uploadIsVisible, setUploadIsVisible] = useState<boolean>(false);
 
   useEffect(() => {
     refetch();
@@ -65,6 +66,9 @@ function Lesson(props: IProps) {
         courseId: courseId!,
         lessonId: lessonId!,
       },
+      populate: {
+        user: true
+      },
       guid,
     },
   });
@@ -80,20 +84,29 @@ function Lesson(props: IProps) {
     <Page header wrapper='Lesson'>
       <LessonHeader
         lesson={lessonState.data}
-        practice={practice}
+        practice={section}
         selectedUser={selectedUser}
         handleDisselectUser={() => setSelectedUser(null)}
       />
-      {practice === 'task' ?
-        (<>
-          <LessonContent blocks={lessonState.data.content} data={lessonState.data} homework={homework}/>
-          {(lessonState.data.type === 'Practice' && (!homework || ['DRAFT', 'SENT_FOR_REVIEW'].includes(homework.homework.state))) && (<LessonUppload/>)}
-        </>)
-      : (<LessonWorks
-          selectedUser={selectedUser}
-          setSelectedUser={setSelectedUser}
+      {section === 'task' &&
+        (<LessonContent
+          courseId={courseId!}
+          lessonId={lessonId!}
+          blocks={lessonState.data.content}
+          data={lessonState.data}
           homework={homework}
+          setUploadIsVisible={setUploadIsVisible}
         />)
+      }
+      {section === 'task' && uploadIsVisible && (!homework || ['DRAFT', 'SENT_FOR_REVIEW'].includes(homework.homework.state)) &&
+        <LessonUppload/>
+      }
+      {section === 'results' &&
+        (<LessonWorks
+            selectedUser={selectedUser}
+            setSelectedUser={setSelectedUser}
+            homework={homework}
+          />)
       }
     </Page>);
 }
