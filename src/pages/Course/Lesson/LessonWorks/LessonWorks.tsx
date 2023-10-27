@@ -8,9 +8,9 @@ import { dataService } from 'services';
 import { formatI18nT } from 'shared';
 import { IFetchHomeworksPayload, fetchHomeworks } from 'store/actions/sagas';
 
-import LessonReview from '../LessonContent/LessonReview/LessonReview';
+import LessonReview from './LessonReview/LessonReview';
 import LessonWork from './LessonWork/LessonWork';
-import WorkCard from './WorkCard';
+import WorkCard from './WorkCard/WorkCard';
 
 import classes from './LessonWorks.module.scss';
 
