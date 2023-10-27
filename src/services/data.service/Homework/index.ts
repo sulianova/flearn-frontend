@@ -6,9 +6,10 @@ import { ECollections, IHomeworkDataDB, type IHomeworkData, ECommonErrorTypes } 
 import { homeworkConverter } from './homeworkConverter';
 
 interface IHomeworksFilter {
-  id?: string
   courseId: string
-  lessonId: string
+  lessonId?: string
+  userId?: string
+  id?: string
 }
 class Homework {
   public async get(courseId: string, lessonId: string, userId: string) {

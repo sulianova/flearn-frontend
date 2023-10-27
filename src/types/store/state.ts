@@ -29,7 +29,7 @@ export enum ECommonErrorTypes {
   Other = 'other',
 }
 
-type TStateState<T> =
+export type TStateState<T> =
   | { type: 'idle' }
   | { type: 'pending' }
   | { type: 'error', error: Error, errorType: T };

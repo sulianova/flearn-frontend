@@ -1,5 +1,6 @@
 import type { IArticleContent } from './article';
 import type { TText } from './course';
+import { ECommonErrorTypes, TStateState } from './store';
 import type { IUserData } from './user';
 
 export interface IHomeworkData {
@@ -61,3 +62,5 @@ export interface IHomeworkDataWPopulate {
     user?: IUserData
   }
 }
+
+export type THomeworkStateState = TStateState<ECommonErrorTypes>;

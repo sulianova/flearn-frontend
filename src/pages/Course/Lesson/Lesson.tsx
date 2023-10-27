@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { useParams } from 'react-router';
 
 import { useFetch, useGuid } from 'hooks';
-import { dataService } from 'services';
+import { dataService, homeworkService } from 'services';
 import { fetchHomeworks, fetchLesson } from 'store/actions/sagas';
 
 import Page from 'ui/Page/Page';
@@ -12,10 +12,11 @@ import LessonUppload from './LessonUppload/LessonUppload';
 import LessonWorks from './LessonWorks/LessonWorks';
 import LessonHeader from './LessonHeader/LessonHeader';
 
+import useHomeworkFallback from './useHomeworkFallback';
 import useLessonFallback from './useLessonFallback';
 
-import type { IFetchHomeworksPayload, IFetchLessonPayload } from 'store/actions/sagas';
-import type { IHomeworksState, ILessonState, IRootState } from 'types';
+import { type IHomeworksState, type ILessonState, type IRootState, type IHomeworkDataWPopulate, type THomeworkStateState, ECommonErrorTypes } from 'types';
+import { Subscription } from 'rxjs';
 
 export default connect(mapStateToProps)(Lesson);
 
@@ -38,56 +39,60 @@ interface IProps extends IConnectedProps {
 }
 
 function Lesson(props: IProps) {
-  const { lessonState, section, homeworksState, authedUserId } = props;
+  const { lessonState, section, authedUserId } = props;
 
   const { courseId, lessonId } = useParams();
-  const [guid, refetch] = useGuid();
   const [selectedUser, setSelectedUser] = useState<{ id: string, displayName: string } | null>(null);
   const [uploadIsVisible, setUploadIsVisible] = useState<boolean>(false);
+  const [homework, setHomework] = useState<IHomeworkDataWPopulate | undefined>(undefined);
+  const [homeworkState, setHomeworkState] = useState<THomeworkStateState>({ type: 'idle' });
 
   useEffect(() => {
-    refetch();
-  }, [authedUserId]);
+    if (!courseId || !lessonId || !authedUserId) {
+      return;
+    }
 
-  useFetch<IFetchLessonPayload  & { guid: string }>({
-    actionCreator: fetchLesson,
-    payload: {
-      courseId: courseId!,
-      lessonId: lessonId!,
-      guid,
-    },
-  });
+    setHomeworkState({ type: 'pending' });
+    let subscription: Subscription;
+    homeworkService.getHomeworkBS({
+      filter: { courseId, lessonId, userId: authedUserId },
+      populate: { user: true },
+    }).then(bs => {
+      subscription = bs.subscribe(e => {
+        if (e && !(e instanceof Error)) {
+          if (e.homeworks.length) {
+            setHomework(e.homeworks[0]);
+            setHomeworkState({ type: 'idle' });
+          }
+        }
 
-  useFetch<IFetchHomeworksPayload  & { guid: string }>({
-    actionCreator: fetchHomeworks,
-    payload: {
-      filter: {
-        id: dataService.homework.getFullId(courseId!, lessonId!, authedUserId ?? ''),
-        courseId: courseId!,
-        lessonId: lessonId!,
-      },
-      populate: {
-        user: true
-      },
-      guid,
-    },
-  });
+        if (e instanceof Error) {
+          const errorType = homeworkService.errorToType(e);
+          setHomeworkState({ type: 'error', error: e, errorType });
+        }
+      });
+    });
+
+    return () => subscription?.unsubscribe();
+  }, [courseId, lessonId, authedUserId]);
 
   useEffect(() => {
-    if (homeworksState.state?.type === 'idle') {
-      const homework = homeworksState.homeworks?.[0];
+    if (homeworkState.type === 'idle') {
       if (!homework || homework.homework.state === 'DRAFT') {
         setUploadIsVisible(true);
       }
     }
-  }, [homeworksState.state?.type])
+  }, [homeworkState])
 
   const fallback = useLessonFallback(lessonState);
+  const homeworkFallback = useHomeworkFallback(homeworkState);
   if (!lessonState.data) {
     return fallback;
   }
 
-  const homework = homeworksState.homeworks?.[0];
+  if (!homework) {
+    return homeworkFallback;
+  }
 
   return (
     <Page header wrapper='Lesson'>
