@@ -7,10 +7,10 @@ import { dataService } from 'services';
 import { fetchHomeworks, fetchLesson } from 'store/actions/sagas';
 
 import Page from 'ui/Page/Page';
-import LessonContent from './Components/LessonContent/LessonContent';
-import LessonUppload from './Components/LessonUppload/LessonUppload';
-import LessonWorks from './Components/LessonWorks/LessonWorks';
-import LessonHeader from './Components/LessonHeader/LessonHeader';
+import LessonContent from './LessonContent/LessonContent';
+import LessonUppload from './LessonUppload/LessonUppload';
+import LessonWorks from './LessonWorks/LessonWorks';
+import LessonHeader from './LessonHeader/LessonHeader';
 
 import useLessonFallback from './useLessonFallback';
 
