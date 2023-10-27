@@ -8,8 +8,8 @@ import { fetchHomeworks, fetchLesson } from 'store/actions/sagas';
 
 import Page from 'ui/Page/Page';
 import LessonContent from './Components/LessonContent/LessonContent';
-import LessonUppload from './Components/LessonContent/LessonUppload/LessonUppload';
-import LessonWorks from './Components/LessonContent/LessonWorks/LessonWorks';
+import LessonUppload from './Components/LessonUppload/LessonUppload';
+import LessonWorks from './Components/LessonWorks/LessonWorks';
 import LessonHeader from './Components/LessonHeader/LessonHeader';
 
 import useLessonFallback from './useLessonFallback';
