@@ -1,12 +1,15 @@
 import { Fragment } from 'react';
-import { IHomeworkData, IHomeworkDataWPopulate, ILessonContent, ILessonData, URLSections } from 'types';
-import classes from './LessonContent.module.scss';
-
-import Article from 'ui/Article/Article';
-import Link from 'ui/Link/Link';
-import Edit from 'assets/images/Svg/Edit';
 
 import { formatI18nT } from 'shared';
+
+import Edit from 'assets/images/Svg/Edit';
+import Article from 'ui/Article/Article';
+import Link from 'ui/Link/Link';
+
+import classes from './LessonContent.module.scss';
+
+import { URLSections } from 'types';
+import type { IHomeworkDataWPopulate, ILessonContent, ILessonData } from 'types';
 
 export default LessonContent;
 

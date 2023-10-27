@@ -4,7 +4,7 @@ import Article from 'ui/Article/Article';
 
 import classes from './LessonReview.module.scss';
 
-import { IHomeworkDataWPopulate } from 'types';
+import type { IHomeworkDataWPopulate } from 'types';
 
 export default LessonReview;
 
