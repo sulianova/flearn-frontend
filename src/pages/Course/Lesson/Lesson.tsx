@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router';
 
-import { useFetch, useGuid } from 'hooks';
-import { dataService, homeworkService } from 'services';
-import { fetchHomeworks, fetchLesson } from 'store/actions/sagas';
+import { useFetch } from 'hooks';
+import { homeworkService } from 'services';
+import { IFetchLessonPayload, fetchLesson } from 'store/actions/sagas';
 
 import Page from 'ui/Page/Page';
 import LessonContent from './LessonContent/LessonContent';
@@ -47,6 +47,14 @@ function Lesson(props: IProps) {
   const [homework, setHomework] = useState<IHomeworkDataWPopulate | undefined>(undefined);
   const [homeworkState, setHomeworkState] = useState<THomeworkStateState>({ type: 'idle' });
 
+  useFetch<IFetchLessonPayload>(({
+    actionCreator: fetchLesson,
+    payload: {
+      courseId: courseId!,
+      lessonId: lessonId!,
+    }
+  }));
+
   useEffect(() => {
     if (!courseId || !lessonId || !authedUserId) {
       return;
@@ -60,10 +68,8 @@ function Lesson(props: IProps) {
     }).then(bs => {
       subscription = bs.subscribe(e => {
         if (e && !(e instanceof Error)) {
-          if (e.homeworks.length) {
-            setHomework(e.homeworks[0]);
-            setHomeworkState({ type: 'idle' });
-          }
+          setHomework(e.homeworks[0]);
+          setHomeworkState({ type: 'idle' });
         }
 
         if (e instanceof Error) {
@@ -90,7 +96,7 @@ function Lesson(props: IProps) {
     return fallback;
   }
 
-  if (!homework) {
+  if (!homework && homeworkFallback) {
     return homeworkFallback;
   }
 
