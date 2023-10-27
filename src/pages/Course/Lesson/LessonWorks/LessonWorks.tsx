@@ -1,17 +1,20 @@
 import classNames from 'classnames/bind';
-import { useMemo, useState } from 'react';
-import { Fragment } from 'react';
+import { Fragment, useMemo } from 'react';
+import { connect } from 'react-redux';
+import { useParams } from 'react-router';
+
+import { useFetch } from 'hooks';
+import { dataService } from 'services';
 import { formatI18nT } from 'shared';
-import { IHomeworkData, IHomeworkDataWPopulate, IHomeworksState, IRootState } from 'types';
+import { IFetchHomeworksPayload, fetchHomeworks } from 'store/actions/sagas';
+
 import LessonReview from '../LessonContent/LessonReview/LessonReview';
 import LessonWork from './LessonWork/LessonWork';
-import classes from './LessonWorks.module.scss';
 import WorkCard from './WorkCard';
-import { useParams } from 'react-router';
-import { useFetch } from 'hooks';
-import { IFetchHomeworksPayload, fetchHomeworks } from 'store/actions/sagas';
-import { dataService } from 'services';
-import { connect } from 'react-redux';
+
+import classes from './LessonWorks.module.scss';
+
+import type { IHomeworkData, IHomeworkDataWPopulate, IHomeworksState, IRootState } from 'types';
 
 export default connect(mapStateToProps)(LessonWorks);
 
