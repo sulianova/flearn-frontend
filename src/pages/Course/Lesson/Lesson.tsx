@@ -83,6 +83,19 @@ function Lesson(props: IProps) {
   }, [courseId, lessonId, authedUserId]);
 
   useEffect(() => {
+    if (!courseId || !lessonId || !authedUserId) {
+      return;
+    }
+
+    homeworkService.getHomework({ courseId, lessonId, userId: authedUserId })
+      .catch(() => {
+        // homework doesn't exist
+        return homeworkService.createHomework({ courseId, lessonId, userId: authedUserId });
+      })
+      .catch(_err => { /* error already handled */});
+  }, [courseId, lessonId, authedUserId]);
+
+  useEffect(() => {
     if (homeworkState.type === 'idle') {
       if (!homework || homework.homework.state === 'DRAFT') {
         setUploadIsVisible(true);
@@ -96,7 +109,7 @@ function Lesson(props: IProps) {
     return fallback;
   }
 
-  if (!homework && homeworkFallback) {
+  if (!homework) {
     return homeworkFallback;
   }
 
@@ -115,13 +128,11 @@ function Lesson(props: IProps) {
           blocks={lessonState.data.content}
           data={lessonState.data}
           homework={homework}
-          setUploadIsVisible={setUploadIsVisible}
         />)
       }
-      {section === 'task' && uploadIsVisible && (!homework || ['DRAFT', 'SENT_FOR_REVIEW'].includes(homework.homework.state)) &&
+      {section === 'task' && homework?.homework?.state === 'DRAFT' &&
         <LessonUppload
           homeworkWPopulate={homework}
-          setUploadIsVisible={setUploadIsVisible}
         />
       }
       {section === 'results' &&

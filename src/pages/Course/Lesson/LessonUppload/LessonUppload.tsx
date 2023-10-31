@@ -4,7 +4,7 @@ import { useCallback, useEffect, useReducer } from 'react';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router';
 
-import { dataService } from 'services';
+import { homeworkService } from 'services';
 import { formatI18nT } from 'shared';
 
 import File from './File/File';
@@ -23,7 +23,7 @@ export default connect(mapStateToProps)(LessonUppload);
 
 const t = formatI18nT('courseLesson.upload');
 const cx = classNames.bind(classes);
-const MAX_IMAGE_SIZE_B = 5 * 1_000_000;
+const MAX_IMAGE_SIZE_B = 3 * 1_000_000;
 
 interface IConnectedProps {
   user: IUserData
@@ -36,45 +36,12 @@ function mapStateToProps(state: IRootState): IConnectedProps {
 }
 
 interface IProps extends IConnectedProps {
-  homeworkWPopulate?: IHomeworkDataWPopulate
-  setUploadIsVisible: (value: boolean) => void
+  homeworkWPopulate: IHomeworkDataWPopulate
 }
 
-function LessonUppload({ homeworkWPopulate, setUploadIsVisible, user }: IProps) {
-  const { courseId, lessonId } = useParams();
-  const [state, dispatch] = useReducer(reducer, { user, courseId: courseId!, lessonId: lessonId! }, initState);
-
-  useEffect(() => {
-    let homework = homeworkWPopulate?.homework;
-    if (!homework) {
-      const newHomework: IHomeworkData = {
-        id: state.id,
-        userId: state.userId,
-        courseId: state.courseId,
-        lessonId: state.lessonId,
-        description: '',
-        externalHomeworkLink: '',
-        images: [],
-        state: 'DRAFT',
-      };
-      dataService.homework.set(state.id, newHomework)
-        .catch(err => dispatch({ type: 'PATCH_STATE', payload: { formState: { type: 'error', error: String(err) }} }));
-
-      return;
-    }
-
-    dispatch({
-      type: 'PATCH_STATE',
-      payload: {
-        description: homework.description,
-        externalHomeworkLink: homework.externalHomeworkLink,
-        images: homework.images.map(imageData => ({ imageData, loadingState: { type: 'idle' } })),
-        homeworkState: homework.state,
-      },
-    });
-    // ignore because we need to fill state only on init form
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+function LessonUppload({ homeworkWPopulate, user }: IProps) {
+  const { courseId, lessonId } = useParams() as { courseId: string, lessonId: string };
+  const [state, dispatch] = useReducer(reducer, homeworkWPopulate.homework, initState);
 
   const onCaptionError = useCallback((imageData: IHomeworkImageData, error: Error) => {
     dispatch({ type: 'CHANGE_IMAGE', payload: {
@@ -91,7 +58,7 @@ function LessonUppload({ homeworkWPopulate, setUploadIsVisible, user }: IProps) 
     externalHomeworkLink: string
   }) => {
     const { id, ...patch } = props;
-    return dataService.homework.patch(id, patch)
+    return homeworkService.patchHomework(id, patch)
       .catch(err => {
         dispatch({ type: 'PATCH_STATE', payload: { formState: { type: 'error', error: String(err) } } });
       });
@@ -175,8 +142,8 @@ function LessonUppload({ homeworkWPopulate, setUploadIsVisible, user }: IProps) 
         imageDatas.forEach(({ imageData }) => dispatch({ type: 'START_ADD_IMAGE', payload: { imageData }}));
         const images = await Promise.all(imageDatas.map(handleUploadImage));
         const newImages = images.filter(Boolean) as IHomeworkImageData[];
-        await dataService.homework.get(state.courseId, state.lessonId, state.userId)
-          .then(hw => dataService.homework.patch(state.id, { images: [...newImages, ...hw.images] }))
+        await homeworkService.getHomework({ courseId, lessonId, userId: user.id })
+          .then(hw => homeworkService.patchHomework(state.id, { images: [...newImages, ...hw.images] }))
       }
     } catch (err) {
       const error = err as Error;
@@ -187,7 +154,7 @@ function LessonUppload({ homeworkWPopulate, setUploadIsVisible, user }: IProps) 
 
   function getImageDataFromFile(file: File): IHomeworkImageData {
     return {
-      id: dataService.homework.generateImageId({ originalName: file.name }),
+      id: homeworkService.generateImageId({ originalName: file.name }),
       alt: file.name,
       originalName: file.name,
       src: URL.createObjectURL(file),
@@ -202,9 +169,9 @@ function LessonUppload({ homeworkWPopulate, setUploadIsVisible, user }: IProps) 
         throw new Error('Image size is bigger than 5Mb');
       }
 
-      await dataService.homework.uploadImage({ courseId: state.courseId, lessonId: state.lessonId, userId: state.userId, imageId: imageData.id, file });
+      await homeworkService.uploadImage({ courseId, lessonId, userId: user.id, imageId: imageData.id, file });
 
-      const imageSrc = await dataService.homework.getImageURL({ courseId: state.courseId, lessonId: state.lessonId, userId: state.userId, imageId: imageData.id });
+      const imageSrc = await homeworkService.getImageURL({ courseId, lessonId, userId: user.id, imageId: imageData.id });
 
       dispatch({ type: 'CHANGE_IMAGE', payload: {
         imageDataWState: {
@@ -230,34 +197,32 @@ function LessonUppload({ homeworkWPopulate, setUploadIsVisible, user }: IProps) 
       return;
     }
 
-    dispatch({ type: 'CHANGE_IMAGE', payload: {
-      imageDataWState: {
-        loadingState: { type: 'pending' },
-        imageData: image.imageData,
-      }
-    }});
-
-    await dataService.homework.get(state.courseId, state.lessonId, state.userId)
-      .then(hw => {
-        const imageIndex =  hw.images.findIndex(i => i.id === props.imageId);
-
-        if (imageIndex === -1) {
-          return;
+    try {
+      dispatch({ type: 'CHANGE_IMAGE', payload: {
+        imageDataWState: {
+          loadingState: { type: 'pending' },
+          imageData: image.imageData,
         }
+      }});
 
+      const hw = await homeworkService.getHomework({ courseId, lessonId, userId: user.id })
+      const imageIndex = hw.images.findIndex(i => i.id === props.imageId);
+
+      if (imageIndex !== -1) {
         // change images array wo re-asigning array object
         hw.images.splice(imageIndex, 1);
-        return dataService.homework.patch(state.id, { images: hw.images });
-      })
-      .then(() => dispatch({ type: 'END_DELETE_IMAGE', payload: props }))
-      .catch(err => {
-        dispatch({ type: 'CHANGE_IMAGE', payload: {
-          imageDataWState: {
-            loadingState: { type: 'error', error: String(err) },
-            imageData: image.imageData,
-          }
-        }});
-      })
+        await homeworkService.patchHomework(state.id, { images: hw.images });
+      }
+
+      dispatch({ type: 'END_DELETE_IMAGE', payload: props });
+    } catch (err) {
+      dispatch({ type: 'CHANGE_IMAGE', payload: {
+        imageDataWState: {
+          loadingState: { type: 'error', error: String(err) },
+          imageData: image.imageData,
+        }
+      }});
+    }
   }
 
   async function handleSubmit(state: TState) {
@@ -267,11 +232,8 @@ function LessonUppload({ homeworkWPopulate, setUploadIsVisible, user }: IProps) 
 
     try {
       dispatch({ type: 'PATCH_STATE', payload: { formState: { type: 'pending' }}});
-
-      await dataService.homework.patch(state.id, { state: 'SENT_FOR_REVIEW' });
-
+      await homeworkService.patchHomework(state.id, { state: 'SENT_FOR_REVIEW' });
       dispatch({ type: 'PATCH_STATE', payload: { formState: { type: 'success' }}});
-      setUploadIsVisible(false);
     } catch (err) {
       const error = err as Error;
       console.error('Failed to submit HW', { error });
@@ -280,16 +242,16 @@ function LessonUppload({ homeworkWPopulate, setUploadIsVisible, user }: IProps) 
   }
 }
 
-function initState(props: { user: IUserData, courseId: string, lessonId: string }): TState {
+function initState(homework: IHomeworkData): TState {
   return {
-    id: dataService.homework.getFullId(props.courseId, props.lessonId, props.user.id),
-    userId: props.user.id,
-    courseId: props.courseId,
-    lessonId: props.lessonId,
-    description: '',
-    externalHomeworkLink: '',
-    images: [],
-    homeworkState: 'DRAFT',
+    id: homework.id,
+    userId: homework.userId,
+    courseId: homework.courseId,
+    lessonId: homework.lessonId,
+    description: homework.description,
+    externalHomeworkLink: homework.externalHomeworkLink,
+    images: homework.images.map(imageData => ({ imageData, loadingState: { type: 'idle' } })),
+    homeworkState: homework.state,
     formState: { type: 'idle' },
   };
 }

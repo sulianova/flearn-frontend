@@ -10,6 +10,7 @@ import classes from './LessonContent.module.scss';
 
 import { URLSections } from 'types';
 import type { IHomeworkDataWPopulate, ILessonContent, ILessonData } from 'types';
+import { homeworkService } from 'services';
 
 export default LessonContent;
 
@@ -20,8 +21,7 @@ interface IProps {
   lessonId: string
   blocks: ILessonContent
   data: ILessonData
-  homework?: IHomeworkDataWPopulate
-  setUploadIsVisible: (value: boolean) => void
+  homework: IHomeworkDataWPopulate
 }
 
 function LessonContent(props: IProps) {
@@ -34,7 +34,6 @@ function LessonContent(props: IProps) {
           endDate={props.data.endDate}
           resultsEndDate={props.data.resultsEndDate}
           homework={props.homework}
-          setUploadIsVisible={props.setUploadIsVisible}
         />}
       <Article blocks={props.blocks}/>
     </div>
@@ -46,8 +45,7 @@ interface IUpploadProps {
   lessonId: string
   endDate: Date
   resultsEndDate: Date
-  homework?: IHomeworkDataWPopulate
-  setUploadIsVisible: (value: boolean) => void
+  homework: IHomeworkDataWPopulate
 }
 
 function Uppload(props: IUpploadProps) {
@@ -74,14 +72,13 @@ function Uppload(props: IUpploadProps) {
             </Link>
             <button
               className={classes.edit}
-              onClick={() => {
-                props.setUploadIsVisible(true);
-                setTimeout(() => {
-                  const a = document.createElement('a');
-                  a.href = '#upload-form';
-                  a.click();
-                });
-              }}
+              onClick={() => homeworkService.patchHomework(homework.homework.id, { state: 'DRAFT' })}
+                // props.setUploadIsVisible(true);
+                // setTimeout(() => {
+                //   const a = document.createElement('a');
+                //   a.href = '#upload-form';
+                //   a.click();
+                // });
             >
               <div className={classes.editImg}>
                 <Edit/>
@@ -90,7 +87,7 @@ function Uppload(props: IUpploadProps) {
           </div>
         </div>
       )}
-      {(!homework || homework.homework.state === 'DRAFT') && (
+      {(homework.homework.state === 'DRAFT') && (
         <div className={classes.uploadBtnWrapper}>
           <a className={classes.uploadBtn + ' s-text-24'} href='#upload-form'>{t('uploadBtn')}</a>
         </div>

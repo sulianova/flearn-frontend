@@ -3,11 +3,11 @@ import { BehaviorSubject, CompletionObserver, ErrorObserver, NextObserver, Subje
 import { dataService } from 'services/data.service';
 
 import type { TActionS } from './types';
-import type { IHomeworkDataWPopulate, IUserData } from 'types';
+import type { IHomeworkData, IHomeworkDataWPopulate, IUserData } from 'types';
 import { ECommonErrorTypes } from 'types';
 
 class HomeworkService {
-  async getHomeworkBS(props: {
+  public async getHomeworkBS(props: {
     filter: { courseId: string, lessonId?: string, userId?: string, id?: string }
     populate?: { user?: boolean }
   }) {
@@ -60,7 +60,57 @@ class HomeworkService {
     }
   }
 
-  async _fetch(props: {
+  public async createHomework(props: { courseId: string, lessonId: string, userId: string }) {
+    const id = dataService.homework.getFullId(props.courseId, props.lessonId, props.userId);
+    const newHomework: IHomeworkData = {
+      id: id,
+      userId: props.userId,
+      courseId: props.courseId,
+      lessonId: props.lessonId,
+      description: '',
+      externalHomeworkLink: '',
+      images: [],
+      state: 'DRAFT',
+    };
+
+    await dataService.homework.create(id, newHomework);
+
+    this._homeworkS.next({ type: 'created', payload: { id, ...props } });
+  }
+
+  public async patchHomework(id: string, patch: Partial<IHomeworkData>) {
+    await dataService.homework.patch(id, patch);
+    this._homeworkS.next({ type: 'updated', payload: { id } });
+  }
+
+  public async getHomework(props: { courseId: string, lessonId: string, userId: string }) {
+    return dataService.homework.get(props.courseId, props.lessonId, props.userId);
+  }
+
+  public generateImageId(props: { originalName: string }) {
+    return dataService.homework.generateImageId(props);
+  }
+
+  public async getImageURL(props: { courseId: string, lessonId: string, userId: string, imageId: string }) {
+    return dataService.homework.getImageURL(props);
+  }
+
+  public async uploadImage(props: { courseId: string, lessonId: string, userId: string, imageId: string, file: File }) {
+    return dataService.homework.uploadImage(props);
+  }
+
+  public getFullId(props: { courseId: string, lessonId: string, userId: string }) {
+    return dataService.homework.getFullId(props.courseId, props.lessonId, props.userId);
+  }
+
+  public errorToType(error: Error) {
+    const errorIsUnknown = !([...Object.values(ECommonErrorTypes)] as string[]).includes(error.message);
+    const errorType = errorIsUnknown ? ECommonErrorTypes.Other : error.message as ECommonErrorTypes;
+
+    return errorType;
+  }
+
+  private async _fetch(props: {
     filter: { courseId: string, lessonId?: string, userId?: string, id?: string }
     populate?: { user?: boolean }
   }) {
@@ -99,13 +149,6 @@ class HomeworkService {
       console.log(`Failed to fetch homeworks`, { props, err });
       throw err;
     }
-  }
-
-  public errorToType(error: Error) {
-    const errorIsUnknown = !([...Object.values(ECommonErrorTypes)] as string[]).includes(error.message);
-    const errorType = errorIsUnknown ? ECommonErrorTypes.Other : error.message as ECommonErrorTypes;
-
-    return errorType;
   }
 
   private _homeworkS = new Subject<TActionS>;

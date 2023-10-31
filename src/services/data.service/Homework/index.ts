@@ -44,6 +44,15 @@ class Homework {
     return homeworksData;
   }
 
+  public async create(id: string, homeworkData: IHomeworkData) {
+    const homeworkAlreadyExists = await firebaseService.docExists(ECollections.Homework, id);
+    if (homeworkAlreadyExists) {
+      throw new Error('Cannot create duplicated homework');
+    }
+
+    await this.set(id, homeworkData);
+  }
+
   public async set(id: string, homeworkData: IHomeworkData) {
     const homeworkDataDB = homeworkConverter.toFirestore(homeworkData);
     return await firebaseService.setDoc(ECollections.Homework, id, homeworkDataDB);
