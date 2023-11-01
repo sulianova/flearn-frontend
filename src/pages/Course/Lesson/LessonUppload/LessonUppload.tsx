@@ -60,6 +60,9 @@ function LessonUppload({ homeworkWPopulate, user, scroll, onScrollEnd }: IProps)
         imageData: imageData,
       },
     }});
+    dispatch({ type: 'PATCH_STATE', payload: {
+      formState: { type: 'error', error: String(error) },
+    } });
   }, []);
 
   const handleSaveDescriptionAndLink = useCallback(debounce(async (props: {
@@ -76,22 +79,23 @@ function LessonUppload({ homeworkWPopulate, user, scroll, onScrollEnd }: IProps)
 
   return (
       <form className={classes._} action='' ref={ref}>
-          <div className={classes.nav}>
-            <div className={classes.submit}>
-              <button
-                onClick={() => handleSubmit(state)}
-                className={cx({submitBtn: true, isDisabled: isDisabled(state) })+ ' s-text-16-18'}
-                type='submit'
-                disabled={isDisabled(state)}
-              >
-                {
-                  state.formState.type === 'pending' ? <Spinner/>
-                  : state.formState.type === 'success' ? 'Отправлено'
-                  : t('submitBtn')
-                }
-              </button>
-            </div>
+        <div className={classes.nav}>
+          <div className={classes.submit}>
+            <button
+              onClick={() => handleSubmit(state)}
+              className={cx({submitBtn: true, isDisabled: isDisabled(state) })+ ' s-text-16-18'}
+              type='submit'
+              disabled={isDisabled(state)}
+            >
+              {
+                state.formState.type === 'pending' ? <Spinner/>
+                : state.formState.type === 'success' ? 'Отправлено'
+                : t('submitBtn')
+              }
+            </button>
           </div>
+        </div>
+        {state.formState.type === 'error' && (<div className={classes.error}>{state.formState.error}</div>)}
         <div className={classes.inner}>
           <div className={classes.fields}>
             <div className={classes.fieldsTitle + ' s-text-36'}>{t('fieldsTitle')}</div>
@@ -176,7 +180,7 @@ function LessonUppload({ homeworkWPopulate, user, scroll, onScrollEnd }: IProps)
     const { file, imageData } = props;
     try {
       if (file.size > MAX_IMAGE_SIZE_B) {
-        throw new Error('Image size is bigger than 5Mb');
+        throw new Error('Image size is bigger than 3Mb');
       }
 
       await homeworkService.uploadImage({ courseId, lessonId, userId: user.id, imageId: imageData.id, file });
@@ -198,6 +202,9 @@ function LessonUppload({ homeworkWPopulate, user, scroll, onScrollEnd }: IProps)
           imageData,
         },
       }});
+      dispatch({ type: 'PATCH_STATE', payload: {
+        formState: { type: 'error', error: String(err) },
+      } });
     }
   }
 
@@ -231,6 +238,9 @@ function LessonUppload({ homeworkWPopulate, user, scroll, onScrollEnd }: IProps)
           loadingState: { type: 'error', error: String(err) },
           imageData: image.imageData,
         }
+      }});
+      dispatch({ type: 'PATCH_STATE', payload: {
+        formState: { type: 'error', error: String(err) },
       }});
     }
   }
