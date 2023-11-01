@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import { debounce } from 'lodash';
-import { useCallback, useEffect, useReducer } from 'react';
+import { useCallback, useEffect, useReducer, useRef } from 'react';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router';
 
@@ -37,11 +37,21 @@ function mapStateToProps(state: IRootState): IConnectedProps {
 
 interface IProps extends IConnectedProps {
   homeworkWPopulate: IHomeworkDataWPopulate
+  scroll: boolean
+  onScrollEnd: () => void
 }
 
-function LessonUppload({ homeworkWPopulate, user }: IProps) {
+function LessonUppload({ homeworkWPopulate, user, scroll, onScrollEnd }: IProps) {
   const { courseId, lessonId } = useParams() as { courseId: string, lessonId: string };
   const [state, dispatch] = useReducer(reducer, homeworkWPopulate.homework, initState);
+  const ref = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    if (scroll && ref.current) {
+        ref.current.scrollIntoView({ behavior: 'smooth' });
+        onScrollEnd();
+    }
+  }, [scroll, onScrollEnd]);
 
   const onCaptionError = useCallback((imageData: IHomeworkImageData, error: Error) => {
     dispatch({ type: 'CHANGE_IMAGE', payload: {
@@ -65,7 +75,7 @@ function LessonUppload({ homeworkWPopulate, user }: IProps) {
   }, 300), []);
 
   return (
-      <form className={classes._} action='' id='upload-form'>
+      <form className={classes._} action='' ref={ref}>
           <div className={classes.nav}>
             <div className={classes.submit}>
               <button

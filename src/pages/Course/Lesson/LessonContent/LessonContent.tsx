@@ -22,6 +22,7 @@ interface IProps {
   blocks: ILessonContent
   data: ILessonData
   homework: IHomeworkDataWPopulate
+  scrollToUpload: () => void
 }
 
 function LessonContent(props: IProps) {
@@ -34,6 +35,7 @@ function LessonContent(props: IProps) {
           endDate={props.data.endDate}
           resultsEndDate={props.data.resultsEndDate}
           homework={props.homework}
+          scrollToUpload={props.scrollToUpload}
         />}
       <Article blocks={props.blocks}/>
     </div>
@@ -46,6 +48,7 @@ interface IUpploadProps {
   endDate: Date
   resultsEndDate: Date
   homework: IHomeworkDataWPopulate
+  scrollToUpload: () => void
 }
 
 function Uppload(props: IUpploadProps) {
@@ -72,13 +75,10 @@ function Uppload(props: IUpploadProps) {
             </Link>
             <button
               className={classes.edit}
-              onClick={() => homeworkService.patchHomework(homework.homework.id, { state: 'DRAFT' })}
-                // props.setUploadIsVisible(true);
-                // setTimeout(() => {
-                //   const a = document.createElement('a');
-                //   a.href = '#upload-form';
-                //   a.click();
-                // });
+              onClick={() =>
+                homeworkService.patchHomework(homework.homework.id, { state: 'DRAFT' })
+                  .then(() => props.scrollToUpload())
+              }
             >
               <div className={classes.editImg}>
                 <Edit/>
@@ -87,11 +87,11 @@ function Uppload(props: IUpploadProps) {
           </div>
         </div>
       )}
-      {(homework.homework.state === 'DRAFT') && (
+      {/* {(homework.homework.state === 'DRAFT') && (
         <div className={classes.uploadBtnWrapper}>
           <a className={classes.uploadBtn + ' s-text-24'} href='#upload-form'>{t('uploadBtn')}</a>
         </div>
-      )}
+      )} */}
     </Fragment>
   );
 }

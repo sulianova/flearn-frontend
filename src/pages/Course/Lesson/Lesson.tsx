@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router';
 
 import { useFetch } from 'hooks';
-import { homeworkService } from 'services';
 import { IFetchLessonPayload, fetchLesson } from 'store/actions/sagas';
 
 import Page from 'ui/Page/Page';
@@ -12,11 +11,12 @@ import LessonUppload from './LessonUppload/LessonUppload';
 import LessonWorks from './LessonWorks/LessonWorks';
 import LessonHeader from './LessonHeader/LessonHeader';
 
+import useFetchHomework from './useFetchHomework';
 import useHomeworkFallback from './useHomeworkFallback';
+import useInitHomework from './useInitHomework';
 import useLessonFallback from './useLessonFallback';
 
-import { type IHomeworksState, type ILessonState, type IRootState, type IHomeworkDataWPopulate, type THomeworkStateState, ECommonErrorTypes } from 'types';
-import { Subscription } from 'rxjs';
+import type { IHomeworksState, ILessonState, IRootState } from 'types';
 
 export default connect(mapStateToProps)(Lesson);
 
@@ -43,9 +43,7 @@ function Lesson(props: IProps) {
 
   const { courseId, lessonId } = useParams();
   const [selectedUser, setSelectedUser] = useState<{ id: string, displayName: string } | null>(null);
-  const [uploadIsVisible, setUploadIsVisible] = useState<boolean>(false);
-  const [homework, setHomework] = useState<IHomeworkDataWPopulate | undefined>(undefined);
-  const [homeworkState, setHomeworkState] = useState<THomeworkStateState>({ type: 'idle' });
+  const [scrollToUpload, setScrollToUpload] = useState<boolean>(false);
 
   useFetch<IFetchLessonPayload>(({
     actionCreator: fetchLesson,
@@ -55,56 +53,12 @@ function Lesson(props: IProps) {
     }
   }));
 
-  useEffect(() => {
-    if (!courseId || !lessonId || !authedUserId) {
-      return;
-    }
-
-    setHomeworkState({ type: 'pending' });
-    let subscription: Subscription;
-    homeworkService.getHomeworkBS({
-      filter: { courseId, lessonId, userId: authedUserId },
-      populate: { user: true },
-    }).then(bs => {
-      subscription = bs.subscribe(e => {
-        if (e && !(e instanceof Error)) {
-          setHomework(e.homeworks[0]);
-          setHomeworkState({ type: 'idle' });
-        }
-
-        if (e instanceof Error) {
-          const errorType = homeworkService.errorToType(e);
-          setHomeworkState({ type: 'error', error: e, errorType });
-        }
-      });
-    });
-
-    return () => subscription?.unsubscribe();
-  }, [courseId, lessonId, authedUserId]);
-
-  useEffect(() => {
-    if (!courseId || !lessonId || !authedUserId) {
-      return;
-    }
-
-    homeworkService.getHomework({ courseId, lessonId, userId: authedUserId })
-      .catch(() => {
-        // homework doesn't exist
-        return homeworkService.createHomework({ courseId, lessonId, userId: authedUserId });
-      })
-      .catch(_err => { /* error already handled */});
-  }, [courseId, lessonId, authedUserId]);
-
-  useEffect(() => {
-    if (homeworkState.type === 'idle') {
-      if (!homework || homework.homework.state === 'DRAFT') {
-        setUploadIsVisible(true);
-      }
-    }
-  }, [homeworkState])
+  useInitHomework({ courseId, lessonId, userId: authedUserId });
+  const { homework, homeworkState } = useFetchHomework({ courseId, lessonId, userId: authedUserId });
 
   const fallback = useLessonFallback(lessonState);
   const homeworkFallback = useHomeworkFallback(homeworkState);
+
   if (!lessonState.data) {
     return fallback;
   }
@@ -128,11 +82,14 @@ function Lesson(props: IProps) {
           blocks={lessonState.data.content}
           data={lessonState.data}
           homework={homework}
+          scrollToUpload={() => setScrollToUpload(true)}
         />)
       }
       {section === 'task' && homework?.homework?.state === 'DRAFT' &&
         <LessonUppload
           homeworkWPopulate={homework}
+          scroll={scrollToUpload}
+          onScrollEnd={() => setScrollToUpload(false)}
         />
       }
       {section === 'results' &&
