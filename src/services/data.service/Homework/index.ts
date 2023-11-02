@@ -75,6 +75,17 @@ class Homework {
     }
   }
 
+  public async deleteImage(props: { courseId: string, lessonId: string, userId: string, imageId: string, file: File }) {
+    try {
+      const path = this._getImagePath(props);
+      await firebaseService._deleteImage({ path });
+    } catch (err) {
+      // tslint:disable-next-line
+      console.error(err);
+      throw new Error('Failed to delete homework image');
+    }
+  }
+
   public async getImageURL(props: { courseId: string, lessonId: string, userId: string, imageId: string }) {
     try {
       const path = this._getImagePath(props);

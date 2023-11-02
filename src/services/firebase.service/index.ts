@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { collection, doc as getDocRef, getDoc, getDocs, getFirestore, setDoc, query, where } from 'firebase/firestore';
-import { getStorage, ref as getStorageRef, getDownloadURL, uploadBytes } from 'firebase/storage';
+import { deleteObject, getStorage, ref as getStorageRef, getDownloadURL, uploadBytes } from 'firebase/storage';
 import { getFirebaseConfig } from './firebase.config';
 
 import { ECollections } from 'types';
@@ -137,8 +137,19 @@ export class FirebaseService {
       await uploadBytes(ref, props.file);
     } catch(err) {
         // tslint:disable-next-line
-        console.error('Failed to get image from storage', { props, err });
+        console.error('Failed to upload image to storage', { props, err });
         throw new Error('Failed to upload image to storage');
+    }
+  }
+
+  public async _deleteImage(props: { path: string }) {
+    try {
+      const ref = getStorageRef(this._storage, props.path);
+      await deleteObject(ref);
+    } catch(err) {
+        // tslint:disable-next-line
+        console.error('Failed to delete image from storage', { props, err });
+        throw new Error('Failed to delete image from storage');
     }
   }
 
