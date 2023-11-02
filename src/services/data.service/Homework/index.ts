@@ -75,7 +75,7 @@ class Homework {
     }
   }
 
-  public async deleteImage(props: { courseId: string, lessonId: string, userId: string, imageId: string, file: File }) {
+  public async deleteImage(props: { courseId: string, lessonId: string, userId: string, imageId: string }) {
     try {
       const path = this._getImagePath(props);
       await firebaseService._deleteImage({ path });

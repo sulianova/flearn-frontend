@@ -99,6 +99,10 @@ class HomeworkService {
     return dataService.homework.uploadImage(props);
   }
 
+  public async deleteImage(props: { courseId: string, lessonId: string, userId: string, imageId: string }) {
+    return dataService.homework.deleteImage(props);
+  }
+
   public getFullId(props: { courseId: string, lessonId: string, userId: string }) {
     return dataService.homework.getFullId(props.courseId, props.lessonId, props.userId);
   }
