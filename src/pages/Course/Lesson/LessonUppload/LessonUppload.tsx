@@ -18,6 +18,7 @@ import classes from './LessonUppload.module.scss';
 
 import type { TAction, TImageDataWState, TState } from './types';
 import type { IHomeworkData, IHomeworkDataWPopulate, IHomeworkImageData, IRootState, IUserData } from 'types';
+import { errorService } from './error.service';
 
 export default connect(mapStateToProps)(LessonUppload);
 
@@ -44,7 +45,8 @@ interface IProps extends IConnectedProps {
 function LessonUppload({ homeworkWPopulate, user, scroll, onScrollEnd }: IProps) {
   const { courseId, lessonId } = useParams() as { courseId: string, lessonId: string };
   const [state, dispatch] = useReducer(reducer, homeworkWPopulate.homework, initState);
-  const ref = useRef<HTMLFormElement>(null);
+  const errors = errorService.useErrors();
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (scroll && ref.current) {
@@ -54,15 +56,13 @@ function LessonUppload({ homeworkWPopulate, user, scroll, onScrollEnd }: IProps)
   }, [scroll, onScrollEnd]);
 
   const onCaptionError = useCallback((imageData: IHomeworkImageData, error: Error) => {
+    errorService.addError(String(error));
     dispatch({ type: 'CHANGE_IMAGE', payload: {
       imageDataWState: {
         loadingState: { type: 'error', error: String(error) },
         imageData: imageData,
       },
     }});
-    dispatch({ type: 'PATCH_STATE', payload: {
-      formState: { type: 'error', error: String(error) },
-    } });
   }, []);
 
   const handleSaveDescriptionAndLink = useCallback(debounce(async (props: {
@@ -72,19 +72,16 @@ function LessonUppload({ homeworkWPopulate, user, scroll, onScrollEnd }: IProps)
   }) => {
     const { id, ...patch } = props;
     return homeworkService.patchHomework(id, patch)
-      .catch(err => {
-        dispatch({ type: 'PATCH_STATE', payload: { formState: { type: 'error', error: String(err) } } });
-      });
+      .catch(err => errorService.addError(String(err)));
   }, 300), []);
 
   return (
-      <form className={classes._} action='' ref={ref}>
+      <div className={classes._} ref={ref}>
         <div className={classes.nav}>
           <div className={classes.submit}>
             <button
               onClick={() => handleSubmit(state)}
               className={cx({submitBtn: true, isDisabled: isDisabled(state) })+ ' s-text-16-18'}
-              type='submit'
               disabled={isDisabled(state)}
             >
               {
@@ -95,7 +92,7 @@ function LessonUppload({ homeworkWPopulate, user, scroll, onScrollEnd }: IProps)
             </button>
           </div>
         </div>
-        {state.formState.type === 'error' && (<div className={classes.error}>{state.formState.error}</div>)}
+        {errors.map(error => (<div className={classes.error} key={error.id}>{error.error}</div>))}
         <div className={classes.inner}>
           <div className={classes.fields}>
             <div className={classes.fieldsTitle + ' s-text-36'}>{t('fieldsTitle')}</div>
@@ -145,7 +142,7 @@ function LessonUppload({ homeworkWPopulate, user, scroll, onScrollEnd }: IProps)
             </div>
           </div>
         </div>
-      </form>
+      </div>
   );
 
   async function handleAddImages(e: React.ChangeEvent<HTMLInputElement>) {
@@ -196,15 +193,13 @@ function LessonUppload({ homeworkWPopulate, user, scroll, onScrollEnd }: IProps)
 
       return { ...imageData, src: imageSrc };
     } catch (err) {
+      errorService.addError(String(err));
       dispatch({ type: 'CHANGE_IMAGE', payload: {
         imageDataWState: {
           loadingState: { type: 'error', error: String(err), },
           imageData,
         },
       }});
-      dispatch({ type: 'PATCH_STATE', payload: {
-        formState: { type: 'error', error: String(err) },
-      } });
     }
   }
 
@@ -232,18 +227,22 @@ function LessonUppload({ homeworkWPopulate, user, scroll, onScrollEnd }: IProps)
         await homeworkService.patchHomework(state.id, { images: hw.images });
       }
 
-      await homeworkService.deleteImage({ courseId, lessonId, userId: user.id, imageId });
+      const imageExists = await homeworkService.getImageURL({ courseId, lessonId, userId: user.id, imageId })
+        .then(() => true)
+        .catch(() => false);
+
+      if (imageExists) {
+        await homeworkService.deleteImage({ courseId, lessonId, userId: user.id, imageId });
+      }
 
       dispatch({ type: 'END_DELETE_IMAGE', payload: props });
     } catch (err) {
+      errorService.addError(String(err));
       dispatch({ type: 'CHANGE_IMAGE', payload: {
         imageDataWState: {
           loadingState: { type: 'error', error: String(err) },
           imageData: image.imageData,
         }
-      }});
-      dispatch({ type: 'PATCH_STATE', payload: {
-        formState: { type: 'error', error: String(err) },
       }});
     }
   }
@@ -260,7 +259,7 @@ function LessonUppload({ homeworkWPopulate, user, scroll, onScrollEnd }: IProps)
     } catch (err) {
       const error = err as Error;
       console.error('Failed to submit HW', { error });
-      dispatch({ type: 'PATCH_STATE', payload: { formState: { type: 'error', error: `Error: Failed to submit homework. ${error.message}.`}}});
+      errorService.addError(`Error: Failed to submit homework. ${error.message}.`);
     }
   }
 }
