@@ -209,7 +209,8 @@ function LessonUppload({ homeworkWPopulate, user, scroll, onScrollEnd }: IProps)
   }
 
   async function handleDeleteImage(props: { imageId: string }) {
-    const image = state.images.find(i => i.imageData.id === props.imageId);
+    const { imageId } = props;
+    const image = state.images.find(i => i.imageData.id === imageId);
     if (!image) {
       return;
     }
@@ -222,14 +223,16 @@ function LessonUppload({ homeworkWPopulate, user, scroll, onScrollEnd }: IProps)
         }
       }});
 
-      const hw = await homeworkService.getHomework({ courseId, lessonId, userId: user.id })
-      const imageIndex = hw.images.findIndex(i => i.id === props.imageId);
+      const hw = await homeworkService.getHomework({ courseId, lessonId, userId: user.id });
+      const imageIndex = hw.images.findIndex(i => i.id === imageId);
 
       if (imageIndex !== -1) {
         // change images array wo re-asigning array object
         hw.images.splice(imageIndex, 1);
         await homeworkService.patchHomework(state.id, { images: hw.images });
       }
+
+      await homeworkService.deleteImage({ courseId, lessonId, userId: user.id, imageId });
 
       dispatch({ type: 'END_DELETE_IMAGE', payload: props });
     } catch (err) {
