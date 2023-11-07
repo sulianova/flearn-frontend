@@ -16,10 +16,9 @@ function Input(props: Readonly<IProps>) {
   const getId = useGetId();
   return (
     <div className={classes._}>
-      <div className={classes.content}>
+      <div className={classes.content + ' s-text-18'}>
         <label
           htmlFor={getId('contentInput')}
-          className='s-text-18'
         >
           {t('contentInputLabel')}
         </label>
