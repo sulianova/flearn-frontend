@@ -96,7 +96,6 @@ function Lesson(props: IProps) {
         (<LessonWorks
             selectedUser={selectedUser}
             setSelectedUser={setSelectedUser}
-            homework={homework}
           />)
       }
     </Page>);
