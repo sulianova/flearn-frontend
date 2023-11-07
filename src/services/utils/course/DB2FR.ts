@@ -15,6 +15,7 @@ export async function courseDataDB2FR(courseDB: ICourseDataDB): Promise<ICourseD
     modules: await courseModulesDB2FR(courseDB.modules, courseId),
     teachers: await courseTeachersDB2FR(courseDB.teachers, courseId),
     teacherGallery: await courseTeacherGallerysDB2FR(courseDB.teacherGallery, courseId),
+    studentsWorks: await courseStudentsWorksDB2FR(courseDB.studentsWorks, courseId),
   };
 };
 
@@ -51,5 +52,17 @@ async function courseTeacherGalleryDB2FR(teacherGallery: ICourseDataDB['teacherG
   return {
     ...teacherGallery,
     imageSrc: (await firebaseService.getImageURL({ courseId, folder: 'landing', imageId: teacherGallery.imageId })) ?? '',
+  };
+}
+
+// studentsWorks
+async function courseStudentsWorksDB2FR(studentsWorks: ICourseDataDB['studentsWorks'], courseId: string): Promise<ICourseData['studentsWorks']> {
+  return await Promise.all(studentsWorks.map(sw => courseStudentsWorkDB2FR(sw, courseId)));
+}
+
+async function courseStudentsWorkDB2FR(studentsWork: ICourseDataDB['studentsWorks'][number], courseId: string): Promise<ICourseData['studentsWorks'][number]> {
+  return {
+    ...studentsWork,
+    imageSrc: (await firebaseService.getImageURL({ courseId, folder: 'landing', imageId: studentsWork.imageId })) ?? '',
   };
 }
