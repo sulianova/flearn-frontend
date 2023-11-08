@@ -22,12 +22,12 @@ function StudentsWorks(props: IProps) {
       <Animated.Scroll>
         {(id, className) => (<h2 className={cx({ title: true }, className) + ' s-text-56'} id={id}>{t('title')}</h2>)}
       </Animated.Scroll>
-        {renderGallery(props.data.teacherGallery)}
+        {renderGallery(props.data.studentsWorks)}
     </div>
   );
 }
 
-function renderItem(props: ICourseData['teacherGallery'][number]) {
+function renderItem(props: ICourseData['studentsWorks'][number]) {
   return (
     <div className={cx({ item: true })}>
       <Image src={props.imageSrc} alt={props.imageAlt}/>
@@ -35,7 +35,7 @@ function renderItem(props: ICourseData['teacherGallery'][number]) {
   );
 }
 
-function renderGallery(props: ICourseData['teacherGallery']) {
+function renderGallery(props: ICourseData['studentsWorks']) {
   return (
     <div className={cx({ list: true })}>
       {props.map((d, index) => (<Fragment key={index}>{renderItem(d)}</Fragment>))}

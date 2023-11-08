@@ -60,7 +60,8 @@ function DecisionForm(props: IProps) {
 
 function formatCredit(credit: number) {
   const thousands = String(credit).slice(0, -3);
-  return `${thousands} 000`;
+  const theReast = String(credit).slice(-3);
+  return `${thousands} ${theReast}`;
 }
 
 function formatCourseDiscount(discontAmount: number) {

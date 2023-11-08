@@ -13,6 +13,7 @@ export function courseDataFR2DB(course: ICourseData): ICourseDataDB {
     modules: courseModulesFR2DB(course.modules),
     teachers: courseTeachersFR2DB(course.teachers),
     teacherGallery: courseTeacherGallerysFR2DB(course.teacherGallery),
+    studentsWorks: courseStudentsWorksFR2DB(course.studentsWorks),
   };
 };
 
@@ -44,4 +45,14 @@ function courseTeacherGallerysFR2DB(teacherGallerys: ICourseData['teacherGallery
 function courseTeacherGalleryFR2DB(teacherGallery: ICourseData['teacherGallery'][number]): ICourseDataDB['teacherGallery'][number] {
   const { imageSrc, ...restTeacherGallery } = teacherGallery;
   return restTeacherGallery;
+}
+
+// studentsWorks
+function courseStudentsWorksFR2DB(studentsWorks: ICourseData['studentsWorks']): ICourseDataDB['studentsWorks'] {
+  return studentsWorks.map(courseStudentsWorkFR2DB);
+}
+
+function courseStudentsWorkFR2DB(studentsWork: ICourseData['studentsWorks'][number]): ICourseDataDB['studentsWorks'][number] {
+  const { imageSrc, ...restStudentWork } = studentsWork;
+  return restStudentWork;
 }

@@ -25,6 +25,7 @@ export interface ICourseData {
   promoVideo: { title: string, src: string }
   teachers: Array<{ title: TText | TText[], description: TText | TText[], imageId: string, imageSrc: string, imageAlt: string }>
   teacherGallery: Array<{imageId: string, imageSrc: string, imageAlt: string}>
+  studentsWorks: Array<{imageId: string, imageSrc: string, imageAlt: string}>
   faq: Array<{ question: TText | TText[], answer: TText | TText[] }>
 }
 
@@ -51,6 +52,7 @@ export interface ICourseDataDB {
   promoVideo: { title: string, src: string }
   teachers: Array<{ title: TText | TText[], description: TText | TText[], imageId: string, imageAlt: string }>
   teacherGallery: Array<{imageId: string, imageAlt: string}>
+  studentsWorks: Array<{imageId: string, imageAlt: string}>
   faq: Array<{ question: TText | TText[], answer: TText | TText[] }>
 }
 

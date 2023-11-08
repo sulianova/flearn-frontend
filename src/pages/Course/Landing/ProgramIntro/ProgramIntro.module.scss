@@ -36,6 +36,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
+
 }
 
 .categories {
@@ -171,4 +172,5 @@
   z-index: 100;
   width: 100%;
   object-fit: cover;
+  border-radius: set-calc(20);
 }
