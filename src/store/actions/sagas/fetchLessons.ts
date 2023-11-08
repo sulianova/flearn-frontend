@@ -1,13 +1,11 @@
-import { call, put, select } from 'redux-saga/effects';
-import { createAction } from 'store/utils';
-import { updateState } from '../redux';
+import { put, select } from 'redux-saga/effects';
 
-import { lessonInfoDB2FR } from './utils';
-
-import { ECommonErrorTypes, type ICourseData, type ICourseInfo, type ILessonData, type ILessonInfo, type ILessonInfoDB, type ILessonsData, type ILessonsState, type IRootState, type TAction } from 'types';
 import { dataService } from 'services';
+import { createAction } from 'store/utils';
+import { updateState } from 'store/actions/redux';
 
-const delay = (ms: number) => new Promise<void>(res => setTimeout(res, ms));
+import { ECommonErrorTypes } from 'types';
+import type { ICourseData, ILessonData, ILessonsData, ILessonsState, IRootState, TAction } from 'types';
 
 export interface IFetchLessonsPayload {
   filter: {

@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { collection, doc as getDocRef, getDoc, getDocs, getFirestore, setDoc, query, where } from 'firebase/firestore';
-import { getStorage, ref as getStorageRef, getDownloadURL } from 'firebase/storage';
+import { deleteObject, getStorage, ref as getStorageRef, getDownloadURL, uploadBytes } from 'firebase/storage';
 import { getFirebaseConfig } from './firebase.config';
 
 import { ECollections } from 'types';
@@ -76,13 +76,13 @@ export class FirebaseService {
     }
   }
 
-  public async getDocs(collectionName: ECollections, whereProps: { param: string, value: unknown }) {
+  public async getDocs(collectionName: ECollections, whereProps: { param: string, value: unknown }[]) {
     try {
-      const q = query(collection(this._db, collectionName), where(whereProps.param, '==', whereProps.value));
+      const queryConstraints = whereProps.map(({ param, value}) => where(param, '==', value));
+      const q = query(collection(this._db, collectionName), ...queryConstraints);
       const querySnapshot = await getDocs(q);
       const data = [] as DocumentData[];
       querySnapshot.forEach((doc) => {
-        console.log(doc.id, " => ", doc.data());
         data.push(doc.data());
       });
 
@@ -94,10 +94,10 @@ export class FirebaseService {
     }
   }
 
-  public async getImageURL(props: { courseId: string, folder: TLessonId | 'landing', imageId: string }) {
+  public async getImageURL(props: { courseId: string, folder: TLessonId | 'landing', imageId: string, variant?: 'images' | 'homeworks' }) {
     try {
-      const { courseId, folder, imageId } = props;
-      const path = `${courseId}/${folder}/images/${imageId}`;
+      const { courseId, folder, imageId, variant = 'images' } = props;
+      const path = `${courseId}/${folder}/${variant}/${imageId}`;
       const ref = getStorageRef(this._storage, path);
       const url = await getDownloadURL(ref);
 
@@ -105,6 +105,51 @@ export class FirebaseService {
     } catch(e) {
         // tslint:disable-next-line
         console.error('Failed to get image from storage', { props, e });
+    }
+  }
+
+  public async _getImageURL(props: { path: string }) {
+    try {
+      const ref = getStorageRef(this._storage, props.path);
+      return await getDownloadURL(ref);;
+    } catch(err) {
+        // tslint:disable-next-line
+        console.error('Failed to get image from storage', { props, err });
+        throw new Error('Failed to get image from storage');
+    }
+  }
+
+  public async uploadImage(props: { courseId: string, folder: TLessonId | 'landing', imageId: string, variant?: 'images' | 'homeworks', file: File }) {
+    try {
+      const { courseId, folder, imageId, variant = 'images', file } = props;
+      const path = `${courseId}/${folder}/${variant}/${imageId}`;
+      const ref = getStorageRef(this._storage, path);
+      await uploadBytes(ref, file);
+    } catch(e) {
+        // tslint:disable-next-line
+        console.error('Failed to upload image to storage', { props, e });
+    }
+  }
+
+  public async _uploadImage(props: { path: string, file: File }) {
+    try {
+      const ref = getStorageRef(this._storage, props.path);
+      await uploadBytes(ref, props.file);
+    } catch(err) {
+        // tslint:disable-next-line
+        console.error('Failed to upload image to storage', { props, err });
+        throw new Error('Failed to upload image to storage');
+    }
+  }
+
+  public async _deleteImage(props: { path: string }) {
+    try {
+      const ref = getStorageRef(this._storage, props.path);
+      await deleteObject(ref);
+    } catch(err) {
+        // tslint:disable-next-line
+        console.error('Failed to delete image from storage', { props, err });
+        throw new Error('Failed to delete image from storage');
     }
   }
 

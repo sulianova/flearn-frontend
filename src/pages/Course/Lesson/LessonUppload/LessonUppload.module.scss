@@ -1,0 +1,249 @@
+@import 'styles/index';
+
+._ {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  z-index: 3000;
+
+  @include is-beige;
+  padding: 0 set-calc($padding-x-desk-page) set-calc(72);
+  background-color: $beige-light;
+
+  @include set-media(md) {
+    padding: set-calc($padding-x-mob-page) set-calc($padding-x-mob-page);
+  }
+}
+
+.nav {
+  position: sticky;
+  top: 0;
+  background-color: $beige-light;
+  z-index: 12;
+  margin-top: set-calc(16);
+
+  display: flex;
+  justify-content: end;
+  width: 100%;
+
+  @include set-media(md) {
+    margin-top: 0;
+    justify-content: center;
+  }
+}
+
+.submit {
+  margin-bottom: set-calc(16);
+  margin-top: set-calc(16);
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+
+  @include set-media(md) {
+    // width: fit-content;
+    width: 100%;
+  }
+}
+
+.submitBtn {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: set-calc(40);
+  padding: set-calc(4) set-calc(24);
+
+  color: $white;
+
+  background: $green;
+  border-radius: set-calc(15);
+  cursor: pointer;
+
+  transition: background-color $d-hover ease-in-out, color ease-in-out $d-hover;
+
+  @include set-media(md) {
+    // width: fit-content;
+    width: 100%;
+  }
+}
+
+.submitBtn:hover {
+  background-color: $green-hover;
+}
+
+.isDisabled {
+  color: $grey-inactive;
+  background: $grey;
+
+  pointer-events: none;
+}
+
+.submitDescription {
+  margin-top: set-calc(8);
+  color: $grey;
+
+  @include set-media(md) {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.error {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: $orange;
+  background-color: $pastelPink;
+}
+
+.inner {
+  position: relative;
+  margin-top: set-calc(32);
+
+  display: flex;
+
+  @include set-media(md) {
+    flex-direction: column;
+    margin-top: 0;
+  }
+}
+
+.fields {
+  display: flex;
+  width: 50%;
+  flex-flow: column;
+  padding-right: set-calc(88);
+
+  @include set-media(md) {
+    padding-right: 0;
+    padding-bottom: set-calc(32);
+    width: 100%;
+  }
+}
+
+.fieldsTitle {
+  padding-bottom: set-calc(56);
+
+  @include set-media(md) {
+    padding-bottom: set-calc(32);
+    padding-top: set-calc(24);
+  }
+}
+
+.fieldsInner {
+  margin-bottom: set-calc(56);
+
+  @include set-media(md) {
+    margin-bottom: set-calc(24);
+  }
+}
+
+.files {
+  display: flex;
+  flex-flow: column;
+  flex: 1;
+  overflow: hidden;
+
+  @include set-media(md) {
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+  }
+}
+
+.filesHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: set-calc(56);
+
+  @include set-media(md) {
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 0;
+  }
+}
+
+.filesTitle {
+  @include set-media(md) {
+    padding-bottom: set-calc(32);
+  }
+}
+
+.filesBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: set-calc(48);
+  padding: set-calc(4) set-calc(40);
+
+  color: $black-new;
+  text-align: center;
+
+  border: set-calc(2) solid $black-new;
+  border-radius: set-calc(20);
+
+  cursor: pointer;
+  transition: opacity, color;
+  transition-duration: $d-hover;
+}
+
+.filesBtn:hover {
+  opacity: 0.5;
+}
+
+.filesContent {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: auto;
+}
+
+.file {
+  position: relative;
+  width: set-calc(-20, true, 50%);
+  margin: 0 set-calc(20) set-calc(20) 0;
+
+  @include set-media(md) {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
+.filesEmpty {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  height: set-calc(200);
+  margin: 0 auto;
+  width: 100%;
+  margin-bottom: set-calc(20);
+  border-radius: set-calc(20);
+
+  background-color: $beige;
+
+  color: $grey;
+  text-align: center;
+
+  transition: background-color $d-hover ease-in-out, color ease-in-out $d-hover;
+}
+
+.filesEmpty:hover {
+  background-color: $beige-dark;
+  color: $grey-inactive;
+  cursor: pointer;
+}
+
+.filesEmpty svg {
+  width: set-calc(64);
+  height: set-calc(64);
+  margin-bottom: set-calc(8);
+
+  path {
+    stroke: $grey-inactive;
+    stroke-width: 3;
+  }
+}

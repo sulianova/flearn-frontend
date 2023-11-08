@@ -1,4 +1,4 @@
-import { ICourseData, IHomeworkData, ILessonData, ILessonsData, IUserData } from 'types';
+import { ICourseData, IHomeworkData, IHomeworkDataWPopulate, ILessonData, ILessonsData, IUserData } from 'types';
 
 export interface IRootState {
   user: IUserState
@@ -6,6 +6,7 @@ export interface IRootState {
   lessons: ILessonsState
   lesson: ILessonState
   homework?: IHomeworkState
+  homeworks: IHomeworksState
   ui?: IBasicState
 }
 
@@ -15,6 +16,7 @@ export type IState =
   | ILessonsState
   | ILessonState
   | IHomeworkState
+  | IHomeworksState
   | IBasicState;
 
 export type TStateName = keyof IRootState;
@@ -27,7 +29,7 @@ export enum ECommonErrorTypes {
   Other = 'other',
 }
 
-type TStateState<T> =
+export type TStateState<T> =
   | { type: 'idle' }
   | { type: 'pending' }
   | { type: 'error', error: Error, errorType: T };
@@ -62,4 +64,9 @@ export interface IBasicState {
 
 export interface IHomeworkState {
   data?: IHomeworkData
+}
+
+export interface IHomeworksState {
+  homeworks?: IHomeworkDataWPopulate[]
+  state?: TStateState<ECommonErrorTypes>
 }

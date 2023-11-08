@@ -1,4 +1,4 @@
-import { dateFR2DB } from '../shared';
+import { dateFR2DB, removeImageSrc } from '../shared';
 
 import type {
   ILessonContent,
@@ -29,11 +29,7 @@ export function lessonContentFR2DB(contentDB: ILessonContent) {
 function lessonImageBlockFR2DB(imageBlockDB: ILessonImageBlock) {
   const imageBlockFR: ILessonImageBlockDB = {
     ...imageBlockDB,
-    imageData: {
-      id: imageBlockDB.imageData.id,
-      alt: imageBlockDB.imageData.alt,
-      ...imageBlockDB.imageData.caption && { caption: imageBlockDB.imageData.caption },
-    },
+    imageData: removeImageSrc(imageBlockDB.imageData),
   };
   return imageBlockFR;
 }
