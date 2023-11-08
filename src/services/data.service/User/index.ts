@@ -1,4 +1,4 @@
-import { firebaseService } from 'services';
+import { firebaseService, TWhereProps } from 'services';
 
 import { userConverter } from './userConverter';
 
@@ -20,8 +20,13 @@ class User {
     return await firebaseService.setDoc(ECollections.User, id, data, userConverter);
   }
 
-  public async getAll(ids: string[]): Promise<IUserData[]> {
-    return Promise.all(ids.map(id => this.get(id)));
+  public async getAll(filter: { ids?: string[] }): Promise<IUserData[]> {
+    const queryConstraints = [
+      filter.ids && { param: 'id', value: filter.ids, operator: 'in' },
+    ].filter(Boolean) as TWhereProps;
+
+    const usersDataDB = (await firebaseService.getDocs(ECollections.Homework, queryConstraints)) as IUserDataDB[];
+    return Promise.all(usersDataDB.map(userDataDB => userConverter.fromFirestore(userDataDB));
   }
 
   public async update(id: string, data: Partial<IUserData>) {
