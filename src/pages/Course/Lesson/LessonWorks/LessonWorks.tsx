@@ -11,7 +11,7 @@ import LessonReview from './LessonReview/LessonReview';
 import LessonWork from './LessonWork/LessonWork';
 import WorkCard from './WorkCard/WorkCard';
 
-import useFilter from './useFilter';
+import useFilter from '../useFilter';
 
 import classes from './LessonWorks.module.scss';
 

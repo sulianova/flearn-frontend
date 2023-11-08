@@ -6,6 +6,8 @@ import Link from 'ui/Link/Link';
 import classes from './LessonHeader.module.scss';
 
 import { type ILessonData, URLSections } from 'types';
+import useFilter from '../useFilter';
+import { useFetch } from 'hooks';
 
 export default LessonHeader;
 
@@ -19,11 +21,10 @@ interface IProps {
 }
 
 function LessonHeader(props: IProps) {
-  const { courseId, lessonId } = useParams();
+  const { courseId, lessonId } = useParams() as { courseId: string, lessonId: string };
+  const { filter } = useFilter();
 
-  if (!courseId || !lessonId) {
-    return <>Error</>;
-  }
+  useFetch
 
   return (
     <div className={classes._}>

@@ -6,9 +6,12 @@ import { getFirebaseConfig } from './firebase.config';
 import { ECollections } from 'types';
 
 import type { FirebaseApp, FirebaseOptions } from 'firebase/app';
-import type { DocumentData, Firestore, FirestoreDataConverter } from 'firebase/firestore';
+import type { DocumentData, Firestore, FirestoreDataConverter, WhereFilterOp } from 'firebase/firestore';
 import type { FirebaseStorage } from 'firebase/storage';
 import type { IObject } from 'types';
+import type { TWhereProps } from './types';
+
+export { type TWhereProps } from './types';
 
 export class FirebaseService {
   constructor(config: FirebaseOptions) {
@@ -76,9 +79,9 @@ export class FirebaseService {
     }
   }
 
-  public async getDocs(collectionName: ECollections, whereProps: { param: string, value: unknown }[]) {
+  public async getDocs(collectionName: ECollections, whereProps: TWhereProps ) {
     try {
-      const queryConstraints = whereProps.map(({ param, value}) => where(param, '==', value));
+      const queryConstraints = whereProps.map(({ param, value, operator }) => where(param, operator ?? '==', value));
       const q = query(collection(this._db, collectionName), ...queryConstraints);
       const querySnapshot = await getDocs(q);
       const data = [] as DocumentData[];

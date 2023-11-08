@@ -1,17 +1,18 @@
 
 import type { DocumentData, FirestoreDataConverter } from 'firebase/firestore';
-import type { IUserData, IUserDataDB } from 'types';
+import type { IUserData, IUserDataDB } from '../../user.service';
 
-export const userConverter: FirestoreDataConverter<DocumentData, DocumentData> = {
-  toFirestore: (userData: IUserData) => {
-    return userData;
+export const userConverter = {
+  toFirestore: (userData: IUserData): IUserDataDB => {
+    return {
+      ...userData,
+    };
   },
-  fromFirestore: (snapshot, options) => {
-    const dataDB = snapshot.data(options) as IUserDataDB;
+  fromFirestore: (userDataDB: IUserDataDB): IUserData => {
     const dataFR: IUserData = {
-      ...dataDB,
-      firstSignInAt: new Date(dataDB.firstSignInAt.seconds * 1_000 + dataDB.firstSignInAt.nanoseconds/1_000_000),
-      lastSignInAt: new Date(dataDB.lastSignInAt.seconds * 1_000 + dataDB.lastSignInAt.nanoseconds/1_000_000),
+      ...userDataDB,
+      firstSignInAt: new Date(userDataDB.firstSignInAt.seconds * 1_000 + userDataDB.firstSignInAt.nanoseconds/1_000_000),
+      lastSignInAt: new Date(userDataDB.lastSignInAt.seconds * 1_000 + userDataDB.lastSignInAt.nanoseconds/1_000_000),
     };
 
     return dataFR;
