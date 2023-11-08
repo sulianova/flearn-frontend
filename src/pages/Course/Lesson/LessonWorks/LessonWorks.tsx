@@ -53,9 +53,6 @@ function LessonWorks({ authedUserId }: IProps) {
     return otherStudentsHomeworks;
   }, [otherStudentsHomeworks, filter]);
 
-  const homeworksAreExpandable = otherStudentsHomeworks && otherStudentsHomeworks.length > 4 && filteredOtherStudentsHomeworks!.length <= 4;
-  const homeworksAreExpanded = otherStudentsHomeworks && otherStudentsHomeworks.length > 4 && filteredOtherStudentsHomeworks!.length > 4;
-
   useEffect(() => {
     if (!courseId || !lessonId) {
       return;
@@ -100,6 +97,7 @@ function LessonWorks({ authedUserId }: IProps) {
   }
 
   let showMore: React.ReactNode;
+  const homeworksAreExpandable = otherStudentsHomeworks && otherStudentsHomeworks.length > 4 && filteredOtherStudentsHomeworks!.length <= 4;
   if (homeworksAreExpandable) {
     showMore = (
       <div className={classes.showMoreLess}>
@@ -115,6 +113,7 @@ function LessonWorks({ authedUserId }: IProps) {
   }
 
   let showLess: React.ReactNode;
+  const homeworksAreExpanded = otherStudentsHomeworks && otherStudentsHomeworks.length > 4 && filteredOtherStudentsHomeworks!.length > 4;
   if (homeworksAreExpanded) {
     showLess = (
       <div className={classes.showMoreLess}>
@@ -134,12 +133,12 @@ function LessonWorks({ authedUserId }: IProps) {
       <div className={classes.wrapper}>
         <div className={classes.own}>
           <div className={classes.ownTitle + ' s-text-36'}>{t('ownTitle')}</div>
-            <a className={cx({ ownWork: true, ownWorkEmpty: !authedUserHomework })} href='homework-editor.html'>
+            <div className={cx({ ownWork: true, ownWorkEmpty: !authedUserHomework })}>
               {authedUserHomework ?
                 (<WorkCard homework={authedUserHomework}/>)
                 : (<div className='s-text-14'>{t('subTitle')}</div>)
               }
-            </a>
+            </div>
         </div>
           <div className={classes.list}>
             <div className={classes.listTitle + ' s-text-36'}>{t('listTitle')}</div>
