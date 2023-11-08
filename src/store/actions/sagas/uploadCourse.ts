@@ -1,9 +1,10 @@
-import { put } from 'redux-saga/effects';
-import { dataService, localFilesServise } from 'services';
+import { put, select } from 'redux-saga/effects';
+
+import { dataService } from 'services';
 import { createAction } from 'store/utils';
 import { updateState } from '../redux';
 
-import { ECommonErrorTypes, type ICourseData, type ICourseState, type TAction } from 'types';
+import type { IRootState, ICourseData, ICourseState, TAction } from 'types';
 
 export interface IUploadCoursePayload {
   courseId: string
@@ -14,24 +15,22 @@ export const uploadCourse = createAction<'saga', IUploadCoursePayload>(
   function* execute(action: TAction<IUploadCoursePayload>) {
     try {
       const { courseId } = action.payload;
+      const courseState: ICourseState = yield select((state: IRootState) => state.course);
+      const localData = courseState.data;
 
-      let file: any
-      try {
-        // @ts-ignore
-        file = yield import(`edit-files/course-${courseId}.json`);
-      } catch(e) {
-        // tslint:disable-next-line
-        console.error(ECommonErrorTypes.FailedToFindData, e);
-        throw new Error(ECommonErrorTypes.FailedToFindData);
+      if (!localData) {
+        throw new Error(`Failed to upload: local data not found`);
       }
 
-      const isValid = localFilesServise.Course.test(file.courseData);
-      if (!isValid) {
-        throw new Error(ECommonErrorTypes.DataIsCorrupted);
+      if (courseId !== localData.id) {
+        const logData = {
+          wantedCourseId: courseId,
+          currentCourseId: localData.id,
+        };
+        throw new Error(`Failed to upload: ids are diff ${JSON.stringify(logData, undefined, 2)}`);
       }
 
-      const localData = yield localFilesServise.Course.localToFR(file.courseData);
-      const remoteData: ICourseData = yield dataService.course.set(courseId, localData!);
+      const remoteData: ICourseData = yield dataService.course.set(courseId, localData);
 
       // tslint:disable-next-line
       console.log('saved data: ', remoteData);
