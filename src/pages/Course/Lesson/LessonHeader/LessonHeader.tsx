@@ -44,7 +44,7 @@ function LessonHeader(props: IProps) {
           </Link>
           <Link
             className={classes.type + ' nav-link s-text-18' + (props.practice === 'results' && !props.selectedUser ? ' isActive' : '')}
-            to={URLSections.Course.Lesson.Results.to({ courseId, lessonId })}
+            to={URLSections.Course.Lesson.Results.to({ courseId, lessonId, params: { limit: 4 } })}
             onClick={() => props.selectedUser && props.handleDisselectUser()}
           >
             {t('navTubsResults')}

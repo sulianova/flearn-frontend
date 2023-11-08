@@ -44,19 +44,22 @@ function LessonWorks({ selectedUser, setSelectedUser, authedUserId }: IProps) {
   const [homeworks, setHomeworks] = useState<IHomeworkDataWPopulate[] | undefined>(undefined);
   const [homeworksState, setHomeworksState] = useState<THomeworkStateState>({ type: 'idle' });
   const authedUserHomework = useMemo(() => homeworks?.find(h => h.homework.userId === authedUserId), [authedUserId, homeworks]);
-  const otherStudentsHomeworks = useMemo(() => homeworks?.filter(h => h.homework.userId !== authedUserId), [authedUserId, homeworks]);
-  const otherStudentsHomeworksBig = otherStudentsHomeworks ? [...otherStudentsHomeworks, ...otherStudentsHomeworks, ...otherStudentsHomeworks]: undefined;
+  const otherStudentsHomeworksSmall = useMemo(() => homeworks?.filter(h => h.homework.userId !== authedUserId), [authedUserId, homeworks]);
+  const otherStudentsHomeworks = otherStudentsHomeworksSmall ? [...otherStudentsHomeworksSmall, ...otherStudentsHomeworksSmall, ...otherStudentsHomeworksSmall]: undefined;
   const filteredOtherStudentsHomeworks = useMemo(() => {
-    if (!otherStudentsHomeworksBig) {
-      return otherStudentsHomeworksBig;
+    if (!otherStudentsHomeworks) {
+      return otherStudentsHomeworks;
     }
 
     if (filter.limit !== null) {
-      return otherStudentsHomeworksBig.slice(0, filter.limit);
+      return otherStudentsHomeworks.slice(0, filter.limit);
     }
 
-    return otherStudentsHomeworksBig;
-  }, [otherStudentsHomeworksBig, filter]);
+    return otherStudentsHomeworks;
+  }, [otherStudentsHomeworks, filter]);
+
+  const homeworksAreExpandable = otherStudentsHomeworks && otherStudentsHomeworks.length > 4 && filteredOtherStudentsHomeworks!.length <= 4;
+  const homeworksAreExpanded = otherStudentsHomeworks && otherStudentsHomeworks.length > 4 && filteredOtherStudentsHomeworks!.length > 4;
 
   useEffect(() => {
     if (!courseId || !lessonId) {
@@ -101,6 +104,36 @@ function LessonWorks({ selectedUser, setSelectedUser, authedUserId }: IProps) {
     </Fragment>);
   }
 
+  let showMore: React.ReactNode;
+  if (homeworksAreExpandable) {
+    showMore = (
+      <div className={classes.showMoreLess}>
+        <button
+          className={classes.showMoreLessBtn + ' s-text-21-uppercase inline-link'}
+          onClick={() => patchFilter({ limit: null })}
+        >
+          <span className='inline-link-text'>{t('showMoreBtn')}</span>
+          <span className='inline-link-arrow'>↓</span>
+        </button>
+      </div>
+    );
+  }
+
+  let showLess: React.ReactNode;
+  if (homeworksAreExpanded) {
+    showLess = (
+      <div className={classes.showMoreLess}>
+        <button
+          className={classes.showMoreLessBtn + ' s-text-21-uppercase inline-link'}
+          onClick={() => patchFilter({ limit: 4 })}
+        >
+          <span className='inline-link-text'>{t('showLessBtn')}</span>
+          <span className='inline-link-arrow'>↑</span>
+        </button>
+      </div>
+    );
+  }
+
   return (
     <div className={classes._}>
       <div className={classes.wrapper}>
@@ -118,15 +151,8 @@ function LessonWorks({ selectedUser, setSelectedUser, authedUserId }: IProps) {
             <div className={classes.listInner}>
               {renderWorkCards({ setSelectedUser, homeworks: filteredOtherStudentsHomeworks! })}
             </div>
-            <div className={classes.showMore}>
-              <button
-                className={classes.showMoreBtn + ' s-text-21-uppercase inline-link'}
-                onClick={() => patchFilter({ limit: null })}
-              >
-                <span className='inline-link-text'>{t('showMoreBtn')}</span>
-                <span className='inline-link-arrow'>↓</span>
-              </button>
-            </div>
+            {showMore}
+            {showLess}
           </div>
       </div>
     </div>

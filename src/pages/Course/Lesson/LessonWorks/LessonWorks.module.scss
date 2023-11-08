@@ -86,7 +86,7 @@
   }
 }
 
-.showMore {
+.showMoreLess {
   margin: 0 0 set-calc(100);
   padding: set-calc(8) 0 0;
 
@@ -95,7 +95,7 @@
   border-top: set-calc(calc($s-gap / 2)) solid $black-new;
 }
 
-.showMoreBtn {
+.showMoreLessBtn {
   grid-column: 3 / 4;
   margin-right: 0;
   margin-left: auto;
