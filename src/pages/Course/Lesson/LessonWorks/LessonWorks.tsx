@@ -22,22 +22,17 @@ export default connect(mapStateToProps)(LessonWorks);
 const cx = classNames.bind(classes);
 const t = formatI18nT('courseLesson.works');
 
-interface IConnectedProps {
+interface IProps {
   authedUserId?: string
 }
 
-function mapStateToProps(state: IRootState): IConnectedProps {
+function mapStateToProps(state: IRootState): IProps {
   return {
     authedUserId: state.user?.user?.id,
   };
 }
 
-interface IProps extends IConnectedProps {
-  selectedUser: { id: string, displayName: string } | null
-  setSelectedUser: (u: { id: string, displayName: string } | null) => void
-}
-
-function LessonWorks({ selectedUser, setSelectedUser, authedUserId }: IProps) {
+function LessonWorks({ authedUserId }: IProps) {
   const { courseId, lessonId } = useParams() as { courseId: string, lessonId: string };
   const { filter, patchFilter } = useFilter();
 
@@ -89,8 +84,8 @@ function LessonWorks({ selectedUser, setSelectedUser, authedUserId }: IProps) {
   }, [courseId, lessonId]);
 
   const selectedHomework = useMemo(() => {
-    return homeworks?.find(data => data.homework.userId === selectedUser?.id);
-  }, [homeworks, selectedUser]);
+    return homeworks?.find(data => data.homework.userId === filter.userId);
+  }, [homeworks, filter]);
 
   if (!otherStudentsHomeworks) {
     return <>Loading...</>
@@ -141,7 +136,7 @@ function LessonWorks({ selectedUser, setSelectedUser, authedUserId }: IProps) {
           <div className={classes.ownTitle + ' s-text-36'}>{t('ownTitle')}</div>
             <a className={cx({ ownWork: true, ownWorkEmpty: !authedUserHomework })} href='homework-editor.html'>
               {authedUserHomework ?
-                (<WorkCard homework={authedUserHomework} handleClick={setSelectedUser}/>)
+                (<WorkCard homework={authedUserHomework}/>)
                 : (<div className='s-text-14'>{t('subTitle')}</div>)
               }
             </a>
@@ -149,7 +144,7 @@ function LessonWorks({ selectedUser, setSelectedUser, authedUserId }: IProps) {
           <div className={classes.list}>
             <div className={classes.listTitle + ' s-text-36'}>{t('listTitle')}</div>
             <div className={classes.listInner}>
-              {renderWorkCards({ setSelectedUser, homeworks: filteredOtherStudentsHomeworks! })}
+              {renderWorkCards(filteredOtherStudentsHomeworks!)}
             </div>
             {showMore}
             {showLess}
@@ -159,22 +154,13 @@ function LessonWorks({ selectedUser, setSelectedUser, authedUserId }: IProps) {
   );
 }
 
-interface IRenderWorkCardProps {
-  setSelectedUser: (u: { id: string, displayName: string } | null) => void
-  homework: IHomeworkDataWPopulate
-}
-
-function renderWorkCard({ setSelectedUser, homework }: IRenderWorkCardProps) {
-  return (
-    <div className={classes.work}><WorkCard homework={homework} handleClick={setSelectedUser}/></div>
-  );
-}
-
-interface IRenderWorkCardsProps {
-  setSelectedUser: (u: { id: string, displayName: string } | null) => void
-  homeworks: IHomeworkDataWPopulate[]
-}
-
-function renderWorkCards({ setSelectedUser, homeworks }: IRenderWorkCardsProps) {
-  return homeworks.map((homework, index) => (<Fragment key={index}>{renderWorkCard({ setSelectedUser, homework })}</Fragment>));
+function renderWorkCards(homeworks: IHomeworkDataWPopulate[]) {
+  return homeworks.map(homework => (
+    <div
+      key={homework.homework.id}
+      className={classes.work}
+    >
+      <WorkCard homework={homework}/>
+    </div>
+  ));
 }
