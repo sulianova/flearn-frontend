@@ -1,12 +1,15 @@
+import { v4 } from 'uuid';
+
 import { dataService, firebaseService } from 'services';
 
 import { ECollections, IHomeworkDataDB, type IHomeworkData, ECommonErrorTypes } from 'types';
 import { homeworkConverter } from './homeworkConverter';
 
 interface IHomeworksFilter {
-  id?: string
   courseId: string
-  lessonId: string
+  lessonId?: string
+  userId?: string
+  id?: string
 }
 class Homework {
   public async get(courseId: string, lessonId: string, userId: string) {
@@ -41,13 +44,78 @@ class Homework {
     return homeworksData;
   }
 
-  public async set(courseId: string, lessonId: string, userId: string, data: IHomeworkData) {
-    const id = this.getFullId(courseId, lessonId, userId);
-    return await firebaseService.setDoc(ECollections.Homework, id, data);
+  public async create(id: string, homeworkData: IHomeworkData) {
+    const homeworkAlreadyExists = await firebaseService.docExists(ECollections.Homework, id);
+    if (homeworkAlreadyExists) {
+      throw new Error('Cannot create duplicated homework');
+    }
+
+    await this.set(id, homeworkData);
+  }
+
+  public async set(id: string, homeworkData: IHomeworkData) {
+    const homeworkDataDB = homeworkConverter.toFirestore(homeworkData);
+    return await firebaseService.setDoc(ECollections.Homework, id, homeworkDataDB);
+  }
+
+  public async patch(id: string, patch: Partial<IHomeworkData>) {
+    const homeworkData = await firebaseService.getDocOrThrow(ECollections.Homework, id) as IHomeworkData;
+    const homeworkDataDB = homeworkConverter.toFirestore({ ...homeworkData, ...patch });
+    return await firebaseService.setDoc(ECollections.Homework, id, homeworkDataDB);
+  }
+
+  public async uploadImage(props: { courseId: string, lessonId: string, userId: string, imageId: string, file: File }) {
+    try {
+      const path = this._getImagePath(props);
+      await firebaseService._uploadImage({ path, file: props.file });
+    } catch (err) {
+      // tslint:disable-next-line
+      console.error(err);
+      throw new Error('Failed to upload homework image');
+    }
+  }
+
+  public async deleteImage(props: { courseId: string, lessonId: string, userId: string, imageId: string }) {
+    try {
+      const path = this._getImagePath(props);
+      await firebaseService._deleteImage({ path });
+    } catch (err) {
+      // tslint:disable-next-line
+      console.error(err);
+      throw new Error('Failed to delete homework image');
+    }
+  }
+
+  public async getImageURL(props: { courseId: string, lessonId: string, userId: string, imageId: string }) {
+    try {
+      const path = this._getImagePath(props);
+      return await firebaseService._getImageURL({ path });
+    } catch (err) {
+      // tslint:disable-next-line
+      console.error(err);
+      throw new Error('Failed to get homework image URL');
+    }
   }
 
   public getFullId(courseId: string, lessonId: string, userId: string) {
     return `${courseId}_${lessonId}_hw-${userId}`;
+  }
+
+  public generateImageId(props: { originalName: string }) {
+    const type = props.originalName.split('.').at(-1) ?? '';
+    const randomPart = '_' + v4().slice(0, 5);
+
+    if (!['png', 'jpg', 'jpeg'].includes(type.toLocaleLowerCase())) {
+      return props.originalName + randomPart;
+    }
+
+    const fileName = props.originalName.replace(`.${type}`, '');
+    const id = fileName + randomPart + `.${type}`;
+    return id;
+  }
+
+  private _getImagePath(props: { courseId: string, lessonId: string, userId: string, imageId: string }) {
+    return `${props.courseId}/${props.lessonId}/homeworks/${props.userId}/${props.imageId}`;
   }
 };
 

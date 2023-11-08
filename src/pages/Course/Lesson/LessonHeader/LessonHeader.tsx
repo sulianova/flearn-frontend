@@ -1,10 +1,11 @@
-import { ILessonData, URLSections } from 'types';
-import Link from 'ui/Link/Link';
-import classes from './LessonHeader.module.scss';
-
 import { useParams } from 'react-router';
 
 import { formatI18nT } from 'shared';
+import Link from 'ui/Link/Link';
+
+import classes from './LessonHeader.module.scss';
+
+import { type ILessonData, URLSections } from 'types';
 
 export default LessonHeader;
 

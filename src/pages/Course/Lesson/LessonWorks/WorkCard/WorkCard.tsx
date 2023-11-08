@@ -1,7 +1,10 @@
-import UserImage from 'assets/images/Svg/UserImage';
 import classNames from 'classnames/bind';
-import { IHomeworkDataWPopulate } from 'types';
+
+import UserImage from 'assets/images/Svg/UserImage';
+
 import classes from './WorkCard.module.scss';
+
+import type { IHomeworkDataWPopulate } from 'types';
 
 const cx = classNames.bind(classes);
 

@@ -116,3 +116,17 @@
 
   @include set-typography(16, 22, 500);
 }
+
+.error {
+  color: $keyText;
+
+  display: flex;
+  justify-content: center;
+}
+
+.originalName {
+  color: $grey;
+
+  display: flex;
+  justify-content: center;
+}

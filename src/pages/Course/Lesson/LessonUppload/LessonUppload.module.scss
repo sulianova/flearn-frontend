@@ -90,6 +90,16 @@
   }
 }
 
+.error {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: $orange;
+  background-color: $pastelPink;
+}
+
 .inner {
   position: relative;
   margin-top: set-calc(32);
@@ -187,7 +197,6 @@
 
 .filesContent {
   display: flex;
-  flex: 1;
   flex-wrap: wrap;
   overflow: auto;
 }
