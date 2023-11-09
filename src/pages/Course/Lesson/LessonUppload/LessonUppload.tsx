@@ -16,8 +16,9 @@ import Upload from 'assets/images/Svg/Upload';
 
 import classes from './LessonUppload.module.scss';
 
+import type { IUserData } from 'services/user.service';
 import type { TAction, TImageDataWState, TState } from './types';
-import type { IHomeworkData, IHomeworkDataWPopulate, IHomeworkImageData, IRootState, IUserData } from 'types';
+import type { IHomeworkData, IHomeworkDataWPopulate, IHomeworkImageData, IRootState } from 'types';
 import { errorService } from './error.service';
 
 export default connect(mapStateToProps)(LessonUppload);

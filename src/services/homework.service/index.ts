@@ -2,8 +2,9 @@ import { BehaviorSubject, CompletionObserver, ErrorObserver, NextObserver, Subje
 
 import { dataService } from 'services/data.service';
 
+import type { IUserData } from 'services/user.service';
 import type { TActionS } from './types';
-import type { IHomeworkData, IHomeworkDataWPopulate, IUserData } from 'types';
+import type { IHomeworkData, IHomeworkDataWPopulate } from 'types';
 import { ECommonErrorTypes } from 'types';
 
 class HomeworkService {
@@ -129,7 +130,7 @@ class HomeworkService {
         let populateUserMap: Map<string, IUserData>;
         if (props.populate.user) {
           const userIds = [...new Set(homeworksData.map(l => l.userId))];
-          const usersData = await dataService.user.getAll(userIds);
+          const usersData = await dataService.user.getAll({ ids: userIds });
           populateUserMap = new Map(usersData.map(c => [c.id, c] as const));
         }
         // add here other populated values

@@ -1,7 +1,8 @@
 import { createAction } from 'store/utils';
 import { authService, dataService } from 'services';
 import { put } from 'redux-saga/effects';
-import { IUserData, IUserState } from 'types';
+import type { IUserData } from 'services/user.service';
+import { IUserState } from 'types';
 import { updateState } from '../../redux';
 
 export const loginFromStorage = createAction<'saga'>(

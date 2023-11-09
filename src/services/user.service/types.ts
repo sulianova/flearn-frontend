@@ -13,7 +13,7 @@ export interface IUserDataDB {
   email: string
   displayName: string | null
   photoURL: string | null
-  firstSignInAt: { seconds: number, nanoseconds: number } // | string
-  lastSignInAt: { seconds: number, nanoseconds: number } // | string
+  firstSignInAt: string
+  lastSignInAt: string
   role: 'user' | 'support'
 }

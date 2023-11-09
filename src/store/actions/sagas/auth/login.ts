@@ -1,7 +1,8 @@
 import { createAction } from 'store/utils';
 import { authService, dataService } from 'services';
 import { put } from 'redux-saga/effects';
-import { IPayloadWithEffects, IUserData, IUserState, TAction } from 'types';
+import type { IUserData } from 'services/user.service';
+import { IPayloadWithEffects, IUserState, TAction } from 'types';
 import { updateState } from '../../redux';
 
 export const login = createAction<'saga', IPayloadWithEffects>(

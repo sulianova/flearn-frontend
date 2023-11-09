@@ -1,20 +1,16 @@
+import { dateDB2FR, dateFR2DB } from 'services/utils/shared';
 
-import type { DocumentData, FirestoreDataConverter } from 'firebase/firestore';
 import type { IUserData, IUserDataDB } from '../../user.service';
 
 export const userConverter = {
-  toFirestore: (userData: IUserData): IUserDataDB => {
-    return {
-      ...userData,
-    };
-  },
-  fromFirestore: (userDataDB: IUserDataDB): IUserData => {
-    const dataFR: IUserData = {
-      ...userDataDB,
-      firstSignInAt: new Date(userDataDB.firstSignInAt.seconds * 1_000 + userDataDB.firstSignInAt.nanoseconds/1_000_000),
-      lastSignInAt: new Date(userDataDB.lastSignInAt.seconds * 1_000 + userDataDB.lastSignInAt.nanoseconds/1_000_000),
-    };
-
-    return dataFR;
-  },
+  toFirestore: (userData: IUserData): IUserDataDB => ({
+    ...userData,
+    firstSignInAt: dateFR2DB(userData.firstSignInAt),
+    lastSignInAt: dateFR2DB(userData.lastSignInAt),
+  }),
+  fromFirestore: (userDataDB: IUserDataDB): IUserData => ({
+    ...userDataDB,
+    firstSignInAt: dateDB2FR(userDataDB.firstSignInAt),
+    lastSignInAt: dateDB2FR(userDataDB.lastSignInAt),
+  }),
 };

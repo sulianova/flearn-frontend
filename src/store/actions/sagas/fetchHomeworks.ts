@@ -4,8 +4,9 @@ import { dataService } from 'services';
 import { createAction } from 'store/utils';
 import { updateState } from 'store/actions/redux';
 
+import type { IUserData } from 'services/user.service';
 import { ECommonErrorTypes } from 'types';
-import type { IHomeworkData, IHomeworksState, IUserData, IRootState, TAction, IHomeworkDataWPopulate } from 'types';
+import type { IHomeworkData, IHomeworksState, IRootState, TAction, IHomeworkDataWPopulate } from 'types';
 
 export interface IFetchHomeworksPayload {
   filter: {
@@ -39,7 +40,7 @@ export const fetchHomeworks = createAction<'saga', IFetchHomeworksPayload>(
         let populateUserMap: Map<string, IUserData>;
         if (populate.user) {
           const userIds = [...new Set(homeworksData.map(l => l.userId))];
-          const usersData: IUserData[] = yield dataService.user.getAll(userIds);
+          const usersData: IUserData[] = yield dataService.user.getAll({ ids: userIds });
           populateUserMap = new Map(usersData.map(c => [c.id, c] as const));
         }
         // add here other populated values

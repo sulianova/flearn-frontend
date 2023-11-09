@@ -3,6 +3,7 @@ import { useCallback, useState } from 'react';
 import { connect } from 'react-redux';
 
 import { dataService } from 'services';
+import type { IUserData } from 'services/user.service';
 import { formatI18nT } from 'shared';
 
 import InputField from 'ui/Form/Input/InputField';
@@ -11,7 +12,7 @@ import Spinner from 'ui/Spinner/Spinner';
 import classes from './Form.module.scss';
 import classesInputField from './InputField.module.scss';
 
-import type { IRootState, IUserData } from 'types';
+import type { IRootState } from 'types';
 
 export default connect(mapStateToProps)(Form);
 
