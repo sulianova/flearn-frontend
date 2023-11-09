@@ -9,5 +9,4 @@ export * from './object';
 export * from './order';
 export * from './route';
 export * from './store';
-export * from './user';
 export * from './utils';

@@ -1,7 +1,7 @@
 import type { IArticleContent } from './article';
 import type { TText } from './course';
 import { ECommonErrorTypes, TStateState } from './store';
-import type { IUserData } from './user';
+import type { IUserData } from 'services/user.service';
 
 export interface IHomeworkData {
   id: string

@@ -1,7 +1,10 @@
 import classnames from 'classnames/bind';
 import { useEffect, useState } from 'react';
+
+import type { IUserData } from 'services/user.service';
 import { formatI18nT, i18n } from 'shared';
-import { IRootState, IUserData, URLSections } from 'types';
+import { IRootState, URLSections } from 'types';
+
 import Link from 'ui/Link/Link';
 
 import classes from './header.module.scss';

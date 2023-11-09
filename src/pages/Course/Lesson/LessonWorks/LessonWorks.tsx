@@ -1,67 +1,90 @@
 import classNames from 'classnames/bind';
-import { Fragment, useMemo } from 'react';
+import { Fragment, useEffect, useMemo, useState } from 'react';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router';
+import type { Subscription } from 'rxjs';
 
-import { useFetch } from 'hooks';
-import { dataService } from 'services';
+import { homeworkService } from 'services';
 import { formatI18nT } from 'shared';
-import { IFetchHomeworksPayload, fetchHomeworks } from 'store/actions/sagas';
 
 import LessonReview from './LessonReview/LessonReview';
 import LessonWork from './LessonWork/LessonWork';
 import WorkCard from './WorkCard/WorkCard';
 
+import useFilter from '../useFilter';
+
 import classes from './LessonWorks.module.scss';
 
-import type { IHomeworkData, IHomeworkDataWPopulate, IHomeworksState, IRootState } from 'types';
+import type { IHomeworkDataWPopulate, IRootState, THomeworkStateState } from 'types';
 
 export default connect(mapStateToProps)(LessonWorks);
 
 const cx = classNames.bind(classes);
 const t = formatI18nT('courseLesson.works');
 
-interface IConnectedProps {
-  homeworksState: IHomeworksState
+interface IProps {
   authedUserId?: string
 }
 
-function mapStateToProps(state: IRootState): IConnectedProps {
+function mapStateToProps(state: IRootState): IProps {
   return {
-    homeworksState: state.homeworks,
     authedUserId: state.user?.user?.id,
   };
 }
 
-interface IProps extends IConnectedProps {
-  selectedUser: { id: string, displayName: string } | null
-  setSelectedUser: (u: { id: string, displayName: string } | null) => void
-  homework?: IHomeworkDataWPopulate
-}
+function LessonWorks({ authedUserId }: IProps) {
+  const { courseId, lessonId } = useParams() as { courseId: string, lessonId: string };
+  const { filter, patchFilter } = useFilter();
 
-function LessonWorks({ selectedUser, setSelectedUser, homework, homeworksState, authedUserId }: IProps) {
-  const { courseId, lessonId } = useParams();
+  const [homeworks, setHomeworks] = useState<IHomeworkDataWPopulate[] | undefined>(undefined);
+  const [homeworksState, setHomeworksState] = useState<THomeworkStateState>({ type: 'idle' });
+  const authedUserHomework = useMemo(() => homeworks?.find(h => h.homework.userId === authedUserId), [authedUserId, homeworks]);
+  const otherStudentsHomeworksSmall = useMemo(() => homeworks?.filter(h => h.homework.userId !== authedUserId), [authedUserId, homeworks]);
+  const otherStudentsHomeworks = otherStudentsHomeworksSmall ? [...otherStudentsHomeworksSmall, ...otherStudentsHomeworksSmall, ...otherStudentsHomeworksSmall]: undefined;
+  const filteredOtherStudentsHomeworks = useMemo(() => {
+    if (!otherStudentsHomeworks) {
+      return otherStudentsHomeworks;
+    }
 
-  useFetch<IFetchHomeworksPayload>({
-    actionCreator: fetchHomeworks,
-    payload: {
-      filter: {
-        id: dataService.homework.getFullId(courseId!, lessonId!, authedUserId ?? ''),
-        courseId: courseId!,
-        lessonId: lessonId!,
-      },
-      populate: {
-        user: true,
-      },
-    },
-  });
+    if (filter.limit !== null) {
+      return otherStudentsHomeworks.slice(0, filter.limit);
+    }
+
+    return otherStudentsHomeworks;
+  }, [otherStudentsHomeworks, filter]);
+
+  useEffect(() => {
+    if (!courseId || !lessonId) {
+      return;
+    }
+
+    setHomeworksState({ type: 'pending' });
+    let subscription: Subscription;
+    homeworkService.getHomeworkBS({
+      filter: { courseId, lessonId },
+      populate: { user: true },
+    }).then(bs => {
+      subscription = bs.subscribe(e => {
+        if (e && !(e instanceof Error)) {
+          setHomeworks(e.homeworks);
+          setHomeworksState({ type: 'idle' });
+        }
+
+        if (e instanceof Error) {
+          const errorType = homeworkService.errorToType(e);
+          setHomeworksState({ type: 'error', error: e, errorType });
+        }
+      });
+    });
+
+    return () => subscription?.unsubscribe();
+  }, [courseId, lessonId]);
 
   const selectedHomework = useMemo(() => {
-    return homeworksState.homeworks?.find(data => data.homework.userId === selectedUser?.id);
-  }, [homeworksState.homeworks, selectedUser]);
+    return homeworks?.find(data => data.homework.userId === filter.userId);
+  }, [homeworks, filter]);
 
-  
-  if (!homeworksState.homeworks) {
+  if (!otherStudentsHomeworks) {
     return <>Loading...</>
   }
 
@@ -73,188 +96,70 @@ function LessonWorks({ selectedUser, setSelectedUser, homework, homeworksState, 
     </Fragment>);
   }
 
+  let showMore: React.ReactNode;
+  const homeworksAreExpandable = otherStudentsHomeworks && otherStudentsHomeworks.length > 4 && filteredOtherStudentsHomeworks!.length <= 4;
+  if (homeworksAreExpandable) {
+    showMore = (
+      <div className={classes.showMoreLess}>
+        <button
+          className={classes.showMoreLessBtn + ' s-text-21-uppercase inline-link'}
+          onClick={() => patchFilter({ limit: null })}
+        >
+          <span className='inline-link-text'>{t('showMoreBtn')}</span>
+          <span className='inline-link-arrow'>↓</span>
+        </button>
+      </div>
+    );
+  }
+
+  let showLess: React.ReactNode;
+  const homeworksAreExpanded = otherStudentsHomeworks && otherStudentsHomeworks.length > 4 && filteredOtherStudentsHomeworks!.length > 4;
+  if (homeworksAreExpanded) {
+    showLess = (
+      <div className={classes.showMoreLess}>
+        <button
+          className={classes.showMoreLessBtn + ' s-text-21-uppercase inline-link'}
+          onClick={() => patchFilter({ limit: 4 })}
+        >
+          <span className='inline-link-text'>{t('showLessBtn')}</span>
+          <span className='inline-link-arrow'>↑</span>
+        </button>
+      </div>
+    );
+  }
+
   return (
     <div className={classes._}>
       <div className={classes.wrapper}>
         <div className={classes.own}>
           <div className={classes.ownTitle + ' s-text-36'}>{t('ownTitle')}</div>
-            <a className={cx({ ownWork: true, ownWorkEmpty: !homework })} href='homework-editor.html'>
-              {homework ?
-                (<WorkCard homework={homework} handleClick={setSelectedUser}/>)
+            <div className={cx({ ownWork: true, ownWorkEmpty: !authedUserHomework })}>
+              {authedUserHomework ?
+                (<WorkCard homework={authedUserHomework}/>)
                 : (<div className='s-text-14'>{t('subTitle')}</div>)
               }
-            </a>
+            </div>
         </div>
           <div className={classes.list}>
             <div className={classes.listTitle + ' s-text-36'}>{t('listTitle')}</div>
             <div className={classes.listInner}>
-              {renderWorkCards({ setSelectedUser, homeworks: homeworksState.homeworks })}
+              {renderWorkCards(filteredOtherStudentsHomeworks!)}
             </div>
-            <div className={classes.showMore}>
-              <button className={classes.showMoreBtn + ' s-text-21-uppercase inline-link'}>
-                <span className='inline-link-text'>{t('showMoreBtn')}</span>
-                <span className='inline-link-arrow'>↓</span>
-              </button>
-            </div>
+            {showMore}
+            {showLess}
           </div>
       </div>
     </div>
   );
 }
 
-interface IRenderWorkCardProps {
-  setSelectedUser: (u: { id: string, displayName: string } | null) => void
-  homework: IHomeworkDataWPopulate
+function renderWorkCards(homeworks: IHomeworkDataWPopulate[]) {
+  return homeworks.map(homework => (
+    <div
+      key={homework.homework.id}
+      className={classes.work}
+    >
+      <WorkCard homework={homework}/>
+    </div>
+  ));
 }
-
-function renderWorkCard({ setSelectedUser, homework }: IRenderWorkCardProps) {
-  return (
-    <div className={classes.work}><WorkCard homework={homework} handleClick={setSelectedUser}/></div>
-  );
-}
-
-interface IRenderWorkCardsProps {
-  setSelectedUser: (u: { id: string, displayName: string } | null) => void
-  homeworks: IHomeworkDataWPopulate[]
-}
-
-function renderWorkCards({ setSelectedUser, homeworks }: IRenderWorkCardsProps) {
-  return homeworks.map((homework, index) => (<Fragment key={index}>{renderWorkCard({ setSelectedUser, homework })}</Fragment>));
-}
-
-function getHomeworks() {
-  return allHomeworks;
-}
-
-const allHomeworks: IHomeworkData[] = [];
-
-// const allHomeworks: IHomeworkData[] = [
-//   {
-//     id: '2_some-user-id',
-//     user: {
-//       id: 'sonia',
-//       displayName: 'Sofiia ulianova',
-//     },
-//     text: 'Это мое описание первого задания на курса. Это мое описание первого задания на курса. Это мое описание первого задания на курса. Это мое описание первого задания на курса. Это мое описание первого задания на курса.',
-//     reference: {
-//       tag: 'a',
-//       content: 'Это мое описание первого задания на курса.',
-//     },
-//     images: [
-//       {
-//         src: 'TheStrangerVisitingNatureSusl',
-//         alt: 'TheStrangerVisitingNatureSusl',
-//       },
-//       {
-//         src: 'TheStrangerVisitingNatureSusl',
-//         alt: 'TheStrangerVisitingNatureSusl',
-//       },
-//       {
-//         src: 'TheStrangerVisitingNatureSusl',
-//         alt: 'TheStrangerVisitingNatureSusl',
-//       },
-//       {
-//         src: 'SummerTime',
-//         alt: 'SummerTime',
-//       },
-//       {
-//         src: 'TheStrangerVisitingNatureSusl',
-//         alt: 'TheStrangerVisitingNatureSusl',
-//       },
-//       {
-//         src: 'TheStrangerVisitingNatureSusl',
-//         alt: 'TheStrangerVisitingNatureSusl',
-//       },
-//       {
-//         src: 'SummerTime',
-//         alt: 'SummerTime',
-//       },
-//       {
-//         src: 'SummerTime',
-//         alt: 'SummerTime',
-//       },
-//       {
-//         src: 'SummerTime',
-//         alt: 'SummerTime',
-//       },
-//     ],
-//     review: [
-//       { type: 'text', text: [
-//         {
-//           tag: 'p',
-//           content: [
-//             {
-//               tag: 'span',
-//               props: { className: 'textSmall' },
-//               content: 'Обратная связь по первому заданию. ',
-//             },
-//             {
-//               tag: 'span',
-//               content: 'Это мое описание первого задания на курса. Это мое описание первого задания на курса. Это мое описание первого задания на курса. Это мое описание первого задания на курса.',
-//             },
-//           ],
-//         },
-//       ]},
-//       { type: 'gallery', images: [
-//         {
-//           src: 'TheStrangerVisitingNatureSusl',
-//           alt: 'TheStrangerVisitingNatureSusl',
-//         },
-//         {
-//           src: 'SummerTime',
-//           alt: 'SummerTime',
-//         },
-//       ] },
-//     ],
-//   },
-//   {
-//     id: '2_some-user-id',
-//     user: {
-//       id: 'vova',
-//       displayName: 'Vladimir',
-//     },
-//     text: 'Это мое описание первого задания на курса. Это мое описание первого задания на курса. Это мое описание первого задания на курса. Это мое описание первого задания на курса. Это мое описание первого задания на курса.',
-//     reference: {
-//       tag: 'a',
-//       content: 'Это мое описание первого задания на курса.',
-//     },
-//     images: [
-//       {
-//         src: 'TheStrangerVisitingNatureSusl',
-//         alt: 'TheStrangerVisitingNatureSusl',
-//       },
-//       {
-//         src: 'TheStrangerVisitingNatureSusl',
-//         alt: 'TheStrangerVisitingNatureSusl',
-//       },
-//       {
-//         src: 'TheStrangerVisitingNatureSusl',
-//         alt: 'TheStrangerVisitingNatureSusl',
-//       },
-//       {
-//         src: 'SummerTime',
-//         alt: 'SummerTime',
-//       },
-//       {
-//         src: 'TheStrangerVisitingNatureSusl',
-//         alt: 'TheStrangerVisitingNatureSusl',
-//       },
-//       {
-//         src: 'TheStrangerVisitingNatureSusl',
-//         alt: 'TheStrangerVisitingNatureSusl',
-//       },
-//       {
-//         src: 'SummerTime',
-//         alt: 'SummerTime',
-//       },
-//       {
-//         src: 'SummerTime',
-//         alt: 'SummerTime',
-//       },
-//       {
-//         src: 'SummerTime',
-//         alt: 'SummerTime',
-//       },
-//     ],
-//   },
-// ];

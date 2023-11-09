@@ -16,8 +16,9 @@ import classesTitle from './Title.module.scss';
 import Profile from './Profile/Profile';
 import Settings from './Settings/Settings';
 
+import type { IUserData } from 'services/user.service';
 import { URLSections } from 'types';
-import type { IRootState, IUserData, ICourseData } from 'types';
+import type { IRootState, ICourseData } from 'types';
 
 const cx = classNames.bind(classes);
 const t = formatI18nT('my');

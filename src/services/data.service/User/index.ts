@@ -1,27 +1,34 @@
-import { firebaseService } from 'services';
+import { firebaseService, TWhereProps } from 'services';
 
 import { userConverter } from './userConverter';
 
 import { ECollections, ECommonErrorTypes } from 'types';
-import type { IUserData, IUserDataDB } from 'types';
+import type { IUserData, IUserDataDB } from '../../user.service/types';
 
 class User {
-  public async get(id: string) {
-    const userData = await firebaseService.getDoc(ECollections.User, id, userConverter) as IUserData | undefined;
+  public async get(id: string): Promise<IUserData> {
+    const userDataDB = await firebaseService.getDoc(ECollections.User, id) as IUserDataDB | undefined;
 
-    if (!userData) {
+    if (!userDataDB) {
       throw new Error(ECommonErrorTypes.FailedToFindData);
     }
 
-    return userData;
+   return userConverter.fromFirestore(userDataDB);
   }
 
-  public async set(id: string, data: IUserData) {
-    return await firebaseService.setDoc(ECollections.User, id, data, userConverter);
+  public async set(id: string, data: IUserData): Promise<IUserData> {
+    const dataDB = userConverter.toFirestore(data);
+    const newDataDB = await firebaseService.setDoc(ECollections.User, id, dataDB) as IUserDataDB;
+    return userConverter.fromFirestore(newDataDB);
   }
 
-  public async getAll(ids: string[]): Promise<IUserData[]> {
-    return Promise.all(ids.map(id => this.get(id)));
+  public async getAll(filter: { ids?: string[] }): Promise<IUserData[]> {
+    const queryConstraints = [
+      filter.ids && { param: 'id', value: filter.ids, operator: 'in' },
+    ].filter(Boolean) as TWhereProps;
+
+    const usersDataDB = (await firebaseService.getDocs(ECollections.Homework, queryConstraints)) as IUserDataDB[];
+    return usersDataDB.map(userDataDB => userConverter.fromFirestore(userDataDB));
   }
 
   public async update(id: string, data: Partial<IUserData>) {

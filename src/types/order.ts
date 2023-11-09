@@ -1,4 +1,4 @@
-import { IUserData } from './user';
+import type { IUserData } from 'services/user.service';
 
 export interface IOrderData {
     status: 'created' | 'rejected' | 'closed'

@@ -1,9 +1,8 @@
 import { DrawFreeCard } from 'assets/images';
 import classesCourseCard from './CourseCard.module.scss';
 import classes from './Profile.module.scss';
-import { IUserData } from 'types';
+import type { IUserData } from 'services/user.service';
 import { formatI18nT } from 'shared';
-import { Fragment } from 'react';
 import { ICourseData } from 'types';
 import { addDays } from 'utils';
 

@@ -92,12 +92,6 @@ function Lesson(props: IProps) {
           onScrollEnd={() => setScrollToUpload(false)}
         />
       }
-      {section === 'results' &&
-        (<LessonWorks
-            selectedUser={selectedUser}
-            setSelectedUser={setSelectedUser}
-            homework={homework}
-          />)
-      }
+      {section === 'results' && <LessonWorks/>}
     </Page>);
 }

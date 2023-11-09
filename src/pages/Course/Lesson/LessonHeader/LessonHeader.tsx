@@ -6,6 +6,8 @@ import Link from 'ui/Link/Link';
 import classes from './LessonHeader.module.scss';
 
 import { type ILessonData, URLSections } from 'types';
+import useFilter from '../useFilter';
+import { useFetch } from 'hooks';
 
 export default LessonHeader;
 
@@ -19,11 +21,10 @@ interface IProps {
 }
 
 function LessonHeader(props: IProps) {
-  const { courseId, lessonId } = useParams();
+  const { courseId, lessonId } = useParams() as { courseId: string, lessonId: string };
+  const { filter } = useFilter();
 
-  if (!courseId || !lessonId) {
-    return <>Error</>;
-  }
+  useFetch
 
   return (
     <div className={classes._}>
@@ -44,7 +45,7 @@ function LessonHeader(props: IProps) {
           </Link>
           <Link
             className={classes.type + ' nav-link s-text-18' + (props.practice === 'results' && !props.selectedUser ? ' isActive' : '')}
-            to={URLSections.Course.Lesson.Results.to({ courseId, lessonId })}
+            to={URLSections.Course.Lesson.Results.to({ courseId, lessonId, params: { limit: 4 } })}
             onClick={() => props.selectedUser && props.handleDisselectUser()}
           >
             {t('navTubsResults')}

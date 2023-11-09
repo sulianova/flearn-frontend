@@ -1,30 +1,40 @@
 import classNames from 'classnames/bind';
+import { useParams } from 'react-router';
 
 import UserImage from 'assets/images/Svg/UserImage';
+import Img from 'ui/Img/Img';
+import Link from 'ui/Link/Link';
 
 import classes from './WorkCard.module.scss';
 
-import type { IHomeworkDataWPopulate } from 'types';
+import { URLSections, type IHomeworkDataWPopulate } from 'types';
 
 const cx = classNames.bind(classes);
 
 export default WorkCard;
 
 interface IProps {
-  handleClick: (u: { id: string, displayName: string } | null) => void
   homework: IHomeworkDataWPopulate
 }
 
-function WorkCard(props: IProps) {
-  const { handleClick, homework: data } = props;
-  const user = data.populate!.user!;
+function WorkCard({ homework }: IProps) {
+  const { courseId, lessonId } = useParams() as { courseId: string, lessonId: string };
+  const user = homework.populate!.user!;
+  const coverImage = homework.homework.images[0];
 
   return (
       <div className={cx({ _: true, hidden: false })}>
-        <div className={classes.preview} onClick={() => handleClick({ id: user.id, displayName: user.displayName ?? '' })}>
-          {data.homework.images?.[0] && (<img alt={data.homework.images[0].alt} src={data.homework.images[0].src}/>)}
+        <Link
+          block
+          className={classes.preview}
+          to={URLSections.Course.Lesson.Results.to({ courseId, lessonId, params: { userId: user.id }})}
+        >
+          <Img
+            src={coverImage.src}
+            alt={coverImage.alt}
+          />
           <div className={classes.overlay}/>
-        </div>
+        </Link>
         <div className={classes.user}>
           <div className={classes.userImage}>
             <UserImage/>

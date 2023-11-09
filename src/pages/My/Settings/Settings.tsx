@@ -9,7 +9,8 @@ import Link from 'ui/Link/Link';
 import classesInputField from './InputField.module.scss';
 import classes from './Settings.module.scss';
 
-import { URLSections, type IUserData } from 'types';
+import type { IUserData } from 'services/user.service';
+import { URLSections } from 'types';
 
 const cx = classNames.bind(classes);
 const cx2 = classNames.bind(classesInputField);
