@@ -19,7 +19,7 @@ interface IProps {
 
 function WorkCard({ homework }: IProps) {
   const { courseId, lessonId } = useParams() as { courseId: string, lessonId: string };
-  const user = homework.populate!.user!;
+  const user = homework.populate?.user;
   const coverImage = homework.homework.images[0];
 
   return (
@@ -27,7 +27,7 @@ function WorkCard({ homework }: IProps) {
         <Link
           block
           className={classes.preview}
-          to={URLSections.Course.Lesson.Results.to({ courseId, lessonId, params: { userId: user.id }})}
+          to={URLSections.Course.Lesson.Results.to({ courseId, lessonId, params: { userId: user?.id }})}
         >
           <Img
             src={coverImage.src}
@@ -39,7 +39,7 @@ function WorkCard({ homework }: IProps) {
           <div className={classes.userImage}>
             <UserImage/>
           </div>
-          <div className={classes.userName + ' s-text-16'}>{user.displayName}</div>
+          <div className={classes.userName + ' s-text-16'}>{user?.displayName}</div>
         </div>
       </div>
   );

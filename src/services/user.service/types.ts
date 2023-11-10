@@ -17,3 +17,12 @@ export interface IUserDataDB {
   lastSignInAt: string
   role: 'user' | 'support'
 }
+
+export type TActionS =
+  | { type: 'created', payload: { id: string, courseId: string, lessonId: string, userId: string } }
+  | { type: 'updated', payload: { id: string } };
+
+export type TActionBS =
+  | null
+  | { users: IUserData[] }
+  | Error;

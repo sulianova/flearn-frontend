@@ -1,13 +1,16 @@
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
+import { Subscription } from 'rxjs';
 
+import { IUserData, userService } from 'services/user.service';
 import { formatI18nT } from 'shared';
+import useFilter from '../useFilter';
+
 import Link from 'ui/Link/Link';
 
 import classes from './LessonHeader.module.scss';
 
 import { type ILessonData, URLSections } from 'types';
-import useFilter from '../useFilter';
-import { useFetch } from 'hooks';
 
 export default LessonHeader;
 
@@ -16,47 +19,65 @@ const t = formatI18nT('courseLesson');
 interface IProps {
   lesson: ILessonData
   practice: 'task' | 'results'
-  selectedUser: { id: string, displayName: string } | null
-  handleDisselectUser: () => void
 }
 
 function LessonHeader(props: IProps) {
+  const { lesson, practice } = props;
   const { courseId, lessonId } = useParams() as { courseId: string, lessonId: string };
   const { filter } = useFilter();
+
+  const { userId } = filter;
+  const [user, setUser] = useState<IUserData | null>(null);
+  useEffect(() => {
+    if (!userId) {
+      setUser(null);
+      return;
+    }
+
+    let subscription: Subscription;
+    userService
+      .getHomeworkBS({ filter: { id: userId }})
+      .then(bs => {
+        subscription = bs.subscribe(action => {
+          if (action && !(action instanceof Error) && action.users.length) {
+            setUser(action.users[0]);
+          }
+        })
+      });
+  }, [userId]);
 
   return (
     <div className={classes._}>
       <Link
         className={classes.nav + ' nav-link s-text-18'} to={URLSections.Course.Lessons.to({ courseId })}
       >
-        <span className='nav-link-text'>Все уроки</span>
+        <span className='nav-link-text'>{(t('navToLessons'))}</span>
         <span className='nav-link-arrow'>&rarr;</span>
       </Link>
-      <h1 className={classes.title + ' s-text-56'}>Тема первая</h1>
-      {props.lesson.type === 'Practice' &&
-        (<div className={classes.navTubs}>
+      <h1 className={classes.title + ' s-text-56'}>{lesson.title}</h1>
+      {props.lesson.type === 'Practice' && (
+        <div className={classes.navTubs}>
           <Link
-            className={classes.type + ' nav-link s-text-18' + (props.practice === 'task' ? ' isActive' : '')}
+            className={classes.type + ' nav-link s-text-18' + (practice === 'task' ? ' isActive' : '')}
             to={URLSections.Course.Lesson.to({ courseId, lessonId })}
           >
             {t('navTubsPractice')}
           </Link>
           <Link
-            className={classes.type + ' nav-link s-text-18' + (props.practice === 'results' && !props.selectedUser ? ' isActive' : '')}
+            className={classes.type + ' nav-link s-text-18' + (practice === 'results' && !user ? ' isActive' : '')}
             to={URLSections.Course.Lesson.Results.to({ courseId, lessonId, params: { limit: 4 } })}
-            onClick={() => props.selectedUser && props.handleDisselectUser()}
           >
             {t('navTubsResults')}
           </Link>
-          {props.selectedUser &&
-            (<span
-              className={classes.type + ' nav-link s-text-18' + (props.practice === 'results' && props.selectedUser ? ' isActive' : '')}
+          {user && (
+            <span
+              className={classes.type + ' nav-link s-text-18' + (practice === 'results' && user ? ' isActive' : '')}
             >
-              {props.selectedUser.displayName}
-            </span>)
-          }
-        </div>)
-      }
+              {user.displayName || user.email}
+            </span>
+          )}
+        </div>
+      )}
     </div>
   );
 }

@@ -146,6 +146,7 @@
   "courseLesson": {
     "navTubsPractice": "Задание",
     "navTubsResults": "Итоги",
+    "navToLessons": "Все уроки",
     "deadlineUploadText": "Дедлайн: ",
     "deadlineUploadTime": " 23:59\u00A0по\u00A0Мск",
     "deadlineResultsText": "Публикация итогов: ",

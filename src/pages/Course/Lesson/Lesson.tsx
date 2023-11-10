@@ -42,7 +42,6 @@ function Lesson(props: IProps) {
   const { lessonState, section, authedUserId } = props;
 
   const { courseId, lessonId } = useParams();
-  const [selectedUser, setSelectedUser] = useState<{ id: string, displayName: string } | null>(null);
   const [scrollToUpload, setScrollToUpload] = useState<boolean>(false);
 
   useFetch<IFetchLessonPayload>(({
@@ -72,8 +71,6 @@ function Lesson(props: IProps) {
       <LessonHeader
         lesson={lessonState.data}
         practice={section}
-        selectedUser={selectedUser}
-        handleDisselectUser={() => setSelectedUser(null)}
       />
       {section === 'task' &&
         (<LessonContent

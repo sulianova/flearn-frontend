@@ -39,8 +39,8 @@ function LessonWorks({ authedUserId }: IProps) {
   const [homeworks, setHomeworks] = useState<IHomeworkDataWPopulate[] | undefined>(undefined);
   const [homeworksState, setHomeworksState] = useState<THomeworkStateState>({ type: 'idle' });
   const authedUserHomework = useMemo(() => homeworks?.find(h => h.homework.userId === authedUserId), [authedUserId, homeworks]);
-  const otherStudentsHomeworksSmall = useMemo(() => homeworks?.filter(h => h.homework.userId !== authedUserId), [authedUserId, homeworks]);
-  const otherStudentsHomeworks = otherStudentsHomeworksSmall ? [...otherStudentsHomeworksSmall, ...otherStudentsHomeworksSmall, ...otherStudentsHomeworksSmall]: undefined;
+  const otherStudentsHomeworks = useMemo(() => homeworks?.filter(h => h.homework.userId !== authedUserId), [authedUserId, homeworks]);
+
   const filteredOtherStudentsHomeworks = useMemo(() => {
     if (!otherStudentsHomeworks) {
       return otherStudentsHomeworks;

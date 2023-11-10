@@ -27,7 +27,7 @@ class User {
       filter.ids && { param: 'id', value: filter.ids, operator: 'in' },
     ].filter(Boolean) as TWhereProps;
 
-    const usersDataDB = (await firebaseService.getDocs(ECollections.Homework, queryConstraints)) as IUserDataDB[];
+    const usersDataDB = (await firebaseService.getDocs(ECollections.User, queryConstraints)) as IUserDataDB[];
     return usersDataDB.map(userDataDB => userConverter.fromFirestore(userDataDB));
   }
 
