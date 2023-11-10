@@ -24,8 +24,6 @@ function LessonHeader(props: IProps) {
   const { courseId, lessonId } = useParams() as { courseId: string, lessonId: string };
   const { filter } = useFilter();
 
-  useFetch
-
   return (
     <div className={classes._}>
       <Link
