@@ -69,7 +69,7 @@ function Uppload(props: IUpploadProps) {
           <div className={classes.resultLinkGroup}>
             <Link
               className={classes.resultLink + ' s-text-18 key-link'}
-              to={URLSections.Course.Lesson.Results.to({ courseId, lessonId })}
+              to={URLSections.Course.Lesson.Results.to({ courseId, lessonId, params: { userId: homework.populate?.user?.id } })}
             >
               {homework.populate?.user?.displayName}
             </Link>

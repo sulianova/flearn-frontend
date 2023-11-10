@@ -12,8 +12,6 @@ export interface IHomeworkData {
   externalHomeworkLink: string
   images: IHomeworkImageData[]
   state: THomeworkState
-  text?: TText | TText[],
-  reference?: TText | TText[]
   review?: IArticleContent
 }
 
@@ -26,8 +24,6 @@ export interface IHomeworkDataDB {
   externalHomeworkLink: string
   images: IHomeworkImageDataDB[]
   state: THomeworkState
-  text?: TText | TText[],
-  reference?: TText | TText[]
   review?: IArticleContent
 }
 
