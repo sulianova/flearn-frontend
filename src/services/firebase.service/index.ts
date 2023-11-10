@@ -84,9 +84,9 @@ export class FirebaseService {
       const queryConstraints = whereProps.map(({ param, value, operator }) => where(param, operator ?? '==', value));
       const q = query(collection(this._db, collectionName), ...queryConstraints);
       const querySnapshot = await getDocs(q);
-      const data = [] as DocumentData[];
+      const data = [] as { id: string, data: DocumentData }[];
       querySnapshot.forEach((doc) => {
-        data.push(doc.data());
+        data.push({ id: doc.id, data: doc.data() });
       });
 
       return data;

@@ -37,7 +37,7 @@ export const fetchLessons = createAction<'saga', IFetchLessonsPayload>(
         let populateCourseMap: Map<string, ICourseData>;
         if (populate.course) {
           const courseIds = [...new Set(lessonsData.map(l => l.courseId))];
-          const coursesData: ICourseData[] = yield dataService.course.getAll(courseIds);
+          const coursesData: ICourseData[] = yield dataService.course.getAll({ ids: courseIds });
           populateCourseMap = new Map(coursesData.map(c => [c.id, c] as const));
         }
         // add here other populated values
