@@ -17,13 +17,13 @@ interface IProps {
 export default function ProgramBlocks(props: IProps) {
   const blocks = [
     <Description key='description' {...props}/>,
-    <Explain key='explain' {...props}/>,
-    <Gallery key='gallery' {...props}/>,
     <Modules key='modules' modules={props.data.modules} {...props}/>,
     <StudentsWorks key='studentsWorks' {...props}/>,
-    <FAQ key='faq' {...props}/>,
+    <Explain key='explain' {...props}/>,
+    <Gallery key='gallery' {...props}/>,
     <Promo key='promo' {...props}/>,
     <DecisionForm key='decisionForm' {...props}/>,
+    <FAQ key='faq' {...props}/>,
   ];
 
   return (

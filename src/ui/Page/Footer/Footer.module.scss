@@ -9,6 +9,7 @@
 
   @include set-media(md) {
     padding: 0 set-calc($padding-x-mob-page) set-calc(16);
+    grid-gap: set-calc(24);
   }
 }
 
