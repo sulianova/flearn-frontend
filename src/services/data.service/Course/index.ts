@@ -1,4 +1,4 @@
-import { firebaseService } from 'services';
+import { TWhereProps, firebaseService } from 'services';
 
 import { courseConverter } from './courseConverter';
 
@@ -20,8 +20,19 @@ class Course {
     return await courseConverter.fromFirestore(courseDataDB);
   }
 
-  public async getAll(ids: string[]): Promise<ICourseData[]> {
-    return Promise.all(ids.map(id => this.get(id)));
+  public async getAll(filter: { ids?: string[], userId?: string }): Promise<ICourseData[]> {
+    let usersCoursesIds: string[] | undefined;
+    if (filter.userId) {
+      const filteredAccess = await firebaseService.getDocs(ECollections.Access, [{ param: `users.${filter.userId}`, value: true }]);
+      usersCoursesIds = filteredAccess.map(a => a.id);
+    }
+    const queryConstraints = [
+      (filter.ids || usersCoursesIds) && { param: 'id', value: [...filter.ids ?? [], ...usersCoursesIds ?? []], operator: 'in' },
+    ].filter(Boolean) as TWhereProps;
+
+    const coursesDataDB = (await firebaseService.getDocs(ECollections.Course, queryConstraints))
+      .map(d => d.data) as ICourseDataDB[];
+    return await Promise.all(coursesDataDB.map(courseDataDB => courseConverter.fromFirestore(courseDataDB)));
   }
 
   public async set(id: string, courseData: ICourseData): Promise<ICourseData> {

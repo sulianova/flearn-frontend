@@ -1,7 +1,8 @@
 import { useParams } from 'react-router';
-import { URLSections } from 'types';
-import Link from 'ui/Link/Link';
 
+import { URLSections } from 'types';
+
+import Link from 'ui/Link/Link';
 import Page from 'ui/Page/Page';
 
 export default function Restricted() {
