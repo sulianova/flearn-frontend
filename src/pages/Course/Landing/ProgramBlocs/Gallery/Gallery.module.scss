@@ -30,7 +30,7 @@
   margin-bottom: set-calc(8);
   overflow: hidden;
   border-radius: set-calc(20);
-  box-shadow: 0 set-calc(4) set-calc(8) rgb(0 0 0 / 10%);
+  // box-shadow: 0 set-calc(4) set-calc(8) rgb(0 0 0 / 10%);
 
   text-align: center;
 }
@@ -38,4 +38,5 @@
 .item img {
   width: 100%;
   border-radius: set-calc(20);
+  object-fit: cover;
 }

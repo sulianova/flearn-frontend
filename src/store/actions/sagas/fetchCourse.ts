@@ -77,20 +77,20 @@ function getData(id: string) {
 
 const newCourseDB: ICourseDataDB = {
   id: 'how-to-draw',
-  title: 'Как рисовать похоже',
+  title: 'Как рисовать',
   startDate: '2023-11-06T00:00:00.000Z',
   endDate: '2023-11-19T00:00:00.000Z',
-  durationWeeks: 2,
-  homeworksNumber: 2,
-  videosNumber: 2,
+  durationWeeks: 3,
+  homeworksNumber: 3,
+  videosNumber: 3,
   feild: 'Иллюстрация',
   introImageId: 'introImage.jpg',
-  introDescription: 'Практический мини-курс для тех, кто хочет рисовать убедительные иллюстрации, не копируя фотографии. Сделаем упражнения и 30-60 законченных рисунков.',
+  introDescription: 'Практический мини-курс для тех, кто хочет рисовать убедительные иллюстрации, не копируя фотографии. Сделаем упражнения и 30-50 законченных работ',
   introImageAlt: 'introImage',
   discontAmount: 70,
   discontDeadline: '2023-11-01T00:00:00.000Z',
-  creditWas: 6000,
-  creditPrice: 1800,
+  creditWas: 9000,
+  creditPrice: 2700,
   description: [
     {
       answer: 'На курсе будем разбираться как ставить перед собой посильные маленькие задачки, с которыми приятно и интересно работать.',
@@ -129,7 +129,22 @@ const newCourseDB: ICourseDataDB = {
 
   ],
   teacherGallery: [
-
+    {
+      imageId: 'SofiUlianova2.jpg',
+      imageAlt: 'SofiUlianova2',
+    },
+    {
+      imageId: 'SofiUlianova1.jpg',
+      imageAlt: 'SofiUlianova1',
+    },
+    {
+      imageId: 'SofiUlianova3.jpg',
+      imageAlt: 'SofiUlianova3',
+    },
+    {
+      imageId: 'SofiUlianova4.jpg',
+      imageAlt: 'SofiUlianova4',
+    },
   ],
   studentsWorks: [
     {
