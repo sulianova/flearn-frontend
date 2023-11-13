@@ -99,7 +99,7 @@
   overflow: hidden;
 
   display: block;
-  height: set-calc(340);
+  // height: set-calc(340);
   border-radius: set-calc(20);
 
   @include set-media(md) {
@@ -114,7 +114,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: scale(1.1);
 }
 
 .listItemMediaDesc {

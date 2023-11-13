@@ -42,7 +42,7 @@ padding-bottom: set-calc(54);
   border-radius: set-calc(20);
 
   @include set-media(md) {
-    padding: set-calc(24) set-calc(16);
+    padding: set-calc(32) set-calc(24);
   }
 }
 
@@ -60,11 +60,11 @@ padding-bottom: set-calc(54);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  min-height: set-calc(450);
+  // min-height: set-calc(450);
   overflow: hidden;
 
   @include set-media(md) {
-    min-height: set-calc(375);
+    // min-height: set-calc(375);
   }
 }
 
@@ -75,27 +75,22 @@ padding-bottom: set-calc(54);
   height: 100%;
   flex-grow: 1;
   flex-shrink: 1;
-  min-height: set-calc(280);
+  height: set-calc(480);
 
   background: $black-new;
   border-radius: set-calc(20);
   overflow: hidden;
 
   @include set-media(md) {
-    min-height: set-calc(375);
+    // min-height: set-calc(375);
   }
 }
 
-.videoCardContainer iframe {
+.videoCardContainer img {
   border-radius: set-calc(20);
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    -o-object-fit: cover;
-    object-fit: cover;
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
 }
 
 .videoCardDesc {

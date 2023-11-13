@@ -2,7 +2,7 @@ import classNames from 'classnames/bind';
 import { formatI18nT, i18n } from 'shared';
 import { ICourseData } from 'types';
 import Animated from 'ui/Animated';
-import Iframe from 'ui/Video/Iframe';
+import Image from 'ui/Img/Img';
 import classes from './Explain.module.scss';
 
 export default Explain;
@@ -24,7 +24,7 @@ function Explain(props: IProps) {
       <div className={classes.cards}>
         <div className={classes.videoCard}>
           <div className={classes.videoCardContainer}>
-            <Iframe src={props.data.explainVideo.src} title={props.data.explainVideo.title}/>
+            <Image src={props.data.explainVideo.src} alt={props.data.explainVideo.title}/>
           </div>
           <div className={classes.videoCardDesc}>
             <Animated.Scroll>
