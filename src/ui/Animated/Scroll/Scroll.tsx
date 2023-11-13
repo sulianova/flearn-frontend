@@ -13,33 +13,33 @@ interface IProps {
 export default function Scroll(props: IProps) {
   const id = useGetId()('id');
 
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+  // useEffect(() => {
+  //   gsap.registerPlugin(ScrollTrigger);
 
-    createScroll(id);
-  },        [id]);
+  //   createScroll(id);
+  // },        [id]);
 
-  useEffect(() => {
-    const scrollListener = () => {
-      const element = document.querySelector(`#${id}`) as HTMLElement;
-      if (!element) {
-        return;
-      }
+  // useEffect(() => {
+  //   const scrollListener = () => {
+  //     const element = document.querySelector(`#${id}`) as HTMLElement;
+  //     if (!element) {
+  //       return;
+  //     }
 
-      const { top } = element.getBoundingClientRect();
-      const viewportHeight = window.innerHeight;
+  //     const { top } = element.getBoundingClientRect();
+  //     const viewportHeight = window.innerHeight;
 
-      if (top > viewportHeight && element.style.cssText) {
-        element.style.cssText = '';
-      }
-    };
+  //     if (top > viewportHeight && element.style.cssText) {
+  //       element.style.cssText = '';
+  //     }
+  //   };
 
-    document.addEventListener('scroll', scrollListener);
+  //   document.addEventListener('scroll', scrollListener);
 
-    return () => document.removeEventListener('scroll', scrollListener);
-  },        [id]);
+  //   return () => document.removeEventListener('scroll', scrollListener);
+  // },        [id]);
 
-  return props.children(id, classes.revealUp);
+  return props.children(id, '');//classes.revealUp);
 }
 
 function createScroll(id: string) {
