@@ -38,7 +38,8 @@ class Homework {
     }
 
     const queryConstraints = Object.entries(filter).map(([param, value]) => ({ param, value }));
-    const homeworksDataDB = (await firebaseService.getDocs(ECollections.Homework, queryConstraints)) as IHomeworkDataDB[];
+    const homeworksDataDB = (await firebaseService.getDocs(ECollections.Homework, queryConstraints))
+      .map(d => d.data) as IHomeworkDataDB[];
     const homeworksData = await Promise.all(homeworksDataDB.map(homeworkDataDB => homeworkConverter.fromFirestore(homeworkDataDB)));
 
     return homeworksData;

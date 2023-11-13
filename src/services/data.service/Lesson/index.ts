@@ -35,7 +35,8 @@ class Lesson {
       throw new Error(ECommonErrorTypes.Restricted);
     }
 
-    const lessonsDataDB = (await firebaseService.getDocs(ECollections.Lesson, [{ param: 'courseId', value: filter.courseId }])) as ILessonDataDB[];
+    const lessonsDataDB = (await firebaseService.getDocs(ECollections.Lesson, [{ param: 'courseId', value: filter.courseId }]))
+      .map(d => d.data) as ILessonDataDB[];
     // TODO add check for restricted access for each lesson
     const lessonsData = await Promise.all(lessonsDataDB.map(lessonDataDB => lessonConverter.fromFirestore(lessonDataDB)));
 

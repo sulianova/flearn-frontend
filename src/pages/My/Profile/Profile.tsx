@@ -1,13 +1,22 @@
-import { DrawFreeCard } from 'assets/images';
-import classesCourseCard from './CourseCard.module.scss';
-import classes from './Profile.module.scss';
-import type { IUserData } from 'services/user.service';
+import { useEffect, useState } from 'react';
+import type { Subscription } from 'rxjs';
+
+import { courseService, type TCourseState, type  ICourseData } from 'services/course.service';
+import { type IUserData } from 'services/user.service';
 import { formatI18nT } from 'shared';
-import { ICourseData } from 'types';
+import { URLSections } from 'types';
 import { addDays } from 'utils';
 
+import Fallback from 'ui/Fallback';
+import Img from 'ui/Img/Img';
+import Link from 'ui/Link/Link';
 
-const t = formatI18nT('my');
+import useFallback from './useFallback';
+
+import classesCourseCard from './CourseCard.module.scss';
+import classes from './Profile.module.scss';
+
+const t = formatI18nT('my.profile');
 
 export default Profile;
 
@@ -17,32 +26,81 @@ interface IProps {
 }
 
 function Profile(props: IProps) {
+  const [courses, setCourses] = useState<ICourseData[]>();
+  const [courseState, setCourseState] = useState<TCourseState>({ type: 'pending' });
+
+  const userId = props.user.id;
+  useEffect(() => {
+    let subscription: Subscription;
+    courseService
+      .getCourseBS({ filter: { userId }})
+      .then(bs => {
+        subscription = bs.subscribe(action => {
+          if (action && !(action instanceof Error)) {
+            setCourses(action.courses);
+            setCourseState({ type: 'idle' });
+          } else if (action instanceof Error) {
+            setCourses(undefined);
+            setCourseState({ type: 'error', error: action, errorType: action.ErrorType });
+          }
+        })
+      });
+  }, [userId]);
+
+  const fallback = useFallback({ courseState });
+
+  if (!courses) {
+    return fallback;
+  }
+
+  if (!courses.length) {
+    return (
+      <Fallback.Info fullPage={false}>
+        <p>{t('noCoursesFallback.title')}</p>
+        <p>
+          <Link className='link' to={URLSections.FreeZone.index}>
+            {t('noCoursesFallback.suggestionLink')}
+          </Link>
+          {t('noCoursesFallback.suggestionRest')}
+        </p>
+      </Fallback.Info>
+    );
+  }
+
   return (
     <div className='Profile'>
       <div className={classes.courseGroup}>
-        <div className={classes.courseGroupTitle + ' s-text-21-uppercase'}>{t('profile.courseGroupTitle')}</div>
-          {renderCourseCard(props.data)}
+        <div className={classes.courseGroupTitle + ' s-text-21-uppercase'}>
+          {t('courseGroupTitle')}
+        </div>
+        {renderCourses(courses)}
       </div>
     </div>
   );
 }
 
-// function renderCourseGroup() {
-//   return props.map((d, index) => (<Fragment key={index}>{renderCourseCard(d)}</Fragment>));
-// }
-
-function renderCourseCard (props: ICourseData) {
-  return (
-    <div className={classesCourseCard.item}>
+function renderCourses(courses: ICourseData[]) {
+  return courses.map(course => (
+    <div className={classesCourseCard.item} key={course.id}>
       <div className={classesCourseCard.info}>
-        <a className={classesCourseCard.titleLink + ' s-hoverable'} href='lessons.html' target='_blank'>
-          <div className={classesCourseCard.title}>{props.title}</div>
-          <div className={classesCourseCard.date + ' s-text-24'}>{formatEndDate(props.endDate)}</div>
-        </a>
-        <div className={classesCourseCard.cover}><img src={DrawFreeCard} alt='' decoding='async'/></div>
+        <Link
+          className={classesCourseCard.titleLink + ' s-hoverable'}
+          to={URLSections.Course.Lessons.to({ courseId: course.id })}
+          target='_blank'
+          block
+        >
+          <div className={classesCourseCard.title}>{course.title}</div>
+          <div className={classesCourseCard.date + ' s-text-24'}>{formatEndDate(course.endDate)}</div>
+        </Link>
+        <div className={classesCourseCard.cover}>
+          <Img
+            src={course.introImageSrc}
+            alt={course.introImageAlt}
+          />
+        </div>
       </div>
     </div>
-  );
+  ));
 }
 
 function formatEndDate(endDate: Date) {
@@ -52,5 +110,5 @@ function formatEndDate(endDate: Date) {
     { month: 'long', day: 'numeric' }
   );
 
-  return `${t('profile.endDate')}${endDateStr}`;
+  return `${t('endDate')}${endDateStr}`;
 }
