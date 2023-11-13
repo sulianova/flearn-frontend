@@ -1,33 +1,25 @@
 import Page from 'ui/Page/Page';
 import InPageFallback from '../InPageFallback/InPageFallback';
 
-interface Iprops {
-  text?: string
-  error?: Error
+interface IProps {
+  children: React.ReactNode
   fullPage?: boolean
 }
 
-export default function OtherError(props: Iprops) {
+export default function Info(props: IProps) {
   const { fullPage = true } = props;
-  const content = (
-    <>
-      <p>Error</p>
-      {props.text && <p>{props.text}</p>}
-      {props.error && props.error.message}
-    </>
-  );
 
   if (fullPage) {
     return (
       <Page header footer wrapper='Fallback'>
-        {content}
+        {props.children}
       </Page>
     );
   }
 
   return (
     <InPageFallback>
-      {content}
+      {props.children}
     </InPageFallback>
   );
 }
