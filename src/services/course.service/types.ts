@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from 'react';
 import type { IProps as ILinkProps } from 'ui/Link/Link';
 
-import type { TText } from 'types';
+import { ECommonErrorTypes, TStateState, TText } from 'types';
 
 export interface ICourseData {
   id: string
@@ -61,7 +61,18 @@ export interface ICourseDataDB {
 export type TActionS =
   | { type: 'updated', payload: { id: string } };
 
+export type TCourseError =
+  | ECommonErrorTypes.DataIsCorrupted
+  | ECommonErrorTypes.FailedToFindData
+  | ECommonErrorTypes.Other;
+
+export type TCourseState = TStateState<TCourseError>;
+
+interface MyError extends Error {
+  ErrorType: TCourseError
+}
+
 export type TActionBS =
   | null
   | { courses: ICourseData[] }
-  | Error;
+  | MyError;

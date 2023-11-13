@@ -2,9 +2,10 @@ import { BehaviorSubject, CompletionObserver, ErrorObserver, NextObserver, Subje
 
 import { dataService } from 'services/data.service';
 
-import type { TActionBS, TActionS } from './types';
+import type { TActionBS, TActionS, TCourseError, TCourseState } from './types';
+import { ECommonErrorTypes } from 'types';
 
-export { type ICourseData, type ICourseDataDB } from './types';
+export { type ICourseData, type ICourseDataDB, type TCourseState } from './types';
 
 class CourseService {
   public async getCourseBS(props: {
@@ -19,7 +20,9 @@ class CourseService {
           const courses = await this._fetch(props);
           mainSubject.next({ courses });
         } catch (err) {
-          mainSubject.next(err as Error);
+          err = err as Error;
+          const error = Object.assign(err as Error, { ErrorType: this.errorToType(err as Error )});
+          mainSubject.next(error);
         }
       };
 
@@ -56,6 +59,13 @@ class CourseService {
       console.error('Failed to subscribe for courses', { props });
       throw err;
     }
+  }
+
+  private errorToType(error: Error): TCourseError {
+    const errorIsUnknown = !([ECommonErrorTypes.DataIsCorrupted, ECommonErrorTypes.FailedToFindData, ECommonErrorTypes.Other] as string[]).includes(error.message);
+    const errorType = errorIsUnknown ? ECommonErrorTypes.Other : error.message as TCourseError;
+
+    return errorType;
   }
 
   private async _fetch(props: {
