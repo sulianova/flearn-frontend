@@ -26,6 +26,7 @@
 
 .item {
   grid-column: span 1;
+  display: flex;
   width: 100%;
   margin-right: set-calc(8);
   margin-bottom: set-calc(8);
