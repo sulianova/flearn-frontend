@@ -204,6 +204,10 @@ s {
     background-repeat: repeat-x;
     background-size: set-calc(1) set-calc(1);
     color: $orange;
+
+    @include set-media(md) {
+      text-decoration: none;
+    }
   }
 
   &:visited {
@@ -220,6 +224,10 @@ s {
       background-repeat: repeat-x;
       background-size: set-calc(1) set-calc(1);
       color: $orange;
+
+      @include set-media(md) {
+        text-decoration: none;
+      }
     }
   }
 }

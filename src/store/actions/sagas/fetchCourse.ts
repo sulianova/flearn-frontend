@@ -87,10 +87,10 @@ const newCourseDB: ICourseDataDB = {
   introImageId: 'introImage.jpg',
   introDescription: 'Практический мини-курс для тех, кто хочет рисовать убедительные иллюстрации, не копируя фотографии. Сделаем упражнения и 30-50 законченных работ',
   introImageAlt: 'introImage',
-  discontAmount: 60,
+  discontAmount: 50,
   discontDeadline: '2023-11-01T00:00:00.000Z',
-  creditWas: 9000,
-  creditPrice: 3600,
+  creditWas: 12000,
+  creditPrice: 6000,
   description: [
     {
       answer: 'На курсе будем учиться работать базовыми инструментами: линией и пятном. Разберемся, чем они отличаются, как их использовать. Сделаем упражнения, чтобы разрисоваться.',
