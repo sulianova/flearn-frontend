@@ -213,8 +213,20 @@ const newCourseDB: ICourseDataDB = {
       imageAlt: 'SpotCat14',
     },
     {
+      imageId: 'activeSpot2.jpg',
+      imageAlt: 'activeSpot2',
+    },
+    {
+      imageId: 'LineCat3.jpg',
+      imageAlt: 'LineCat3',
+    },
+    {
       imageId: 'SpotCat8.jpg',
       imageAlt: 'SpotCat8',
+    },
+    {
+      imageId: 'activeSpot7.jpg',
+      imageAlt: 'activeSpot7',
     },
     {
       imageId: 'SpotCat3.jpg',
@@ -229,28 +241,8 @@ const newCourseDB: ICourseDataDB = {
       imageAlt: 'SpotCat2',
     },
     {
-      imageId: 'LineCat3.jpg',
-      imageAlt: 'LineCat3',
-    },
-    {
       imageId: 'LineCat6.jpg',
       imageAlt: 'LineCat6',
-    },
-    {
-      imageId: 'LineCat19.jpg',
-      imageAlt: 'LineCat19',
-    },
-    {
-      imageId: 'LineCat17.jpg',
-      imageAlt: 'LineCat17',
-    },
-    {
-      imageId: 'LineCat20.jpg',
-      imageAlt: 'LineCat20',
-    },
-    {
-      imageId: 'LineCat28.jpg',
-      imageAlt: 'LineCat28',
     },
     {
       imageId: 'activeSpot14.jpg',
@@ -261,21 +253,17 @@ const newCourseDB: ICourseDataDB = {
       imageAlt: 'activeSpot16',
     },
     {
-      imageId: 'activeSpot2.jpg',
-      imageAlt: 'activeSpot2',
-    },
-    {
-      imageId: 'activeSpot7.jpg',
-      imageAlt: 'activeSpot7',
-    },
-    {
       imageId: 'activeSpot8.jpg',
       imageAlt: 'activeSpot8',
     },
     {
       imageId: 'activeSpot9.jpg',
       imageAlt: 'activeSpot9',
-    }
+    },
+    {
+      imageId: 'LineCat28.jpg',
+      imageAlt: 'LineCat28',
+    },
   ],
   faq: [
     {

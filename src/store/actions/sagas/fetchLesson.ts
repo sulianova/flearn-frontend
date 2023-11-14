@@ -87,7 +87,7 @@ function getData(courseId: string, lessonId: string) {
 const lessonData1: ILessonDataDB = {
   id: 'DrawingExercises_h3dx7k',
   courseId: 'how-to-draw',
-  title: '1.1. Упражнения, чтобы разрисоваться',
+  title: '1.1 Упражнения, чтобы разрисоваться',
   type: 'Theory',
   week: 1,
   startDate: '2023.07.12', //new Date('2023.07.12'),
@@ -332,7 +332,7 @@ const lessonData1: ILessonDataDB = {
       text: [
         {
           tag: 'p',
-          content: 'Нарисовать идеальный круг или овал от руки нельзя. Все, что мы можем, натренироваться рисовать что-то похоже на круг и овал.',
+          content: 'Нарисовать идеальный круг или овал от руки нельзя. Все, что мы можем, натренироваться рисовать что-то похожеe на круг и овал.',
         },
       ],
     },
@@ -439,9 +439,376 @@ const lessonData1: ILessonDataDB = {
 };
 
 const lessonData2: ILessonDataDB = {
+  id: 'Line_gBpaFa',
+  courseId: 'how-to-draw',
+  title: '1.2 Линия: знакомство',
+  type: 'Theory',
+  week: 1,
+  startDate: '2023.07.12', //new Date('2023.07.12'),
+  endDate: '2023.07.22', //new Date('2023.07.22'),
+  resultsEndDate: '2023.07.25', //new Date('2023.07.25'),
+  content: [
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Линия и пятно — два основных приема в рисовании. Любой рисунок состоит из линий, пятен и их комбинаций. Если разобраться, как их рисовать, получится нарисовать все, что угодно.',
+        },
+        {
+          tag: 'p',
+          content: 'Свойства линий: контроль, светлота, толщина. Ниже посмотрим, как с помощью этих свойств, можно разнообразить свои рисунки.',
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Контроль, моторика',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Линия может быть точной, контролируемой:',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DimaGorelyshev29.jpg',
+        alt: 'DimaGorelyshev29',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Dima Gorelyshev',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DimaGorelyshev9.jpg',
+        alt: 'DimaGorelyshev9',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Dima Gorelyshev',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DimaGorelyshev26.jpg',
+        alt: 'DimaGorelyshev26',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Dima Gorelyshev',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'MashaTitova5.png',
+        alt: 'MashaTitova5',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Masha Titova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/mashatitovaprint' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'MashaTitova6.png',
+        alt: 'MashaTitova6',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Masha Titova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/mashatitovaprint' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'MashaTitova7.png',
+        alt: 'MashaTitova7',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Masha Titova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/mashatitovaprint' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'SashaAnanas1.jpeg',
+        alt: 'SashaAnanas1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Sasha Ananas',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/sasha.ananas.sktch/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'SashaAnanas2.jpeg',
+        alt: 'SashaAnanas2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Sasha Ananas',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/sasha.ananas.sktch/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Линия может быть случайной, живой:',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ELENAFEKLISTOVA6.jpg',
+        alt: 'ELENAFEKLISTOVA6',
+        caption: [
+          {
+            tag: 'a',
+            content: 'ELENA FEKLISTOVA',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/e.feklistova/?g=5' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DimaGorelyshev41.jpg',
+        alt: 'DimaGorelyshev41',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Dima Gorelyshev',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'VictoriaSemykina2.jpg',
+        alt: 'VictoriaSemykina2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Victoria Semykina',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/viksa' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'VictoriaSemykina3.jpg',
+        alt: 'VictoriaSemykina3',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Victoria Semykina',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/viksa' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'VictoriaSemykina1.jpg',
+        alt: 'VictoriaSemykina1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Victoria Semykina',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/viksa' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'VictoriaSemykina4.jpg',
+        alt: 'VictoriaSemykina4',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Victoria Semykina',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/viksa' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Регулируя контроль над инструментом, можно выделять главное в рисунке. Например, на рисунке ниже, основная часть рассказана точной линией. Главное — дверь, выделена дрожащей, плохо контролируемой линией.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DimaGorelyshev35.jpg',
+        alt: 'DimaGorelyshev35',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Dima Gorelyshev',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Аналогично с машиной.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DimaGorelyshev36.jpg',
+        alt: 'DimaGorelyshev36',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Dima Gorelyshev',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Чтобы нарисовать живую, случайную линию, нужно ограничить контроль над инструментом.',
+          props: { className: 'keyText' },
+        },
+      ],
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: '• Взять карандаш в кулак.',
+        },
+      ]
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: '• Рисовать левой рукой.',
+        },
+      ]
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: '• Рисовать плохоуправляемым материалом: круглой кисточкой, кисточкой большого размера, кисточкой с большим количеством воды, держать кисть за самый край, держать карандаш в кулаке.',
+        },
+      ]
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: '• Не отрывать руку от листа на протяжении всего рисования.',
+        },
+      ]
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: '• Рисовать с ограничением по времени: за 1 минуту, за 3 минуты.',
+        },
+      ]
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Низкий контроль над инструментом не означает, что автор плохо рисует или не понимает, что рисует. Низкий контроль дает линии больше живости и свободы. Но даже в этом случае рисунок по прежнему должен быть убедительным.',
+        },
+      ]
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Чтобы получить убедительную картинку с плохо контролируемым материалом, нужно увеличить количество итераций. ',
+        },
+        {
+          tag: 'span',
+          content: 'Тогда мы получим легкость + убедительность. Чтобы нарисовать убедительную кошку легкой, летящей линий. Нужно нарисовать 10 минутных рисунков разных кошек. И выбрать среди них один, самый лучший. '
+        }
+      ],
+    },
+  ]
+}
+
+const lessonData4: ILessonDataDB = {
   id: 'HowToDrawSimilarPicture_bah4tw',
-  courseId: 'illustration',
-  title: '1.2. Как рисовать похоже',
+  courseId: 'how-to-draw',
+  title: '1.4. Как рисовать похоже',
   type: 'Theory',
   week: 1,
   startDate: '2023.07.12', //new Date('2023.07.12'),
@@ -706,10 +1073,10 @@ const lessonData2: ILessonDataDB = {
   ],
 };
 
-const lessonData3: ILessonDataDB = {
+const lessonData5: ILessonDataDB = {
   id: 'HowToDrawSimilarPictureLine_t6qrnq',
-  courseId: 'illustration',
-  title: '1.3. Как рисовать похоже. Линия',
+  courseId: 'how-to-draw',
+  title: '1.5. Как рисовать похоже. Линия',
   type: 'Theory',
   week: 1,
   startDate: '2023.07.12', //new Date('2023.07.12'),
@@ -1338,10 +1705,10 @@ const lessonData3: ILessonDataDB = {
   ],
 };
 
-const lessonData4: ILessonDataDB = {
+const lessonData6: ILessonDataDB = {
   id: 'HowToDrawSimilarPictureLine_t6qrnq_Practice_iqln35',
-  courseId: 'illustration',
-  title: '1.3. Как рисовать похоже. Линия',
+  courseId: 'how-to-draw',
+  title: '1.6 Как рисовать похоже. Линия',
   type: 'Practice',
   week: 1,
   startDate: '2023.07.12', //new Date('2023.07.12'),
@@ -1542,7 +1909,7 @@ const lessonData4: ILessonDataDB = {
 }
 
 
-const lessonData5: ILessonDataDB = {
+const lessonData15: ILessonDataDB = {
   id: 'draw-poodles-3',
   courseId: 'illustration',
   title: '1.3. Как рисовать похоже. gzd',
@@ -1625,6 +1992,7 @@ const lessonData5: ILessonDataDB = {
 const allLessons = [
   lessonData1,
   lessonData2,
-  lessonData3,
   lessonData4,
+  lessonData5,
+  lessonData6,
 ];
