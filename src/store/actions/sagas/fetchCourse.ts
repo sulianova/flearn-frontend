@@ -123,8 +123,11 @@ const newCourseDB: ICourseDataDB = {
       content: [
         { tag: 'p', content: 'Познакомимся с упражнениями, которые помогают чувствовать себя увереннее в рисовании. Узнаем, что отвечает за узнавание и сходство. Разберемся, как показывать объем в линейном рисунке.' },
         { tag: 'span', content: '• Упражнения, чтобы разрисоваться' },
-        { tag: 'br' },
         { tag: 'span', content: '• Линия: знакомство' },
+        { tag: 'span', content: '• Линия: как рисовать объемно' },
+        { tag: 'span', content: '• Как рисовать похоже' },
+        { tag: 'span', content: '• Как рисовать похоже. Линия' },
+        { tag: 'span', content: '• Задание недели: 30 котов линией' },
       ],
       imageId: 'Block1.jpg',
       imageAlt: 'Block1',
@@ -138,7 +141,14 @@ const newCourseDB: ICourseDataDB = {
       ],
     },
     {
-      content: 'Проанализируем результаты первой недели. Продолжим тренироваться рисовать похоже, но уже в пятновом рисунке.',
+      content: [
+        { tag: 'p', content: 'Проанализируем результаты первой недели. Продолжим тренироваться рисовать похоже, но уже в пятновом рисунке.' },
+        { tag: 'span', content: '• Про разницу между линией и пятном' },
+        { tag: 'span', content: '• Пятно: знакомство' },
+        { tag: 'span', content: '• Пятно: как рисовать объемно' },
+        { tag: 'span', content: '• Как рисовать похоже. Пятно' },
+        { tag: 'span', content: '• Задание недели: 30 котов пятном' },
+      ],
       imageId: 'Block2.jpg',
       imageAlt: 'Block2',
       imageDesc: 'Рисунки преподавателя',
@@ -151,7 +161,11 @@ const newCourseDB: ICourseDataDB = {
       ],
     },
     {
-      content: 'Будем учиться совмещать линейное и пятновое рисование в одной работе.',
+      content: [
+        { tag: 'p', content: 'Будем учиться совмещать линейное и пятновое рисование в одной работе.' },
+        { tag: 'span', content: '• Линия и пятно: как совмещать' },
+        { tag: 'span', content: '• Задание недели: пятно-иероглиф' },
+      ],
       imageId: 'Block3.jpg',
       imageAlt: 'Block3',
       imageDesc: 'Рисунки преподавателя',
@@ -191,28 +205,28 @@ const newCourseDB: ICourseDataDB = {
   ],
   studentsWorks: [
     {
-      imageId: 'SpotCat12.jpg',
-      imageAlt: 'SpotCat12',
-    },
-    {
-      imageId: 'SpotCat21.jpg',
-      imageAlt: 'SpotCat21',
+      imageId: 'SpotCat27.jpg',
+      imageAlt: 'SpotCat27',
     },
     {
       imageId: 'SpotCat14.jpg',
       imageAlt: 'SpotCat14',
     },
     {
-      imageId: 'SpotCat13.jpg',
-      imageAlt: 'SpotCat13',
-    },
-    {
       imageId: 'SpotCat8.jpg',
       imageAlt: 'SpotCat8',
     },
     {
+      imageId: 'SpotCat3.jpg',
+      imageAlt: 'SpotCat3',
+    },
+    {
       imageId: 'SpotCat7.jpg',
       imageAlt: 'SpotCat7',
+    },
+    {
+      imageId: 'SpotCat2.jpg',
+      imageAlt: 'SpotCat2',
     },
     {
       imageId: 'LineCat3.jpg',

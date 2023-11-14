@@ -91,6 +91,16 @@
     line-height: inherit;
     padding-bottom: set-calc(16);
   }
+
+  span {
+    display: block;
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  span:not(:last-child) {
+    padding-bottom: set-calc(4);
+  }
 }
 
 .listItemMedia {
