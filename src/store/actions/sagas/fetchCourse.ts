@@ -264,6 +264,10 @@ const newCourseDB: ICourseDataDB = {
       imageId: 'LineCat28.jpg',
       imageAlt: 'LineCat28',
     },
+    {
+      imageId: 'activeSpot5.jpg',
+      imageAlt: 'activeSpot5',
+    },
   ],
   faq: [
     {
