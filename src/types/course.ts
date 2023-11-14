@@ -71,7 +71,10 @@ export type IText = {
     tag: 'a'
     props?: ILinkProps
   }
-);
+)
+| {
+  tag: 'br'
+};
 
 export interface ICourseInfo {
   startDate: Date

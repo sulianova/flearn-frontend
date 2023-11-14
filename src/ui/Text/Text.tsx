@@ -16,13 +16,17 @@ export default function Text({ text }: IProps) {
     );
   }
 
+  if (text.tag === 'br' ) {
+    return (<br/>);
+  }
+
   const { tag, content, props } = text;
 
   switch(tag) {
     case 'p':
-      return (<p {...props}><Text text={content}/></p>);
+      return (<p {...props}><Text text={content!}/></p>);
     case 'a':
-      return (<Link {...props}><Text text={content}/></Link>);
+      return (<Link {...props}><Text text={content!}/></Link>);
     case 'span':
       return (<span {...props}><Text text={content}/></span>);
   }
