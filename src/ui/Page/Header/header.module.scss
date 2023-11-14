@@ -15,7 +15,7 @@
     left: 0;
 
     z-index: 200;
-    
+
     transition: top 0.5s, transform 0.5s;
     min-height: 100vh;
     min-height: -moz-available;
@@ -23,12 +23,20 @@
     min-height: fill-available;
     @include set-typography(20, 28, 500);
   }
+
+  @include set-media(md) {
+    width: 0;
+
+    &[data-is-mobile-menu-opened="true"] {
+      width: 100%;
+    }
+  }
 }
 
 .desc {
   position: fixed;
   top: 0;
-  left: 0;
+  right: 0;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -38,15 +46,12 @@
   @include is-grid-12;
 
   @include set-media(md) {
-    flex-wrap: wrap;
-    flex-direction: row;
-    grid-gap: 0;
-    align-items: center;
+    width: max-content;
     padding: set-calc(8) set-calc($padding-x-mob-page) set-calc(8);
     background-color: transparent;
 
     .logo {
-      visibility: hidden;
+      display: none;
     }
   }
 }
@@ -195,10 +200,6 @@
 
   .desc {
     background-color: $white;
-  }
-
-  .logo {
-    visibility: hidden;
   }
 
   .humburger {

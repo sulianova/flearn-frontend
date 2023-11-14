@@ -39,10 +39,10 @@ function Header(props: IConnectedProps) {
         document.body.style.overflowY = '';
       };
     }
-  },        [isOpened]);
+  }, [isOpened]);
 
   return (
-    <div className={headerClass}>
+    <div className={headerClass} data-is-mobile-menu-opened={isOpened}>
       <div className={classes.desc}>
         <div className={classes.logo}>
           <div className={classes.logoWrapper}>
