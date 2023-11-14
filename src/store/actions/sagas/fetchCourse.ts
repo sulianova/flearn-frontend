@@ -117,7 +117,7 @@ const newCourseDB: ICourseDataDB = {
       question: 'Не знает, как передать то, что хочется'
     },
   ],
-  modulesDescription: 'Программа рассчитана на 2 недели, ей нужно посвящать 5-6 часов в неделю.',
+  modulesDescription: 'Программа рассчитана на 3 недели, ей нужно посвящать 5-6 часов в неделю.',
   modules: [
     {
       content: [

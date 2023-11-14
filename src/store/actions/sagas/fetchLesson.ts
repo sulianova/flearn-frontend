@@ -86,7 +86,7 @@ function getData(courseId: string, lessonId: string) {
 
 const lessonData1: ILessonDataDB = {
   id: 'DrawingExercises_h3dx7k',
-  courseId: 'illustration',
+  courseId: 'how-to-draw',
   title: '1.1. Упражнения, чтобы разрисоваться',
   type: 'Theory',
   week: 1,
@@ -135,7 +135,7 @@ const lessonData1: ILessonDataDB = {
         },
         {
           tag: 'span',
-          content: 'Нарисуйте прямую линию. Когда проводите линию, не отрывайте руку от листа. Смотрите на точку, к которой должны прийти, а не место, где находится рука. Рисуйте линии разной длины: крошечные, во весь лист.',
+          content: 'Нарисуйте параллельные вертикальные линии во всю ширину листа. Следите, чтобы расстояние между линиями было одинаковым. Рисуйте без исправлений, одна линия — одно движение.',
         },
       ],
     },
@@ -182,7 +182,7 @@ const lessonData1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'Tasks1.png',
+        id: 'Tasks1.jpg',
         alt: 'Tasks1',
         caption: [
           {
@@ -317,7 +317,7 @@ const lessonData1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'Tasks2.png',
+        id: 'Tasks2.jpg',
         alt: 'Tasks2',
         caption: [
           {
@@ -411,6 +411,30 @@ const lessonData1: ILessonDataDB = {
         ],
       },
     },
+    {
+      type: 'title',
+      title: 'Дополнительно',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'a',
+          content: 'Простые упражнения в кружке скорого рисунка',
+          props: { className: 'link', target: "_blank", to: 'https://kruzhokskorogorisunka.ru/tag/*%20Простые%20упражнения?ysclid=lo5f33rkux242200573' },
+        },
+      ]
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'a',
+          content: 'Книга простое рисование Димы Горелышева',
+          props: { className: 'link', target: "_blank", to: 'https://vk.com/wall-100760089_6620?ysclid=lo5fawz49e843963862' },
+        },
+      ]
+    }
   ],
 };
 

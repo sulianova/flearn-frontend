@@ -22,6 +22,11 @@ function Explain(props: IProps) {
         <div className={classes.headerDesc + ' s-text-24'}>{t('headerDesc')}</div>
       </div>
       <div className={classes.cards}>
+        <div className={classes.introCard}>
+          <Animated.Scroll>
+            {(id, className) => (<div className={cx({ introCardQuote: true }, className) + ' s-text-36'} id={id}>{t('introCardQuote')}</div>)}
+          </Animated.Scroll>
+        </div>
         <div className={classes.videoCard}>
           <div className={classes.videoCardContainer}>
             <Image src={props.data.explainVideo.src} alt={props.data.explainVideo.title}/>
@@ -38,11 +43,6 @@ function Explain(props: IProps) {
               </div>)}
               </Animated.Scroll>
           </div>
-        </div>
-        <div className={classes.introCard}>
-          <Animated.Scroll>
-            {(id, className) => (<div className={cx({ introCardQuote: true }, className) + ' s-text-36'} id={id}>{t('introCardQuote')}</div>)}
-          </Animated.Scroll>
         </div>
       </div>
     </div>

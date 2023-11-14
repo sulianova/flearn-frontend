@@ -52,22 +52,22 @@
   }
 }
 
-.desc::before {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  // width: calc(100% - 106px);
-  width: set-calc(-106, true, 100%);
-  height: set-calc(20);
-  z-index: 800;
-  background: url('./left-conner.png') 0 100% / set-calc(20) set-calc(20) no-repeat, url('./right-corner.png') 100% 0 / set-calc(20) set-calc(20) no-repeat;
+// .desc::before {
+//   content: '';
+//   position: absolute;
+//   top: 100%;
+//   left: 50%;
+//   transform: translateX(-50%);
+//   // width: calc(100% - 106px);
+//   width: set-calc(-106, true, 100%);
+//   height: set-calc(20);
+//   z-index: 800;
+//   background: url('./left-conner.png') 0 100% / set-calc(20) set-calc(20) no-repeat, url('./right-corner.png') 100% 0 / set-calc(20) set-calc(20) no-repeat;
 
-  @include set-media(md) {
-    display: none;
-  }
-}
+//   @include set-media(md) {
+//     display: none;
+//   }
+// }
 
 .logo {
   grid-column: span 1;
