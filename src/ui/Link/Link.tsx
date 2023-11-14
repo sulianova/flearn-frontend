@@ -47,21 +47,21 @@ function Link(props: Readonly<IProps>) {
         };
     }
 
-    return (
-        <Tippy {...tooltip}>
-            <RouterLink
-                className={cx(className, styled && {
-                    Link: true,
-                    Block: block,
-                })}
-                to={to === undefined ? '' : to}
-                onClick={clickHandler}
-                onMouseDown={onMouseDown}
-                onContextMenuCapture={onContextMenuCapture}
-                {...childProps}
-            >
-                {props.children}
-            </RouterLink>
-        </Tippy>
+    const content = (
+        <RouterLink
+            className={cx(className, styled && {
+                Link: true,
+                Block: block,
+            })}
+            to={to === undefined ? '' : to}
+            onClick={clickHandler}
+            onMouseDown={onMouseDown}
+            onContextMenuCapture={onContextMenuCapture}
+            {...childProps}
+        >
+            {props.children}
+        </RouterLink>
     );
+
+    return tooltip ? <Tippy {...tooltip}>{content}</Tippy> : content;
 }
