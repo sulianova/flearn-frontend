@@ -251,6 +251,30 @@ const newCourseDB: ICourseDataDB = {
     {
       imageId: 'LineCat28.jpg',
       imageAlt: 'LineCat28',
+    },
+    {
+      imageId: 'activeSpot14.jpg',
+      imageAlt: 'activeSpot14',
+    },
+    {
+      imageId: 'activeSpot16.jpg',
+      imageAlt: 'activeSpot16',
+    },
+    {
+      imageId: 'activeSpot2.jpg',
+      imageAlt: 'activeSpot2',
+    },
+    {
+      imageId: 'activeSpot7.jpg',
+      imageAlt: 'activeSpot7',
+    },
+    {
+      imageId: 'activeSpot8.jpg',
+      imageAlt: 'activeSpot8',
+    },
+    {
+      imageId: 'activeSpot9.jpg',
+      imageAlt: 'activeSpot9',
     }
   ],
   faq: [
