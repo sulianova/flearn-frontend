@@ -10,17 +10,13 @@
   @include set-typography(18, 24, 500);
 
   @include set-media(md) {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    z-index: 200;
-
     transition: top 0.5s, transform 0.5s;
+
     min-height: 100vh;
     min-height: -moz-available;
     min-height: -webkit-fill-available;
     min-height: fill-available;
+
     @include set-typography(20, 28, 500);
   }
 
