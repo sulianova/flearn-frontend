@@ -457,7 +457,7 @@ const lessonData2: ILessonDataDB = {
         },
         {
           tag: 'p',
-          content: 'Свойства линий: контроль, светлота, толщина. Ниже посмотрим, как с помощью этих свойств, можно разнообразить свои рисунки.',
+          content: 'Основные свойства линий: контроль, светлота, толщина. Ниже посмотрим, как с помощью этих свойств, можно разнообразить свои рисунки.',
         },
       ]
     },
@@ -707,20 +707,20 @@ const lessonData2: ILessonDataDB = {
       text: [
         {
           tag: 'p',
-          content: 'Аналогично с машиной.',
+          content: 'Время, потраченное на рисунок, влияет на точность линий. На рисунке ниже я за 5 минут нарисовала задний план: деревья, электрический столб. А затем 15 минут аккуратно рисовала забор: много-много точных параллельных линий. В итоге забор читается другим слоем, явно отличится от заднего плана.',
         },
       ]
     },
     {
       type: 'image',
       imageData: {
-        id: 'DimaGorelyshev36.jpg',
-        alt: 'DimaGorelyshev36',
+        id: 'SofiUlianova1.jpg',
+        alt: 'SofiUlianova1',
         caption: [
           {
             tag: 'a',
-            content: 'Dima Gorelyshev',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
+            content: 'Sofiia Ulianova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/sofiulianova' },
           },
         ],
       },
@@ -802,6 +802,286 @@ const lessonData2: ILessonDataDB = {
         }
       ],
     },
+    {
+      type: 'title',
+      title: 'Тон: темное, светлое',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Тон — светлота линии. Самый светлый тон — белый, самый темный — черный.',
+        },
+      ]
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Более темной линией можно выделить детали, привлечь внимание к главному.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DimaGorelyshev41.jpg',
+        alt: 'DimaGorelyshev41',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Dima Gorelyshev',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'nastya_q1.jpeg',
+        alt: 'nastya_q1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Настя Варава',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/nastya_q/?g=5' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Чтобы осветлить линию, можно изменить нажим, взять другой цвет карандаша, разбавить краску водой или добавить в нее белил.',
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Толстое, тонкое',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Есть карандаши, кисти, которые могут менять толщину линии в зависимости от нажима. Есть моноширинные инструменты, например, линеры. Тогда чтобы изменить толщину, нужно взять другой линер.',
+        },
+      ]
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'С помощью разной толщины можно привлечь внимание, выделить главное.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'nastya_q3.jpeg',
+        alt: 'nastya_q1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Настя Варава',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/nastya_q/?g=5' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'SofiUlianova2.jpg',
+        alt: 'SofiUlianova2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Sofiia Ulianova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/sofiulianova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Разной толщиной линии можно разделить рисунок на планы. Более толстые линии — передний план, более легкие, тонкие — задний.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ArinaSerebriakova.jpeg',
+        alt: 'ArinaSerebriakova',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Arina Serebriakova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/ri.silver/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'KirillZiman12.jpeg',
+        alt: 'KirillZiman12',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Kirill Ziman',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/kirillziman/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ELENAFEKLISTOVA2.jpeg',
+        alt: 'ELENAFEKLISTOVA2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'ELENA FEKLISTOVA',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/e.feklistova/?g=5' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Толстые и тонкие линии могут решать разные задачи. Толстые — ритмы. Тонкие — фигуратив, детали.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AleksandraWirch.jpeg',
+        alt: 'AleksandraWirch',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Aleksandra Wirch',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/art_alexandra.k/?g=5' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Толстые — силуэт. Тонкие — детали.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ELENAFEKLISTOVA4.jpg',
+        alt: 'ELENAFEKLISTOVA4',
+        caption: [
+          {
+            tag: 'a',
+            content: 'ELENA FEKLISTOVA',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/e.feklistova/?g=5' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Толстые — силуэт, тонкие — фактура.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ELENAFEKLISTOVA5.jpeg',
+        alt: 'ELENAFEKLISTOVA5',
+        caption: [
+          {
+            tag: 'a',
+            content: 'ELENA FEKLISTOVA',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/e.feklistova/?g=5' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ELENAFEKLISTOVA1.jpg',
+        alt: 'ELENAFEKLISTOVA1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'ELENA FEKLISTOVA',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/e.feklistova/?g=5' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Контролируя толщину, можно показать, как объект расположен в пространстве. То, что ближе к зрителю — толще, темнее. Дальше — легче, тоньше.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'VaryaYakovleva3.jpeg',
+        alt: 'VaryaYakovleva3',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Varya Yakovleva',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/varya__yakovleva/?g=5' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'title',
+      title: 'Дополнительно',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'a',
+          content: 'Про 4 типа линии: силуэт, конструкция, форма, фактура',
+          props: { className: 'link', target: "_blank", to: 'https://kruzhokskorogorisunka.ru/202377.html?ysclid=lo5eh1vgp6502216306' },
+        },
+      ]
+    }
   ]
 }
 
