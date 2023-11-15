@@ -11,6 +11,7 @@ export function courseDataFR2DB(course: ICourseData): ICourseDataDB {
     endDate: dateFR2DB(course.endDate),
     discontDeadline: dateFR2DB(course.discontDeadline),
     modules: courseModulesFR2DB(course.modules),
+    explainMedia: courseExplainMediaFR2DB(course.explainMedia),
     teachers: courseTeachersFR2DB(course.teachers),
     teacherGallery: courseTeacherGallerysFR2DB(course.teacherGallery),
     studentsWorks: courseStudentsWorksFR2DB(course.studentsWorks),
@@ -25,6 +26,15 @@ function courseModulesFR2DB(modules: ICourseData['modules']): ICourseDataDB['mod
 function courseModuleFR2DB(module: ICourseData['modules'][number]): ICourseDataDB['modules'][number] {
   const { imageSrc, ...restModule } = module;
   return restModule;
+}
+
+function courseExplainMediaFR2DB(explainMedia: ICourseData['explainMedia']): ICourseDataDB['explainMedia'] {
+  if (explainMedia.type === 'video') {
+    return explainMedia;
+  }
+
+  const { imageSrc, ...restExplainMedia } = explainMedia;
+  return restExplainMedia;
 }
 
 // teachers

@@ -178,9 +178,10 @@ const newCourseDB: ICourseDataDB = {
       ],
     },
   ],
-  explainVideo: {
-    src: 'https://firebasestorage.googleapis.com/v0/b/flearn-6b617.appspot.com/o/how-to-draw%2Flanding%2Fimages%2FSofiUlianova4.jpg?alt=media&token=244a0b0a-e14d-4ecd-9ea5-e95c9b23c5cf',
-    title: 'fff'
+  explainMedia: {
+    type: 'image',
+    imageId: 'Block3.jpg',
+    imageAlt: 'Block3',
   },
   promoVideo: {
     src: '',

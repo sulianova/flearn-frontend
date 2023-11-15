@@ -13,6 +13,7 @@ export async function courseDataDB2FR(courseDB: ICourseDataDB): Promise<ICourseD
     endDate: dateDB2FR(courseDB.endDate),
     discontDeadline: dateDB2FR(courseDB.discontDeadline),
     modules: await courseModulesDB2FR(courseDB.modules, courseId),
+    explainMedia: await courseExplainMediaDB2FR(courseDB.explainMedia, courseId),
     teachers: await courseTeachersDB2FR(courseDB.teachers, courseId),
     teacherGallery: await courseTeacherGallerysDB2FR(courseDB.teacherGallery, courseId),
     studentsWorks: await courseStudentsWorksDB2FR(courseDB.studentsWorks, courseId),
@@ -28,6 +29,17 @@ async function courseModuleDB2FR(module: ICourseDataDB['modules'][number], cours
   return {
     ...module,
     imageSrc: (await firebaseService.getImageURL({ courseId, folder: 'landing', imageId: module.imageId })) ?? '',
+  };
+}
+
+async function courseExplainMediaDB2FR(explainMedia: ICourseDataDB['explainMedia'], courseId: string): Promise<ICourseData['explainMedia']> {
+  if (explainMedia.type === 'video') {
+    return explainMedia;
+  }
+
+  return {
+    ...explainMedia,
+    imageSrc: (await firebaseService.getImageURL({ courseId, folder: 'landing', imageId: explainMedia.imageId })) ?? '',
   };
 }
 

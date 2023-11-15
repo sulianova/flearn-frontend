@@ -21,7 +21,7 @@ export interface ICourseData {
   description: Array<{ question: string, answer: string }>
   modulesDescription: TText | TText[]
   modules: Array<{ meta: TText | TText[], title: TText | TText[], content: TText | TText[], imageId: string, imageDesc: TText | TText[], imageSrc: string, imageAlt: string }>
-  explainVideo: { title: string, src: string }
+  explainMedia: { type: 'image', imageId: string, imageSrc: string, imageAlt: string } | { type: 'video', title: string, src: string },
   promoVideo: { title: string, src: string }
   teachers: Array<{ title: TText | TText[], description: TText | TText[], imageId: string, imageSrc: string, imageAlt: string }>
   teacherGallery: Array<{imageId: string, imageSrc: string, imageAlt: string}>
@@ -48,7 +48,7 @@ export interface ICourseDataDB {
   description: Array<{ question: string, answer: string }>
   modulesDescription: TText | TText[]
   modules: Array<{ meta: TText | TText[], title: TText | TText[], content: TText | TText[], imageId: string, imageDesc: TText | TText[], imageAlt: string }>
-  explainVideo: { title: string, src: string }
+  explainMedia: { type: 'image', imageId: string, imageAlt: string } | { type: 'video', title: string, src: string },
   promoVideo: { title: string, src: string }
   teachers: Array<{ title: TText | TText[], description: TText | TText[], imageId: string, imageAlt: string }>
   teacherGallery: Array<{imageId: string, imageAlt: string}>
