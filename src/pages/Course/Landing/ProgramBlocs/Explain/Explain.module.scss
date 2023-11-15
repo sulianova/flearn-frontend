@@ -43,6 +43,8 @@ padding-bottom: set-calc(54);
 
   @include set-media(md) {
     padding: set-calc(32) set-calc(24);
+    margin-bottom: set-calc(24);
+    background-color: $beige-light;
   }
 }
 
