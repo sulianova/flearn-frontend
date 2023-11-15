@@ -4,13 +4,20 @@
   position: relative;
 
   display: block;
-  padding-top: set-calc(0);
+  @include is-beige;
+  padding: set-calc(72) set-calc($padding-x-desk-page) set-calc(72);
+  background-color: $black-new;
+
+  @include set-media(md) {
+    padding: set-calc($padding-x-mob-page) set-calc($padding-x-mob-page);
+  }
 }
 
 
 .title {
   padding-bottom: set-calc(60);
   font-family: $font-family-serif;
+  color: white;
 
   @include set-media(md) {
     padding-bottom: set-calc(32);

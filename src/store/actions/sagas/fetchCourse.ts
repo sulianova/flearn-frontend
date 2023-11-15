@@ -85,7 +85,7 @@ const newCourseDB: ICourseDataDB = {
   videosNumber: 3,
   feild: 'Иллюстрация',
   introImageId: 'introImage.jpg',
-  introDescription: 'Практический мини-курс для тех, кто хочет рисовать убедительные иллюстрации, не копируя фотографии. Сделаем упражнения и 30-50 законченных работ',
+  introDescription: 'Практический мини-курс для тех, кто хочет рисовать убедительные иллюстрации, не копируя фотографии.',
   introImageAlt: 'introImage',
   discontAmount: 50,
   discontDeadline: '2023-11-01T00:00:00.000Z',
@@ -180,8 +180,8 @@ const newCourseDB: ICourseDataDB = {
   ],
   explainMedia: {
     type: 'image',
-    imageId: 'Block3.jpg',
-    imageAlt: 'Block3',
+    imageId: 'SofiUlianova.jpg',
+    imageAlt: 'SofiUlianova',
   },
   promoVideo: {
     src: '',

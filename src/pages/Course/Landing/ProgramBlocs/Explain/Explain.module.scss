@@ -77,18 +77,19 @@ padding-bottom: set-calc(54);
   flex-shrink: 1;
   height: set-calc(480);
 
-  background: $black-new;
+  // background: $black-new;
   border-radius: set-calc(20);
   overflow: hidden;
 
   @include set-media(md) {
-    // min-height: set-calc(375);
+    height: set-calc(375);
   }
 }
 
 .videoCardContainer img {
   border-radius: set-calc(20);
   width: 100%;
+  height: 100%;
   -o-object-fit: cover;
   object-fit: cover;
 }
