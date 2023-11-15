@@ -20,11 +20,11 @@ function DiscountBanner(props: IProps) {
           <div className={classes.discountWrapper}>
             <div className={classes.stickerWrapper}>
               <div className={classes.sticker}>
-                <div className={classes.stickerPercentage + ' s-text-88'}>
+                <div className={classes.stickerPercentage}>
                   {props.data.discontAmount}
                   <span className='s-text-36'>{t('percentage')}</span>
                 </div>
-                <div className={classes.stickerText + ' s-text-28'}>{t('discount')}</div>
+                <div className={classes.stickerText}>{t('discount')}</div>
                 <div className={classes.svgWrapper}>
                 <Sticker/>
                 </div>
