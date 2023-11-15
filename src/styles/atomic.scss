@@ -182,3 +182,12 @@
     @include set-typography(64, 58, 500);
   }
 }
+
+.orange {
+  color: $orange;
+}
+
+.b-black-new {
+  background-color: $black-new!important;
+  color: $white!important;
+}

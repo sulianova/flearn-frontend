@@ -28,8 +28,8 @@ function Modules(props: IProps) {
           <div className={classes.tag + ' s-text-18'}>{props.data.videosNumber} {t('videosNumber')}</div>
           <div className={classes.tag + ' s-text-18'}>{props.data.homeworksNumber} {t('homeworksNumber')}</div>
           <div className={classes.tag + ' s-text-18'}>{props.data.durationWeeks} {t('durationWeeks')}</div>
-          <div className={classes.tag + ' s-text-18'}>{t('feedback')}</div>
-          <div className={classes.tag + ' s-text-18'}>{t('chat')}</div>
+          <div className={classes.tag + ' s-text-18 b-black-new'}>{t('feedback')}</div>
+          <div className={classes.tag + ' s-text-18 b-black-new'}>{t('chat')}</div>
         </div>
       </div>
       <div className={classes.list}>

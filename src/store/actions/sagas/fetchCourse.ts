@@ -127,7 +127,11 @@ const newCourseDB: ICourseDataDB = {
         { tag: 'span', content: '• Линия: как рисовать объемно' },
         { tag: 'span', content: '• Как рисовать похоже' },
         { tag: 'span', content: '• Как рисовать похоже. Линия' },
-        { tag: 'span', content: '• Задание недели: 30 котов линией' },
+        {
+          tag: 'p',
+          props:  { className: 'orange s-text-28'},
+          content: 'Задание недели: 30 котов линией'
+        },
       ],
       imageId: 'Block1.jpg',
       imageAlt: 'Block1',
@@ -147,7 +151,11 @@ const newCourseDB: ICourseDataDB = {
         { tag: 'span', content: '• Пятно: знакомство' },
         { tag: 'span', content: '• Пятно: как рисовать объемно' },
         { tag: 'span', content: '• Как рисовать похоже. Пятно' },
-        { tag: 'span', content: '• Задание недели: 30 котов пятном' },
+        {
+          tag: 'p',
+          props:  { className: 'orange s-text-28'},
+          content: 'Задание недели: 30 котов пятном'
+        },
       ],
       imageId: 'Block2.jpg',
       imageAlt: 'Block2',
@@ -164,7 +172,11 @@ const newCourseDB: ICourseDataDB = {
       content: [
         { tag: 'p', content: 'Будем учиться совмещать линейное и пятновое рисование в одной работе.' },
         { tag: 'span', content: '• Линия и пятно: как совмещать' },
-        { tag: 'span', content: '• Задание недели: пятно-иероглиф' },
+        {
+          tag: 'p',
+          props:  { className: 'orange s-text-28'},
+          content: 'Задание недели: пятно-иероглиф'
+        },
       ],
       imageId: 'Block3.jpg',
       imageAlt: 'Block3',

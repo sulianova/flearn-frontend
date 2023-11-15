@@ -86,10 +86,15 @@
 .listItemContent {
   padding-bottom: set-calc(16);
 
-  p {
+  p:not(:last-child) {
     font-size: inherit;
     line-height: inherit;
     padding-bottom: set-calc(16);
+  }
+
+  p:last-child {
+    padding-top: set-calc(32);
+    font-family: $font-family-serif;
   }
 
   span {
@@ -101,6 +106,7 @@
   span:not(:last-child) {
     padding-bottom: set-calc(4);
   }
+
 }
 
 .listItemMedia {
