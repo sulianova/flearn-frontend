@@ -129,7 +129,7 @@ const newCourseDB: ICourseDataDB = {
         { tag: 'span', content: '• Как рисовать похоже. Линия' },
         {
           tag: 'p',
-          props:  { className: 'orange s-text-28'},
+          props:  { className: 'textSmall s-text-28'},
           content: 'Задание недели: 30 котов линией'
         },
       ],
@@ -153,7 +153,7 @@ const newCourseDB: ICourseDataDB = {
         { tag: 'span', content: '• Как рисовать похоже. Пятно' },
         {
           tag: 'p',
-          props:  { className: 'orange s-text-28'},
+          props:  { className: 'textSmall s-text-28'},
           content: 'Задание недели: 30 котов пятном'
         },
       ],
@@ -174,7 +174,7 @@ const newCourseDB: ICourseDataDB = {
         { tag: 'span', content: '• Линия и пятно: как совмещать' },
         {
           tag: 'p',
-          props:  { className: 'orange s-text-28'},
+          props:  { className: 'textSmall s-text-28'},
           content: 'Задание недели: пятно-иероглиф'
         },
       ],
