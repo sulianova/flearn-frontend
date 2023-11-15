@@ -4,7 +4,7 @@ interface IProps {
   lazy?: boolean
 }
 
-export default function Iframe(props: IProps) {
+export default function IFrame(props: IProps) {
   const { src, title, lazy = true } = props;
   return (
     <iframe

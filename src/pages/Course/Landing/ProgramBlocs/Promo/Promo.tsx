@@ -2,7 +2,7 @@ import classNames from 'classnames/bind';
 import { formatI18nT } from 'shared';
 import { ICourseData } from 'types';
 import Animated from 'ui/Animated';
-import Iframe from 'ui/Video/Iframe';
+import Video from 'ui/Video/Video';
 import classes from './Promo.module.scss';
 
 export default Promo;
@@ -24,7 +24,7 @@ function Promo(props: IProps) {
         </div>
         <div className={cx({ card: true, videoCard: true })}>
           <div className={classes.videoCardContainer}>
-            <Iframe src={props.data.promoVideo.src} title={props.data.promoVideo.title}/>
+            <Video.IFrame src={props.data.promoVideo.src} title={props.data.promoVideo.title}/>
           </div>
         </div>
       </div>
