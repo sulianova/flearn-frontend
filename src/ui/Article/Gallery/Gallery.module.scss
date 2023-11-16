@@ -20,6 +20,8 @@
 
   border-radius: 0;
   overflow: hidden;
+  border-radius: set-calc(20);
+  box-shadow: 0 set-calc(4) set-calc(8) rgb(0 0 0 / 10%);
 
   height: set-calc(350);
 

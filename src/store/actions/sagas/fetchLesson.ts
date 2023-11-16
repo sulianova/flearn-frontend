@@ -1766,60 +1766,9 @@ const lessonData5: ILessonDataDB = {
       text: [
         {
           tag: 'p',
-          content: 'В предыдущем уроке мы разобрались, что бывает детское узнавание, когда у рисунка с предметом нет сходства и мы узнаем его по особым приметам и ситуациям. И есть взрослое узнавание, основанное на сходстве. На этой неделе будет тренировать взрослое узнавание в линейном рисунке.',
+          content: 'На этой неделе будет тренироваться рисовать похоже линией, отбирать с рисунка только ту информацию, которая нужна. ',
         },
       ]
-    },
-    {
-      type: 'title',
-      title: 'Что отвечает за сходство',
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'В плоском рисовании за сходство отвечают пропорции, размер. В объемном — расположение теней.',
-        },
-        {
-          tag: 'p',
-          content: 'Сравните предметы на рисунке ниже. Какие чаши больше похожи друг на друга, какие меньше? Чем чаши похожи, чем отличаются?',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'Comparison.jpg',
-        alt: 'Comparison',
-      },
-    },
-    {
-      type: 'text',
-      text: [
-        {
-        tag: 'p',
-        content: 'В первую очередь мы замечаем размер и пропорции: высота, ширина. Во вторую — детали: количество ободков на чаше, элементы, из которых состоит ручка.',
-        },
-        {
-          tag: 'p',
-          content: 'Если попасть в пропорции, но не нарисовать детали, предметы будут похожи. Если не попасть в пропорции, но нарисовать детали, будет казаться, что что-то не так.',
-        },
-      ]
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'span',
-          content: 'Пропорции нужны, чтобы сделать предметы схожими. ',
-          props: { className: 'keyText' },
-        },
-        {
-          tag: 'span',
-          content: 'В какой мере они будут схожи решает автор.',
-        },
-      ],
     },
     {
       type: 'title',
@@ -2039,347 +1988,6 @@ const lessonData5: ILessonDataDB = {
         alt: 'DetailsLine2',
       },
     },
-    {
-      type: 'title',
-      title: 'Как рисовать объемно',
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Когда мы рисуем объемную форму, мы рисуем, как поверхность объекта меняет направление. Например, простой лист А4 на столе выглядит плоским. Но если его согнуть пополам и поставить, он будет казаться объемным.',
-        },
-        {
-          tag: 'p',
-          content: 'Чтобы нарисованный предмет казался объемным, нужно нарисовать, как его поверхность меняет направление.',
-        },
-        {
-          tag: 'p',
-          content: 'Чтобы показать объем линией, нужно:',
-        },
-      ]
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'span',
-          content: 'Рисовать легкий, тонкий контур. ',
-          props: { className: 'keyText' },
-        },
-        {
-          tag: 'span',
-          content: 'Даже если внутри предмет нарисован объемно, толстый внешний контур уплостит рисунок.',
-        },
-      ],
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'ShapeLine1.jpeg',
-        alt: 'ShapeLine1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Robert Henderson Blyth',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://all-drawings.livejournal.com/867721.html' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'span',
-          content: 'Рисовать толщинки предметов. ',
-          props: { className: 'keyText' },
-        },
-        {
-          tag: 'span',
-          content: 'Толщина есть у всего: подноса, усика креветки, корочки хлеба.',
-        },
-      ],
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'ShapeLine2.jpeg',
-        alt: 'ShapeLine2',
-        caption: [
-          {
-            tag: 'a',
-            content: 'David Hockney',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://all-drawings.livejournal.com/869696.html' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'span',
-          content: 'Показывать место, где поверхность резко меняет направление. ',
-          props: { className: 'keyText' },
-        },
-        {
-          tag: 'span',
-          content: 'У предметов есть плоские, ровные поверхности и сломы, где поверхность резко меняет направление. Чтобы показать объем предмета в линейном рисунке, достаточно нарисовать место слома поверхности.',
-        },
-      ],
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Для куба — обозначить грани.',
-        },
-        {
-          tag: 'p',
-          content: 'Для шара, конуса, цилиндра — показать, как заворачивается поверхность.',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'ShapeLine3.png',
-        alt: 'ShapeLine3',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Дмитрий Горелышев',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'DimaGorelyshev5.jpg',
-        alt: 'DimaGorelyshev5',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Дмитрий Горелышев',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'DimaGorelyshev6.jpg',
-        alt: 'DimaGorelyshev6',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Дмитрий Горелышев',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'DimaGorelyshev7.jpg',
-        alt: 'DimaGorelyshev7',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Дмитрий Горелышев',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'DimaGorelyshev14.jpg',
-        alt: 'DimaGorelyshev14',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Дмитрий Горелышев',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'span',
-          content: 'Рисовать ближние к зрителю линии толще, темнее.',
-          props: { className: 'keyText' },
-        },
-      ],
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'DimaGorelyshev18.jpg',
-        alt: 'DimaGorelyshev18',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Дмитрий Горелышев',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'DimaGorelyshev40.jpg',
-        alt: 'DimaGorelyshev40',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Дмитрий Горелышев',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'title',
-      title: 'Примеры линейных рисунков',
-    },
-    {
-      type: 'gallery',
-      images: [
-        {
-          id: 'LineCat1.jpg',
-          alt: 'LineCat1',
-        },
-        {
-          id: 'LineCat2.jpg',
-          alt: 'LineCat2',
-        },
-        {
-          id: 'LineCat3.jpg',
-          alt: 'LineCat3',
-        },
-        {
-          id: 'LineCat4.jpg',
-          alt: 'LineCat4',
-        },
-        {
-          id: 'LineCat5.jpg',
-          alt: 'LineCat5',
-        },
-        {
-          id: 'LineCat6.jpg',
-          alt: 'LineCat6',
-        },
-        {
-          id: 'LineCat7.jpg',
-          alt: 'LineCat7',
-        },
-        {
-          id: 'LineCat8.jpg',
-          alt: 'LineCat8',
-        },
-        {
-          id: 'LineCat9.jpg',
-          alt: 'LineCat9',
-        },
-        {
-          id: 'LineCat10.jpg',
-          alt: 'LineCat10',
-        },
-        {
-          id: 'LineCat11.jpg',
-          alt: 'LineCat11',
-        },
-        {
-          id: 'LineCat12.jpg',
-          alt: 'LineCat12',
-        },
-        {
-          id: 'LineCat13.jpg',
-          alt: 'LineCat13',
-        },
-        {
-          id: 'LineCat14.jpg',
-          alt: 'LineCat14',
-        },
-        {
-          id: 'LineCat15.jpg',
-          alt: 'LineCat15',
-        },
-        {
-          id: 'LineCat16.jpg',
-          alt: 'LineCat16',
-        },
-        {
-          id: 'LineCat17.jpg',
-          alt: 'LineCat17',
-        },
-        {
-          id: 'LineCat18.jpg',
-          alt: 'LineCat18',
-        },
-        {
-          id: 'LineCat19.jpg',
-          alt: 'LineCat19',
-        },
-        {
-          id: 'LineCat20.jpg',
-          alt: 'LineCat20',
-        },
-        {
-          id: 'LineCat21.jpg',
-          alt: 'LineCat21',
-        },
-        {
-          id: 'LineCat22.jpg',
-          alt: 'LineCat22',
-        },
-        {
-          id: 'LineCat23.jpg',
-          alt: 'LineCat23',
-        },
-        {
-          id: 'LineCat24.jpg',
-          alt: 'LineCat24',
-        },
-        {
-          id: 'LineCat25.jpg',
-          alt: 'LineCat25',
-        },
-        {
-          id: 'LineCat26.jpg',
-          alt: 'LineCat26',
-        },
-        {
-          id: 'LineCat27.jpg',
-          alt: 'LineCat27',
-        },
-        {
-          id: 'LineCat28.jpg',
-          alt: 'LineCat28',
-        },
-        {
-          id: 'LineCat29.jpg',
-          alt: 'LineCat29',
-        },
-        {
-          id: 'LineCat30.jpg',
-          alt: 'LineCat30',
-        },
-      ]
-    },
   ],
 };
 
@@ -2582,6 +2190,135 @@ const lessonData6: ILessonDataDB = {
         src: 'https://www.youtube.com/embed/ZrhaCN6-91Q?si=ZxU0otzNubj_ivqT?loop=1',
         title: 'YouTube video player',
       },
+    },
+    {
+      type: 'title',
+      title: 'Примеры линейных рисунков',
+    },
+    {
+      type: 'gallery',
+      images: [
+        {
+          id: 'LineCat1.jpg',
+          alt: 'LineCat1',
+        },
+        {
+          id: 'LineCat2.jpg',
+          alt: 'LineCat2',
+        },
+        {
+          id: 'LineCat3.jpg',
+          alt: 'LineCat3',
+        },
+        {
+          id: 'LineCat4.jpg',
+          alt: 'LineCat4',
+        },
+        {
+          id: 'LineCat5.jpg',
+          alt: 'LineCat5',
+        },
+        {
+          id: 'LineCat6.jpg',
+          alt: 'LineCat6',
+        },
+        {
+          id: 'LineCat7.jpg',
+          alt: 'LineCat7',
+        },
+        {
+          id: 'LineCat8.jpg',
+          alt: 'LineCat8',
+        },
+        {
+          id: 'LineCat9.jpg',
+          alt: 'LineCat9',
+        },
+        {
+          id: 'LineCat10.jpg',
+          alt: 'LineCat10',
+        },
+        {
+          id: 'LineCat11.jpg',
+          alt: 'LineCat11',
+        },
+        {
+          id: 'LineCat12.jpg',
+          alt: 'LineCat12',
+        },
+        {
+          id: 'LineCat13.jpg',
+          alt: 'LineCat13',
+        },
+        {
+          id: 'LineCat14.jpg',
+          alt: 'LineCat14',
+        },
+        {
+          id: 'LineCat15.jpg',
+          alt: 'LineCat15',
+        },
+        {
+          id: 'LineCat16.jpg',
+          alt: 'LineCat16',
+        },
+        {
+          id: 'LineCat17.jpg',
+          alt: 'LineCat17',
+        },
+        {
+          id: 'LineCat18.jpg',
+          alt: 'LineCat18',
+        },
+        {
+          id: 'LineCat19.jpg',
+          alt: 'LineCat19',
+        },
+        {
+          id: 'LineCat20.jpg',
+          alt: 'LineCat20',
+        },
+        {
+          id: 'LineCat21.jpg',
+          alt: 'LineCat21',
+        },
+        {
+          id: 'LineCat22.jpg',
+          alt: 'LineCat22',
+        },
+        {
+          id: 'LineCat23.jpg',
+          alt: 'LineCat23',
+        },
+        {
+          id: 'LineCat24.jpg',
+          alt: 'LineCat24',
+        },
+        {
+          id: 'LineCat25.jpg',
+          alt: 'LineCat25',
+        },
+        {
+          id: 'LineCat26.jpg',
+          alt: 'LineCat26',
+        },
+        {
+          id: 'LineCat27.jpg',
+          alt: 'LineCat27',
+        },
+        {
+          id: 'LineCat28.jpg',
+          alt: 'LineCat28',
+        },
+        {
+          id: 'LineCat29.jpg',
+          alt: 'LineCat29',
+        },
+        {
+          id: 'LineCat30.jpg',
+          alt: 'LineCat30',
+        },
+      ]
     },
   ]
 }
