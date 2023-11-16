@@ -38,7 +38,7 @@ function MyRouter({ userState }: IProps) {
     <AuthContext.Provider value={userState}>
       <BrowserRouter>
         <Routes>
-          <Route index path={URLSections.FreeZone.index} element={<Navigate to={URLSections.Course.to({ courseId: 'illustration' })} />} />
+          <Route index path={URLSections.FreeZone.index} element={<Navigate to={URLSections.Course.to({ courseId: 'how-to-draw' })} />} />
           <Route path={URLSections.Catalogue.index} element={<Catalogue />} />
           <Route path={URLSections.Course.index} element={<Course />} />
           <Route path={URLSections.Course.Lessons.index} element={<Lessons />} />

@@ -80,17 +80,34 @@ function Header(props: IConnectedProps) {
               <span className='inline-text'>{t('freeZone')}</span>
             </Link>
           </div>
+          */}
           <div className={classes.mobItem}>
-            <Link to={URLSections.Catalogue.index} className='inline-link s-text-36'>
+            <Link
+              className='inline-link s-text-36'
+              to={URLSections.Course.to({ courseId: 'how-to-draw' })}
+              onClick={() => setIsOpened(false)}
+            >
               <span className='inline-text'>{t('catalogue')}</span>
             </Link>
-          </div> */}
+          </div>
         </div>
         <div className={classes.mobMenuControls}>
-          {props.user ?
-            (<Link to={URLSections.My.Profile.index} className={classes.loginBtn + ' s-text-24'}>{t('login.profile')}</Link>)
-            : (<div className={classes.loginBtn + ' s-text-24'} onClick={handleLogin}>{t('login.signIn')}</div>)
-          }
+          {props.user ? (
+            <Link
+              className={classes.loginBtn + ' s-text-24'}
+              to={URLSections.My.Profile.index}
+              onClick={() => setIsOpened(false)}
+            >
+              {t('login.profile')}
+            </Link>
+          ) : (
+            <div
+              className={classes.loginBtn + ' s-text-24'}
+              onClick={handleLogin}
+            >
+              {t('login.signIn')}
+            </div>
+          )}
         </div>
       </div>
     </div>
