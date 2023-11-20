@@ -85,6 +85,7 @@ function getData(courseId: string, lessonId: string) {
 }
 
 const lessonData0: ILessonDataDB = {
+  orderInWeek: 0,
   id: 'Checklist_hUpx7v',
   courseId: 'how-to-draw',
   title: 'Чек-лист продуктивного обучения',
@@ -162,10 +163,10 @@ const lessonData0: ILessonDataDB = {
 }
 
 const lessonData1: ILessonDataDB = {
+  orderInWeek: 1,
   id: 'DrawingExercises_h3dx7k',
   courseId: 'how-to-draw',
   title: '1.1 Упражнения, чтобы разрисоваться',
-  orderInWeek: 1,
   type: 'Theory',
   week: 1,
   startDate: '2023.07.12', //new Date('2023.07.12'),
@@ -562,10 +563,10 @@ const lessonData1: ILessonDataDB = {
 };
 
 const lessonData2: ILessonDataDB = {
+  orderInWeek: 2,
   id: 'Line_gBpaFa',
   courseId: 'how-to-draw',
   title: '1.2 Линия: знакомство',
-  orderInWeek: 2,
   type: 'Theory',
   week: 1,
   startDate: '2023.07.12', //new Date('2023.07.12'),
@@ -1210,6 +1211,7 @@ const lessonData2: ILessonDataDB = {
 }
 
 const lessonData3: ILessonDataDB = {
+  orderInWeek: 3,
   id: 'LineShape_RY7PQ3',
   courseId: 'how-to-draw',
   title: '1.3 Линия: как рисовать объемно',
@@ -1428,10 +1430,10 @@ const lessonData3: ILessonDataDB = {
 }
 
 const lessonData4: ILessonDataDB = {
+  orderInWeek: 4,
   id: 'HowToDrawSimilarPicture_bah4tw',
   courseId: 'how-to-draw',
   title: '1.4. Как рисовать похоже',
-  orderInWeek: 4,
   type: 'Theory',
   week: 1,
   startDate: '2023.07.12', //new Date('2023.07.12'),
@@ -1755,12 +1757,12 @@ const lessonData4: ILessonDataDB = {
 };
 
 const lessonData5: ILessonDataDB = {
+  orderInWeek: 5,
   id: 'HowToDrawSimilarPictureLine_t6qrnq',
   courseId: 'how-to-draw',
   title: '1.5. Как рисовать похоже. Линия',
   type: 'Theory',
   week: 1,
-  orderInWeek: 5,
   startDate: '2023.07.12', //new Date('2023.07.12'),
   endDate: '2023.07.22', //new Date('2023.07.22'),
   resultsEndDate: '2023.07.25', //new Date('2023.07.25'),
@@ -1996,12 +1998,12 @@ const lessonData5: ILessonDataDB = {
 };
 
 const lessonData6: ILessonDataDB = {
+  orderInWeek: 6,
   id: 'HowToDrawSimilarPictureLine_t6qrnq_Practice_iqln35',
   courseId: 'how-to-draw',
   title: '1.6 Как рисовать похоже. Линия',
   type: 'Practice',
   week: 1,
-  orderInWeek: 6,
   startDate: '2023.07.12', //new Date('2023.07.12'),
   endDate: '2023.07.22', //new Date('2023.07.22'),
   resultsEndDate: '2023.07.25', //new Date('2023.07.25'),
