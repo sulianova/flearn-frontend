@@ -34,7 +34,6 @@ function Img(props: Readonly<IProps>) {
       <img
         alt={alt}
         src={src}
-        srcSet=''
         className={cx(className, { Hidden: imgStatus !== 'loaded' })}
         loading={lazy ? 'lazy' : undefined }
         onLoad={() => setImgStatus('loaded')}
