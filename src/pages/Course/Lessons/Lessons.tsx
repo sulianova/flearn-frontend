@@ -73,7 +73,9 @@ function Lessons({ courseState, lessonsState, authedUserId }: IConnectedProps) {
             lessons: [lessonData],
           })
         } else {
-          acc.get(lessonData.lesson.week)!.lessons.push(lessonData);
+          const group = acc.get(lessonData.lesson.week)!;
+          group.lessons.push(lessonData);
+          group.lessons.sort((a, b) => a.lesson.orderInWeek - b.lesson.orderInWeek);
         }
 
         return acc;

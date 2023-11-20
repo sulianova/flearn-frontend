@@ -1,6 +1,3 @@
-import type { HTMLAttributes } from 'react';
-import type { IProps as ILinkProps } from 'ui/Link/Link';
-
 import { ECommonErrorTypes, TStateState, TText } from 'types';
 
 export interface ICourseData {
@@ -22,7 +19,7 @@ export interface ICourseData {
   creditPrice: number
   description: Array<{ question: string, answer: string }>
   modulesDescription: TText | TText[]
-  modules: Array<{ meta: TText | TText[], title: TText | TText[], content: TText | TText[], imageId: string, imageDesc: TText | TText[], imageSrc: string, imageAlt: string }>
+  modules: Array<{ meta: TText | TText[], title: TText | TText[], content: TText | TText[], imageDesc: TText | TText[] } & TImageData>
   explainMedia: { type: 'image', imageId: string, imageSrc: string, imageAlt: string } | { type: 'video', title: string, src: string },
   promoVideo: { title: string, src: string }
   teachers: Array<{ title: TText | TText[], description: TText | TText[], imageId: string, imageSrc: string, imageAlt: string }>
@@ -49,7 +46,7 @@ export interface ICourseDataDB {
   creditPrice: number
   description: Array<{ question: string, answer: string }>
   modulesDescription: TText | TText[]
-  modules: Array<{ meta: TText | TText[], title: TText | TText[], content: TText | TText[], imageId: string, imageDesc: TText | TText[], imageAlt: string }>
+  modules: Array<{ meta: TText | TText[], title: TText | TText[], content: TText | TText[], imageDesc: TText | TText[] } & TImageDataDB>
   explainMedia: { type: 'image', imageId: string, imageAlt: string } | { type: 'video', title: string, src: string },
   promoVideo: { title: string, src: string }
   teachers: Array<{ title: TText | TText[], description: TText | TText[], imageId: string, imageAlt: string }>
@@ -57,6 +54,31 @@ export interface ICourseDataDB {
   studentsWorks: Array<{imageId: string, imageAlt: string}>
   faq: Array<{ question: TText | TText[], answer: TText | TText[] }>
 }
+
+type TImageData  = (
+  {
+    imageId: string
+    imageSrc: string
+  } |
+  {
+    imageId: { desktop: string, mobile: string }
+    imageSrc: { desktop: string, mobile: string }
+  }
+) & {
+  imageAlt: string
+}
+
+type TImageDataDB = (
+  {
+    imageId: string
+  } |
+  {
+    imageId: { desktop: string, mobile: string }
+  }
+) & {
+  imageAlt: string
+}
+
 
 export type TActionS =
   | { type: 'updated', payload: { id: string } };
