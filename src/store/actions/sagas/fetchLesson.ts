@@ -84,6 +84,83 @@ function getData(courseId: string, lessonId: string) {
   return allLessons.find(l => l.courseId === courseId && l.id === lessonId);
 }
 
+const lessonData0: ILessonDataDB = {
+  id: 'Checklist_hUpx7v',
+  courseId: 'how-to-draw',
+  title: 'Чек-лист продуктивного обучения',
+  type: 'Theory',
+  week: 1,
+  startDate: '2023.07.12', //new Date('2023.07.12'),
+  endDate: '2023.07.22', //new Date('2023.07.22'),
+  resultsEndDate: '2023.07.25', //new Date('2023.07.25'),
+  content: [
+    {
+      type: 'title',
+      title: 'Учиться так, как хочется',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'У каждого из нас свой уникальный опыт, свои ожидания от обучения и свои цели относительно рисования.',
+        },
+        {
+          tag: 'p',
+          content: 'Есть силы только на то, чтобы посмотреть видео — отлично, значит сейчас этого достаточно. Я буду рада любому вашему выбору.',
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Беспокоиться о количестве, а не качестве',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Над одной работой слишком много трясешься, боишься исправлять, принимать радикальные решения. В большинстве случаев полезнее сделать следующий рисунок, чем сидеть и думать, как улучшить старый.',
+        },
+        {
+          tag: 'p',
+          content: 'Когда работа одна, ее легко испортить. Когда работ 10, среди них можно выбрать.',
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Мыслить серией',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Одна удачная работа может быть случайностью. 5 удачных работ — признак того, что автор умело использует визуальное решение.',
+        },
+        {
+          tag: 'p',
+          content: 'Когда вы нашли удачный прием, попробуйте повторить его еще в 4-5 рисунках. Изучайте возможности этого приема: выкручивайте его на максимум, наоборот, приглушайте.',
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Задавать вопросы',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Мы лучше понимаем то, что можем сформулировать. Поэтому верно заданный вопрос — половина успеха. Сразу после того, как появилась мысль — “не получилось”. Задайте вопросы — что я делала? Чего я хотела? Как я планировала этого достичь? В какой момент рисунок перестал работать?',
+        },
+      ]
+    },
+  ]
+}
+
 const lessonData1: ILessonDataDB = {
   id: 'DrawingExercises_h3dx7k',
   courseId: 'how-to-draw',
@@ -414,6 +491,51 @@ const lessonData1: ILessonDataDB = {
     },
     {
       type: 'title',
+      title: 'Упражнения на тренировку объема',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Сечения. ',
+          props: { className: 'keyText' },
+        },
+        {
+          tag: 'span',
+          content: 'Если мы разрежем предмет перпендикулярно оси, получим срез определенной формы — сечение. Сечения показывают, как поверхность предмета меняет направление.',
+        },
+      ],
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Возьмите предмет простой формы, например, овощ или фрукт. Тонкой линией нарисуйте силуэт предмета.',
+        },
+        {
+          tag: 'p',
+          content: 'Врисуйте в силуэт сечения по форме, как если бы они были прозрачные. Рисуйте насквозь: видимую часть и ту, что за предметом.  Видимую часть рисуйте толще, темнее. Невидимую — светлее, тоньше.',
+        },
+      ],
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DimaGorelyshev1.png',
+        alt: 'DimaGorelyshev1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Дмитрий Горелышев',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'title',
       title: 'Дополнительно',
     },
     {
@@ -435,7 +557,7 @@ const lessonData1: ILessonDataDB = {
           props: { className: 'link', target: "_blank", to: 'https://vk.com/wall-100760089_6620?ysclid=lo5fawz49e843963862' },
         },
       ]
-    }
+    },
   ],
 };
 
@@ -1087,6 +1209,224 @@ const lessonData2: ILessonDataDB = {
   ]
 }
 
+const lessonData3: ILessonDataDB = {
+  id: 'LineShape_RY7PQ3',
+  courseId: 'how-to-draw',
+  title: '1.3 Линия: как рисовать объемно',
+  type: 'Theory',
+  week: 1,
+  startDate: '2023.07.12', //new Date('2023.07.12'),
+  endDate: '2023.07.22', //new Date('2023.07.22'),
+  resultsEndDate: '2023.07.25', //new Date('2023.07.25'),
+  content: [
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Чтобы нарисованный линией предмет казался объемным, нужно:',
+        },
+      ]
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Рисовать легкий, тонкий контур. ',
+          props: { className: 'keyText' },
+        },
+        {
+          tag: 'span',
+          content: 'Даже если внутри предмет нарисован объемно, толстый внешний контур уплостит рисунок.',
+        },
+      ],
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'RobertHendersonBlyth1.jpeg',
+        alt: 'RobertHendersonBlyth1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Robert Henderson Blyth',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://all-drawings.livejournal.com/867721.html' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Рисовать толщинки предметов. ',
+          props: { className: 'keyText' },
+        },
+        {
+          tag: 'span',
+          content: 'Толщина есть у всего: подноса, усика креветки, корочки хлеба.',
+        },
+      ],
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DavidHockney1.jpeg',
+        alt: 'DavidHockney1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'David Hockney',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://all-drawings.livejournal.com/869696.html' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Показывать место, где поверхность резко меняет направление. ',
+          props: { className: 'keyText' },
+        },
+        {
+          tag: 'span',
+          content: 'У предметов есть плоские, ровные поверхности и сломы, где поверхность резко меняет направление. Чтобы показать объем предмета в линейном рисунке, достаточно нарисовать место слома поверхности.',
+        },
+      ],
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Для куба — обозначить грани.',
+        },
+      ]
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Для шара, конуса, цилиндра — показать, как заворачивается поверхность.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DimaGorelyshev41.png',
+        alt: 'DimaGorelyshev41',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Дмитрий Горелышев',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DimaGorelyshev6.jpg',
+        alt: 'DimaGorelyshev6',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Дмитрий Горелышев',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DimaGorelyshev5.jpg',
+        alt: 'DimaGorelyshev5',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Дмитрий Горелышев',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DimaGorelyshev7.jpg',
+        alt: 'DimaGorelyshev7',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Дмитрий Горелышев',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DimaGorelyshev14.jpg',
+        alt: 'DimaGorelyshev14',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Дмитрий Горелышев',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Рисовать ближние к зрителю линии толще, темнее.',
+          props: { className: 'keyText' },
+        },
+      ],
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DimaGorelyshev18.jpg',
+        alt: 'DimaGorelyshev18',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Дмитрий Горелышев',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DimaGorelyshev40.jpg',
+        alt: 'DimaGorelyshev40',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Дмитрий Горелышев',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
+          },
+        ],
+      },
+    },
+  ]
+}
+
 const lessonData4: ILessonDataDB = {
   id: 'HowToDrawSimilarPicture_bah4tw',
   courseId: 'how-to-draw',
@@ -1107,107 +1447,105 @@ const lessonData4: ILessonDataDB = {
       text: [
         {
           tag: 'p',
-          content: 'Зритель узнает портрет и при отсутствии сходства, например, по контексту или формальным признакам: очки, цвет волос, одежда.',
-        },
-        {
-          tag: 'p',
-          content: 'Примеры узнавания без сходства:',
-        },
+          content: 'Необязательно точь в точь перерисовывать каждую деталь. Фотоаппарат справится с этим лучше, чем человек. Если рисунок критикуют за огрехи в анатомии, перспективе, значит у автора не получилось впечатлить зрителя. Зрителю скучно, но он не знает к чему придраться, поэтому говорит о самом простом — отличии рисунка от фото.',
+        }
       ]
     },
     {
-      type: 'image',
-      imageData: {
-        id: 'ХанояПивен1.png',
-        alt: 'ХанояПивен1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Ханоя Пивен, портерт Мадонны',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://pivenworld.com/art' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'MariaPicassóiPiquer1.jpeg',
-        alt: 'MariaPicassóiPiquer1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Maria Picassó i Piquer, портрет Минервы Макгонагалл',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/maria_picasso_piquer/?ysclid=ln30o7h1q7888015831' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'NataliaAverianova1.jpeg',
-        alt: 'NataliaAverianova1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Natalia Averianova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/averianova_works/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'NataliaAverianova2.jpg',
-        alt: 'NataliaAverianova2',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Natalia Averianova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/averianova_works/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'text',
-      text: [
+      type: 'qoute',
+      qoute: [
         {
           tag: 'p',
-          content: 'Рисование, в котором нет сходства, использует детское узнавание. Для детского узнавания подойдут первые ассоциации: высокий, худой, черные волосы, квадратные очки, ходит с палочкой, носит широкую шляпу.',
+          content: 'Если представить ось, на одном конце которой смайл, а на другом — реалистичный портрет, то чем ближе мы к полюсу реалистичного портрета, тем важнее убедительность светотени, анатомии, пространства, тем выше цена ошибки и склонность зрителя судить работу по уровню технических навыков. Двигаясь в обратную сторону, мы получаем больше свободы, больше возможностей для вовлечения в портрет посторонних форм и знаков, для метаморфоз, метафор и подмен, для жонглирования формой и контрформой. Здесь размыта граница межу графикой и письменным языком. … Простота не освобождает от ответственности за убедительность портрета, но создает другие категории ответственности, другие сценарии взаимодействия со зрителем, другие правила игры.',
+        },
+        {
+          tag: 'p',
+          content: 'Виктор Меламед, “Машинерия портрета”.',
         },
       ]
     },
     {
       type: 'title',
-      title: 'Сходство — результат того, что автор смог разглядеть в натуре',
+      title: 'Примеры убедительных портретов, далеких от реализма',
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'MashaShishova1.jpg',
+        alt: 'MashaShishova1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Masha Shishova, автопортрет',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/MariaShishova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'VictorMelamed4.jpeg',
+        alt: 'VictorMelamed4',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Victor Melamed, портрет Гаррета Лиддиарда',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/melamed' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'title',
+      title: 'Рисунок — всегда условность',
     },
     {
       type: 'text',
       text: [
         {
           tag: 'p',
-          content: 'Рисование, основанное на сходстве — использует взрослое узнавание. Например, когда мама двух близнецов может различить их между собой.',
+          content: 'Просто хотя бы потому что рисунок — это нечто, изображенное на двумерном листочке. И задача художника — работать с этой условностью.',
+        }
+      ]
+    },
+    {
+      type: 'qoute',
+      qoute: [
+        {
+          tag: 'p',
+          content: '… изображение никогда не равно прототипу (нарисованная трубка — это не трубка), в нем всегда появляется дистанция, метаморфоза; она-то и становится предметом искусства.',
         },
         {
           tag: 'p',
-          content: 'Чтобы поймать взрослое узнавание нужно научиться смотреть на натуру, не узнавая ее. Забыть, что мы рисуем  голову, руку. Рисовать абстрактную форму, которая крепится к форме побольше снизу. Изучать изгибы этой формы. Это помогает видеть новое, не повторять заученные формы из головы: “палочка, палочка, огуречек, вот и вышел человечек”.',
+          content: 'Виктор Меламед, “Машинерия портрета”.',
         },
       ]
     },
     {
       type: 'title',
-      title: 'Сходство в изображении поз:',
+      title: 'Чтобы рисовать похоже, нужно научиться смотреть на натуру, не узнавая ее',
     },
     {
       type: 'text',
       text: [
         {
-        tag: 'p',
-        content: 'Чтобы нарисовать сложную позу, нужно забыть, что мы о ней помним. И рисовать только то, что видим перед собой.',
-        },
+          tag: 'p',
+          content: 'Чтобы поймать сходство, нужно забыть, что мы рисуем  голову, руку. Рисовать абстрактную форму, которая крепится к форме побольше снизу. Изучать изгибы этой формы. Это помогает видеть новое, не повторять заученные формы из головы: “палочка, палочка, огуречек, вот и вышел человечек”.',
+        }
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Сходство в изображении поз',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Чтобы нарисовать сложную позу, нужно забыть, что мы о ней помним. И рисовать только то, что видим перед собой. Каким бы странным оно нам не казалось.',
+        }
       ]
     },
     {
@@ -1239,8 +1577,45 @@ const lessonData4: ILessonDataDB = {
       },
     },
     {
+      type: 'image',
+      imageData: {
+        id: 'StasyaSokolovskaya2.jpeg',
+        alt: 'StasyaSokolovskaya2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Stasya Sokolovskaya',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/Stasya_Sokolovskaya' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ElenaBulay1.jpg',
+        alt: 'ElenaBulay1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Elena Bulay',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/elena_bulay/?hl=ru' },
+          },
+        ],
+      },
+    },
+    {
       type: 'title',
-      title: 'Сходство в портретах:',
+      title: 'Сходство в портретах',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Чтобы сделать портрет похожим, нужно смотреть на персонажа, как на какую-то интересную, новую форму. Рисовать то, что удивляет, запоминается.',
+        }
+      ]
     },
     {
       type: 'image',
@@ -1252,48 +1627,6 @@ const lessonData4: ILessonDataDB = {
             tag: 'a',
             content: 'Victor Melamed, Frank Zappa Hot Rats',
             props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/melamed' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'VictorMelamed2.jpg',
-        alt: 'VictorMelamed2',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Victor Melamed, портрет Стивена Хокинга',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/melamed' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'VictorMelamed1.jpg',
-        alt: 'VictorMelamed1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Victor Melamed, портрет Sean Penn',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/melamed' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'MashaShishova1.jpg',
-        alt: 'MashaShishova1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Masha Shishova, автопортрет',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/MariaShishova' },
           },
         ],
       },
@@ -1313,17 +1646,8 @@ const lessonData4: ILessonDataDB = {
       },
     },
     {
-      type: 'title',
-      title: 'Сходство в рисунках животных:',
-    },
-    {
       type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'На правой странице разворота портреты по фото, которые подписчики прислали Лене. Каждая собака уникальна, и все портреты получились разными.',
-        },
-      ]
+      text: 'И с собаками, чайниками, мягкими игрушками будет все тоже самое',
     },
     {
       type: 'image',
@@ -1340,18 +1664,92 @@ const lessonData4: ILessonDataDB = {
       },
     },
     {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Проект Кати, в котором она нарисовала 32 портрета кошек своих подписчиков.',
+        }
+      ]
+    },
+    {
       type: 'image',
       imageData: {
-        id: 'ElenaBulay1.jpg',
-        alt: 'ElenaBulay1',
+        id: 'KatyaKlimova9.jpg',
+        alt: 'KatyaKlimova9',
         caption: [
           {
             tag: 'a',
-            content: 'Elena Bulay, разные позы одной собаки',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/elena_bulay/?hl=ru' },
+            content: 'Katya Klimova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/KatyaKlimova' },
           },
         ],
       },
+    },
+    {
+      type: 'title',
+      title: 'Что отвечает за сходство',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'В плоском рисовании за сходство отвечают пропорции, размер. В объемном — расположение теней.',
+        },
+        {
+          tag: 'p',
+          content: 'Сравните предметы на рисунке ниже. Какие чаши больше похожи друг на друга, какие меньше? Чем чаши похожи, чем отличаются?',
+        }
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'Comparison.jpg',
+        alt: 'Comparison',
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'В первую очередь мы замечаем размер и пропорции: высота, ширина. Во вторую — детали: количество ободков на чаше, элементы, из которых состоит ручка.',
+        },
+        {
+          tag: 'p',
+          content: 'Если попасть в пропорции, но не нарисовать детали, предметы будут похожи. Если не попасть в пропорции, но нарисовать детали, будет казаться, что что-то не так.',
+        }
+      ]
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Пропорции нужны, чтобы сделать предметы схожими. ',
+          props: { className: 'keyText' },
+        },
+        {
+          tag: 'span',
+          content: ' В какой мере они будут схожи решает автор.',
+        },
+      ],
+    },
+    {
+      type: 'title',
+      title: 'Дополнительно',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'a',
+          content: '“Машинерия портрета”, Виктор Меламед',
+          props: { className: 'link', target: "_blank", to: 'https://www.litres.ru/book/viktor-melamed/mashineriya-portreta-opyt-zritelya-prepodavatelya-i-hudozhn-51820460/?ysclid=lp0xg2v0qe373268414' },
+        },
+      ]
     },
   ],
 };
@@ -1372,60 +1770,9 @@ const lessonData5: ILessonDataDB = {
       text: [
         {
           tag: 'p',
-          content: 'В предыдущем уроке мы разобрались, что бывает детское узнавание, когда у рисунка с предметом нет сходства и мы узнаем его по особым приметам и ситуациям. И есть взрослое узнавание, основанное на сходстве. На этой неделе будет тренировать взрослое узнавание в линейном рисунке.',
+          content: 'На этой неделе будет тренироваться рисовать похоже линией, отбирать с рисунка только ту информацию, которая нужна. ',
         },
       ]
-    },
-    {
-      type: 'title',
-      title: 'Что отвечает за сходство',
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'В плоском рисовании за сходство отвечают пропорции, размер. В объемном — расположение теней.',
-        },
-        {
-          tag: 'p',
-          content: 'Сравните предметы на рисунке ниже. Какие чаши больше похожи друг на друга, какие меньше? Чем чаши похожи, чем отличаются?',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'Comparison.jpg',
-        alt: 'Comparison',
-      },
-    },
-    {
-      type: 'text',
-      text: [
-        {
-        tag: 'p',
-        content: 'В первую очередь мы замечаем размер и пропорции: высота, ширина. Во вторую — детали: количество ободков на чаше, элементы, из которых состоит ручка.',
-        },
-        {
-          tag: 'p',
-          content: 'Если попасть в пропорции, но не нарисовать детали, предметы будут похожи. Если не попасть в пропорции, но нарисовать детали, будет казаться, что что-то не так.',
-        },
-      ]
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'span',
-          content: 'Пропорции нужны, чтобы сделать предметы схожими. ',
-          props: { className: 'keyText' },
-        },
-        {
-          tag: 'span',
-          content: 'В какой мере они будут схожи решает автор.',
-        },
-      ],
     },
     {
       type: 'title',
@@ -1645,347 +1992,6 @@ const lessonData5: ILessonDataDB = {
         alt: 'DetailsLine2',
       },
     },
-    {
-      type: 'title',
-      title: 'Как рисовать объемно',
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Когда мы рисуем объемную форму, мы рисуем, как поверхность объекта меняет направление. Например, простой лист А4 на столе выглядит плоским. Но если его согнуть пополам и поставить, он будет казаться объемным.',
-        },
-        {
-          tag: 'p',
-          content: 'Чтобы нарисованный предмет казался объемным, нужно нарисовать, как его поверхность меняет направление.',
-        },
-        {
-          tag: 'p',
-          content: 'Чтобы показать объем линией, нужно:',
-        },
-      ]
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'span',
-          content: 'Рисовать легкий, тонкий контур. ',
-          props: { className: 'keyText' },
-        },
-        {
-          tag: 'span',
-          content: 'Даже если внутри предмет нарисован объемно, толстый внешний контур уплостит рисунок.',
-        },
-      ],
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'ShapeLine1.jpeg',
-        alt: 'ShapeLine1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Robert Henderson Blyth',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://all-drawings.livejournal.com/867721.html' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'span',
-          content: 'Рисовать толщинки предметов. ',
-          props: { className: 'keyText' },
-        },
-        {
-          tag: 'span',
-          content: 'Толщина есть у всего: подноса, усика креветки, корочки хлеба.',
-        },
-      ],
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'ShapeLine2.jpeg',
-        alt: 'ShapeLine2',
-        caption: [
-          {
-            tag: 'a',
-            content: 'David Hockney',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://all-drawings.livejournal.com/869696.html' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'span',
-          content: 'Показывать место, где поверхность резко меняет направление. ',
-          props: { className: 'keyText' },
-        },
-        {
-          tag: 'span',
-          content: 'У предметов есть плоские, ровные поверхности и сломы, где поверхность резко меняет направление. Чтобы показать объем предмета в линейном рисунке, достаточно нарисовать место слома поверхности.',
-        },
-      ],
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Для куба — обозначить грани.',
-        },
-        {
-          tag: 'p',
-          content: 'Для шара, конуса, цилиндра — показать, как заворачивается поверхность.',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'ShapeLine3.png',
-        alt: 'ShapeLine3',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Дмитрий Горелышев',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'DimaGorelyshev5.jpg',
-        alt: 'DimaGorelyshev5',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Дмитрий Горелышев',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'DimaGorelyshev6.jpg',
-        alt: 'DimaGorelyshev6',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Дмитрий Горелышев',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'DimaGorelyshev7.jpg',
-        alt: 'DimaGorelyshev7',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Дмитрий Горелышев',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'DimaGorelyshev14.jpg',
-        alt: 'DimaGorelyshev14',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Дмитрий Горелышев',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'span',
-          content: 'Рисовать ближние к зрителю линии толще, темнее.',
-          props: { className: 'keyText' },
-        },
-      ],
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'DimaGorelyshev18.jpg',
-        alt: 'DimaGorelyshev18',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Дмитрий Горелышев',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'DimaGorelyshev40.jpg',
-        alt: 'DimaGorelyshev40',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Дмитрий Горелышев',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'title',
-      title: 'Примеры линейных рисунков',
-    },
-    {
-      type: 'gallery',
-      images: [
-        {
-          id: 'LineCat1.jpg',
-          alt: 'LineCat1',
-        },
-        {
-          id: 'LineCat2.jpg',
-          alt: 'LineCat2',
-        },
-        {
-          id: 'LineCat3.jpg',
-          alt: 'LineCat3',
-        },
-        {
-          id: 'LineCat4.jpg',
-          alt: 'LineCat4',
-        },
-        {
-          id: 'LineCat5.jpg',
-          alt: 'LineCat5',
-        },
-        {
-          id: 'LineCat6.jpg',
-          alt: 'LineCat6',
-        },
-        {
-          id: 'LineCat7.jpg',
-          alt: 'LineCat7',
-        },
-        {
-          id: 'LineCat8.jpg',
-          alt: 'LineCat8',
-        },
-        {
-          id: 'LineCat9.jpg',
-          alt: 'LineCat9',
-        },
-        {
-          id: 'LineCat10.jpg',
-          alt: 'LineCat10',
-        },
-        {
-          id: 'LineCat11.jpg',
-          alt: 'LineCat11',
-        },
-        {
-          id: 'LineCat12.jpg',
-          alt: 'LineCat12',
-        },
-        {
-          id: 'LineCat13.jpg',
-          alt: 'LineCat13',
-        },
-        {
-          id: 'LineCat14.jpg',
-          alt: 'LineCat14',
-        },
-        {
-          id: 'LineCat15.jpg',
-          alt: 'LineCat15',
-        },
-        {
-          id: 'LineCat16.jpg',
-          alt: 'LineCat16',
-        },
-        {
-          id: 'LineCat17.jpg',
-          alt: 'LineCat17',
-        },
-        {
-          id: 'LineCat18.jpg',
-          alt: 'LineCat18',
-        },
-        {
-          id: 'LineCat19.jpg',
-          alt: 'LineCat19',
-        },
-        {
-          id: 'LineCat20.jpg',
-          alt: 'LineCat20',
-        },
-        {
-          id: 'LineCat21.jpg',
-          alt: 'LineCat21',
-        },
-        {
-          id: 'LineCat22.jpg',
-          alt: 'LineCat22',
-        },
-        {
-          id: 'LineCat23.jpg',
-          alt: 'LineCat23',
-        },
-        {
-          id: 'LineCat24.jpg',
-          alt: 'LineCat24',
-        },
-        {
-          id: 'LineCat25.jpg',
-          alt: 'LineCat25',
-        },
-        {
-          id: 'LineCat26.jpg',
-          alt: 'LineCat26',
-        },
-        {
-          id: 'LineCat27.jpg',
-          alt: 'LineCat27',
-        },
-        {
-          id: 'LineCat28.jpg',
-          alt: 'LineCat28',
-        },
-        {
-          id: 'LineCat29.jpg',
-          alt: 'LineCat29',
-        },
-        {
-          id: 'LineCat30.jpg',
-          alt: 'LineCat30',
-        },
-      ]
-    },
   ],
 };
 
@@ -2190,6 +2196,135 @@ const lessonData6: ILessonDataDB = {
         title: 'YouTube video player',
       },
     },
+    {
+      type: 'title',
+      title: 'Примеры линейных рисунков',
+    },
+    {
+      type: 'gallery',
+      images: [
+        {
+          id: 'LineCat1.jpg',
+          alt: 'LineCat1',
+        },
+        {
+          id: 'LineCat2.jpg',
+          alt: 'LineCat2',
+        },
+        {
+          id: 'LineCat3.jpg',
+          alt: 'LineCat3',
+        },
+        {
+          id: 'LineCat4.jpg',
+          alt: 'LineCat4',
+        },
+        {
+          id: 'LineCat5.jpg',
+          alt: 'LineCat5',
+        },
+        {
+          id: 'LineCat6.jpg',
+          alt: 'LineCat6',
+        },
+        {
+          id: 'LineCat7.jpg',
+          alt: 'LineCat7',
+        },
+        {
+          id: 'LineCat8.jpg',
+          alt: 'LineCat8',
+        },
+        {
+          id: 'LineCat9.jpg',
+          alt: 'LineCat9',
+        },
+        {
+          id: 'LineCat10.jpg',
+          alt: 'LineCat10',
+        },
+        {
+          id: 'LineCat11.jpg',
+          alt: 'LineCat11',
+        },
+        {
+          id: 'LineCat12.jpg',
+          alt: 'LineCat12',
+        },
+        {
+          id: 'LineCat13.jpg',
+          alt: 'LineCat13',
+        },
+        {
+          id: 'LineCat14.jpg',
+          alt: 'LineCat14',
+        },
+        {
+          id: 'LineCat15.jpg',
+          alt: 'LineCat15',
+        },
+        {
+          id: 'LineCat16.jpg',
+          alt: 'LineCat16',
+        },
+        {
+          id: 'LineCat17.jpg',
+          alt: 'LineCat17',
+        },
+        {
+          id: 'LineCat18.jpg',
+          alt: 'LineCat18',
+        },
+        {
+          id: 'LineCat19.jpg',
+          alt: 'LineCat19',
+        },
+        {
+          id: 'LineCat20.jpg',
+          alt: 'LineCat20',
+        },
+        {
+          id: 'LineCat21.jpg',
+          alt: 'LineCat21',
+        },
+        {
+          id: 'LineCat22.jpg',
+          alt: 'LineCat22',
+        },
+        {
+          id: 'LineCat23.jpg',
+          alt: 'LineCat23',
+        },
+        {
+          id: 'LineCat24.jpg',
+          alt: 'LineCat24',
+        },
+        {
+          id: 'LineCat25.jpg',
+          alt: 'LineCat25',
+        },
+        {
+          id: 'LineCat26.jpg',
+          alt: 'LineCat26',
+        },
+        {
+          id: 'LineCat27.jpg',
+          alt: 'LineCat27',
+        },
+        {
+          id: 'LineCat28.jpg',
+          alt: 'LineCat28',
+        },
+        {
+          id: 'LineCat29.jpg',
+          alt: 'LineCat29',
+        },
+        {
+          id: 'LineCat30.jpg',
+          alt: 'LineCat30',
+        },
+      ]
+    },
   ]
 }
 
@@ -2276,8 +2411,10 @@ const lessonData15: ILessonDataDB = {
 
 
 const allLessons = [
+  lessonData0,
   lessonData1,
   lessonData2,
+  lessonData3,
   lessonData4,
   lessonData5,
   lessonData6,
