@@ -1,3 +1,4 @@
+@import 'styles/index';
 
 .Hidden {
   visibility: hidden;
@@ -7,4 +8,20 @@
   background-color: lightgray;
 
   min-height: 200px;
+}
+
+.Mobile {
+  display: none;
+
+  @include set-media(md) {
+    display: block;
+  }
+}
+
+.Desktop {
+  display: block;
+
+  @include set-media(md) {
+    display: none;
+  }
 }

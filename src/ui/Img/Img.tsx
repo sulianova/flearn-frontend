@@ -7,11 +7,13 @@ const cx = classnames.bind(classes);
 
 export default Img;
 
+const MD_BREAK_POINT_PX = 767.98;
+
 interface IProps {
   alt: string
-  src: string
+  src: string | { mobile: string, desktop: string }
   lazy?: boolean
-  className?: string
+  className?: string | { mobile: string, desktop: string }
 }
 
 function Img(props: Readonly<IProps>) {
@@ -23,11 +25,18 @@ function Img(props: Readonly<IProps>) {
       setImgStatus(null);
   }, [src]);
 
-  if (src && src.length > 0 && imgStatus !== 'failed') {
+  if (imgStatus === 'failed') {
+    return (
+      <div className={cx(className, { Placeholder: true })}/>
+    );
+  }
+
+  if (typeof src === 'string') {
     return (
       <img
         alt={alt}
         src={src}
+        srcSet=''
         className={cx(className, { Hidden: imgStatus !== 'loaded' })}
         loading={lazy ? 'lazy' : undefined }
         onLoad={() => setImgStatus('loaded')}
@@ -36,7 +45,27 @@ function Img(props: Readonly<IProps>) {
     );
   }
 
+  const desktopClassName = typeof className === 'string' ? className : className?.desktop;
+  const mobileClassName = typeof className === 'string' ? className : className?.mobile;
+
   return (
-    <div className={cx(className, { Placeholder: true })}/>
-  )
+    <>
+      <img
+        alt={alt}
+        src={src.desktop}
+        className={cx(desktopClassName, { Desktop: true, Hidden: imgStatus !== 'loaded' })}
+        loading={lazy ? 'lazy' : undefined }
+        onLoad={() => setImgStatus('loaded')}
+        onError={() => setImgStatus('failed')}
+      />
+      <img
+        alt={alt}
+        src={src.mobile}
+        className={cx(mobileClassName, { Mobile: true, Hidden: imgStatus !== 'loaded' })}
+        loading={lazy ? 'lazy' : undefined }
+        onLoad={() => setImgStatus('loaded')}
+        onError={() => setImgStatus('failed')}
+      />
+    </>
+  );
 }
