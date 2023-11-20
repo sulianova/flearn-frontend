@@ -26,10 +26,17 @@ async function courseModulesDB2FR(modules: ICourseDataDB['modules'], courseId: s
 }
 
 async function courseModuleDB2FR(module: ICourseDataDB['modules'][number], courseId: string): Promise<ICourseData['modules'][number]> {
+  const imageSrc = typeof module.imageId === 'string' ?
+    (await firebaseService.getImageURL({ courseId, folder: 'landing', imageId: module.imageId })) ?? ''
+    : {
+      desktop: (await firebaseService.getImageURL({ courseId, folder: 'landing', imageId: module.imageId.desktop })) ?? '',
+      mobile: (await firebaseService.getImageURL({ courseId, folder: 'landing', imageId: module.imageId.mobile })) ?? '',
+    };
+
   return {
     ...module,
-    imageSrc: (await firebaseService.getImageURL({ courseId, folder: 'landing', imageId: module.imageId })) ?? '',
-  };
+    imageSrc: imageSrc,
+  } as ICourseData['modules'][number];
 }
 
 async function courseExplainMediaDB2FR(explainMedia: ICourseDataDB['explainMedia'], courseId: string): Promise<ICourseData['explainMedia']> {

@@ -10,18 +10,14 @@
   min-height: 200px;
 }
 
-.Mobile {
-  display: none;
-
-  @include set-media(md) {
-    display: block;
+@media (min-width: map-get($breakpoints, md)) {
+  .Mobile {
+    display: none !important;
   }
 }
 
-.Desktop {
-  display: block;
-
-  @include set-media(md) {
-    display: none;
+@include set-media(md) {
+  .Desktop {
+    display: none !important;
   }
 }

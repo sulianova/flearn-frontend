@@ -7,8 +7,6 @@ const cx = classnames.bind(classes);
 
 export default Img;
 
-const MD_BREAK_POINT_PX = 767.98;
-
 interface IProps {
   alt: string
   src: string | { mobile: string, desktop: string }

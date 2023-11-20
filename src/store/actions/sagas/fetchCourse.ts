@@ -128,7 +128,7 @@ const newCourseDB: ICourseDataDB = {
           content: 'Задание недели: 30 котов линией'
         },
       ],
-      imageId: 'Block1.jpg',
+      imageId: { desktop: 'Block1.jpg', mobile: 'Block1-mobile.jpg' },
       imageAlt: 'Block1',
       imageDesc: 'Рисунки преподавателя',
       title: 'Линия',
@@ -151,7 +151,7 @@ const newCourseDB: ICourseDataDB = {
           content: 'Задание недели: 30 котов пятном'
         },
       ],
-      imageId: 'Block2.jpg',
+      imageId: { desktop: 'Block2.jpg', mobile: 'Block2-mobile.jpg'},
       imageAlt: 'Block2',
       imageDesc: 'Рисунки преподавателя',
       title: 'Пятно',
@@ -171,7 +171,7 @@ const newCourseDB: ICourseDataDB = {
           content: 'Задание недели: пятно-иероглиф'
         },
       ],
-      imageId: 'Block3.jpg',
+      imageId: { desktop: 'Block3.jpg', mobile: 'Block3-mobile.jpg' },
       imageAlt: 'Block3',
       imageDesc: 'Рисунки преподавателя',
       title: 'Линия и пятно',
