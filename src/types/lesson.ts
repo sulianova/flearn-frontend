@@ -76,6 +76,7 @@ export interface ILessonData {
   title: string
   type: 'Theory' | 'Practice'
   week: number
+  orderInWeek: number
   startDate: Date
   endDate: Date
   resultsEndDate: Date
@@ -88,6 +89,7 @@ export interface ILessonDataDB {
   title: string
   type: 'Theory' | 'Practice'
   week: number
+  orderInWeek: number
   startDate: string
   endDate: string
   resultsEndDate: string

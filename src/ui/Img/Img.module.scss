@@ -1,3 +1,4 @@
+@import 'styles/index';
 
 .Hidden {
   visibility: hidden;
@@ -7,4 +8,16 @@
   background-color: lightgray;
 
   min-height: 200px;
+}
+
+@media (min-width: map-get($breakpoints, md)) {
+  .Mobile {
+    display: none !important;
+  }
+}
+
+@include set-media(md) {
+  .Desktop {
+    display: none !important;
+  }
 }

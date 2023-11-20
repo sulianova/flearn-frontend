@@ -1,4 +1,5 @@
 import classNames from 'classnames/bind';
+import { useState } from 'react';
 import { formatI18nT } from 'shared';
 
 import Link from 'ui/Link/Link';
@@ -18,6 +19,8 @@ interface IProps {
 const t = formatI18nT('courseLanding.form');
 
 function DecisionForm(props: IProps) {
+  const [orderEmail, setOrderEmail] = useState<string | null>(null);
+
   return (
     <div className={classes.wrapper} id='decision-form'>
       <div className={cx({ block: true, blockDetails: true })}>
@@ -40,18 +43,21 @@ function DecisionForm(props: IProps) {
         </div>
       </div>
       <div className={classes.block}>
-        <Form/>
-        <div className={classes.agreement}>
-          <Link
-            className='key-link'
-            to={URLSections.Static.Oferta.index}
-            target='_blank'
-          >
-            <span className={classes.agreementText + ' s-text-18'}>
-              {t('agreement')}
-            </span>
-          </Link>
-        </div>
+        {orderEmail ? <span>{t('orderIsCreated', { email: orderEmail })}</span>
+        : (<>
+          <Form onOrderCreated={({ email }) => setOrderEmail(email)}/>
+          <div className={classes.agreement}>
+            <Link
+              className='key-link'
+              to={URLSections.Static.Oferta.index}
+              target='_blank'
+            >
+              <span className={classes.agreementText + ' s-text-18'}>
+                {t('agreement')}
+              </span>
+            </Link>
+          </div>
+        </>)}
       </div>
 
     </div>

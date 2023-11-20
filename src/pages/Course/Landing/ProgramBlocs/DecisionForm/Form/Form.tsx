@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
 import { dataService } from 'services';
@@ -37,11 +37,19 @@ function mapStateToProps(state: IRootState): IConnectedProps {
   };
 }
 
-interface IProps extends IConnectedProps {}
+interface IProps extends IConnectedProps {
+  onOrderCreated: (props: { email: string }) => void
+}
 
-function Form(props: IProps) {
-  const [formData, setFormData] = useState<IFormData>(() => props.user ? ({ ...initialFormData, email: props.user.email }) : initialFormData);
+function Form({ user, onOrderCreated }: IProps) {
+  const [formData, setFormData] = useState<IFormData>(() => user ? ({ ...initialFormData, email: user.email }) : initialFormData);
   const handleSubmit = useCallback((formData: IFormData) => submit(formData, setFormData), []);
+
+  useEffect(() => {
+    if (formData.state.type === 'Success') {
+      onOrderCreated({ email: formData.email });
+    }
+  }, [formData, onOrderCreated]);
 
   return (
     <>
@@ -50,7 +58,6 @@ function Form(props: IProps) {
         onSubmit={isValid(formData) ? () => handleSubmit(formData) : undefined}
       >
         {formData.state.type === 'Error' && <span className={classes.Error}>{formData.state.error.message}</span>}
-        {formData.state.type === 'Success' && <span className={classes.Success}>Order is created!</span>}
         <div className={classes.inputWrap}>
           <InputField
             className={cx2({ input: true, light: true, isError: formData.state.type === 'Error' }) + ' s-text-24'}

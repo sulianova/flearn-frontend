@@ -86,7 +86,6 @@ function renderCourses(courses: ICourseData[]) {
         <Link
           className={classesCourseCard.titleLink + ' s-hoverable'}
           to={URLSections.Course.Lessons.to({ courseId: course.id })}
-          target='_blank'
           block
         >
           <div className={classesCourseCard.title}>{course.title}</div>
