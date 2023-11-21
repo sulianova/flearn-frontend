@@ -48,7 +48,7 @@ function DecisionForm(props: IProps) {
           <Form onOrderCreated={({ email }) => setOrderEmail(email)}/>
           <div className={classes.agreement}>
             <Link
-              className='key-link'
+              className='link'
               to={URLSections.Static.Oferta.index}
               target='_blank'
             >
