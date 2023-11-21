@@ -84,16 +84,16 @@ function getData(courseId: string, lessonId: string) {
   return allLessons.find(l => l.courseId === courseId && l.id === lessonId);
 }
 
-const lessonData0: ILessonDataDB = {
+const lessonData10: ILessonDataDB = {
   orderInWeek: 0,
   id: 'Checklist_hUpx7v',
   courseId: 'how-to-draw',
   title: 'Чек-лист продуктивного обучения',
   type: 'Theory',
   week: 1,
-  startDate: '2023.07.12', //new Date('2023.07.12'),
-  endDate: '2023.07.22', //new Date('2023.07.22'),
-  resultsEndDate: '2023.07.25', //new Date('2023.07.25'),
+  startDate: '2024.01.08', //new Date('2023.07.12'),
+  endDate: '2024.01.14', //new Date('2023.07.22'),
+  resultsEndDate: '2024.01.17', //new Date('2023.07.25'),
   content: [
     {
       type: 'title',
@@ -162,16 +162,16 @@ const lessonData0: ILessonDataDB = {
   ]
 }
 
-const lessonData1: ILessonDataDB = {
+const lessonData11: ILessonDataDB = {
   orderInWeek: 1,
   id: 'DrawingExercises_h3dx7k',
   courseId: 'how-to-draw',
   title: '1.1 Упражнения, чтобы разрисоваться',
   type: 'Theory',
   week: 1,
-  startDate: '2023.07.12', //new Date('2023.07.12'),
-  endDate: '2023.07.22', //new Date('2023.07.22'),
-  resultsEndDate: '2023.07.25', //new Date('2023.07.25'),
+  startDate: '2024.01.08', //new Date('2023.07.12'),
+  endDate: '2024.01.14', //new Date('2023.07.22'),
+  resultsEndDate: '2024.01.17', //new Date('2023.07.25'),
   content: [
     {
       type: 'text',
@@ -562,16 +562,16 @@ const lessonData1: ILessonDataDB = {
   ],
 };
 
-const lessonData2: ILessonDataDB = {
+const lessonData12: ILessonDataDB = {
   orderInWeek: 2,
   id: 'Line_gBpaFa',
   courseId: 'how-to-draw',
   title: '1.2 Линия: знакомство',
   type: 'Theory',
   week: 1,
-  startDate: '2023.07.12', //new Date('2023.07.12'),
-  endDate: '2023.07.22', //new Date('2023.07.22'),
-  resultsEndDate: '2023.07.25', //new Date('2023.07.25'),
+  startDate: '2024.01.08', //new Date('2023.07.12'),
+  endDate: '2024.01.14', //new Date('2023.07.22'),
+  resultsEndDate: '2024.01.17', //new Date('2023.07.25'),
   content: [
     {
       type: 'text',
@@ -1210,16 +1210,16 @@ const lessonData2: ILessonDataDB = {
   ]
 }
 
-const lessonData3: ILessonDataDB = {
+const lessonData13: ILessonDataDB = {
   orderInWeek: 3,
   id: 'LineShape_RY7PQ3',
   courseId: 'how-to-draw',
   title: '1.3 Линия: как рисовать объемно',
   type: 'Theory',
   week: 1,
-  startDate: '2023.07.12', //new Date('2023.07.12'),
-  endDate: '2023.07.22', //new Date('2023.07.22'),
-  resultsEndDate: '2023.07.25', //new Date('2023.07.25'),
+  startDate: '2024.01.08', //new Date('2023.07.12'),
+  endDate: '2024.01.14', //new Date('2023.07.22'),
+  resultsEndDate: '2024.01.17', //new Date('2023.07.25'),
   content: [
     {
       type: 'text',
@@ -1429,16 +1429,16 @@ const lessonData3: ILessonDataDB = {
   ]
 }
 
-const lessonData4: ILessonDataDB = {
+const lessonData14: ILessonDataDB = {
   orderInWeek: 4,
   id: 'HowToDrawSimilarPicture_bah4tw',
   courseId: 'how-to-draw',
   title: '1.4. Как рисовать похоже',
   type: 'Theory',
   week: 1,
-  startDate: '2023.07.12', //new Date('2023.07.12'),
-  endDate: '2023.07.22', //new Date('2023.07.22'),
-  resultsEndDate: '2023.07.25', //new Date('2023.07.25'),
+  startDate: '2024.01.08', //new Date('2023.07.12'),
+  endDate: '2024.01.14', //new Date('2023.07.22'),
+  resultsEndDate: '2024.01.17', //new Date('2023.07.25'),
   content: [
     {
       type: 'title',
@@ -1756,23 +1756,23 @@ const lessonData4: ILessonDataDB = {
   ],
 };
 
-const lessonData5: ILessonDataDB = {
+const lessonData15: ILessonDataDB = {
   orderInWeek: 5,
   id: 'HowToDrawSimilarPictureLine_t6qrnq',
   courseId: 'how-to-draw',
   title: '1.5. Как рисовать похоже. Линия',
   type: 'Theory',
   week: 1,
-  startDate: '2023.07.12', //new Date('2023.07.12'),
-  endDate: '2023.07.22', //new Date('2023.07.22'),
-  resultsEndDate: '2023.07.25', //new Date('2023.07.25'),
+  startDate: '2024.01.08', //new Date('2023.07.12'),
+  endDate: '2024.01.14', //new Date('2023.07.22'),
+  resultsEndDate: '2024.01.17', //new Date('2023.07.25'),
   content: [
     {
       type: 'text',
       text: [
         {
           tag: 'p',
-          content: 'На этой неделе будет тренироваться рисовать похоже линией, отбирать с рисунка только ту информацию, которая нужна. ',
+          content: 'На этой неделе будет тренироваться рисовать похоже линией, отбирать с рисунка только ту информацию, которая нужна.',
         },
       ]
     },
@@ -1997,16 +1997,16 @@ const lessonData5: ILessonDataDB = {
   ],
 };
 
-const lessonData6: ILessonDataDB = {
+const lessonData16: ILessonDataDB = {
   orderInWeek: 6,
   id: 'HowToDrawSimilarPictureLine_t6qrnq_Practice_iqln35',
   courseId: 'how-to-draw',
-  title: '1.6 Как рисовать похоже. Линия',
+  title: 'Практика первой недели',
   type: 'Practice',
   week: 1,
-  startDate: '2023.07.12', //new Date('2023.07.12'),
-  endDate: '2023.07.22', //new Date('2023.07.22'),
-  resultsEndDate: '2023.07.25', //new Date('2023.07.25'),
+  startDate: '2024.01.08', //new Date('2023.07.12'),
+  endDate: '2024.01.14', //new Date('2023.07.22'),
+  resultsEndDate: '2024.01.17', //new Date('2023.07.25'),
   content: [
     {
       type: 'text',
@@ -2047,6 +2047,27 @@ const lessonData6: ILessonDataDB = {
         {
           tag: 'p',
           content: '4. Рисуйте до конца, даже если кажется, что вы ошиблись. Мы тренируемся, исследуем как каждая новая линия влияет на общее впечатление. Чем больше неудачных линий мы сделаем, тем быстрее разберемся почему они появляются.',
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Дополнительно *',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Если чувствуете себя уверено, сделайте дополнительное задание.',
+        },
+        {
+          tag: 'p',
+          content: 'Покажите условный объем линией.',
+        },
+        {
+          tag: 'p',
+          content: 'Совместите в одной работе две разные линии. Придерживайтесь правила 70-30. Одной линии должны быть значимо больше, другой меньше.',
         },
       ]
     },
@@ -2330,8 +2351,246 @@ const lessonData6: ILessonDataDB = {
   ]
 }
 
+const lessonData21: ILessonDataDB = {
+  orderInWeek: 1,
+  id: 'DifferencesLineSpot_W4baHU',
+  courseId: 'how-to-draw',
+  title: '2.1 Про разницу между линией и пятном',
+  type: 'Theory',
+  week: 2,
+  startDate: '2024.01.15', //new Date('2023.07.12'),
+  endDate: '2024.01.21', //new Date('2023.07.22'),
+  resultsEndDate: '2024.01.24', //new Date('2023.07.25'),
+  content: [
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Линейные инструменты: карандаш, ручка подталкивают к точному рисованию. Пятновые — аппликация, тушь к более условному.',
+        },
+      ]
+    },
+    {
+      type: 'qoute',
+      qoute: [
+        {
+          tag: 'p',
+          content: 'Линия отвечает за информативность, строение. Идеальная линия — чертеж. Пятно отвечает за первое впечатление, эмоцию. Идеальное пятно — клякса.',
+        },
+        {
+          tag: 'p',
+          content: 'Дмитрий Горелышев',
+        },
+      ],
+    },
+    {
+      type: 'title',
+      title: 'Примеры набросков линией и пятном',
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'KirillZiman6.jpeg',
+        alt: 'KirillZiman6',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Kirill Ziman',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/kirillziman/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'KirillZiman7.jpeg',
+        alt: 'KirillZiman7',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Kirill Ziman',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/kirillziman/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'KirillZiman8.jpeg',
+        alt: 'KirillZiman8',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Kirill Ziman',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/kirillziman/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'KirillZiman9.jpeg',
+        alt: 'KirillZiman9',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Kirill Ziman',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/kirillziman/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'KirillZiman10.jpg',
+        alt: 'KirillZiman10',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Kirill Ziman',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/kirillziman/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'KirillZiman11.jpeg',
+        alt: 'KirillZiman11',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Kirill Ziman',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/kirillziman/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Это условное разделение. В рисунках встречаются четкие, информативные пятна и свободные, бегущие линии. Но это, скорее, особое поведение линий и пятен.',
+        },
+      ]
+    },
+  ]
+}
 
-const lessonData15: ILessonDataDB = {
+const lessonData22: ILessonDataDB = {
+  orderInWeek: 2,
+  id: 'SpotIntroduction_R4vzDr',
+  courseId: 'how-to-draw',
+  title: '2.2 Пятно: знакомство',
+  type: 'Theory',
+  week: 2,
+  startDate: '2024.01.15', //new Date('2023.07.12'),
+  endDate: '2024.01.21', //new Date('2023.07.22'),
+  resultsEndDate: '2024.01.24', //new Date('2023.07.25'),
+  content: [
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Основные свойства пятна: контроль, светлота, плотность, фактура.',
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Контроль, случайность',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Пятно может быть четким, контролируемым:',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AndreaSerio1.webp',
+        alt: 'AndreaSerio1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Andrea Serio',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://andreaserio.wordpress.com/portfolio-2/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AndreaSerio5.webp',
+        alt: 'AndreaSerio5',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Andrea Serio',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://andreaserio.wordpress.com/portfolio-2/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AndreaSerio4.webp',
+        alt: 'AndreaSerio4',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Andrea Serio',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://andreaserio.wordpress.com/portfolio-2/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AndreaSerio3.webp',
+        alt: 'AndreaSerio3',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Andrea Serio',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://andreaserio.wordpress.com/portfolio-2/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AndreaSerio2.webp',
+        alt: 'AndreaSerio2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Andrea Serio',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://andreaserio.wordpress.com/portfolio-2/' },
+          },
+        ],
+      },
+    },
+  ]
+}
+
+const lessonData5: ILessonDataDB = {
   id: 'draw-poodles-3',
   courseId: 'illustration',
   title: '1.3. Как рисовать похоже. gzd',
@@ -2413,11 +2672,13 @@ const lessonData15: ILessonDataDB = {
 
 
 const allLessons = [
-  lessonData0,
-  lessonData1,
-  lessonData2,
-  lessonData3,
-  lessonData4,
-  lessonData5,
-  lessonData6,
+  lessonData10,
+  lessonData11,
+  lessonData12,
+  lessonData13,
+  lessonData14,
+  lessonData15,
+  lessonData16,
+  lessonData21,
+  lessonData22,
 ];

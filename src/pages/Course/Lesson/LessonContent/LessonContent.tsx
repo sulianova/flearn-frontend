@@ -106,7 +106,7 @@ function formatLessonDate(date: Date) {
     ['ru-RU'],
     { month: 'long', day: 'numeric' }
   );
-  return `${dateStr} 2023, `;
+  return `${dateStr} 2024, `;
 }
 
 function formatLessonResultsDate(date: Date) {

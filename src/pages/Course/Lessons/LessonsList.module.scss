@@ -1,24 +1,12 @@
 @import 'styles/index';
 
 .wrapper {
-  @include is-grid-4;
   margin-bottom: set-calc(80);
-}
-
-.list {
-  grid-column: 1 / 3;
-
-  margin-top: 0;
-  padding-bottom: set-calc(80);
-  margin: 0;
-  padding: 0;
-
-  list-style: none;
-
-  counter-reset: lessonsCounter;
+  @include is-grid-4;
 }
 
 .itemWrapper {
+  grid-column: 1 / 3;
   position: relative;
 
   display: flex;
@@ -38,6 +26,25 @@
   justify-content: space-between;
 }
 
+.listDate {
+  margin-bottom: set-calc(8);
+  
+  @include set-media(md) {
+    margin-bottom: set-calc(4);
+  }
+}
+
+.itemTitle {
+  position: relative;
+  margin-bottom: set-calc(8);
+}
+
+.task {
+  position: relative;
+  margin-top: set-calc(8);
+}
+
+
 .itemLinks {
   position: relative;
   padding-bottom: set-calc(8);
@@ -52,15 +59,4 @@
   &:after {
     content: " · ";
   }
-}
-
-.itemDate {
-  margin-bottom: set-calc(8);
-  
-  @include set-media(md) {
-    margin-bottom: set-calc(4);
-  }
-}
-
-.itemTitle {
 }

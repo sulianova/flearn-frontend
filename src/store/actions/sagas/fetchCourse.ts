@@ -78,8 +78,8 @@ function getData(id: string) {
 const newCourseDB: ICourseDataDB = {
   id: 'how-to-draw',
   title: 'Как рисовать',
-  startDate: '2023-11-06T00:00:00.000Z',
-  endDate: '2023-11-19T00:00:00.000Z',
+  startDate: '2024-01-08T00:00:00.000Z',
+  endDate: '2023-01-28T00:00:00.000Z',
   durationWeeks: 3,
   homeworksNumber: 3,
   videosNumber: 3,
@@ -88,7 +88,7 @@ const newCourseDB: ICourseDataDB = {
   introDescription: 'Практический мини-курс для тех, кто хочет рисовать убедительные иллюстрации, не копируя фотографии.',
   introImageAlt: 'introImage',
   discontAmount: 50,
-  discontDeadline: '2023-11-01T00:00:00.000Z',
+  discontDeadline: '2023-12-25T00:00:00.000Z',
   creditWas: 12000,
   creditPrice: 6000,
   description: [
@@ -166,6 +166,7 @@ const newCourseDB: ICourseDataDB = {
       content: [
         { tag: 'p', content: 'Будем учиться совмещать линейное и пятновое рисование в одной работе.' },
         { tag: 'span', content: '• Линия и пятно: как совмещать' },
+        { tag: 'span', content: '• Как выделить главное: контраст, нюанс' },
         {
           tag: 'p',
           content: 'Задание недели: пятно-иероглиф'
