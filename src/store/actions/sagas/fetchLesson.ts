@@ -2001,7 +2001,7 @@ const lessonData16: ILessonDataDB = {
   orderInWeek: 6,
   id: 'HowToDrawSimilarPictureLine_t6qrnq_Practice_iqln35',
   courseId: 'how-to-draw',
-  title: '1.6 Как рисовать похоже. Линия',
+  title: 'Практика первой недели',
   type: 'Practice',
   week: 1,
   startDate: '2024.01.08', //new Date('2023.07.12'),

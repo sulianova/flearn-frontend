@@ -13,7 +13,7 @@ import Page from 'ui/Page/Page';
 import classesHeader from './LessonsHeader.module.scss';
 import classesList from './LessonsList.module.scss';
 
-import { URLSections, type ICourseState, type ILessonsState, type IRootState } from 'types';
+import { URLSections, type ICourseState, type ILessonsState, type IRootState, ILessonsData } from 'types';
 
 export default connect(mapStateToProps)(Lessons);
 
@@ -58,7 +58,7 @@ function Lessons({ courseState, lessonsState, authedUserId }: IConnectedProps) {
 
   const lessons = lessonsState?.lessons;
 
-  const groupes: IGroupOfGroupes[] = useMemo(() => {
+  const groupes: IGroup[] = useMemo(() => {
     if (!lessons) {
       return [];
     }
@@ -81,28 +81,6 @@ function Lessons({ courseState, lessonsState, authedUserId }: IConnectedProps) {
         return acc;
       }, new Map() as Map<number, { lessons: ILessonsState['lessons'], week: number, startDate: Date, endDate: Date }>)
       .values()]
-      .map(p => {
-        const groupes = [...p.lessons
-          .reduce((acc, lesson) => {
-            if (!acc.has(lesson.lesson.title)) {
-              acc.set(lesson.lesson.title, {
-                lessonTitle: lesson.lesson.title,
-                lessons: [lesson],
-              });
-            } else {
-              acc.get(lesson.lesson.title)!.lessons.push(lesson);
-            }
-            return acc;
-          }, new Map() as Map<string, IGroup>)
-          .values()];
-          return {
-            groupes,
-            week: p.week,
-            startDate: p.startDate,
-            endDate: p.endDate,
-          };
-      })
-      // TODO sort lessons infos by ???
       .sort((a, b) => a.week - b.week);
 
   }, [lessons]);
@@ -124,84 +102,79 @@ function Lessons({ courseState, lessonsState, authedUserId }: IConnectedProps) {
       </div>
     </div>
     <div className={classesList.wrapper}>
-      <div className={classesList.list}>
-        {renderGroups(groupes)}
-      </div>
+      {renderGroups(groupes)}
     </div>
   </Page>);
 }
 
-interface IGroupOfGroupes {
-  groupes: IGroup[]
+interface IGroup {
+  lessons: ILessonsData[]
   week: number
   startDate: Date
   endDate: Date
 }
 
-interface IGroup {
-  lessonTitle: string
-  lessons: ILessonsState['lessons']
+function renderGroups(groups: IGroup[]) {
+  return groups.map(g => (<Fragment key={g.week}>{renderGroup(g)}</Fragment>));
 }
 
-function renderGroups(props: IGroupOfGroupes[]) {
-  return props.map((d, index) => (<Fragment key={index}>{renderGroup(d)}</Fragment>));
-}
-
-function renderGroup(props: IGroupOfGroupes) {
+function renderGroup(props: IGroup) {
   return (
     <div className={classesList.itemWrapper}>
-      <div className={classesList.itemDate + ' s-text-28'}>{formatWeekDate(props.startDate, props.endDate)}</div>
-      {renderItems(props.groupes)}
+      <div className={classesList.listDate + ' s-text-28'}>{formatWeekDate(props.startDate, props.endDate)}</div>
+      {renderItems(props.lessons)}
     </div>
   );
 }
 
-function renderItems(props: IGroup[]) {
-  return props.map((g, index) => (<Fragment key={index}>{renderItem(g.lessons, g.lessonTitle)}</Fragment>));
+function renderItems(props: ILessonsData[]) {
+  return props.map(l => (<Fragment key={l.lesson.id}>{renderItem(l)}</Fragment>));
 }
 
-function getLinks(props: ILessonsState['lessons'][number]) {
+function renderItem(lesson: ILessonsData) {
+  if (lesson.lesson.type === 'Theory') {
+    return (
+      <div className={classesList.item}>
+        <Link
+          to={URLSections.Course.Lesson.to({ courseId: lesson.lesson.courseId, lessonId: lesson.lesson.id })}
+          className={classesList.itemTitle + ' nav-link s-text-21'}
+        >
+          {lesson.lesson.title}
+        </Link>
+      </div>
+    );
+  }
+
+  const homeworkLink = (
+    <div className={classesList.itemLink}>
+      <Link
+        className='nav-link s-text-18'
+        to={URLSections.Course.Lesson.to({ courseId: lesson.lesson.courseId, lessonId: lesson.lesson.id })}
+      >
+        {t('homework')}
+      </Link>
+    </div>
+  );
+
+  return (
+    <div className={classesList.item}>
+      <div className={classesList.task + ' s-text-21'}>{lesson.lesson.title}</div>
+      <div className={classesList.itemLinks}>
+        {homeworkLink}
+        {/* {props.lesson.webinarLink && <div className={classesList.itemLink}><a className='link s-text-18' href={props.lesson.webinarLink}>{t('webinar')}</a></div>} */}
+        {/* {props.lesson.resultsLink && <div className={classesList.itemLink}><a className='link s-text-18' href={props.lesson.resultsLink}>{t('results')}</a></div>} */}
+      </div>
+    </div>
+  );
+}
+
+function getLinks(props: ILessonsData) {
   const { courseId, id } = props.lesson;
 
   const lectureLink = props.lesson.type === 'Theory' ? URLSections.Course.Lesson.to({ courseId, lessonId: id }) : null;
   const homeworkLink = props.lesson.type === 'Practice' ? URLSections.Course.Lesson.to({ courseId, lessonId: id }) : null;
 
   return { lectureLink, homeworkLink };
-}
-
-function renderItem(lessons: ILessonsState['lessons'], lessonTitle: string) {
-  const links = lessons.map(getLinks);
-
-  const lectureLinks = (links
-    .map(link => link.lectureLink)
-    .filter(lectureLink => lectureLink != null) as string[])
-    .map(lectureLink => (
-      <div className={classesList.itemLink}>
-        <Link className='link s-text-18' to={lectureLink}>{t('lecture')}</Link>
-      </div>
-      )
-    );
-  const homeworkLinks = (links
-    .map(link => link.homeworkLink)
-    .filter(homeworkLink => homeworkLink != null) as string[])
-    .map(homeworkLink => (
-      <div className={classesList.itemLink}>
-        <Link className='link s-text-18' to={homeworkLink}>{t('homework')}</Link>
-      </div>
-      )
-    );
-
-  return (
-    <div className={classesList.item}>
-      <div className={classesList.itemTitle + ' s-text-21'}>{lessonTitle}</div>
-      <div className={classesList.itemLinks}>
-        {lectureLinks}
-        {homeworkLinks}
-        {/* {props.lesson.webinarLink && <div className={classesList.itemLink}><a className='link s-text-18' href={props.lesson.webinarLink}>{t('webinar')}</a></div>} */}
-        {/* {props.lesson.resultsLink && <div className={classesList.itemLink}><a className='link s-text-18' href={props.lesson.resultsLink}>{t('results')}</a></div>} */}
-      </div>
-    </div>
-  );
 }
 
 function formatWeekDate(startDate: Date, endDate: Date) {
