@@ -21,7 +21,7 @@ interface IProps {
   lessonId: string
   blocks: ILessonContent
   data: ILessonData
-  homework: IHomeworkDataWPopulate
+  homework?: IHomeworkDataWPopulate
   scrollToUpload: () => void
 }
 
@@ -47,7 +47,7 @@ interface IUpploadProps {
   lessonId: string
   endDate: Date
   resultsEndDate: Date
-  homework: IHomeworkDataWPopulate
+  homework?: IHomeworkDataWPopulate
   scrollToUpload: () => void
 }
 

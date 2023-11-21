@@ -4,6 +4,8 @@ import { useParams } from 'react-router';
 import { useFetch, useGuid } from 'hooks';
 import { Fragment, useEffect, useMemo } from 'react';
 import { formatI18nT, i18n } from 'shared';
+import store from 'store';
+import { updateState } from 'store/actions/redux';
 import { IFetchCoursePayload, IFetchLessonsPayload, fetchCourse, fetchLessons } from 'store/actions/sagas';
 
 import useFallback from './useFallback';
@@ -55,6 +57,18 @@ function Lessons({ courseState, lessonsState, authedUserId }: IConnectedProps) {
       guid,
     }
   }));
+
+  useEffect(() => {
+    // temp fix
+    // TODO: fetch Lesson through service and not via Store
+    store.dispatch(updateState({ stateName: 'lesson', payload: {
+      courseId: undefined,
+      lessonId: undefined,
+      source: undefined,
+      data: undefined,
+      state: undefined,
+    } }))
+  }, []);
 
   const lessons = lessonsState?.lessons;
 

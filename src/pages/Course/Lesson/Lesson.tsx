@@ -52,7 +52,7 @@ function Lesson(props: IProps) {
     }
   }));
 
-  useInitHomework({ courseId, lessonId, userId: authedUserId });
+  useInitHomework({ courseId, lessonId, userId: authedUserId, lesson: lessonState.data });
   const { homework, homeworkState } = useFetchHomework({ courseId, lessonId, userId: authedUserId });
 
   const fallback = useLessonFallback(lessonState);
@@ -62,7 +62,7 @@ function Lesson(props: IProps) {
     return fallback;
   }
 
-  if (!homework) {
+  if (lessonState.data.type === 'Practice' && !homework) {
     return homeworkFallback;
   }
 
