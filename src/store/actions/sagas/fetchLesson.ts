@@ -2587,6 +2587,422 @@ const lessonData22: ILessonDataDB = {
         ],
       },
     },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ArinaSerebriakova.jpeg',
+        alt: 'ArinaSerebriakova',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Arina Serebriakova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/ri.silver/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DimaGorelyshev19.jpg',
+        alt: 'DimaGorelyshev19',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Dima Gorelyshev',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DimaGorelyshev20.jpg',
+        alt: 'DimaGorelyshev20',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Dima Gorelyshev',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ELENAFEKLISTOVA.jpg',
+        alt: 'ELENAFEKLISTOVA',
+        caption: [
+          {
+            tag: 'a',
+            content: 'ELENA FEKLISTOVA',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/e.feklistova/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'таняборисова.jpeg',
+        alt: 'таняборисова',
+        caption: [
+          {
+            tag: 'a',
+            content: 'таня борисова',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/ta_boris/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Пятно может быть случайным, непредсказуемым:',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'StasyaSokolovskaya2.jpg',
+        alt: 'StasyaSokolovskaya2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Stasya Sokolovskaya',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/stasyasokolovska/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'KseniaKopalova1.jpeg',
+        alt: 'KseniaKopalova1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Ksenia Kopalova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/ksenia.kopalova/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'shevolya_illustration.jpg',
+        alt: 'shevolya_illustration',
+        caption: [
+          {
+            tag: 'a',
+            content: 'shevolya_illustration',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/shevolya_illustration/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'JeanMallard1.jpeg',
+        alt: 'JeanMallard1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Jean Mallard',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/jean.mallard/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'MartynaCzub.jpeg',
+        alt: 'MartynaCzub',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Martyna Czub',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/martyna.czub/?hl=ru' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'LiliyaBusarova.jpeg',
+        alt: 'LiliyaBusarova',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Liliya Busarova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/liliya_busarova/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ElenaNovoselova1.jpeg',
+        alt: 'ElenaNovoselova1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Elena Novoselova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/novoelena/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Регулируя контроль над инструментом, можно выделять главное в рисунке. Например, на рисунке ниже, основная часть свободным, живым пятном. Главное — выделено аппликацией.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'bayduzha2.jpeg',
+        alt: 'bayduzha2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Наташа Байдужа',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/bayduzha/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'SofiUlyanova1.png',
+        alt: 'SofiUlyanova1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Sofi Ulyanova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/sofiulianova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Чтобы нарисовать случайное, непредсказуемое пятно, нужно ограничить контроль над инструментом.',
+          props: { className: 'keyText' },
+        },
+      ],
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Взять широкую кисть.',
+        },
+      ]
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Сильно разбавить краску водой.',
+        },
+      ]
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Рисовать с ограничением по времени: за 1 минуту, за 3 минуты.',
+        },
+      ]
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Постоянно двигать рукой, не делать пауз.',
+        },
+      ]
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Низкий контроль над инструментом не означает, что автор плохо рисует или не понимает, что рисует. Низкий контроль дает линии больше живости и свободы. Но даже в этом случае рисунок по прежнему должен быть убедительным.',
+        },
+      ]
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Чтобы получить убедительную картинку с плохо контролируемым материалом, нужно увеличить количество итераций. ',
+          props: { className: 'keyText' },
+        },
+        {
+          tag: 'span',
+          content: 'Тогда мы получим легкость + убедительность. Чтобы нарисовать убедительную кошку текучим пятном. Нужно нарисовать 10 минутных рисунков разных кошек. И выбрать среди них один, самый лучший. ',
+        },
+      ],
+    },
+    {
+      type: 'title',
+      title: 'Тон: темное, светлое',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Тон — светлота пятна. Самый светлый тон — белый, самый темный — черный.',
+        },
+      ]
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'У цветных красок тоже есть светлота. Чтобы ее увидеть, нужно сфотографировать рисунок и перевести фото в чб:',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'JOZEF _AN_RUYSSEVELT1.jpeg',
+        alt: 'JOZEF _AN_RUYSSEVELT1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Jozeph Van Ruyssevelt',
+            props: { className: 's-hoverable', target: "_blank", to: 'http://jozefvanruyssevelt.be/sketches.php' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Исходный рисунок:',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'JOZEF _AN_RUYSSEVELT2.jpeg',
+        alt: 'JOZEF _AN_RUYSSEVELT2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Jozeph Van Ruyssevelt',
+            props: { className: 's-hoverable', target: "_blank", to: 'http://jozefvanruyssevelt.be/sketches.php' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Если тона в рисунке отличаются слабо, рисунок нюансный:',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AndrewGraves1.jpeg',
+        alt: 'AndrewGraves1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Andrew Graves',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.andrewjgraves.com/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'NadyaDrobysheva2.jpeg',
+        alt: 'NadyaDrobysheva2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Nadya Drobysheva',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/nadyadrobysheva' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Если тона в рисунке отличаются сильно, рисунок контрастный:',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ArinaSerebriakova1.jpeg',
+        alt: 'ArinaSerebriakova1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Arina Serebriakova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/ri.silver/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ArinaSerebriakova2.jpg',
+        alt: 'ArinaSerebriakova2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Arina Serebriakova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/ri.silver/' },
+          },
+        ],
+      },
+    },
   ]
 }
 
