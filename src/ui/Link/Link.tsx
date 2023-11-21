@@ -22,7 +22,7 @@ function Link(props: Readonly<IProps>) {
         to,
         onClick,
         onMouseDown,
-        onContextMenuCapture = e => e.preventDefault(), // prevent context menu by default
+        onContextMenuCapture,
         className = '',
         block = false,
         tooltip,
