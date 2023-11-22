@@ -25,9 +25,9 @@ function Modules(props: IProps) {
         <h2 className={cx({ title: true }) + ' s-text-56'} >{t('title')}</h2>
         <div className={classes.desc + ' s-text-24'}>{<Text text={props.data.modulesDescription}/>}</div>
         <div className={classes.tags}>
-          <div className={classes.tag + ' s-text-18'}>{props.data.videosNumber} {t('videosNumber')}</div>
-          <div className={classes.tag + ' s-text-18'}>{props.data.homeworksNumber} {t('homeworksNumber')}</div>
-          <div className={classes.tag + ' s-text-18'}>{props.data.durationWeeks} {t('durationWeeks')}</div>
+          <div className={classes.tag + ' s-text-18'}>{t('videosNumber', { count: props.data.videosNumber })}</div>
+          <div className={classes.tag + ' s-text-18'}>{t('homeworksNumber', { count: props.data.homeworksNumber })}</div>
+          <div className={classes.tag + ' s-text-18'}>{t('durationWeeks', { count: props.data.durationWeeks })}</div>
           <div className={classes.tag + ' s-text-18 b-black-new'}>{t('feedback')}</div>
           <div className={classes.tag + ' s-text-18 b-black-new'}>{t('chat')}</div>
         </div>
