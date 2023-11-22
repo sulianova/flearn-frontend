@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import { useState } from 'react';
-import { formatI18nT } from 'shared';
+import { formatI18nT, i18n } from 'shared';
 
 import Link from 'ui/Link/Link';
 import Form from './Form/Form';
@@ -88,5 +88,5 @@ function formatCourseDate(startDate: Date, endDate: Date, durationWeeks: number)
 }
 
 function formatDurationWeeks(durationWeeks: number) {
-  return `${durationWeeks} недель`
+  return `${durationWeeks} ` + i18n.t('week', { count: durationWeeks });
 }

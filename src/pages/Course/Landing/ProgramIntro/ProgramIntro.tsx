@@ -38,5 +38,5 @@ function formatCourseDate(startDate: Date, durationWeeks: number) {
     ['ru-RU'],
     { month: 'long', day: 'numeric' }
   );
-  return `${dateStr} | ${durationWeeks} недели`;
+  return `${dateStr} | ${durationWeeks} ` + i18n.t('week', { count: durationWeeks });
 }

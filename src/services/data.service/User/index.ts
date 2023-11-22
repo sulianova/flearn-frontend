@@ -33,38 +33,60 @@ class User {
   }
 
   public async update(id: string, data: Partial<IUserData>) {
-    const user = await this.get(id) as IUserData | undefined;
-    if (!user) {
-      throw new Error(`Cannot update user: user with id = ${id} is not created`);
+    try {
+      const user = await this.get(id)
+        .catch(() => { /* do nothing */ }) as IUserData | undefined;
+      if (!user) {
+        throw new Error(`User with id = ${id} is not created`);
+      }
+      const fullData: IUserData = {
+        ...user,
+        ...data,
+      };
+      return await this.set(id, fullData);
+    } catch (error) {
+      // tslint:disable-next-line
+      console.error('Failed update user', { id, data, error });
+      throw new Error('Failed update user');
     }
-    const fullData: IUserData = {
-      ...user,
-      ...data,
-    };
-    return await this.set(id, fullData);
   }
 
   public async create(id: string, data: Omit<IUserData, 'firstSignInAt' | 'lastSignInAt'>) {
-    const alreadyHas = Boolean(await this.get(id));
-    if (alreadyHas) {
-      throw new Error('Failed to create new user: id already taken');
-    }
-    const fullData: IUserData = {
-      ...data,
-      firstSignInAt: new Date(),
-      lastSignInAt: new Date(),
-    };
+    try {
+      const user = await this.get(id)
+        .catch(() => { /* do nothing */ }) as IUserData | undefined;
+      if (user) {
+        throw new Error('User alredy exists');
+      }
 
-    return await this.set(id, fullData);
+      const fullData: IUserData = {
+        ...data,
+        firstSignInAt: new Date(),
+        lastSignInAt: new Date(),
+      };
+
+      return await this.set(id, fullData);
+    } catch (error) {
+      // tslint:disable-next-line
+      console.error('Failed create user', { id, data, error });
+      throw new Error('Failed create user');
+    }
   }
 
   public async getOrCreate(id: string, data: Omit<IUserData, 'firstSignInAt' | 'lastSignInAt'>) {
-    const user = await this.get(id);
-    if (user) {
-      return user;
-    }
+    try {
+      const user = await this.get(id)
+        .catch(() => { /* do nothing */ }) as IUserData | undefined;
+      if (user) {
+        return user;
+      }
 
-    return await this.create(id, data);
+      return await this.create(id, data);
+    } catch (error) {
+      // tslint:disable-next-line
+      console.error('Failed to getOrCreate user', { id, data, error });
+      throw new Error('Failed to getOrCreate user');
+    }
   }
 }
 
