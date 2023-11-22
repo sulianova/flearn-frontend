@@ -564,7 +564,7 @@ const lessonData11: ILessonDataDB = {
 
 const lessonData12: ILessonDataDB = {
   orderInWeek: 2,
-  id: 'Line_gBpaFa',
+  id: 'LineIntroduction_gBpaFa',
   courseId: 'how-to-draw',
   title: '1.2 Линия: знакомство',
   type: 'Theory',
@@ -2036,8 +2036,24 @@ const lessonData16: ILessonDataDB = {
       text: [
         {
           tag: 'p',
-          content: '1. Сфотографируйте рисунки и приложите к заданию. Выкладывайте все, что есть: в получившихся рисунках отметим и запомним удачные приемы; в неполучившихся разберем, что не нравится, вместе придумаем, как улучшить.',
+          content: '1. Сфотографируйте рисунки и приложите к заданию. Выкладывайте все, что есть:',
+          props: {className: 'listHeader'}
         },
+        {
+          tag: 'p',
+          content: 'в получившихся рисунках отметим и запомним удачные приемы;',
+          props: {className: 'listItem'}
+        },
+        {
+          tag: 'p',
+          content: 'в неполучившихся разберем, что не нравится, вместе придумаем, как улучшить.',
+          props: {className: 'listItem'}
+        },
+      ]
+    },
+    {
+      type: 'text',
+      text: [
         {
           tag: 'p',
           content: '2. Расскажите, что за чем делали, в какой последовательности рисовали. Что получилось, а что нет. Что понравилось, что осталось непонятным.',
@@ -3208,6 +3224,952 @@ const lessonData22: ILessonDataDB = {
   ]
 }
 
+const lessonData23: ILessonDataDB = {
+  orderInWeek: 3,
+  id: 'HowToDrawSimilarPictureSpot_p6hXtt',
+  courseId: 'how-to-draw',
+  title: '2.3 Как рисовать похоже. Пятно',
+  type: 'Theory',
+  week: 2,
+  startDate: '2024.01.15', //new Date('2023.07.12'),
+  endDate: '2024.01.21', //new Date('2023.07.22'),
+  resultsEndDate: '2024.01.24', //new Date('2023.07.25'),
+  content: [
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Разберем рисунок от пятна на примере кружки:',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ProportionSpot1.jpeg',
+        alt: 'ProportionSpot',
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Первый этап такой же, как и в линейном рисунке. Нужно внимательно рассмотреть и описать предмет.',
+        },
+        {
+          tag: 'p',
+          content: '1. Опишите, что видите. Из чего состоит предмет, что у него больше: ширина или высота? В какую фигуру его можно вписать?',
+        },
+        {
+          tag: 'p',
+          content: 'У кружки есть чаша, ручка и подставка. Все вместе можно вписать в квадрат.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ProportionSpot2.png',
+        alt: 'ProportionSpot2',
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Кружку и подставку можно вписать в прямоугольник, у которого высота в 1,5 раза больше ширины.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ProportionSpot3.png',
+        alt: 'ProportionSpot3',
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: '2. Мысленно проводите горизонтальные и вертикальные прямые, чтобы сравнить размеры предметов, расстояние между ними. Если сложно, можно потренировать упражнения с отрезками.',
+        },
+        {
+          tag: 'p',
+          content: 'Самая широкая часть чаши в 2 раза шире самой широкой части ручки.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ProportionSpot4.png',
+        alt: 'ProportionSpot4',
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Высота чаши в 3 раза больше, чем высота ножки.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ProportionSpot5.png',
+        alt: 'ProportionSpot5',
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: '3. Смотрите на контрформу, дырки между предметами. Нарисовать форму дырки может быть проще, чем нарисовать контур предмета.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ProportionSpot6.png',
+        alt: 'ProportionSpot6',
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: '4. Рисуйте от общего к частному. Набирайте пятно-силуэт из центра, постепенно двигаясь к краям.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ProportionSpot7.png',
+        alt: 'ProportionSpot7',
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Другим тоном покажите строение предмета внутри:',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ProportionSpot8.png',
+        alt: 'ProportionSpot8',
+      },
+    },
+  ]
+}
+
+const lessonData24: ILessonDataDB = {
+  orderInWeek: 4,
+  id: 'SpotShape_dftUrH',
+  courseId: 'how-to-draw',
+  title: '2.4 Как рисовать объемно. Пятно',
+  type: 'Theory',
+  week: 2,
+  startDate: '2024.01.15', //new Date('2023.07.12'),
+  endDate: '2024.01.21', //new Date('2023.07.22'),
+  resultsEndDate: '2024.01.24', //new Date('2023.07.25'),
+  content: [
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Чтобы показать объем пятном, нужно изобразить свет и тень на предмете. На месте слома формы освещенная часть переходит в тень. Это помогает понять, как выглядит поверхность предмета.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'Shape1.png',
+        alt: 'Shape1',
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Есть 6 тонов светотени: блик и свет, полутень, собственная тень, рефлекс, падающая тень.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'Shape2.png',
+        alt: 'Shape2',
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'Shape3.png',
+        alt: 'Shape3',
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'Shape4.png',
+        alt: 'Shape4',
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'В условном, нематериальном рисовании можно сократить количество тонов до 2-3.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'Example1.jpg',
+        alt: 'Example1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Sofia Ulianova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/sofiulianova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'title',
+      title: 'Дополнительно',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'a',
+          content: 'Как рисовать "Свет" - А. Рыжкин',
+          props: { className: 'link', target: "_blank", to: 'https://www.youtube.com/watch?v=UXIu8n1iT1Y&list=PLcxiCEpRkKE2yM-gRH6FXyCwlsuJd35hR&index=3' },
+        },
+      ]
+    },
+  ]
+}
+
+const lessonData25: ILessonDataDB = {
+  orderInWeek: 5,
+  id: 'SpotPractice_kfKAEY',
+  courseId: 'how-to-draw',
+  title: 'Практика второй недели',
+  type: 'Practice',
+  week: 2,
+  startDate: '2024.01.15', //new Date('2023.07.12'),
+  endDate: '2024.01.21', //new Date('2023.07.22'),
+  resultsEndDate: '2024.01.24', //new Date('2023.07.25'),
+  content: [
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'На этой неделе рисуем пятном. Учимся управлять пропорциями в листе, тренируемся отбирать с фото только ту информацию, которая нужна.',
+        },
+        {
+          tag: 'p',
+          content: 'Выберите одну тему: кошки, собаки, чайники, лягушки. Нарисуйте 5-6 законченных работ.',
+        },
+        {
+          tag: 'p',
+          content: 'Возьмите референсы из своего фотоархива или интернета.',
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Как действовать',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: '1. Опишите вслух, как выглядит предмет, в какую фигуру его можно вписать. Как соотносятся его части, что происходит с контрформами.',
+        },
+        {
+          tag: 'p',
+          content: '2. Прежде чем рисовать, решите, сколько тонов будет в вашем рисунке. Ограничение: от 2 (черно-белый рисунок) до 4, включая белый. Соблюдайте ограничение.',
+        },
+        {
+          tag: 'p',
+          content: '3. Начинайте от общего и двигайтесь к частному, чтобы сохранить цельность большой формы. Общая форма важнее деталей. Детали можно вообще не рисовать.',
+        },
+        {
+          tag: 'p',
+          content: '4. Сравнивайте пропорции относительно того, что уже нарисовано на листе. Если на листе чаша получилась длиннее, чем на фото, остальные предметы рисуйте чуть длиннее.',
+        },
+        {
+          tag: 'p',
+          content: '5. Рисуйте до конца, даже если кажется, что вы ошиблись. Мы тренируемся, исследуем как каждая новая линия влияет на общее впечатление. Чем больше неудачных линий мы сделаем, тем быстрее разберемся почему они появляются.',
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Дополнительно *',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Если чувствуете себя уверено, сделайте дополнительное задание.',
+        },
+        {
+          tag: 'p',
+          content: 'Покажите условный объем пятном.',
+        },
+        {
+          tag: 'p',
+          content: 'Совместите в одной работе два разных пятна. Придерживайтесь правила 70-30. Одного типа пятен должны быть значимо больше, другого меньше.',
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Что выкладываем',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: '1. Сфотографируйте рисунки и приложите к заданию. Выкладывайте все, что есть:',
+          props: {className: 'listHeader'}
+        },
+        {
+          tag: 'p',
+          content: 'в получившихся рисунках отметим и запомним удачные приемы;',
+          props: {className: 'listItem'}
+        },
+        {
+          tag: 'p',
+          content: 'в неполучившихся разберем, что не нравится, вместе придумаем, как улучшить.',
+          props: {className: 'listItem'}
+        },
+      ]
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: '2. Расскажите, что за чем делали, в какой последовательности рисовали. Что получилось, а что нет. Что понравилось, что осталось непонятным.',
+        },
+        {
+          tag: 'p',
+          content: '3. Задайте вопросы.',
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Необязательно точь в точь перерисовывать каждую деталь',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Фотоаппарат справится с этим лучше, чем человек. Если мы хотим, чтобы наш рисунок не оценивали по тому как точно мы повторили каждую деталь, нужно придумать что-то новое. Например, заметить что силуэт чайника напоминает кошку, нарисовать чайник который одновременно чайник и кошка.',
+        },
+        {
+          tag: 'p',
+          content: 'Если рисунок критикуют за огрехи в анатомии, перспективе, значит у автора не получилось впечатлить зрителя. Зрителю скучно, но он не знает к чему придраться, поэтому говорит о самом простом — отличии рисунка от фото.',
+        },
+      ]
+    },
+    {
+      type: 'qoute',
+      qoute: [
+        {
+          tag: 'p',
+          content: '… изображение никогда не равно прототипу (нарисованная трубка — это не трубка), в нем всегда появляется дистанция, метаморфоза; она-то и становится предметом искусства.',
+        },
+        {
+          tag: 'p',
+          content: 'Виктор Меламед, Машинерия портрета.',
+        },
+      ],
+    },
+    {
+      type: 'title',
+      title: 'Любая степень реалистичности подходит. Рисуйте, как вам комфортно',
+    },
+    {
+      type: 'qoute',
+      qoute: [
+        {
+          tag: 'p',
+          content: 'Если представить ось, на одном конце которой смайл, а на другом — реалистичный портрет, то чем ближе мы к полюсу реалистичного портрета, тем важнее убедительность светотени, анатомии, пространства, тем выше цена ошибки и склонность зрителя судить работу по уровню технических навыков. Двигаясь в обратную сторону, мы получаем больше свободы, больше возможностей для вовлечения в портрет посторонних форм и знаков, для метаморфоз, метафор и подмен, для жонглирования формой и контрформой. Здесь размыта граница межу графикой и письменным языком. … Простота не освобождает от ответственности за убедительность портрета, но создает другие категории ответственности, другие сценарии взаимодействия со зрителем, другие правила игры.',
+        },
+        {
+          tag: 'p',
+          content: 'Виктор Меламед, Машинерия портрета.',
+        },
+      ],
+    },
+    {
+      type: 'title',
+      title: 'Не преукрашайте своих персонажей',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Преукрашивание — это обычно усреднение. Лучше рассказать неприятную правду, чем нарисовать еще одного миленького котика.',
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Рисуйте сразу начисто, без исправлений',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Рисовать без исправлений сложно, непривычно. Это может показаться бессмысленным. Зачем рисовать криво, косо, непропорционально, если я могу стереть неверную линию и сделать хорошо. Но в этом и дело. Как только мы поставим себя в условия, где рисовать хорошо нужно сразу, начнется настоящая тренировка руки.',
+        },
+        {
+          tag: 'p',
+          content: 'Я впервые попробовала это упражнение 3 года назад. Около полугода я рисовала исключительно ручкой. И когда  я снова стала использовать карандаш, я просто не поверила в то, как я теперь могу рисовать! Попробуйте, хотя бы в рамках курса.',
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Рисуйте привычными для вас материалами',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Рисуйте теми материалами, к которым привыкли. Если вы никогда не рисовали, возьмите черную тушь и мягкую кисть 3-4 размера.',
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Не стесняйтесь загружать свои работы',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Часто так бывает, что нам больше нравятся рисунки других, чем свои собственные. Поэтому важно делиться работами. Работа, которая кажется нам скучной, может удивит и вдохновит кого-то другого. А после этого может и мы сами сможем заметить в ней что-то интересное.',
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Рисуйте вместе со мной',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'У меня нет цели научиться вас рисовать так же, как я. В этих видео к заданиям я  рисую вместе с вами за компанию. Так же как и вы изучаю возможности инструмента, ищу интересное в референсах, придумываю как это передать в рисунке.',
+        },
+        {
+          tag: 'p',
+          content: 'Не все получается с первого раза, и не важно как давно мы рисуем. Нарисовать 10 раз, чтобы выбрать один — нормальный, рабочий процесс. Когда я смотрела блоги других иллюстраторов, или онлайн-курсы, я думала, что у них-то все всегда получается. Но это не так. Мы все люди, что-то получается лучше, что-то хуже. Если всегда делать только то, что получается, ничему новому не научишься.',
+        },
+      ]
+    },
+    {
+      type: 'video',
+      videoData: {
+        src: 'https://www.youtube.com/embed/7dWHIzukE7o?si=c0RUM6UYzf7mS7we?loop=1',
+        title: 'YouTube video player',
+      },
+    },
+    {
+      type: 'title',
+      title: 'Примеры рисунков пятном',
+    },
+    {
+      type: 'gallery',
+      images: [
+        {
+          id: 'SpotCat1.jpg',
+          alt: 'SpotCat1',
+        },
+        {
+          id: 'SpotCat2.jpg',
+          alt: 'SpotCat2',
+        },
+        {
+          id: 'SpotCat3.jpg',
+          alt: 'SpotCat3',
+        },
+        {
+          id: 'SpotCat4.jpg',
+          alt: 'SpotCat4',
+        },
+        {
+          id: 'SpotCat5.jpg',
+          alt: 'SpotCat5',
+        },
+        {
+          id: 'SpotCat6.jpg',
+          alt: 'SpotCat6',
+        },
+        {
+          id: 'SpotCat7.jpg',
+          alt: 'SpotCat7',
+        },
+        {
+          id: 'SpotCat8.jpg',
+          alt: 'SpotCat8',
+        },
+        {
+          id: 'SpotCat9.jpg',
+          alt: 'SpotCat9',
+        },
+        {
+          id: 'SpotCat10.jpg',
+          alt: 'SpotCat10',
+        },
+        {
+          id: 'SpotCat11.jpg',
+          alt: 'SpotCat11',
+        },
+        {
+          id: 'SpotCat12.jpg',
+          alt: 'SpotCat12',
+        },
+        {
+          id: 'SpotCat13.jpg',
+          alt: 'SpotCat13',
+        },
+        {
+          id: 'SpotCat14.jpg',
+          alt: 'SpotCat14',
+        },
+        {
+          id: 'SpotCat15.jpg',
+          alt: 'SpotCat15',
+        },
+        {
+          id: 'SpotCat16.jpg',
+          alt: 'SpotCat16',
+        },
+        {
+          id: 'SpotCat17.jpg',
+          alt: 'SpotCat17',
+        },
+        {
+          id: 'SpotCat18.jpg',
+          alt: 'SpotCat18',
+        },
+        {
+          id: 'SpotCat19.jpg',
+          alt: 'SpotCat19',
+        },
+        {
+          id: 'SpotCat20.jpg',
+          alt: 'SpotCat20',
+        },
+        {
+          id: 'SpotCat21.jpg',
+          alt: 'SpotCat21',
+        },
+        {
+          id: 'SpotCat22.jpg',
+          alt: 'SpotCat22',
+        },
+        {
+          id: 'SpotCat23.jpg',
+          alt: 'SpotCat23',
+        },
+        {
+          id: 'SpotCat24.jpg',
+          alt: 'SpotCat24',
+        },
+        {
+          id: 'SpotCat25.jpg',
+          alt: 'SpotCat25',
+        },
+        {
+          id: 'SpotCat26.jpg',
+          alt: 'SpotCat26',
+        },
+        {
+          id: 'SpotCat27.jpg',
+          alt: 'SpotCat27',
+        },
+        {
+          id: 'SpotCat28.jpg',
+          alt: 'SpotCat28',
+        },
+        {
+          id: 'SpotCat29.jpg',
+          alt: 'SpotCat29',
+        },
+        {
+          id: 'SpotCat30.jpg',
+          alt: 'SpotCat30',
+        },
+      ]
+    },
+  ]
+}
+
+const lessonData31: ILessonDataDB = {
+  orderInWeek: 1,
+  id: 'LineAndSpot_jr2WYu',
+  courseId: 'how-to-draw',
+  title: '3.1 Линия и пятно: как совмещать',
+  type: 'Theory',
+  week: 3,
+  startDate: '2024.01.22', //new Date('2023.07.12'),
+  endDate: '2024.01.28', //new Date('2023.07.22'),
+  resultsEndDate: '2024.02.01', //new Date('2023.07.25'),
+  content: [
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'На третьей неделе будем учиться совмещать линейное и пятновое рисование в одной работе.',
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Одного должно быть больше, другого меньше',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Чтобы линия и пятно не спорили друг с другом, чего-то должно быть значимо больше. Например, основной рисунок пятном, главное — линией.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'LisWatkins2.jpeg',
+        alt: 'LisWatkins2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Lis Watkins',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/lineandwash/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'title',
+      title: 'Линия и пятно должны играть разные роли, не дублируя друг друга',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Линия и пятно — два слоя, из которых складывается изображение. Если мы все делаем правильно, у каждого свойства своя роль. Рисунок перестает читаться и выглядит незавершенным, если мы мысленно убираем любой из этих слоев. Если мы убираем слой линии или пятна, а изображение ничего не теряет, значит, линии и пятна дублируют друг друга.',
+        },
+      ]
+    },
+    {
+      type: 'factoid',
+      factoid: [
+        {
+          tag: 'a',
+          content: 'Графический плэнэр Димы Горелышева про линию и пятно',
+          props: { className: 'nav-link', target: "_blank", to: 'https://www.notion.so/8d1b632581a04417a9cb6d10b3e681cb?pvs=4' },
+        },
+      ],
+    },
+    {
+      type: 'title',
+      title: 'Примеры линии и пятна в одном рисунке',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Пятно организует лист: отвечает за то, сколько в листе пустого-заполненного, на сколько рисунок контрастный. Точная линия отделяет и выделяет второй план с домиками.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DimaGorelyshev2.jpg',
+        alt: 'DimaGorelyshev2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Dima Gorelyshev',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Пятно организует лист: масса расположена в центре листа, она устойчива, статична. Линия рассказывает фигуратив, по ней мы понимаем, что изображена девушка.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DimaGorelyshev8.jpg',
+        alt: 'DimaGorelyshev8',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Dima Gorelyshev',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Линия организует лист, рассказывает про фигуратив. Пятно выделяет главное — позирующую девушку на набросках.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DimaGorelyshev4.jpg',
+        alt: 'DimaGorelyshev4',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Dima Gorelyshev',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Пятно задает динамику, ощущение пространства в листе. Линия рассказывает о строении, самолета. По линии становится понятно, что изображено в листе.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DimaGorelyshev10.jpg',
+        alt: 'DimaGorelyshev10',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Dima Gorelyshev',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Верхняя часть иллюстрации организована линией. Пятно показывает светотень, объем. Нижняя часть иллюстрации организована пятном, главное выделено линией.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DimaGorelyshev13.jpg',
+        alt: 'DimaGorelyshev13',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Dima Gorelyshev',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Пятно организует лист, создает пульсацию между большой светлой комнатой и маленьким просветом в глубине комнаты. Линия обозначает фигуратив, детали для более длительного разглядывания.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DimaGorelyshev23.jpg',
+        alt: 'DimaGorelyshev23',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Dima Gorelyshev',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Пятно организует лист, задает контрастность, выделяет зеркало и тонкую полоску света. Линия обозначает фигрутив.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DimaGorelyshev24.jpg',
+        alt: 'DimaGorelyshev24',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Dima Gorelyshev',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Пятно организует лист, задает контрастность в рисунке, показывает тени. Линия обозначает фигуратив, задает акцент на маленькой женщине в центре листа.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DimaGorelyshev25.jpg',
+        alt: 'DimaGorelyshev25',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Dima Gorelyshev',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Линия отвечает за фигуратив, детали. Пятно обозначает тени, объем.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DimaGorelyshev26.jpg',
+        alt: 'DimaGorelyshev26',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Dima Gorelyshev',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Пятно отвечает за пространство в листе. Линия обозначает фигуратив, детали.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DimaGorelyshev3.jpeg',
+        alt: 'DimaGorelyshev3',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Dima Gorelyshev',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DimaGorelyshev30.jpeg',
+        alt: 'DimaGorelyshev30',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Dima Gorelyshev',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
+          },
+        ],
+      },
+    },
+  ]
+}
+
 const lessonData5: ILessonDataDB = {
   id: 'draw-poodles-3',
   courseId: 'illustration',
@@ -3288,7 +4250,6 @@ const lessonData5: ILessonDataDB = {
   ]
 }
 
-
 const allLessons = [
   lessonData10,
   lessonData11,
@@ -3299,4 +4260,8 @@ const allLessons = [
   lessonData16,
   lessonData21,
   lessonData22,
+  lessonData23,
+  lessonData24,
+  lessonData25,
+  lessonData31,
 ];
