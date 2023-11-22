@@ -844,7 +844,7 @@ const lessonData12: ILessonDataDB = {
         caption: [
           {
             tag: 'a',
-            content: 'Sofiia Ulianova',
+            content: 'Sofia Ulianova',
             props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/sofiulianova' },
           },
         ],
@@ -854,56 +854,36 @@ const lessonData12: ILessonDataDB = {
       type: 'text',
       text: [
         {
-          tag: 'span',
+          tag: 'p',
           content: 'Чтобы нарисовать живую, случайную линию, нужно ограничить контроль над инструментом.',
-          props: { className: 'keyText' },
+          props: { className: 'listHeader' },
+        },
+        {
+          tag: 'p',
+          content: 'Взять карандаш в кулак.',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'Рисовать левой рукой.',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'Рисовать плохоуправляемым материалом: круглой кисточкой, кисточкой большого размера, кисточкой с большим количеством воды, держать кисть за самый край, держать карандаш в кулаке.',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'Не отрывать руку от листа на протяжении всего рисования.',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'Рисовать с ограничением по времени: за 1 минуту, за 3 минуты.',
+          props: { className: 'listItem' },
         },
       ],
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: '• Взять карандаш в кулак.',
-        },
-      ]
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: '• Рисовать левой рукой.',
-        },
-      ]
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: '• Рисовать плохоуправляемым материалом: круглой кисточкой, кисточкой большого размера, кисточкой с большим количеством воды, держать кисть за самый край, держать карандаш в кулаке.',
-        },
-      ]
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: '• Не отрывать руку от листа на протяжении всего рисования.',
-        },
-      ]
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: '• Рисовать с ограничением по времени: за 1 минуту, за 3 минуты.',
-        },
-      ]
     },
     {
       type: 'text',
@@ -912,20 +892,11 @@ const lessonData12: ILessonDataDB = {
           tag: 'p',
           content: 'Низкий контроль над инструментом не означает, что автор плохо рисует или не понимает, что рисует. Низкий контроль дает линии больше живости и свободы. Но даже в этом случае рисунок по прежнему должен быть убедительным.',
         },
-      ]
-    },
-    {
-      type: 'text',
-      text: [
         {
-          tag: 'span',
-          content: 'Чтобы получить убедительную картинку с плохо контролируемым материалом, нужно увеличить количество итераций. ',
+          tag: 'p',
+          content: 'Чтобы получить убедительную картинку с плохо контролируемым материалом, нужно увеличить количество итераций. Тогда мы получим легкость + убедительность. Чтобы нарисовать убедительную кошку легкой, летящей линий. Нужно нарисовать 10 минутных рисунков разных кошек. И выбрать среди них один, самый лучший.',
         },
-        {
-          tag: 'span',
-          content: 'Тогда мы получим легкость + убедительность. Чтобы нарисовать убедительную кошку легкой, летящей линий. Нужно нарисовать 10 минутных рисунков разных кошек. И выбрать среди них один, самый лучший. '
-        }
-      ],
+      ]
     },
     {
       type: 'title',
@@ -938,11 +909,6 @@ const lessonData12: ILessonDataDB = {
           tag: 'p',
           content: 'Тон — светлота линии. Самый светлый тон — белый, самый темный — черный.',
         },
-      ]
-    },
-    {
-      type: 'text',
-      text: [
         {
           tag: 'p',
           content: 'Более темной линией можно выделить детали, привлечь внимание к главному.',
@@ -997,11 +963,6 @@ const lessonData12: ILessonDataDB = {
           tag: 'p',
           content: 'Есть карандаши, кисти, которые могут менять толщину линии в зависимости от нажима. Есть моноширинные инструменты, например, линеры. Тогда чтобы изменить толщину, нужно взять другой линер.',
         },
-      ]
-    },
-    {
-      type: 'text',
-      text: [
         {
           tag: 'p',
           content: 'С помощью разной толщины можно привлечь внимание, выделить главное.',
@@ -1307,11 +1268,6 @@ const lessonData13: ILessonDataDB = {
           tag: 'p',
           content: 'Для куба — обозначить грани.',
         },
-      ]
-    },
-    {
-      type: 'text',
-      text: [
         {
           tag: 'p',
           content: 'Для шара, конуса, цилиндра — показать, как заворачивается поверхность.',
@@ -2805,47 +2761,31 @@ const lessonData22: ILessonDataDB = {
       type: 'text',
       text: [
         {
-          tag: 'span',
+          tag: 'p',
           content: 'Чтобы нарисовать случайное, непредсказуемое пятно, нужно ограничить контроль над инструментом.',
-          props: { className: 'keyText' },
+          props: { className: 'listHeader' },
         },
-      ],
-    },
-    {
-      type: 'text',
-      text: [
         {
           tag: 'p',
           content: 'Взять широкую кисть.',
+          props: { className: 'listItem' },
         },
-      ]
-    },
-    {
-      type: 'text',
-      text: [
         {
           tag: 'p',
           content: 'Сильно разбавить краску водой.',
+          props: { className: 'listItem' },
         },
-      ]
-    },
-    {
-      type: 'text',
-      text: [
         {
           tag: 'p',
           content: 'Рисовать с ограничением по времени: за 1 минуту, за 3 минуты.',
+          props: { className: 'listItem' },
         },
-      ]
-    },
-    {
-      type: 'text',
-      text: [
         {
           tag: 'p',
           content: 'Постоянно двигать рукой, не делать пауз.',
+          props: { className: 'listItem' },
         },
-      ]
+      ],
     },
     {
       type: 'text',
@@ -2854,21 +2794,11 @@ const lessonData22: ILessonDataDB = {
           tag: 'p',
           content: 'Низкий контроль над инструментом не означает, что автор плохо рисует или не понимает, что рисует. Низкий контроль дает линии больше живости и свободы. Но даже в этом случае рисунок по прежнему должен быть убедительным.',
         },
+        {
+          tag: 'p',
+          content: 'Чтобы получить убедительную картинку с плохо контролируемым материалом, нужно увеличить количество итераций. Тогда мы получим легкость + убедительность. Чтобы нарисовать убедительную кошку текучим пятном. Нужно нарисовать 10 минутных рисунков разных кошек. И выбрать среди них один, самый лучший.',
+        },
       ]
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'span',
-          content: 'Чтобы получить убедительную картинку с плохо контролируемым материалом, нужно увеличить количество итераций. ',
-          props: { className: 'keyText' },
-        },
-        {
-          tag: 'span',
-          content: 'Тогда мы получим легкость + убедительность. Чтобы нарисовать убедительную кошку текучим пятном. Нужно нарисовать 10 минутных рисунков разных кошек. И выбрать среди них один, самый лучший. ',
-        },
-      ],
     },
     {
       type: 'title',
@@ -2881,11 +2811,6 @@ const lessonData22: ILessonDataDB = {
           tag: 'p',
           content: 'Тон — светлота пятна. Самый светлый тон — белый, самый темный — черный.',
         },
-      ]
-    },
-    {
-      type: 'text',
-      text: [
         {
           tag: 'p',
           content: 'У цветных красок тоже есть светлота. Чтобы ее увидеть, нужно сфотографировать рисунок и перевести фото в чб:',
@@ -2999,6 +2924,283 @@ const lessonData22: ILessonDataDB = {
             tag: 'a',
             content: 'Arina Serebriakova',
             props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/ri.silver/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Чтобы осветлить пятно, можно:',
+          props: {className: 'listHeader'}
+        },
+        {
+          tag: 'p',
+          content: 'Изменить нажим.',
+          props: {className: 'listItem'}
+        },
+        {
+          tag: 'p',
+          content: 'Взять другой цвет.',
+          props: {className: 'listItem'}
+        },
+        {
+          tag: 'p',
+          content: 'Разбавить краску водой или добавить в нее белил.',
+          props: {className: 'listItem'}
+        },
+        {
+          tag: 'p',
+          content: 'Поверх покрасить белым карандашом или белой краской.',
+          props: {className: 'listItem'}
+        },
+        {
+          tag: 'p',
+          content: 'Приклеить поверх пятна прозрачную белую кальку.',
+          props: {className: 'listItem'}
+        },
+        {
+          tag: 'p',
+          content: 'Осветлить нужные участки в Photoshop.',
+          props: {className: 'listItem'}
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Плотное, прозрачное',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Пятно может быть плотным, глухим:',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ИринаГеннадиевна.jpeg',
+        alt: 'ИринаГеннадиевна',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Ирина Геннадиевна Васильева',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://all-drawings.livejournal.com/961191.html?ysclid=lp9fnwo9nd541324099' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ClareYoungs7.jpeg',
+        alt: 'ClareYoungs7',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Clare Youngs',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.clareyoungs.co.uk/shop' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Пятно может быть прозрачным, просвечивающим:',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'FrancescoPoiana1.jpeg',
+        alt: 'FrancescoPoiana1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Francesco Poiana',
+            props: { className: 's-hoverable', target: "_blank", to: 'http://drawing-museum.org/2019/09/14/francesco-poiana-%d1%80%d0%be%d0%b4-1990%d0%b3/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'JeanMallard1.jpeg',
+        alt: 'JeanMallard1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Jean Mallard',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/jean.mallard/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Чтобы получить плотное, непрозрачное пятно, можно:',
+          props: { className:'listHeader' }
+        },
+        {
+          tag: 'p',
+          content: 'Покрыть пятно в несколько слоев.',
+          props: { className:'listItem' }
+        },
+        {
+          tag: 'p',
+          content: 'Рисовать штрихи очень близко друг к другу.',
+          props: { className:'listItem' }
+        },
+        {
+          tag: 'p',
+          content: 'Взять укрывистую, плотную краску.',
+          props: { className:'listItem' }
+        },
+        {
+          tag: 'p',
+          content: 'Рисовать неразбавленной краской из тюбика, кюветки.',
+          props: { className:'listItem' }
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Фактура',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Пятно может быть фактурным:',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ClareYoungs5.jpg',
+        alt: 'ClareYoungs5',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Clare Youngs',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.clareyoungs.co.uk/shop' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ClareYoungs6.jpeg',
+        alt: 'ClareYoungs6',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Clare Youngs',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.clareyoungs.co.uk/shop' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ClareYoungs7.jpeg',
+        alt: 'ClareYoungs7',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Clare Youngs',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.clareyoungs.co.uk/shop' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'MashaShishova7.jpg',
+        alt: 'MashaShishova7',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Masha Shishova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/MariaShishova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Может быть гладким, равномерным:',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'RiccardoGuasco7.jpeg',
+        alt: 'RiccardoGuasco7',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Riccardo Guasco',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/guascoriccardo/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'RiccardoGuasco3.jpeg',
+        alt: 'RiccardoGuasco3',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Riccardo Guasco',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/guascoriccardo/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Контраст фактурного пятна и однородного фона:',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AndréCarrilho8.jpeg',
+        alt: 'AndréCarrilho8',
+        caption: [
+          {
+            tag: 'a',
+            content: 'André Carrilho',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/andre_carrilho/?ysclid=ln321z8cus372402208' },
           },
         ],
       },
