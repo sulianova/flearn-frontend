@@ -185,7 +185,7 @@
       "addCaption": "Добавить описание",
       "contentInputLabel": "Ссылка",
       "contentTextareaLabel": "Описание",
-      "contentTextareaPlaceholder": "Какой-то плейсхолдер",
+      "contentTextareaPlaceholder": "Описание работы",
       "filesEmpty1": "Загрузите файлы",
       "filesEmpty2": "Картинка должна весить меньше 3 мб"
     },

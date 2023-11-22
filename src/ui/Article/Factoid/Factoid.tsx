@@ -13,7 +13,7 @@ interface IProps {
 function Factoid(props: IProps) {
   return (
     <Fragment>
-      {props.data.factoid && <div className={classes.factoid}> <UIText text={props.data.factoid}/> </div>}
+      {props.data.factoid && <p className={classes.factoid}> <UIText text={props.data.factoid}/> </p>}
     </Fragment>
   );
 }
