@@ -24,7 +24,7 @@ class Order {
       const data: IOrderData = {
         status: 'created',
         userFromForm,
-        currentAuthedUser: state.user?.user,
+        currentAuthedUser: state.user?.user ?? null,
         course: {
           id: courseId,
           dataSnapshot: {
