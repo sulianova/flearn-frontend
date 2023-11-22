@@ -1,7 +1,6 @@
 @import 'styles/index';
 
 .wrapper {
-  margin-bottom: set-calc(80);
   @include is-grid-4;
 }
 
