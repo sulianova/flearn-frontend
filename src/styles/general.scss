@@ -270,15 +270,22 @@ s {
   color: $orange !important;
 }
 
-.textSmall {
-  font-variant: small-caps;
-}
+// Форматирование Article
 
 .keyText {
   color: $grey-hover;
   font-family: $font-family!important;
 }
 
-.grey {
-  color: $grey;
+.listHeader {
+  padding-bottom: set-calc(16)!important;
+}
+
+.listItem {
+  padding-bottom: set-calc(8)!important;
+  padding-left: set-calc(24);
+
+  @include set-media(md) {
+    padding-left: set-calc(16);
+  }
 }
