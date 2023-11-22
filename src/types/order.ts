@@ -5,7 +5,7 @@ export interface IOrderData {
     userFromForm: {
         email: string
     }
-    currentAuthedUser?: IUserData
+    currentAuthedUser: IUserData | null
     course: {
         id: string
         dataSnapshot: {
