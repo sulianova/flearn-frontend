@@ -4167,6 +4167,473 @@ const lessonData31: ILessonDataDB = {
         ],
       },
     },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Четкая строгая линия противопоставляется мягкому человеческому телу. Тонкая, маленькая линия, прорисовывающая пальчики на ногах подчеркивает хрупкость девушки.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DimaGorelyshev29.jpg',
+        alt: 'DimaGorelyshev29',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Dima Gorelyshev',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Пятно организует лист, линия рассказывает про фигуратив, подчеркивает обхемность шляпы.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DimaGorelyshev33.jpg',
+        alt: 'DimaGorelyshev33',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Dima Gorelyshev',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Пятно организует лист, линия рассказывает про фигуратив.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DimaGorelyshev38.jpg',
+        alt: 'DimaGorelyshev38',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Dima Gorelyshev',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Пятно организует лист, линия рассказывает про фигуратив. Линия выделяет главное в рисунке — малюсенькую машинку рядом с домом.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DimaGorelyshev36.jpg',
+        alt: 'DimaGorelyshev36',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Dima Gorelyshev',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Пятно организует лист, линия рассказывает про фигуратив. Линия выделяет главное в рисунке — кривоватую дверцу.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DimaGorelyshev35.jpg',
+        alt: 'DimaGorelyshev35',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Dima Gorelyshev',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Пятно организует лист, задает ритм в рисунке. Линия обозначает фигуратив.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'BlairThornley4.jpeg',
+        alt: 'BlairThornley4',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Blair Thornley',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/blairthornley/?ysclid=lpaxspy82x322169082s' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Пятно организует лист. Линия обозначает фигуратив, выделяет главное.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'BlairThornley6.jpeg',
+        alt: 'BlairThornley6',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Blair Thornley',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/blairthornley/?ysclid=lpaxspy82x322169082s' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Пятно организует лист, линия выделяет главное — глаза.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'bayduzha1.jpeg',
+        alt: 'bayduzha1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Наташа Байдужа',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/bayduzha/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'bayduzha3.jpeg',
+        alt: 'bayduzha3',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Наташа Байдужа',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/bayduzha/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'bayduzha4.jpeg',
+        alt: 'bayduzha4',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Наташа Байдужа',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/bayduzha/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Весь рисунок пятном, линия выделяет главное — цветочек.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'Sasha89 gradusov.jpeg',
+        alt: 'Sasha89 gradusov',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Sasha 🐯 89 gradusov',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/89gradusov/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Весь рисунок пятном, линия выделяет главное — паучка.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'NataliaMoryzeva3.jpeg',
+        alt: 'NataliaMoryzeva3',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Natalia Moryzeva',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/yantarem/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Пятно организует лист, задает движение, линия обозначает фигуратив.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'NataliaMoryzeva1.jpeg',
+        alt: 'NataliaMoryzeva1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Natalia Moryzeva',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/yantarem/' },
+          },
+        ],
+      },
+    },
+  ]
+}
+
+const lessonData32: ILessonDataDB = {
+  orderInWeek: 2,
+  id: 'ContrastNuance_9rP6Yl',
+  courseId: 'how-to-draw',
+  title: '3.2 Как выделить главное: контраст, нюанс',
+  type: 'Theory',
+  week: 3,
+  startDate: '2024.01.22', //new Date('2023.07.12'),
+  endDate: '2024.01.28', //new Date('2023.07.22'),
+  resultsEndDate: '2024.02.01', //new Date('2023.07.25'),
+  content: [
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Разница - это средство выразительности. Если разница велика - это контраст. Если мала - нюанс. Когда мы подчеркиваем разницу - размеров, форм, яркости, чего угодно - мы делаем рисунок более выразительным.',
+        },
+        {
+          tag: 'p',
+          content: 'Контраст — большая разница в листе. Объемное и плоское, фактурное и однородное, толстое и тонюсенькое, заполненное и пустое. С помощью контраста можно направить внимание зрителя, выделить главное в листе, разделить планы, объединить персонажей.',
+        },
+        {
+          tag: 'p',
+          content: 'Нюанс — едва заметная разница. Она обогащает рисунок, наполняет его деталями.',
+        },
+        {
+          tag: 'p',
+          content: 'Акцент — самый сильный контраст в листе. Акцент всегда маленький, всегда один.',
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Примеры контрастов, нюансов, акцентов',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Контрас линии и пятна. Нюансные различия в светлоте, чтобы показать фигуратив внутри пятен.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'таняборисова.jpeg',
+        alt: 'таняборисова',
+        caption: [
+          {
+            tag: 'a',
+            content: 'таня борисова',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/ta_boris/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Акцент линией в пятновом рисунке. Контраст по светлоте.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ArinaSerebriakova.jpeg',
+        alt: 'ArinaSerebriakova',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Arina Serebriakova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/ri.silver/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Контраст по светлоте. Нюанс по информативности. По разнице в светлоте мы можем отделить главную группу объектов от фона. Затем в этой группе мы высматриваем людей, они более информативные, чем скала.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'StasyaSokolovskaya2.jpeg',
+        alt: 'StasyaSokolovskaya2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Stasya Sokolovskaya',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/stasyasokolovska/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Контраст линии и пятна. Самый сильный контраст между линейным текстом и пятновыми собаками. При боле бизком рассмотрении, понятно, что  главные детали на собаках также выделены линией.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ElenaBulay1.jpg',
+        alt: 'ElenaBulay1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Elena Bulay',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/elena_bulay/?hl=ru' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'title',
+      title: 'Иерархия',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Когда в листе всего пополам, например, 50% жирных линий, 50% тонких, половинки спорят между собой. Зрителю непонятно, куда смотреть. Глаз бегает от одного к другому.',
+        },
+        {
+          tag: 'p',
+          content: 'Когда в листе все линии, формы, размеры одинаковые, рисунок выглядит монотонно, ничто не притягивает внимания.',
+        },
+        {
+          tag: 'p',
+          content: 'Когда в рисунке чего-то очевидно больше, например, 80% тонких линий, 20% жирных, зритель рассматривает рисунок последовательно. Что-то замечает сразу, что-то потом, что-то видит только при внимательном смотрении.',
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Что выделять',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Когда мы что-то выделяем, мы должны понимать — зачем. Если выделяем предмет недетальностью, у него должно быть что-то интересное, например силуэт.',
+        },
+        {
+          tag: 'p',
+          content: 'То, что мы выделяем должно быть вишенкой на торте, самым интересным, важным и маленьким.',
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Как выделять',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Когда мы очень мало говорим об окружающей среде и очень много о главном объекте, он смотрится на листе чужим. Это ни хорошо, ни плохо, это нужно учитывать.',
+        },
+        {
+          tag: 'p',
+          content: 'Если хочется, чтобы объект и среда дружили друг с другом, нужно делать более мягкий контраст.',
+        },
+      ]
+    },
   ]
 }
 
@@ -4264,4 +4731,5 @@ const allLessons = [
   lessonData24,
   lessonData25,
   lessonData31,
+  lessonData32,
 ];
