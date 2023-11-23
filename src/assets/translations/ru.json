@@ -12,10 +12,8 @@
   "logo": "flearn",
   "logoLong": "Freedom to Learn the Arts",
   "discountBanner": {
-    "percentage": "%",
     "discount": "скидка",
-    "text1": "Успейте записаться",
-    "text2": "со скидкой",
+    "description": "Успейте записаться\nсо скидкой\nдо %{deadline}",
     "day": "д",
     "hour": "ч",
     "minute": "м",

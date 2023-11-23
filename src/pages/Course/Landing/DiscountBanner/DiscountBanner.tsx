@@ -1,54 +1,62 @@
+import { memo } from 'react';
+
 import Sticker from 'assets/images/Svg/Sticker';
-import { formatI18nT, i18n } from 'shared';
-import Link from 'ui/Link/Link';
+import { formatI18nT} from 'shared';
+
+import useCountDown from './useCountDown';
 import classes from './DiscountBanner.module.scss';
 
-import type { ICourseData } from 'types';
-
-export default DiscountBanner;
 const t = formatI18nT('discountBanner');
 
+export default memo(DiscountBanner);
+
 interface IProps {
-  data: ICourseData
+  discontAmount: number
+  discontDeadline: Date
 }
 
 function DiscountBanner(props: IProps) {
+  const { discontAmount, discontDeadline } = props;
+  const { days, hours, minutes, seconds } = useCountDown({ deadline: discontDeadline });
+
   return (
     <div className={classes._}>
       <div className={classes.inner}>
-        <a className={classes.content} href='#decision-form'>
+        <a className={classes.content} /*href='#decision-form'*/>
           <div className={classes.discountWrapper}>
             <div className={classes.stickerWrapper}>
               <div className={classes.sticker}>
                 <div className={classes.stickerPercentage}>
-                  {props.data.discontAmount}
-                  <span className='s-text-36'>{t('percentage')}</span>
+                  {discontAmount}
+                  <span className='s-text-36'>%</span>
                 </div>
                 <div className={classes.stickerText}>{t('discount')}</div>
                 <div className={classes.svgWrapper}>
-                <Sticker/>
+                  <Sticker/>
                 </div>
               </div>
             </div>
-            <div className={classes.textWrapper + ' s-text-24'}>{t('text1')}<br/>{t('text2')}<br/>{formatCourseDiscountDeadline(props.data.discontDeadline)}</div>
+            <div className={classes.descriptionWrapper + ' s-text-24'}>
+              {t('description', { deadline: formatDate(discontDeadline) })}
+            </div>
           </div>
           <div className={classes.timerWrapper}>
             <div className={classes.timer}>
               <div className={classes.realtimeCountDown}>
                 <div className={classes.realtimeCountDownSection}>
-                  <span className='s-text-88'>03</span>
+                  <span className='s-text-88'>{numeric(days)}</span>
                   <small className='s-text-24'>{t('day')}</small>
                 </div>
                 <div className={classes.realtimeCountDownSection}>
-                  <span className='s-text-88'>22</span>
+                  <span className='s-text-88'>{numeric(hours)}</span>
                   <small className='s-text-24'>{t('hour')}</small>
                 </div>
                 <div className={classes.realtimeCountDownSection}>
-                  <span className='s-text-88'>00</span>
+                  <span className='s-text-88'>{numeric(minutes)}</span>
                   <small className='s-text-24'>{t('minute')}</small>
                 </div>
                 <div className={classes.realtimeCountDownSection}>
-                  <span className='s-text-88'>00</span>
+                  <span className='s-text-88'>{numeric(seconds)}</span>
                   <small className='s-text-24'>{t('second')}</small>
                 </div>
               </div>
@@ -60,10 +68,22 @@ function DiscountBanner(props: IProps) {
   );
 }
 
-function formatCourseDiscountDeadline(discontDeadline: Date) {
-  const discontDeadlineStr =  discontDeadline.toLocaleDateString(
+function formatDate(date: Date) {
+  // str = 23 ноября в 19:08
+  const str = date.toLocaleDateString(
     ['ru-RU'],
-    { month: 'long', day: 'numeric' }
+    {
+      month: 'long',
+      day: 'numeric',
+      hour: "numeric",
+      minute: "numeric",
+    }
   );
-  return ` до ${discontDeadlineStr} 23:59`;
+  // dateStr = 23 ноября 19:08
+  const dateStr = str.split(' в ').join(' ');
+  return dateStr;
+}
+
+function numeric(number: number) {
+  return number < 10 ? `0${number}` : number;
 }
