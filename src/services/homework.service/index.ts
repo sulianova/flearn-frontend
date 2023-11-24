@@ -11,6 +11,7 @@ class HomeworkService {
   public async getHomeworkBS(props: {
     filter: { courseId: string, lessonId?: string, userId?: string, id?: string }
     populate?: { user?: boolean }
+    reviewSource?: 'local' | 'remote'
   }) {
     try {
       type TAction = null | { homeworks: IHomeworkDataWPopulate[] } | Error;
@@ -118,6 +119,7 @@ class HomeworkService {
   private async _fetch(props: {
     filter: { courseId: string, lessonId?: string, userId?: string, id?: string }
     populate?: { user?: boolean }
+    reviewSource?: 'local' | 'remote'
   }) {
     try {
       const homeworksData = await dataService.homework.getAll(props.filter);
@@ -143,8 +145,20 @@ class HomeworkService {
         }
       }
 
+      // add local review if needed
+      let reviewMap: Map<string, IHomeworkData['review']>;
+      if (props.reviewSource === 'local') {
+        reviewMap = new Map();
+        for (const homework of homeworksData) {
+          reviewMap.set(homework.id, getReview({ homeworkId: homework.id }));
+        }
+      }
+
       const homeworks: IHomeworkDataWPopulate[] = homeworksData.map(homework => ({
-        homework,
+        homework: {
+          ...homework,
+          ...reviewMap && reviewMap.has(homework.id) && { review: reviewMap.get(homework.id) },
+        },
         ...populateMap && { populate: populateMap.get(homework.id) },
       }));
 
@@ -160,3 +174,23 @@ class HomeworkService {
 }
 
 export const homeworkService = new HomeworkService();
+
+type TReview = {
+  homeworkId: string
+  review: IHomeworkData['review']
+}
+
+const review1: TReview = {
+  homeworkId: 'how-to-draw_SpotPractice_kfKAEY_hw-3C8wwg4FdjebKe1FunCdlPs4M533',
+  review: [
+    { type: 'text', text: 'Это моё первая обратная связь' },
+  ],
+};
+
+const allReviews = [
+  review1
+];
+
+function getReview(filter: { homeworkId: string }) {
+  return allReviews.find(({ homeworkId }) => homeworkId === filter.homeworkId)?.review;
+}
