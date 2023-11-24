@@ -339,7 +339,7 @@ function findImageIndexOrFail(state: TState, imageId: string) {
 
 function isDisabled(state: TState) {
   const formIsPending = state.formState.type === 'pending';
-  const hasNoSource = !state.images.length && !state.externalHomeworkLink;
+  const hasNoSource = !state.description && !state.images.length && !state.externalHomeworkLink;
   const someImagesArePendingOrFailed = state.images.some(({ loadingState }) => ['pending', 'error'].includes(loadingState.type));
 
   return formIsPending || hasNoSource || someImagesArePendingOrFailed;
