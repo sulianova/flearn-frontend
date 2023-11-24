@@ -7,6 +7,8 @@ import type { Subscription } from 'rxjs';
 import { homeworkService } from 'services';
 import { formatI18nT } from 'shared';
 
+import EditBar from 'ui/EditBar/EditBar';
+
 import LessonReview from './LessonReview/LessonReview';
 import LessonWork from './LessonWork/LessonWork';
 import WorkCard from './WorkCard/WorkCard';
@@ -35,6 +37,7 @@ function mapStateToProps(state: IRootState): IProps {
 function LessonWorks({ authedUserId }: IProps) {
   const { courseId, lessonId } = useParams() as { courseId: string, lessonId: string };
   const { filter, patchFilter } = useFilter();
+  const [source, setSource] = useState<'remote' | 'local'>('remote');
 
   const [homeworks, setHomeworks] = useState<IHomeworkDataWPopulate[] | undefined>(undefined);
   const [homeworksState, setHomeworksState] = useState<THomeworkStateState>({ type: 'idle' });
@@ -63,6 +66,7 @@ function LessonWorks({ authedUserId }: IProps) {
     homeworkService.getHomeworkBS({
       filter: { courseId, lessonId },
       populate: { user: true },
+      reviewSource: source,
     }).then(bs => {
       subscription = bs.subscribe(e => {
         if (e && !(e instanceof Error)) {
@@ -78,7 +82,7 @@ function LessonWorks({ authedUserId }: IProps) {
     });
 
     return () => subscription?.unsubscribe();
-  }, [courseId, lessonId]);
+  }, [courseId, lessonId, source]);
 
   const selectedHomework = useMemo(() => {
     return homeworks?.find(data => data.homework.userId === filter.userId);
@@ -93,6 +97,12 @@ function LessonWorks({ authedUserId }: IProps) {
     <Fragment>
       <LessonWork homework={selectedHomework}/>
       <LessonReview homework={selectedHomework}/>
+      <EditBar
+        source={source}
+        handleSourceChange={setSource}
+        handleUpload={() => console.log('upload')}
+        handleDownload={() => console.log('download')}
+      />
     </Fragment>);
   }
 

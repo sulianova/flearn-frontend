@@ -7,7 +7,7 @@ import Link from 'ui/Link/Link';
 
 import classes from './WorkCard.module.scss';
 
-import { URLSections, type IHomeworkDataWPopulate } from 'types';
+import { URLSections, type IHomeworkDataWPopulate, IHomeworkImageData } from 'types';
 
 const cx = classNames.bind(classes);
 
@@ -20,7 +20,7 @@ interface IProps {
 function WorkCard({ homework }: IProps) {
   const { courseId, lessonId } = useParams() as { courseId: string, lessonId: string };
   const user = homework.populate?.user;
-  const coverImage = homework.homework.images[0];
+  const coverImage = homework.homework.images[0] as IHomeworkImageData | undefined;
 
   return (
       <div className={cx({ _: true, hidden: false })}>
@@ -30,8 +30,8 @@ function WorkCard({ homework }: IProps) {
           to={URLSections.Course.Lesson.Results.to({ courseId, lessonId, params: { userId: user?.id }})}
         >
           <Img
-            src={coverImage.src}
-            alt={coverImage.alt}
+            src={coverImage?.src ?? ''}
+            alt={coverImage?.alt ?? ''}
           />
           <div className={classes.overlay}/>
         </Link>
