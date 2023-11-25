@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from 'react';
 import { BehaviorSubject, fromEvent, interval, merge } from 'rxjs';
+import { addDays } from 'utils';
 
 interface IProps {
   deadline: Date
@@ -14,7 +15,7 @@ export default function useCountDown({ deadline }: IProps) {
 
       return () => subscribtion.unsubscribe();
   }, []);
-  return getDateDiff(deadline);
+  return getDateDiff(addDays(deadline, 1));
 }
 
 function getDateDiff(date: Date) {
