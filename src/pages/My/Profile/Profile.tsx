@@ -59,12 +59,12 @@ function Profile(props: IProps) {
     return (
       <Fallback.Info fullPage={false}>
         <p>{t('noCoursesFallback.title')}</p>
-        <p>
+        {/* <p>
           <Link className='link' to={URLSections.FreeZone.index}>
             {t('noCoursesFallback.suggestionLink')}
           </Link>
           {t('noCoursesFallback.suggestionRest')}
-        </p>
+        </p> */}
       </Fallback.Info>
     );
   }
