@@ -113,7 +113,8 @@
 .stickerPercentage {
   margin-left: set-calc(16);
   margin-top: set-calc(4);
-  @include set-typography(88, 96, 500);
+  // @include set-typography(88, 96, 500);
+  @include set-typography(68, 68, 500);
   letter-spacing: -.01rem;
 }
 

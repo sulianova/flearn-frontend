@@ -76,10 +76,10 @@ function getData(id: string) {
 }
 
 const newCourseDB: ICourseDataDB = {
-  id: 'how-to-draw',
+  id: 'how-to-draw-free',
   title: 'Как рисовать',
-  startDate: '2024-01-08T00:00:00.000Z',
-  endDate: '2023-01-28T00:00:00.000Z',
+  startDate: '2023.12.04',
+  endDate: '2023.12.24',
   durationWeeks: 3,
   homeworksNumber: 3,
   videosNumber: 3,
@@ -87,10 +87,10 @@ const newCourseDB: ICourseDataDB = {
   introImageId: 'introImage.jpg',
   introDescription: 'Практический мини-курс для тех, кто хочет рисовать убедительные иллюстрации, не копируя фотографии.',
   introImageAlt: 'introImage',
-  discontAmount: 50,
-  discontDeadline: '2023-12-25T00:00:00.000Z',
+  discontAmount: 100,
+  discontDeadline: '2023.11.27',
   creditWas: 12000,
-  creditPrice: 6000,
+  creditPrice: 0,
   description: [
     {
       answer: 'На курсе будем учиться работать базовыми инструментами: линией и пятном. Разберемся, чем они отличаются, как их использовать. Сделаем упражнения, чтобы разрисоваться.',
