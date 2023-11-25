@@ -13,7 +13,7 @@
   "logoLong": "Freedom to Learn the Arts",
   "discountBanner": {
     "discount": "скидка",
-    "description": "Успейте записаться\nсо скидкой\nдо %{deadline}",
+    "description": "Успейте записаться\nсо скидкой\nдо %{deadline}, 23:59 по Мск",
     "day": "д",
     "hour": "ч",
     "minute": "м",
