@@ -10,6 +10,8 @@ import TextImportant from './TextImportant/TextImportant';
 import Title from './Title/Title';
 import Video from './Video/Video';
 
+import './Article.scss';
+
 export default Article;
 
 Article.Factoid = Factoid;

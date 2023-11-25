@@ -83,7 +83,7 @@
 
   @include set-media(md) {
     left: set-calc(-12);
-    top: set-calc(-8);
+    top: set-calc(-2);
     // height: set-calc(160);
     // width: set-calc(160);
   }
@@ -137,6 +137,7 @@
 
   @include set-media(md) {
     margin-left: 0;
+    width: set-calc(240);
   }
 }
 

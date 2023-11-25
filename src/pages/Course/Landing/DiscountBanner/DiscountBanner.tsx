@@ -69,18 +69,15 @@ function DiscountBanner(props: IProps) {
 }
 
 function formatDate(date: Date) {
-  // str = 23 ноября в 19:08
+  // str = 25 декабря
   const str = date.toLocaleDateString(
     ['ru-RU'],
     {
       month: 'long',
       day: 'numeric',
-      hour: "numeric",
-      minute: "numeric",
     }
   );
-  // dateStr = 23 ноября 19:08
-  const dateStr = str.split(' в ').join(' ');
+  const dateStr = str;
   return dateStr;
 }
 
