@@ -22,7 +22,7 @@ export default function ProgramBlocks(props: IProps) {
     <Explain key='explain' {...props}/>,
     <Gallery key='gallery' {...props}/>,
     <Promo key='promo' {...props}/>,
-    <DecisionForm key='decisionForm' {...props}/>,
+    // <DecisionForm key='decisionForm' {...props}/>,
     <FAQ key='faq' {...props}/>,
   ];
 
