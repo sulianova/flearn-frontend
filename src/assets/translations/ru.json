@@ -200,7 +200,8 @@
       "listTitle": "Работы других студентов",
       "showMoreBtn": "показать больше",
       "showLessBtn": "свернуть"
-    }
+    },
+    "fallback:lessonNotStartedYet": "Этот урок пока не начался. Он начнётся %{startDate}, будем вас ждать"
   },
   "week": {
     "one": "неделя",
