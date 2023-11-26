@@ -162,7 +162,8 @@
     "lecture": "Лекция",
     "homework": "Задание",
     "webinar": "Вебинар",
-    "results": "Итоги"
+    "results": "Итоги",
+    "courseNotStartedYet": "Курс пока не начался. Первый урок откроется {{minStartDate}}"
   },
   "courseLesson": {
     "navTubsPractice": "Задание",

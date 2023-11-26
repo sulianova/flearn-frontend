@@ -1,6 +1,8 @@
 import Fallback from 'ui/Fallback';
 
 import { ECommonErrorTypes, ILessonsData, type ICourseState, type ILessonsState } from 'types';
+import { i18n } from 'shared';
+import { formatDate } from 'utils';
 
 interface IProps {
   courseState: ICourseState
@@ -53,7 +55,7 @@ export default function useFallback(props: Readonly<IProps>) {
     const minStartDate = lessonsState.lessons.reduce(( minDate, l) => minDate < l.lesson.startDate ? minDate : l.lesson.startDate, lessonsState.lessons[0]?.lesson?.startDate);
     return (
       <Fallback.Info>
-        {`Курс пока не начался. Первый урок откроется ${minStartDate}`}
+        {i18n.t('courseLessons.courseNotStartedYet', { minStartDate: formatDate(minStartDate, { timeZone: 'Europe/Moscow', woTime: true }) })}
       </Fallback.Info>
     );
   }
