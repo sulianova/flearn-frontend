@@ -40,6 +40,6 @@ export function formatDate(date: Date, params: { timeZone?: TTimeZone, woTime?: 
 
   return date.toLocaleDateString(
     ['ru-RU'],
-    { month: 'long', day: 'numeric' }
-  );
+    { month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' }
+  ).replace(' в ', ', ');
 }

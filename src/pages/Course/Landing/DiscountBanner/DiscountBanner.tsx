@@ -1,12 +1,13 @@
 import { memo } from 'react';
 
 import Sticker from 'assets/images/Svg/Sticker';
-import { formatI18nT} from 'shared';
+import { formatI18nT } from 'shared';
+import { formatDate } from 'utils';
 
 import useCountDown from './useCountDown';
 import classes from './DiscountBanner.module.scss';
 
-const t = formatI18nT('discountBanner');
+const t = formatI18nT('courseLanding.discountBanner');
 
 export default memo(DiscountBanner);
 
@@ -37,7 +38,7 @@ function DiscountBanner(props: IProps) {
               </div>
             </div>
             <div className={classes.descriptionWrapper + ' s-text-24'}>
-              {t('description', { deadline: formatDate(discontDeadline) })}
+              {t('description', { deadline: formatDate(discontDeadline, { timeZone: 'Europe/Moscow' }) })}
             </div>
           </div>
           <div className={classes.timerWrapper}>
@@ -66,19 +67,6 @@ function DiscountBanner(props: IProps) {
       </div>
     </div>
   );
-}
-
-function formatDate(date: Date) {
-  // str = 25 декабря
-  const str = date.toLocaleDateString(
-    ['ru-RU'],
-    {
-      month: 'long',
-      day: 'numeric',
-    }
-  );
-  const dateStr = str;
-  return dateStr;
 }
 
 function numeric(number: number) {

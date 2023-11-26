@@ -11,14 +11,6 @@
   },
   "logo": "flearn",
   "logoLong": "Freedom to Learn the Arts",
-  "discountBanner": {
-    "discount": "скидка",
-    "description": "Успейте записаться\nсо скидкой\nдо %{deadline}, 23:59 по Мск",
-    "day": "д",
-    "hour": "ч",
-    "minute": "м",
-    "second": "с"
-  },
   "header": {
     "my": "Moe обучение",
     "freeZone": "Бесплатно",
@@ -104,6 +96,14 @@
       },
       "description": {
         "title": "Курс подойдeт тем, кто"
+      },
+      "discountBanner": {
+        "discount": "скидка",
+        "description": "Успейте записаться\nсо скидкой\nдо %{deadline} по Мск",
+        "day": "д",
+        "hour": "ч",
+        "minute": "м",
+        "second": "с"
       },
       "explain": {
         "headerTitle": "Любой может научиться иллюстрации",
