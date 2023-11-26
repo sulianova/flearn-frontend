@@ -1,8 +1,9 @@
+import { i18n } from 'shared';
+import { formatDate } from 'utils';
+
 import Fallback from 'ui/Fallback';
 
 import { ECommonErrorTypes, ILessonsData, type ICourseState, type ILessonsState } from 'types';
-import { i18n } from 'shared';
-import { formatDate } from 'utils';
 
 interface IProps {
   courseState: ICourseState
