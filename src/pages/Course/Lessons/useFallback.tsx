@@ -1,14 +1,15 @@
 import Fallback from 'ui/Fallback';
 
-import { ECommonErrorTypes, type ICourseState, type ILessonsState } from 'types';
+import { ECommonErrorTypes, ILessonsData, type ICourseState, type ILessonsState } from 'types';
 
 interface IProps {
   courseState: ICourseState
   lessonsState: ILessonsState
+  filteredLessons?: ILessonsData[]
 }
 
 export default function useFallback(props: Readonly<IProps>) {
-  const { courseState, lessonsState } = props;
+  const { courseState, lessonsState, filteredLessons } = props;
 
   if (courseState.state?.type === 'error') {
     switch(courseState.state.errorType) {
@@ -46,6 +47,15 @@ export default function useFallback(props: Readonly<IProps>) {
 
   if (!lessonsState.lessons.length) {
     return <Fallback.Error text='It appears this course is under development and has no lessons yet.'/>
+  }
+
+  if (lessonsState.lessons.length && !filteredLessons?.length) {
+    const minStartDate = lessonsState.lessons.reduce(( minDate, l) => minDate < l.lesson.startDate ? minDate : l.lesson.startDate, lessonsState.lessons[0]?.lesson?.startDate);
+    return (
+      <Fallback.Info>
+        {`Курс пока не начался. Первый урок откроется ${minStartDate}`}
+      </Fallback.Info>
+    );
   }
 
   return null;
