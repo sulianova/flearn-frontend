@@ -36,15 +36,13 @@ function Profile(props: IProps) {
       .getCourseBS({ filter: { userId }})
       .then(bs => {
         subscription = bs.subscribe(action => {
-          setCourses([]);
-          setCourseState({ type: 'idle' });
-          // if (action && !(action instanceof Error)) {
-          //   setCourses(action.courses);
-          //   setCourseState({ type: 'idle' });
-          // } else if (action instanceof Error) {
-          //   setCourses(undefined);
-          //   setCourseState({ type: 'error', error: action, errorType: action.ErrorType });
-          // }
+          if (action && !(action instanceof Error)) {
+            setCourses(action.courses);
+            setCourseState({ type: 'idle' });
+          } else if (action instanceof Error) {
+            setCourses(undefined);
+            setCourseState({ type: 'error', error: action, errorType: action.ErrorType });
+          }
         })
       });
   }, [userId]);
