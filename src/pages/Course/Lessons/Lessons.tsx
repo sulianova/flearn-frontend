@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { useParams } from 'react-router';
 
 import { formatI18nT } from 'shared';
-import { changeTimezone } from 'utils';
+import { formatDate } from 'utils';
 
 import { useFetch, useGuid } from 'hooks';
 import store from 'store';
@@ -189,14 +189,8 @@ function renderItem(lesson: ILessonsData) {
 }
 
 function formatWeekDate(startDate: Date, endDate: Date) {
-  const startDateStr = changeTimezone(startDate, 'Europe/Moscow').toLocaleDateString(
-    ['ru-RU'],
-    { month: 'long', day: 'numeric' }
-  );
-  const endDateStr = changeTimezone(endDate, 'Europe/Moscow').toLocaleDateString(
-    ['ru-RU'],
-    { month: 'long', day: 'numeric' }
-  );
+  const startDateStr = formatDate(startDate, { timeZone: 'Europe/Moscow', woTime: true });
+  const endDateStr = formatDate(endDate, { timeZone: 'Europe/Moscow', woTime: true });
 
   return `${startDateStr} – ${endDateStr}`;
 }
