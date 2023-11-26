@@ -28,5 +28,9 @@ export default function useLessonFallback(lessonState: ILessonState) {
     return <Fallback.Error/>
   }
 
+  if (lessonState.data.startDate > new Date()) {
+    return <Fallback.Info>{`Этот урок пока не начался. Подождите ${lessonState.data.startDate}`}</Fallback.Info>
+  }
+
   return null;
 }

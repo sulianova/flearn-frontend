@@ -58,7 +58,7 @@ function Lesson(props: IProps) {
   const fallback = useLessonFallback(lessonState);
   const homeworkFallback = useHomeworkFallback(homeworkState);
 
-  if (!lessonState.data) {
+  if (!lessonState.data || lessonState.data.startDate > new Date()) {
     return fallback;
   }
 
