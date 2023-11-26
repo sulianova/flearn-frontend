@@ -83,10 +83,6 @@ function Lessons({ courseState, lessonsState, authedUserId }: IConnectedProps) {
   }, [lessons]);
 
   const groupes: IGroup[] = useMemo(() => {
-    if (!filteredLessons) {
-      return [];
-    }
-
     return [...filteredLessons
       .reduce((acc, lessonData) => {
         if (!acc.has(lessonData.lesson.week)) {

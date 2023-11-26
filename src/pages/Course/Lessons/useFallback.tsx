@@ -5,7 +5,7 @@ import { ECommonErrorTypes, ILessonsData, type ICourseState, type ILessonsState 
 interface IProps {
   courseState: ICourseState
   lessonsState: ILessonsState
-  filteredLessons?: ILessonsData[]
+  filteredLessons: ILessonsData[]
 }
 
 export default function useFallback(props: Readonly<IProps>) {
