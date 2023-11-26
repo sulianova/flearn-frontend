@@ -25,3 +25,21 @@ export function changeTimezone(date: Date, timeZone: TTimeZone) {
     timeZone,
   }));
 }
+
+/**
+ * Format date to string
+ */
+export function formatDate(date: Date, params: { timeZone?: TTimeZone, woTime?: true }) {
+  date = params.timeZone ? changeTimezone(date, params.timeZone) : date;
+  if (params.woTime) {
+    return date.toLocaleDateString(
+      ['ru-RU'],
+      { month: 'long', day: 'numeric' }
+    );
+  }
+
+  return date.toLocaleDateString(
+    ['ru-RU'],
+    { month: 'long', day: 'numeric' }
+  );
+}
