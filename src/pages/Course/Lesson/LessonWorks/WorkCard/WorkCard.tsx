@@ -4,12 +4,15 @@ import { useParams } from 'react-router';
 import UserImage from 'assets/images/Svg/UserImage';
 import Img from 'ui/Img/Img';
 import Link from 'ui/Link/Link';
+import Image from 'assets/images/Svg/Image';
+import { formatI18nT } from 'shared';
 
 import classes from './WorkCard.module.scss';
 
 import { URLSections, type IHomeworkDataWPopulate, IHomeworkImageData } from 'types';
 
 const cx = classNames.bind(classes);
+const t = formatI18nT('courseLesson.works');
 
 export default WorkCard;
 
@@ -29,10 +32,14 @@ function WorkCard({ homework }: IProps) {
           className={classes.preview}
           to={URLSections.Course.Lesson.Results.to({ courseId, lessonId, params: { userId: user?.id }})}
         >
-          <Img
+              <div className={classes.emptyPreview}>
+                <Image/>
+                <div className={classes.emptyPreviewDescription + ' s-text-14'}>{t('emptyPreviewDescription')}</div>
+              </div>
+          {/* <Img
             src={coverImage?.src ?? ''}
             alt={coverImage?.alt ?? ''}
-          />
+          /> */}
           <div className={classes.overlay}/>
         </Link>
         <div className={classes.user}>
