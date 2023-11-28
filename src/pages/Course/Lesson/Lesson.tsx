@@ -11,12 +11,15 @@ import LessonUppload from './LessonUppload/LessonUppload';
 import LessonWorks from './LessonWorks/LessonWorks';
 import LessonHeader from './LessonHeader/LessonHeader';
 
+import useCanShowResults from './useCanShowResults';
 import useFetchHomework from './useFetchHomework';
 import useHomeworkFallback from './useHomeworkFallback';
 import useInitHomework from './useInitHomework';
 import useLessonFallback from './useLessonFallback';
 
 import type { ILessonState, IRootState } from 'types';
+import Fallback from 'ui/Fallback';
+import { i18n } from 'shared';
 
 export default connect(mapStateToProps)(Lesson);
 
@@ -56,6 +59,7 @@ function Lesson(props: IProps) {
 
   const fallback = useLessonFallback(lessonState);
   const homeworkFallback = useHomeworkFallback(homeworkState);
+  const { canShowResults, fallBack: resultsFallback } = useCanShowResults({ courseId, lessonId, lesson: lessonState.data })
 
   if (!lessonState.data /* || lessonState.data.startDate > now */) {
     return fallback;
@@ -63,6 +67,10 @@ function Lesson(props: IProps) {
 
   if (lessonState.data.type === 'Practice' && !homework) {
     return homeworkFallback;
+  }
+
+  if (section === 'results' && !canShowResults) {
+    return resultsFallback;
   }
 
   return (
@@ -88,6 +96,6 @@ function Lesson(props: IProps) {
           onScrollEnd={() => setScrollToUpload(false)}
         />
       }
-      {section === 'results' && <LessonWorks/>}
+      {section === 'results' && canShowResults && <LessonWorks/>}
     </Page>);
 }
