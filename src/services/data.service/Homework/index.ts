@@ -5,11 +5,9 @@ import { dataService, firebaseService } from 'services';
 import { ECollections, IHomeworkDataDB, type IHomeworkData, ECommonErrorTypes } from 'types';
 import { homeworkConverter } from './homeworkConverter';
 
-interface IHomeworksFilter {
+interface IHomeworksFilter extends
+  Partial<Pick<IHomeworkData, 'id'| 'lessonId' | 'userId' | 'state'>> {
   courseId: string
-  lessonId?: string
-  userId?: string
-  id?: string
 }
 class Homework {
   public async get(courseId: string, lessonId: string, userId: string) {

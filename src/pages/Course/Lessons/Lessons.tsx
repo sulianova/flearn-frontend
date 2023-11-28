@@ -79,7 +79,7 @@ function Lessons({ courseState, lessonsState, authedUserId }: IConnectedProps) {
       return [];
     }
 
-    return lessons.filter(l => l.lesson.startDate < new Date());
+    return lessons; //.filter(l => l.lesson.startDate < new Date());
   }, [lessons]);
 
   const groupes: IGroup[] = useMemo(() => {
@@ -189,8 +189,8 @@ function renderItem(lesson: ILessonsData) {
 }
 
 function formatWeekDate(startDate: Date, endDate: Date) {
-  const startDateStr = formatDate(startDate, { timeZone: 'Europe/Moscow', woTime: true });
-  const endDateStr = formatDate(endDate, { timeZone: 'Europe/Moscow', woTime: true });
+  const startDateStr = formatDate(startDate, { timeZone: 'Europe/Moscow' });
+  const endDateStr = formatDate(endDate, { timeZone: 'Europe/Moscow' });
 
   return `${startDateStr} – ${endDateStr}`;
 }

@@ -29,17 +29,25 @@ export function changeTimezone(date: Date, timeZone: TTimeZone) {
 /**
  * Format date to string
  */
-export function formatDate(date: Date, params: { timeZone?: TTimeZone, woTime?: true }) {
-  date = params.timeZone ? changeTimezone(date, params.timeZone) : date;
-  if (params.woTime) {
-    return date.toLocaleDateString(
-      ['ru-RU'],
-      { month: 'long', day: 'numeric' }
-    );
+export function formatDate(date: Date, params: { timeZone?: TTimeZone, wWeekDay?: true, wTime?: true } = {}) {
+  const { timeZone, wWeekDay, wTime } = params;
+  date = timeZone ? changeTimezone(date, timeZone) : date;
+
+  let weekDay: string;
+  if (wWeekDay) {
+    weekDay = date.toLocaleDateString(['ru-RU'], { weekday: "long" });
+  };
+
+  let time: string;
+  if (wTime) {
+    time = date.toLocaleDateString(['ru-RU'], { hour: '2-digit', minute: '2-digit' })
+      .split(', ')[1];
   }
 
-  return date.toLocaleDateString(
-    ['ru-RU'],
-    { month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' }
-  ).replace(' в ', ', ');
+  const dateStr = date.toLocaleDateString(['ru-RU'], { month: 'long', day: 'numeric' }).replace(' ', '\u00A0');
+  return [
+    wWeekDay && weekDay!,
+    wTime ? (dateStr + ',') : dateStr,
+    wTime && time!,
+  ].join(' ');
 }

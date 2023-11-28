@@ -31,7 +31,7 @@ export default function useLessonFallback(lessonState: ILessonState) {
   }
 
   if (lessonState.data.startDate > new Date()) {
-    const startDate = formatDate(lessonState.data.startDate, { timeZone: 'Europe/Moscow', woTime: true });
+    const startDate = formatDate(lessonState.data.startDate, { timeZone: 'Europe/Moscow' });
     return <Fallback.Info>{i18n.t('courseLesson.fallback:lessonNotStartedYet', { startDate })}</Fallback.Info>;
   }
 

@@ -7,7 +7,7 @@ import type { TActionBS, TActionS } from './types';
 export { type IUserData, type IUserDataDB } from './types';
 
 class UserService {
-  public async getHomeworkBS(props: {
+  public async getUserBS(props: {
     filter: { id?: string, ids?: string[] }
   }) {
     try {

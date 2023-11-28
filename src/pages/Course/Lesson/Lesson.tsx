@@ -16,20 +16,18 @@ import useHomeworkFallback from './useHomeworkFallback';
 import useInitHomework from './useInitHomework';
 import useLessonFallback from './useLessonFallback';
 
-import type { IHomeworksState, ILessonState, IRootState } from 'types';
+import type { ILessonState, IRootState } from 'types';
 
 export default connect(mapStateToProps)(Lesson);
 
 interface IConnectedProps {
   lessonState: ILessonState
-  homeworksState: IHomeworksState
   authedUserId?: string
 }
 
 function mapStateToProps(state: IRootState): IConnectedProps {
   return {
     lessonState: state.lesson,
-    homeworksState: state.homeworks,
     authedUserId: state.user?.user?.id,
   };
 }
@@ -40,6 +38,7 @@ interface IProps extends IConnectedProps {
 
 function Lesson(props: IProps) {
   const { lessonState, section, authedUserId } = props;
+  const now = new Date();
 
   const { courseId, lessonId } = useParams();
   const [scrollToUpload, setScrollToUpload] = useState<boolean>(false);
@@ -58,7 +57,7 @@ function Lesson(props: IProps) {
   const fallback = useLessonFallback(lessonState);
   const homeworkFallback = useHomeworkFallback(homeworkState);
 
-  if (!lessonState.data || lessonState.data.startDate > new Date()) {
+  if (!lessonState.data /* || lessonState.data.startDate > now */) {
     return fallback;
   }
 
@@ -82,7 +81,7 @@ function Lesson(props: IProps) {
           scrollToUpload={() => setScrollToUpload(true)}
         />)
       }
-      {section === 'task' && homework?.homework?.state === 'DRAFT' &&
+      {section === 'task' && lessonState.data.endDate > now && homework?.homework?.state === 'DRAFT' &&
         <LessonUppload
           homeworkWPopulate={homework}
           scroll={scrollToUpload}
