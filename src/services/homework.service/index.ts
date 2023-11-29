@@ -9,7 +9,7 @@ import { ECommonErrorTypes } from 'types';
 
 class HomeworkService {
   public async getHomeworkBS(props: {
-    filter: { courseId: string, lessonId?: string, userId?: string, id?: string }
+    filter: { courseId: string } & Partial<Pick<IHomeworkData, 'id'| 'lessonId' | 'userId' | 'state'>>
     populate?: { user?: boolean }
     reviewSource?: 'local' | 'remote'
   }) {
@@ -117,7 +117,7 @@ class HomeworkService {
   }
 
   private async _fetch(props: {
-    filter: { courseId: string, lessonId?: string, userId?: string, id?: string }
+    filter: { courseId: string } & Partial<Pick<IHomeworkData, 'id'| 'lessonId' | 'userId' | 'state'>>
     populate?: { user?: boolean }
     reviewSource?: 'local' | 'remote'
   }) {

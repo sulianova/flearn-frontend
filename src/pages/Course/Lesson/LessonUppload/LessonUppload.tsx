@@ -4,7 +4,7 @@ import { useCallback, useEffect, useReducer, useRef } from 'react';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router';
 
-import { homeworkService } from 'services';
+import { dataService, homeworkService } from 'services';
 import { formatI18nT } from 'shared';
 
 import File from './File/File';
@@ -254,6 +254,10 @@ function LessonUppload({ homeworkWPopulate, user, scroll, onScrollEnd }: IProps)
     }
 
     try {
+      const lesson = await dataService.lesson.get(state.courseId, state.lessonId);
+      if (lesson.endDate < new Date()) {
+        throw new Error('Cannot sent homework past deadline');
+      }
       dispatch({ type: 'PATCH_STATE', payload: { formState: { type: 'pending' }}});
       await homeworkService.patchHomework(state.id, { state: 'SENT_FOR_REVIEW' });
       dispatch({ type: 'PATCH_STATE', payload: { formState: { type: 'success' }}});

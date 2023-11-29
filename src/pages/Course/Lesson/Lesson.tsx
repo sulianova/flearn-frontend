@@ -11,26 +11,26 @@ import LessonUppload from './LessonUppload/LessonUppload';
 import LessonWorks from './LessonWorks/LessonWorks';
 import LessonHeader from './LessonHeader/LessonHeader';
 
+import useCanShowResults from './useCanShowResults';
 import useFetchHomework from './useFetchHomework';
 import useHomeworkFallback from './useHomeworkFallback';
 import useInitHomework from './useInitHomework';
 import useLessonFallback from './useLessonFallback';
 
-import type { IHomeworksState, ILessonState, IRootState } from 'types';
+import type { ILessonState, IRootState } from 'types';
+import Fallback from 'ui/Fallback';
+import { i18n } from 'shared';
+import { userService } from 'services/user.service';
 
 export default connect(mapStateToProps)(Lesson);
 
 interface IConnectedProps {
   lessonState: ILessonState
-  homeworksState: IHomeworksState
-  authedUserId?: string
 }
 
 function mapStateToProps(state: IRootState): IConnectedProps {
   return {
     lessonState: state.lesson,
-    homeworksState: state.homeworks,
-    authedUserId: state.user?.user?.id,
   };
 }
 
@@ -39,10 +39,14 @@ interface IProps extends IConnectedProps {
 }
 
 function Lesson(props: IProps) {
-  const { lessonState, section, authedUserId } = props;
+  const { lessonState, section } = props;
+  const now = new Date();
 
   const { courseId, lessonId } = useParams();
   const [scrollToUpload, setScrollToUpload] = useState<boolean>(false);
+
+  const authedUser = userService.useAuthedUser();
+  const authedUserId = authedUser?.id;
 
   useFetch<IFetchLessonPayload>(({
     actionCreator: fetchLesson,
@@ -55,15 +59,20 @@ function Lesson(props: IProps) {
   useInitHomework({ courseId, lessonId, userId: authedUserId, lesson: lessonState.data });
   const { homework, homeworkState } = useFetchHomework({ courseId, lessonId, userId: authedUserId });
 
-  const fallback = useLessonFallback(lessonState);
+  const fallback = useLessonFallback({ lessonState, authedUser });
   const homeworkFallback = useHomeworkFallback(homeworkState);
+  const { canShowResults, fallBack: resultsFallback } = useCanShowResults({ courseId, lessonId, lesson: lessonState.data })
 
-  if (!lessonState.data || lessonState.data.startDate > new Date()) {
+  if (!lessonState.data || (authedUser?.role !== 'support' && lessonState.data.startDate > now)) {
     return fallback;
   }
 
   if (lessonState.data.type === 'Practice' && !homework) {
     return homeworkFallback;
+  }
+
+  if (section === 'results' && !canShowResults) {
+    return resultsFallback;
   }
 
   return (
@@ -82,13 +91,13 @@ function Lesson(props: IProps) {
           scrollToUpload={() => setScrollToUpload(true)}
         />)
       }
-      {section === 'task' && homework?.homework?.state === 'DRAFT' &&
+      {section === 'task' && lessonState.data.endDate > now && homework?.homework?.state === 'DRAFT' &&
         <LessonUppload
           homeworkWPopulate={homework}
           scroll={scrollToUpload}
           onScrollEnd={() => setScrollToUpload(false)}
         />
       }
-      {section === 'results' && <LessonWorks/>}
+      {section === 'results' && canShowResults && <LessonWorks/>}
     </Page>);
 }

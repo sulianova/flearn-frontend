@@ -169,9 +169,8 @@
     "navTubsPractice": "Задание",
     "navTubsResults": "Итоги",
     "navToLessons": "Все уроки",
-    "deadlineUploadText": "Дедлайн: ",
-    "deadlineUploadTime": " 23:59\u00A0по\u00A0Мск",
-    "deadlineResultsText": "Публикация итогов: ",
+    "uploadDeadline": "Дедлайн: %{date}\u00A0по\u00A0Мск",
+    "resultsDeadline": "Публикация итогов: %{date}",
     "uploadBtn": "Загрузить работу",
     "resultLinkTitle": "Результаты задания",
     "editTitle": "Редактировать...",
@@ -201,7 +200,10 @@
       "showMoreBtn": "показать больше",
       "showLessBtn": "свернуть"
     },
-    "fallback:lessonNotStartedYet": "Этот урок пока не начался. Он начнётся %{startDate}, будем вас ждать"
+    "fallback:lessonNotStartedYet": "Этот урок пока не начался. Он начнётся %{startDate}, будем вас ждать",
+    "fallback:noResults:beforeDeadline": "Дата публикации результатов %{resultsEndDate}. Приходите позже.",
+    "fallback:noResults:deadlineDay": "Результатов пока нет, но они должны появится сегодня.",
+    "fallback:noResults:pastDeadline": "Извиняемся за задержку результатов, мы их активно проверяем. Если задержка более дня, напишите, пожалуйста, в телеграм-чат курса."
   },
   "week": {
     "one": "неделя",

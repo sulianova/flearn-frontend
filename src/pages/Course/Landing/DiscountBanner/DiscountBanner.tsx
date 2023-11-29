@@ -38,7 +38,7 @@ function DiscountBanner(props: IProps) {
               </div>
             </div>
             <div className={classes.descriptionWrapper + ' s-text-24'}>
-              {t('description', { deadline: formatDate(discontDeadline, { timeZone: 'Europe/Moscow' }) })}
+              {t('description', { deadline: formatDate(discontDeadline, { timeZone: 'Europe/Moscow', wTime: true }) })}
             </div>
           </div>
           <div className={classes.timerWrapper}>

@@ -1960,9 +1960,9 @@ const lessonData16: ILessonDataDB = {
   title: 'Практика первой недели',
   type: 'Practice',
   week: 1,
-  startDate: '2024.01.08', //new Date('2023.07.12'),
-  endDate: '2024.01.14', //new Date('2023.07.22'),
-  resultsEndDate: '2024.01.17', //new Date('2023.07.25'),
+  startDate: '2024.01.07 21:00:00 GMT', // 2024.01.08 00:00 мск
+  endDate: '2024.01.14 20:59:00 GMT', // 2024.01.14 23:59 мск
+  resultsEndDate: '2024.01.16 21:00:00 GMT', // 2024.01.17 когда-то в течении дня
   content: [
     {
       type: 'text',
