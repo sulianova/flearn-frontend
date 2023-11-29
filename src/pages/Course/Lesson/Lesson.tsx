@@ -20,18 +20,17 @@ import useLessonFallback from './useLessonFallback';
 import type { ILessonState, IRootState } from 'types';
 import Fallback from 'ui/Fallback';
 import { i18n } from 'shared';
+import { userService } from 'services/user.service';
 
 export default connect(mapStateToProps)(Lesson);
 
 interface IConnectedProps {
   lessonState: ILessonState
-  authedUserId?: string
 }
 
 function mapStateToProps(state: IRootState): IConnectedProps {
   return {
     lessonState: state.lesson,
-    authedUserId: state.user?.user?.id,
   };
 }
 
@@ -40,11 +39,14 @@ interface IProps extends IConnectedProps {
 }
 
 function Lesson(props: IProps) {
-  const { lessonState, section, authedUserId } = props;
+  const { lessonState, section } = props;
   const now = new Date();
 
   const { courseId, lessonId } = useParams();
   const [scrollToUpload, setScrollToUpload] = useState<boolean>(false);
+
+  const authedUser = userService.useAuthedUser();
+  const authedUserId = authedUser?.id;
 
   useFetch<IFetchLessonPayload>(({
     actionCreator: fetchLesson,
@@ -57,11 +59,11 @@ function Lesson(props: IProps) {
   useInitHomework({ courseId, lessonId, userId: authedUserId, lesson: lessonState.data });
   const { homework, homeworkState } = useFetchHomework({ courseId, lessonId, userId: authedUserId });
 
-  const fallback = useLessonFallback(lessonState);
+  const fallback = useLessonFallback({ lessonState, authedUser });
   const homeworkFallback = useHomeworkFallback(homeworkState);
   const { canShowResults, fallBack: resultsFallback } = useCanShowResults({ courseId, lessonId, lesson: lessonState.data })
 
-  if (!lessonState.data /* || lessonState.data.startDate > now */) {
+  if (!lessonState.data || (authedUser?.role !== 'support' && lessonState.data.startDate > now)) {
     return fallback;
   }
 

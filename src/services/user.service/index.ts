@@ -3,10 +3,13 @@ import { BehaviorSubject, CompletionObserver, ErrorObserver, NextObserver, Subje
 import { dataService } from 'services/data.service';
 
 import type { TActionBS, TActionS } from './types';
+import useAuthedUser from './useAuthUser';
 
 export { type IUserData, type IUserDataDB } from './types';
 
 class UserService {
+  public useAuthedUser = useAuthedUser;
+
   public async getUserBS(props: {
     filter: { id?: string, ids?: string[] }
   }) {
@@ -77,3 +80,4 @@ class UserService {
 }
 
 export const userService = new UserService;
+export default UserService;

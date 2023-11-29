@@ -3,8 +3,16 @@ import Fallback from 'ui/Fallback';
 import { ECommonErrorTypes, type ILessonState } from 'types';
 import { i18n } from 'shared';
 import { formatDate } from 'utils';
+import { IUserData } from 'services/user.service';
 
-export default function useLessonFallback(lessonState: ILessonState) {
+interface IProps {
+  lessonState: ILessonState
+  authedUser: IUserData | null
+}
+
+export default function useLessonFallback(props: Readonly<IProps>) {
+  const { lessonState, authedUser } = props;
+
   if (lessonState.state) {
     if (lessonState.state.type === 'pending') {
       return <Fallback.Pending text='loading lessons...'/>;
@@ -30,7 +38,7 @@ export default function useLessonFallback(lessonState: ILessonState) {
     return <Fallback.Error/>;
   }
 
-  if (lessonState.data.startDate > new Date()) {
+  if (authedUser?.role !== 'support' && lessonState.data.startDate > new Date()) {
     const startDate = formatDate(lessonState.data.startDate, { timeZone: 'Europe/Moscow' });
     return <Fallback.Info>{i18n.t('courseLesson.fallback:lessonNotStartedYet', { startDate })}</Fallback.Info>;
   }

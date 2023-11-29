@@ -2,11 +2,14 @@ import { useEffect, useState } from 'react';
 import type { Subscription } from 'rxjs';
 
 import { formatI18nT } from 'shared';
-import { homeworkService } from 'services';
-import type { ILessonData } from 'types';
-import Fallback from 'ui/Fallback';
-import { format } from 'util';
 import { addDays, formatDate } from 'utils';
+
+import { homeworkService } from 'services';
+import { userService } from 'services/user.service';
+
+import Fallback from 'ui/Fallback';
+
+import type { ILessonData } from 'types';
 
 const t = formatI18nT('courseLesson');
 
@@ -19,8 +22,10 @@ interface IProps {
 export default function useCanShowResults(props: Readonly<IProps>) {
   const { lesson, courseId, lessonId } = props;
 
+  const authedUser = userService.useAuthedUser();
   const [sentForReviewHomeworksCount, setSentForReviewHomeworksCount] = useState<number | null>(null);
-  const canShowResults = lesson && lesson.resultsEndDate < new Date() && sentForReviewHomeworksCount === 0;
+  const canShowResults = lesson && lesson.resultsEndDate < new Date() && sentForReviewHomeworksCount === 0
+    || authedUser?.role === 'support';
 
   useEffect(() => {
     if (!courseId || !lessonId) {

@@ -2,10 +2,11 @@ import { Fragment, useEffect, useMemo } from 'react';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router';
 
+import { useFetch, useGuid } from 'hooks';
 import { formatI18nT } from 'shared';
 import { formatDate } from 'utils';
 
-import { useFetch, useGuid } from 'hooks';
+import { userService } from 'services/user.service';
 import store from 'store';
 import { updateState } from 'store/actions/redux';
 import { IFetchCoursePayload, IFetchLessonsPayload, fetchCourse, fetchLessons } from 'store/actions/sagas';
@@ -25,22 +26,23 @@ export default connect(mapStateToProps)(Lessons);
 interface IConnectedProps {
   courseState: ICourseState
   lessonsState: ILessonsState
-  authedUserId?: string
 }
 
 function mapStateToProps(state: IRootState): IConnectedProps {
   return {
     courseState: state.course,
     lessonsState: state.lessons,
-    authedUserId: state.user?.user?.id,
   };
 }
 
 const t = formatI18nT('courseLessons');
 
-function Lessons({ courseState, lessonsState, authedUserId }: IConnectedProps) {
+function Lessons({ courseState, lessonsState }: IConnectedProps) {
   const { courseId } = useParams();
   const [guid, refetch] = useGuid();
+
+  const authedUser = userService.useAuthedUser();
+  const authedUserId = authedUser?.id;
 
   useEffect(() => {
     refetch();
@@ -79,8 +81,12 @@ function Lessons({ courseState, lessonsState, authedUserId }: IConnectedProps) {
       return [];
     }
 
-    return lessons; //.filter(l => l.lesson.startDate < new Date());
-  }, [lessons]);
+    if (authedUser?.role === 'support') {
+      return lessons;
+    }
+
+    return lessons.filter(l => l.lesson.startDate < new Date());
+  }, [lessons, authedUser]);
 
   const groupes: IGroup[] = useMemo(() => {
     return [...filteredLessons

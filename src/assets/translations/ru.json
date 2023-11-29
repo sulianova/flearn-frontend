@@ -201,7 +201,7 @@
       "showLessBtn": "свернуть"
     },
     "fallback:lessonNotStartedYet": "Этот урок пока не начался. Он начнётся %{startDate}, будем вас ждать",
-    "fallback:noResults:beforeDeadline": "Результаты появятся в %{resultsEndDate}.",
+    "fallback:noResults:beforeDeadline": "Дата публикации результатов %{resultsEndDate}. Приходите позже.",
     "fallback:noResults:deadlineDay": "Результатов пока нет, но они должны появится сегодня.",
     "fallback:noResults:pastDeadline": "Извиняемся за задержку результатов, мы их активно проверяем. Если задержка более дня, напишите, пожалуйста, в телеграм-чат курса."
   },
