@@ -49,5 +49,7 @@ export function formatDate(date: Date, params: { timeZone?: TTimeZone, wWeekDay?
     wWeekDay && weekDay!,
     wTime ? (dateStr + ',') : dateStr,
     wTime && time!,
-  ].join(' ');
+  ]
+    .filter(Boolean)
+    .join(' ');
 }

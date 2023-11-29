@@ -44,8 +44,13 @@ export default function useCanShowResults(props: Readonly<IProps>) {
     lesson.resultsEndDate > new Date() ? 'beforeDeadline'
     : addDays(lesson.resultsEndDate, 1) > new Date() ? 'deadlineDay'
     : 'pastDeadline';
-  const fallBack = canShowResults || !fallBackType ? null
-    : (<Fallback.Info>{t(`fallback:noResults:${fallBackType}`)}</Fallback.Info>);
+  const fallBack = canShowResults || !fallBackType ? null : (
+    <Fallback.Info>
+      {t(`fallback:noResults:${fallBackType}`, {
+        resultsEndDate: formatDate(lesson!.resultsEndDate, { timeZone: 'Europe/Moscow', wWeekDay: true })
+      })}
+    </Fallback.Info>
+  );
 
   return { canShowResults, fallBack };
 }
