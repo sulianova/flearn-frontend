@@ -25,6 +25,7 @@ function renderItem(props: IArticleGalleryBlock['images'][number]) {
   return (
     <div className={classes.item}>
       <Img src={props.src} alt={props.alt}/>
+      {props.caption && <div>{props.caption}</div>}
     </div>
   );
 }
