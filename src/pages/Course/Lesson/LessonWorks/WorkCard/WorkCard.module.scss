@@ -13,6 +13,7 @@
   border-radius: set-calc(8);
   height: set-calc(320);
   padding: 0 set-calc(16);
+  pointer-events: none;
 
   svg {
     width: set-calc(46);

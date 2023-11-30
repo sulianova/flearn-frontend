@@ -17,32 +17,29 @@ import useFilter from '../useFilter';
 
 import classes from './LessonWorks.module.scss';
 
-import type { IHomeworkDataWPopulate, IRootState, THomeworkStateState } from 'types';
+import type { IHomeworkDataWPopulate, THomeworkStateState } from 'types';
+import { userService } from 'services/user.service';
+import NoOwnWorkPlaceholder from './WorkCard/NoOwnWorkPlaceholder';
 
-export default connect(mapStateToProps)(LessonWorks);
+export default LessonWorks;
 
 const cx = classNames.bind(classes);
 const t = formatI18nT('courseLesson.works');
 
-interface IProps {
-  authedUserId?: string
-}
-
-function mapStateToProps(state: IRootState): IProps {
-  return {
-    authedUserId: state.user?.user?.id,
-  };
-}
-
-function LessonWorks({ authedUserId }: IProps) {
+function LessonWorks() {
   const { courseId, lessonId } = useParams() as { courseId: string, lessonId: string };
   const { filter, patchFilter } = useFilter();
+  const authedUser = userService.useAuthedUser();
+  const authedUserId = authedUser?.id;
+
   const [source, setSource] = useState<'remote' | 'local'>('remote');
 
   const [homeworks, setHomeworks] = useState<IHomeworkDataWPopulate[] | undefined>(undefined);
   const [homeworksState, setHomeworksState] = useState<THomeworkStateState>({ type: 'idle' });
   const authedUserHomework = useMemo(() => homeworks?.find(h => h.homework.userId === authedUserId), [authedUserId, homeworks]);
   const otherStudentsHomeworks = useMemo(() => homeworks?.filter(h => h.homework.userId !== authedUserId), [authedUserId, homeworks]);
+
+  console.log({ authedUserHomework, homeworks});
 
   const filteredOtherStudentsHomeworks = useMemo(() => {
     if (!otherStudentsHomeworks) {
@@ -64,7 +61,7 @@ function LessonWorks({ authedUserId }: IProps) {
     setHomeworksState({ type: 'pending' });
     let subscription: Subscription;
     homeworkService.getHomeworkBS({
-      filter: { courseId, lessonId },
+      filter: { courseId, lessonId, state: 'REVIEWED' },
       populate: { user: true },
       reviewSource: source,
     }).then(bs => {
@@ -138,20 +135,22 @@ function LessonWorks({ authedUserId }: IProps) {
     );
   }
 
+  const noWorks = !otherStudentsHomeworks.length;
   return (
     <div className={classes._}>
       <div className={classes.wrapper}>
         <div className={classes.own}>
           <div className={classes.ownTitle + ' s-text-36'}>{t('ownTitle')}</div>
-            <div className={cx({ ownWork: true, ownWorkEmpty: !authedUserHomework })}>
-              {authedUserHomework ?
-                (<WorkCard homework={authedUserHomework}/>)
-                : (<div className='s-text-14'>{t('subTitle')}</div>)
-              }
-            </div>
+            <div className={classes.ownWork}>{
+              authedUserHomework
+                ? <WorkCard homework={authedUserHomework}/>
+                : <NoOwnWorkPlaceholder authedUser={authedUser}/>
+            }</div>
         </div>
           <div className={classes.list}>
-            <div className={classes.listTitle + ' s-text-36'}>{t('listTitle')}</div>
+            <div className={classes.listTitle + ' s-text-36'}>
+              {t(`listTitle:noWorks:${noWorks}`)}
+            </div>
             <div className={classes.listInner}>
               {renderWorkCards(filteredOtherStudentsHomeworks!)}
             </div>

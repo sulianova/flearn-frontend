@@ -36,20 +36,6 @@
   }
 }
 
-.ownWorkEmpty {
-  pointer-events: none;
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  justify-content: center;
-  padding: 0 set-calc(16);
-
-  color: $grey-inactive;
-  text-align: center;
-
-  background: $beige;
-}
-
 .ownSubtitle {
   margin-top: set-calc(16);
 

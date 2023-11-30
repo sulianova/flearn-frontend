@@ -32,14 +32,14 @@ function WorkCard({ homework }: IProps) {
           className={classes.preview}
           to={URLSections.Course.Lesson.Results.to({ courseId, lessonId, params: { userId: user?.id }})}
         >
-              <div className={classes.emptyPreview}>
+              {/* <div className={classes.emptyPreview}>
                 <Image/>
                 <div className={classes.emptyPreviewDescription + ' s-text-14'}>{t('emptyPreviewDescription')}</div>
-              </div>
-          {/* <Img
+              </div> */}
+          <Img
             src={coverImage?.src ?? ''}
             alt={coverImage?.alt ?? ''}
-          /> */}
+          />
           <div className={classes.overlay}/>
         </Link>
         <div className={classes.user}>

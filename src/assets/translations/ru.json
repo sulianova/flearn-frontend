@@ -197,7 +197,8 @@
     "works": {
       "ownTitle": "Моя работа",
       "emptyPreviewDescription": "Вы не загрузили работу до дедлайна",
-      "listTitle": "Работы других студентов",
+      "listTitle:noWorks:false": "Работы других студентов",
+      "listTitle:noWorks:true": "Нет работ других студентов",
       "showMoreBtn": "показать больше",
       "showLessBtn": "свернуть"
     },
