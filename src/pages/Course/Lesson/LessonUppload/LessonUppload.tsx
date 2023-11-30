@@ -16,38 +16,29 @@ import Upload from 'assets/images/Svg/Upload';
 
 import classes from './LessonUppload.module.scss';
 
-import type { IUserData } from 'services/user.service';
+import { userService, type IUserData } from 'services/user.service';
 import type { TAction, TImageDataWState, TState } from './types';
 import type { IHomeworkData, IHomeworkDataWPopulate, IHomeworkImageData, IRootState } from 'types';
 import { errorService } from './error.service';
 
-export default connect(mapStateToProps)(LessonUppload);
+export default LessonUppload;
 
 const t = formatI18nT('courseLesson.upload');
 const cx = classNames.bind(classes);
 const MAX_IMAGE_SIZE_B = 3 * 1_000_000;
 
-interface IConnectedProps {
-  user: IUserData
-}
-
-function mapStateToProps(state: IRootState): IConnectedProps {
-  return {
-    user: state.user.user!,
-  }
-}
-
-interface IProps extends IConnectedProps {
+interface IProps {
   homeworkWPopulate: IHomeworkDataWPopulate
   scroll: boolean
   onScrollEnd: () => void
 }
 
-function LessonUppload({ homeworkWPopulate, user, scroll, onScrollEnd }: IProps) {
+function LessonUppload({ homeworkWPopulate, scroll, onScrollEnd }: IProps) {
   const { courseId, lessonId } = useParams() as { courseId: string, lessonId: string };
   const [state, dispatch] = useReducer(reducer, homeworkWPopulate.homework, initState);
   const errors = errorService.useErrors();
   const ref = useRef<HTMLDivElement>(null);
+  const authedUser = userService.useAuthedUser();
 
   useEffect(() => {
     if (scroll && ref.current) {
@@ -75,6 +66,10 @@ function LessonUppload({ homeworkWPopulate, user, scroll, onScrollEnd }: IProps)
     return homeworkService.patchHomework(id, patch)
       .catch(err => errorService.addError(String(err)));
   }, 300), []);
+
+  if (!authedUser) {
+    return null;
+  }
 
   return (
       <div className={classes._} ref={ref}>
@@ -154,7 +149,7 @@ function LessonUppload({ homeworkWPopulate, user, scroll, onScrollEnd }: IProps)
         imageDatas.forEach(({ imageData }) => dispatch({ type: 'START_ADD_IMAGE', payload: { imageData }}));
         const images = await Promise.all(imageDatas.map(handleUploadImage));
         const newImages = images.filter(Boolean) as IHomeworkImageData[];
-        await homeworkService.getHomework({ courseId, lessonId, userId: user.id })
+        await homeworkService.getHomework({ courseId, lessonId, userId: authedUser!.id })
           .then(hw => homeworkService.patchHomework(state.id, { images: [...newImages, ...hw.images] }))
       }
     } catch (err) {
@@ -181,9 +176,9 @@ function LessonUppload({ homeworkWPopulate, user, scroll, onScrollEnd }: IProps)
         throw new Error('Image size is bigger than 3Mb');
       }
 
-      await homeworkService.uploadImage({ courseId, lessonId, userId: user.id, imageId: imageData.id, file });
+      await homeworkService.uploadImage({ courseId, lessonId, userId: authedUser!.id, imageId: imageData.id, file });
 
-      const imageSrc = await homeworkService.getImageURL({ courseId, lessonId, userId: user.id, imageId: imageData.id });
+      const imageSrc = await homeworkService.getImageURL({ courseId, lessonId, userId: authedUser!.id, imageId: imageData.id });
 
       dispatch({ type: 'CHANGE_IMAGE', payload: {
         imageDataWState: {
@@ -219,7 +214,7 @@ function LessonUppload({ homeworkWPopulate, user, scroll, onScrollEnd }: IProps)
         }
       }});
 
-      const hw = await homeworkService.getHomework({ courseId, lessonId, userId: user.id });
+      const hw = await homeworkService.getHomework({ courseId, lessonId, userId: authedUser!.id });
       const imageIndex = hw.images.findIndex(i => i.id === imageId);
 
       if (imageIndex !== -1) {
@@ -228,12 +223,12 @@ function LessonUppload({ homeworkWPopulate, user, scroll, onScrollEnd }: IProps)
         await homeworkService.patchHomework(state.id, { images: hw.images });
       }
 
-      const imageExists = await homeworkService.getImageURL({ courseId, lessonId, userId: user.id, imageId })
+      const imageExists = await homeworkService.getImageURL({ courseId, lessonId, userId: authedUser!.id, imageId })
         .then(() => true)
         .catch(() => false);
 
       if (imageExists) {
-        await homeworkService.deleteImage({ courseId, lessonId, userId: user.id, imageId });
+        await homeworkService.deleteImage({ courseId, lessonId, userId: authedUser!.id, imageId });
       }
 
       dispatch({ type: 'END_DELETE_IMAGE', payload: props });

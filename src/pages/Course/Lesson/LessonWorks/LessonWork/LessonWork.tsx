@@ -19,7 +19,11 @@ function LessonWork(props: IProps) {
   return (
     <div className={classes._}>
       <Article.Title data={{ type: 'title', title: t('title') }}/>
-      {homework.description &&  <Article.Text data={{ type: 'text', text: homework.description }}/>}
+      {homework.description &&  <Article.Text data={{ type: 'text', text: {
+        tag: 'span',
+        props: { className: classes.description },
+        content: homework.description,
+      } }}/>}
       {homework.externalHomeworkLink && <Article.Text data={{type: 'text', text: homework.externalHomeworkLink }}/>}
       {homework.images && <Article.Gallery data={homework.images}/>}
     </div>
