@@ -39,7 +39,7 @@
       },
       "socialVk": {
         "title": "Vk",
-        "link": "https://vk.com/sofiulianova"
+        "link": "https://vk.com/sofiulyanova_art"
       },
       "socialInstagram": {
         "title": "Instagram",
@@ -58,7 +58,7 @@
       "creatorDesign": {
         "title": "Дизайн и разработка",
         "name": "Sofi Ulyanova",
-        "link": "https://sofiulyanova.com"
+        "link": "https://www.behance.net/sofiulianova"
       },
       "creatorFrontend": {
         "title": "Разработка",
@@ -185,7 +185,8 @@
       "contentTextareaLabel": "Описание",
       "contentTextareaPlaceholder": "Описание работы",
       "filesEmpty1": "Загрузите файлы",
-      "filesEmpty2": "Картинка должна весить меньше 3 мб"
+      "filesEmpty2": "Картинка должна весить меньше 3 мб",
+      "errorDescription": "Картинка не загрузилась, попробуйте снова"
     },
     "homework": {
       "title": "Описание"
@@ -195,8 +196,9 @@
     },
     "works": {
       "ownTitle": "Моя работа",
-      "subTitle": "Вы не загрузили работу до дедлайна",
-      "listTitle": "Работы других студентов",
+      "emptyPreviewDescription": "Вы не загрузили работу до дедлайна",
+      "listTitle:noWorks:false": "Работы других студентов",
+      "listTitle:noWorks:true": "Нет работ других студентов",
       "showMoreBtn": "показать больше",
       "showLessBtn": "свернуть"
     },

@@ -1,5 +1,32 @@
 @import 'styles/index';
 
+.defaultPreview {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  margin-bottom: set-calc(8);
+  border-radius: set-calc(8);
+  background-color: $beige-dark;
+
+  height: set-calc(220);
+  padding: 0 set-calc(32);
+
+  svg {
+    width: set-calc(46);
+    height: set-calc(58);
+    fill: $grey;
+  }
+}
+
+.errorDescription {
+  padding-top: set-calc(16);
+  text-align: center;
+  color: $grey;
+}
+
 .preview {
   display: block;
   width: 100%;

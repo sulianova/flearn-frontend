@@ -4,12 +4,15 @@ import { useParams } from 'react-router';
 import UserImage from 'assets/images/Svg/UserImage';
 import Img from 'ui/Img/Img';
 import Link from 'ui/Link/Link';
+import Image from 'assets/images/Svg/Image';
+import { formatI18nT } from 'shared';
 
 import classes from './WorkCard.module.scss';
 
 import { URLSections, type IHomeworkDataWPopulate, IHomeworkImageData } from 'types';
 
 const cx = classNames.bind(classes);
+const t = formatI18nT('courseLesson.works');
 
 export default WorkCard;
 

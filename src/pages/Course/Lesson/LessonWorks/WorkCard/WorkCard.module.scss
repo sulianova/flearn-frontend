@@ -5,12 +5,35 @@
   will-change: transform;
 }
 
+.emptyPreview {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: set-calc(8);
+  height: set-calc(320);
+  padding: 0 set-calc(16);
+  pointer-events: none;
+
+  svg {
+    width: set-calc(46);
+    height: set-calc(58);
+    fill: $text-grey;
+  }
+}
+
+.emptyPreviewDescription {
+  padding-top: set-calc(16);
+  text-align: center;
+  color: $text-grey;
+}
+
 .preview {
   position: relative;
   cursor: pointer;
 
   height: set-calc(320);
-  margin-bottom: set-calc(8);
+  margin-bottom: set-calc(10);
   overflow: hidden;
 
   background: $beige;
@@ -31,7 +54,7 @@
   display: block;
   width: 100%;
   height: 100%;
-  scale: 1.1;
+  // scale: 1.1;
   object-fit: cover;
   object-position: center;
 }

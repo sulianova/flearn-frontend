@@ -53,7 +53,7 @@ export interface IArticleImageBlock extends IArticleBlock {
 
 export interface IArticleGalleryBlock extends IArticleBlock {
   type: 'gallery'
-  images: Array<{ src: string, alt: string }>
+  images: Array<{ src: string, alt: string, caption?: string }>
 }
 
 export type TArticleBlocks =
