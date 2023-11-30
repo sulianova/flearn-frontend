@@ -178,7 +178,7 @@
       "fieldsTitle": "Результаты задания",
       "filesTitle": "Файлы",
       "filesBtn": "Добавить",
-      "submitBtn": "Отправить на проверку",
+      "submitBtn": "Отправить на проверку",
       "submitDescription": "до дедлайна, чтобы получить обратную связь",
       "addCaption": "Добавить описание",
       "contentInputLabel": "Ссылка",
@@ -198,7 +198,7 @@
       "ownTitle": "Моя работа",
       "emptyPreviewDescription": "Вы не загрузили работу до дедлайна",
       "listTitle:noWorks:false": "Работы других студентов",
-      "listTitle:noWorks:true": "Нет работ других студентов",
+      "listTitle:noWorks:true": "Другие студенты не загрузили свои работы",
       "showMoreBtn": "показать больше",
       "showLessBtn": "свернуть"
     },

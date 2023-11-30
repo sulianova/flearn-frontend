@@ -74,6 +74,7 @@ function LessonUppload({ homeworkWPopulate, scroll, onScrollEnd }: IProps) {
   return (
       <div className={classes._} ref={ref}>
         <div className={classes.nav}>
+          {errors.map(error => (<div className={classes.error} key={error.id}>{error.error}</div>))}
           <div className={classes.submit}>
             <button
               onClick={() => handleSubmit(state)}
@@ -88,7 +89,6 @@ function LessonUppload({ homeworkWPopulate, scroll, onScrollEnd }: IProps) {
             </button>
           </div>
         </div>
-        {errors.map(error => (<div className={classes.error} key={error.id}>{error.error}</div>))}
         <div className={classes.inner}>
           <div className={classes.fields}>
             <div className={classes.fieldsTitle + ' s-text-36'}>{t('fieldsTitle')}</div>
@@ -173,7 +173,7 @@ function LessonUppload({ homeworkWPopulate, scroll, onScrollEnd }: IProps) {
     const { file, imageData } = props;
     try {
       if (file.size > MAX_IMAGE_SIZE_B) {
-        throw new Error('Image size is bigger than 3Mb');
+        throw new Error('Картинка должна быть меньше 3Mb');
       }
 
       await homeworkService.uploadImage({ courseId, lessonId, userId: authedUser!.id, imageId: imageData.id, file });

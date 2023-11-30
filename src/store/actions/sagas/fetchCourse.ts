@@ -76,10 +76,10 @@ function getData(id: string) {
 }
 
 const newCourseDB: ICourseDataDB = {
-  id: 'how-to-draw-free', // how-to-draw
+  id: 'how-to-draw', // how-to-draw-free
   title: 'Как рисовать',
-  startDate: '2023.12.03 21:00:00 GMT',
-  endDate: '2023.12.23 21:00:00 GMT',
+  startDate: '2024.01.08 21:00:00 GMT', // '2023.12.03 21:00:00 GMT'
+  endDate: '2024.01.28 21:00:00 GMT', // '2023.12.23 21:00:00 GMT'
   durationWeeks: 3,
   homeworksNumber: 3,
   videosNumber: 3,
@@ -87,10 +87,10 @@ const newCourseDB: ICourseDataDB = {
   introImageId: 'introImage.jpg',
   introDescription: 'Практический мини-курс для тех, кто хочет рисовать убедительные иллюстрации, не копируя фотографии.',
   introImageAlt: 'introImage',
-  discontAmount: 100,
-  discontDeadline: '2023.11.26 20:59:00 GMT',
+  discontAmount: 50,
+  discontDeadline: '2023.12.10 20:59:00 GMT',
   creditWas: 12000,
-  creditPrice: 0,
+  creditPrice: 6000,
   description: [
     {
       answer: 'На курсе будем учиться работать базовыми инструментами: линией и пятном. Разберемся, чем они отличаются, как их использовать. Сделаем упражнения, чтобы разрисоваться.',

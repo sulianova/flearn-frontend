@@ -1,29 +1,25 @@
 @import 'styles/index';
 
 .list {
-  grid-column: span 3;
+  grid-column: span 4;
   display: flex;
   flex-wrap: wrap;
   gap: set-calc(8);
   padding-bottom: set-calc(72);
+  padding-top: set-calc(36);
 
   @include set-media(md) {
     @include is-grid-3;
     gap: set-calc(8);
+    padding-top: set-calc(16);
     padding-bottom: set-calc(56);
   }
 }
 
 .item {
   position: relative;
-  display: block;
-
-  border-radius: 0;
-  // overflow: hidden;
-  border-radius: set-calc(20);
-  box-shadow: 0 set-calc(4) set-calc(8) rgb(0 0 0 / 10%);
-
-  height: set-calc(350);
+  display: flex;
+  flex-direction: column;
 
   @include set-media(md) {
     width: 100%;
@@ -34,9 +30,16 @@
 .item img {
   position: relative;
   display: block;
+  box-shadow: 0 set-calc(4) set-calc(8) rgb(0 0 0 / 10%);
+  border-radius: set-calc(20);
 
   width: 100%;
-  height: 100%;
-
+  height: set-calc(var(--gallery-height, 350));
   object-fit: contain;
+}
+
+.itemCaption {
+  @include s-text-16;
+
+  margin: set-calc(8) 0 set-calc(16);
 }

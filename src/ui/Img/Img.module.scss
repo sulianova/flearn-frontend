@@ -5,9 +5,8 @@
 }
 
 .Placeholder {
-  background-color: lightgray;
-
-  min-height: 200px;
+  background-color: $beige-dark;
+  min-height: set-calc(200);
 }
 
 @media (min-width: map-get($breakpoints, md)) {
