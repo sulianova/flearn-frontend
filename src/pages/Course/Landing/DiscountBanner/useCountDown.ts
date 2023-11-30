@@ -1,6 +1,5 @@
-
 import { useEffect, useState } from 'react';
-import { BehaviorSubject, fromEvent, interval, merge } from 'rxjs';
+import { interval } from 'rxjs';
 
 interface IProps {
   deadline: Date

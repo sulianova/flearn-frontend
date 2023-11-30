@@ -1,9 +1,12 @@
+import { Fragment, useEffect, useMemo } from 'react';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router';
 
 import { useFetch, useGuid } from 'hooks';
-import { Fragment, useEffect, useMemo } from 'react';
-import { formatI18nT, i18n } from 'shared';
+import { formatI18nT } from 'shared';
+import { formatDate } from 'utils';
+
+import { userService } from 'services/user.service';
 import store from 'store';
 import { updateState } from 'store/actions/redux';
 import { IFetchCoursePayload, IFetchLessonsPayload, fetchCourse, fetchLessons } from 'store/actions/sagas';
@@ -15,29 +18,31 @@ import Page from 'ui/Page/Page';
 import classesHeader from './LessonsHeader.module.scss';
 import classesList from './LessonsList.module.scss';
 
-import { URLSections, type ICourseState, type ILessonsState, type IRootState, ILessonsData } from 'types';
+import { URLSections } from 'types';
+import type { ICourseState, ILessonsState, IRootState, ILessonsData } from 'types';
 
 export default connect(mapStateToProps)(Lessons);
 
 interface IConnectedProps {
   courseState: ICourseState
   lessonsState: ILessonsState
-  authedUserId?: string
 }
 
 function mapStateToProps(state: IRootState): IConnectedProps {
   return {
     courseState: state.course,
     lessonsState: state.lessons,
-    authedUserId: state.user?.user?.id,
   };
 }
 
 const t = formatI18nT('courseLessons');
 
-function Lessons({ courseState, lessonsState, authedUserId }: IConnectedProps) {
+function Lessons({ courseState, lessonsState }: IConnectedProps) {
   const { courseId } = useParams();
   const [guid, refetch] = useGuid();
+
+  const authedUser = userService.useAuthedUser();
+  const authedUserId = authedUser?.id;
 
   useEffect(() => {
     refetch();
@@ -71,13 +76,20 @@ function Lessons({ courseState, lessonsState, authedUserId }: IConnectedProps) {
   }, []);
 
   const lessons = lessonsState?.lessons;
-
-  const groupes: IGroup[] = useMemo(() => {
+  const filteredLessons = useMemo(() => {
     if (!lessons) {
       return [];
     }
 
-    return [...lessons
+    if (authedUser?.role === 'support') {
+      return lessons;
+    }
+
+    return lessons.filter(l => l.lesson.startDate < new Date());
+  }, [lessons, authedUser]);
+
+  const groupes: IGroup[] = useMemo(() => {
+    return [...filteredLessons
       .reduce((acc, lessonData) => {
         if (!acc.has(lessonData.lesson.week)) {
           acc.set(lessonData.lesson.week, {
@@ -97,10 +109,10 @@ function Lessons({ courseState, lessonsState, authedUserId }: IConnectedProps) {
       .values()]
       .sort((a, b) => a.week - b.week);
 
-  }, [lessons]);
+  }, [filteredLessons]);
 
-  const fallback = useFallback({ courseState, lessonsState });
-  if (!courseState.data || !lessonsState.lessons || !lessonsState.lessons.length) {
+  const fallback = useFallback({ courseState, lessonsState, filteredLessons });
+  if (!courseState.data || !lessonsState.lessons || !lessonsState.lessons.length || !filteredLessons.length) {
     return fallback;
   }
 
@@ -182,24 +194,9 @@ function renderItem(lesson: ILessonsData) {
   );
 }
 
-function getLinks(props: ILessonsData) {
-  const { courseId, id } = props.lesson;
-
-  const lectureLink = props.lesson.type === 'Theory' ? URLSections.Course.Lesson.to({ courseId, lessonId: id }) : null;
-  const homeworkLink = props.lesson.type === 'Practice' ? URLSections.Course.Lesson.to({ courseId, lessonId: id }) : null;
-
-  return { lectureLink, homeworkLink };
-}
-
 function formatWeekDate(startDate: Date, endDate: Date) {
-  const startDateStr = startDate.toLocaleDateString(
-    ['ru-RU'],
-    { month: 'long', day: 'numeric' }
-  );
-  const endDateStr = endDate.toLocaleDateString(
-    ['ru-RU'],
-    { month: 'long', day: 'numeric' }
-  );
+  const startDateStr = formatDate(startDate, { timeZone: 'Europe/Moscow' });
+  const endDateStr = formatDate(endDate, { timeZone: 'Europe/Moscow' });
 
   return `${startDateStr} – ${endDateStr}`;
 }

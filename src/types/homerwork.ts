@@ -30,7 +30,6 @@ export interface IHomeworkDataDB {
 export type THomeworkState =
   | 'DRAFT'
   | 'SENT_FOR_REVIEW'
-  | 'IN_REVIEW'
   | 'REVIEWED'
 
 export interface IHomeworkImageData {

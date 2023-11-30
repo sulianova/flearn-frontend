@@ -76,10 +76,10 @@ function getData(id: string) {
 }
 
 const newCourseDB: ICourseDataDB = {
-  id: 'how-to-draw-free',
+  id: 'how-to-draw-free', // how-to-draw
   title: 'Как рисовать',
-  startDate: '2023.12.04',
-  endDate: '2023.12.24',
+  startDate: '2023.12.03 21:00:00 GMT',
+  endDate: '2023.12.23 21:00:00 GMT',
   durationWeeks: 3,
   homeworksNumber: 3,
   videosNumber: 3,
@@ -88,7 +88,7 @@ const newCourseDB: ICourseDataDB = {
   introDescription: 'Практический мини-курс для тех, кто хочет рисовать убедительные иллюстрации, не копируя фотографии.',
   introImageAlt: 'introImage',
   discontAmount: 100,
-  discontDeadline: '2023.11.27',
+  discontDeadline: '2023.11.26 20:59:00 GMT',
   creditWas: 12000,
   creditPrice: 0,
   description: [

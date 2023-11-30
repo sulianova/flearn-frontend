@@ -4,6 +4,8 @@ import { Subscription } from 'rxjs';
 
 import { IUserData, userService } from 'services/user.service';
 import { formatI18nT } from 'shared';
+
+import useCanShowResults from '../useCanShowResults';
 import useFilter from '../useFilter';
 
 import Link from 'ui/Link/Link';
@@ -25,6 +27,7 @@ function LessonHeader(props: IProps) {
   const { lesson, practice } = props;
   const { courseId, lessonId } = useParams() as { courseId: string, lessonId: string };
   const { filter } = useFilter();
+  const { canShowResults } = useCanShowResults({ lesson, lessonId, courseId });
 
   const { userId } = filter;
   const [user, setUser] = useState<IUserData | null>(null);
@@ -36,7 +39,7 @@ function LessonHeader(props: IProps) {
 
     let subscription: Subscription;
     userService
-      .getHomeworkBS({ filter: { id: userId }})
+      .getUserBS({ filter: { id: userId }})
       .then(bs => {
         subscription = bs.subscribe(action => {
           if (action && !(action instanceof Error) && action.users.length) {
@@ -55,7 +58,7 @@ function LessonHeader(props: IProps) {
         <span className='nav-link-arrow'>&rarr;</span>
       </Link>
       <h1 className={classes.title + ' s-text-56'}>{lesson.title}</h1>
-      {props.lesson.type === 'Practice' && (
+      {props.lesson.type === 'Practice' && canShowResults && (
         <div className={classes.navTubs}>
           <Link
             className={classes.type + ' nav-link s-text-18' + (practice === 'task' ? ' isActive' : '')}

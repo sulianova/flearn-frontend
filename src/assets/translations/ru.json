@@ -11,14 +11,6 @@
   },
   "logo": "flearn",
   "logoLong": "Freedom to Learn the Arts",
-  "discountBanner": {
-    "discount": "скидка",
-    "description": "Успейте записаться\nсо скидкой\nдо %{deadline}, 23:59 по Мск",
-    "day": "д",
-    "hour": "ч",
-    "minute": "м",
-    "second": "с"
-  },
   "header": {
     "my": "Moe обучение",
     "freeZone": "Бесплатно",
@@ -105,6 +97,14 @@
       "description": {
         "title": "Курс подойдeт тем, кто"
       },
+      "discountBanner": {
+        "discount": "скидка",
+        "description": "Успейте записаться\nсо скидкой\nдо %{deadline} по Мск",
+        "day": "д",
+        "hour": "ч",
+        "minute": "м",
+        "second": "с"
+      },
       "explain": {
         "headerTitle": "Любой может научиться иллюстрации",
         "headerDesc": "Чтобы рисовать, необязательно иметь релевантный опыт или творческие способности.",
@@ -162,15 +162,15 @@
     "lecture": "Лекция",
     "homework": "Задание",
     "webinar": "Вебинар",
-    "results": "Итоги"
+    "results": "Итоги",
+    "courseNotStartedYet": "Курс пока не начался. Первый урок откроется {{minStartDate}}"
   },
   "courseLesson": {
     "navTubsPractice": "Задание",
     "navTubsResults": "Итоги",
     "navToLessons": "Все уроки",
-    "deadlineUploadText": "Дедлайн: ",
-    "deadlineUploadTime": " 23:59\u00A0по\u00A0Мск",
-    "deadlineResultsText": "Публикация итогов: ",
+    "uploadDeadline": "Дедлайн: %{date}\u00A0по\u00A0Мск",
+    "resultsDeadline": "Публикация итогов: %{date}",
     "uploadBtn": "Загрузить работу",
     "resultLinkTitle": "Результаты задания",
     "editTitle": "Редактировать...",
@@ -200,7 +200,11 @@
       "listTitle": "Работы других студентов",
       "showMoreBtn": "показать больше",
       "showLessBtn": "свернуть"
-    }
+    },
+    "fallback:lessonNotStartedYet": "Этот урок пока не начался. Он начнётся %{startDate}, будем вас ждать",
+    "fallback:noResults:beforeDeadline": "Дата публикации результатов %{resultsEndDate}. Приходите позже.",
+    "fallback:noResults:deadlineDay": "Результатов пока нет, но они должны появится сегодня.",
+    "fallback:noResults:pastDeadline": "Извиняемся за задержку результатов, мы их активно проверяем. Если задержка более дня, напишите, пожалуйста, в телеграм-чат курса."
   },
   "week": {
     "one": "неделя",

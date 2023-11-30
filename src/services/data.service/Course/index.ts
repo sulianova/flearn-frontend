@@ -25,6 +25,9 @@ class Course {
     if (filter.userId) {
       const filteredAccess = await firebaseService.getDocs(ECollections.Access, [{ param: `users.${filter.userId}`, value: true }]);
       usersCoursesIds = filteredAccess.map(a => a.id);
+      if (usersCoursesIds.length === 0) {
+        return [];
+      }
     }
     const queryConstraints = [
       (filter.ids || usersCoursesIds) && { param: 'id', value: [...filter.ids ?? [], ...usersCoursesIds ?? []], operator: 'in' },

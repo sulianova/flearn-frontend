@@ -11,6 +11,7 @@ import classes from './LessonContent.module.scss';
 import { URLSections } from 'types';
 import type { IHomeworkDataWPopulate, ILessonContent, ILessonData } from 'types';
 import { homeworkService } from 'services';
+import { formatDate } from 'utils';
 
 export default LessonContent;
 
@@ -57,13 +58,13 @@ function Uppload(props: IUpploadProps) {
     <Fragment>
       <div className={classes.uploadDeadline}>
         <p className='s-text-24'>
-          {t('deadlineUploadText')} {getWeekDay(endDate)} {formatLessonDate(endDate)} {t('deadlineUploadTime')}
+          {t('uploadDeadline', { date: formatDate(endDate, { timeZone: 'Europe/Moscow', wWeekDay: true, wTime: true }) })}
         </p>
         <p className='s-text-24'>
-          {t('deadlineResultsText')} {getWeekDay(resultsEndDate)} {formatLessonResultsDate(resultsEndDate)}
+          {t('resultsDeadline', { date: formatDate(resultsEndDate, { timeZone: 'Europe/Moscow', wWeekDay: true }) })}
         </p>
       </div>
-      {homework && homework.homework.state === 'SENT_FOR_REVIEW' && (
+      {homework && endDate > new Date() && homework.homework.state === 'SENT_FOR_REVIEW' && (
         <div className={classes.resultLinkWrapper}>
           <h3 className={classes.resultLinkTitle + ' s-text-28'}>{t('resultLinkTitle')}</h3>
           <div className={classes.resultLinkGroup}>
@@ -94,25 +95,4 @@ function Uppload(props: IUpploadProps) {
       )} */}
     </Fragment>
   );
-}
-
-function getWeekDay(date: Date) {
-  const weekday = ['воскресенье','понедельник','вторник','среда','четверг','пятница','суббота'];
-  return weekday[date.getDay()];
-}
-
-function formatLessonDate(date: Date) {
-  const dateStr = date.toLocaleDateString(
-    ['ru-RU'],
-    { month: 'long', day: 'numeric' }
-  );
-  return `${dateStr} 2024, `;
-}
-
-function formatLessonResultsDate(date: Date) {
-  const dateStr = date.toLocaleDateString(
-    ['ru-RU'],
-    { month: 'long', day: 'numeric' }
-  );
-  return `${dateStr}`;
 }
