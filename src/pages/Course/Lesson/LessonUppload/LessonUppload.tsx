@@ -125,18 +125,6 @@ function LessonUppload({ homeworkWPopulate, user, scroll, onScrollEnd }: IProps)
                 <div className='s-text18'>{t('filesEmpty1')}</div>
                 <div className='s-text-14'>{t('filesEmpty2')}</div>
               </label>
-              <div
-                className={classes.file}
-              >
-                <File
-                  courseId={state.courseId}
-                  lessonId={state.lessonId}
-                  userId={state.userId}
-                  imageDataWState={{ loadingState: { type: 'error', error: 'failed' }, imageData: { id: '', src: '', alt: '', originalName: '', caption: '' } }}
-                  onCaptionError={onCaptionError}
-                  handleDeleteImage={handleDeleteImage}
-                />
-              </div>
               {state.images.map(imageDataWState => (
                 <div
                   key={imageDataWState.imageData.id}

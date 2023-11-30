@@ -46,20 +46,24 @@ function File(props: IProps) {
           </button>
         </div>
       </div>
-      <div className={classes.defaultPreview}>
-        <Image/>
-        <div className={classes.errorDescription + ' s-text-14'}>{t('errorDescription')}</div>
-      </div>
-      <Img className={classes.preview} src={imageData.src} alt={imageData.alt} />
-      <State originalName={imageData.originalName} loadingState={loadingState} />
-      <ImageCaption
-        courseId={props.courseId}
-        lessonId={props.lessonId}
-        userId={props.userId}
-        imageData={props.imageDataWState.imageData}
-        loadingState={loadingState}
-        onCaptionError={props.onCaptionError}
-      />
+      {loadingState.type !== 'error' ? (
+          <Img className={classes.preview} src={imageData.src} alt={imageData.alt} />
+        ) : (
+          <div className={classes.defaultPreview}>
+            <Image/>
+            <div className={classes.errorDescription + ' s-text-14'}>{t('errorDescription')}</div>
+          </div>
+        )
+      }
+        <State originalName={imageData.originalName} loadingState={loadingState} />
+        <ImageCaption
+          courseId={props.courseId}
+          lessonId={props.lessonId}
+          userId={props.userId}
+          imageData={props.imageDataWState.imageData}
+          loadingState={loadingState}
+          onCaptionError={props.onCaptionError}
+        />
     </>
   );
 }
