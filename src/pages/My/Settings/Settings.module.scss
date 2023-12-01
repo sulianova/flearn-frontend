@@ -26,9 +26,24 @@
   padding: 0;
 }
 
+.blockImgUppload {
+  grid-column: 4 / 5;
+  margin-top: set-calc(8);
+
+  display: flex;
+  justify-content: end;
+
+  @include set-media(md) {
+    margin-top: set-calc(32);
+    margin-bottom: set-calc(16);
+    justify-content: start;
+  }
+}
+
 .blockForm {
   grid-column: 3 / 5;
-  padding-top: set-calc(56);
+  // padding-top: set-calc(56);
+  padding-top: set-calc(32);
 
   @include set-media(md) {
     padding-top: set-calc(32);

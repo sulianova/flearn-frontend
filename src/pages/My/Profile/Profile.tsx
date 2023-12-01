@@ -83,14 +83,16 @@ function renderCourses(courses: ICourseData[]) {
   return courses.map(course => (
     <div className={classesCourseCard.item} key={course.id}>
       <div className={classesCourseCard.info}>
-        <Link
-          className={classesCourseCard.titleLink + ' s-hoverable'}
-          to={URLSections.Course.Lessons.to({ courseId: course.id })}
-          block
-        >
-          <div className={classesCourseCard.title}>{course.title}</div>
+        <div className={classesCourseCard.titleLink}>
+          <Link
+            className={classesCourseCard.title + ' s-hoverable'}
+            to={URLSections.Course.Lessons.to({ courseId: course.id })}
+            block
+          >
+            {course.title}
+          </Link>
           <div className={classesCourseCard.date + ' s-text-24'}>{formatEndDate(course.endDate)}</div>
-        </Link>
+        </div>
         <div className={classesCourseCard.cover}>
           <Img
             src={course.introImageSrc}

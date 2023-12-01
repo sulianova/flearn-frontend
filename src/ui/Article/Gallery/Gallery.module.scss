@@ -36,6 +36,10 @@
   width: 100%;
   height: set-calc(var(--gallery-height, 350));
   object-fit: contain;
+
+  @include set-media(md) {
+    height: 100%;
+  }
 }
 
 .itemCaption {
