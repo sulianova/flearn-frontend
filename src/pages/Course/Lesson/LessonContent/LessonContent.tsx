@@ -24,6 +24,7 @@ interface IProps {
   data: ILessonData
   homework?: IHomeworkDataWPopulate
   scrollToUpload: () => void
+  canShowResults: boolean
 }
 
 function LessonContent(props: IProps) {
@@ -37,6 +38,7 @@ function LessonContent(props: IProps) {
           resultsEndDate={props.data.resultsEndDate}
           homework={props.homework}
           scrollToUpload={props.scrollToUpload}
+          canShowResults={props.canShowResults}
         />}
       <Article blocks={props.blocks}/>
     </div>
@@ -50,6 +52,7 @@ interface IUpploadProps {
   resultsEndDate: Date
   homework?: IHomeworkDataWPopulate
   scrollToUpload: () => void
+  canShowResults: boolean
 }
 
 function Uppload(props: IUpploadProps) {
@@ -64,27 +67,29 @@ function Uppload(props: IUpploadProps) {
           {t('resultsDeadline', { date: formatDate(resultsEndDate, { timeZone: 'Europe/Moscow', wWeekDay: true }) })}
         </p>
       </div>
-      {homework && endDate > new Date() && homework.homework.state === 'SENT_FOR_REVIEW' && (
-        <div className={classes.resultLinkWrapper}>
-          <h3 className={classes.resultLinkTitle + ' s-text-28'}>{t('resultLinkTitle')}</h3>
-          <div className={classes.resultLinkGroup}>
+      {homework && homework.homework.state !== 'DRAFT' && (!props.canShowResults || homework.populate?.user?.role === 'support') && (
+        <div className={classes.myWorkLinkWrapper}>
+          <h3 className={classes.myWorkLinkTitle + ' s-text-28'}>{t('myWorkLinkTitle')}</h3>
+          <div className={classes.myWorkLinkGroup}>
             <Link
-              className={classes.resultLink + ' s-text-18 key-link'}
-              to={URLSections.Course.Lesson.Results.to({ courseId, lessonId, params: { userId: homework.populate?.user?.id } })}
+              className={classes.myWorkLink + ' s-text-18 key-link'}
+              to={URLSections.Course.Lesson.MyWork.to({ courseId, lessonId })}
             >
               {homework.populate?.user?.displayName}
             </Link>
-            <button
-              className={classes.edit}
-              onClick={() =>
-                homeworkService.patchHomework(homework.homework.id, { state: 'DRAFT' })
-                  .then(() => props.scrollToUpload())
-              }
-            >
-              <div className={classes.editImg}>
-                <Edit/>
-              </div>
-            </button>
+            {endDate > new Date() && (
+              <button
+                className={classes.edit}
+                onClick={() =>
+                  homeworkService.patchHomework(homework.homework.id, { state: 'DRAFT' })
+                    .then(() => props.scrollToUpload())
+                }
+              >
+                <div className={classes.editImg}>
+                  <Edit/>
+                </div>
+              </button>
+            )}
           </div>
         </div>
       )}

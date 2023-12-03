@@ -21,7 +21,7 @@
   }
 }
 
-.resultLinkWrapper {
+.myWorkLinkWrapper {
   position: sticky;
   top: set-calc(60);
   grid-column: 4 / 5;
@@ -36,7 +36,7 @@
   }
 }
 
-.resultLinkTitle {
+.myWorkLinkTitle {
   padding-bottom: set-calc(16);
 
   @include set-media(md) {
@@ -44,7 +44,7 @@
   }
 }
 
-.resultLinkGroup {
+.myWorkLinkGroup {
   display: flex;
 
   @include set-media(md) {
@@ -52,7 +52,7 @@
   }
 }
 
-.resultLink {
+.myWorkLink {
   cursor: pointer;
   margin-right: set-calc(28);
   transition: background-color 0.2s ease-in-out, color ease-in-out 0.2s;

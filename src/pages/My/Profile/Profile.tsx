@@ -5,7 +5,7 @@ import { courseService, type TCourseState, type  ICourseData } from 'services/co
 import { type IUserData } from 'services/user.service';
 import { formatI18nT } from 'shared';
 import { URLSections } from 'types';
-import { addDays } from 'utils';
+import { addDays, formatDate } from 'utils';
 
 import Fallback from 'ui/Fallback';
 import Img from 'ui/Img/Img';
@@ -91,7 +91,7 @@ function renderCourses(courses: ICourseData[]) {
           >
             {course.title}
           </Link>
-          <div className={classesCourseCard.date + ' s-text-24'}>{formatEndDate(course.endDate)}</div>
+          <div className={classesCourseCard.date + ' s-text-24'}>{t('endDate', { date: formatDate(course.accessDeadline, { timeZone: 'Europe/Moscow' }) })}</div>
         </div>
         <div className={classesCourseCard.cover}>
           <Img
@@ -102,14 +102,4 @@ function renderCourses(courses: ICourseData[]) {
       </div>
     </div>
   ));
-}
-
-function formatEndDate(endDate: Date) {
-  const endDateOfAccess = addDays(endDate, 14);
-  const endDateStr = endDateOfAccess.toLocaleDateString(
-    ['ru-RU'],
-    { month: 'long', day: 'numeric' }
-  );
-
-  return `${t('endDate')}${endDateStr}`;
 }

@@ -5,6 +5,7 @@ export interface ICourseData {
   id: string
   startDate: Date
   endDate: Date
+  accessDeadline: Date
   durationWeeks: number
   homeworksNumber: number
   videosNumber: number
@@ -34,6 +35,7 @@ export interface ICourseDataDB {
   id: string
   startDate: string
   endDate: string
+  accessDeadline: string
   durationWeeks: number
   homeworksNumber: number
   videosNumber: number

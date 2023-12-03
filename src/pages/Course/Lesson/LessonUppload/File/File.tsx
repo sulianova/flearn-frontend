@@ -1,13 +1,12 @@
+import classNames from 'classnames/bind';
 import debounce from 'lodash/debounce';
 import { useCallback, useState } from 'react';
 
 import Trash from 'assets/images/Svg/Trash';
 import { dataService } from 'services';
-import { formatI18nT } from 'shared';
 
 import Spinner from 'ui/Spinner/Spinner';
 import Img from 'ui/Img/Img';
-import Image from 'assets/images/Svg/Image';
 
 import classes from './File.module.scss';
 
@@ -16,7 +15,7 @@ import type { IHomeworkImageData } from 'types';
 
 export default File;
 
-const t = formatI18nT('courseLesson.upload');
+const cx = classNames.bind(classes);
 
 interface IProps {
   courseId: string
@@ -46,24 +45,19 @@ function File(props: IProps) {
           </button>
         </div>
       </div>
-      {loadingState.type !== 'error' ? (
-          <Img className={classes.preview} src={imageData.src} alt={imageData.alt} />
-        ) : (
-          <div className={classes.defaultPreview}>
-            <Image/>
-            <div className={classes.errorDescription + ' s-text-14'}>{t('errorDescription')}</div>
-          </div>
-        )
-      }
-        <State originalName={imageData.originalName} loadingState={loadingState} />
-        <ImageCaption
-          courseId={props.courseId}
-          lessonId={props.lessonId}
-          userId={props.userId}
-          imageData={props.imageDataWState.imageData}
-          loadingState={loadingState}
-          onCaptionError={props.onCaptionError}
-        />
+      <div className={cx({ previewWrapper: true, blur: loadingState.type === 'pending' || loadingState.type === 'error' })}>
+        <Img className={classes.preview} src={imageData.src} alt={imageData.alt} />
+        <div className={classes.overlay}/>
+      </div>
+      <State originalName={imageData.originalName} loadingState={loadingState} />
+      <ImageCaption
+        courseId={props.courseId}
+        lessonId={props.lessonId}
+        userId={props.userId}
+        imageData={props.imageDataWState.imageData}
+        loadingState={loadingState}
+        onCaptionError={props.onCaptionError}
+      />
     </>
   );
 }

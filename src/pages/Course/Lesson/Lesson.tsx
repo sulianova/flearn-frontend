@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { useParams } from 'react-router';
 
 import { useFetch } from 'hooks';
+import { userService } from 'services/user.service';
 import { IFetchLessonPayload, fetchLesson } from 'store/actions/sagas';
 
 import Page from 'ui/Page/Page';
@@ -18,9 +19,7 @@ import useInitHomework from './useInitHomework';
 import useLessonFallback from './useLessonFallback';
 
 import type { ILessonState, IRootState } from 'types';
-import Fallback from 'ui/Fallback';
-import { i18n } from 'shared';
-import { userService } from 'services/user.service';
+import MyWork from './MyWork/MyWork';
 
 export default connect(mapStateToProps)(Lesson);
 
@@ -35,7 +34,7 @@ function mapStateToProps(state: IRootState): IConnectedProps {
 }
 
 interface IProps extends IConnectedProps {
-  section: 'task' | 'results'
+  section: 'task' | 'results' | 'my-work'
 }
 
 function Lesson(props: IProps) {
@@ -75,11 +74,15 @@ function Lesson(props: IProps) {
     return resultsFallback;
   }
 
+  if (section === 'my-work' && !homework) {
+    return homeworkFallback;
+  }
+
   return (
     <Page header wrapper='Lesson'>
       <LessonHeader
         lesson={lessonState.data}
-        practice={section}
+        section={section}
       />
       {section === 'task' &&
         (<LessonContent
@@ -89,6 +92,7 @@ function Lesson(props: IProps) {
           data={lessonState.data}
           homework={homework}
           scrollToUpload={() => setScrollToUpload(true)}
+          canShowResults={canShowResults}
         />)
       }
       {section === 'task' && lessonState.data.endDate > now && homework?.homework?.state === 'DRAFT' &&
@@ -99,5 +103,6 @@ function Lesson(props: IProps) {
         />
       }
       {section === 'results' && canShowResults && <LessonWorks/>}
+      {section === 'my-work' && <MyWork homework={homework!}/>}
     </Page>);
 }

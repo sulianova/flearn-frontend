@@ -74,7 +74,7 @@
     "profile": {
       "title": "Профиль",
       "courseGroupTitle":"Ваши онлайн-курсы",
-      "endDate": "Доступ до ",
+      "endDate": "Доступ до %{date}",
       "noCoursesFallback": {
         "title": "У вас пока нет онлайн-курсов",
         "suggestionLink": "Посетите главную страницу",
@@ -86,6 +86,9 @@
     }
   },
   "courseLanding": {
+      "programIntro" : {
+        "datesInfoLabel": "%{startDate} | %{durationWeeks} %{week}"
+      },
       "form": {
           "title": "Записаться на онлайн курс",
           "subtitle": "Заполните форму и я свяжусь с вами, чтобы оформить оплату",
@@ -166,13 +169,13 @@
     "courseNotStartedYet": "Курс пока не начался. Первый урок откроется {{minStartDate}}"
   },
   "courseLesson": {
-    "navTubsPractice": "Задание",
-    "navTubsResults": "Итоги",
+    "navTabsPractice": "Задание",
+    "navTabsResults": "Итоги",
     "navToLessons": "Все уроки",
     "uploadDeadline": "Дедлайн: %{date}\u00A0по\u00A0Мск",
     "resultsDeadline": "Публикация итогов: %{date}",
     "uploadBtn": "Загрузить работу",
-    "resultLinkTitle": "Результаты задания",
+    "myWorkLinkTitle": "Моя работа",
     "editTitle": "Редактировать...",
     "upload": {
       "fieldsTitle": "Результаты задания",
@@ -185,8 +188,7 @@
       "contentTextareaLabel": "Описание",
       "contentTextareaPlaceholder": "Описание работы",
       "filesEmpty1": "Загрузите файлы",
-      "filesEmpty2": "Картинка должна весить меньше 3 мб",
-      "errorDescription": "Картинка не загрузилась, попробуйте снова"
+      "filesEmpty2": "Картинка должна весить меньше 3 мб"
     },
     "homework": {
       "title": "Описание"
@@ -212,5 +214,11 @@
     "few": "недели",
     "many": "недель",
     "other": "недель"
+  },
+  "weeksAmount": {
+    "one": "%{count} неделя",
+    "few": "%{count} недели",
+    "many": "%{count} недель",
+    "other": "%{count} недель"
   }
 }

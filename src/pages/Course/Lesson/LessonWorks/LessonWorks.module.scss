@@ -1,7 +1,12 @@
 @import 'styles/index';
 
 ._ {
-  padding: 00;
+  padding: 0;
+
+  button:not(:last-child) {
+    margin-right: set-calc(16);
+    margin-bottom: set-calc(32);
+  }
 
   @include set-media(md) {
     padding: 0;
@@ -27,8 +32,6 @@
 }
 
 .ownWork {
-  min-height: set-calc(320);
-
   border-radius: set-calc(8);
 }
 

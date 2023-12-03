@@ -1,6 +1,8 @@
 import classNames from 'classnames/bind';
 import { useState } from 'react';
+
 import { formatI18nT, i18n } from 'shared';
+import { formatDate } from 'utils';
 
 import Link from 'ui/Link/Link';
 import Form from './Form/Form';
@@ -30,8 +32,8 @@ function DecisionForm(props: IProps) {
             <h1 className={classes.title}>{t('courseName', { courseName: props.data.title })}</h1>
           </div>
           <div className={classes.courseInfo}>
-            <div className={' s-text-18'}>{formatCourseDate(props.data.startDate, props.data.endDate, props.data.durationWeeks)}</div>
-            <div className={' s-text-18'}>{formatDurationWeeks(props.data.durationWeeks)}</div>
+            <div className={' s-text-18'}>{formatCourseDate(props.data.startDate, props.data.endDate)}</div>
+            <div className={' s-text-18'}>{i18n.t('weeksAmount', { count: props.data.durationWeeks })}</div>
           </div>
         </div>
         <div className={classes.credit}>
@@ -74,19 +76,9 @@ function formatCourseDiscount(discontAmount: number) {
   return `-${discontAmount}%`;
 }
 
-function formatCourseDate(startDate: Date, endDate: Date, durationWeeks: number) {
-  const startDateStr = startDate.toLocaleDateString(
-    ['ru-RU'],
-    { month: 'long', day: 'numeric' }
-  );
-  const endDateStr = endDate.toLocaleDateString(
-    ['ru-RU'],
-    { month: 'long', day: 'numeric' }
-  );
+function formatCourseDate(startDate: Date, endDate: Date) {
+  const startDateStr = formatDate(startDate, { timeZone: 'Europe/Moscow' });
+  const endDateStr = formatDate(endDate, { timeZone: 'Europe/Moscow' });
 
   return `${startDateStr} – ${endDateStr}`;
-}
-
-function formatDurationWeeks(durationWeeks: number) {
-  return `${durationWeeks} ` + i18n.t('week', { count: durationWeeks });
 }
