@@ -92,7 +92,7 @@ const lessonData10: ILessonDataDB = {
   type: 'Theory',
   week: 1,
   startDate: '2023.12.03 21:00:00 GMT', // 2024.01.08,
-  endDate: '2023.12.09 21:00:00 GMT', // 2024.01.14,
+  endDate: '2023.12.10 20:59:00 GMT', // 2024.01.14,
   resultsEndDate: '2023.12.12 21:00:00 GMT', // 2024.01.17,
   content: [
     {
@@ -165,13 +165,13 @@ const lessonData10: ILessonDataDB = {
 const lessonData11: ILessonDataDB = {
   orderInWeek: 1,
   id: 'DrawingExercises_h3dx7k',
-  courseId: 'how-to-draw',
+  courseId: 'how-to-draw-free', // how-to-draw
   title: '1.1 Упражнения, чтобы разрисоваться',
   type: 'Theory',
   week: 1,
-  startDate: '2024.01.08', //new Date('2023.07.12'),
-  endDate: '2024.01.14', //new Date('2023.07.22'),
-  resultsEndDate: '2024.01.17', //new Date('2023.07.25'),
+  startDate: '2023.12.03 21:00:00 GMT', // 2024.01.08,
+  endDate: '2023.12.10 20:59:00 GMT', // 2024.01.14,
+  resultsEndDate: '2023.12.12 21:00:00 GMT', // 2024.01.17,
   content: [
     {
       type: 'text',
@@ -565,13 +565,13 @@ const lessonData11: ILessonDataDB = {
 const lessonData12: ILessonDataDB = {
   orderInWeek: 2,
   id: 'LineIntroduction_gBpaFa',
-  courseId: 'how-to-draw',
+  courseId: 'how-to-draw-free', // how-to-draw
   title: '1.2 Линия: знакомство',
   type: 'Theory',
   week: 1,
-  startDate: '2024.01.08', //new Date('2023.07.12'),
-  endDate: '2024.01.14', //new Date('2023.07.22'),
-  resultsEndDate: '2024.01.17', //new Date('2023.07.25'),
+  startDate: '2023.12.03 21:00:00 GMT', // 2024.01.08,
+  endDate: '2023.12.10 20:59:00 GMT', // 2024.01.14,
+  resultsEndDate: '2023.12.12 21:00:00 GMT', // 2024.01.17,
   content: [
     {
       type: 'text',
@@ -1174,13 +1174,13 @@ const lessonData12: ILessonDataDB = {
 const lessonData13: ILessonDataDB = {
   orderInWeek: 3,
   id: 'LineShape_RY7PQ3',
-  courseId: 'how-to-draw',
+  courseId: 'how-to-draw-free', // how-to-draw
   title: '1.3 Линия: как рисовать объемно',
   type: 'Theory',
   week: 1,
-  startDate: '2024.01.08', //new Date('2023.07.12'),
-  endDate: '2024.01.14', //new Date('2023.07.22'),
-  resultsEndDate: '2024.01.17', //new Date('2023.07.25'),
+  startDate: '2023.12.03 21:00:00 GMT', // 2024.01.08,
+  endDate: '2023.12.10 20:59:00 GMT', // 2024.01.14,
+  resultsEndDate: '2023.12.12 21:00:00 GMT', // 2024.01.17,
   content: [
     {
       type: 'text',
@@ -1388,13 +1388,13 @@ const lessonData13: ILessonDataDB = {
 const lessonData14: ILessonDataDB = {
   orderInWeek: 4,
   id: 'HowToDrawSimilarPicture_bah4tw',
-  courseId: 'how-to-draw',
+  courseId: 'how-to-draw-free', // how-to-draw
   title: '1.4. Как рисовать похоже',
   type: 'Theory',
   week: 1,
-  startDate: '2024.01.08', //new Date('2023.07.12'),
-  endDate: '2024.01.14', //new Date('2023.07.22'),
-  resultsEndDate: '2024.01.17', //new Date('2023.07.25'),
+  startDate: '2023.12.03 21:00:00 GMT', // 2024.01.08,
+  endDate: '2023.12.10 20:59:00 GMT', // 2024.01.14,
+  resultsEndDate: '2023.12.12 21:00:00 GMT', // 2024.01.17,
   content: [
     {
       type: 'title',
@@ -1715,13 +1715,13 @@ const lessonData14: ILessonDataDB = {
 const lessonData15: ILessonDataDB = {
   orderInWeek: 5,
   id: 'HowToDrawSimilarPictureLine_t6qrnq',
-  courseId: 'how-to-draw',
+  courseId: 'how-to-draw-free', // how-to-draw
   title: '1.5. Как рисовать похоже. Линия',
   type: 'Theory',
   week: 1,
-  startDate: '2024.01.08', //new Date('2023.07.12'),
-  endDate: '2024.01.14', //new Date('2023.07.22'),
-  resultsEndDate: '2024.01.17', //new Date('2023.07.25'),
+  startDate: '2023.12.03 21:00:00 GMT', // 2024.01.08,
+  endDate: '2023.12.10 20:59:00 GMT', // 2024.01.14,
+  resultsEndDate: '2023.12.12 21:00:00 GMT', // 2024.01.17,
   content: [
     {
       type: 'text',
@@ -1956,13 +1956,13 @@ const lessonData15: ILessonDataDB = {
 const lessonData16: ILessonDataDB = {
   orderInWeek: 6,
   id: 'HowToDrawSimilarPictureLine_t6qrnq_Practice_iqln35',
-  courseId: 'how-to-draw',
+  courseId: 'how-to-draw-free', // how-to-draw
   title: 'Практика первой недели',
   type: 'Practice',
   week: 1,
-  startDate: '2024.01.07 21:00:00 GMT', // 2024.01.08 00:00 мск
-  endDate: '2024.01.14 20:59:00 GMT', // 2024.01.14 23:59 мск
-  resultsEndDate: '2024.01.16 21:00:00 GMT', // 2024.01.17 когда-то в течении дня
+  startDate: '2023.12.03 21:00:00 GMT', // 2024.01.08,
+  endDate: '2023.12.10 20:59:00 GMT', // 2024.01.14,
+  resultsEndDate: '2023.12.12 21:00:00 GMT', // 2024.01.17,
   content: [
     {
       type: 'text',
@@ -2326,13 +2326,13 @@ const lessonData16: ILessonDataDB = {
 const lessonData21: ILessonDataDB = {
   orderInWeek: 1,
   id: 'DifferencesLineSpot_W4baHU',
-  courseId: 'how-to-draw',
+  courseId: 'how-to-draw-free', // how-to-draw
   title: '2.1 Про разницу между линией и пятном',
   type: 'Theory',
   week: 2,
-  startDate: '2024.01.15', //new Date('2023.07.12'),
-  endDate: '2024.01.21', //new Date('2023.07.22'),
-  resultsEndDate: '2024.01.24', //new Date('2023.07.25'),
+  startDate: '2023.12.10 21:00:00 GMT', // 2024.01.15,
+  endDate: '2023.12.17 20:59:00 GMT', // 2024.01.21,
+  resultsEndDate: '2023.12.19 21:00:00 GMT', // 2024.01.24,
   content: [
     {
       type: 'text',
@@ -2459,13 +2459,13 @@ const lessonData21: ILessonDataDB = {
 const lessonData22: ILessonDataDB = {
   orderInWeek: 2,
   id: 'SpotIntroduction_R4vzDr',
-  courseId: 'how-to-draw',
+  courseId: 'how-to-draw-free', // how-to-draw
   title: '2.2 Пятно: знакомство',
   type: 'Theory',
   week: 2,
-  startDate: '2024.01.15', //new Date('2023.07.12'),
-  endDate: '2024.01.21', //new Date('2023.07.22'),
-  resultsEndDate: '2024.01.24', //new Date('2023.07.25'),
+  startDate: '2023.12.10 21:00:00 GMT', // 2024.01.15,
+  endDate: '2023.12.17 20:59:00 GMT', // 2024.01.21,
+  resultsEndDate: '2023.12.19 21:00:00 GMT', // 2024.01.24,
   content: [
     {
       type: 'text',
@@ -3227,13 +3227,13 @@ const lessonData22: ILessonDataDB = {
 const lessonData23: ILessonDataDB = {
   orderInWeek: 3,
   id: 'HowToDrawSimilarPictureSpot_p6hXtt',
-  courseId: 'how-to-draw',
+  courseId: 'how-to-draw-free', // how-to-draw
   title: '2.3 Как рисовать похоже. Пятно',
   type: 'Theory',
   week: 2,
-  startDate: '2024.01.15', //new Date('2023.07.12'),
-  endDate: '2024.01.21', //new Date('2023.07.22'),
-  resultsEndDate: '2024.01.24', //new Date('2023.07.25'),
+  startDate: '2023.12.10 21:00:00 GMT', // 2024.01.15,
+  endDate: '2023.12.17 20:59:00 GMT', // 2024.01.21,
+  resultsEndDate: '2023.12.19 21:00:00 GMT', // 2024.01.24,
   content: [
     {
       type: 'text',
@@ -3381,13 +3381,13 @@ const lessonData23: ILessonDataDB = {
 const lessonData24: ILessonDataDB = {
   orderInWeek: 4,
   id: 'SpotShape_dftUrH',
-  courseId: 'how-to-draw',
+  courseId: 'how-to-draw-free', // how-to-draw
   title: '2.4 Как рисовать объемно. Пятно',
   type: 'Theory',
   week: 2,
-  startDate: '2024.01.15', //new Date('2023.07.12'),
-  endDate: '2024.01.21', //new Date('2023.07.22'),
-  resultsEndDate: '2024.01.24', //new Date('2023.07.25'),
+  startDate: '2023.12.10 21:00:00 GMT', // 2024.01.15,
+  endDate: '2023.12.17 20:59:00 GMT', // 2024.01.21,
+  resultsEndDate: '2023.12.19 21:00:00 GMT', // 2024.01.24,
   content: [
     {
       type: 'text',
@@ -3478,13 +3478,13 @@ const lessonData24: ILessonDataDB = {
 const lessonData25: ILessonDataDB = {
   orderInWeek: 5,
   id: 'SpotPractice_kfKAEY',
-  courseId: 'how-to-draw',
+  courseId: 'how-to-draw-free', // how-to-draw
   title: 'Практика второй недели',
   type: 'Practice',
   week: 2,
-  startDate: '2024.01.15', //new Date('2023.07.12'),
-  endDate: '2024.01.21', //new Date('2023.07.22'),
-  resultsEndDate: '2024.01.24', //new Date('2023.07.25'),
+  startDate: '2023.12.10 21:00:00 GMT', // 2024.01.15,
+  endDate: '2023.12.17 20:59:00 GMT', // 2024.01.21,
+  resultsEndDate: '2023.12.19 21:00:00 GMT', // 2024.01.24,
   content: [
     {
       type: 'text',
@@ -3852,13 +3852,13 @@ const lessonData25: ILessonDataDB = {
 const lessonData31: ILessonDataDB = {
   orderInWeek: 1,
   id: 'LineAndSpot_jr2WYu',
-  courseId: 'how-to-draw',
+  courseId: 'how-to-draw-free', // how-to-draw
   title: '3.1 Линия и пятно: как совмещать',
   type: 'Theory',
   week: 3,
-  startDate: '2024.01.22', //new Date('2023.07.12'),
-  endDate: '2024.01.28', //new Date('2023.07.22'),
-  resultsEndDate: '2024.02.01', //new Date('2023.07.25'),
+  startDate: '2023.12.17 21:00:00 GMT', // 2024.01.22,
+  endDate: '2023.12.24 20:59:00 GMT', // 2024.01.28,
+  resultsEndDate: '2023.12.26 21:00:00 GMT', // 2024.02.01,
   content: [
     {
       type: 'text',
@@ -4454,13 +4454,13 @@ const lessonData31: ILessonDataDB = {
 const lessonData32: ILessonDataDB = {
   orderInWeek: 2,
   id: 'ContrastNuance_9rP6Yl',
-  courseId: 'how-to-draw',
+  courseId: 'how-to-draw-free', // how-to-draw
   title: '3.2 Как выделить главное: контраст, нюанс',
   type: 'Theory',
   week: 3,
-  startDate: '2024.01.22', //new Date('2023.07.12'),
-  endDate: '2024.01.28', //new Date('2023.07.22'),
-  resultsEndDate: '2024.02.01', //new Date('2023.07.25'),
+  startDate: '2023.12.17 21:00:00 GMT', // 2024.01.22,
+  endDate: '2023.12.24 20:59:00 GMT', // 2024.01.28,
+  resultsEndDate: '2023.12.26 21:00:00 GMT', // 2024.02.01,
   content: [
     {
       type: 'text',
@@ -4640,13 +4640,13 @@ const lessonData32: ILessonDataDB = {
 const lessonData33: ILessonDataDB = {
   orderInWeek: 3,
   id: 'LineSpotPractice_L8A8Jk',
-  courseId: 'how-to-draw',
+  courseId: 'how-to-draw-free', // how-to-draw
   title: 'Практика третьей недели',
   type: 'Practice',
   week: 3,
-  startDate: '2024.01.22', //new Date('2023.07.12'),
-  endDate: '2024.01.28', //new Date('2023.07.22'),
-  resultsEndDate: '2024.02.01', //new Date('2023.07.25'),
+  startDate: '2023.12.17 21:00:00 GMT', // 2024.01.22,
+  endDate: '2023.12.24 20:59:00 GMT', // 2024.01.28,
+  resultsEndDate: '2023.12.26 21:00:00 GMT', // 2024.02.01,
   content: [
     {
       type: 'text',
@@ -4950,9 +4950,9 @@ const lessonData5: ILessonDataDB = {
   type: 'Practice',
   week: 1,
   orderInWeek: 3,
-  startDate: '2023.07.12', //new Date('2023.07.12'),
-  endDate: '2023.07.22', //new Date('2023.07.22'),
-  resultsEndDate: '2023.07.25', //new Date('2023.07.25'),
+  startDate: '2023.12.17 21:00:00 GMT', // 2024.01.22,
+  endDate: '2023.12.24 20:59:00 GMT', // 2024.01.28,
+  resultsEndDate: '2023.12.26 21:00:00 GMT', // 2024.02.01,
   content: [
     {
       type: 'title',

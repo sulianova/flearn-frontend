@@ -18,6 +18,7 @@ export interface ICourseData {
   discontDeadline: Date
   creditWas: number
   creditPrice: number
+  telegramLink: string
   description: Array<{ question: string, answer: string }>
   modulesDescription: TText | TText[]
   modules: Array<{ meta: TText | TText[], title: TText | TText[], content: TText | TText[], imageDesc: TText | TText[] } & TImageData>
@@ -45,6 +46,7 @@ export interface ICourseDataDB {
   discontDeadline: string
   creditWas: number
   creditPrice: number
+  telegramLink: string
   description: Array<{ question: string, answer: string }>
   modulesDescription: TText | TText[]
   modules: Array<{ meta: TText | TText[], title: TText | TText[], content: TText | TText[], imageDesc: TText | TText[] } & TImageDataDB>

@@ -91,6 +91,7 @@ const newCourseDB: ICourseDataDB = {
   discontDeadline: '2023.12.10 20:59:00 GMT',
   creditWas: 12000,
   creditPrice: 6000,
+  telegramLink: 'https://t.me/+yIvKOdKrLYdlYzMy',
   description: [
     {
       answer: 'На курсе будем учиться работать базовыми инструментами: линией и пятном. Разберемся, чем они отличаются, как их использовать. Сделаем упражнения, чтобы разрисоваться.',
