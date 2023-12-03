@@ -4,6 +4,7 @@ import { useCallback, useEffect, useReducer, useRef } from 'react';
 import { useParams } from 'react-router';
 
 import { dataService, homeworkService } from 'services';
+import { userService } from 'services/user.service';
 import { formatI18nT } from 'shared';
 
 import File from './File/File';
@@ -13,12 +14,11 @@ import Spinner from 'ui/Spinner/Spinner';
 
 import Upload from 'assets/images/Svg/Upload';
 
+import { errorService } from './error.service';
 import classes from './LessonUppload.module.scss';
 
-import { userService } from 'services/user.service';
 import type { TAction, TImageDataWState, TState } from './types';
-import type { IHomeworkData, IHomeworkDataWPopulate, IHomeworkImageData, IRootState } from 'types';
-import { errorService } from './error.service';
+import type { IHomeworkData, IHomeworkDataWPopulate, IHomeworkImageData } from 'types';
 
 export default LessonUppload;
 
@@ -40,12 +40,13 @@ function LessonUppload({ homeworkWPopulate, scroll, onScrollEnd }: IProps) {
   const ref = useRef<HTMLDivElement>(null);
   const authedUser = userService.useAuthedUser();
 
+  const formIsShown = authedUser && homeworkWPopulate.homework.state === 'DRAFT';
   useEffect(() => {
-    if (scroll && ref.current) {
+    if (formIsShown && ref.current && scroll) {
         ref.current.scrollIntoView({ behavior: 'smooth' });
         onScrollEnd();
     }
-  }, [scroll, onScrollEnd]);
+  }, [scroll, onScrollEnd, formIsShown]);
 
   const onCaptionError = useCallback((imageData: IHomeworkImageData, error: Error) => {
     errorService.addError(String(error));
