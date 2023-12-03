@@ -6,7 +6,11 @@ export function dateDB2FR(date: string): Date {
 }
 
 export function dateFR2DB(date: Date): string {
-  return date.toISOString();
+  const [dateTime, milliseconds] = date.toISOString().split('.');
+  return [
+    dateTime,
+    milliseconds.slice(0, 3) + '0'
+  ].join('-');
 }
 
 type TGetImageUrlArgs = ArgumentTypes<typeof firebaseService.getImageURL>;
