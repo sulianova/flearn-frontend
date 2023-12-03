@@ -5,14 +5,12 @@ import UserImage from 'assets/images/Svg/UserImage';
 import Img from 'ui/Img/Img';
 import Link from 'ui/Link/Link';
 import Pattern from 'assets/images/Svg/Pattern';
-import { formatI18nT } from 'shared';
 
 import classes from './WorkCard.module.scss';
 
 import { URLSections, type IHomeworkDataWPopulate, IHomeworkImageData } from 'types';
 
 const cx = classNames.bind(classes);
-const t = formatI18nT('courseLesson.works');
 
 export default WorkCard;
 
