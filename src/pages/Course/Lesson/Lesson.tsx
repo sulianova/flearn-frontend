@@ -41,7 +41,6 @@ function Lesson(props: IProps) {
   const { lessonState, section } = props;
   const now = new Date();
 
-  console.log('lessonState', lessonState.data?.startDate);
   const { courseId, lessonId } = useParams();
   const [scrollToUpload, setScrollToUpload] = useState<boolean>(false);
 

@@ -49,12 +49,14 @@ function LessonHeader(props: IProps) {
       });
   }, [userId]);
 
-  const taskTab = props.lesson.type === 'Practice' && (canShowResults || section !== 'task') && (
+  const authedUser = userService.useAuthedUser();
+
+  const taskTab = props.lesson.type === 'Practice' && (canShowResults || section !== 'task') &&(
     <Link
       className={classes.type + ' nav-link s-text-18' + (section === 'task' ? ' isActive' : '')}
       to={URLSections.Course.Lesson.to({ courseId, lessonId })}
     >
-      {t('navTubsPractice')}
+      {t('navTabsPractice')}
     </Link>
   );
 
@@ -63,24 +65,23 @@ function LessonHeader(props: IProps) {
       className={classes.type + ' nav-link s-text-18' + (section === 'results' && !user ? ' isActive' : '')}
       to={URLSections.Course.Lesson.Results.to({ courseId, lessonId, params: { limit: 4 } })}
     >
-      {t('navTubsResults')}
+      {t('navTabsResults')}
     </Link>
   );
 
-  const resultTab = props.lesson.type === 'Practice' && section === 'results' && canShowResults && user && (
-    <Link
+  const resultTab = props.lesson.type === 'Practice' && section === 'results' && user && (
+    <span
       className={classes.type + ' nav-link s-text-18 isActive'}
-      to={URLSections.Course.Lesson.Results.to({ courseId, lessonId, params: { limit: 4 } })}
     >
-      {t('navTubsResults')}
-    </Link>
+      {user.displayName ?? user.email ?? user.id}
+    </span>
   );
 
   const myWorkTab = props.lesson.type === 'Practice' && section === 'my-work' && (
     <span
       className={classes.type + ' nav-link s-text-18 isActive'}
     >
-      {user?.displayName || user?.email}
+      {authedUser?.displayName ?? authedUser?.email}
     </span>
   );
 
@@ -90,6 +91,12 @@ function LessonHeader(props: IProps) {
     resultTab,
     myWorkTab,
   ].filter(Boolean);
+
+  const fakeTab = props.lesson.type === 'Practice' && !tabs.length && (
+    <span className={classes.type + ' s-text-18'}>
+      {t('navTabsPractice')}
+    </span>
+  );
 
   return (
     <div className={classes._}>
@@ -107,6 +114,11 @@ function LessonHeader(props: IProps) {
               {tab}
             </Fragment>
           ))}
+        </div>
+      )}
+      {fakeTab && (
+        <div className={classes.navTubs}>
+          {fakeTab}
         </div>
       )}
     </div>

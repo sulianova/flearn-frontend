@@ -38,8 +38,6 @@ function LessonWorks() {
   const authedUserHomework = useMemo(() => homeworks?.find(h => h.homework.userId === authedUserId), [authedUserId, homeworks]);
   const otherStudentsHomeworks = useMemo(() => homeworks?.filter(h => h.homework.userId !== authedUserId), [authedUserId, homeworks]);
 
-  console.log({ authedUserHomework, homeworks});
-
   const filteredOtherStudentsHomeworks = useMemo(() => {
     if (!otherStudentsHomeworks) {
       return otherStudentsHomeworks;

@@ -47,7 +47,7 @@ function LessonWork(props: IProps) {
           }
         }
       />}
-      {homework.images && <Article.Gallery data={homework.images} galleryHeightPx={450}/>}
+      {homework.images.length && <Article.Gallery data={homework.images} galleryHeightPx={450}/>}
     </div>
   );
 }

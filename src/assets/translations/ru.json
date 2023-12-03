@@ -169,8 +169,8 @@
     "courseNotStartedYet": "Курс пока не начался. Первый урок откроется {{minStartDate}}"
   },
   "courseLesson": {
-    "navTubsPractice": "Задание",
-    "navTubsResults": "Итоги",
+    "navTabsPractice": "Задание",
+    "navTabsResults": "Итоги",
     "navToLessons": "Все уроки",
     "uploadDeadline": "Дедлайн: %{date}\u00A0по\u00A0Мск",
     "resultsDeadline": "Публикация итогов: %{date}",
