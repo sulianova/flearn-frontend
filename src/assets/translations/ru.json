@@ -188,8 +188,7 @@
       "contentTextareaLabel": "Описание",
       "contentTextareaPlaceholder": "Описание работы",
       "filesEmpty1": "Загрузите файлы",
-      "filesEmpty2": "Картинка должна весить меньше 3 мб",
-      "errorDescription": "Картинка не загрузилась, попробуйте снова"
+      "filesEmpty2": "Картинка должна весить меньше 3 мб"
     },
     "homework": {
       "title": "Описание"
