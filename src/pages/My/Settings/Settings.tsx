@@ -29,13 +29,13 @@ export default function Settings(props: IProps) {
     <div className={classes._}>
       <div className={cx({ block: true, isBig: true })}>
         <div className={classes.blockTitle + ' s-text-21-uppercase'}>Аккаунт</div>
-        <div className={classes.blockImgUppload}>
+        {/* <div className={classes.blockImgUppload}>
           <input hidden type='file' id='photo'/>
           <label className={classesImageUppload.img + ' s-hoverable'} htmlFor='photo'>
             <div className={classesImageUppload.imgOverlay}></div>
             <UserImage/>
           </label>
-        </div>
+        </div> */}
         <form className={classes.blockForm} method='post'>
           <div className={classesInputField._}>
             <label className={classesInputField.label + ' s-text-21'} htmlFor='email'>Почта</label>
@@ -59,7 +59,7 @@ export default function Settings(props: IProps) {
               placeholder='Имя и фамилия'
               value={localDisplayName}
               onChange={e => setLocalDisplayName(e.target.value)}
-              onBlur={() => handleUpdate(props.user.email, { displayName: localDisplayName })}
+              onBlur={() => handleUpdate(props.user.id, props.user.email, { displayName: localDisplayName })}
             />
           </div>
           <div className={classesInputField._}>
@@ -89,8 +89,8 @@ export default function Settings(props: IProps) {
   );
 }
 
-async function handleUpdate(email: string, updateData: Partial<IUserData>) {
-  await dataService.user.update(email, updateData);
+async function handleUpdate(id: string, email: string, updateData: Partial<IUserData>) {
+  await dataService.user.update(id, updateData);
 
   Store.dispatch(fetchUser({ payload: { email }}));
 }
