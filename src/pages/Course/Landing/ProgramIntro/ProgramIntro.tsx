@@ -34,9 +34,9 @@ function ProgramIntro(props: IProps) {
           </div>
           <h1 className={classes.title + ' s-text-88'}>{props.data.title}</h1>
           <div className={classes.block + ' s-text-24'}>{props.data.introDescription}</div>
-          {/* <div className={classes.actions}>
+          <div className={classes.actions}>
             <a className={classes.actionsBtn + ' s-text-24'} href='#decision-form'>{i18n.t('signUp')}</a>
-          </div> */}
+          </div>
         </div>
         <div className={classes.cover}><Image src={props.data.introImageSrc} alt={props.data.introImageAlt}/></div>
       </div>

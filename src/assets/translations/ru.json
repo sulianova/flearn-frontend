@@ -215,5 +215,11 @@
     "few": "недели",
     "many": "недель",
     "other": "недель"
+  },
+  "weeksAmount": {
+    "one": "%{count} неделя",
+    "few": "%{count} недели",
+    "many": "%{count} недель",
+    "other": "%{count} недель"
   }
 }
