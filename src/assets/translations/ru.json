@@ -86,6 +86,9 @@
     }
   },
   "courseLanding": {
+      "programIntro" : {
+        "datesInfoLabel": "%{startDate} | %{durationWeeks} %{week}"
+      },
       "form": {
           "title": "Записаться на онлайн курс",
           "subtitle": "Заполните форму и я свяжусь с вами, чтобы оформить оплату",
