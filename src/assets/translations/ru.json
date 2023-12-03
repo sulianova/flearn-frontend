@@ -74,7 +74,7 @@
     "profile": {
       "title": "Профиль",
       "courseGroupTitle":"Ваши онлайн-курсы",
-      "endDate": "Доступ до ",
+      "endDate": "Доступ до %{date}",
       "noCoursesFallback": {
         "title": "У вас пока нет онлайн-курсов",
         "suggestionLink": "Посетите главную страницу",

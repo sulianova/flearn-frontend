@@ -78,8 +78,8 @@ function getData(id: string) {
 const newCourseDB: ICourseDataDB = {
   id: 'how-to-draw', // how-to-draw-free
   title: 'Как рисовать',
-  startDate: '2024.01.08 21:00:00 GMT', // '2023.12.03 21:00:00 GMT'
-  endDate: '2024.01.28 21:00:00 GMT', // '2023.12.23 21:00:00 GMT'
+  startDate: '2024.01.07 21:00:00 GMT', // '2023.12.03 21:00:00 GMT'
+  endDate: '2024.02.04 20:59:00 GMT', // '2023.12.31 20:59:00 GMT'
   durationWeeks: 3,
   homeworksNumber: 3,
   videosNumber: 3,
