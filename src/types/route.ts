@@ -17,6 +17,10 @@ export const URLSections = {
                 index: '/course/:courseId/lesson/:lessonId/results',
                 to: (props: { courseId: string, lessonId: string, params?: Record<string, any> }) => `/course/${props.courseId}/lesson/${props.lessonId}/results${getSearchQuery(props.params)}`,
             },
+            MyWork: {
+                index: '/course/:courseId/lesson/:lessonId/my-work',
+                to: (props: { courseId: string, lessonId: string }) => `/course/${props.courseId}/lesson/${props.lessonId}/my-work`,
+            },
         },
     },
     My: {

@@ -175,7 +175,7 @@
     "uploadDeadline": "Дедлайн: %{date}\u00A0по\u00A0Мск",
     "resultsDeadline": "Публикация итогов: %{date}",
     "uploadBtn": "Загрузить работу",
-    "resultLinkTitle": "Результаты задания",
+    "myWorkLinkTitle": "Моя работа",
     "editTitle": "Редактировать...",
     "upload": {
       "fieldsTitle": "Результаты задания",

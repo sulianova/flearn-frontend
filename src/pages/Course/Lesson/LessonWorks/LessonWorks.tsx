@@ -1,6 +1,5 @@
 import classNames from 'classnames/bind';
 import { Fragment, useEffect, useMemo, useState } from 'react';
-import { connect } from 'react-redux';
 import { useParams } from 'react-router';
 import type { Subscription } from 'rxjs';
 
