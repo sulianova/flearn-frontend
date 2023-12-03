@@ -183,7 +183,7 @@ type TReview = {
 const review1: TReview = {
   homeworkId: 'how-to-draw_HowToDrawSimilarPictureLine_t6qrnq_Practice_iqln35_hw-Qoyv64RbilhFCwmOwyYc41z0ZQH2',
   review: [
-    { type: 'text', text: 'Это моё первая обратная связь' },
+    { type: 'text', text: 'Это моё первая обратная связь. И ещё добавь побольше пятен' },
   ],
 };
 

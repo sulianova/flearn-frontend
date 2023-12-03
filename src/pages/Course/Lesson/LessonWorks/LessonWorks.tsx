@@ -95,13 +95,24 @@ function LessonWorks() {
   if (selectedHomework) {
     return (
     <Fragment>
+      <button
+        className={classes.backBtn + ' s-text-21-uppercase inline-link'}
+        onClick={() => homeworkService.patchHomework(selectedHomework.homework.id, { state: 'REVIEWED' })}
+      >
+        MAKE REVIEWED
+      </button>
+      <button
+        className={classes.backBtn + ' s-text-21-uppercase inline-link'}
+        onClick={() => homeworkService.patchHomework(selectedHomework.homework.id, { state: 'SENT_FOR_REVIEW' })}
+      >
+        MAKE SENT_FOR_REVIEW
+      </button>
       <LessonWork homework={selectedHomework}/>
       <LessonReview homework={selectedHomework}/>
       <EditBar
         source={source}
         handleSourceChange={setSource}
-        handleUpload={() => console.log('upload')}
-        handleDownload={() => console.log('download')}
+        handleUpload={() => homeworkService.patchHomework(selectedHomework.homework.id, { review: selectedHomework.homework.review })}
       />
     </Fragment>);
   }
