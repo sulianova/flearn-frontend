@@ -20,13 +20,11 @@ interface IProps {
 function NoOwnWorkPlaceholder(props: IProps) {
   return (
     <div className={cx({ _: true, hidden: false })}>
-      <div className={classes.preview}>
-        <div className={classes.emptyPreview}>
-          <Image/>
-          <div className={classes.emptyPreviewDescription + ' s-text-14'}>{t('emptyPreviewDescription')}</div>
-        </div>
-      <div className={classes.overlay}/>
+      <div className={classes.emptyPreview}>
+        <Image/>
+        <div className={classes.emptyPreviewDescription + ' s-text-14'}>{t('emptyPreviewDescription')}</div>
       </div>
+        <div className={classes.overlay}/>
       <div className={classes.user}>
         <div className={classes.userImage}>
           <UserImage/>

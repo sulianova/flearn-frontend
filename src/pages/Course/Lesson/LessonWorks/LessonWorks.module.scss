@@ -27,13 +27,9 @@
 }
 
 .ownWork {
-  height: set-calc(320);
+  min-height: set-calc(320);
 
   border-radius: set-calc(8);
-
-  @include set-media(md) {
-    width: set-calc(0, true, 50%);
-  }
 }
 
 .ownSubtitle {
@@ -68,7 +64,7 @@
   margin: 0 set-calc(8) set-calc(24) 0;
 
   @include set-media(md) {
-    width: set-calc(-8, true, 50%);
+    width: 100%;
   }
 }
 

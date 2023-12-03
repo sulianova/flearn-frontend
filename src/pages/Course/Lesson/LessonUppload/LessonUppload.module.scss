@@ -30,8 +30,23 @@
 
   @include set-media(md) {
     margin-top: 0;
+    flex-direction: column;
     justify-content: center;
   }
+}
+
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0 set-calc(16) 0 0;
+  padding: set-calc(4) set-calc(24);
+  border-radius: set-calc(15);
+  width: 100%;
+
+  color: $orange;
+  background-color: $pastelPink;
 }
 
 .submit {
@@ -54,6 +69,8 @@
   align-items: center;
   justify-content: center;
   min-height: set-calc(40);
+  width: fit-content;
+  
   padding: set-calc(4) set-calc(24);
 
   color: $white;
@@ -65,8 +82,7 @@
   transition: background-color $d-hover ease-in-out, color ease-in-out $d-hover;
 
   @include set-media(md) {
-    // width: fit-content;
-    width: 100%;
+    width: fit-content;
   }
 }
 
@@ -89,16 +105,6 @@
     width: 100%;
     text-align: center;
   }
-}
-
-.error {
-  padding: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  color: $orange;
-  background-color: $pastelPink;
 }
 
 .inner {

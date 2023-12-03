@@ -7,7 +7,10 @@ import { fetchUser, logout } from 'store/actions/sagas';
 
 import Link from 'ui/Link/Link';
 import classesInputField from './InputField.module.scss';
+import classesImageUppload from './ImageUppload.module.scss';
 import classes from './Settings.module.scss';
+
+import UserImage from 'assets/images/Svg/UserImage';
 
 import type { IUserData } from 'services/user.service';
 import { URLSections } from 'types';
@@ -26,6 +29,13 @@ export default function Settings(props: IProps) {
     <div className={classes._}>
       <div className={cx({ block: true, isBig: true })}>
         <div className={classes.blockTitle + ' s-text-21-uppercase'}>Аккаунт</div>
+        <div className={classes.blockImgUppload}>
+          <input hidden type='file' id='photo'/>
+          <label className={classesImageUppload.img + ' s-hoverable'} htmlFor='photo'>
+            <div className={classesImageUppload.imgOverlay}></div>
+            <UserImage/>
+          </label>
+        </div>
         <form className={classes.blockForm} method='post'>
           <div className={classesInputField._}>
             <label className={classesInputField.label + ' s-text-21'} htmlFor='email'>Почта</label>
@@ -53,13 +63,13 @@ export default function Settings(props: IProps) {
             />
           </div>
           <div className={classesInputField._}>
-            <label className={classesInputField.label + ' s-text-21'} htmlFor='phone'>Телефон</label>
+            <label className={classesInputField.label + ' s-text-21'} htmlFor='telegram'>Телеграм</label>
             <input
               className={cx2({ input: true, isDisabled: false }) + ' s-text-21'}
-              id='phone'
-              name='phone'
-              type='tel'
-              placeholder='+79998888888'
+              id='telegram'
+              name='telegram'
+              type='text'
+              placeholder='@yourNick'
             />
           </div>
         </form>
