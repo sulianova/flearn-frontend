@@ -124,7 +124,11 @@ function Lessons({ courseState, lessonsState }: IConnectedProps) {
       <div className={classesHeader.subTitle + ' s-text-24'}>{t('subTitle')}</div>
       <div className={classesHeader.links}>
         {/* <a className='key-link  s-text-18'>{t('linksAbout')}</a> */}
-        <a className='key-link  s-text-18'>{t('linksTelegram')}</a>
+        <Link
+          className='key-link  s-text-18'
+          to={courseState.data.telegramLink}
+          target='_blank'
+        >{t('linksTelegram')}</Link>
       </div>
     </div>
     <div className={classesList.wrapper}>
