@@ -1,7 +1,6 @@
 import classNames from 'classnames/bind';
 import { debounce } from 'lodash';
 import { useCallback, useEffect, useReducer, useRef } from 'react';
-import { connect } from 'react-redux';
 import { useParams } from 'react-router';
 
 import { dataService, homeworkService } from 'services';
@@ -16,7 +15,7 @@ import Upload from 'assets/images/Svg/Upload';
 
 import classes from './LessonUppload.module.scss';
 
-import { userService, type IUserData } from 'services/user.service';
+import { userService } from 'services/user.service';
 import type { TAction, TImageDataWState, TState } from './types';
 import type { IHomeworkData, IHomeworkDataWPopulate, IHomeworkImageData, IRootState } from 'types';
 import { errorService } from './error.service';
@@ -36,6 +35,7 @@ interface IProps {
 function LessonUppload({ homeworkWPopulate, scroll, onScrollEnd }: IProps) {
   const { courseId, lessonId } = useParams() as { courseId: string, lessonId: string };
   const [state, dispatch] = useReducer(reducer, homeworkWPopulate.homework, initState);
+  const [fileInputKey, resetFileInput] = useReducer((key: number) => key + 1, 0);
   const errors = errorService.useErrors();
   const ref = useRef<HTMLDivElement>(null);
   const authedUser = userService.useAuthedUser();
@@ -114,7 +114,17 @@ function LessonUppload({ homeworkWPopulate, scroll, onScrollEnd }: IProps) {
               <div className={classes.filesTitle + ' s-text-36'}>{t('filesTitle')}</div>
             </div>
             <div className={classes.filesContent}>
-              <input onChange={handleAddImages} type='file' multiple hidden id='added-files'/>
+              <input
+                key={fileInputKey}
+                onChange={(e) => {
+                  handleAddImages(e);
+                  resetFileInput();
+                }}
+                id='added-files'
+                type='file'
+                multiple
+                hidden
+              />
               <label className={classes.filesEmpty} htmlFor='added-files'>
                 <Upload/>
                 <div className='s-text18'>{t('filesEmpty1')}</div>
