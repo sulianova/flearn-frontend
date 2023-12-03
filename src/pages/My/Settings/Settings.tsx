@@ -49,7 +49,7 @@ export default function Settings(props: IProps) {
               value={props.user.email}
             />
           </div>
-          <div className={classesInputField._}>
+          {/* <div className={classesInputField._}>
             <label className={classesInputField.label + ' s-text-21'} htmlFor='name'>Имя и фамилия</label>
             <input
               className={cx2({ input: true, isDisabled: false }) + ' s-text-21'}
@@ -71,7 +71,7 @@ export default function Settings(props: IProps) {
               type='text'
               placeholder='@yourNick'
             />
-          </div>
+          </div> */}
         </form>
       </div>
       <div className={cx({ block: true, isBig: true })}>
