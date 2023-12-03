@@ -28,7 +28,8 @@ function ProgramIntro(props: IProps) {
                 startDate: formatDate(startDate, { timeZone: 'Europe/Moscow' }),
                 week: i18n.t('week', { count: durationWeeks }),
                 durationWeeks,
-              })}</div>
+              })}
+            </div>
             <div className={classes.categoriesItem + ' s-text-18'}>{props.data.feild}</div>
           </div>
           <h1 className={classes.title + ' s-text-88'}>{props.data.title}</h1>
