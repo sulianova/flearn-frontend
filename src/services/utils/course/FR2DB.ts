@@ -9,6 +9,7 @@ export function courseDataFR2DB(course: ICourseData): ICourseDataDB {
     ...courseRest,
     startDate: dateFR2DB(course.startDate),
     endDate: dateFR2DB(course.endDate),
+    accessDeadline: dateFR2DB(course.accessDeadline),
     discontDeadline: dateFR2DB(course.discontDeadline),
     modules: courseModulesFR2DB(course.modules),
     explainMedia: courseExplainMediaFR2DB(course.explainMedia),

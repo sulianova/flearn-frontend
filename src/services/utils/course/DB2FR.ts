@@ -11,6 +11,7 @@ export async function courseDataDB2FR(courseDB: ICourseDataDB): Promise<ICourseD
     introImageSrc: (await firebaseService.getImageURL({ courseId, folder: 'landing', imageId: courseDB.introImageId })) ?? '',
     startDate: dateDB2FR(courseDB.startDate),
     endDate: dateDB2FR(courseDB.endDate),
+    accessDeadline: dateDB2FR(courseDB.accessDeadline),
     discontDeadline: dateDB2FR(courseDB.discontDeadline),
     modules: await courseModulesDB2FR(courseDB.modules, courseId),
     explainMedia: await courseExplainMediaDB2FR(courseDB.explainMedia, courseId),
