@@ -1,9 +1,9 @@
-import classNames from 'classnames/bind';
 import { Fragment, useEffect, useMemo, useState } from 'react';
 import { useParams } from 'react-router';
 import type { Subscription } from 'rxjs';
 
 import { homeworkService } from 'services';
+import { userService } from 'services/user.service';
 import { formatI18nT } from 'shared';
 
 import EditBar from 'ui/EditBar/EditBar';
@@ -11,18 +11,16 @@ import EditBar from 'ui/EditBar/EditBar';
 import LessonReview from './LessonReview/LessonReview';
 import LessonWork from './LessonWork/LessonWork';
 import WorkCard from './WorkCard/WorkCard';
+import NoOwnWorkPlaceholder from './WorkCard/NoOwnWorkPlaceholder';
 
 import useFilter from '../useFilter';
 
 import classes from './LessonWorks.module.scss';
 
-import type { IHomeworkDataWPopulate, THomeworkStateState } from 'types';
-import { userService } from 'services/user.service';
-import NoOwnWorkPlaceholder from './WorkCard/NoOwnWorkPlaceholder';
+import { type IHomeworkDataWPopulate, type THomeworkStateState } from 'types';
 
 export default LessonWorks;
 
-const cx = classNames.bind(classes);
 const t = formatI18nT('courseLesson.works');
 
 function LessonWorks() {
@@ -43,12 +41,20 @@ function LessonWorks() {
       return otherStudentsHomeworks;
     }
 
-    if (filter.limit !== null) {
-      return otherStudentsHomeworks.slice(0, filter.limit);
+    let filteredHomeworks = otherStudentsHomeworks;
+
+    if (authedUser?.role === 'support') {
+      filteredHomeworks = filteredHomeworks.filter(h => h.homework.state === (filter.homeworkState ?? 'REVIEWED'));
+    } else {
+      filteredHomeworks = filteredHomeworks.filter(h => h.homework.state === 'REVIEWED');
     }
 
-    return otherStudentsHomeworks;
-  }, [otherStudentsHomeworks, filter]);
+    if (filter.limit !== null) {
+      filteredHomeworks = filteredHomeworks.slice(0, filter.limit);
+    }
+
+    return filteredHomeworks;
+  }, [otherStudentsHomeworks, filter, authedUser]);
 
   useEffect(() => {
     if (!courseId || !lessonId) {
@@ -58,7 +64,7 @@ function LessonWorks() {
     setHomeworksState({ type: 'pending' });
     let subscription: Subscription;
     homeworkService.getHomeworkBS({
-      filter: { courseId, lessonId, state: 'REVIEWED' },
+      filter: { courseId, lessonId },
       populate: { user: true },
       reviewSource: source,
     }).then(bs => {
@@ -135,6 +141,18 @@ function LessonWorks() {
   const noWorks = !otherStudentsHomeworks.length;
   return (
     <div className={classes._}>
+      <button
+        className={classes.backBtn + ' s-text-21-uppercase inline-link'}
+        onClick={() => patchFilter({ homeworkState: 'SENT_FOR_REVIEW' })}
+      >
+        SENT_FOR_REVIEW
+      </button>
+      <button
+        className={classes.backBtn + ' s-text-21-uppercase inline-link'}
+        onClick={() => patchFilter({ homeworkState: 'REVIEWED' })}
+      >
+        REVIEWED
+      </button>
       <div className={classes.wrapper}>
         <div className={classes.own}>
           <div className={classes.ownTitle + ' s-text-36'}>{t('ownTitle')}</div>

@@ -181,7 +181,7 @@ type TReview = {
 }
 
 const review1: TReview = {
-  homeworkId: 'how-to-draw_SpotPractice_kfKAEY_hw-3C8wwg4FdjebKe1FunCdlPs4M533',
+  homeworkId: 'how-to-draw_HowToDrawSimilarPictureLine_t6qrnq_Practice_iqln35_hw-Qoyv64RbilhFCwmOwyYc41z0ZQH2',
   review: [
     { type: 'text', text: 'Это моё первая обратная связь' },
   ],
