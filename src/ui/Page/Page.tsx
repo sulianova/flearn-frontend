@@ -6,6 +6,7 @@ import Header from './Header/Header';
 import useHeightToCss from './useHeightToCss';
 
 import classes from './Page.module.scss';
+import { mailchimpService } from 'services';
 
 export default Page;
 export { EFooter } from './Footer/Footer';
@@ -24,6 +25,9 @@ function Page({ children, header = false, footer, wrapper }: IProps) {
     <div className={classes._} ref={ref}>
       {header && <Header/>}
       <div className={classes.content}>
+        <button onClick={() => mailchimpService.check()}>
+          test
+        </button>
         {wrapper ?
           (<section className={classes[`${wrapper}-wrapper`]}>
             {children}

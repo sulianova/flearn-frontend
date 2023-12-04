@@ -3,4 +3,5 @@ export * from './data.service';
 export * from './env.service';
 export * from './firebase.service';
 export * from './homework.service';
+export * from './mailchimp.service';
 export * from './localFiles.service';
