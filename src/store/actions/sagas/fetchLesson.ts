@@ -1154,20 +1154,20 @@ const lessonData12: ILessonDataDB = {
         ],
       },
     },
-    {
-      type: 'title',
-      title: 'Дополнительно',
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'a',
-          content: 'Про 4 типа линии: силуэт, конструкция, форма, фактура',
-          props: { className: 'link', target: "_blank", to: 'https://kruzhokskorogorisunka.ru/202377.html?ysclid=lo5eh1vgp6502216306' },
-        },
-      ]
-    }
+    // {
+    //   type: 'title',
+    //   title: 'Дополнительно',
+    // },
+    // {
+    //   type: 'text',
+    //   text: [
+    //     {
+    //       tag: 'a',
+    //       content: 'Про 4 типа линии: силуэт, конструкция, форма, фактура',
+    //       props: { className: 'link', target: "_blank", to: 'https://kruzhokskorogorisunka.ru/202377.html?ysclid=lo5eh1vgp6502216306' },
+    //     },
+    //   ]
+    // }
   ]
 }
 
