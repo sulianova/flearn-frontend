@@ -539,16 +539,16 @@ const lessonData11: ILessonDataDB = {
       type: 'title',
       title: 'Дополнительно',
     },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'a',
-          content: 'Простые упражнения в кружке скорого рисунка',
-          props: { className: 'link', target: "_blank", to: 'https://kruzhokskorogorisunka.ru/tag/*%20Простые%20упражнения?ysclid=lo5f33rkux242200573' },
-        },
-      ]
-    },
+    // {
+    //   type: 'text',
+    //   text: [
+    //     {
+    //       tag: 'a',
+    //       content: 'Простые упражнения в кружке скорого рисунка',
+    //       props: { className: 'link', target: "_blank", to: 'https://kruzhokskorogorisunka.ru/tag/*%20Простые%20упражнения?ysclid=lo5f33rkux242200573' },
+    //     },
+    //   ]
+    // },
     {
       type: 'text',
       text: [
