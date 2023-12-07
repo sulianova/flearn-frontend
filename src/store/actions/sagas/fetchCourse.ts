@@ -460,72 +460,7 @@ const courseDB2: ICourseDataDB = {
       imageAlt: 'SofiUlianova5',
     },
   ],
-  studentsWorks: [
-    {
-      imageId: 'SpotCat27.jpg',
-      imageAlt: 'SpotCat27',
-    },
-    {
-      imageId: 'SpotCat14.jpg',
-      imageAlt: 'SpotCat14',
-    },
-    {
-      imageId: 'activeSpot2.jpg',
-      imageAlt: 'activeSpot2',
-    },
-    {
-      imageId: 'LineCat3.jpg',
-      imageAlt: 'LineCat3',
-    },
-    {
-      imageId: 'SpotCat8.jpg',
-      imageAlt: 'SpotCat8',
-    },
-    {
-      imageId: 'activeSpot7.jpg',
-      imageAlt: 'activeSpot7',
-    },
-    {
-      imageId: 'SpotCat3.jpg',
-      imageAlt: 'SpotCat3',
-    },
-    {
-      imageId: 'SpotCat7.jpg',
-      imageAlt: 'SpotCat7',
-    },
-    {
-      imageId: 'SpotCat2.jpg',
-      imageAlt: 'SpotCat2',
-    },
-    {
-      imageId: 'LineCat6.jpg',
-      imageAlt: 'LineCat6',
-    },
-    {
-      imageId: 'activeSpot14.jpg',
-      imageAlt: 'activeSpot14',
-    },
-    {
-      imageId: 'activeSpot16.jpg',
-      imageAlt: 'activeSpot16',
-    },
-    {
-      imageId: 'activeSpot8.jpg',
-      imageAlt: 'activeSpot8',
-    },
-    {
-      imageId: 'activeSpot9.jpg',
-      imageAlt: 'activeSpot9',
-    },
-    {
-      imageId: 'LineCat28.jpg',
-      imageAlt: 'LineCat28',
-    },
-    {
-      imageId: 'activeSpot5.jpg',
-      imageAlt: 'activeSpot5',
-    },
-  ],
+  studentsWorks: [],
   faq: [
     {
       question: 'Как проходит онлайн обучение',
