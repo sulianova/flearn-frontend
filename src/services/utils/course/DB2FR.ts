@@ -12,7 +12,7 @@ export async function courseDataDB2FR(courseDB: ICourseDataDB): Promise<ICourseD
     startDate: dateDB2FR(courseDB.startDate),
     endDate: dateDB2FR(courseDB.endDate),
     accessDeadline: dateDB2FR(courseDB.accessDeadline),
-    discontDeadline: dateDB2FR(courseDB.discontDeadline),
+    discontDeadline: courseDB.discontDeadline ? dateDB2FR(courseDB.discontDeadline) : null,
     modules: await courseModulesDB2FR(courseDB.modules, courseId),
     explainMedia: await courseExplainMediaDB2FR(courseDB.explainMedia, courseId),
     teachers: await courseTeachersDB2FR(courseDB.teachers, courseId),

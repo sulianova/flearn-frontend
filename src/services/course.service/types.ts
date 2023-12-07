@@ -20,7 +20,7 @@ export interface ICourseData {
   introImageSrc: string
   introImageAlt: string
   discontAmount: number
-  discontDeadline: Date
+  discontDeadline: Date | null
   creditWas: number
   creditPrice: number
   telegramLink: string
@@ -56,7 +56,7 @@ export interface ICourseDataDB {
   introDescription: string
   introImageAlt: string
   discontAmount: number
-  discontDeadline: string
+  discontDeadline: string | null
   creditWas: number
   creditPrice: number
   telegramLink: string

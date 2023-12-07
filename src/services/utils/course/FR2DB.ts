@@ -10,7 +10,7 @@ export function courseDataFR2DB(course: ICourseData): ICourseDataDB {
     startDate: dateFR2DB(course.startDate),
     endDate: dateFR2DB(course.endDate),
     accessDeadline: dateFR2DB(course.accessDeadline),
-    discontDeadline: dateFR2DB(course.discontDeadline),
+    discontDeadline: course.discontDeadline ? dateFR2DB(course.discontDeadline) : null,
     modules: courseModulesFR2DB(course.modules),
     explainMedia: courseExplainMediaFR2DB(course.explainMedia),
     teachers: courseTeachersFR2DB(course.teachers),

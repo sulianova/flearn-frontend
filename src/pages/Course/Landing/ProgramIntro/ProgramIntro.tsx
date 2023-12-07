@@ -16,7 +16,7 @@ interface IProps {
 }
 
 function ProgramIntro(props: IProps) {
-  const { startDate, durationWeeks, duration, creditWas } = props.data;
+  const { startDate, durationWeeks, duration, creditPrice, discontDeadline } = props.data;
 
   const durationUnit = duration?.unit ?? 'week';
   const durationValue = duration?.value ?? durationWeeks;
@@ -27,8 +27,7 @@ function ProgramIntro(props: IProps) {
       durationInUnits: durationValue,
       unitPlural: i18n.t(durationUnit, { count: durationValue }),
     }),
-    !creditWas && t('free'),
-    props.data.feild,
+    !creditPrice && !discontDeadline && t('free'),
   ].filter(Boolean);
 
   return (

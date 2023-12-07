@@ -322,7 +322,7 @@ const courseDB2: ICourseDataDB = {
   startDate: '2023.12.14 21:00:00 GMT',
   endDate: '2023.12.18 20:59:00 GMT',
   accessDeadline: '2023.12.18 20:59:00 GMT',
-  durationWeeks: 3,
+  durationWeeks: 0,
   duration: {
     unit: 'day',
     value: 4,
@@ -334,8 +334,8 @@ const courseDB2: ICourseDataDB = {
   introDescription: 'Разберемся, из чего состоит авторский стиль и сделаем  серию графических работ для портфолио',
   introImageAlt: 'introImage',
   discontAmount: 100,
-  discontDeadline: '2023.12.10 20:59:00 GMT',
-  creditWas: 0,
+  discontDeadline: null,
+  creditWas: 2000,
   creditPrice: 0,
   telegramLink: 'https://t.me/+LZp7VXnGjUQ3ZTRi',
   about: [
