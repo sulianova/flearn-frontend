@@ -14,6 +14,10 @@ const cx = classNames.bind(classes);
 const t = formatI18nT('courseLanding.promo');
 
 function Promo(props: IProps) {
+  if (!props.data.promoVideo) {
+    return null;
+  }
+
   return (
     <div className={classes.wrapper}>
       <div className={classes.cards}>

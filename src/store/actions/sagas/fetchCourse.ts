@@ -428,10 +428,7 @@ const courseDB2: ICourseDataDB = {
     imageId: 'SofiUlianova.jpg',
     imageAlt: 'SofiUlianova',
   },
-  promoVideo: {
-    src: 'https://www.youtube.com/embed/XQYJAnh6ABU?si=i86TtEisk_kuEUba?autoplay=1&loop=1',
-    title: 'Как рисовать – promo'
-  },
+  promoVideo: undefined,
   teachers: [],
   teacherGallery: [
     {
