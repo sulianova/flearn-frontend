@@ -87,7 +87,8 @@
   },
   "courseLanding": {
       "programIntro" : {
-        "datesInfoLabel": "%{startDate} | %{durationWeeks} %{week}"
+        "free": "Бесплатно",
+        "datesInfoLabel": "%{startDate} | %{durationInUnits} %{unitPlural}"
       },
       "form": {
           "title": "Записаться на онлайн курс",
@@ -208,6 +209,18 @@
     "fallback:noResults:beforeDeadline": "Дата публикации результатов %{resultsEndDate}. Приходите позже.",
     "fallback:noResults:deadlineDay": "Результатов пока нет, но они должны появится сегодня.",
     "fallback:noResults:pastDeadline": "Извиняемся за задержку результатов, мы их активно проверяем. Если задержка более дня, напишите, пожалуйста, в телеграм-чат курса."
+  },
+  "day": {
+    "one": "день",
+    "few": "дня",
+    "many": "дней",
+    "other": "дней"
+  },
+  "daysAmount": {
+    "one": "%{count} день",
+    "few": "%{count} дня",
+    "many": "%{count} дней",
+    "other": "%{count} дней"
   },
   "week": {
     "one": "неделя",

@@ -317,11 +317,16 @@ const courseDB1: ICourseDataDB = {
 
 const courseDB2: ICourseDataDB = {
   id: 'finding-your-style',
+  type: 'webinar',
   title: 'Как найти свой стиль',
   startDate: '2023.12.14 21:00:00 GMT',
   endDate: '2023.12.18 20:59:00 GMT',
   accessDeadline: '2023.12.18 20:59:00 GMT',
   durationWeeks: 3,
+  duration: {
+    unit: 'day',
+    value: 2,
+  },
   homeworksNumber: 1,
   videosNumber: 3,
   feild: 'Иллюстрация',
@@ -330,7 +335,7 @@ const courseDB2: ICourseDataDB = {
   introImageAlt: 'introImage',
   discontAmount: 100,
   discontDeadline: '2023.12.10 20:59:00 GMT',
-  creditWas: 2000,
+  creditWas: 0,
   creditPrice: 0,
   telegramLink: 'https://t.me/+LZp7VXnGjUQ3ZTRi',
   description: [

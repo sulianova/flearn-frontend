@@ -16,21 +16,29 @@ interface IProps {
 }
 
 function ProgramIntro(props: IProps) {
-  const { startDate, durationWeeks } = props.data;
+  const { startDate, durationWeeks, duration, creditWas } = props.data;
+
+  const durationUnit = duration?.unit ?? 'week';
+  const durationValue = duration?.value ?? durationWeeks;
+
+  const labels = [
+    t('datesInfoLabel', { 
+      startDate: formatDate(startDate, { timeZone: 'Europe/Moscow' }),
+      durationInUnits: durationValue,
+      unitPlural: i18n.t(durationUnit, { count: durationValue }),
+    }),
+    !creditWas && t('free'),
+    props.data.feild,
+  ].filter(Boolean);
 
   return (
     <div className={classes._} id='program-intro'>
       <div className={classes.inner}>
         <div className={classes.info}>
           <div className={classes.categories}>
-            <div className={classes.categoriesItem + ' s-text-18'}>
-              {t('datesInfoLabel', { 
-                startDate: formatDate(startDate, { timeZone: 'Europe/Moscow' }),
-                week: i18n.t('week', { count: durationWeeks }),
-                durationWeeks,
-              })}
-            </div>
-            <div className={classes.categoriesItem + ' s-text-18'}>{props.data.feild}</div>
+            {labels.map((label, i) => (
+              <div className={classes.categoriesItem + ' s-text-18'} key={i}>{label}</div>
+            ))}
           </div>
           <h1 className={classes.title + ' s-text-88'}>{props.data.title}</h1>
           <div className={classes.block + ' s-text-24'}>{props.data.introDescription}</div>

@@ -3,10 +3,15 @@ import type { IProps as ILinkProps } from 'ui/Link/Link';
 
 export interface ICourseData {
   id: string
+  type?: 'course' | 'webinar'
   startDate: Date
   endDate: Date
   accessDeadline: Date
   durationWeeks: number
+  duration?: {
+    unit: 'day' | 'week',
+    value: number
+  }
   homeworksNumber: number
   videosNumber: number
   feild: 'Иллюстрация' | 'Adobe'
@@ -33,10 +38,15 @@ export interface ICourseData {
 
 export interface ICourseDataDB {
   id: string
+  type?: 'course' | 'webinar'
   startDate: string
   endDate: string
   accessDeadline: string
   durationWeeks: number
+  duration?: {
+    unit: 'day' | 'week',
+    value: number
+  }
   homeworksNumber: number
   videosNumber: number
   feild: 'Иллюстрация' | 'Adobe'
