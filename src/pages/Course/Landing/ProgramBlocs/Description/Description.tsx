@@ -20,7 +20,11 @@ function Description(props: IProps) {
   return (
     <div className={classes.wrapper}>
       <Animated.Scroll>
-        {(id, className) => (<h2 className={cx({ title: true }, className) + ' s-text-56'} id={id}>{t('title')}</h2>)}
+        {(id, className) => (
+          <h2 className={cx({ title: true }, className) + ' s-text-56'} id={id}>
+            {t(`title:${props.data.type ?? 'course'}`)}
+          </h2>
+        )}
       </Animated.Scroll>
       <div className={classes.list}>
         {renderItems(props.data.description)}

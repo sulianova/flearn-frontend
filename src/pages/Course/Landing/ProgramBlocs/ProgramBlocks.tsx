@@ -4,6 +4,7 @@ import Explain from './Explain/Explain';
 import FAQ from './FAQ/FAQ';
 import Gallery from './Gallery/Gallery';
 import Modules from './Modules/Modules';
+import Prizes from './Prizes/Prizes';
 import classes from './ProgramBlocks.module.scss';
 import Promo from './Promo/Promo';
 import StudentsWorks from './StudentsWorks/StudentsWorks';
@@ -17,6 +18,7 @@ interface IProps {
 export default function ProgramBlocks(props: IProps) {
   const blocks = [
     <Description key='description' {...props}/>,
+    <Prizes key='prizes' {...props}/>,
     <Modules key='modules' modules={props.data.modules} {...props}/>,
     <StudentsWorks key='studentsWorks' {...props}/>,
     <Explain key='explain' {...props}/>,

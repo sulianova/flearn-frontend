@@ -26,6 +26,7 @@ export interface ICourseData {
   creditPrice: number
   telegramLink: string
   description: Array<{ question: string, answer: string }>
+  prizes?: Array<{ title: TText | TText[], content?: TText | TText[] }>
   modulesDescription: TText | TText[]
   modules: Array<{ meta: TText | TText[], title: TText | TText[], content: TText | TText[], imageDesc: TText | TText[] } & TImageData>
   explainMedia: { type: 'image', imageId: string, imageSrc: string, imageAlt: string } | { type: 'video', title: string, src: string },
@@ -60,6 +61,7 @@ export interface ICourseDataDB {
   creditPrice: number
   telegramLink: string
   description: Array<{ question: string, answer: string }>
+  prizes?: Array<{ title: TText | TText[], content?: TText | TText[] }>
   modulesDescription: TText | TText[]
   modules: Array<{ meta: TText | TText[], title: TText | TText[], content: TText | TText[], imageDesc: TText | TText[] } & TImageDataDB>
   explainMedia: { type: 'image', imageId: string, imageAlt: string } | { type: 'video', title: string, src: string },
