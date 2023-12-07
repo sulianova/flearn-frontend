@@ -37,7 +37,8 @@
   padding: set-calc(32);
   min-height: set-calc(330);
 
-  background-color: $pastelYellow;
+  // background-color: $pastelYellow;
+  background-image: linear-gradient(98deg, $pastelPink, $pastelWarmGreen);
   border-radius: set-calc(20);
 
   @include set-media(md) {
