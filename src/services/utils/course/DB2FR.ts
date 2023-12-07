@@ -27,6 +27,12 @@ async function courseModulesDB2FR(modules: ICourseDataDB['modules'], courseId: s
 }
 
 async function courseModuleDB2FR(module: ICourseDataDB['modules'][number], courseId: string): Promise<ICourseData['modules'][number]> {
+  if (module.imageId === undefined) {
+    return {
+      ...module,
+    };
+  }
+
   const imageSrc = typeof module.imageId === 'string' ?
     (await firebaseService.getImageURL({ courseId, folder: 'landing', imageId: module.imageId })) ?? ''
     : {

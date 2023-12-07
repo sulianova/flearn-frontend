@@ -47,7 +47,7 @@
 
 .listItem {
   display: grid;
-  grid-template-columns: repeat(2,minmax(0,1fr));
+  grid-template-columns: repeat(var(--items-in-row, 2),minmax(0,1fr));
   grid-column-gap: set-calc($s-gap);
 
   @include set-media(md) {
@@ -85,6 +85,7 @@
 
 .listItemContent {
   padding-bottom: set-calc(16);
+  max-width: set-calc(950);
 
   p:not(:last-child) {
     font-size: inherit;

@@ -394,9 +394,6 @@ const courseDB2: ICourseDataDB = {
         { tag: 'span', content: '• Что такое иллюстрация, серия, стиль' },
         { tag: 'span', content: '•  Как сделана иллюстрация. Средства выразительности' },
       ],
-      imageId: { desktop: 'Block1.jpg', mobile: 'Block1-mobile.jpg' },
-      imageAlt: 'Block1',
-      imageDesc: 'Рисунки преподавателя',
       title: 'Теория: из чего складывается стиль',
       meta: [
         {
@@ -406,11 +403,7 @@ const courseDB2: ICourseDataDB = {
       ],
     },
     {
-      content: [
-      ],
-      imageId: { desktop: 'Block2.jpg', mobile: 'Block2-mobile.jpg'},
-      imageAlt: 'Block2',
-      imageDesc: 'Рисунки преподавателя',
+      content: [],
       title: 'Практика: серия графических работ из 3-5 иллюстраций',
       meta: [
         {
@@ -420,11 +413,7 @@ const courseDB2: ICourseDataDB = {
       ],
     },
     {
-      content: [
-      ],
-      imageId: { desktop: 'Block3.jpg', mobile: 'Block3-mobile.jpg' },
-      imageAlt: 'Block3',
-      imageDesc: 'Рисунки преподавателя',
+      content: [],
       title: 'Итоги и разбор работ участников',
       meta: [
         {
@@ -443,9 +432,7 @@ const courseDB2: ICourseDataDB = {
     src: 'https://www.youtube.com/embed/XQYJAnh6ABU?si=i86TtEisk_kuEUba?autoplay=1&loop=1',
     title: 'Как рисовать – promo'
   },
-  teachers: [
-
-  ],
+  teachers: [],
   teacherGallery: [
     {
       imageId: 'SofiUlianova2.jpg',

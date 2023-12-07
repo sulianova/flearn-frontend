@@ -19,6 +19,11 @@ interface IProps {
 }
 
 function Modules(props: IProps) {
+  const { duration, durationWeeks } = props.data;
+
+  const durationUnit = duration?.unit ?? 'week';
+  const durationValue = duration?.value ?? durationWeeks;
+
   return (
     <Fragment>
       <div className={classes.wrapper}>
@@ -39,7 +44,7 @@ function Modules(props: IProps) {
           <div className={classes.tags}>
             <div className={classes.tag + ' s-text-18'}>{t('videosNumber', { count: props.data.videosNumber })}</div>
             <div className={classes.tag + ' s-text-18'}>{t('homeworksNumber', { count: props.data.homeworksNumber })}</div>
-            <div className={classes.tag + ' s-text-18'}>{t('durationWeeks', { count: props.data.durationWeeks })}</div>
+            <div className={classes.tag + ' s-text-18'}>{t(`duration:${durationUnit}`, { count: durationValue })}</div>
             <div className={classes.tag + ' s-text-18 b-black-new'}>{t('feedback')}</div>
             <div className={classes.tag + ' s-text-18 b-black-new'}>{t('chat')}</div>
           </div>
@@ -53,22 +58,39 @@ function Modules(props: IProps) {
 }
 
 function renderItem(props: ICourseData['modules'][number]) {
+  const withImage = props.imageId !== undefined;
+  if (withImage) {
+    return (
+      <div className={classes.listItem}>
+        <Animated.Scroll>
+          {(id, className) => (
+            <div className={cx({ listItemCard: true }, className)} id={id}>
+              <div className={classes.listItemMeta + ' s-text-16'}><Text text={props.meta}/></div>
+              <div className={classes.listItemTitle + ' s-text-36'}><Text text={props.title}/></div>
+              <div className={classes.listItemContent + ' s-text-24'}><Text text={props.content}/></div>
+            </div>
+          )}
+        </Animated.Scroll>
+        <Animated.Scroll>
+          {(id, className) => (
+            <div className={cx({ listItemCard: true }, className)} id={id}>
+              <div className={classes.listItemMedia}><Image src={props.imageSrc!} alt={props.imageAlt!}/></div>
+              <div className={classes.listItemMediaDesc + ' s-text-18'}><Text text={props.imageDesc!}/></div>
+            </div>
+          )}
+        </Animated.Scroll>
+      </div>
+    );
+  }
+
   return (
-    <div className={classes.listItem}>
+    <div className={classes.listItem} style={{ '--items-in-row': 1 } as React.CSSProperties}>
       <Animated.Scroll>
         {(id, className) => (
           <div className={cx({ listItemCard: true }, className)} id={id}>
             <div className={classes.listItemMeta + ' s-text-16'}><Text text={props.meta}/></div>
             <div className={classes.listItemTitle + ' s-text-36'}><Text text={props.title}/></div>
             <div className={classes.listItemContent + ' s-text-24'}><Text text={props.content}/></div>
-          </div>
-        )}
-      </Animated.Scroll>
-      <Animated.Scroll>
-        {(id, className) => (
-          <div className={cx({ listItemCard: true }, className)} id={id}>
-            <div className={classes.listItemMedia}><Image src={props.imageSrc} alt={props.imageAlt}/></div>
-            <div className={classes.listItemMediaDesc + ' s-text-18'}><Text text={props.imageDesc}/></div>
           </div>
         )}
       </Animated.Scroll>
