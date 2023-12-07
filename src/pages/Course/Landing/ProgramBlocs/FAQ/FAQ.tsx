@@ -18,6 +18,10 @@ interface IProps {
 }
 
 function FAQ(props: IProps) {
+  if (props.data.faq.length === 0) {
+    return null;
+  }
+
   return (
         <div className={classes.wrapper}>
           <div className={classes.header}>
