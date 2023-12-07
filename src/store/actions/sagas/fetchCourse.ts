@@ -428,7 +428,7 @@ const courseDB2: ICourseDataDB = {
     imageId: 'SofiUlianova.jpg',
     imageAlt: 'SofiUlianova',
   },
-  promoVideo: undefined,
+  promoVideo: null,
   teachers: [],
   teacherGallery: [
     {
