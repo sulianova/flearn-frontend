@@ -72,10 +72,10 @@ export const fetchCourse = createAction<'saga', IFetchCoursePayload>(
 );
 
 function getData(id: string) {
-  return newCourseDB.id === id ? newCourseDB: undefined;
+  return allCourses.find(course => course.id === id);
 }
 
-const newCourseDB: ICourseDataDB = {
+const courseDB1: ICourseDataDB = {
   id: 'how-to-draw', // how-to-draw-free
   title: 'Как рисовать',
   startDate: '2024.01.07 21:00:00 GMT', // '2023.12.03 21:00:00 GMT'
@@ -314,3 +314,221 @@ const newCourseDB: ICourseDataDB = {
 
   ]
 }
+
+const courseDB2: ICourseDataDB = {
+  id: 'finding-your-style',
+  title: 'Как найти свой стиль',
+  startDate: '2023.12.14 21:00:00 GMT',
+  endDate: '2023.12.18 20:59:00 GMT',
+  accessDeadline: '2023.12.18 20:59:00 GMT',
+  durationWeeks: 3,
+  homeworksNumber: 1,
+  videosNumber: 3,
+  feild: 'Иллюстрация',
+  introImageId: 'introImage.jpg',
+  introDescription: 'На интенсиве вы: — познакомитесь с основами иллюстрации — узнаете, из чего состоит авторский стиль — создадите графическую серию для портфолио и получите обратную связь от преподавателя',
+  introImageAlt: 'introImage',
+  discontAmount: 100,
+  discontDeadline: '2023.12.10 20:59:00 GMT',
+  creditWas: 2000,
+  creditPrice: 0,
+  telegramLink: 'https://t.me/+LZp7VXnGjUQ3ZTRi',
+  description: [
+    {
+      answer: 'На курсе будем разбираться, как ставить перед собой посильные маленькие задачки. А затем развивать из них готовые графические серии.',
+      question: 'Не знает с чего начать'
+    },
+    {
+      answer: 'На курсе пошагово разберем, из чего состоит иллюстрация, что делает рисунок выразительным, интересным для разглядывания. Будем анализировать работы других иллюстраторов, пробовать новые подходы в собственных рисунках. По итогу, у студентов останется алгоритм, по которому можно разбирать иллюстрации любимых художников, самостоятельно у них учиться и развиывать свой графический язык.',
+      question: 'Хочет найти свой стиль в иллюстрации'
+    },
+    {
+      answer: 'Фотографическая точность — одно из возможных средств выразительности. Еще есть контраст, формообразование, силуэт, ритмы. На курсе будем учиться делать выразительные рисунки, не копируя фотографию.',
+      question: 'Уверен, что всё зря, если рисунок «не как на фотографии»'
+    },
+    {
+      answer: 'На первых этапах в рисовании мешает не столько отсутствие навыков, сколько предубеждения и страхи: «а если не получится», «не знаю, как правильно». Поэтому в начале важна поддержка и рабочий настрой.',
+      question: 'Боится, что не получится'
+    },
+  ],
+  modulesDescription: 'Программа рассчитана на 4 дня, ей нужно посвятить 5-6 часов.',
+  modules: [
+    {
+      content: [
+        { tag: 'p', content: 'Разберемся из чего складывается иллюстрация, проанализируем работы других художников. Подумаем, какие ценности важны для нас, из чего может складываться наш собственный стиль.' },
+        { tag: 'span', content: '• Что такое иллюстрация, серия, стиль' },
+        { tag: 'span', content: '•  Как сделана иллюстрация. Средства выразительности' },
+      ],
+      imageId: { desktop: 'Block1.jpg', mobile: 'Block1-mobile.jpg' },
+      imageAlt: 'Block1',
+      imageDesc: 'Рисунки преподавателя',
+      title: 'Теория: из чего складывается стиль',
+      meta: [
+        {
+          content: 'День 1 • 15 декабря',
+          tag: 'span',
+        }
+      ],
+    },
+    {
+      content: [
+      ],
+      imageId: { desktop: 'Block2.jpg', mobile: 'Block2-mobile.jpg'},
+      imageAlt: 'Block2',
+      imageDesc: 'Рисунки преподавателя',
+      title: 'Практика: серия графических работ из 3-5 иллюстраций',
+      meta: [
+        {
+          content: 'День 2 • 16 декабря',
+          tag: 'span',
+        }
+      ],
+    },
+    {
+      content: [
+      ],
+      imageId: { desktop: 'Block3.jpg', mobile: 'Block3-mobile.jpg' },
+      imageAlt: 'Block3',
+      imageDesc: 'Рисунки преподавателя',
+      title: 'Итоги и разбор работ участников',
+      meta: [
+        {
+          content: 'День 4 • 18 декабря',
+          tag: 'span',
+        }
+      ],
+    },
+  ],
+  explainMedia: {
+    type: 'image',
+    imageId: 'SofiUlianova.jpg',
+    imageAlt: 'SofiUlianova',
+  },
+  promoVideo: {
+    src: 'https://www.youtube.com/embed/XQYJAnh6ABU?si=i86TtEisk_kuEUba?autoplay=1&loop=1',
+    title: 'Как рисовать – promo'
+  },
+  teachers: [
+
+  ],
+  teacherGallery: [
+    {
+      imageId: 'SofiUlianova2.jpg',
+      imageAlt: 'SofiUlianova2',
+    },
+    {
+      imageId: 'SofiUlianova3.jpg',
+      imageAlt: 'SofiUlianova3',
+    },
+    {
+      imageId: 'SofiUlianova5.jpg',
+      imageAlt: 'SofiUlianova5',
+    },
+  ],
+  studentsWorks: [
+    {
+      imageId: 'SpotCat27.jpg',
+      imageAlt: 'SpotCat27',
+    },
+    {
+      imageId: 'SpotCat14.jpg',
+      imageAlt: 'SpotCat14',
+    },
+    {
+      imageId: 'activeSpot2.jpg',
+      imageAlt: 'activeSpot2',
+    },
+    {
+      imageId: 'LineCat3.jpg',
+      imageAlt: 'LineCat3',
+    },
+    {
+      imageId: 'SpotCat8.jpg',
+      imageAlt: 'SpotCat8',
+    },
+    {
+      imageId: 'activeSpot7.jpg',
+      imageAlt: 'activeSpot7',
+    },
+    {
+      imageId: 'SpotCat3.jpg',
+      imageAlt: 'SpotCat3',
+    },
+    {
+      imageId: 'SpotCat7.jpg',
+      imageAlt: 'SpotCat7',
+    },
+    {
+      imageId: 'SpotCat2.jpg',
+      imageAlt: 'SpotCat2',
+    },
+    {
+      imageId: 'LineCat6.jpg',
+      imageAlt: 'LineCat6',
+    },
+    {
+      imageId: 'activeSpot14.jpg',
+      imageAlt: 'activeSpot14',
+    },
+    {
+      imageId: 'activeSpot16.jpg',
+      imageAlt: 'activeSpot16',
+    },
+    {
+      imageId: 'activeSpot8.jpg',
+      imageAlt: 'activeSpot8',
+    },
+    {
+      imageId: 'activeSpot9.jpg',
+      imageAlt: 'activeSpot9',
+    },
+    {
+      imageId: 'LineCat28.jpg',
+      imageAlt: 'LineCat28',
+    },
+    {
+      imageId: 'activeSpot5.jpg',
+      imageAlt: 'activeSpot5',
+    },
+  ],
+  faq: [
+    {
+      question: 'Как проходит онлайн обучение',
+      answer: 'Работаем на платформе школы. Каждый понедельник открываются учебные материалы и задание на неделю. Дедлайн загрузки задания — воскресенье, 23:59 по Мск. Вопросы, возникающие по ходу задаем в любое время в телеграмм-канале — раз в сутки преподаватель отвечает на них.'
+    },
+    {
+      question: 'Какие материалы нужны',
+      answer: 'Линейные: ручка или черный карандаш. Пятновые: черная тушь, круглая кисточка. Бумага плотностью 180-250г/м. Компьютер или телефон с приложением для обработки фотографий.'
+    },
+    {
+      question: 'Подойдет ли мне курс, если я раньше не рисовал',
+      answer: 'Да, подойдет. Курс рассчитан для начинающих рисовальщиков.'
+    },
+    {
+      question: 'Возможно ли совмещать учебу с работой',
+      answer: 'Занятия проходят онлайн, все уроки доступны в записи. Вы сможете смотреть лекции или выполнять практические задания в удобное для вас время.'
+    },
+    {
+      question: 'Что будет, если я вовремя не загрузил домашнее задание',
+      answer: 'На каждое задание дается 7 дней. Чтобы получить обратную связь преподавателя, нужно отправить работу до дедлайна. После дедлайна задание на проверку отправить нельзя. Вопросы по заданиям можно задавать и после дедлайна.'
+    },
+    {
+      question: 'Сколько длится доступ к материалам курса',
+      answer: 'Если загрузить все задания, доступ к материалам останется навсегда. Если не сдать одно задание и больше — доступ на время курса + 1 неделя после. Всего 1 месяц.'
+    },
+    {
+      question: 'Как оплатить зарубежной картой',
+      answer: 'Мы принимаем платежи в России и из-за рубежа. После записи на курс вам придет письмо на почту с инструкцией об оплате, и вы сможете выбрать удобный для вас способ.'
+    },
+    {
+      question: 'Как вернуть деньги, если мне не понравился курс',
+      answer: 'До конца первой недели можно отказаться от курса и вернуть деньги. Для этого напишите мне на почту или в телеграмме.'
+    },
+
+  ]
+}
+
+const allCourses = [
+  courseDB1,
+  courseDB2
+];
