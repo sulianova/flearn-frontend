@@ -37,7 +37,7 @@
   padding: set-calc(32);
   min-height: set-calc(330);
 
-  background-color: $pastelYellow;
+  background-color: $beige;
   border-radius: set-calc(20);
 
   @include set-media(md) {
@@ -52,49 +52,12 @@
   }
 }
 
-
-.listItemTitle {
-  margin-bottom: set-calc(32);
-}
-
 .listItemContent {
   font-size: inherit;
   line-height: inherit;
-  margin-top: set-calc(80);
+  white-space: pre-line;
 
-  @include set-media(md) {
-    margin-top: set-calc(32);
-  }
-}
-
-.listItemMedia {
-  position: relative;
-  margin: set-calc(-32);
-  overflow: hidden;
-
-  display: block;
-  // height: set-calc(340);
-  border-radius: set-calc(20);
-
-  @include set-media(md) {
-    margin: set-calc(-16);
-  }
-}
-
-.listItemMedia img {
-  position: relative;
-
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.listItemMediaDesc {
-  margin: set-calc(52) 0 0;
-
-  @include set-media(md) {
-    margin: set-calc(24) 0 0;
-    padding: set-calc(8) set-calc($padding-x-mob-page) set-calc(16);
+  p {
+    padding-bottom: set-calc(16);
   }
 }

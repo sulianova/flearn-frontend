@@ -22,17 +22,6 @@ function Modules(props: IProps) {
   return (
     <Fragment>
       <div className={classes.wrapper}>
-        <h2 className={cx({ title: true }) + ' s-text-56'} >Подарки для участников интенсива</h2>
-        <div className={classes.listItem}>
-          <div className={cx({ listItemCard: true })}>
-            <div className={classes.listItemTitle + ' s-text-28'}>Cкидка 50% на курс “Как рисовать”</div>
-            {/* <div className={classes.listItemContent + ' s-text-24'}>скидка 50% на курс “Как рисовать”</div> */}
-          </div>
-          <div className={cx({ listItemCard: true })}>
-            <div className={classes.listItemTitle + ' s-text-28'}>Приглашение в телеграм-чат выпускников школы flearn</div>
-            <div className={classes.listItemContent + ' s-text-24'}>В чате мы задаем любые вопросы по рисованию, делимся радостями, горестями, лайфхаками и красивыми картинками, поддерживаем друг друга и болтаем.</div>
-          </div>
-        </div>
         <div className={classes.listItem}>
           <div className={cx({ listItemCard: true })}>
             <div className={classes.listItemTitle + ' s-text-36'}>Что получится в результате</div>

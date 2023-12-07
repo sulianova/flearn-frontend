@@ -25,6 +25,7 @@ export interface ICourseData {
   creditWas: number
   creditPrice: number
   telegramLink: string
+  about?: TText | TText[]
   description: Array<{ question: string, answer: string }>
   prizes?: Array<{ title: TText | TText[], content?: TText | TText[] }>
   modulesDescription: TText | TText[]
@@ -60,6 +61,7 @@ export interface ICourseDataDB {
   creditWas: number
   creditPrice: number
   telegramLink: string
+  about?: TText | TText[]
   description: Array<{ question: string, answer: string }>
   prizes?: Array<{ title: TText | TText[], content?: TText | TText[] }>
   modulesDescription: TText | TText[]

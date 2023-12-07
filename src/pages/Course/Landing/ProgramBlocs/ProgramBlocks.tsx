@@ -1,3 +1,4 @@
+import About from './About/About';
 import DecisionForm from './DecisionForm/DecisionForm';
 import Description from './Description/Description';
 import Explain from './Explain/Explain';
@@ -17,6 +18,7 @@ interface IProps {
 
 export default function ProgramBlocks(props: IProps) {
   const blocks = [
+    <About key='about' {...props}/>,
     <Description key='description' {...props}/>,
     <Prizes key='prizes' {...props}/>,
     <Modules key='modules' modules={props.data.modules} {...props}/>,
