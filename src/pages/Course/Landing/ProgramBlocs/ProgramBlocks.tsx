@@ -17,18 +17,18 @@ interface IProps {
 }
 
 export default function ProgramBlocks(props: IProps) {
-  const blocks = [
+  const blocks: JSX.Element[] = [
     <About key='about' {...props}/>,
     <Description key='description' {...props}/>,
     <Prizes key='prizes' {...props}/>,
     <Modules key='modules' modules={props.data.modules} {...props}/>,
-    <StudentsWorks key='studentsWorks' {...props}/>,
+    props.data.studentsWorks.length && <StudentsWorks key='studentsWorks' {...props}/>,
     <Explain key='explain' {...props}/>,
     <Gallery key='gallery' {...props}/>,
     <Promo key='promo' {...props}/>,
     <DecisionForm key='decisionForm' {...props}/>,
-    <FAQ key='faq' {...props}/>,
-  ];
+    props.data.faq.length && <FAQ key='faq' {...props}/>,
+  ].filter(Boolean) as JSX.Element[];
 
   return (
     <div className={classes._}>
