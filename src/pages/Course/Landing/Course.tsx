@@ -43,7 +43,7 @@ function Course({ data }: IConnectedProps) {
   return (
     <Page header footer={EFooter.Big} wrapper='Course'>
       <ProgramIntro data={data}/>
-      {data.creditWas && (
+      {Boolean(data.creditWas) && (
         <DiscountBanner
           discontAmount={data.discontAmount}
           discontDeadline={data.discontDeadline}
