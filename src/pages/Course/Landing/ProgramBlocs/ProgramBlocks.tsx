@@ -8,6 +8,7 @@ import Modules from './Modules/Modules';
 import Prizes from './Prizes/Prizes';
 import classes from './ProgramBlocks.module.scss';
 import Promo from './Promo/Promo';
+import StudentResults from './StudentResults/StudentResults';
 import StudentsWorks from './StudentsWorks/StudentsWorks';
 
 import type { ICourseData } from 'types';
@@ -22,6 +23,7 @@ export default function ProgramBlocks(props: IProps) {
     <Description key='description' {...props}/>,
     props.data.prizes && <Prizes key='prizes' {...props}/>,
     <Modules key='modules' modules={props.data.modules} {...props}/>,
+    props.data.studentResults && <StudentResults key='studentResults' {...props}/>,
     props.data.studentsWorks.length && <StudentsWorks key='studentsWorks' {...props}/>,
     <Explain key='explain' {...props}/>,
     <Gallery key='gallery' {...props}/>,
