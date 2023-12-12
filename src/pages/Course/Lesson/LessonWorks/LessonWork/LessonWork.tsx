@@ -31,6 +31,7 @@ function LessonWork(props: IProps) {
     return text;
   }, [homework.description]);
 
+  // TODD: move files to different place in homework object
   const images = useMemo(() => homework.images.filter(image => isImage(image.originalName)), [homework.images]);
   const files = useMemo(() => homework.images.filter(image => !isImage(image.originalName)), [homework.images]);
 
@@ -53,11 +54,18 @@ function LessonWork(props: IProps) {
       />}
       {Boolean(images.length) && <Article.Gallery data={images} galleryHeightPx={450}/>}
       {Boolean(files.length) && (
-        <div className={classes.filesWrapper}>
-          {files.map(file => (
-            <a key={file.id} className='link' href={file.src}>{file.originalName}</a>
-          ))}
-        </div>
+        <Article.Factoid data={{
+          type: 'factoid',
+          factoid: files.map(file => ({
+            tag: 'a',
+            content: file.originalName,
+            props: {
+              to: file.src,
+              className: 'link',
+              target: '_blank',
+            },
+          })),
+        }}/>
       )}
     </div>
   );

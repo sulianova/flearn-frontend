@@ -3,6 +3,7 @@
 .text {
   grid-column: span 3;
   font-family: $font-family-serif;
+  @include s-text-20;
 
   padding-right: set-calc(160);
 

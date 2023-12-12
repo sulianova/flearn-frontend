@@ -1,4 +1,4 @@
-import type { IArticleContent } from './article';
+import type { IArticleContent, IArticleContentDB } from './article';
 import type { TText } from './course';
 import { ECommonErrorTypes, TStateState } from './store';
 import type { IUserData } from 'services/user.service';
@@ -24,7 +24,7 @@ export interface IHomeworkDataDB {
   externalHomeworkLink: string
   images: IHomeworkImageDataDB[]
   state: THomeworkState
-  review?: IArticleContent
+  review?: IArticleContentDB
 }
 
 export type THomeworkState =

@@ -4,8 +4,10 @@ import { dataService } from 'services/data.service';
 
 import type { IUserData } from 'services/user.service';
 import type { TActionS } from './types';
-import type { IHomeworkData, IHomeworkDataWPopulate } from 'types';
+import type { IHomeworkData, IHomeworkDataDB, IHomeworkDataWPopulate } from 'types';
 import { ECommonErrorTypes } from 'types';
+import { homeworkConverter } from 'services/data.service/Homework/homeworkConverter';
+import { reviewDB2FR } from 'services/utils/homework';
 
 class HomeworkService {
   public async getHomeworkBS(props: {
@@ -150,7 +152,8 @@ class HomeworkService {
       if (props.reviewSource === 'local') {
         reviewMap = new Map();
         for (const homework of homeworksData) {
-          reviewMap.set(homework.id, getReview({ homeworkId: homework.id }));
+          const review = getReview({ homeworkId: homework.id });
+          reviewMap.set(homework.id, review && await reviewDB2FR({ ...homework, review }));
         }
       }
 
@@ -177,18 +180,84 @@ export const homeworkService = new HomeworkService();
 
 type TReview = {
   homeworkId: string
-  review: IHomeworkData['review']
+  review: IHomeworkDataDB['review']
 }
 
-const review1: TReview = {
-  homeworkId: 'how-to-draw_HowToDrawSimilarPictureLine_t6qrnq_Practice_iqln35_hw-Qoyv64RbilhFCwmOwyYc41z0ZQH2',
+const review11: TReview = {
+  homeworkId: 'how-to-draw-free_HowToDrawSimilarPictureLine_t6qrnq_Practice_iqln35_hw-FhEwHm2rg4dqGzqMjiRhfFhgEIk1',
   review: [
-    { type: 'text', text: 'Это моё первая обратная связь. И ещё добавь побольше пятен' },
+    { type: 'text', text: 'Вы очень здорово порисовали на этой неделе! Много экспериментов с разными линиями, фактурами, ограничениями на рисунок.' },
+    { type: 'text', text: '"Нет ничего лучше того варианта, что получился в итоге" — очень здоровый, рабочий подход.' },
+    { type: 'text', text: 'По ссылке ниже холст с вашими рисунками и моими комментариями. Чтобы отвечать на комменты, вести диалог, нужно залогиниться под любой почтой.' },
+    { type: 'text',
+      text: [
+        {
+          tag: 'a',
+          content: 'Комментарии к рисункам в Figma',
+          props: { className: 'link', target: "_blank", to: 'https://www.figma.com/file/M8SeWVu0YzLQgbX44Z8zMc/%D0%A1%D0%B2%D0%B5%D1%82%D0%BB%D0%B0%D0%BD%D0%B0-%D0%91%D0%BB%D0%BE%D0%BA?type=design&node-id=0%3A1&mode=design&t=k8bLivLrhG0qyev1-1' },
+        },
+      ]}
+
+  ],
+};
+
+const review12: TReview = {
+  homeworkId: 'how-to-draw-free_HowToDrawSimilarPictureLine_t6qrnq_Practice_iqln35_hw-h3MpdAbMR0bd3Vx1r4S5OX5kxeE3',
+  review: [
+    { type: 'text', text: 'Добрый день! Не уметь рисовать — нормально. Я не умею рисовать портреты. И это понятно, у меня мало опыта, вот я и не умею. Приятная новость в том что, чтобы рисовать портреты, не надо "уметь рисовать". Надо брать и рисовать.' },
+    { type: 'text', text: 'Вы большая молодец! На этой неделе у вас получилось сделать 14 рисунков, которыми вы захотели поделиться с другими! Это в бесконечное количество раз лучше, чем не нарисовать ничего.' },
+    { type: 'text', text: '"Но, дальше теории стало для меня много, это моя постоянная проблема, устать от теории до рисования." – много теории, не читайте теорию. Открывайте сразу страницу с заданием и делайте задание. Если в процессе поймете, что чего-то не хватает, точечно открывайте теорию. Или вообще забудьте про теорию, задавайте вопросы в чате. Я подскажу, пришлю примеры.' },
+    { type: 'text', text: '"Вот похоже я так напрягаюсь, от внимания, что прям устала от четырех набросков." – вот здесь хочется разобраться. Подходит ли вам такая усталость. Если это некомфортно, так не нравится, с этим стоит поработать. Сейчас у вас подробные, детализированные работы. А что если ограничить рисунок 10 линиями? А что если рисовать строго за 1 минуту? Или любое другое ограничение, которое просто не даст возможности углубиться в детали и похожесть.' },
+    { type: 'text', text: 'Можно попробовать порисовать "законные, трушные каракули". Например, как у Лены Новоселовой.' },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ElenaNovoselova1.jpeg',
+        alt: 'ElenaNovoselova1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Elena Novoselova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/novoelena/' },
+          },
+        ],
+      },
+    },
+    { type: 'text', text: 'По ссылке ниже холст с вашими рисунками и моими комментариями. Чтобы отвечать на комменты, вести диалог, нужно залогиниться под любой почтой.' },
+    { type: 'text',
+      text: [
+        {
+          tag: 'a',
+          content: 'Комментарии к рисункам в Figma',
+          props: { className: 'link', target: "_blank", to: 'https://www.figma.com/file/31RgMQN19zdFPgEfgbCpbr/%D0%98%D1%80%D0%B8%D0%BD%D0%B0-%D0%94?type=design&node-id=1%3A8&mode=design&t=LD9x5XawrZaSNMv8-1' },
+        },
+      ]}
+
+  ],
+};
+
+const review13: TReview = {
+  homeworkId: 'how-to-draw-free_HowToDrawSimilarPictureLine_t6qrnq_Practice_iqln35_hw-xAjP5m8ZJHWvYPPH7AzR2hoLc1C2',
+  review: [
+    { type: 'text', text: 'Я в восторге от того, сколько вы нарисовали работ! Вы большая умничка)' },
+    { type: 'text', text: '' },
+    { type: 'text', text: 'По ссылке ниже холст с вашими рисунками и моими комментариями. Чтобы отвечать на комменты, вести диалог, нужно залогиниться под любой почтой.' },
+    { type: 'text',
+      text: [
+        {
+          tag: 'a',
+          content: 'Комментарии к рисункам в Figma',
+          props: { className: 'link', target: "_blank", to: 'https://www.figma.com/file/gk0H58IeWAnmP97afPTlS5/Wambanuka?type=design&node-id=0%3A1&mode=design&t=12FcIExJxfhxzxW7-1' },
+        },
+      ]}
+
   ],
 };
 
 const allReviews = [
-  review1
+  review11,
+  review12,
+  review13,
 ];
 
 function getReview(filter: { homeworkId: string }) {
