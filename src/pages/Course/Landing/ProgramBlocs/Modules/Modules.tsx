@@ -25,18 +25,6 @@ function Modules(props: IProps) {
   const durationValue = duration?.value ?? durationWeeks;
 
   return (
-    <Fragment>
-      <div className={classes.wrapper}>
-        <div className={classes.listItem}>
-          <div className={cx({ listItemCard: true })}>
-            <div className={classes.listItemTitle + ' s-text-36'}>Что получится в результате</div>
-            <div className={classes.listItemContent + ' s-text-24'}>Вы создадите серию графических работ из 3-5 иллюстраций, которая продемонстрирует ваши хард-скилы и подчеркнет ценности. Тема серии свободная: от лягушки до автопортрета.</div>
-          </div>
-          <div className={cx({ listItemCard: true })}>
-            <div className={classes.listItemMedia}></div>
-          </div>
-        </div>
-      </div>
       <div className={classes.wrapper}>
         <div className={classes.header}>
           <h2 className={cx({ title: true }) + ' s-text-56'} >{t('title')}</h2>
@@ -53,7 +41,6 @@ function Modules(props: IProps) {
           {renderItems(props.modules)}
         </div>
       </div>
-    </Fragment>
   );
 }
 
