@@ -4,8 +4,9 @@ import Article from 'ui/Article/Article';
 
 import classes from './LessonWork.module.scss';
 
-import type { IArticleTextBlock, IHomeworkDataWPopulate, TText } from 'types';
+import type { IArticleTextBlock, IHomeworkDataWPopulate, TText, IHomeworkImageData } from 'types';
 import { useMemo } from 'react';
+import { getFileExtension, isImage } from 'utils';
 
 export default LessonWork;
 
@@ -30,6 +31,9 @@ function LessonWork(props: IProps) {
     return text;
   }, [homework.description]);
 
+  const images = useMemo(() => homework.images.filter(image => isImage(image.originalName)), [homework.images]);
+  const files = useMemo(() => homework.images.filter(image => !isImage(image.originalName)), [homework.images]);
+
   return (
     <div className={classes._}>
       <Article.Title data={{ type: 'title', title: t('title') }}/>
@@ -47,7 +51,14 @@ function LessonWork(props: IProps) {
           }
         }
       />}
-      {Boolean(homework.images.length) && <Article.Gallery data={homework.images} galleryHeightPx={450}/>}
+      {Boolean(images.length) && <Article.Gallery data={images} galleryHeightPx={450}/>}
+      {Boolean(files.length) && (
+        <div className={classes.filesWrapper}>
+          {files.map(file => (
+            <a key={file.id} className='link' href={file.src}>{file.originalName}</a>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
