@@ -1,5 +1,5 @@
 import classnames from 'classnames/bind';
-import { useLayoutEffect, useState } from 'react';
+import{ useLayoutEffect, useState } from 'react';
 
 import classes from './Img.module.scss';
 
@@ -12,6 +12,7 @@ interface IProps {
   src: string | { mobile: string, desktop: string }
   lazy?: boolean
   className?: string | { mobile: string, desktop: string }
+  placeholder?: JSX.Element
 }
 
 function Img(props: Readonly<IProps>) {
@@ -24,6 +25,10 @@ function Img(props: Readonly<IProps>) {
   }, [src]);
 
   if (imgStatus === 'failed') {
+    if (props.placeholder) {
+      return props.placeholder;
+    }
+
     return (
       <div className={cx(className, { Placeholder: true })}/>
     );
