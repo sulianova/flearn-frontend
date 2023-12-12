@@ -33,8 +33,6 @@ function LessonWork(props: IProps) {
 
   const images = useMemo(() => homework.images.filter(image => isImage(image.originalName)), [homework.images]);
   const files = useMemo(() => homework.images.filter(image => !isImage(image.originalName)), [homework.images]);
-  const pdfs = useMemo(() => files.filter(file => getFileExtension(file.originalName) === 'pdf'), [files]);
-  const restFiles = useMemo(() => files.filter(file => getFileExtension(file.originalName) !== 'pdf'), [files]);
 
   return (
     <div className={classes._}>
@@ -54,7 +52,13 @@ function LessonWork(props: IProps) {
         }
       />}
       {Boolean(images.length) && <Article.Gallery data={images} galleryHeightPx={450}/>}
-      {Boolean(pdfs.length) && pdfs.map(pdf => (<Article.Pdf {...pdf}/>))}
+      {Boolean(files.length) && (
+        <div className={classes.filesWrapper}>
+          {files.map(file => (
+            <a key={file.id} className='link' href={file.src}>{file.originalName}</a>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
