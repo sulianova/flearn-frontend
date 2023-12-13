@@ -95,25 +95,31 @@ function LessonWorks() {
   if (selectedHomework) {
     return (
     <Fragment>
-      <button
-        className={classes.backBtn + ' s-text-21-uppercase inline-link'}
-        onClick={() => homeworkService.patchHomework(selectedHomework.homework.id, { state: 'REVIEWED' })}
-      >
-        MAKE REVIEWED
-      </button>
-      <button
-        className={classes.backBtn + ' s-text-21-uppercase inline-link'}
-        onClick={() => homeworkService.patchHomework(selectedHomework.homework.id, { state: 'SENT_FOR_REVIEW' })}
-      >
-        MAKE SENT_FOR_REVIEW
-      </button>
+      {authedUser?.role === 'support' && (
+        <>
+          <button
+            className={classes.backBtn + ' s-text-21-uppercase inline-link'}
+            onClick={() => homeworkService.patchHomework(selectedHomework.homework.id, { state: 'REVIEWED' })}
+          >
+            MAKE REVIEWED
+          </button>
+          <button
+            className={classes.backBtn + ' s-text-21-uppercase inline-link'}
+            onClick={() => homeworkService.patchHomework(selectedHomework.homework.id, { state: 'SENT_FOR_REVIEW' })}
+          >
+            MAKE SENT_FOR_REVIEW
+          </button>
+        </>
+      )}
       <LessonWork homework={selectedHomework}/>
       <LessonReview homework={selectedHomework}/>
-      <EditBar
-        source={source}
-        handleSourceChange={setSource}
-        handleUpload={() => homeworkService.patchHomework(selectedHomework.homework.id, { review: selectedHomework.homework.review })}
-      />
+      {authedUser?.role === 'support' && (
+        <EditBar
+          source={source}
+          handleSourceChange={setSource}
+          handleUpload={() => homeworkService.patchHomework(selectedHomework.homework.id, { review: selectedHomework.homework.review })}
+        />
+      )}
     </Fragment>);
   }
 
@@ -152,18 +158,22 @@ function LessonWorks() {
   const noWorks = !otherStudentsHomeworks.length;
   return (
     <div className={classes._}>
-      <button
-        className={classes.backBtn + ' s-text-21-uppercase inline-link'}
-        onClick={() => patchFilter({ homeworkState: 'SENT_FOR_REVIEW' })}
-      >
-        SENT_FOR_REVIEW
-      </button>
-      <button
-        className={classes.backBtn + ' s-text-21-uppercase inline-link'}
-        onClick={() => patchFilter({ homeworkState: 'REVIEWED' })}
-      >
-        REVIEWED
-      </button>
+      {authedUser?.role === 'support' && (
+        <>
+          <button
+            className={classes.backBtn + ' s-text-21-uppercase inline-link'}
+            onClick={() => patchFilter({ homeworkState: 'SENT_FOR_REVIEW' })}
+          >
+            SENT_FOR_REVIEW
+          </button>
+          <button
+            className={classes.backBtn + ' s-text-21-uppercase inline-link'}
+            onClick={() => patchFilter({ homeworkState: 'REVIEWED' })}
+          >
+            REVIEWED
+          </button>
+        </>
+      )}
       <div className={classes.wrapper}>
         <div className={classes.own}>
           <div className={classes.ownTitle + ' s-text-36'}>{t('ownTitle')}</div>
