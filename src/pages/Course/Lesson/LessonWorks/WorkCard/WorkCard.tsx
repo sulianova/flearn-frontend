@@ -9,6 +9,8 @@ import Pattern from 'assets/images/Svg/Pattern';
 import classes from './WorkCard.module.scss';
 
 import { URLSections, type IHomeworkDataWPopulate, IHomeworkImageData } from 'types';
+import { useMemo } from 'react';
+import { isImage } from 'utils';
 
 const cx = classNames.bind(classes);
 
@@ -21,7 +23,9 @@ interface IProps {
 function WorkCard({ homework }: IProps) {
   const { courseId, lessonId } = useParams() as { courseId: string, lessonId: string };
   const user = homework.populate?.user;
-  const coverImage = homework.homework.images[0] as IHomeworkImageData | undefined;
+  const coverImage = useMemo(
+    () => homework.homework.images.filter(image => isImage(image.originalName))[0] as IHomeworkImageData | undefined,
+  [homework.homework.images]);
 
   return (
       <div className={cx({ _: true, hidden: false })}>
@@ -34,6 +38,7 @@ function WorkCard({ homework }: IProps) {
             <Img
               src={coverImage.src}
               alt={coverImage.alt}
+              placeholder={<Pattern/>}
             />
           ) : (
             <Pattern/>

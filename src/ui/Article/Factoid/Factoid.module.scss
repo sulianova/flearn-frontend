@@ -9,6 +9,7 @@
 
   @include set-media(md) {
     padding-left: 0;
+    padding-top: set-calc(24);
   }
 }
 

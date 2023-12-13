@@ -3,7 +3,18 @@ import { removeImageSrc } from '../shared';
 import type { IHomeworkData, IHomeworkDataDB } from 'types';
 
 export function homeworkDataFR2DB(homeworkDB: IHomeworkData): IHomeworkDataDB {
-    const images = homeworkDB.images.map(removeImageSrc);
+  return {
+    ...homeworkDB,
+    images: homeworkDB.images.map(removeImageSrc),
+    review: reviewFR2DB(homeworkDB),
+  };
+}
 
-    return { ...homeworkDB, images };
+function reviewFR2DB(homeworkDB: IHomeworkData) {
+  const { review } = homeworkDB;
+  if (!review) {
+    return review;
+  }
+
+  return review.map(block => block.type !== 'image' ? block : { ...block, imageData: removeImageSrc(block.imageData) });
 }

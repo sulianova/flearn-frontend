@@ -45,7 +45,17 @@ export interface IArticleVideoBlock extends IArticleBlock {
 export interface IArticleImageBlock extends IArticleBlock {
   type: 'image'
   imageData: {
+    id: string
     src: string
+    alt: string
+    caption?: TText | TText[]
+  }
+}
+
+export interface IArticleImageBlockDB extends IArticleBlock {
+  type: 'image'
+  imageData: {
+    id: string
     alt: string
     caption?: TText | TText[]
   }
@@ -66,4 +76,15 @@ export type TArticleBlocks =
   | IArticleTitleBlock
   | IArticleVideoBlock;
 
+export type TArticleBlocksDB =
+  | IArticleFactoidBlock
+  | IArticleGalleryBlock
+  | IArticleImageBlockDB
+  | IArticleQouteBlock
+  | IArticleTextBlock
+  | IArticleTextImportantBlock
+  | IArticleTitleBlock
+  | IArticleVideoBlock;
+
 export type IArticleContent = TArticleBlocks[];
+export type IArticleContentDB = TArticleBlocksDB[];
