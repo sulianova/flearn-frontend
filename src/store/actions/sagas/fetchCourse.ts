@@ -449,7 +449,10 @@ const courseDB2: ICourseDataDB = {
   ],
   studentResults: {
     content: 'Вы создадите серию графических работ из 3-5 иллюстраций, которая продемонстрирует ваши хард-скилы и подчеркнет ценности. Тема серии свободная: от лягушки до автопортрета.',
-    imageId: 'StudentsResult.jpg',
+    imageId: {
+      desktop: 'StudentsResult.jpg',
+      mobile: 'StudentsResult-mobile.jpg',
+    },
     imageAlt: 'StudentsResult',
   },
   studentsWorks: [],

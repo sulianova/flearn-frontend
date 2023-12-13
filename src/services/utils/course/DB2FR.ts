@@ -88,10 +88,17 @@ async function studentResultsDB2FR(studentResults: ICourseDataDB['studentResults
     return undefined;
   }
 
+  const imageSrc = typeof studentResults.imageId === 'string' ?
+    (await firebaseService.getImageURL({ courseId, folder: 'landing', imageId: studentResults.imageId })) ?? ''
+    : {
+      desktop: (await firebaseService.getImageURL({ courseId, folder: 'landing', imageId: studentResults.imageId.desktop })) ?? '',
+      mobile: (await firebaseService.getImageURL({ courseId, folder: 'landing', imageId: studentResults.imageId.mobile })) ?? '',
+    };
+
   return {
     ...studentResults,
-    imageSrc: (await firebaseService.getImageURL({ courseId, folder: 'landing', imageId: studentResults.imageId })) ?? '',
-  };
+    imageSrc: imageSrc
+  } as ICourseData['studentResults'];
 }
 
 // studentsWorks
