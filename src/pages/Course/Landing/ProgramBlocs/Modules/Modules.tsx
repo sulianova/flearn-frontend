@@ -19,20 +19,17 @@ interface IProps {
 }
 
 function Modules(props: IProps) {
-  const { duration, durationWeeks } = props.data;
-
-  const durationUnit = duration?.unit ?? 'week';
-  const durationValue = duration?.value ?? durationWeeks;
+  const { modulesDescription, videosNumber, homeworksNumber, duration } = props.data;
 
   return (
       <div className={classes.wrapper}>
         <div className={classes.header}>
           <h2 className={cx({ title: true }) + ' s-text-56'} >{t('title')}</h2>
-          <div className={classes.desc + ' s-text-24'}>{<Text text={props.data.modulesDescription}/>}</div>
+          <div className={classes.desc + ' s-text-24'}>{<Text text={modulesDescription}/>}</div>
           <div className={classes.tags}>
-            <div className={classes.tag + ' s-text-18'}>{t('videosNumber', { count: props.data.videosNumber })}</div>
-            <div className={classes.tag + ' s-text-18'}>{t('homeworksNumber', { count: props.data.homeworksNumber })}</div>
-            <div className={classes.tag + ' s-text-18'}>{t(`duration:${durationUnit}`, { count: durationValue })}</div>
+            <div className={classes.tag + ' s-text-18'}>{t('videosNumber', { count: videosNumber })}</div>
+            <div className={classes.tag + ' s-text-18'}>{t('homeworksNumber', { count: homeworksNumber })}</div>
+            <div className={classes.tag + ' s-text-18'}>{t(`duration:${duration.unit}`, { count: duration.value })}</div>
             <div className={classes.tag + ' s-text-18 b-black-new'}>{t('feedback')}</div>
             <div className={classes.tag + ' s-text-18 b-black-new'}>{t('chat')}</div>
           </div>

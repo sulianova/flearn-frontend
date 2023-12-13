@@ -16,16 +16,13 @@ interface IProps {
 }
 
 function ProgramIntro(props: IProps) {
-  const { startDate, durationWeeks, duration, creditPrice, discontDeadline } = props.data;
-
-  const durationUnit = duration?.unit ?? 'week';
-  const durationValue = duration?.value ?? durationWeeks;
+  const { startDate, duration, creditPrice, discontDeadline } = props.data;
 
   const labels = [
     t('datesInfoLabel', { 
       startDate: formatDate(startDate, { timeZone: 'Europe/Moscow' }),
-      durationInUnits: durationValue,
-      unitPlural: i18n.t(durationUnit, { count: durationValue }),
+      durationInUnits: duration.value,
+      unitPlural: i18n.t(duration.unit, { count: duration.value }),
     }),
     !creditPrice && !discontDeadline && t('free'),
   ].filter(Boolean);

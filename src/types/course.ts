@@ -7,8 +7,7 @@ export interface ICourseData {
   startDate: Date
   endDate: Date
   accessDeadline: Date
-  durationWeeks: number
-  duration?: {
+  duration: {
     unit: 'day' | 'week',
     value: number
   }
@@ -45,8 +44,7 @@ export interface ICourseDataDB {
   startDate: string
   endDate: string
   accessDeadline: string
-  durationWeeks: number
-  duration?: {
+  duration: {
     unit: 'day' | 'week',
     value: number
   }

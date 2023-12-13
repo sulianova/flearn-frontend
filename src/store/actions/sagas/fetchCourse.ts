@@ -82,7 +82,10 @@ const courseDB1: ICourseDataDB = {
   startDate: '2024.01.07 21:00:00 GMT', // '2023.12.03 21:00:00 GMT'
   endDate: '2024.01.28 20:59:00 GMT', // '2023.12.31 20:59:00 GMT'
   accessDeadline: '2024.02.04 20:59:00 GMT', // '2023.12.31 20:59:00 GMT'
-  durationWeeks: 3,
+  duration: {
+    unit: 'week',
+    value: 3,
+  },
   homeworksNumber: 3,
   videosNumber: 3,
   feild: 'Иллюстрация',
@@ -323,7 +326,6 @@ const courseDB2: ICourseDataDB = {
   startDate: '2023.12.14 21:00:00 GMT',
   endDate: '2023.12.18 20:59:00 GMT',
   accessDeadline: '2023.12.18 20:59:00 GMT',
-  durationWeeks: 0,
   duration: {
     unit: 'day',
     value: 4,

@@ -21,6 +21,7 @@ interface IProps {
 const t = formatI18nT('courseLanding.form');
 
 function DecisionForm(props: IProps) {
+  const { duration } = props.data;
   const [orderEmail, setOrderEmail] = useState<string | null>(null);
 
   return (
@@ -33,7 +34,7 @@ function DecisionForm(props: IProps) {
           </div>
           <div className={classes.courseInfo}>
             <div className={' s-text-18'}>{formatCourseDate(props.data.startDate, props.data.endDate)}</div>
-            <div className={' s-text-18'}>{i18n.t('weeksAmount', { count: props.data.durationWeeks })}</div>
+            <div className={' s-text-18'}>{i18n.t(`duration:${duration.unit}`, { count: duration.value })}</div>
           </div>
         </div>
         <div className={classes.credit}>

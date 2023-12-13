@@ -228,22 +228,22 @@
     "many": "дней",
     "other": "дней"
   },
-  "daysAmount": {
-    "one": "%{count} день",
-    "few": "%{count} дня",
-    "many": "%{count} дней",
-    "other": "%{count} дней"
-  },
   "week": {
     "one": "неделя",
     "few": "недели",
     "many": "недель",
     "other": "недель"
   },
-  "weeksAmount": {
+  "duration:week": {
     "one": "%{count} неделя",
     "few": "%{count} недели",
     "many": "%{count} недель",
     "other": "%{count} недель"
+  },
+  "duration:day": {
+    "one": "%{count} день",
+    "few": "%{count} дня",
+    "many": "%{count} дней",
+    "other": "%{count} дней"
   }
 }
