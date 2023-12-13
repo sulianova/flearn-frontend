@@ -177,12 +177,14 @@ function LessonWorks() {
       <div className={classes.wrapper}>
         <div className={classes.own}>
           <div className={classes.ownTitle + ' s-text-36'}>{t('ownTitle')}</div>
-            <div className={classes.ownWork}>{
-              authedUserHomework
-                ? <WorkCard homework={authedUserHomework}/>
-                : <NoOwnWorkPlaceholder authedUser={authedUser}/>
-            }</div>
-        </div>
+            <div className={classes.ownWork}>
+              {
+                authedUserHomework && authedUserHomework.homework.state === 'REVIEWED'
+                  ? <WorkCard homework={authedUserHomework}/>
+                  : <NoOwnWorkPlaceholder authedUser={authedUser}/>
+              }
+            </div>
+          </div>
           <div className={classes.list}>
             <div className={classes.listTitle + ' s-text-36'}>
               {t(`listTitle:noWorks:${noWorks}`)}
