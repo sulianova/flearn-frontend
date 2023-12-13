@@ -17,6 +17,11 @@ interface IProps {
 }
 
 function StudentsWorks(props: IProps) {
+  console.log('StudentsWorks', props.data.studentsWorks);
+  if (props.data.studentsWorks.length === 0) {
+    return null;
+  }
+
   return (
     <div className={classes.__}>
       <Animated.Scroll>

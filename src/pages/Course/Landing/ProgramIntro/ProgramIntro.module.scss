@@ -84,6 +84,8 @@
   max-width: set-calc(620);
   padding-bottom: set-calc(32);
 
+  white-space: pre-line;
+
   @include set-media(md) {
     padding-bottom: set-calc(16);
   }

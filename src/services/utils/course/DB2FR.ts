@@ -12,11 +12,12 @@ export async function courseDataDB2FR(courseDB: ICourseDataDB): Promise<ICourseD
     startDate: dateDB2FR(courseDB.startDate),
     endDate: dateDB2FR(courseDB.endDate),
     accessDeadline: dateDB2FR(courseDB.accessDeadline),
-    discontDeadline: dateDB2FR(courseDB.discontDeadline),
+    discontDeadline: courseDB.discontDeadline ? dateDB2FR(courseDB.discontDeadline) : null,
     modules: await courseModulesDB2FR(courseDB.modules, courseId),
     explainMedia: await courseExplainMediaDB2FR(courseDB.explainMedia, courseId),
     teachers: await courseTeachersDB2FR(courseDB.teachers, courseId),
     teacherGallery: await courseTeacherGallerysDB2FR(courseDB.teacherGallery, courseId),
+    studentResults: await studentResultsDB2FR(courseDB.studentResults, courseId),
     studentsWorks: await courseStudentsWorksDB2FR(courseDB.studentsWorks, courseId),
   };
 };
@@ -27,6 +28,12 @@ async function courseModulesDB2FR(modules: ICourseDataDB['modules'], courseId: s
 }
 
 async function courseModuleDB2FR(module: ICourseDataDB['modules'][number], courseId: string): Promise<ICourseData['modules'][number]> {
+  if (module.imageId === undefined) {
+    return {
+      ...module,
+    };
+  }
+
   const imageSrc = typeof module.imageId === 'string' ?
     (await firebaseService.getImageURL({ courseId, folder: 'landing', imageId: module.imageId })) ?? ''
     : {
@@ -73,6 +80,25 @@ async function courseTeacherGalleryDB2FR(teacherGallery: ICourseDataDB['teacherG
     ...teacherGallery,
     imageSrc: (await firebaseService.getImageURL({ courseId, folder: 'landing', imageId: teacherGallery.imageId })) ?? '',
   };
+}
+
+// studentResults
+async function studentResultsDB2FR(studentResults: ICourseDataDB['studentResults'], courseId: string): Promise<ICourseData['studentResults']> {
+  if (!studentResults) {
+    return undefined;
+  }
+
+  const imageSrc = typeof studentResults.imageId === 'string' ?
+    (await firebaseService.getImageURL({ courseId, folder: 'landing', imageId: studentResults.imageId })) ?? ''
+    : {
+      desktop: (await firebaseService.getImageURL({ courseId, folder: 'landing', imageId: studentResults.imageId.desktop })) ?? '',
+      mobile: (await firebaseService.getImageURL({ courseId, folder: 'landing', imageId: studentResults.imageId.mobile })) ?? '',
+    };
+
+  return {
+    ...studentResults,
+    imageSrc: imageSrc
+  } as ICourseData['studentResults'];
 }
 
 // studentsWorks

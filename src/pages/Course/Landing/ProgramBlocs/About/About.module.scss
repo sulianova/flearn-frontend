@@ -1,0 +1,63 @@
+@import 'styles/index';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  padding-bottom: set-calc(60);
+  font-family: $font-family-serif;
+
+  @include set-media(md) {
+    padding-bottom: set-calc(32);
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.listItem {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  grid-column-gap: set-calc($s-gap);
+
+  @include set-media(md) {
+    display: block;
+  }
+}
+
+.listItemCard {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: set-calc(32);
+  min-height: set-calc(330);
+
+  background-color: $beige;
+  border-radius: set-calc(20);
+
+  @include set-media(md) {
+    min-height: set-calc(230);
+    // left: set-calc(-$padding-x-mob-page);
+    // width: set-calc(32, true, 100%);
+    padding: set-calc($padding-x-mob-page) set-calc($padding-x-mob-page);
+    
+    &:not(:last-child) {
+      margin-bottom: set-calc(8);
+    }
+  }
+}
+
+.listItemContent {
+  font-size: inherit;
+  line-height: inherit;
+  white-space: pre-line;
+
+  p {
+    padding-bottom: set-calc(16);
+  }
+}

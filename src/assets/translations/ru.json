@@ -87,18 +87,26 @@
   },
   "courseLanding": {
       "programIntro" : {
-        "datesInfoLabel": "%{startDate} | %{durationWeeks} %{week}"
+        "free": "Бесплатно",
+        "datesInfoLabel": "%{startDate} | %{durationInUnits} %{unitPlural}"
       },
       "form": {
-          "title": "Записаться на онлайн курс",
+          "title:course": "Записаться на онлайн курс",
+          "title:webinar": "Записаться на онлайн интенсив",
           "subtitle": "Заполните форму и я свяжусь с вами, чтобы оформить оплату",
           "courseName": " “%{courseName}”",
           "emailCaption": "Адрес, к которому хотите привязать покупку. Если у вас есть профиль с другими покупками, используйте адрес оттуда",
           "agreement": "Оферта и Договор",
-          "orderIsCreated": "Мы получили вашу заявку! Сегодня на почту %{email} мы отправим письмо с информацией об оплате."
+          "orderIsCreated:course": "Мы получили вашу заявку! Сегодня на почту %{email} мы отправим письмо с информацией об оплате.",
+          "orderIsCreated:webinar": "Мы получили вашу заявку! Сегодня на почту %{email} мы отправим письмо с информацией о том, как получить доступ к материалам интенсива."
       },
       "description": {
-        "title": "Курс подойдeт тем, кто"
+        "title:course": "Курс подойдeт тем, кто",
+        "title:webinar": "Интенсив подойдeт тем, кто"
+      },
+      "prizes": {
+        "title:course": "Подарки для участников курса",
+        "title:webinar": "Подарки для участников интенсива"
       },
       "discountBanner": {
         "discount": "скидка",
@@ -139,11 +147,17 @@
           "many": "%{count} практических заданий",
           "other": "%{count} практических заданий"
         },
-        "durationWeeks": {
+        "duration:week": {
           "one": "%{count} учебная неделя",
           "few": "%{count} учебные недели",
           "many": "%{count} учебных недель",
           "other": "%{count} учебных недель"
+        },
+        "duration:day": {
+          "one": "%{count} учебный день",
+          "few": "%{count} учебных дня",
+          "many": "%{count} учебных дней",
+          "other": "%{count} учебных дней"
         },
         "feedback": "индивидуальная обратная связь по дз",
         "chat": "телеграм-чат для общения в группе"
@@ -209,16 +223,28 @@
     "fallback:noResults:deadlineDay": "Результатов пока нет, но они должны появится сегодня.",
     "fallback:noResults:pastDeadline": "Извиняемся за задержку результатов, мы их активно проверяем. Если задержка более дня, напишите, пожалуйста, в телеграм-чат курса."
   },
+  "day": {
+    "one": "день",
+    "few": "дня",
+    "many": "дней",
+    "other": "дней"
+  },
   "week": {
     "one": "неделя",
     "few": "недели",
     "many": "недель",
     "other": "недель"
   },
-  "weeksAmount": {
+  "duration:week": {
     "one": "%{count} неделя",
     "few": "%{count} недели",
     "many": "%{count} недель",
     "other": "%{count} недель"
+  },
+  "duration:day": {
+    "one": "%{count} день",
+    "few": "%{count} дня",
+    "many": "%{count} дней",
+    "other": "%{count} дней"
   }
 }

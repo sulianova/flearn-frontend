@@ -18,22 +18,26 @@ interface IProps {
 }
 
 function FAQ(props: IProps) {
+  if (props.data.faq.length === 0) {
+    return null;
+  }
+
   return (
-        <div className={classes.wrapper}>
-          <div className={classes.header}>
-            <h2 className={classes.headerTitle + ' s-text-56'}>{t('headerTitle')}</h2>
-            <div className={classes.headerDesc + ' s-text-24'}>
-              {t('headerDesc1')}
-              <Link to={t('creatorLink')}  target='_blank'>
-                <span className='key-link'>{t('headerDesc2')}</span>
-              </Link>
-              {t('headerDesc3')}
-            </div>
-          </div>
-          <div className={classes.list}>
-            {renderItems(props.data.faq)}
-          </div>
+    <div className={classes.wrapper}>
+      <div className={classes.header}>
+        <h2 className={classes.headerTitle + ' s-text-56'}>{t('headerTitle')}</h2>
+        <div className={classes.headerDesc + ' s-text-24'}>
+          {t('headerDesc1')}
+          <Link to={t('creatorLink')}  target='_blank'>
+            <span className='key-link'>{t('headerDesc2')}</span>
+          </Link>
+          {t('headerDesc3')}
         </div>
+      </div>
+      <div className={classes.list}>
+        {renderItems(props.data.faq)}
+      </div>
+    </div>
   );
 }
 

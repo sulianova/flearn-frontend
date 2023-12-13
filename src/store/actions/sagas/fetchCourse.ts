@@ -72,26 +72,30 @@ export const fetchCourse = createAction<'saga', IFetchCoursePayload>(
 );
 
 function getData(id: string) {
-  return newCourseDB.id === id ? newCourseDB: undefined;
+  return allCourses.find(course => course.id === id);
 }
 
-const newCourseDB: ICourseDataDB = {
+const courseDB1: ICourseDataDB = {
   id: 'how-to-draw', // how-to-draw-free
+  type: 'course',
   title: 'Как рисовать',
   startDate: '2024.01.07 21:00:00 GMT', // '2023.12.03 21:00:00 GMT'
   endDate: '2024.01.28 20:59:00 GMT', // '2023.12.31 20:59:00 GMT'
   accessDeadline: '2024.02.04 20:59:00 GMT', // '2023.12.31 20:59:00 GMT'
-  durationWeeks: 3,
+  duration: {
+    unit: 'week',
+    value: 3,
+  },
   homeworksNumber: 3,
   videosNumber: 3,
   feild: 'Иллюстрация',
   introImageId: 'introImage.jpg',
   introDescription: 'Практический мини-курс для тех, кто хочет рисовать убедительные иллюстрации, не копируя фотографии.',
   introImageAlt: 'introImage',
-  discontAmount: 50,
-  discontDeadline: '2023.12.10 20:59:00 GMT',
+  discontAmount: 20,
+  discontDeadline: '2023.12.31 20:59:00 GMT',
   creditWas: 12000,
-  creditPrice: 6000,
+  creditPrice: 9600,
   telegramLink: 'https://t.me/+yIvKOdKrLYdlYzMy',
   description: [
     {
@@ -314,3 +318,148 @@ const newCourseDB: ICourseDataDB = {
 
   ]
 }
+
+const courseDB2: ICourseDataDB = {
+  id: 'finding-your-style',
+  type: 'webinar',
+  title: 'Как найти свой стиль',
+  startDate: '2023.12.14 21:00:00 GMT',
+  endDate: '2023.12.18 20:59:00 GMT',
+  accessDeadline: '2023.12.18 20:59:00 GMT',
+  duration: {
+    unit: 'day',
+    value: 4,
+  },
+  homeworksNumber: 1,
+  videosNumber: 1,
+  feild: 'Иллюстрация',
+  introImageId: 'introImage.jpg',
+  introDescription: 'Разберемся, из чего состоит авторский стиль и сделаем  серию графических работ для портфолио',
+  introImageAlt: 'introImage',
+  discontAmount: 100,
+  discontDeadline: null,
+  creditWas: 2000,
+  creditPrice: 0,
+  telegramLink: 'https://t.me/+LZp7VXnGjUQ3ZTRi',
+  about: [
+    {
+      tag: 'p',
+      content: 'Иллюстратор София Ульянова расскажет, как формируется собственный стиль в иллюстрации и поможет улучшить вашу изобразительную манеру.'
+    },
+    {
+      tag: 'p',
+      content: 'На интенсиве вы:\n— познакомитесь с основами иллюстрации\n— узнаете, из чего состоит авторский стиль\n— создадите графическую серию для портфолио и получите обратную связь от преподавателя'
+    },
+  ],
+  description: [
+    {
+      answer: 'На курсе будем разбираться, как ставить перед собой посильные маленькие задачки. А затем развивать из них готовые графические серии.',
+      question: 'Не знает с чего начать'
+    },
+    {
+      answer: 'На курсе пошагово разберем, из чего состоит иллюстрация, что делает рисунок выразительным, интересным для разглядывания. Будем анализировать работы других иллюстраторов, пробовать новые подходы в собственных рисунках. По итогу, у студентов останется алгоритм, по которому можно разбирать иллюстрации любимых художников, самостоятельно у них учиться и развивать свой графический язык.',
+      question: 'Хочет найти свой стиль в иллюстрации'
+    },
+    {
+      answer: 'Фотографическая точность — одно из возможных средств выразительности. Еще есть контраст, формообразование, силуэт, ритмы. На курсе будем учиться делать выразительные рисунки, не копируя фотографию.',
+      question: 'Уверен, что всё зря, если рисунок «не как на фотографии»'
+    },
+    {
+      answer: 'На первых этапах в рисовании мешает не столько отсутствие навыков, сколько предубеждения и страхи: «а если не получится», «не знаю, как правильно». Поэтому в начале важна поддержка и рабочий настрой.',
+      question: 'Боится, что не получится'
+    },
+  ],
+  prizes: [
+    { title:
+      [
+        {
+          tag: 'span',
+          content: 'Cкидка 50% на курс '
+        },
+        {
+          tag: 'a',
+          content: '“Как рисовать”',
+          props: { className: 'key-link', target: "_blank", to: 'https://flearn.net/course/how-to-draw' },
+        },
+      ],
+      content: 'Практический мини-курс для тех, кто хочет рисовать убедительные иллюстрации, не копируя фотографии.'
+    },
+    {
+      title: 'Приглашение в телеграм-чат выпускников школы flearn',
+      content: 'В чате мы задаем любые вопросы по рисованию, делимся радостями, горестями, лайфхаками и красивыми картинками, поддерживаем друг друга и болтаем',
+    },
+  ],
+  modulesDescription: 'Программа рассчитана на 4 дня, ей нужно посвятить 6-8 часов.',
+  modules: [
+    {
+      content: [
+        { tag: 'p', content: 'Разберемся из чего складывается иллюстрация, проанализируем работы других художников. Подумаем, какие ценности важны для нас, из чего может складываться наш собственный стиль.' },
+        { tag: 'span', content: '• Что такое иллюстрация, серия, стиль' },
+        { tag: 'span', content: '•  Как сделана иллюстрация. Средства выразительности: композиция, контрастность, формообразование, модульность, силуэт, контрформа, ритмы, цвет, логика построения пространства, юмор' },
+      ],
+      title: 'Теория: из чего складывается стиль',
+      meta: [
+        {
+          content: '15 декабря',
+          tag: 'span',
+        }
+      ],
+    },
+    {
+      content: [],
+      title: 'Практика: серия графических работ из 3-5 иллюстраций',
+      meta: [
+        {
+          content: '16-17 декабря',
+          tag: 'span',
+        }
+      ],
+    },
+    {
+      content: [],
+      title: 'Итоги и разбор работ участников',
+      meta: [
+        {
+          content: '18 декабря',
+          tag: 'span',
+        }
+      ],
+    },
+  ],
+  explainMedia: {
+    type: 'image',
+    imageId: 'SofiUlianova.jpg',
+    imageAlt: 'SofiUlianova',
+  },
+  promoVideo: null,
+  teachers: [],
+  teacherGallery: [
+    {
+      imageId: 'SofiUlianova2.jpg',
+      imageAlt: 'SofiUlianova2',
+    },
+    {
+      imageId: 'SofiUlianova3.jpg',
+      imageAlt: 'SofiUlianova3',
+    },
+    {
+      imageId: 'SofiUlianova5.jpg',
+      imageAlt: 'SofiUlianova5',
+    },
+  ],
+  studentResults: {
+    content: 'Вы создадите серию графических работ из 3-5 иллюстраций, которая продемонстрирует ваши хард-скилы и подчеркнет ценности. Тема серии свободная: от лягушки до автопортрета.',
+    imageId: {
+      desktop: 'StudentsResult.jpg',
+      mobile: 'StudentsResult-mobile.jpg',
+    },
+    imageAlt: 'StudentsResult',
+  },
+  studentsWorks: [],
+  faq: [],
+}
+
+const allCourses = [
+  courseDB1,
+  courseDB2
+];

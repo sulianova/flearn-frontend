@@ -21,6 +21,7 @@ interface IProps {
 const t = formatI18nT('courseLanding.form');
 
 function DecisionForm(props: IProps) {
+  const { type, duration } = props.data;
   const [orderEmail, setOrderEmail] = useState<string | null>(null);
 
   return (
@@ -28,12 +29,12 @@ function DecisionForm(props: IProps) {
       <div className={cx({ block: true, blockDetails: true })}>
         <div className={classes.titleWrapper}>
           <div>
-            <div className={classes.subtitle + ' s-text-24'}>{t('title')}</div>
+            <div className={classes.subtitle + ' s-text-24'}>{t(`title:${type}`)}</div>
             <h1 className={classes.title}>{t('courseName', { courseName: props.data.title })}</h1>
           </div>
           <div className={classes.courseInfo}>
             <div className={' s-text-18'}>{formatCourseDate(props.data.startDate, props.data.endDate)}</div>
-            <div className={' s-text-18'}>{i18n.t('weeksAmount', { count: props.data.durationWeeks })}</div>
+            <div className={' s-text-18'}>{i18n.t(`duration:${duration.unit}`, { count: duration.value })}</div>
           </div>
         </div>
         <div className={classes.credit}>
@@ -45,7 +46,7 @@ function DecisionForm(props: IProps) {
         </div>
       </div>
       <div className={classes.block}>
-        {orderEmail ? <span>{t('orderIsCreated', { email: orderEmail })}</span>
+        {orderEmail ? <span>{t(`orderIsCreated:${type}`, { email: orderEmail })}</span>
         : (<>
           <Form onOrderCreated={({ email }) => setOrderEmail(email)}/>
           <div className={classes.agreement}>

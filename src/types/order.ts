@@ -10,7 +10,7 @@ export interface IOrderData {
         id: string
         dataSnapshot: {
             discontAmount: number
-            discontDeadline: Date
+            discontDeadline: Date | null
             creditWas: number
             creditPrice: number
         }
