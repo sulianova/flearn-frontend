@@ -2,7 +2,7 @@ import { ECommonErrorTypes, TStateState, TText } from 'types';
 
 export interface ICourseData {
   id: string
-  type?: 'course' | 'webinar'
+  type: 'course' | 'webinar'
   startDate: Date
   endDate: Date
   accessDeadline: Date
@@ -40,7 +40,7 @@ export interface ICourseData {
 
 export interface ICourseDataDB {
   id: string
-  type?: 'course' | 'webinar'
+  type: 'course' | 'webinar'
   startDate: string
   endDate: string
   accessDeadline: string

@@ -28,7 +28,7 @@ function DecisionForm(props: IProps) {
       <div className={cx({ block: true, blockDetails: true })}>
         <div className={classes.titleWrapper}>
           <div>
-            <div className={classes.subtitle + ' s-text-24'}>{t('title')}</div>
+            <div className={classes.subtitle + ' s-text-24'}>{t(`title:${props.data.type}`)}</div>
             <h1 className={classes.title}>{t('courseName', { courseName: props.data.title })}</h1>
           </div>
           <div className={classes.courseInfo}>
