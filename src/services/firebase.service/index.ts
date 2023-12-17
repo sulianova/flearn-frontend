@@ -69,7 +69,7 @@ export class FirebaseService {
   public async setDoc(collectionName: ECollections, id: string, data: IObject, converter: FirestoreDataConverter<DocumentData, DocumentData> | null = null) {
     try {
       const docRef = converter ? getDocRef(this._db, collectionName, id).withConverter(converter) : getDocRef(this._db, collectionName, id);
-      await setDoc(docRef, data);
+      await setDoc(docRef, filterData(data));
       const savedDoc = await this.getDoc(collectionName, id, converter);
       return savedDoc;
     } catch(e) {
@@ -166,3 +166,14 @@ export class FirebaseService {
 export const firebaseService = new FirebaseService(getFirebaseConfig());
 
 type TLessonId = string;
+
+function filterData(data: IObject) {
+  const filteredData = {} as IObject;
+  Object.keys(data).forEach(key => {
+    if (data[key] !== undefined) {
+      filteredData[key] = typeof data[key] === 'object' && !Array.isArray(data[key]) ? filterData(data[key]) : data[key];
+    }
+  });
+
+  return filteredData;
+}
