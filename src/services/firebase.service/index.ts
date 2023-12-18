@@ -171,7 +171,7 @@ function filterData(data: IObject) {
   const filteredData = {} as IObject;
   Object.keys(data).forEach(key => {
     if (data[key] !== undefined) {
-      filteredData[key] = typeof data[key] === 'object' && !Array.isArray(data[key]) ? filterData(data[key]) : data[key];
+      filteredData[key] = typeof data[key] === 'object' && data[key] !== null && !Array.isArray(data[key]) ? filterData(data[key]) : data[key];
     }
   });
 
