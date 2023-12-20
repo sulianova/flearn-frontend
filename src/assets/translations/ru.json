@@ -74,7 +74,7 @@
     "profile": {
       "title": "Профиль",
       "courseGroupTitle":"Ваши онлайн-курсы",
-      "endDate": "Доступ до %{date}",
+      "endDate": "Доступ до {{date}}",
       "noCoursesFallback": {
         "title": "У вас пока нет онлайн-курсов",
         "suggestionLink": "Посетите главную страницу",
@@ -88,21 +88,27 @@
   "courseLanding": {
       "programIntro" : {
         "free": "Бесплатно",
-        "datesInfoLabel": "%{startDate} | %{durationInUnits} %{unitPlural}"
+        "datesInfoLabel": "{{startDate}} | {{durationInUnits}} $t({{unit}}.p, {\"count\": {{durationInUnits}} })"
       },
       "form": {
-          "title:course": "Записаться на онлайн курс",
-          "title:webinar": "Записаться на онлайн интенсив",
+          "title": {
+            "course": "Записаться на онлайн курс",
+            "webinar": "Записаться на онлайн интенсив"
+          },
           "subtitle": "Заполните форму и я свяжусь с вами, чтобы оформить оплату",
-          "courseName": " “%{courseName}”",
+          "courseName": " “{{courseName}}”",
           "emailCaption": "Адрес, к которому хотите привязать покупку. Если у вас есть профиль с другими покупками, используйте адрес оттуда",
           "agreement": "Оферта и Договор",
-          "orderIsCreated:course": "Мы получили вашу заявку! Сегодня на почту %{email} мы отправим письмо с информацией об оплате.",
-          "orderIsCreated:webinar": "Мы получили вашу заявку! Сегодня на почту %{email} мы отправим письмо с информацией о том, как получить доступ к материалам интенсива."
+          "orderIsCreated": {
+            "course": "Мы получили вашу заявку! Сегодня на почту {{email}} мы отправим письмо с информацией об оплате.",
+            "webinar": "Мы получили вашу заявку! Сегодня на почту {{email}} мы отправим письмо с информацией о том, как получить доступ к материалам интенсива."
+          }
       },
       "description": {
-        "title:course": "Курс подойдeт тем, кто",
-        "title:webinar": "Интенсив подойдeт тем, кто"
+        "title": {
+          "course": "Курс подойдeт тем, кто",
+          "webinar": "Интенсив подойдeт тем, кто"
+        }
       },
       "prizes": {
         "title:course": "Подарки для участников курса",
@@ -110,7 +116,7 @@
       },
       "discountBanner": {
         "discount": "скидка",
-        "description": "Успейте записаться\nсо скидкой\nдо %{deadline} по Мск",
+        "description": "Успейте записаться\nсо скидкой\nдо {{deadline}} по Мск",
         "day": "д",
         "hour": "ч",
         "minute": "м",
@@ -136,28 +142,30 @@
       "modules": {
         "title": "Программа",
         "videosNumber": {
-          "one": "%{count} видео-урок",
-          "few": "%{count} видео-урока",
-          "many": "%{count} видео-уроков",
-          "other": "%{count} видео-уроков"
+          "p_one": "{{count}} видео-урок",
+          "p_few": "{{count}} видео-урока",
+          "p_many": "{{count}} видео-уроков",
+          "p_other": "{{count}} видео-уроков"
         },
         "homeworksNumber": {
-          "one": "%{count} практическое задание",
-          "few": "%{count} практических заданий",
-          "many": "%{count} практических заданий",
-          "other": "%{count} практических заданий"
+          "p_one": "{{count}} практическое задание",
+          "p_few": "{{count}} практических заданий",
+          "p_many": "{{count}} практических заданий",
+          "p_other": "{{count}} практических заданий"
         },
-        "duration:week": {
-          "one": "%{count} учебная неделя",
-          "few": "%{count} учебные недели",
-          "many": "%{count} учебных недель",
-          "other": "%{count} учебных недель"
-        },
-        "duration:day": {
-          "one": "%{count} учебный день",
-          "few": "%{count} учебных дня",
-          "many": "%{count} учебных дней",
-          "other": "%{count} учебных дней"
+        "duration": {
+          "day": {
+            "p_one": "{{count}} учебный день",
+            "p_few": "{{count}} учебных дня",
+            "p_many": "{{count}} учебных дней",
+            "p_other": "{{count}} учебных дней"
+          },
+          "week": {
+            "p_one": "{{count}} учебная неделя",
+            "p_few": "{{count}} учебные недели",
+            "p_many": "{{count}} учебных недель",
+            "p_other": "{{count}} учебных недель"
+          }
         },
         "feedback": "индивидуальная обратная связь по дз",
         "chat": "телеграм-чат для общения в группе"
@@ -186,8 +194,8 @@
     "navTabsPractice": "Задание",
     "navTabsResults": "Итоги",
     "navToLessons": "Все уроки",
-    "uploadDeadline": "Дедлайн: %{date}\u00A0по\u00A0Мск",
-    "resultsDeadline": "Публикация итогов: %{date}",
+    "uploadDeadline": "Дедлайн: {{date}}\u00A0по\u00A0Мск",
+    "resultsDeadline": "Публикация итогов: {{date}}",
     "uploadBtn": "Загрузить работу",
     "myWorkLinkTitle": "Моя работа",
     "editTitle": "Редактировать...",
@@ -218,33 +226,25 @@
       "showMoreBtn": "показать больше",
       "showLessBtn": "свернуть"
     },
-    "fallback:lessonNotStartedYet": "Этот урок пока не начался. Он начнётся %{startDate}, будем вас ждать",
-    "fallback:noResults:beforeDeadline": "Дата публикации результатов %{resultsEndDate}. Приходите позже.",
+    "fallback:lessonNotStartedYet": "Этот урок пока не начался. Он начнётся {{startDate}}, будем вас ждать",
+    "fallback:noResults:beforeDeadline": "Дата публикации результатов {{resultsEndDate}}. Приходите позже.",
     "fallback:noResults:deadlineDay": "Результатов пока нет, но они должны появится сегодня.",
     "fallback:noResults:pastDeadline": "Извиняемся за задержку результатов, мы их активно проверяем. Если задержка более дня, напишите, пожалуйста, в телеграм-чат курса."
   },
   "day": {
-    "one": "день",
-    "few": "дня",
-    "many": "дней",
-    "other": "дней"
+    "p_one": "день",
+    "p_few": "дня",
+    "p_many": "дней",
+    "p_other": "дней"
   },
   "week": {
-    "one": "неделя",
-    "few": "недели",
-    "many": "недель",
-    "other": "недель"
+    "p_one": "неделя",
+    "p_few": "недели",
+    "p_many": "недель",
+    "p_other": "недель"
   },
-  "duration:week": {
-    "one": "%{count} неделя",
-    "few": "%{count} недели",
-    "many": "%{count} недель",
-    "other": "%{count} недель"
-  },
-  "duration:day": {
-    "one": "%{count} день",
-    "few": "%{count} дня",
-    "many": "%{count} дней",
-    "other": "%{count} дней"
+  "duration": {
+    "week": "{{count}} $t(week.p, {\"count\": {{count}} })",
+    "day": "{{count}} $t(day.p, {\"count\": {{count}} })"
   }
 }

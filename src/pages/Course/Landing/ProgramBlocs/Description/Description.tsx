@@ -22,7 +22,7 @@ function Description(props: IProps) {
       <Animated.Scroll>
         {(id, className) => (
           <h2 className={cx({ title: true }, className) + ' s-text-56'} id={id}>
-            {t(`title:${props.data.type}`)}
+            {t(`title.${props.data.type}`)}
           </h2>
         )}
       </Animated.Scroll>
