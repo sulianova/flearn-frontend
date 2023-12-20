@@ -51,7 +51,7 @@ function renderItem(props: ICourseData['modules'][number]) {
             <div className={cx({ listItemCard: true }, className)} id={id}>
               <div className={classes.listItemMeta + ' s-text-16'}><Text text={props.meta}/></div>
               <div className={classes.listItemTitle + ' s-text-36'}><Text text={props.title}/></div>
-              <div className={classes.listItemContent + ' s-text-24'}><Text text={props.content}/></div>
+              <div className={classes.listItemContent + ' s-text-21'}><Text text={props.content}/></div>
             </div>
           )}
         </Animated.Scroll>
@@ -74,7 +74,7 @@ function renderItem(props: ICourseData['modules'][number]) {
           <div className={cx({ listItemCard: true }, className)} id={id}>
             <div className={classes.listItemMeta + ' s-text-16'}><Text text={props.meta}/></div>
             <div className={classes.listItemTitle + ' s-text-36'}><Text text={props.title}/></div>
-            <div className={classes.listItemContent + ' s-text-24'}><Text text={props.content}/></div>
+            <div className={classes.listItemContent + ' s-text-21'}><Text text={props.content}/></div>
           </div>
         )}
       </Animated.Scroll>
