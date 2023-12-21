@@ -22,7 +22,7 @@ function ProgramIntro(props: IProps) {
     t('datesInfoLabel', { 
       startDate: formatDate(startDate, { timeZone: 'Europe/Moscow' }),
       durationInUnits: duration.value,
-      unitPlural: i18n.t(duration.unit, { count: duration.value }),
+      unit: duration.unit,
     }),
     !creditPrice && !discontDeadline && t('free'),
   ].filter(Boolean);
