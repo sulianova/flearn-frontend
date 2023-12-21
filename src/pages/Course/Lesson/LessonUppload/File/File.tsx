@@ -3,7 +3,10 @@ import debounce from 'lodash/debounce';
 import { useCallback, useState } from 'react';
 
 import Trash from 'assets/images/Svg/Trash';
+import Image from 'assets/images/Svg/Image';
+
 import { dataService } from 'services';
+import { getFileExtension, isImage } from 'utils';
 
 import Spinner from 'ui/Spinner/Spinner';
 import Img from 'ui/Img/Img';
@@ -28,6 +31,9 @@ interface IProps {
 
 function File(props: IProps) {
   const { loadingState, imageData } = props.imageDataWState;
+  const fileType = isImage(imageData.originalName) ? 'image'
+    : getFileExtension(imageData.originalName) === 'pdf' ? 'pdf'
+    : 'unknown';
 
   return (
     <>
@@ -46,7 +52,19 @@ function File(props: IProps) {
         </div>
       </div>
       <div className={cx({ previewWrapper: true, blur: loadingState.type === 'pending' || loadingState.type === 'error' })}>
-        <Img className={classes.preview} src={imageData.src} alt={imageData.alt} />
+        {fileType === 'image' && <Img className={classes.preview} src={imageData.src} alt={imageData.alt} />}
+        {fileType === 'pdf' && (
+          <div className={classes.defaultPreview}>
+            <Image/>
+            <div className={classes.errorDescription + ' s-text-14'}>PDF</div>
+          </div>
+        )}
+        {fileType === 'unknown' && (
+          <div className={classes.defaultPreview}>
+            <Image/>
+            <div className={classes.errorDescription + ' s-text-14'}>Неверный тип файла</div>
+          </div>
+        )}
         <div className={classes.overlay}/>
       </div>
       <State originalName={imageData.originalName} loadingState={loadingState} />

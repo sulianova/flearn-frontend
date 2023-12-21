@@ -189,7 +189,7 @@ function LessonUppload({ homeworkWPopulate, scroll, onScrollEnd }: IProps) {
       }
 
       if (file.size > MAX_IMAGE_SIZE_B) {
-        throw new Error('Картинка должна быть меньше 3Mb');
+        throw new Error('Файл должен быть меньше 3Mb');
       }
 
       await homeworkService.uploadImage({ courseId, lessonId, userId: authedUser!.id, imageId: imageData.id, file });
