@@ -254,10 +254,29 @@ const review13: TReview = {
   ],
 };
 
+const review21: TReview = {
+  homeworkId: 'how-to-draw-free_SpotPractice_kfKAEY_hw-FhEwHm2rg4dqGzqMjiRhfFhgEIk1',
+  review: [
+    { type: 'text', text: 'Добрый день! У вас здорово получается экспериментировать с материалами. Все котики очень-очень хорошие.' },
+    { type: 'text', text: '"слушала себя и рисовала как чувствовала" — очень рада, что у вас получилось переключиться на себя! Это правильный подход.' },
+    { type: 'text', text: 'По ссылке ниже холст с вашими рисунками и моими комментариями. Чтобы отвечать на комменты, вести диалог, нужно скачать на телефон приложение Figma и залогиниться под любой почтой.' },
+    { type: 'text',
+      text: [
+        {
+          tag: 'a',
+          content: 'Комментарии к рисункам в Figma',
+          props: { className: 'link', target: "_blank", to: 'https://www.figma.com/file/M8SeWVu0YzLQgbX44Z8zMc/%D0%A1%D0%B2%D0%B5%D1%82%D0%BB%D0%B0%D0%BD%D0%B0-%D0%91%D0%BB%D0%BE%D0%BA?type=design&node-id=0%3A1&mode=design&t=6c9IgStQ2iqtBIBK-1' },
+        },
+      ]}
+
+  ],
+};
+
 const allReviews = [
   review11,
   review12,
   review13,
+  review21,
 ];
 
 function getReview(filter: { homeworkId: string }) {
