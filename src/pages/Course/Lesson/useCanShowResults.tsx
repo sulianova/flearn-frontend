@@ -24,7 +24,7 @@ export default function useCanShowResults(props: Readonly<IProps>) {
 
   const authedUser = userService.useAuthedUser();
   const [sentForReviewHomeworksCount, setSentForReviewHomeworksCount] = useState<number | null>(null);
-  const canShowResults = lesson && lesson.resultsEndDate < new Date() && sentForReviewHomeworksCount === 0
+  const canShowResults = (lesson && lesson.resultsEndDate < new Date() && sentForReviewHomeworksCount === 0)
     || authedUser?.role === 'support';
 
   useEffect(() => {
