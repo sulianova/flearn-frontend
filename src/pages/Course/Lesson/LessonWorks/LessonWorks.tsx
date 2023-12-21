@@ -187,7 +187,7 @@ function LessonWorks() {
           </div>
           <div className={classes.list}>
             <div className={classes.listTitle + ' s-text-36'}>
-              {t(`listTitle:noWorks:${noWorks}`)}
+              {t(`listTitle.noWorks.${noWorks}`)}
             </div>
             <div className={classes.listInner}>
               {renderWorkCards(filteredOtherStudentsHomeworks!)}

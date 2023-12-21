@@ -40,7 +40,7 @@ export default function useLessonFallback(props: Readonly<IProps>) {
 
   if (authedUser?.role !== 'support' && lessonState.data.startDate > new Date()) {
     const startDate = formatDate(lessonState.data.startDate, { timeZone: 'Europe/Moscow' });
-    return <Fallback.Info>{i18n.t('courseLesson.fallback:lessonNotStartedYet', { startDate })}</Fallback.Info>;
+    return <Fallback.Info>{i18n.t('courseLesson.fallback.lessonNotStartedYet', { startDate })}</Fallback.Info>;
   }
 
   return null;

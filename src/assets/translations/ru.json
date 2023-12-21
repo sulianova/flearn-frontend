@@ -221,15 +221,19 @@
     "works": {
       "ownTitle": "Моя работа",
       "emptyPreviewDescription": "Вы не загрузили работу до дедлайна",
-      "listTitle:noWorks:false": "Работы других студентов",
-      "listTitle:noWorks:true": "Другие студенты не загрузили свои работы",
+      "listTitle.noWorks.false": "Работы других студентов",
+      "listTitle.noWorks.true": "Другие студенты не загрузили свои работы",
       "showMoreBtn": "показать больше",
       "showLessBtn": "свернуть"
     },
-    "fallback:lessonNotStartedYet": "Этот урок пока не начался. Он начнётся {{startDate}}, будем вас ждать",
-    "fallback:noResults:beforeDeadline": "Дата публикации результатов {{resultsEndDate}}. Приходите позже.",
-    "fallback:noResults:deadlineDay": "Результатов пока нет, но они должны появится сегодня.",
-    "fallback:noResults:pastDeadline": "Извиняемся за задержку результатов, мы их активно проверяем. Если задержка более дня, напишите, пожалуйста, в телеграм-чат курса."
+    "fallback": {
+      "lessonNotStartedYet": "Этот урок пока не начался. Он начнётся {{startDate}}, будем вас ждать",
+      "noResults": {
+        "beforeDeadline": "Дата публикации результатов {{resultsEndDate}}. Приходите позже.",
+        "deadlineDay": "Результатов пока нет, но они должны появится сегодня.",
+        "pastDeadline": "Извиняемся за задержку результатов, мы их активно проверяем. Если задержка более дня, напишите, пожалуйста, в телеграм-чат курса."
+      }
+    }
   },
   "day": {
     "p_one": "день",
