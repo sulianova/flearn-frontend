@@ -19,6 +19,7 @@ import classes from './LessonUppload.module.scss';
 
 import type { TAction, TImageDataWState, TState } from './types';
 import type { IHomeworkData, IHomeworkDataWPopulate, IHomeworkImageData } from 'types';
+import { getFileExtension, isImage } from 'utils';
 
 export default LessonUppload;
 
@@ -183,6 +184,10 @@ function LessonUppload({ homeworkWPopulate, scroll, onScrollEnd }: IProps) {
   async function handleUploadImage(props: { file: File, imageData: IHomeworkImageData }) {
     const { file, imageData } = props;
     try {
+      if (!isImage(imageData.originalName) && getFileExtension(imageData.originalName) !== 'pdf') {
+        throw new Error('Неверный формат файла.\nДопустимые форматы: jpg, jpeg, png, heic, webp, pdf');
+      }
+
       if (file.size > MAX_IMAGE_SIZE_B) {
         throw new Error('Картинка должна быть меньше 3Mb');
       }
