@@ -27,7 +27,7 @@ function Prizes(props: IProps) {
   return (
     <Fragment>
       <div className={classes.wrapper}>
-        <h2 className={cx({ title: true }) + ' s-text-56'} >{t(`title:${type ?? 'course'}`)}</h2>
+        <h2 className={cx({ title: true }) + ' s-text-56'} >{t(`title.${type ?? 'course'}`)}</h2>
         <div className={classes.listItem}>
           <div className={cx({ listItemCard: true })}>
             <div className={classes.listItemTitle + ' s-text-28'}><Text text={prizes[0].title}/></div>

@@ -4645,8 +4645,8 @@ const lessonData33: ILessonDataDB = {
   type: 'Practice',
   week: 3,
   startDate: '2023.12.17 21:00:00 GMT', // 2024.01.22,
-  endDate: '2023.12.24 20:59:00 GMT', // 2024.01.28,
-  resultsEndDate: '2023.12.26 21:00:00 GMT', // 2024.02.01,
+  endDate: '2023.12.27 20:59:00 GMT', // 2024.01.28,
+  resultsEndDate: '2023.12.29 21:00:00 GMT', // 2024.02.01,
   content: [
     {
       type: 'text',
@@ -4943,6 +4943,3520 @@ const lessonData33: ILessonDataDB = {
   ]
 }
 
+const lessonDataFYS0: ILessonDataDB = {
+  orderInWeek: 0,
+  id: 'Checklist_hUpx7l',
+  courseId: 'finding-your-style',
+  title: 'Чек-лист продуктивного обучения',
+  type: 'Theory',
+  week: 1,
+  startDate: '2024.01.3 21:00:00 GMT',
+  endDate: '2024.01.06 14:59:00 GMT',
+  resultsEndDate: '2024.01.06 21:00:00 GMT',
+  content: [
+    {
+      type: 'title',
+      title: 'Учиться так, как хочется',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'У каждого из нас свой уникальный опыт, свои ожидания от обучения и свои цели относительно рисования.',
+        },
+        {
+          tag: 'p',
+          content: 'Есть силы только на то, чтобы посмотреть видео — отлично, значит сейчас этого достаточно. Я буду рада любому вашему выбору.',
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Беспокоиться о количестве, а не качестве',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Над одной работой слишком много трясешься, боишься исправлять, принимать радикальные решения. В большинстве случаев полезнее сделать следующий рисунок, чем сидеть и думать, как улучшить старый.',
+        },
+        {
+          tag: 'p',
+          content: 'Когда работа одна, ее легко испортить. Когда работ 10, среди них можно выбрать.',
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Мыслить серией',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Одна удачная работа может быть случайностью. 5 удачных работ — признак того, что автор умело использует визуальное решение.',
+        },
+        {
+          tag: 'p',
+          content: 'Когда вы нашли удачный прием, попробуйте повторить его еще в 4-5 рисунках. Изучайте возможности этого приема: выкручивайте его на максимум, наоборот, приглушайте.',
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Задавать вопросы',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Мы лучше понимаем то, что можем сформулировать. Поэтому верно заданный вопрос — половина успеха. Сразу после того, как появилась мысль — “не получилось”. Задайте вопросы — что я делала? Чего я хотела? Как я планировала этого достичь? В какой момент рисунок перестал работать?',
+        },
+      ]
+    },
+  ]
+}
+
+const lessonDataFYS1: ILessonDataDB = {
+  orderInWeek: 1,
+  id: 'IllustrationSeriesStyle_C4qFhu',
+  courseId: 'finding-your-style',
+  title: '1. Что такое иллюстрация, серия, стиль',
+  type: 'Theory',
+  week: 1,
+  startDate: '2024.01.3 21:00:00 GMT',
+  endDate: '2024.01.06 14:59:00 GMT',
+  resultsEndDate: '2024.01.06 21:00:00 GMT',
+  content: [
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Иллюстрации складываются в серии. Серии собираются в авторский стиль. От маленького к большому. Невозможно сделать стиль, не сделав иллюстрацию. Не получится обзавестись стилем, когда не умеешь собирать иллюстрации в серии.',
+        },
+        {
+          tag: 'p',
+          content: 'Поэтому и мы начнем с самого маленького элемента — одной картинки. И первый вопрос, который появляется в голове, когда мы садимся рисовать — про что будет картинка?',
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Помимо сходства в рисунке всегда должно быть что-то еще',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Одного сходства или узнавания недостаточно, чтобы рисунок состоялся. Важный вопрос, который стоит перед художником — “Про что картинка?” Нельзя просто сказать — я нарисовала похоже. Фотография все равно будет более похожа. Что мы можем сказать, что не может сказать фотография?',
+        },
+      ]
+    },
+    {
+      type: 'qoute',
+      qoute: [
+        {
+          tag: 'p',
+          content: '… изображение никогда не равно прототипу (нарисованная трубка — это не трубка), в нем всегда появляется дистанция, метаморфоза; она-то и становится предметом искусства.',
+        },
+        {
+          tag: 'p',
+          content: 'Виктор Меламед, “Машинерия портрета”.',
+        },
+      ]
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Впечатление, которое мы получаем от иллюстрации складывается из двух вещей: литературного и пластического сюжета.',
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Литературный сюжет',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'У любой картинки есть пересказывая часть — литературный сюжет. Есть не пересказываемая — пластический сюжет.',
+        },
+        {
+          tag: 'p',
+          content: 'Литературный сюжет рассказывает о том, что происходит в рисунке:',
+          props: { className: 'listHeader' },
+        },
+        {
+          tag: 'p',
+          content: 'сколько в рисунке персонажей',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'что персонажи делают',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'какое время суток',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'мы в комнате или в лесу',
+          props: { className: 'listItem' },
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'TomGauld1.jpeg',
+        alt: 'TomGauld1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Tom Gauld',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.tomgauld.com' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'title',
+      title: 'Пластический сюжет',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Пластический сюжет = попытка показать стилизацию, утрировать ощущение от картинки. Утрируем всегда то, что можем проговорить. Некий аспект, который нам важен:',
+          props: { className: 'listHeader' },
+        },
+        {
+          tag: 'p',
+          content: 'цветовая палитра',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'техника',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'формат, размер листа',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'формообразование',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'логика построения пространства',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'фактура',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'светотень',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'количество воздуха в листе',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'температура',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'контрастность',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'синестезия',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'ритмы',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'скорость, с которой делается вещь, легкость',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'динамика в листе',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'умение рисовать',
+          props: { className: 'listItem' },
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'CharleyHarper6.jpeg',
+        alt: 'CharleyHarper6',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Charley Harper',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/charleyharperart/?hl=en' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'title',
+      title: 'Пластический и литературный сюжет могут дополнять друг друга',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Литературный и пластический сюжет часто играют в команде, когда автор рисует портрет. Игривый и легкий персонаж, игривая и легкая интонация рисунка в работе John Patrick Byrne.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'JohnPatrickByrne.jpeg',
+        alt: 'JohnPatrickByrne',
+        caption: [
+          {
+            tag: 'p',
+            content: 'John Patrick Byrne',
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'В рисунке John Patrick Byrne открывает нестереотипную сторону персонажа.  В фильмах Тильда Суинтон обычно играет холодную злодейку, как в фильме Хроники Нарнии или Докторе Стрэйнже. Но ее муж John Patrick Byrne, изображает Тильду игривой и легкой. Такой, какую он знает ее в жизни.',
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Пластический и литературный сюжет могут контрастировать друг с другом',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Zhiyong Jing создает конфликт между интонацией и самой историей. Литературный сюжет про криминал. И супер спокойная интонация наивной живописи.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ZhiyongJing6.jpeg',
+        alt: 'ZhiyongJing6',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Zhiyong Jing',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.jingzhiyong.com/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'title',
+      title: 'Серия',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Серия — группа работ, объединенных интонацией, средствами выразительности, форматом, материалом. Рисунки внутри серии должны быть достаточно похожими, чтобы их можно было объединить в группу. Рисунки должны отличаться между собой, чтобы серию было интересно разглядывать, изучать. Обычно серия начинается от 3-5 работ.',
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Что объединяет рисунки',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Литературный сюжет:',
+          props: { className: 'listHeader' },
+        },
+        {
+          tag: 'p',
+          content: 'сколько в рисунке персонажей',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'что персонажи делают',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'какое время суток',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'мы в комнате или в лесу',
+          props: { className: 'listItem' },
+        },
+      ]
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Пластический сюжет:',
+          props: { className: 'listHeader' },
+        },
+        {
+          tag: 'p',
+          content: 'цветовая палитра',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'техника',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'формат, размер листа',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'формообразование',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'логика построения пространства',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'фактура',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'светотень',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'количество воздуха в листе',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'температура',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'контрастность',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'синестезия',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'ритмы',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'скорость, с которой делается вещь, легкость',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'динамика в листе',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'умение рисовать',
+          props: { className: 'listItem' },
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Что дает разнообразие',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Все, что не константа. Чтобы серия получилась, автор должен выбрать набор параметров, которые он зафиксирует — это станет единой интонацией серии. И определиться с параметрами, за счет которых он сделает серию разнообразной.',
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Примеры серий',
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'hannaleejoshi_Seria2.jpg',
+        alt: 'hannaleejoshi_Seria2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'H A N N A / 이 한 나',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/hannaleejoshi/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ZhiyongJing_Seria1.jpg',
+        alt: 'ZhiyongJing_Seria1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Zhiyong Jing',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.jingzhiyong.com/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'MashaTitova_Seria1.jpg',
+        alt: 'MashaTitova_Seria1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Masha Titova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/mashatitovaprint' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'hannaleejoshi_Seria1.jpg',
+        alt: 'hannaleejoshi_Seria1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'H A N N A / 이 한 나',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/hannaleejoshi/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'NadiiaZhelieznova_Seria1.jpg',
+        alt: 'NadiiaZhelieznova_Seria1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Nadiia Zhelieznova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zhelieznova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'MikeLee_Seria1.jpg',
+        alt: 'MikeLee_Seria1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Mike Lee',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.mikelee.one/group-exhibitions-1' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'JustasJelisejevas_Seria1.jpg',
+        alt: 'JustasJelisejevas_Seria1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Justas Jelisejevas',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/JustasJ' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AlenaDemchenko_Seria2.jpg',
+        alt: 'AlenaDemchenko_Seria2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Alena Demchenko',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/alenademchenko' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AlenaDemchenko_Seria4.jpg',
+        alt: 'AlenaDemchenko_Seria4',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Alena Demchenko',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/alenademchenko' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AlenaDemchenko_Seria3.jpg',
+        alt: 'AlenaDemchenko_Seria3',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Alena Demchenko',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/alenademchenko' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AnnaFadeeva_Seria1.jpg',
+        alt: 'AnnaFadeeva_Seria1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Anna Fadeeva',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/sofislon' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ZhenyaMoroz_Seria2.jpg',
+        alt: 'ZhenyaMoroz_Seria2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Zhenya Moroz',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/9a95f1c4' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'EddyRosas_Seria1.jpg',
+        alt: 'EddyRosas_Seria1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Eddy Rosas',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/ertilu' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'JuditZengővári_Seria1.jpg',
+        alt: 'JuditZengővári_Seria1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Judit Zengővári',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/juditzengovari' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'title',
+      title: 'Стиль',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Стиль — набор готовых пластических решений. То есть как бы серия серий. Стиль собирается из ценностей, которые перетекают из одного проекта в другой. Если взять все-все работы художника и составить диаграмму того, что он считает важным, мы получим его стиль. При этом, наличие стиля не означает, что все работы будут одинаковыми. В зависимости от задачи, автор меняет набор инструментов.',
+        },
+        {
+          tag: 'p',
+          content: 'Разные работы Маши Шишовой.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'MashaShishova1.jpg',
+        alt: 'MashaShishova1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Masha Shishova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/MariaShishova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'MashaShishova2.jpg',
+        alt: 'MashaShishova2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Masha Shishova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/MariaShishova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'MashaShishova3.jpg',
+        alt: 'MashaShishova3',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Masha Shishova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/MariaShishova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'MashaShishova4.jpg',
+        alt: 'MashaShishova4',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Masha Shishova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/MariaShishova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Разные работы Тима Бискап.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'TimBiskup1.jpeg',
+        alt: 'TimBiskup1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Tim Biskup',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.timbiskup.com/wop' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'TimBiskup2.jpeg',
+        alt: 'TimBiskup2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Tim Biskup',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.timbiskup.com/wop' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'TimBiskup3.jpeg',
+        alt: 'TimBiskup3',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Tim Biskup',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.timbiskup.com/wop' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'TimBiskup4.jpeg',
+        alt: 'TimBiskup4',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Tim Biskup',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.timbiskup.com/wop' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'TimBiskup5.jpeg',
+        alt: 'TimBiskup5',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Tim Biskup',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.timbiskup.com/wop' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'TimBiskup6.jpeg',
+        alt: 'TimBiskup6',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Tim Biskup',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.timbiskup.com/wop' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Разные работы Димы Горелышева.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DmitriyGorelyshev1.jpg',
+        alt: 'DmitriyGorelyshev1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Dmitriy Gorelyshev',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/gdmitry' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DmitriyGorelyshev2.jpg',
+        alt: 'DmitriyGorelyshev2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Dmitriy Gorelyshev',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/gdmitry' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DmitriyGorelyshev3.jpg',
+        alt: 'DmitriyGorelyshev3',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Dmitriy Gorelyshev',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/gdmitry' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DmitriyGorelyshev4.png',
+        alt: 'DmitriyGorelyshev4',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Dmitriy Gorelyshev',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/gdmitry' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DmitriyGorelyshev5.jpg',
+        alt: 'DmitriyGorelyshev5',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Dmitriy Gorelyshev',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/gdmitry' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DmitriyGorelyshev6.png',
+        alt: 'DmitriyGorelyshev6',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Dmitriy Gorelyshev',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/gdmitry' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DmitriyGorelyshev7.jpg',
+        alt: 'DmitriyGorelyshev7',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Dmitriy Gorelyshev',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/gdmitry' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DmitriyGorelyshev8.png',
+        alt: 'DmitriyGorelyshev8',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Dmitriy Gorelyshev',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/gdmitry' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DmitriyGorelyshev9.png',
+        alt: 'DmitriyGorelyshev9',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Dmitriy Gorelyshev',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/gdmitry' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DmitriyGorelyshev10.png',
+        alt: 'DmitriyGorelyshev10',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Dmitriy Gorelyshev',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/gdmitry' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Разные работы Nadiia Zhelieznova.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'NadiiaZhelieznova1.jpeg',
+        alt: 'NadiiaZhelieznova1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Nadiia Zhelieznova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zhelieznova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'NadiiaZhelieznova2.jpg',
+        alt: 'NadiiaZhelieznova2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Nadiia Zhelieznova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zhelieznova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'NadiiaZhelieznova3.jpg',
+        alt: 'NadiiaZhelieznova3',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Nadiia Zhelieznova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zhelieznova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'NadiiaZhelieznova4.jpg',
+        alt: 'NadiiaZhelieznova4',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Nadiia Zhelieznova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zhelieznova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'title',
+      title: 'Как найти свой стиль',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Стиль формируется сам собой, меняется и трансформируется. А чтобы помочь этому процессу, можно перед каждой следующей иллюстрацией задавать себе вопрос — а из чего будет состоять моя работа? Что для меня важно?',
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Лозунги и метафоры',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Творческие ценности и интересы удобно формулировать в лозунги и метафоры. Формулировка из 2-4 слов поможет сконцентрироваться ну нужном, обрежет лишнее.',
+        },
+        {
+          tag: 'p',
+          content: 'Тесная, шумная тусовка Брехт Эванса.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'BrechtEvens1.jpeg',
+        alt: 'BrechtEvens1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'BRECHT EVENS',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.brechtevens.com/illustration/2017/9/17/vinyl-cover-unik-ubik' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'BrechtEvens2.jpeg',
+        alt: 'BrechtEvens2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'BRECHT EVENS',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.brechtevens.com/illustration/2017/9/17/vinyl-cover-unik-ubik' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'BrechtEvens3.jpeg',
+        alt: 'BrechtEvens3',
+        caption: [
+          {
+            tag: 'a',
+            content: 'BRECHT EVENS',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.brechtevens.com/illustration/2017/9/17/vinyl-cover-unik-ubik' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'BrechtEvens4.jpeg',
+        alt: 'BrechtEvens4',
+        caption: [
+          {
+            tag: 'a',
+            content: 'BRECHT EVENS',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.brechtevens.com/illustration/2017/9/17/vinyl-cover-unik-ubik' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'BrechtEvens5.jpeg',
+        alt: 'BrechtEvens5',
+        caption: [
+          {
+            tag: 'a',
+            content: 'BRECHT EVENS',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.brechtevens.com/illustration/2017/9/17/vinyl-cover-unik-ubik' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Уютное, родное пространство Анны Десницкой.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AnnaDesnitskaya1.jpeg',
+        alt: 'AnnaDesnitskaya1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Anna Desnitskaya',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/anyadesnitskaya/?g=5' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AnnaDesnitskaya2.jpeg',
+        alt: 'AnnaDesnitskaya2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Anna Desnitskaya',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/anyadesnitskaya/?g=5' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AnnaDesnitskaya3.jpeg',
+        alt: 'AnnaDesnitskaya3',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Anna Desnitskaya',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/anyadesnitskaya/?g=5' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AnnaDesnitskaya4.jpeg',
+        alt: 'AnnaDesnitskaya4',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Anna Desnitskaya',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/anyadesnitskaya/?g=5' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AnnaDesnitskaya5.jpeg',
+        alt: 'AnnaDesnitskaya5',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Anna Desnitskaya',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/anyadesnitskaya/?g=5' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AnnaDesnitskaya6.jpeg',
+        alt: 'AnnaDesnitskaya6',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Anna Desnitskaya',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/anyadesnitskaya/?g=5' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Скрежет когтей, шибуршание шерсти от Léo Forest.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'LéoForest1.jpeg',
+        alt: 'LéoForest1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Léo Forest',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/leo___forest/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'LéoForest2.jpeg',
+        alt: 'LéoForest2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Léo Forest',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/leo___forest/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'LéoForest3.jpeg',
+        alt: 'LéoForest3',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Léo Forest',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/leo___forest/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'title',
+      title: 'Сформулируйте свой лозунг из 2-4 слов',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Придумайте лозунг для серии, которую будете рисовать на интенсиве. Пришлите свои идеи в телеграм-чат группы. Лозунг описывает ощущения, эмоции. По нему мы будем выстраивать пластический сюжет. Например,',
+          props: { className: 'listHeader' },
+        },
+        {
+          tag: 'p',
+          content: 'Теплое, родное пространство',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'Шумно и тесно',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'Скрежет ногтей по стеклу',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'Один в большом пространстве',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'Холодный, леденящий душу сквозняк',
+          props: { className: 'listItem' },
+        },
+      ]
+    },
+  ]
+}
+
+const lessonDataFYS2: ILessonDataDB = {
+  orderInWeek: 2,
+  id: 'Narrative_ stPfNE',
+  courseId: 'finding-your-style',
+  title: '2. Как сделана иллюстрация. Литературный сюжет',
+  type: 'Theory',
+  week: 1,
+  startDate: '2024.01.3 21:00:00 GMT',
+  endDate: '2024.01.06 14:59:00 GMT',
+  resultsEndDate: '2024.01.06 21:00:00 GMT',
+  content: [
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'В этом уроке мы подробнее разберем литературный сюжет в графике. Что это такое и как его придумать.',
+        },
+        {
+          tag: 'p',
+          content: 'В графической серии каждая картинка — полноценная, завершенная работа. Это значит, что история должна начаться, развиться и завершиться в одном кадре.',
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Литературный сюжет есть везде, но насколько он значим — зависит от автора',
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AnnaDesnitskaya1.jpeg',
+        alt: 'AnnaDesnitskaya1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Anna Desnitskaya',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/anyadesnitskaya/?g=5' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DmitriyGorelyshev10.png',
+        alt: 'DmitriyGorelyshev10',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Dmitriy Gorelyshev',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/gdmitry' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'MashaShishova6.jpg',
+        alt: 'MashaShishova6',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Masha Shishova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/MariaShishova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'MashaShishova7.jpg',
+        alt: 'MashaShishova7',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Masha Shishova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/MariaShishova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'MashaTitova5.png',
+        alt: 'MashaTitova5',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Masha Titova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/mashatitovaprint' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'MashaTitova6.png',
+        alt: 'MashaTitova6',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Masha Titova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/mashatitovaprint' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'title',
+      title: 'Сюжет в один кадр',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'В графике нельзя заставить зрителя пройти определенным путем. Зритель сразу видит всю картинку целиком. Поэтому сюжет сокращается до минимального конфликта, переключения с одного на другое.',
+        },
+        {
+          tag: 'p',
+          content: 'Когда в работе получается создать конфликт, зритель надолго задерживается перед рисунком. Он как бы задает себе вопрос, отвечает на него, но затем вопрос появляется заново. В особо хороших случаях, даже после того, как зритель уходит, этот конфликт все еще крутится у него в голове.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DavidShrigley1.jpeg',
+        alt: 'DavidShrigley1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'David Shrigley',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/davidshrigley/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Конфликт = новость для нас и наших зрителей. Милые и пушистые котики = не новость. Бедствия как милые животные = новость.',
+        },
+        {
+          tag: 'p',
+          content: 'Примеры литературных сюжетов, в которых есть конфликт:',
+          props: { className: 'listHeader' },
+        },
+        {
+          tag: 'p',
+          content: 'большие головы растут из земли в разных климатических зонах',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'персонажи детских книг на социальном дне',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'здания используются гигантскими людьми как предметы',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'веселые мертвецы на грани смерти',
+          props: { className: 'listItem' },
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Как придумать идею',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Любую составляющую можно взять за основу. Например, все мои истории будут про что-то жуткое в общественном транспорте. И дальше думаем, что там может быть различного.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'unoMoralez2.jpg',
+        alt: 'unoMoralez2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'unomoralez',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/unomoralez/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'unoMoralez4.jpg',
+        alt: 'unoMoralez4',
+        caption: [
+          {
+            tag: 'a',
+            content: 'unomoralez',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/unomoralez/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Все мои истории будут про приход весны.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DavidHockney1.jpeg',
+        alt: 'DavidHockney1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'David Hockney',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.hockney.com/works/digital/arrival-of-spring-woldgate' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DavidHockney2.jpeg',
+        alt: 'DavidHockney2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'David Hockney',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.hockney.com/works/digital/arrival-of-spring-woldgate' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DavidHockney3.jpeg',
+        alt: 'DavidHockney3',
+        caption: [
+          {
+            tag: 'a',
+            content: 'David Hockney',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.hockney.com/works/digital/arrival-of-spring-woldgate' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Все мои истории будут про животных из коряги.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'NadiiaZhelieznova1.png',
+        alt: 'NadiiaZhelieznova1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Nadiia Zhelieznova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zhelieznova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'NadiiaZhelieznova2.jpg',
+        alt: 'NadiiaZhelieznova2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Nadiia Zhelieznova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zhelieznova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'NadiiaZhelieznova3.jpg',
+        alt: 'NadiiaZhelieznova3',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Nadiia Zhelieznova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zhelieznova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'NadiiaZhelieznova4.jpg',
+        alt: 'NadiiaZhelieznova4',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Nadiia Zhelieznova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zhelieznova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Все истории будут про животных, наделенных человеческими свойствами.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'SashaAnanas1.jpeg',
+        alt: 'SashaAnanas1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Sasha Ananas',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/sasha.ananas.sktch/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'SashaAnanas2.jpeg',
+        alt: 'SashaAnanas2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Sasha Ananas',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/sasha.ananas.sktch/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'SashaAnanas3.jpeg',
+        alt: 'SashaAnanas3',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Sasha Ananas',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/sasha.ananas.sktch/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'SashaAnanas5.jpeg',
+        alt: 'SashaAnanas5',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Sasha Ananas',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/sasha.ananas.sktch/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Все истории будут про какой-то криминал, помещенный в спокойную жизнь.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ZhiyongJing1.jpeg',
+        alt: 'ZhiyongJing1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Zhiyong Jing',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.jingzhiyong.com/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ZhiyongJing2.jpeg',
+        alt: 'ZhiyongJing2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Zhiyong Jing',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.jingzhiyong.com/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ZhiyongJing3.jpeg',
+        alt: 'ZhiyongJing3',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Zhiyong Jing',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.jingzhiyong.com/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ZhiyongJing4.jpeg',
+        alt: 'ZhiyongJing4',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Zhiyong Jing',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.jingzhiyong.com/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ZhiyongJing5.jpeg',
+        alt: 'ZhiyongJing5',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Zhiyong Jing',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.jingzhiyong.com/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ZhiyongJing6.jpeg',
+        alt: 'ZhiyongJing6',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Zhiyong Jing',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.jingzhiyong.com/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'title',
+      title: 'Связь литературного и пластического сюжета',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Интересно, когда литературный сюжет начинает взаимодействовать с пластическим.',
+          props: { className: 'listHeader' },
+        },
+        {
+          tag: 'p',
+          content: '“Собаки” — скучно',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: '“Собаки, ищущие еду” — нормально',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: '“Несимметричные собаки, ищущие еду” — интересно. Тема не ограничивается перебором ситуаций, в которых собака ищет еду. Она также задает вопросы к устройству пространства в листе, формообразованию, контрформам.',
+          props: { className: 'listItem' },
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Сформулируйте свой литературный сюжет',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Выберите литературный сюжет. Например,',
+          props: { className: 'listHeader' },
+        },
+        {
+          tag: 'p',
+          content: 'Неподходящие животные с крыльями',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'Фон отдельно, а персонажи все перемешаны',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'Несимметричные животные',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'Парадные портреты нелепых монстров',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'Части тела как растения',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'Проблемы из женских журналов, преувеличенные до перебора',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'Да, но',
+          props: { className: 'listItem' },
+        },
+      ]
+    },
+  ]
+}
+
+const lessonDataFYS3: ILessonDataDB = {
+  orderInWeek: 3,
+  id: 'VisualConcept_WeYEGw',
+  courseId: 'finding-your-style',
+  title: '3. Как сделана иллюстрация. Пластический сюжет',
+  type: 'Theory',
+  week: 1,
+  startDate: '2024.01.3 21:00:00 GMT',
+  endDate: '2024.01.06 14:59:00 GMT',
+  resultsEndDate: '2024.01.06 21:00:00 GMT',
+  content: [
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'В этом уроке мы подробнее разберем кирпичики пластической идеи. Посмотрим, как разные иллюстраторы используют их в своих работах.',
+        },
+        {
+          tag: 'p',
+          content: 'Визуальные инструменты выразительности — широкая тема. В одном уроке невозможно охватить каждый инструмент, даже по верхам. Хорошая новость в том, что чтобы быть иллюстратором, искать свой стиль, не нужно знать и владеть всем этим арсеналом. Достаточно разобраться в том, что вам близко, интересно, во что хочется закопаться.',
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Поиск пластической идеи на примере изучения формы',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'От одного референса можно пойти разными путями.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'VictorMelamed1.jpg',
+        alt: 'VictorMelamed1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Victor Melamed',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/melamed' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Первый — разбиение фигуры на более простые формы.',
+        },
+        {
+          tag: 'p',
+          content: 'Второй — работа с силуэтом.',
+        },
+        {
+          tag: 'p',
+          content: 'Третий — логика конструктора, модуля.',
+        },
+        {
+          tag: 'p',
+          content: 'Четвертый — акцент на контрформе (треугольники).',
+        },
+        {
+          tag: 'p',
+          content: 'Последний — стилизация через метафору (перевернутый самолет).',
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Композиция',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Композиция — организация листа, которую автор делает сознательно и целенаправленно. На композицию влияют: размер, форма масс, их взаимодействие друг с другом и с пустым пространством листа.',
+        },
+        {
+          tag: 'p',
+          content: 'Масса может равняться одному объекту.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'MashaShishova9.jpg',
+        alt: 'MashaShishova9',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Masha Shishova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/MariaShishova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Масса может состоять из нескольких объектов. В этом случае несколько объектов воспринимаются как одна масса.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'MashaShishova6.jpg',
+        alt: 'MashaShishova6',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Masha Shishova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/MariaShishova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Масса может быть частью объекта. Купальник — масса, но он лишь часть тела девушки.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'АлександрДейнека1.jpg',
+        alt: 'АлександрДейнека1',
+        caption: [
+          {
+            tag: 'p',
+            content: 'Александр Дейнека',
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Объекты объединяются в одну массу, когда они схожи по какому-то признаку: светлота, цвет, техника исполнения.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'StasyaSokolovskaya1.jpeg',
+        alt: 'StasyaSokolovskaya1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Stasya Sokolovskaya',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/stasyasokolovska/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Четкие границы массы могут упрощать чтение сюжета.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'LorenzoMattotti1.jpeg',
+        alt: 'LorenzoMattotti1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Lorenzo Mattotti',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.mattotti.com/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Масса может затруднять восприятие. Абстрактная масса — хороший способ устранения. Мощный куб некера.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'MashaShishova8.jpg',
+        alt: 'MashaShishova8',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Masha Shishova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/MariaShishova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Персонажи рифмуются с деревьями, встают в один ряд, создают равномерный ритм.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'LorenzoMattotti2.jpeg',
+        alt: 'LorenzoMattotti2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Lorenzo Mattotti',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.mattotti.com/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Масса и фигуратив (объект) — два инструмента художника. Их необязательно жестко привязывать друг к другу. Иллюстратор может в любую форму врисовать нужный ему сюжет.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'MašaAvramović2.png',
+        alt: 'MašaAvramović2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Maša Avramović',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/mashta' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'title',
+      title: 'Контрастность',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Разница - это средство выразительности. Если разница велика - это контраст. Если мала - нюанс. Когда мы подчеркиваем разницу - размеров, форм, яркости, чего угодно - мы делаем рисунок более выразительным.',
+        },
+        {
+          tag: 'p',
+          content: 'Контраст — большая разница в листе. Объемное и плоское, фактурное и однородное, толстое и тонюсенькое, заполненное и пустое, чб и цветное, пятно и линия. С помощью контраста можно направить внимание зрителя, выделить главное в листе, разделить планы, объединить персонажей.',
+        },
+        {
+          tag: 'p',
+          content: 'Нюанс — едва заметная разница. Она обогащает рисунок, наполняет его деталями.',
+        },
+        {
+          tag: 'p',
+          content: 'Акцент — самый сильный контраст в листе. Акцент всегда маленький, всегда один.',
+        },
+        {
+          tag: 'p',
+          content: 'Например, если тона в рисунке отличаются слабо, рисунок нюансный:',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AndrewGraves1.jpeg',
+        alt: 'AndrewGraves1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Andrew Graves',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.andrewjgraves.com/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'NadyaDrobysheva2.jpg',
+        alt: 'NadyaDrobysheva2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Nadya Drobysheva',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/nadyadrobysheva' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Если тона в рисунке отличаются сильно, рисунок контрастный:',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ArinaSerebriakova1.jpeg',
+        alt: 'ArinaSerebriakova1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Arina Serebriakova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/ri.silver/?g=5' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ArinaSerebriakova2.jpg',
+        alt: 'ArinaSerebriakova2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Arina Serebriakova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/ri.silver/?g=5' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Акцент линией в пятновом рисунке. Контраст по светлоте.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ArinaSerebriakova.jpeg',
+        alt: 'ArinaSerebriakova',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Arina Serebriakova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/ri.silver/?g=5' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'title',
+      title: 'Контрастность: противопоставление формы и содержания',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Противопоставление формы и содержания — частный случай темы контрастов. Таких примеров может быть много: противопоставление линии и пятна, цветного и чб, плоского и объемного. Но логика у всех будет схожа. Выбираем параметр, по которому инструменты будут различны, и думаем, что мы можем сделать с этой разницей.',
+        },
+        {
+          tag: 'p',
+          content: 'Чтобы сделать свои рисунки выразительными, André Carrilho использует контраст формы и содержания. Форма сильно изменена, без содержимого внутри порой невозможно догадаться, что это изображение человека. При этом внутренняя часть показана точно и убедительно.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AndréCarrilho1.jpeg',
+        alt: 'AndréCarrilho1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'André Carrilho',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/andre_carrilho/?ysclid=ln321z8cus372402208' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AndréCarrilho2.jpeg',
+        alt: 'AndréCarrilho2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'André Carrilho',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/andre_carrilho/?ysclid=ln321z8cus372402208' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AndréCarrilho3.jpeg',
+        alt: 'AndréCarrilho3',
+        caption: [
+          {
+            tag: 'a',
+            content: 'André Carrilho',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/andre_carrilho/?ysclid=ln321z8cus372402208' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AndréCarrilho4.jpeg',
+        alt: 'AndréCarrilho4',
+        caption: [
+          {
+            tag: 'a',
+            content: 'André Carrilho',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/andre_carrilho/?ysclid=ln321z8cus372402208' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AndréCarrilho5.jpeg',
+        alt: 'AndréCarrilho5',
+        caption: [
+          {
+            tag: 'a',
+            content: 'André Carrilho',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/andre_carrilho/?ysclid=ln321z8cus372402208' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AndréCarrilho6.jpeg',
+        alt: 'AndréCarrilho6',
+        caption: [
+          {
+            tag: 'a',
+            content: 'André Carrilho',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/andre_carrilho/?ysclid=ln321z8cus372402208' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AndréCarrilho7.jpeg',
+        alt: 'AndréCarrilho7',
+        caption: [
+          {
+            tag: 'a',
+            content: 'André Carrilho',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/andre_carrilho/?ysclid=ln321z8cus372402208' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AndréCarrilho8.jpeg',
+        alt: 'AndréCarrilho8',
+        caption: [
+          {
+            tag: 'a',
+            content: 'André Carrilho',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/andre_carrilho/?ysclid=ln321z8cus372402208' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'title',
+      title: 'Форма: формообразование',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Формообразование — часть разговора о форме, которую мы затронули в начале урока.',
+        },
+        {
+          tag: 'p',
+          content: 'Формообразование отвечает на вопрос, из каких материалов будет состоять наш придуманный мир. Например, я создаю мир из пластилина, все в нем будет пластилиновое. Я создаю мир из стекла, все будет стеклянное. Часто формообразование создает узнаваемость художника.',
+        },
+        {
+          tag: 'p',
+          content: 'Nadiia Zhelieznova делает своих персонажей текучими.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'NadiiaZhelieznova5.png',
+        alt: 'NadiiaZhelieznova5',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Nadiia Zhelieznova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zhelieznova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'NadiiaZhelieznova6.jpg',
+        alt: 'NadiiaZhelieznova6',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Nadiia Zhelieznova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zhelieznova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'NadiiaZhelieznova7.png',
+        alt: 'NadiiaZhelieznova7',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Nadiia Zhelieznova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zhelieznova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'NadiiaZhelieznova8.png',
+        alt: 'NadiiaZhelieznova8',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Nadiia Zhelieznova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zhelieznova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Сравнивает животных с корягой дерева.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'NadiiaZhelieznova1.png',
+        alt: 'NadiiaZhelieznova1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Nadiia Zhelieznova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zhelieznova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'NadiiaZhelieznova2.jpg',
+        alt: 'NadiiaZhelieznova2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Nadiia Zhelieznova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zhelieznova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'NadiiaZhelieznova3.jpg',
+        alt: 'NadiiaZhelieznova3',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Nadiia Zhelieznova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zhelieznova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'NadiiaZhelieznova4.jpg',
+        alt: 'NadiiaZhelieznova4',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Nadiia Zhelieznova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zhelieznova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Elicia Edijanto рисует работы в тумане.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'EliciaEdijanto1.jpg',
+        alt: 'EliciaEdijanto1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Elicia Edijanto',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/eliciaedijanto' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'EliciaEdijanto2.jpg',
+        alt: 'EliciaEdijanto2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Elicia Edijanto',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/eliciaedijanto' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Формообразование Mike Lee напоминает плавящийся воск.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'MikeLee1.webp',
+        alt: 'MikeLee1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Mike Lee',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.mikelee.one/group-exhibitions-1' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'MikeLee2.webp',
+        alt: 'MikeLee2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Mike Lee',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.mikelee.one/group-exhibitions-1' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Слегка кривоватая, дрожащая линия добавляет дружелюбия во взаимодействие со зрителем, ощущения ручной работы. Это особенно живо смотрится в цифровых рисунках.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'MattHouston2.jpeg',
+        alt: 'MattHouston2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Matt Houston',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/mg.houston/?hl=en' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'MattHouston3.jpeg',
+        alt: 'MattHouston3',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Matt Houston',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/mg.houston/?hl=en' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'title',
+      title: 'Форма: модульность',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Модуль — это логика движения самого контура. Правила сборки могут более или менее жесткими, зависит от автора.',
+        },
+        {
+          tag: 'p',
+          content: 'Чем меньше модуль картинки, тем скучнее игра. Самый маленький модуль — пиксель.',
+        },
+        {
+          tag: 'p',
+          content: 'Чем модуль крупнее — тем больше пространства для метаморфоз. Все детали нужно уложить, за этим интересно наблюдать.',
+        },
+        {
+          tag: 'p',
+          content: 'Riccardo Guasco собирает рисунок из долек. В этой форме сразу заложен пластический контраст. Есть прямота и круглота, они друг другу контрастируют.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'RiccardoGuasco2.jpeg',
+        alt: 'RiccardoGuasco2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Riccardo Guasco',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/guascoriccardo/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'RiccardoGuasco1.jpeg',
+        alt: 'RiccardoGuasco1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Riccardo Guasco',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/guascoriccardo/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'RiccardoGuasco3.jpeg',
+        alt: 'RiccardoGuasco3',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Riccardo Guasco',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/guascoriccardo/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'RiccardoGuasco5.jpeg',
+        alt: 'RiccardoGuasco5',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Riccardo Guasco',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/guascoriccardo/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'RiccardoGuasco6.jpeg',
+        alt: 'RiccardoGuasco6',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Riccardo Guasco',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/guascoriccardo/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'RiccardoGuasco7.jpeg',
+        alt: 'RiccardoGuasco7',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Riccardo Guasco',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/guascoriccardo/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Charley Harper идет до предела стилизации. На всем пути верно изображает животное, не превращает в котика с глазками.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'CharleyHarper6.jpeg',
+        alt: 'CharleyHarper6',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Charley Harper',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/charleyharperart/?hl=en' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'CharleyHarper2.jpeg',
+        alt: 'CharleyHarper2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Charley Harper',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/charleyharperart/?hl=en' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Пластическая идея для каждого животного своя, свой подход.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'CharleyHarper3.jpeg',
+        alt: 'CharleyHarper3',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Charley Harper',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/charleyharperart/?hl=en' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'CharleyHarper8.jpeg',
+        alt: 'CharleyHarper8',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Charley Harper',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/charleyharperart/?hl=en' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'MashaTitova1.jpg',
+        alt: 'MashaTitova1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Masha Titova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/mashatitovaprint' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'MashaTitova2.jpg',
+        alt: 'MashaTitova2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Masha Titova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/mashatitovaprint' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'title',
+      title: 'Форма: силуэт',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Силуэт — заполненный или пустой контур, произвольной формы. Работа с силуэтом — движение от абстракции к фигуративу. Аналогично массам, автора в первую очередь волнует впечатление, во вторую — реалистичность.',
+        },
+        {
+          tag: 'p',
+          content: 'Например, Маша Шишова в своих работах идет от силуэта, формы. И затем вписывает в него фигуратив.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'MashaShishova5.jpg',
+        alt: 'MashaShishova5',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Masha Shishova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/MariaShishova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'MashaShishova6.jpg',
+        alt: 'MashaShishova6',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Masha Shishova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/MariaShishova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'MashaShishova7.jpg',
+        alt: 'MashaShishova7',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Masha Shishova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/MariaShishova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'BrechtEvens1.jpeg',
+        alt: 'BrechtEvens1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Brecht Evens',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/brecht_evens_/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'BrechtEvens2.jpeg',
+        alt: 'BrechtEvens2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Brecht Evens',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/brecht_evens_/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'BrechtEvens3.jpeg',
+        alt: 'BrechtEvens3',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Brecht Evens',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/brecht_evens_/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AlHirschfeld1.jpeg',
+        alt: 'AlHirschfeld1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Al Hirschfeld',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.alhirschfeldfoundationshop.org/stage/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AlHirschfeld3.jpg',
+        alt: 'AlHirschfeld3',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Al Hirschfeld',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.alhirschfeldfoundationshop.org/stage/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AlHirschfeld5.jpg',
+        alt: 'AlHirschfeld5',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Al Hirschfeld',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.alhirschfeldfoundationshop.org/stage/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ClareYoungs6.jpeg',
+        alt: 'ClareYoungs6',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Clare Youngs',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.clareyoungs.co.uk/shop' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ClareYoungs7.jpeg',
+        alt: 'ClareYoungs7',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Clare Youngs',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.clareyoungs.co.uk/shop' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'title',
+      title: 'Форма: контрформа',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Контрформа — пространство, обволакивающее силуэт, антисилуэт.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'SveinNyhus4.jpeg',
+        alt: 'SveinNyhus4',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Svein Nyhus',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://sveinnyhus.blogspot.com/p/summary-in-english-signed-a2-size.html' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'SveinNyhus3.jpeg',
+        alt: 'SveinNyhus3',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Svein Nyhus',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://sveinnyhus.blogspot.com/p/summary-in-english-signed-a2-size.html' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'SveinNyhus2.jpeg',
+        alt: 'SveinNyhus2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Svein Nyhus',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://sveinnyhus.blogspot.com/p/summary-in-english-signed-a2-size.html' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'SveinNyhus1.jpeg',
+        alt: 'SveinNyhus1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Svein Nyhus',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://sveinnyhus.blogspot.com/p/summary-in-english-signed-a2-size.html' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'escher3.jpg',
+        alt: 'escher3',
+        caption: [
+          {
+            tag: 'a',
+            content: 'M.C. Escher',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://mcescher.com/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'escher2.jpg',
+        alt: 'escher2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'M.C. Escher',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://mcescher.com/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'escher1.jpg',
+        alt: 'escher1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'M.C. Escher',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://mcescher.com/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'mcescher7.jpeg',
+        alt: 'mcescher7',
+        caption: [
+          {
+            tag: 'a',
+            content: 'M.C. Escher',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://mcescher.com/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'mcescher8.jpeg',
+        alt: 'mcescher8',
+        caption: [
+          {
+            tag: 'a',
+            content: 'M.C. Escher',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://mcescher.com/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ClareYoungs1.jpeg',
+        alt: 'ClareYoungs1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Clare Youngs',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.clareyoungs.co.uk/shop' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ClareYoungs2.jpeg',
+        alt: 'ClareYoungs2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Clare Youngs',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.clareyoungs.co.uk/shop' },
+          },
+        ],
+      },
+    },
+  ]
+}
+
+const lessonDataFYS4: ILessonDataDB = {
+  orderInWeek: 4,
+  id: 'FindingYourStyle_Practice_ t4jUts',
+  courseId: 'finding-your-style',
+  title: 'Практика интенсива',
+  type: 'Practice',
+  week: 1,
+  startDate: '2024.01.3 21:00:00 GMT',
+  endDate: '2024.01.06 14:59:00 GMT',
+  resultsEndDate: '2024.01.06 21:00:00 GMT',
+  content: [
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'В этом задании будем учиться делать серию рисунков, в которой используются наши сильные стороны.',
+        },
+        {
+          tag: 'p',
+          content: 'В итоге нам нужно получить 3-5 графических работ, объединенных одной интонацией (пластической идеей) и одним литературным сюжетом.',
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Как действовать',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: '1. Сформулируйте лозунг для своей серии. Лозунг описывает ощущения, эмоции. По нему мы будем выстраивать пластический сюжет. Например,',
+          props: { className: 'listHeader' },
+        },
+        {
+          tag: 'p',
+          content: 'Теплое, родное пространство',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'Шумно и тесно',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'Скрежет ногтей по стеклу',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'Один в большом пространстве',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'Холодный, леденящий душу сквозняк',
+          props: { className: 'listItem' },
+        },
+      ]
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: '2. Выберите литературный сюжет. Например,',
+          props: { className: 'listHeader' },
+        },
+        {
+          tag: 'p',
+          content: 'Неподходящие животные с крыльями',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'Несимметричные животные',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'Фон отдельно, а персонажи все перемешаны',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'Парадные портреты нелепых монстров',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'Части тела как растения',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'Проблемы из женских журналов, преувеличенные до перебора',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'Да, но',
+          props: { className: 'listItem' },
+        },
+      ]
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: '3. Выберите одно-два средства выразительности, из которых сложится пластический сюжет. Что-то зафиксируйте, чтобы серия смотрелась цельной. Что-то меняйте, чтобы за серией было интересно наблюдать. Например,',
+          props: { className: 'listHeader' },
+        },
+        {
+          tag: 'p',
+          content: 'Постоянное: цветовая палитра (розовый, голубой, индиго), модульность (все объекты стремятся стать треугольниками)',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'Меняется: количество воздуха в листе',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'Берите те инструменты, с которыми уже работали, знаете, как ими управлять. Цель серии — подсобрать и оформить наши текущие навыки, а не научиться новым.',
+        },
+      ]
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: '4. Нарисуйте 5-10 работ. Думайте о количестве, а не качестве. На первом этапе мы экспериментируем, ищем идеи, собираем материал. После интенсивна серию можно перерисовать и доработать. Сейчас — главное разобраться, в каком направлении двигаться.',
+        },
+        {
+          tag: 'p',
+          content: '5. Разложите все работы перед глазами, отберите 3-5, которые лучше всего отражают первоначальную задумку.',
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Что выкладываем',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: '1. Сфотографируйте рисунки и приложите к заданию. Выкладывайте все, что есть:',
+          props: {className: 'listHeader'}
+        },
+        {
+          tag: 'p',
+          content: 'в получившихся рисунках отметим и запомним удачные приемы;',
+          props: {className: 'listItem'}
+        },
+        {
+          tag: 'p',
+          content: 'в неполучившихся разберем, что не нравится, вместе придумаем, как улучшить.',
+          props: {className: 'listItem'}
+        },
+      ]
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: '2. Расскажите, что за чем делали, в какой последовательности рисовали. Что получилось, а что нет. Что понравилось, что осталось непонятным.',
+        },
+        {
+          tag: 'p',
+          content: '3. Задайте вопросы.',
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Необязательно точь в точь перерисовывать каждую деталь',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Фотоаппарат справится с этим лучше, чем человек. Если мы хотим, чтобы наш рисунок не оценивали по тому как точно мы повторили каждую деталь, нужно придумать что-то новое. Например, заметить что силуэт чайника напоминает кошку, нарисовать чайник который одновременно чайник и кошка.',
+        },
+        {
+          tag: 'p',
+          content: 'Если рисунок критикуют за огрехи в анатомии, перспективе, значит у автора не получилось впечатлить зрителя. Зрителю скучно, но он не знает к чему придраться, поэтому говорит о самом простом — отличии рисунка от фото.',
+        },
+      ]
+    },
+    {
+      type: 'qoute',
+      qoute: [
+        {
+          tag: 'p',
+          content: '… изображение никогда не равно прототипу (нарисованная трубка — это не трубка), в нем всегда появляется дистанция, метаморфоза; она-то и становится предметом искусства.',
+        },
+        {
+          tag: 'p',
+          content: 'Виктор Меламед, Машинерия портрета.',
+        },
+      ],
+    },
+    {
+      type: 'title',
+      title: 'Любая степень реалистичности подходит. Рисуйте, как вам комфортно',
+    },
+    {
+      type: 'qoute',
+      qoute: [
+        {
+          tag: 'p',
+          content: 'Если представить ось, на одном конце которой смайл, а на другом — реалистичный портрет, то чем ближе мы к полюсу реалистичного портрета, тем важнее убедительность светотени, анатомии, пространства, тем выше цена ошибки и склонность зрителя судить работу по уровню технических навыков. Двигаясь в обратную сторону, мы получаем больше свободы, больше возможностей для вовлечения в портрет посторонних форм и знаков, для метаморфоз, метафор и подмен, для жонглирования формой и контрформой. Здесь размыта граница межу графикой и письменным языком. … Простота не освобождает от ответственности за убедительность портрета, но создает другие категории ответственности, другие сценарии взаимодействия со зрителем, другие правила игры.',
+        },
+        {
+          tag: 'p',
+          content: 'Виктор Меламед, Машинерия портрета.',
+        },
+      ],
+    },
+    {
+      type: 'title',
+      title: 'Рисуйте привычными для вас материалами',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'На этом курсе нет цели освоить новый материал или технику. Рисуйте теми материалами, к которым привыкли. Если вы никогда не рисовали, возьмите черную тушь для пятна, ручку — для линии.',
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Не стесняйтесь загружать свои работы',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Часто так бывает, что нам больше нравятся рисунки других, чем свои собственные. Поэтому важно делиться работами. Работа, которая кажется нам скучной, может удивит и вдохновит кого-то другого. А после этого может и мы сами сможем заметить в ней что-то интересное.',
+        },
+      ]
+    },
+  ]
+}
+
 const lessonData5: ILessonDataDB = {
   id: 'draw-poodles-3',
   courseId: 'illustration',
@@ -5039,4 +8553,9 @@ const allLessons = [
   lessonData31,
   lessonData32,
   lessonData33,
+  lessonDataFYS0,
+  lessonDataFYS1,
+  lessonDataFYS2,
+  lessonDataFYS3,
+  lessonDataFYS4,
 ];

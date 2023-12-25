@@ -328,7 +328,7 @@ const courseDB2: ICourseDataDB = {
   accessDeadline: '2024.01.07 20:59:00 GMT',
   duration: {
     unit: 'day',
-    value: 5,
+    value: 4,
   },
   homeworksNumber: 1,
   videosNumber: 1,
@@ -338,7 +338,7 @@ const courseDB2: ICourseDataDB = {
   introImageAlt: 'introImage',
   discontAmount: 100,
   discontDeadline: null,
-  creditWas: 2000,
+  creditWas: 4000,
   creditPrice: 0,
   telegramLink: 'https://t.me/+LZp7VXnGjUQ3ZTRi',
   about: [
@@ -418,14 +418,13 @@ const courseDB2: ICourseDataDB = {
           { tag: 'span', content: '• модульность' },
           { tag: 'span', content: '• силуэт' },
           { tag: 'span', content: '• контрформа' },
-          { tag: 'span', content: '• ритмы' },
           ]
         },
       ],
       title: 'Теория: из чего складывается стиль',
       meta: [
         {
-          content: '4-5 января, 11:00 по Мск',
+          content: '4, 5, 6 января, 11:00 по Мск',
           tag: 'span',
         }
       ],
