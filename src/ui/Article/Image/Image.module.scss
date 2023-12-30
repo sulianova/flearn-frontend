@@ -12,6 +12,7 @@
   padding-top: set-calc(36);
 
   @include set-media(md) {
+    max-height: 100%;
     padding-bottom: set-calc(56);
     padding-top: set-calc(16);
   }

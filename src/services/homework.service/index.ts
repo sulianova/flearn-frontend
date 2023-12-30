@@ -272,11 +272,48 @@ const review21: TReview = {
   ],
 };
 
+const review31: TReview = {
+  homeworkId: 'how-to-draw-free_LineSpotPractice_L8A8Jk_hw-FhEwHm2rg4dqGzqMjiRhfFhgEIk1',
+  review: [
+    { type: 'text', text: 'Добрый день! Все котики отличные и формат — интересный.' },
+    { type: 'text', text: '"Захотелось увидеть котиков в миниатюре, чтобы не было соблазна засидеться за рисованием одного кота на час, другой. Ну и не выбрасывать же работу если не удался один котик! Когда их много и они вместе - не так страшно выглядит неудачный штрих на ком-то одном, особенно если его можно прорисовать и сделать особенностью котика!" — да, все верно говорите. Когда котиков много, работа — это уже не отдельный котик. Работа — это то, как они смотрятся все вместе. И тут уже действительно не страшно как выглядит неудачный штрих на ком-то одном.' },
+    { type: 'text', text: 'По ссылке ниже холст с вашими рисунками и моими комментариями. Чтобы отвечать на комменты, вести диалог, нужно скачать на телефон приложение Figma и залогиниться под любой почтой.' },
+    { type: 'text',
+      text: [
+        {
+          tag: 'a',
+          content: 'Комментарии к рисункам в Figma',
+          props: { className: 'link', target: "_blank", to: 'https://www.figma.com/file/M8SeWVu0YzLQgbX44Z8zMc/%D0%A1%D0%B2%D0%B5%D1%82%D0%BB%D0%B0%D0%BD%D0%B0-%D0%91%D0%BB%D0%BE%D0%BA?type=design&node-id=0%3A1&mode=design&t=6c9IgStQ2iqtBIBK-1' },
+        },
+      ]}
+
+  ],
+};
+
+const review32: TReview = {
+  homeworkId: 'how-to-draw-free_LineSpotPractice_L8A8Jk_hw-xAjP5m8ZJHWvYPPH7AzR2hoLc1C2',
+  review: [
+    { type: 'text', text: 'Добрый день! Лихое пятно отлично сработало! Собачки все очень живые и динамичные.' },
+    { type: 'text', text: 'По ссылке ниже холст с вашими рисунками и моими комментариями. Чтобы отвечать на комменты, вести диалог, нужно скачать на телефон приложение Figma и залогиниться под любой почтой.' },
+    { type: 'text',
+      text: [
+        {
+          tag: 'a',
+          content: 'Комментарии к рисункам в Figma',
+          props: { className: 'link', target: "_blank", to: 'https://www.figma.com/file/gk0H58IeWAnmP97afPTlS5/Wambanuka?type=design&node-id=0%3A1&mode=design&t=12FcIExJxfhxzxW7-1' },
+        },
+      ]}
+
+  ],
+};
+
 const allReviews = [
   review11,
   review12,
   review13,
   review21,
+  review31,
+  review32,
 ];
 
 function getReview(filter: { homeworkId: string }) {

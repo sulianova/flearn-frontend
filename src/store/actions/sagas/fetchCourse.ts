@@ -331,7 +331,7 @@ const courseDB2: ICourseDataDB = {
     value: 4,
   },
   homeworksNumber: 1,
-  videosNumber: 1,
+  videosNumber: 3,
   feild: 'Иллюстрация',
   introImageId: 'introImage.jpg',
   introDescription: 'Разберемся, из чего состоит авторский стиль и сделаем  серию графических работ для портфолио',
@@ -389,7 +389,7 @@ const courseDB2: ICourseDataDB = {
       content: 'В чате мы задаем любые вопросы по рисованию, делимся радостями, горестями, лайфхаками и красивыми картинками, поддерживаем друг друга и болтаем',
     },
   ],
-  modulesDescription: 'Программа рассчитана на 5 дней, ей нужно посвятить 8-10 часов.',
+  modulesDescription: 'Программа рассчитана на 4 дня, ей нужно посвятить 8-10 часов.',
   modules: [
     {
       content: [
