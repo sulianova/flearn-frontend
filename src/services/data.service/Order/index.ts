@@ -1,6 +1,7 @@
 import { firebaseService } from 'services/firebase.service';
 import Store from 'store';
 import { ECollections, IOrderData, IRootState } from 'types';
+import { orderConverter } from './orderConverter';
 
 class Order {
   public async create(userFromForm: IOrderData['userFromForm']) {
@@ -38,8 +39,8 @@ class Order {
           createdAt: new Date(),
         },
       };
-  
-      await firebaseService.setDoc(ECollections.Order, id, data);
+
+      await firebaseService.setDoc(ECollections.Order, id, orderConverter.toFirestore(data));
     } catch (err) {
       const error = err as Error;
       // tslint:disable-next-line
