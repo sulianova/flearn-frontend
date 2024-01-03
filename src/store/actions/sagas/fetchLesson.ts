@@ -5120,7 +5120,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'TomGauld1.jpeg',
+        id: 'TomGauld1.webp',
         alt: 'TomGauld1',
         caption: [
           {
@@ -5250,7 +5250,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'JohnPatrickByrne.jpeg',
+        id: 'JohnPatrickByrne.webp',
         alt: 'JohnPatrickByrne',
         caption: [
           {
@@ -5285,7 +5285,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'ZhiyongJing6.jpeg',
+        id: 'ZhiyongJing6.webp',
         alt: 'ZhiyongJing6',
         caption: [
           {
@@ -5448,7 +5448,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'hannaleejoshi_Seria2.jpg',
+        id: 'hannaleejoshi_Seria2.webp',
         alt: 'hannaleejoshi_Seria2',
         caption: [
           {
@@ -5462,7 +5462,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'ZhiyongJing_Seria1.jpg',
+        id: 'ZhiyongJing_Seria1.webp',
         alt: 'ZhiyongJing_Seria1',
         caption: [
           {
@@ -5476,7 +5476,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'MashaTitova_Seria1.jpg',
+        id: 'MashaTitova_Seria1.webp',
         alt: 'MashaTitova_Seria1',
         caption: [
           {
@@ -5490,7 +5490,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'hannaleejoshi_Seria1.jpg',
+        id: 'hannaleejoshi_Seria1.webp',
         alt: 'hannaleejoshi_Seria1',
         caption: [
           {
@@ -5504,7 +5504,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'NadiiaZhelieznova_Seria1.jpg',
+        id: 'NadiiaZhelieznova_Seria1.webp',
         alt: 'NadiiaZhelieznova_Seria1',
         caption: [
           {
@@ -5518,7 +5518,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'MikeLee_Seria1.jpg',
+        id: 'MikeLee_Seria1.webp',
         alt: 'MikeLee_Seria1',
         caption: [
           {
@@ -5532,7 +5532,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'JustasJelisejevas_Seria1.jpg',
+        id: 'JustasJelisejevas_Seria1.webp',
         alt: 'JustasJelisejevas_Seria1',
         caption: [
           {
@@ -5546,7 +5546,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'AlenaDemchenko_Seria2.jpg',
+        id: 'AlenaDemchenko_Seria2.webp',
         alt: 'AlenaDemchenko_Seria2',
         caption: [
           {
@@ -5560,7 +5560,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'AlenaDemchenko_Seria4.jpg',
+        id: 'AlenaDemchenko_Seria4.webp',
         alt: 'AlenaDemchenko_Seria4',
         caption: [
           {
@@ -5574,7 +5574,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'AlenaDemchenko_Seria3.jpg',
+        id: 'AlenaDemchenko_Seria3.webp',
         alt: 'AlenaDemchenko_Seria3',
         caption: [
           {
@@ -5588,7 +5588,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'AnnaFadeeva_Seria1.jpg',
+        id: 'AnnaFadeeva_Seria1.webp',
         alt: 'AnnaFadeeva_Seria1',
         caption: [
           {
@@ -5602,7 +5602,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'ZhenyaMoroz_Seria2.jpg',
+        id: 'ZhenyaMoroz_Seria2.webp',
         alt: 'ZhenyaMoroz_Seria2',
         caption: [
           {
@@ -5616,7 +5616,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'EddyRosas_Seria1.jpg',
+        id: 'EddyRosas_Seria1.webp',
         alt: 'EddyRosas_Seria1',
         caption: [
           {
@@ -5630,7 +5630,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'JuditZengővári_Seria1.jpg',
+        id: 'JuditZengővári_Seria1.webp',
         alt: 'JuditZengővári_Seria1',
         caption: [
           {
@@ -5661,7 +5661,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'MashaShishova1.jpg',
+        id: 'MashaShishova1.webp',
         alt: 'MashaShishova1',
         caption: [
           {
@@ -5675,7 +5675,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'MashaShishova2.jpg',
+        id: 'MashaShishova2.webp',
         alt: 'MashaShishova2',
         caption: [
           {
@@ -5689,7 +5689,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'MashaShishova3.jpg',
+        id: 'MashaShishova3.webp',
         alt: 'MashaShishova3',
         caption: [
           {
@@ -5703,7 +5703,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'MashaShishova4.jpg',
+        id: 'MashaShishova4.webp',
         alt: 'MashaShishova4',
         caption: [
           {
@@ -5726,7 +5726,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'TimBiskup1.jpeg',
+        id: 'TimBiskup1.webp',
         alt: 'TimBiskup1',
         caption: [
           {
@@ -5740,7 +5740,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'TimBiskup2.jpeg',
+        id: 'TimBiskup2.webp',
         alt: 'TimBiskup2',
         caption: [
           {
@@ -5754,7 +5754,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'TimBiskup3.jpeg',
+        id: 'TimBiskup3.webp',
         alt: 'TimBiskup3',
         caption: [
           {
@@ -5768,7 +5768,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'TimBiskup4.jpeg',
+        id: 'TimBiskup4.webp',
         alt: 'TimBiskup4',
         caption: [
           {
@@ -5782,7 +5782,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'TimBiskup5.jpeg',
+        id: 'TimBiskup5.webp',
         alt: 'TimBiskup5',
         caption: [
           {
@@ -5796,7 +5796,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'TimBiskup6.jpeg',
+        id: 'TimBiskup6.webp',
         alt: 'TimBiskup6',
         caption: [
           {
@@ -5819,7 +5819,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'DmitriyGorelyshev1.jpg',
+        id: 'DmitriyGorelyshev1.webp',
         alt: 'DmitriyGorelyshev1',
         caption: [
           {
@@ -5833,7 +5833,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'DmitriyGorelyshev2.jpg',
+        id: 'DmitriyGorelyshev2.webp',
         alt: 'DmitriyGorelyshev2',
         caption: [
           {
@@ -5847,7 +5847,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'DmitriyGorelyshev3.jpg',
+        id: 'DmitriyGorelyshev3.webp',
         alt: 'DmitriyGorelyshev3',
         caption: [
           {
@@ -5861,7 +5861,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'DmitriyGorelyshev4.png',
+        id: 'DmitriyGorelyshev4.webp',
         alt: 'DmitriyGorelyshev4',
         caption: [
           {
@@ -5875,7 +5875,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'DmitriyGorelyshev5.jpg',
+        id: 'DmitriyGorelyshev5.webp',
         alt: 'DmitriyGorelyshev5',
         caption: [
           {
@@ -5889,7 +5889,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'DmitriyGorelyshev6.png',
+        id: 'DmitriyGorelyshev6.webp',
         alt: 'DmitriyGorelyshev6',
         caption: [
           {
@@ -5903,7 +5903,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'DmitriyGorelyshev7.jpg',
+        id: 'DmitriyGorelyshev7.webp',
         alt: 'DmitriyGorelyshev7',
         caption: [
           {
@@ -5917,7 +5917,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'DmitriyGorelyshev8.png',
+        id: 'DmitriyGorelyshev8.webp',
         alt: 'DmitriyGorelyshev8',
         caption: [
           {
@@ -5931,7 +5931,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'DmitriyGorelyshev9.png',
+        id: 'DmitriyGorelyshev9.webp',
         alt: 'DmitriyGorelyshev9',
         caption: [
           {
@@ -5945,7 +5945,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'DmitriyGorelyshev10.png',
+        id: 'DmitriyGorelyshev10.webp',
         alt: 'DmitriyGorelyshev10',
         caption: [
           {
@@ -5968,7 +5968,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'NadiiaZhelieznova1.jpeg',
+        id: 'NadiiaZhelieznova1.webp',
         alt: 'NadiiaZhelieznova1',
         caption: [
           {
@@ -5982,7 +5982,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'NadiiaZhelieznova2.jpg',
+        id: 'NadiiaZhelieznova2.webp',
         alt: 'NadiiaZhelieznova2',
         caption: [
           {
@@ -5996,7 +5996,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'NadiiaZhelieznova3.jpg',
+        id: 'NadiiaZhelieznova3.webp',
         alt: 'NadiiaZhelieznova3',
         caption: [
           {
@@ -6010,7 +6010,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'NadiiaZhelieznova4.jpg',
+        id: 'NadiiaZhelieznova4.webp',
         alt: 'NadiiaZhelieznova4',
         caption: [
           {
@@ -6054,7 +6054,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'BrechtEvens1.jpeg',
+        id: 'BrechtEvens1.webp',
         alt: 'BrechtEvens1',
         caption: [
           {
@@ -6068,7 +6068,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'BrechtEvens2.jpeg',
+        id: 'BrechtEvens2.webp',
         alt: 'BrechtEvens2',
         caption: [
           {
@@ -6082,7 +6082,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'BrechtEvens3.jpeg',
+        id: 'BrechtEvens3.webp',
         alt: 'BrechtEvens3',
         caption: [
           {
@@ -6096,7 +6096,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'BrechtEvens4.jpeg',
+        id: 'BrechtEvens4.webp',
         alt: 'BrechtEvens4',
         caption: [
           {
@@ -6110,7 +6110,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'BrechtEvens5.jpeg',
+        id: 'BrechtEvens5.webp',
         alt: 'BrechtEvens5',
         caption: [
           {
@@ -6133,7 +6133,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'AnnaDesnitskaya1.jpeg',
+        id: 'AnnaDesnitskaya1.webp',
         alt: 'AnnaDesnitskaya1',
         caption: [
           {
@@ -6147,7 +6147,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'AnnaDesnitskaya2.jpeg',
+        id: 'AnnaDesnitskaya2.webp',
         alt: 'AnnaDesnitskaya2',
         caption: [
           {
@@ -6161,7 +6161,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'AnnaDesnitskaya3.jpeg',
+        id: 'AnnaDesnitskaya3.webp',
         alt: 'AnnaDesnitskaya3',
         caption: [
           {
@@ -6175,7 +6175,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'AnnaDesnitskaya4.jpeg',
+        id: 'AnnaDesnitskaya4.webp',
         alt: 'AnnaDesnitskaya4',
         caption: [
           {
@@ -6189,7 +6189,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'AnnaDesnitskaya5.jpeg',
+        id: 'AnnaDesnitskaya5.webp',
         alt: 'AnnaDesnitskaya5',
         caption: [
           {
@@ -6203,7 +6203,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'AnnaDesnitskaya6.jpeg',
+        id: 'AnnaDesnitskaya6.webp',
         alt: 'AnnaDesnitskaya6',
         caption: [
           {
@@ -6226,7 +6226,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'LéoForest1.jpeg',
+        id: 'LéoForest1.webp',
         alt: 'LéoForest1',
         caption: [
           {
@@ -6240,7 +6240,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'LéoForest2.jpeg',
+        id: 'LéoForest2.webp',
         alt: 'LéoForest2',
         caption: [
           {
@@ -6254,7 +6254,7 @@ const lessonDataFYS1: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'LéoForest3.jpeg',
+        id: 'LéoForest3.webp',
         alt: 'LéoForest3',
         caption: [
           {
@@ -6364,7 +6364,7 @@ const lessonDataFYS2: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'AnnaDesnitskaya1.jpeg',
+        id: 'AnnaDesnitskaya1.webp',
         alt: 'AnnaDesnitskaya1',
         caption: [
           {
@@ -6392,7 +6392,7 @@ const lessonDataFYS2: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'MashaShishova6.jpg',
+        id: 'MashaShishova6.webp',
         alt: 'MashaShishova6',
         caption: [
           {
@@ -6406,7 +6406,7 @@ const lessonDataFYS2: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'MashaShishova7.jpg',
+        id: 'MashaShishova7.webp',
         alt: 'MashaShishova7',
         caption: [
           {
@@ -6420,7 +6420,7 @@ const lessonDataFYS2: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'MashaTitova5.png',
+        id: 'MashaTitova5.webp',
         alt: 'MashaTitova5',
         caption: [
           {
@@ -6434,7 +6434,7 @@ const lessonDataFYS2: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'MashaTitova6.png',
+        id: 'MashaTitova6.webp',
         alt: 'MashaTitova6',
         caption: [
           {
@@ -6465,7 +6465,7 @@ const lessonDataFYS2: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'DavidShrigley1.jpeg',
+        id: 'DavidShrigley1.webp',
         alt: 'DavidShrigley1',
         caption: [
           {
@@ -6526,7 +6526,7 @@ const lessonDataFYS2: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'unoMoralez2.jpg',
+        id: 'unoMoralez2.webp',
         alt: 'unoMoralez2',
         caption: [
           {
@@ -6540,7 +6540,7 @@ const lessonDataFYS2: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'unoMoralez4.jpg',
+        id: 'unoMoralez4.webp',
         alt: 'unoMoralez4',
         caption: [
           {
@@ -6563,7 +6563,7 @@ const lessonDataFYS2: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'DavidHockney1.jpeg',
+        id: 'DavidHockney1.webp',
         alt: 'DavidHockney1',
         caption: [
           {
@@ -6577,7 +6577,7 @@ const lessonDataFYS2: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'DavidHockney2.jpeg',
+        id: 'DavidHockney2.webp',
         alt: 'DavidHockney2',
         caption: [
           {
@@ -6591,7 +6591,7 @@ const lessonDataFYS2: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'DavidHockney3.jpeg',
+        id: 'DavidHockney3.webp',
         alt: 'DavidHockney3',
         caption: [
           {
@@ -6614,7 +6614,7 @@ const lessonDataFYS2: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'NadiiaZhelieznova1.png',
+        id: 'NadiiaZhelieznova1.webp',
         alt: 'NadiiaZhelieznova1',
         caption: [
           {
@@ -6628,7 +6628,7 @@ const lessonDataFYS2: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'NadiiaZhelieznova2.jpg',
+        id: 'NadiiaZhelieznova2.webp',
         alt: 'NadiiaZhelieznova2',
         caption: [
           {
@@ -6642,7 +6642,7 @@ const lessonDataFYS2: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'NadiiaZhelieznova3.jpg',
+        id: 'NadiiaZhelieznova3.webp',
         alt: 'NadiiaZhelieznova3',
         caption: [
           {
@@ -6656,7 +6656,7 @@ const lessonDataFYS2: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'NadiiaZhelieznova4.jpg',
+        id: 'NadiiaZhelieznova4.webp',
         alt: 'NadiiaZhelieznova4',
         caption: [
           {
@@ -6679,7 +6679,7 @@ const lessonDataFYS2: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'SashaAnanas1.jpeg',
+        id: 'SashaAnanas1.webp',
         alt: 'SashaAnanas1',
         caption: [
           {
@@ -6693,7 +6693,7 @@ const lessonDataFYS2: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'SashaAnanas2.jpeg',
+        id: 'SashaAnanas2.webp',
         alt: 'SashaAnanas2',
         caption: [
           {
@@ -6707,7 +6707,7 @@ const lessonDataFYS2: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'SashaAnanas3.jpeg',
+        id: 'SashaAnanas3.webp',
         alt: 'SashaAnanas3',
         caption: [
           {
@@ -6721,7 +6721,7 @@ const lessonDataFYS2: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'SashaAnanas5.jpeg',
+        id: 'SashaAnanas5.webp',
         alt: 'SashaAnanas5',
         caption: [
           {
@@ -6744,7 +6744,7 @@ const lessonDataFYS2: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'ZhiyongJing1.jpeg',
+        id: 'ZhiyongJing1.webp',
         alt: 'ZhiyongJing1',
         caption: [
           {
@@ -6758,7 +6758,7 @@ const lessonDataFYS2: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'ZhiyongJing2.jpeg',
+        id: 'ZhiyongJing2.webp',
         alt: 'ZhiyongJing2',
         caption: [
           {
@@ -6772,7 +6772,7 @@ const lessonDataFYS2: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'ZhiyongJing3.jpeg',
+        id: 'ZhiyongJing3.webp',
         alt: 'ZhiyongJing3',
         caption: [
           {
@@ -6786,7 +6786,7 @@ const lessonDataFYS2: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'ZhiyongJing4.jpeg',
+        id: 'ZhiyongJing4.webp',
         alt: 'ZhiyongJing4',
         caption: [
           {
@@ -6800,7 +6800,7 @@ const lessonDataFYS2: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'ZhiyongJing5.jpeg',
+        id: 'ZhiyongJing5.webp',
         alt: 'ZhiyongJing5',
         caption: [
           {
@@ -6814,7 +6814,7 @@ const lessonDataFYS2: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'ZhiyongJing6.jpeg',
+        id: 'ZhiyongJing6.webp',
         alt: 'ZhiyongJing6',
         caption: [
           {
@@ -6980,7 +6980,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'VictorMelamed1.jpg',
+        id: 'VictorMelamed1.webp',
         alt: 'VictorMelamed1',
         caption: [
           {
@@ -7036,7 +7036,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'MashaShishova9.jpg',
+        id: 'MashaShishova9.webp',
         alt: 'MashaShishova9',
         caption: [
           {
@@ -7059,7 +7059,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'MashaShishova6.jpg',
+        id: 'MashaShishova6.webp',
         alt: 'MashaShishova6',
         caption: [
           {
@@ -7082,7 +7082,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'АлександрДейнека1.jpg',
+        id: 'АлександрДейнека1.webp',
         alt: 'АлександрДейнека1',
         caption: [
           {
@@ -7104,7 +7104,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'StasyaSokolovskaya1.jpeg',
+        id: 'StasyaSokolovskaya1.webp',
         alt: 'StasyaSokolovskaya1',
         caption: [
           {
@@ -7150,7 +7150,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'MashaShishova8.jpg',
+        id: 'MashaShishova8.webp',
         alt: 'MashaShishova8',
         caption: [
           {
@@ -7173,7 +7173,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'LorenzoMattotti2.jpeg',
+        id: 'LorenzoMattotti2.webp',
         alt: 'LorenzoMattotti2',
         caption: [
           {
@@ -7196,7 +7196,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'MašaAvramović2.png',
+        id: 'MašaAvramović2.webp',
         alt: 'MašaAvramović2',
         caption: [
           {
@@ -7239,7 +7239,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'AndrewGraves1.jpeg',
+        id: 'AndrewGraves1.webp',
         alt: 'AndrewGraves1',
         caption: [
           {
@@ -7253,7 +7253,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'NadyaDrobysheva2.jpg',
+        id: 'NadyaDrobysheva2.webp',
         alt: 'NadyaDrobysheva2',
         caption: [
           {
@@ -7276,7 +7276,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'ArinaSerebriakova1.jpeg',
+        id: 'ArinaSerebriakova1.webp',
         alt: 'ArinaSerebriakova1',
         caption: [
           {
@@ -7290,7 +7290,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'ArinaSerebriakova2.jpg',
+        id: 'ArinaSerebriakova2.webp',
         alt: 'ArinaSerebriakova2',
         caption: [
           {
@@ -7313,7 +7313,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'ArinaSerebriakova.jpeg',
+        id: 'ArinaSerebriakova.webp',
         alt: 'ArinaSerebriakova',
         caption: [
           {
@@ -7344,7 +7344,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'AndréCarrilho1.jpeg',
+        id: 'AndréCarrilho1.webp',
         alt: 'AndréCarrilho1',
         caption: [
           {
@@ -7358,7 +7358,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'AndréCarrilho2.jpeg',
+        id: 'AndréCarrilho2.webp',
         alt: 'AndréCarrilho2',
         caption: [
           {
@@ -7372,7 +7372,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'AndréCarrilho3.jpeg',
+        id: 'AndréCarrilho3.webp',
         alt: 'AndréCarrilho3',
         caption: [
           {
@@ -7386,7 +7386,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'AndréCarrilho4.jpeg',
+        id: 'AndréCarrilho4.webp',
         alt: 'AndréCarrilho4',
         caption: [
           {
@@ -7400,7 +7400,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'AndréCarrilho5.jpeg',
+        id: 'AndréCarrilho5.webp',
         alt: 'AndréCarrilho5',
         caption: [
           {
@@ -7414,7 +7414,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'AndréCarrilho6.jpeg',
+        id: 'AndréCarrilho6.webp',
         alt: 'AndréCarrilho6',
         caption: [
           {
@@ -7428,7 +7428,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'AndréCarrilho7.jpeg',
+        id: 'AndréCarrilho7.webp',
         alt: 'AndréCarrilho7',
         caption: [
           {
@@ -7442,7 +7442,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'AndréCarrilho8.jpeg',
+        id: 'AndréCarrilho8.webp',
         alt: 'AndréCarrilho8',
         caption: [
           {
@@ -7477,7 +7477,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'NadiiaZhelieznova5.png',
+        id: 'NadiiaZhelieznova5.webp',
         alt: 'NadiiaZhelieznova5',
         caption: [
           {
@@ -7491,7 +7491,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'NadiiaZhelieznova6.jpg',
+        id: 'NadiiaZhelieznova6.webp',
         alt: 'NadiiaZhelieznova6',
         caption: [
           {
@@ -7505,7 +7505,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'NadiiaZhelieznova7.png',
+        id: 'NadiiaZhelieznova7.webp',
         alt: 'NadiiaZhelieznova7',
         caption: [
           {
@@ -7519,7 +7519,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'NadiiaZhelieznova8.png',
+        id: 'NadiiaZhelieznova8.webp',
         alt: 'NadiiaZhelieznova8',
         caption: [
           {
@@ -7542,7 +7542,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'NadiiaZhelieznova1.png',
+        id: 'NadiiaZhelieznova1.webp',
         alt: 'NadiiaZhelieznova1',
         caption: [
           {
@@ -7556,7 +7556,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'NadiiaZhelieznova2.jpg',
+        id: 'NadiiaZhelieznova2.webp',
         alt: 'NadiiaZhelieznova2',
         caption: [
           {
@@ -7570,7 +7570,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'NadiiaZhelieznova3.jpg',
+        id: 'NadiiaZhelieznova3.webp',
         alt: 'NadiiaZhelieznova3',
         caption: [
           {
@@ -7584,7 +7584,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'NadiiaZhelieznova4.jpg',
+        id: 'NadiiaZhelieznova4.webp',
         alt: 'NadiiaZhelieznova4',
         caption: [
           {
@@ -7607,7 +7607,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'EliciaEdijanto1.jpg',
+        id: 'EliciaEdijanto1.webp',
         alt: 'EliciaEdijanto1',
         caption: [
           {
@@ -7621,7 +7621,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'EliciaEdijanto2.jpg',
+        id: 'EliciaEdijanto2.webp',
         alt: 'EliciaEdijanto2',
         caption: [
           {
@@ -7681,7 +7681,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'MattHouston2.jpeg',
+        id: 'MattHouston2.webp',
         alt: 'MattHouston2',
         caption: [
           {
@@ -7695,7 +7695,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'MattHouston3.jpeg',
+        id: 'MattHouston3.webp',
         alt: 'MattHouston3',
         caption: [
           {
@@ -7734,7 +7734,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'RiccardoGuasco2.jpeg',
+        id: 'RiccardoGuasco2.webp',
         alt: 'RiccardoGuasco2',
         caption: [
           {
@@ -7748,7 +7748,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'RiccardoGuasco1.jpeg',
+        id: 'RiccardoGuasco1.webp',
         alt: 'RiccardoGuasco1',
         caption: [
           {
@@ -7762,7 +7762,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'RiccardoGuasco3.jpeg',
+        id: 'RiccardoGuasco3.webp',
         alt: 'RiccardoGuasco3',
         caption: [
           {
@@ -7776,7 +7776,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'RiccardoGuasco5.jpeg',
+        id: 'RiccardoGuasco5.webp',
         alt: 'RiccardoGuasco5',
         caption: [
           {
@@ -7790,7 +7790,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'RiccardoGuasco6.jpeg',
+        id: 'RiccardoGuasco6.webp',
         alt: 'RiccardoGuasco6',
         caption: [
           {
@@ -7804,7 +7804,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'RiccardoGuasco7.jpeg',
+        id: 'RiccardoGuasco7.webp',
         alt: 'RiccardoGuasco7',
         caption: [
           {
@@ -7841,7 +7841,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'CharleyHarper2.jpeg',
+        id: 'CharleyHarper2.webp',
         alt: 'CharleyHarper2',
         caption: [
           {
@@ -7864,7 +7864,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'CharleyHarper3.jpeg',
+        id: 'CharleyHarper3.webp',
         alt: 'CharleyHarper3',
         caption: [
           {
@@ -7878,7 +7878,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'CharleyHarper8.jpeg',
+        id: 'CharleyHarper8.webp',
         alt: 'CharleyHarper8',
         caption: [
           {
@@ -7892,7 +7892,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'MashaTitova1.jpg',
+        id: 'MashaTitova1.webp',
         alt: 'MashaTitova1',
         caption: [
           {
@@ -7906,7 +7906,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'MashaTitova2.jpg',
+        id: 'MashaTitova2.webp',
         alt: 'MashaTitova2',
         caption: [
           {
@@ -7937,7 +7937,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'MashaShishova5.jpg',
+        id: 'MashaShishova5.webp',
         alt: 'MashaShishova5',
         caption: [
           {
@@ -7951,7 +7951,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'MashaShishova6.jpg',
+        id: 'MashaShishova6.webp',
         alt: 'MashaShishova6',
         caption: [
           {
@@ -7965,7 +7965,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'MashaShishova7.jpg',
+        id: 'MashaShishova7.webp',
         alt: 'MashaShishova7',
         caption: [
           {
@@ -7979,7 +7979,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'BrechtEvens1.jpeg',
+        id: 'BrechtEvens1.webp',
         alt: 'BrechtEvens1',
         caption: [
           {
@@ -7993,7 +7993,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'BrechtEvens2.jpeg',
+        id: 'BrechtEvens2.webp',
         alt: 'BrechtEvens2',
         caption: [
           {
@@ -8007,7 +8007,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'BrechtEvens3.jpeg',
+        id: 'BrechtEvens3.webp',
         alt: 'BrechtEvens3',
         caption: [
           {
@@ -8021,7 +8021,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'AlHirschfeld1.jpeg',
+        id: 'AlHirschfeld1.webp',
         alt: 'AlHirschfeld1',
         caption: [
           {
@@ -8035,7 +8035,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'AlHirschfeld3.jpg',
+        id: 'AlHirschfeld3.webp',
         alt: 'AlHirschfeld3',
         caption: [
           {
@@ -8049,7 +8049,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'AlHirschfeld5.jpg',
+        id: 'AlHirschfeld5.webp',
         alt: 'AlHirschfeld5',
         caption: [
           {
@@ -8063,7 +8063,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'ClareYoungs6.jpeg',
+        id: 'ClareYoungs6.webp',
         alt: 'ClareYoungs6',
         caption: [
           {
@@ -8077,7 +8077,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'ClareYoungs7.jpeg',
+        id: 'ClareYoungs7.webp',
         alt: 'ClareYoungs7',
         caption: [
           {
@@ -8104,7 +8104,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'SveinNyhus4.jpeg',
+        id: 'SveinNyhus4.webp',
         alt: 'SveinNyhus4',
         caption: [
           {
@@ -8118,7 +8118,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'SveinNyhus3.jpeg',
+        id: 'SveinNyhus3.webp',
         alt: 'SveinNyhus3',
         caption: [
           {
@@ -8132,7 +8132,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'SveinNyhus2.jpeg',
+        id: 'SveinNyhus2.webp',
         alt: 'SveinNyhus2',
         caption: [
           {
@@ -8146,7 +8146,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'SveinNyhus1.jpeg',
+        id: 'SveinNyhus1.webp',
         alt: 'SveinNyhus1',
         caption: [
           {
@@ -8160,7 +8160,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'escher3.jpg',
+        id: 'escher3.webp',
         alt: 'escher3',
         caption: [
           {
@@ -8174,7 +8174,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'escher2.jpg',
+        id: 'escher2.webp',
         alt: 'escher2',
         caption: [
           {
@@ -8188,7 +8188,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'escher1.jpg',
+        id: 'escher1.webp',
         alt: 'escher1',
         caption: [
           {
@@ -8202,7 +8202,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'mcescher7.jpeg',
+        id: 'mcescher7.webp',
         alt: 'mcescher7',
         caption: [
           {
@@ -8216,7 +8216,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'mcescher8.jpeg',
+        id: 'mcescher8.webp',
         alt: 'mcescher8',
         caption: [
           {
@@ -8230,7 +8230,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'ClareYoungs1.jpeg',
+        id: 'ClareYoungs1.webp',
         alt: 'ClareYoungs1',
         caption: [
           {
@@ -8244,7 +8244,7 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'ClareYoungs2.jpeg',
+        id: 'ClareYoungs2.webp',
         alt: 'ClareYoungs2',
         caption: [
           {
