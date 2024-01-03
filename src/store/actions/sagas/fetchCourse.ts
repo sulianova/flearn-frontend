@@ -93,7 +93,7 @@ const courseDB1: ICourseDataDB = {
   introDescription: 'Практический мини-курс для тех, кто хочет рисовать убедительные иллюстрации, не копируя фотографии.',
   introImageAlt: 'introImage',
   discontAmount: 20,
-  discontDeadline: '2023.12.31 20:59:00 GMT',
+  discontDeadline: '2024.01.07 20:59:00 GMT',
   creditWas: 12000,
   creditPrice: 9600,
   telegramLink: 'https://t.me/+yIvKOdKrLYdlYzMy',
