@@ -167,13 +167,18 @@ export const firebaseService = new FirebaseService(getFirebaseConfig());
 
 type TLessonId = string;
 
-function filterData(data: IObject) {
+function filterData(data: IObject<unknown>) {
   const filteredData = {} as IObject;
   Object.keys(data).forEach(key => {
     if (data[key] !== undefined) {
-      filteredData[key] = typeof data[key] === 'object' && data[key] !== null && !Array.isArray(data[key]) ? filterData(data[key]) : data[key];
+      const value = data[key];
+      filteredData[key] = isSimpleObject(value) ? filterData(value) : value;
     }
   });
 
   return filteredData;
+}
+
+function isSimpleObject(obj: unknown): obj is IObject<unknown> {
+  return typeof obj === 'object' && obj !== null && !Array.isArray(obj) && !(obj instanceof Date);
 }
