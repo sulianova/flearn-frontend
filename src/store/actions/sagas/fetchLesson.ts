@@ -5140,7 +5140,16 @@ const lessonDataFYS1: ILessonDataDB = {
       text: [
         {
           tag: 'p',
-          content: 'Пластический сюжет = попытка показать стилизацию, утрировать ощущение от картинки. Утрируем всегда то, что можем проговорить. Некий аспект, который нам важен:',
+          content: 'Пластический сюжет = попытка показать стилизацию, утрировать ощущение от картинки. Утрируем всегда то, что можем проговорить. Некий аспект, который нам важен.',
+        },
+      ]
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Пластический сюжет рассказывает о том, как рисовать:',
           props: { className: 'listHeader' },
         },
         {
@@ -6337,7 +6346,7 @@ const lessonDataFYS2: ILessonDataDB = {
   orderInWeek: 2,
   id: 'Narrative_ stPfNE',
   courseId: 'finding-your-style',
-  title: '2. Как сделана иллюстрация. Литературный сюжет',
+  title: '2. Литературный сюжет: что рисовать',
   type: 'Theory',
   week: 1,
   startDate: '2024.01.3 21:00:00 GMT',
@@ -6944,7 +6953,7 @@ const lessonDataFYS3: ILessonDataDB = {
   orderInWeek: 3,
   id: 'VisualConcept_WeYEGw',
   courseId: 'finding-your-style',
-  title: '3. Как сделана иллюстрация. Пластический сюжет',
+  title: '3. Пластический сюжет: как рисовать',
   type: 'Theory',
   week: 1,
   startDate: '2024.01.3 21:00:00 GMT',

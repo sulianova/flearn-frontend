@@ -1,56 +1,108 @@
 @import 'styles/index';
 
+// ._ {
+//   grid-column: span 4;
+//   align-items: start;
+
+//   @include is-grid-4;
+
+//   @include set-media(md) {
+//     align-items: start;
+//   }
+// }
+
+// .questionWrapper {
+//   position: relative;
+
+//   display: flex;
+//   grid-column: span 1;
+//   padding-right: set-calc(60);
+
+//   @include set-media(md) {
+//     padding-right: 0;
+//   }
+// }
+
+// .question {
+//   position: relative;
+
+//   width: 100%;
+//   margin-bottom: auto;
+//   padding: set-calc(2) 0 0;
+
+//   color: $orange;
+//   border-radius: set-calc(20);
+
+//   @include set-media(md) {
+//   text-align: left;
+
+//     background-color: $white;
+//     border-radius: 0;
+//   }
+// }
+
+// .answear {
+//   grid-column: 2 / -1;
+// }
+
+// ._:not(:last-child) {
+//   margin-bottom: set-calc(80);
+// }
+
+// @include set-media(md) {
+//   ._:not(:last-child) {
+//     margin-bottom: set-calc(40);
+//   }
+// }
+
 ._ {
   grid-column: span 4;
   align-items: start;
 
-  @include is-grid-4;
+  @include is-grid-12;
 
   @include set-media(md) {
     align-items: start;
+    flex-direction: column-reverse;
   }
-}
-
-.questionWrapper {
-  position: relative;
-
-  display: flex;
-  grid-column: span 1;
-  padding-right: set-calc(60);
-
-  @include set-media(md) {
-    padding-right: 0;
-  }
-}
-
-.question {
-  position: relative;
-
-  width: 100%;
-  margin-bottom: auto;
-  padding: set-calc(2) 0 0;
-
-  color: $orange;
-  border-radius: set-calc(20);
-
-  @include set-media(md) {
-  text-align: left;
-
-    background-color: $white;
-    border-radius: 0;
-  }
-}
-
-.answear {
-  grid-column: 2 / -1;
 }
 
 ._:not(:last-child) {
-  margin-bottom: set-calc(80);
+  padding-bottom: set-calc(24);
+
+  @include set-media(md) {
+    padding-bottom: set-calc(32);
+  }
 }
 
-@include set-media(md) {
-  ._:not(:last-child) {
-    margin-bottom: set-calc(40);
+.feedbackAuthor {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  grid-column: span 2;
+}
+
+.feedbackQuote {
+  grid-column: 3 / 9;
+
+  p {
+    @include s-text-21;
+    font-family: $font-family-serif;
+    padding-bottom: set-calc(16);
+
+    @include set-media(md) {
+      @include s-text-24;
+    }
+  }
+}
+
+.feedbackExcerpt {
+  grid-column: 10 / -1;
+  color: $orange;
+  padding-right: set-calc(24);
+
+  @include set-media(md) {
+    display: none;
   }
 }

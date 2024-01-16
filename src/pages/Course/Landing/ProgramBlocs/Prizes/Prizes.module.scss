@@ -37,14 +37,11 @@
   padding: set-calc(32);
   min-height: set-calc(330);
 
-  // background-color: $pastelYellow;
   background-image: linear-gradient(98deg, $pastelPink, $pastelWarmGreen);
   border-radius: set-calc(20);
 
   @include set-media(md) {
     min-height: set-calc(230);
-    // left: set-calc(-$padding-x-mob-page);
-    // width: set-calc(32, true, 100%);
     padding: set-calc($padding-x-mob-page) set-calc($padding-x-mob-page);
     
     &:not(:last-child) {
@@ -74,7 +71,6 @@
   overflow: hidden;
 
   display: block;
-  // height: set-calc(340);
   border-radius: set-calc(20);
 
   @include set-media(md) {
