@@ -3,6 +3,7 @@ import DecisionForm from './DecisionForm/DecisionForm';
 import Description from './Description/Description';
 import Explain from './Explain/Explain';
 import FAQ from './FAQ/FAQ';
+import Feedbacks from './Feedbacks/Feedbacks';
 import Gallery from './Gallery/Gallery';
 import Modules from './Modules/Modules';
 import Prizes from './Prizes/Prizes';
@@ -28,6 +29,7 @@ export default function ProgramBlocks(props: IProps) {
     <Explain key='explain' {...props}/>,
     <Gallery key='gallery' {...props}/>,
     props.data.promoVideo && <Promo key='promo' {...props}/>,
+    props.data.feedbacks && <Feedbacks key='feedbacks' {...props}/>,
     <DecisionForm key='decisionForm' {...props}/>,
     props.data.faq.length && <FAQ key='faq' {...props}/>,
   ].filter(Boolean) as JSX.Element[];

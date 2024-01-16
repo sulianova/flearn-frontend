@@ -180,6 +180,9 @@
       },
       "studentsWorks": {
         "title": "Примеры работ с курса"
+      },
+      "feedback": {
+        "title": "Отзывы участников"
       }
   },
   "courseLessons": {

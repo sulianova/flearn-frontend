@@ -36,6 +36,7 @@ export interface ICourseData {
   studentResults?: { content: TText | TText[] } & TImageData
   studentsWorks: Array<{imageId: string, imageSrc: string, imageAlt: string}>
   faq: Array<{ question: TText | TText[], answer: TText | TText[] }>
+  feedbacks?: Array<{ author: { name: string, description?: string }, quote: TText | TText[], excerpt?: string }>
 }
 
 export interface ICourseDataDB {
@@ -72,6 +73,7 @@ export interface ICourseDataDB {
   studentResults?: { content: TText | TText[] } & TImageDataDB
   studentsWorks: Array<{imageId: string, imageAlt: string}>
   faq: Array<{ question: TText | TText[], answer: TText | TText[] }>
+  feedbacks?: Array<{ author: { name: string, description?: string }, quote: TText | TText[], excerpt?: string }>
 }
 
 export type TText = string | IText;

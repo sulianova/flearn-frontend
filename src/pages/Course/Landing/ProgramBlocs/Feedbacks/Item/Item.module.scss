@@ -1,0 +1,53 @@
+@import 'styles/index';
+
+._ {
+  grid-column: span 4;
+  align-items: start;
+
+  @include is-grid-12;
+
+  @include set-media(md) {
+    align-items: start;
+    flex-direction: column-reverse;
+  }
+}
+
+._:not(:last-child) {
+  padding-bottom: set-calc(24);
+
+  @include set-media(md) {
+    padding-bottom: set-calc(32);
+  }
+}
+
+.feedbackAuthor {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  grid-column: span 2;
+}
+
+.feedbackQuote {
+  grid-column: 3 / 9;
+
+  p {
+    @include s-text-21;
+    font-family: $font-family-serif;
+    padding-bottom: set-calc(16);
+
+    @include set-media(md) {
+      @include s-text-24;
+    }
+  }
+}
+
+.feedbackExcerpt {
+  grid-column: 10 / -1;
+  color: $orange;
+  padding-right: set-calc(24);
+
+  @include set-media(md) {
+    display: none;
+  }
+}
