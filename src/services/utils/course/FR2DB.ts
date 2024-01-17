@@ -17,6 +17,7 @@ export function courseDataFR2DB(course: ICourseData): ICourseDataDB {
     teacherGallery: courseTeacherGallerysFR2DB(course.teacherGallery),
     studentResults: studentResultsFR2DB(course.studentResults),
     studentsWorks: courseStudentsWorksFR2DB(course.studentsWorks),
+    studyProcess: courseStudyProcessFR2DB(course.studyProcess),
   };
 };
 
@@ -77,4 +78,21 @@ function courseStudentsWorksFR2DB(studentsWorks: ICourseData['studentsWorks']): 
 function courseStudentsWorkFR2DB(studentsWork: ICourseData['studentsWorks'][number]): ICourseDataDB['studentsWorks'][number] {
   const { imageSrc, ...restStudentWork } = studentsWork;
   return restStudentWork;
+}
+
+// studyProcess
+function courseStudyProcessFR2DB(studyProcess: ICourseData['studyProcess']): ICourseDataDB['studyProcess'] {
+  if (!studyProcess) {
+    return studyProcess;
+  }
+  return studyProcess.map(courseStudyProcessItemFR2DB);
+}
+
+function courseStudyProcessItemFR2DB(studyProcessItem: NonNullable<ICourseData['studyProcess']>[number]): NonNullable<ICourseDataDB['studyProcess']>[number] {
+  if ('imageSrc' in studyProcessItem) {
+    const { imageSrc, ...restStudyProcessItem } = studyProcessItem;
+    return restStudyProcessItem;
+  }
+
+  return studyProcessItem;
 }

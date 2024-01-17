@@ -18,6 +18,7 @@ export async function courseDataDB2FR(courseDB: ICourseDataDB): Promise<ICourseD
     teacherGallery: await courseTeacherGallerysDB2FR(courseDB.teacherGallery, courseId),
     studentResults: await studentResultsDB2FR(courseDB.studentResults, courseId),
     studentsWorks: await courseStudentsWorksDB2FR(courseDB.studentsWorks, courseId),
+    studyProcess: await courseStudyProcessDB2FR(courseDB.studyProcess, courseId),
   };
 };
 
@@ -110,4 +111,30 @@ async function courseStudentsWorkDB2FR(studentsWork: ICourseDataDB['studentsWork
     ...studentsWork,
     imageSrc: (await firebaseService.getImageURL({ courseId, folder: 'landing', imageId: studentsWork.imageId })) ?? '',
   };
+}
+
+// studyProcess
+async function courseStudyProcessDB2FR(studyProcess: ICourseDataDB['studyProcess'], courseId: string): Promise<ICourseData['studyProcess']> {
+  if (!studyProcess) {
+    return undefined;
+  }
+  return await Promise.all(studyProcess.map(spi => courseStudyProcessItemDB2FR(spi, courseId)));
+}
+
+async function courseStudyProcessItemDB2FR(studyProcessItem: NonNullable<ICourseDataDB['studyProcess']>[number], courseId: string): Promise<NonNullable<ICourseData['studyProcess']>[number]> {
+  if ('imageId' in studyProcessItem) {
+    const imageSrc = typeof studyProcessItem.imageId === 'string' ?
+      (await firebaseService.getImageURL({ courseId, folder: 'landing', imageId: studyProcessItem.imageId })) ?? ''
+      : {
+        desktop: (await firebaseService.getImageURL({ courseId, folder: 'landing', imageId: studyProcessItem.imageId.desktop })) ?? '',
+        mobile: (await firebaseService.getImageURL({ courseId, folder: 'landing', imageId: studyProcessItem.imageId.mobile })) ?? '',
+      };
+
+    return {
+      ...studyProcessItem,
+      imageSrc: imageSrc
+    } as NonNullable<ICourseData['studyProcess']>[number];
+  }
+
+  return studyProcessItem;
 }

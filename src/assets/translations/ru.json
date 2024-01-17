@@ -183,6 +183,9 @@
       },
       "feedback": {
         "title": "Отзывы участников"
+      },
+      "studyProcess": {
+        "headerTitle": "Как проходит обучение"
       }
   },
   "courseLessons": {

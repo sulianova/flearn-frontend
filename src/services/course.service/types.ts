@@ -36,6 +36,7 @@ export interface ICourseData {
   studentsWorks: Array<{imageId: string, imageSrc: string, imageAlt: string}>
   faq: Array<{ question: TText | TText[], answer: TText | TText[] }>
   feedbacks?: Array<{ author: { name: string, description?: string }, quote: TText | TText[], excerpt?: string }>
+  studyProcess?: Array<AddOptionalObject<{ title: TText | TText[], description: TText | TText[] }, TImageData>>
 }
 
 export interface ICourseDataDB {
@@ -73,6 +74,7 @@ export interface ICourseDataDB {
   studentsWorks: Array<{imageId: string, imageAlt: string}>
   faq: Array<{ question: TText | TText[], answer: TText | TText[] }>
   feedbacks?: Array<{ author: { name: string, description?: string }, quote: TText | TText[], excerpt?: string }>
+  studyProcess?: Array<AddOptionalObject<{ title: TText | TText[], description: TText | TText[] }, TImageDataDB>>
 }
 
 type TImageData  = (
@@ -98,6 +100,8 @@ type TImageDataDB = (
 ) & {
   imageAlt: string
 }
+
+type AddOptionalObject<A extends object, B extends object> = A | (A & B);
 
 
 export type TActionS =

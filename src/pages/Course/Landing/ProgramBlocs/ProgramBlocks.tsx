@@ -11,6 +11,7 @@ import classes from './ProgramBlocks.module.scss';
 import Promo from './Promo/Promo';
 import StudentResults from './StudentResults/StudentResults';
 import StudentsWorks from './StudentsWorks/StudentsWorks';
+import StudyProcess from './StudyProcess/StudyProcess';
 
 import type { ICourseData } from 'services/course.service';
 
@@ -26,6 +27,7 @@ export default function ProgramBlocks(props: IProps) {
     <Modules key='modules' modules={props.data.modules} {...props}/>,
     props.data.studentResults && <StudentResults key='studentResults' {...props}/>,
     props.data.studentsWorks.length && <StudentsWorks key='studentsWorks' {...props}/>,
+    props.data.studyProcess && <StudyProcess key='studyProcess' {...props}/>,
     <Explain key='explain' {...props}/>,
     <Gallery key='gallery' {...props}/>,
     props.data.promoVideo && <Promo key='promo' {...props}/>,

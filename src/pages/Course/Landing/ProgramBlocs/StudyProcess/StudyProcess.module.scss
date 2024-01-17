@@ -1,0 +1,104 @@
+@import 'styles/index';
+
+.wrapper {
+  padding-top: 0;
+
+  @include set-media(md) {
+    padding-top: 0;
+  }
+}
+
+.header {
+  position: relative;
+  padding-bottom: set-calc(60);
+
+  @include set-media(md) {
+    position: relative;
+    padding-bottom: set-calc(40);
+  }
+}
+
+.headerTitle {
+  font-family: $font-family-serif;
+}
+
+.item {
+  @include is-grid-12;
+  grid-row-gap: 0;
+
+  @include set-media(md) {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 0;
+  }
+}
+
+.item:not(:last-child) {
+  margin-bottom: set-calc(24);
+
+  @include set-media(md) {
+    margin-bottom: set-calc(48);
+  }
+}
+
+.title {
+  grid-column: 1 / 7;
+  margin-bottom: set-calc(24);
+}
+
+.desc {
+  grid-column: 1 / 6;
+  padding-right: set-calc(32);
+
+  p:not(:last-child) {
+    padding-bottom: set-calc(16);
+  }
+
+  @include set-media(md) {
+    padding-right: 0;
+  }
+}
+
+.desc:not(:last-child) {
+  @include set-media(md) {
+    padding-bottom: set-calc(24);
+  }
+}
+
+.videoCard {
+  grid-column: span 6;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  // min-height: set-calc(450);
+  overflow: hidden;
+
+  @include set-media(md) {
+    // min-height: set-calc(375);
+  }
+}
+
+.videoCardContainer {
+  position: relative;
+  flex-grow: 1;
+  flex-shrink: 1;
+  height: set-calc(500);
+
+  background: $black-new;
+  border-radius: set-calc(20);
+  overflow: hidden;
+
+  @include set-media(md) {
+    height: set-calc(375);
+  }
+}
+
+.videoCardContainer img {
+  border-radius: set-calc(20);
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
