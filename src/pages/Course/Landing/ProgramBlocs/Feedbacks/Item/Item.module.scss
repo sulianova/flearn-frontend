@@ -34,11 +34,14 @@
   p {
     @include s-text-21;
     font-family: $font-family-serif;
-    padding-bottom: set-calc(16);
 
     @include set-media(md) {
       @include s-text-24;
     }
+  }
+
+  p:not(:last-child) {
+    padding-bottom: set-calc(16);
   }
 }
 

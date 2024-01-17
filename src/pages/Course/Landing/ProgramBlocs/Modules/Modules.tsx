@@ -52,6 +52,7 @@ function renderItem(props: ICourseData['modules'][number]) {
               <div className={classes.listItemMeta + ' s-text-16'}><Text text={props.meta}/></div>
               <div className={classes.listItemTitle + ' s-text-36'}><Text text={props.title}/></div>
               <div className={classes.listItemContent + ' s-text-21'}><Text text={props.content}/></div>
+              <div className={classes.listItemActivities + ' s-text-21'}><Text text={props.content}/></div>
             </div>
           )}
         </Animated.Scroll>

@@ -1,5 +1,100 @@
 @import 'styles/index';
 
+// .wrapper {
+//   padding-top: 0;
+
+//   @include set-media(md) {
+//     padding-top: 0;
+//   }
+// }
+
+// .header {
+//   position: relative;
+
+//   @include is-grid-12;
+
+//   grid-row-gap: 0;
+//   margin-bottom: set-calc(60);
+
+//   @include set-media(md) {
+//     position: relative;
+
+//     display: block;
+//     margin-bottom: set-calc(32);
+//   }
+// }
+
+// .headerTitle {
+//   grid-column: 1 / 7;
+//   margin-bottom: set-calc(24);
+//   font-family: $font-family-serif;
+// }
+
+// .headerDesc {
+//   grid-column: 1/6;
+// }
+
+// .list {
+//   position: relative;
+//   left: 0;
+
+//   display: grid;
+//   grid-gap: set-calc($s-gap) set-calc($s-gap);
+//   grid-template-columns: repeat(12, minmax(0, 1fr));
+//   width: 100%;
+
+//   @include set-media(md) {
+//     position: relative;
+
+//     display: flex;
+//     flex-direction: column;
+//   }
+// }
+
+// .item {
+//   position: relative;
+//   grid-column: span 4;
+
+//   display: flex;
+//   flex-direction: column;
+//   min-height: set-calc(330);
+//   padding: set-calc(24);
+
+//   background-color: $beige;
+//   border-radius: set-calc(20);
+
+//   @include set-media(md) {
+//     position: relative;
+
+//     display: flex;
+//     flex-direction: column;
+//     grid-row-gap: 0;
+//     min-height: set-calc(222);
+//     padding: set-calc(16) set-calc($padding-x-mob-page);
+//   }
+// }
+
+
+// .itemQuestion {
+//   margin-bottom: set-calc(24);
+
+//   p {
+//     font-size: inherit;
+//     line-height: inherit;
+//     padding-bottom: set-calc(16);
+//   }
+// }
+
+// .itemAnswer {
+//   margin-top: auto;
+
+//   p {
+//     font-size: inherit;
+//     line-height: inherit;
+//     padding-bottom: set-calc(16);
+//   }
+// }
+
 .wrapper {
   padding-top: 0;
 
@@ -10,99 +105,95 @@
 
 .header {
   position: relative;
-
-  @include is-grid-12;
-
-  grid-row-gap: 0;
-  margin-bottom: set-calc(60);
+  padding-bottom: set-calc(60);
 
   @include set-media(md) {
     position: relative;
-
-    display: block;
-    margin-bottom: set-calc(32);
+    padding-bottom: set-calc(40);
   }
 }
 
 .headerTitle {
-  grid-column: span 5;
-  margin-bottom: set-calc(24);
   font-family: $font-family-serif;
 }
 
-.headerDesc {
-  grid-column: 1/6;
-}
-
-.list {
-  position: relative;
-  left: 0;
-
-  display: grid;
-  grid-gap: set-calc($s-gap) set-calc($s-gap);
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  width: 100%;
+.item {
+  @include is-grid-12;
+  grid-row-gap: 0;
 
   @include set-media(md) {
-    position: relative;
-
     display: flex;
     flex-direction: column;
+    grid-gap: 0;
   }
 }
 
-.item {
+.item:not(:last-child) {
+  margin-bottom: set-calc(24);
+
+  @include set-media(md) {
+    margin-bottom: set-calc(48);
+  }
+}
+
+.title {
+  grid-column: 1 / 7;
+  margin-bottom: set-calc(24);
+}
+
+.desc {
+  grid-column: 1 / 6;
+  padding-right: set-calc(32);
+
+  p:not(:last-child) {
+    padding-bottom: set-calc(16);
+  }
+
+  @include set-media(md) {
+    padding-right: 0;
+  }
+}
+
+.desc:not(:last-child) {
+  @include set-media(md) {
+    padding-bottom: set-calc(24);
+  }
+}
+
+.videoCard {
+  grid-column: span 6;
   position: relative;
-  grid-column: span 4;
 
   display: flex;
   flex-direction: column;
-  min-height: set-calc(330);
-  padding: set-calc(24);
-
-  background-color: $beige;
-  border-radius: set-calc(20);
+  justify-content: flex-end;
+  // min-height: set-calc(450);
+  overflow: hidden;
 
   @include set-media(md) {
-    position: relative;
-
-    display: flex;
-    flex-direction: column;
-    grid-row-gap: 0;
-    min-height: set-calc(222);
-    padding: set-calc(16) set-calc($padding-x-mob-page);
+    // min-height: set-calc(375);
   }
 }
 
-// .item:nth-child(2n) {
-//   background-color: $pastelWarmGreen;
-// }
+.videoCardContainer {
+  position: relative;
+  flex-grow: 1;
+  flex-shrink: 1;
+  height: set-calc(500);
 
-// .item:nth-child(3n) {
-//   background-color: $pastelPink;
-// }
+  background: $black-new;
+  border-radius: set-calc(20);
+  overflow: hidden;
 
-// .item:nth-child(5n + 1) {
-//   background-color: $pastelViolet;
-// }
-
-
-.itemQuestion {
-  margin-bottom: set-calc(24);
-
-  p {
-    font-size: inherit;
-    line-height: inherit;
-    padding-bottom: set-calc(16);
+  @include set-media(md) {
+    height: set-calc(375);
   }
 }
 
-.itemAnswer {
-  margin-top: auto;
-
-  p {
-    font-size: inherit;
-    line-height: inherit;
-    padding-bottom: set-calc(16);
-  }
+.videoCardContainer img {
+  border-radius: set-calc(20);
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
 }

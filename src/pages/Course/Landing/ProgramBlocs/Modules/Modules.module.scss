@@ -118,6 +118,26 @@
       padding-left: 0;
     }
   }
+}
+
+
+.listItemActivities {
+  border-top: 1px solid rgba(22,22,22,.2);
+  margin: set-calc(20) 0 0;
+  padding: set-calc(20) 0 0;
+
+  white-space: pre-line;
+  padding-bottom: set-calc(16);
+  max-width: set-calc(950);
+
+  p {
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  p:not(:last-child) {
+    padding-bottom: set-calc(16);
+  }
 
 }
 
