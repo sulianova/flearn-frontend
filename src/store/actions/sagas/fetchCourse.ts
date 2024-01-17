@@ -362,8 +362,8 @@ const courseDB1: ICourseDataDB = {
     {
       title: 'Задания и теория',
       description: 'Работаем на платформе школы. Все учебные материалы: текст, фото и видео-уроки доступны в личном кабинете на сайте. Их можно пересматривать в любое время.',
-      imageId: 'activeSpot5.jpg',
-      imageAlt: 'activeSpot5',
+      imageId: '1.gif',
+      imageAlt: '1',
     },
     {
       title: 'Вопросы по ходу',

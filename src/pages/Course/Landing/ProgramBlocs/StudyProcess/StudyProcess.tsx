@@ -1,7 +1,6 @@
 import { formatI18nT } from 'shared';
 import classes from './StudyProcess.module.scss';
 
-import classNames from 'classnames/bind';
 import type { ICourseData } from 'services/course.service';
 import Text from 'ui/Text/Text';
 import Img from 'ui/Img/Img';
@@ -9,7 +8,6 @@ import Img from 'ui/Img/Img';
 export default StudyProcess;
 
 const t = formatI18nT('courseLanding.studyProcess');
-const cx = classNames.bind(classes);
 
 interface IProps {
   data: ICourseData
