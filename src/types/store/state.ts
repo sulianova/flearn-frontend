@@ -1,5 +1,6 @@
 import { IUserData } from 'services/user.service';
-import { ICourseData, IHomeworkData, IHomeworkDataWPopulate, ILessonData, ILessonsData } from 'types';
+import { ICourseData } from 'services/course.service';
+import { IHomeworkData, IHomeworkDataWPopulate, ILessonData, ILessonsData } from 'types';
 
 export interface IRootState {
   user: IUserState

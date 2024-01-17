@@ -1,7 +1,6 @@
+import type { ICourseData, ICourseDataDB } from 'services/course.service';
 import { firebaseService } from 'services/firebase.service';
 import { dateDB2FR } from '../shared';
-
-import type { ICourseData, ICourseDataDB } from 'types';
 
 export async function courseDataDB2FR(courseDB: ICourseDataDB): Promise<ICourseData> {
   const courseId = courseDB.id;

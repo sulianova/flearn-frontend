@@ -4,7 +4,7 @@ import { formatI18nT } from 'shared';
 import Image from 'ui/Img/Img';
 import classes from './Teachers.module.scss';
 
-import { ICourseData } from 'types';
+import { ICourseData } from 'services/course.service';
 import Text from 'ui/Text/Text';
 
 interface IProps {

@@ -2,10 +2,9 @@ import { Fragment } from 'react';
 import { formatI18nT } from 'shared';
 import Animated from 'ui/Animated';
 import classes from './FAQ.module.scss';
-import Link from 'ui/Link/Link';
 
 import classNames from 'classnames/bind';
-import type { ICourseData } from 'types';
+import type { ICourseData } from 'services/course.service';
 import Text from 'ui/Text/Text';
 
 export default FAQ;

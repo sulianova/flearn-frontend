@@ -1,11 +1,12 @@
 import { put, select } from 'redux-saga/effects';
 
 import { dataService } from 'services';
+import { ICourseData } from 'services/course.service';
 import { createAction } from 'store/utils';
 import { updateState } from 'store/actions/redux';
 
 import { ECommonErrorTypes } from 'types';
-import type { ICourseData, ILessonData, ILessonsData, ILessonsState, IRootState, TAction } from 'types';
+import type { ILessonData, ILessonsData, ILessonsState, IRootState, TAction } from 'types';
 
 export interface IFetchLessonsPayload {
   filter: {

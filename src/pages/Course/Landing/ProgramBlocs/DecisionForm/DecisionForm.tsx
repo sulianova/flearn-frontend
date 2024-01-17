@@ -8,7 +8,8 @@ import Link from 'ui/Link/Link';
 import Form from './Form/Form';
 import classes from './DecisionForm.module.scss';
 
-import { URLSections, type ICourseData } from 'types';
+import { URLSections } from 'types';
+import type { ICourseData } from 'services/course.service';
 
 export default DecisionForm;
 

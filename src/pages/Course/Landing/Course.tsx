@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { useParams } from 'react-router';
 
 import { useFetch } from 'hooks';
+import type { ICourseData } from 'services/course.service';
 import { fetchCourse, type IFetchCoursePayload } from 'store/actions/sagas';
 
 import Page, { EFooter } from 'ui/Page/Page';
@@ -10,7 +11,7 @@ import DiscountBanner from './DiscountBanner/DiscountBanner';
 import ProgramBlocks from './ProgramBlocs/ProgramBlocks';
 import ProgramIntro from './ProgramIntro/ProgramIntro';
 
-import type { ICourseData, IRootState } from 'types';
+import type { IRootState } from 'types';
 
 export default connect(mapStateToProps)(Course);
 

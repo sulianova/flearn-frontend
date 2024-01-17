@@ -1,6 +1,6 @@
 import { dateFR2DB } from '../shared';
 
-import type { ICourseData, ICourseDataDB } from 'types';
+import type { ICourseData, ICourseDataDB } from 'services/course.service';
 
 export function courseDataFR2DB(course: ICourseData): ICourseDataDB {
   const { introImageSrc, ...courseRest } = course;

@@ -1,9 +1,10 @@
 import { put, select } from 'redux-saga/effects';
 import { dataService, localFilesServise } from 'services';
+import { ICourseData, ICourseDataDB } from 'services/course.service';
 import { createAction } from 'store/utils';
 import { updateState } from '../redux';
 
-import { ECommonErrorTypes, ICourseDataDB, type ICourseData, type ICourseState, type IRootState, type TAction } from 'types';
+import { ECommonErrorTypes, type ICourseState, type IRootState, type TAction } from 'types';
 
 export interface IFetchCoursePayload {
   courseId: string

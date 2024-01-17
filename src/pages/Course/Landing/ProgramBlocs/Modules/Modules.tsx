@@ -5,7 +5,7 @@ import Animated from 'ui/Animated';
 import Image from 'ui/Img/Img';
 import classes from './Modules.module.scss';
 
-import { ICourseData } from 'types';
+import { ICourseData } from 'services/course.service';
 import Text from 'ui/Text/Text';
 
 export default Modules;

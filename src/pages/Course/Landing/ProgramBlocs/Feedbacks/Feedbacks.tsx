@@ -1,4 +1,3 @@
-import type { ICourseData } from 'types';
 import classes from './Feedbacks.module.scss';
 
 import classNames from 'classnames/bind';
@@ -6,6 +5,8 @@ import { formatI18nT } from 'shared';
 import Animated from 'ui/Animated';
 
 import Item from './Item/Item';
+
+import type { ICourseData } from 'services/course.service';
 
 export default Feedbacks;
 

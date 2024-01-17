@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import { formatI18nT, i18n } from 'shared';
-import { ICourseData } from 'types';
+import { ICourseData } from 'services/course.service';
 import Animated from 'ui/Animated';
 import classes from './Explain.module.scss';
 import Img from 'ui/Img/Img';

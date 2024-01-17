@@ -1,4 +1,5 @@
-import { ICourseData, ICourseInfo } from './course';
+import { ICourseData } from 'services/course.service';
+
 import { ILessonData } from './lesson';
 
 export interface ILessonsData {

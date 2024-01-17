@@ -1,6 +1,5 @@
 import { courseDataDB2FR, courseDataFR2DB } from 'services/utils/course';
-
-import type { ICourseData, ICourseDataDB } from 'types';
+import type { ICourseData, ICourseDataDB } from 'services/course.service';
 
 export const courseConverter = {
   toFirestore: (courseData: ICourseData): ICourseDataDB => {

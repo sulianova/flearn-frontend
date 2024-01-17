@@ -12,7 +12,7 @@ import Promo from './Promo/Promo';
 import StudentResults from './StudentResults/StudentResults';
 import StudentsWorks from './StudentsWorks/StudentsWorks';
 
-import type { ICourseData } from 'types';
+import type { ICourseData } from 'services/course.service';
 
 interface IProps {
   data: ICourseData

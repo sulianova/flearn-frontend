@@ -1,9 +1,10 @@
 import { put } from 'redux-saga/effects';
 import { dataService } from 'services';
+import { ICourseData } from 'services/course.service';
 import { createAction } from 'store/utils';
 import { updateState } from '../redux';
 
-import type { ICourseData, ICourseState, TAction } from 'types';
+import type { ICourseState, TAction } from 'types';
 
 export interface IDownloadCoursePayload {
   courseId: string

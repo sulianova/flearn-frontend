@@ -1,13 +1,9 @@
 import { TWhereProps, firebaseService } from 'services';
+import type { ICourseData, ICourseDataDB } from 'services/course.service';
 
 import { courseConverter } from './courseConverter';
 
-import {
-  ECollections,
-  ECommonErrorTypes,
-  type ICourseData,
-  type ICourseDataDB
-} from 'types';
+import { ECollections, ECommonErrorTypes } from 'types';
 
 class Course {
   public async get(id: string): Promise<ICourseData> {

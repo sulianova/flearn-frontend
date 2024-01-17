@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import { formatI18nT } from 'shared';
-import { ICourseData } from 'types';
+import { ICourseData } from 'services/course.service';
 import Animated from 'ui/Animated';
 import Video from 'ui/Video/Video';
 import classes from './Promo.module.scss';

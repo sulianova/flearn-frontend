@@ -5,7 +5,7 @@ import Image from 'ui/Img/Img';
 
 import classes from './ProgramIntro.module.scss';
 
-import type { ICourseData } from 'types';
+import type { ICourseData } from 'services/course.service';
 
 export default ProgramIntro;
 

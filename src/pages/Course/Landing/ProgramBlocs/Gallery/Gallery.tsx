@@ -5,7 +5,7 @@ import Image from 'ui/Img/Img';
 import classes from './Gallery.module.scss';
 import Animated from 'ui/Animated';
 
-import { ICourseData } from 'types';
+import { ICourseData } from 'services/course.service';
 
 export default Gallery;
 

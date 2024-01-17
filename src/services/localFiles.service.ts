@@ -1,9 +1,10 @@
+import type { ICourseData, ICourseDataDB } from 'services/course.service';
+
 import { courseDataDB2FR } from './utils/course';
 import { lessonDataDB2FR } from './utils/lesson';
 
+
 import type {
-  ICourseData,
-  ICourseDataDB,
   ILessonData,
   ILessonDataDB,
   IObject

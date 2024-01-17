@@ -16,9 +16,10 @@ import classesTitle from './Title.module.scss';
 import Profile from './Profile/Profile';
 import Settings from './Settings/Settings';
 
+import type { ICourseData } from 'services/course.service';
 import type { IUserData } from 'services/user.service';
 import { URLSections } from 'types';
-import type { IRootState, ICourseData } from 'types';
+import type { IRootState } from 'types';
 
 const cx = classNames.bind(classes);
 const t = formatI18nT('my');
