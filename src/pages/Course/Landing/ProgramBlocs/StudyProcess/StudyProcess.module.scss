@@ -34,21 +34,64 @@
 }
 
 .item:not(:last-child) {
-  margin-bottom: set-calc(24);
+  margin-bottom: set-calc(80);
 
   @include set-media(md) {
-    margin-bottom: set-calc(48);
+    margin-bottom: set-calc(56);
+  }
+}
+
+.factoid {
+  font-family: $font-family-serif;
+  grid-column: 1 / 2;
+  font-variant-numeric: normal;
+
+  @include set-typography(256, 240, 500);
+  letter-spacing: -.01rem;
+
+  @include set-media(md) {
+    @include set-typography(256, 240, 500);
+  }
+
+  @include set-media(md) {
+    display: none;
+  }
+}
+
+.content {
+  grid-column: 3 / 9;
+  display: flex;
+  flex-direction: column;
+}
+
+.content:not(:last-child) {
+  padding-bottom: set-calc(40);
+
+  @include set-media(md) {
+    padding-bottom: set-calc(24);
+  }
+}
+
+.caption {
+  padding-bottom: set-calc(8);
+
+  @include set-media(md) {
+    padding-bottom: set-calc(4);
   }
 }
 
 .title {
-  grid-column: 1 / 7;
+  font-family: $font-family-serif;
   margin-bottom: set-calc(24);
 }
 
 .desc {
-  grid-column: 1 / 6;
   padding-right: set-calc(32);
+
+  p {
+    font-size: inherit;
+    font-family: inherit;
+  }
 
   p:not(:last-child) {
     padding-bottom: set-calc(16);
@@ -60,43 +103,37 @@
 }
 
 .desc:not(:last-child) {
+  padding-bottom: set-calc(48);
+
   @include set-media(md) {
     padding-bottom: set-calc(24);
   }
 }
 
 .videoCard {
-  grid-column: span 6;
+  grid-column: span 11;
   position: relative;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  // min-height: set-calc(450);
+  height: set-calc(800);
   overflow: hidden;
+  border-radius: set-calc(10);
 
   @include set-media(md) {
-    // min-height: set-calc(375);
+    height: 100%;
   }
 }
 
 .videoCardContainer {
   position: relative;
-  flex-grow: 1;
-  flex-shrink: 1;
-  height: set-calc(500);
+  // max-width: fit-content;
 
-  background: $black-new;
-  border-radius: set-calc(20);
+  border-radius: set-calc(10);
   overflow: hidden;
-
-  @include set-media(md) {
-    height: set-calc(375);
-  }
 }
 
 .videoCardContainer img {
-  border-radius: set-calc(20);
+  border-radius: set-calc(10);
+  // width: set-calc(490);
   width: 100%;
   height: 100%;
   -o-object-fit: cover;

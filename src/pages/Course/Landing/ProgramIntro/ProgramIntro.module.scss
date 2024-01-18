@@ -3,7 +3,7 @@
 ._ {
   display: flex;
   flex-direction: column;
-  height: set-calc(-150, true, 100vh);
+  height: set-calc(-100, true, 100vh);
   overflow: visible;
 
   @include set-media(md) {
@@ -11,23 +11,19 @@
     left: set-calc(-$padding-x-mob-page);
 
     width: set-calc(2 * $padding-x-mob-page, true, 100%);
-    min-height: 95vh;
+    height: set-calc(-50, true, 100vh);
   }
 }
 
 .inner {
   position: relative;
+  padding: 0 0 set-calc(16);
   @include is-grid-4;
-  padding: set-calc(32);
-  background: $beige;
-  border-radius: set-calc(20);
+  background: $white;
   overflow: hidden;
 
-  flex-grow: 1;
-  height: 100%;
-
   @include set-media(md) {
-    padding: set-calc(16);
+    padding: 0 set-calc(16) set-calc(16);
   }
 }
 
@@ -36,6 +32,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 
 }
 
@@ -46,7 +43,7 @@
   flex-wrap: wrap;
   max-width: set-calc(620);
   margin-bottom: cset-calc(-8);
-  padding-bottom: set-calc(80);
+  padding-bottom: set-calc(40);
 
   & > div:not(:last-child) {
     margin-right: set-calc(4);
@@ -60,29 +57,35 @@
 
 .categoriesItem {
   margin-bottom: set-calc(8);
-  padding: 0 set-calc($padding-x-mob-page);
+  padding: set-calc(4) set-calc($padding-x-mob-page);
 
-  border: set-calc(2) solid $black;
+  // border: set-calc(2) solid $black;
+  background-color: $pastelPink;
   border-radius: set-calc(20);
 }
 
 .title {
   z-index: 100;
   font-family: $font-family-serif;
+  color: $orange;
 
-  max-width: set-calc(620);
-  padding-bottom: set-calc(32);
+  max-width: set-calc(820);
+  padding-bottom: set-calc(40);
+
+  @include set-typography(186, 150, 500);
+  letter-spacing: -.01rem;
 
   @include set-media(md) {
     padding-bottom: set-calc(24);
+    @include set-typography(48, 52, 500);
   }
 }
 
 .block {
   z-index: 100;
 
-  max-width: set-calc(620);
-  padding-bottom: set-calc(32);
+  max-width: set-calc(500);
+  padding-bottom: set-calc(40);
 
   white-space: pre-line;
 
@@ -106,9 +109,10 @@
   justify-content: center;
 
   background: none;
-  background-color: $black-new;
-  color: $white;
+  background-color: transparent;
+  color: $black;
 
+  border: set-calc(2) solid $black-new;
   border-radius: set-calc(20);
   cursor: pointer;
 
@@ -124,7 +128,8 @@
   }
 
   &:hover {
-    background-color: $orange;
+    background-color: $black-new;
+    color: $white;
   }
 }
 
@@ -151,21 +156,17 @@
   }
 }
 
-@keyframes rotate {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 .cover {
   grid-column: span 2;
   position: relative;
 
-  width: 100%;
-  height: 100%;
-  // aspect-ratio: 1/0.95;
+  width: set-calc(700);
   overflow: hidden;
   border-radius: set-calc(20);
+
+  @include set-media(md) {
+    width: 100%;
+  }
 }
 
 .cover img {

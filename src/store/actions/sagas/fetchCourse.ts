@@ -90,9 +90,9 @@ const courseDB1: ICourseDataDB = {
   homeworksNumber: 3,
   videosNumber: 3,
   feild: 'Иллюстрация',
-  introImageId: 'introImage.jpg',
+  introImageId: 'LineCat6.jpg',
   introDescription: 'Практический мини-курс для тех, кто хочет рисовать убедительные иллюстрации, не копируя фотографии.',
-  introImageAlt: 'introImage',
+  introImageAlt: 'SpotCat27',
   discontAmount: 50,
   discontDeadline: '2024.02.08 20:59:00 GMT',
   creditWas: 12000,
@@ -133,24 +133,24 @@ const courseDB1: ICourseDataDB = {
         { tag: 'span', content: '• Как выделить главное: контраст, нюанс' },
         { tag: 'span', content: '• Линия: как выделить главное' },
         { tag: 'span', content: '• Как оцифровать линейный рисунок в Photoshop' },
+      ],
+      activities: [
         {
           tag: 'p',
           content: 'Вебинар: скоростные рисунки линией за 5, 10, 15 минут'
         },
         {
           tag: 'p',
-          props: { className: 'orange' }, 
           content: 'Задание недели: 30 котов линией'
         },
       ],
-      activities: [],
       imageId: { desktop: 'Block1.jpg', mobile: 'Block1-mobile.jpg' },
       imageAlt: 'Block1',
       imageDesc: 'Рисунки преподавателя',
       title: 'Линия',
       meta: [
         {
-          content: 'Неделя 1',
+          content: '19 февраля – 25 февраля',
           tag: 'span',
         }
       ],
@@ -164,13 +164,14 @@ const courseDB1: ICourseDataDB = {
         { tag: 'span', content: '• Пятно: как попадать в пропорции' },
         { tag: 'span', content: '• Пятно: как выделить главное' },
         { tag: 'span', content: '• Как оцифровать пятновой рисунок в Photoshop' },
+      ],
+      activities: [
         {
           tag: 'p',
           content: 'Вебинар: скоростные рисунки пятном за 5, 10, 15 минут'
         },
         {
           tag: 'p',
-          props: { className: 'orange' }, 
           content: 'Задание недели: 30 котов пятном'
         },
       ],
@@ -180,7 +181,7 @@ const courseDB1: ICourseDataDB = {
       title: 'Пятно',
       meta: [
         {
-          content: 'Неделя 2',
+          content: '26 февраля — 3 марта',
           tag: 'span',
         }
       ],
@@ -190,13 +191,14 @@ const courseDB1: ICourseDataDB = {
         { tag: 'p', content: 'Будем учиться совмещать линейное и пятновое рисование в одной работе.' },
         { tag: 'span', content: '• Линия и пятно: как совмещать' },
         { tag: 'span', content: '• Какие задачи могут решать линии и пятна' },
+      ],
+      activities: [
         {
           tag: 'p',
           content: 'Вебинар: скоростные рисунки линией и пятном за 5, 10, 15 минут'
         },
         {
           tag: 'p',
-          props: { className: 'orange' }, 
           content: 'Задание недели: 30 котов линией и пятном'
         },
       ],
@@ -206,7 +208,7 @@ const courseDB1: ICourseDataDB = {
       title: 'Линия и пятно',
       meta: [
         {
-          content: 'Неделя 3',
+          content: '4 марта — 10 марта',
           tag: 'span',
         }
       ],
@@ -359,30 +361,43 @@ const courseDB1: ICourseDataDB = {
     },
   ],
   studyProcess: [
-    // {
-    //   title: 'Задания и теория',
-    //   description: 'Работаем на платформе школы. Все учебные материалы: текст, фото и видео-уроки доступны в личном кабинете на сайте. Их можно пересматривать в любое время.',
-    //   imageId: '1.gif',
-    //   imageAlt: '1',
-    // },
+    {
+      title: 'Задания и теория',
+      caption: 'Для самостоятельного изучения',
+      description: 'Работаем на платформе школы. Все учебные материалы: текст, фото и видео-уроки доступны в личном кабинете на сайте. Их можно пересматривать в любое время.',
+      imageId: {
+        mobile: 'studyProcess1.jpg',
+        desktop: 'studyProcess1.jpg',
+      },
+      imageAlt: 'studyProcess2',
+    },
     {
       title: 'Вопросы по ходу',
-      description: 'Вопросы, возникающие по ходу, задаем в любое время — раз в сутрки преподаватель отвечает на них.',
-      imageId: 'activeSpot5.jpg',
-      imageAlt: 'activeSpot5',
+      caption: 'Каждый день',
+      description: 'Вопросы, возникающие по ходу, задаем в любое время в телеграм-чате. В чате можно задавать любые вопросы по рисованию, делиться радостями, горестями, лайфхаками и красивыми картинками, поддерживать друг друга и болтать.',
+      imageId: {
+        mobile: 'studyProcess2-mobile.jpg',
+        desktop: 'studyProcess2.jpg',
+      },
+      imageAlt: 'studyProcess2',
     },
     {
       title: 'Обратная связь',
+      caption: 'По домашним заданиям',
       description: [
         { tag: 'p', content: 'Индивидуальная обратная связь по домашним заданиям. Преподаватель создает для каждого участника рабочий холст в Figma, где можно писать комментарии, прикладывать фото и ссылки.' },
         { tag: 'p', content: 'Чтобы отвечать на комментарии, вести диалог, нужно залогиниться под любой почтой в Figma. С ноутбука это можно сделать в любом браузере, с телефона вначале нужно скачать приложение Figma и установить его.' },
       ],
-      imageId: 'activeSpot5.jpg',
-      imageAlt: 'activeSpot5',
+      imageId: {
+        mobile: 'studyProcess3-mobile.jpg',
+        desktop: 'studyProcess3.jpg',
+      },
+      imageAlt: 'studyProcess3',
     },
     {
       title: 'Вебинары',
-      description: 'Онлайн-созвоны с участниками в Skype. Вместе разбираем теорию, а затем делаем короткие рисовальные упражнения.',
+      caption: 'Для практики с преподавателем',
+      description: 'Онлайн-созвоны с участниками в Skype на 1-1,5 часа. Вместе разбираем теорию, а затем делаем короткие рисовальные упражнения.',
     },
   ],
 }
@@ -390,7 +405,7 @@ const courseDB1: ICourseDataDB = {
 const courseDB2: ICourseDataDB = {
   id: 'finding-your-style',
   type: 'webinar',
-  title: 'Как найти свой стиль',
+  title: 'Как найти стиль',
   startDate: '2024.02.08 21:00:00 GMT',
   endDate: '2024.02.18 20:59:00 GMT',
   accessDeadline: '2024.02.18 20:59:00 GMT',
@@ -466,7 +481,7 @@ const courseDB2: ICourseDataDB = {
           { tag: 'span',
           content: '1. Что такое иллюстрация, серия, стиль'
           },
-          { tag: 'span', props: { className: 'orange' }, content: 'Консультация с преподавателем на 5-10 мин: ставим цели на интенсив' },
+          { tag: 'span', props: { className: 'blue' }, content: 'Консультация с преподавателем на 5-10 мин: ставим цели на интенсив' },
           ]
         },
         { tag: 'p', content: [
@@ -475,7 +490,7 @@ const courseDB2: ICourseDataDB = {
           },
           { tag: 'span', content: '• сюжет в один кадр' },
           { tag: 'span', content: '• конфликт в графике' },
-          { tag: 'span', props: { className: 'orange' }, content: 'Упражнение: "Генератор сюжетов"' },
+          { tag: 'span', props: { className: 'blue' }, content: 'Упражнение: "Генератор сюжетов"' },
           ]
         },
         { tag: 'p', content: [
@@ -488,7 +503,7 @@ const courseDB2: ICourseDataDB = {
           { tag: 'span', content: '• модульность' },
           { tag: 'span', content: '• силуэт' },
           { tag: 'span', content: '• контрформа' },
-          { tag: 'span', props: { className: 'orange' }, content: 'Упражнение: "Дневник наблюдений"' },
+          { tag: 'span', props: { className: 'blue' }, content: 'Упражнение: "Дневник наблюдений"' },
           ]
         },
       ],
@@ -551,6 +566,46 @@ const courseDB2: ICourseDataDB = {
     imageAlt: 'StudentsResult',
   },
   studentsWorks: [],
+  studyProcess: [
+    {
+      title: 'Задания и теория',
+      caption: 'Для самостоятельного изучения',
+      description: 'Работаем на платформе школы. Все учебные материалы: текст, фото и видео-уроки доступны в личном кабинете на сайте. Их можно пересматривать в любое время.',
+      imageId: {
+        mobile: 'studyProcess1.jpg',
+        desktop: 'studyProcess1.jpg',
+      },
+      imageAlt: 'studyProcess2',
+    },
+    {
+      title: 'Вопросы по ходу',
+      caption: 'Каждый день',
+      description: 'Вопросы, возникающие по ходу, задаем в любое время в телеграм-чате. В чате можно задавать любые вопросы по рисованию, делиться радостями, горестями, лайфхаками и красивыми картинками, поддерживать друг друга и болтать.',
+      imageId: {
+        mobile: 'studyProcess2-mobile.jpg',
+        desktop: 'studyProcess2.jpg',
+      },
+      imageAlt: 'studyProcess2',
+    },
+    {
+      title: 'Обратная связь',
+      caption: 'По домашним заданиям',
+      description: [
+        { tag: 'p', content: 'Индивидуальная обратная связь по домашним заданиям. Преподаватель создает для каждого участника рабочий холст в Figma, где можно писать комментарии, прикладывать фото и ссылки.' },
+        { tag: 'p', content: 'Чтобы отвечать на комментарии, вести диалог, нужно залогиниться под любой почтой в Figma. С ноутбука это можно сделать в любом браузере, с телефона вначале нужно скачать приложение Figma и установить его.' },
+      ],
+      imageId: {
+        mobile: 'studyProcess3-mobile.jpg',
+        desktop: 'studyProcess3.jpg',
+      },
+      imageAlt: 'studyProcess3',
+    },
+    {
+      title: 'Вебинары',
+      caption: 'Для практики с преподавателем',
+      description: 'Онлайн-созвоны с участниками в Skype на 1-1,5 часа. Вместе разбираем теорию, а затем делаем короткие рисовальные упражнения.',
+    },
+  ],
   faq: [],
   feedbacks: [
     {

@@ -36,7 +36,7 @@ function ProgramIntro(props: IProps) {
               <div className={classes.categoriesItem + ' s-text-18'} key={i}>{label}</div>
             ))}
           </div>
-          <h1 className={classes.title + ' s-text-88'}>{props.data.title}</h1>
+          <h1 className={classes.title}>{props.data.title}</h1>
           <div className={classes.block + ' s-text-24'}>{props.data.introDescription}</div>
           <div className={classes.actions}>
             <a className={classes.actionsBtn + ' s-text-24'} href='#decision-form'>{i18n.t('signUp')}</a>

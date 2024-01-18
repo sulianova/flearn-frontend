@@ -1,10 +1,10 @@
 @import 'styles/index';
 
 ._ {
-  grid-column: span 4;
+  grid-column: span 12;
   align-items: start;
 
-  @include is-grid-4;
+  @include is-grid-12;
 
   @include set-media(md) {
     align-items: start;
@@ -15,8 +15,8 @@
   position: relative;
 
   display: flex;
-  grid-column: span 1;
-  padding-right: set-calc(60);
+  grid-column: span 3;
+  padding-right: set-calc(32);
 
   @include set-media(md) {
     padding-right: 0;
@@ -28,7 +28,6 @@
 
   width: 100%;
   margin-bottom: auto;
-  padding: set-calc(2) 0 0;
 
   color: $orange;
   border-radius: set-calc(20);
@@ -42,7 +41,7 @@
 }
 
 .answear {
-  grid-column: 2 / -1;
+  grid-column: 4 / -2;
 }
 
 ._:not(:last-child) {

@@ -20,13 +20,14 @@ function StudyProcess(props: IProps) {
 
   return (
     <div className={classes.wrapper}>
-      <div className={classes.header}>
-        <h2 className={classes.headerTitle + ' s-text-56'}>{t('headerTitle')}</h2>
-      </div>
       {props.data.studyProcess.map((d, index) => (
         <div className={classes.item} key={index}>
-          <h3 className={classes.title + ' s-text-36'}><Text text={d.title}/></h3>
-          <div className={classes.desc + ' s-text-24'}><Text text={d.description}/></div>
+          <p className={classes.factoid}>{index + 1}</p>
+          <div className={classes.content}>
+            {d.caption && <p className={classes.caption + ' s-text-21'}><Text text={d.caption}/></p>}
+            <h2 className={classes.title + ' s-text-56'}><Text text={d.title}/></h2>
+            <div className={classes.desc + ' s-text-21'}><Text text={d.description}/></div>
+          </div>
           {'imageSrc' in d && 'imageAlt' in d && (
             <div className={classes.videoCard}>
               <div className={classes.videoCardContainer}>
