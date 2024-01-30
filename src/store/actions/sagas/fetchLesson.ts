@@ -4942,9 +4942,9 @@ const lessonDataFYS0: ILessonDataDB = {
   title: 'Чек-лист продуктивного обучения',
   type: 'Theory',
   week: 1,
-  startDate: '2024.01.3 21:00:00 GMT',
-  endDate: '2024.01.06 14:59:00 GMT',
-  resultsEndDate: '2024.01.06 21:00:00 GMT',
+  startDate: '2024.02.08 21:00:00 GMT',
+  endDate: '2024.02.17 20:59:00 GMT',
+  resultsEndDate: '2024.02.17 21:00:00 GMT',
   content: [
     {
       type: 'title',
@@ -5020,9 +5020,9 @@ const lessonDataFYS1: ILessonDataDB = {
   title: '1. Что такое иллюстрация, серия, стиль',
   type: 'Theory',
   week: 1,
-  startDate: '2024.01.3 21:00:00 GMT',
-  endDate: '2024.01.06 14:59:00 GMT',
-  resultsEndDate: '2024.01.06 21:00:00 GMT',
+  startDate: '2024.02.08 21:00:00 GMT',
+  endDate: '2024.02.17 20:59:00 GMT',
+  resultsEndDate: '2024.02.17 21:00:00 GMT',
   content: [
     {
       type: 'video',
@@ -6043,302 +6043,6 @@ const lessonDataFYS1: ILessonDataDB = {
         },
       ]
     },
-    {
-      type: 'title',
-      title: 'Лозунги и метафоры',
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Творческие ценности и интересы удобно формулировать в лозунги и метафоры. Формулировка из 2-4 слов поможет сконцентрироваться на нужном, обрежет лишнее.',
-        },
-        {
-          tag: 'p',
-          content: 'Тесная, шумная тусовка Брехт Эванса.',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'BrechtEvens1.webp',
-        alt: 'BrechtEvens1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'BRECHT EVENS',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.brechtevens.com/illustration/2017/9/17/vinyl-cover-unik-ubik' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'BrechtEvens2.webp',
-        alt: 'BrechtEvens2',
-        caption: [
-          {
-            tag: 'a',
-            content: 'BRECHT EVENS',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.brechtevens.com/illustration/2017/9/17/vinyl-cover-unik-ubik' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'BrechtEvens3.webp',
-        alt: 'BrechtEvens3',
-        caption: [
-          {
-            tag: 'a',
-            content: 'BRECHT EVENS',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.brechtevens.com/illustration/2017/9/17/vinyl-cover-unik-ubik' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'BrechtEvens4.webp',
-        alt: 'BrechtEvens4',
-        caption: [
-          {
-            tag: 'a',
-            content: 'BRECHT EVENS',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.brechtevens.com/illustration/2017/9/17/vinyl-cover-unik-ubik' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'BrechtEvens5.webp',
-        alt: 'BrechtEvens5',
-        caption: [
-          {
-            tag: 'a',
-            content: 'BRECHT EVENS',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.brechtevens.com/illustration/2017/9/17/vinyl-cover-unik-ubik' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Уютное, родное пространство Анны Десницкой.',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'AnnaDesnitskaya1.webp',
-        alt: 'AnnaDesnitskaya1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Anna Desnitskaya',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/anyadesnitskaya/?g=5' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'AnnaDesnitskaya2.webp',
-        alt: 'AnnaDesnitskaya2',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Anna Desnitskaya',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/anyadesnitskaya/?g=5' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'AnnaDesnitskaya3.webp',
-        alt: 'AnnaDesnitskaya3',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Anna Desnitskaya',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/anyadesnitskaya/?g=5' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'AnnaDesnitskaya4.webp',
-        alt: 'AnnaDesnitskaya4',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Anna Desnitskaya',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/anyadesnitskaya/?g=5' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'AnnaDesnitskaya5.webp',
-        alt: 'AnnaDesnitskaya5',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Anna Desnitskaya',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/anyadesnitskaya/?g=5' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'AnnaDesnitskaya6.webp',
-        alt: 'AnnaDesnitskaya6',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Anna Desnitskaya',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/anyadesnitskaya/?g=5' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Скрежет когтей, шибуршание шерсти от Léo Forest.',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'LéoForest1.webp',
-        alt: 'LéoForest1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Léo Forest',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/leo___forest/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'LéoForest2.webp',
-        alt: 'LéoForest2',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Léo Forest',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/leo___forest/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'LéoForest3.webp',
-        alt: 'LéoForest3',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Léo Forest',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/leo___forest/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'title',
-      title: 'Сформулируйте свой лозунг из 2-4 слов',
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Придумайте лозунг для серии, которую будете рисовать на интенсиве.',
-        },
-        {
-          tag: 'p',
-          content: 'Можно подобрать лозунг, который хорошо описывает ваши прошлые рисунки. Тогда на интенсиве будет задача — а как усилить сформулированное впечатление?',
-        },
-        {
-          tag: 'p',
-          content: 'Можно сформулировать лозунг вашего любимого художника. Тогда задача будет другая. Как создать сформулированное впечатление в моих собственных работах, используя те навыки, которые у меня уже есть?',
-        },
-        {
-          tag: 'p',
-          content: 'Лозунг описывает ощущения, эмоции. По нему мы будем выстраивать пластический сюжет. Например,',
-          props: { className: 'listHeader' },
-        },
-        {
-          tag: 'p',
-          content: 'Теплое, родное пространство',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'Шумно и тесно',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'Скрежет ногтей по стеклу',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'Один в большом пространстве',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'Холодный, леденящий душу сквозняк',
-          props: { className: 'listItem' },
-        },
-      ]
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Бывает так, что лозунг задает направление. Вначале мы придумываем формулировку, потом под нее ищем инструменты. Бывает наоборот. Путем экспериментов мы находим интересное визуальное решение. Анализируем его, формулируем для себя в виде лозунга. И после этого развиваем. Делайте то, что ближе. Правильного пути нет, есть ваш путь.',
-        },
-        {
-          tag: 'p',
-          content: 'Пришлите свои идеи в телеграм-чат группы.',
-          props: { className: 'listHeader' },
-        },
-      ]
-    },
   ]
 }
 
@@ -6349,9 +6053,9 @@ const lessonDataFYS2: ILessonDataDB = {
   title: '2. Литературный сюжет: что рисовать',
   type: 'Theory',
   week: 1,
-  startDate: '2024.01.3 21:00:00 GMT',
-  endDate: '2024.01.06 14:59:00 GMT',
-  resultsEndDate: '2024.01.06 21:00:00 GMT',
+  startDate: '2024.02.08 21:00:00 GMT',
+  endDate: '2024.02.17 20:59:00 GMT',
+  resultsEndDate: '2024.02.17 21:00:00 GMT',
   content: [
     {
       type: 'text',
@@ -6956,9 +6660,9 @@ const lessonDataFYS3: ILessonDataDB = {
   title: '3. Пластический сюжет: как рисовать',
   type: 'Theory',
   week: 1,
-  startDate: '2024.01.3 21:00:00 GMT',
-  endDate: '2024.01.06 14:59:00 GMT',
-  resultsEndDate: '2024.01.06 21:00:00 GMT',
+  startDate: '2024.02.08 21:00:00 GMT',
+  endDate: '2024.02.17 20:59:00 GMT',
+  resultsEndDate: '2024.02.17 21:00:00 GMT',
   content: [
     {
       type: 'text',
@@ -7024,443 +6728,6 @@ const lessonDataFYS3: ILessonDataDB = {
           content: 'Последний — стилизация через метафору (перевернутый самолет).',
         },
       ]
-    },
-    {
-      type: 'title',
-      title: 'Композиция',
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Композиция — организация листа, которую автор делает сознательно и целенаправленно. На композицию влияют: размер, форма масс, их взаимодействие друг с другом и с пустым пространством листа.',
-        },
-        {
-          tag: 'p',
-          content: 'Масса может равняться одному объекту.',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'MashaShishova9.webp',
-        alt: 'MashaShishova9',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Masha Shishova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/MariaShishova' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Масса может состоять из нескольких объектов. В этом случае несколько объектов воспринимаются как одна масса.',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'MashaShishova6.webp',
-        alt: 'MashaShishova6',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Masha Shishova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/MariaShishova' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Масса может быть частью объекта. Купальник — масса, но он лишь часть тела девушки.',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'АлександрДейнека1.webp',
-        alt: 'АлександрДейнека1',
-        caption: [
-          {
-            tag: 'p',
-            content: 'Александр Дейнека',
-          },
-        ],
-      },
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Объекты объединяются в одну массу, когда они схожи по какому-то признаку: светлота, цвет, техника исполнения.',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'StasyaSokolovskaya1.webp',
-        alt: 'StasyaSokolovskaya1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Stasya Sokolovskaya',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/stasyasokolovska/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Четкие границы массы могут упрощать чтение сюжета.',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'LorenzoMattotti1.jpeg',
-        alt: 'LorenzoMattotti1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Lorenzo Mattotti',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.mattotti.com/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Масса может затруднять восприятие. Абстрактная масса — хороший способ устранения. Мощный куб некера.',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'MashaShishova8.webp',
-        alt: 'MashaShishova8',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Masha Shishova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/MariaShishova' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Персонажи рифмуются с деревьями, встают в один ряд, создают равномерный ритм.',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'LorenzoMattotti2.webp',
-        alt: 'LorenzoMattotti2',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Lorenzo Mattotti',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.mattotti.com/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Масса и фигуратив (объект) — два инструмента художника. Их необязательно жестко привязывать друг к другу. Иллюстратор может в любую форму врисовать нужный ему сюжет.',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'MašaAvramović2.webp',
-        alt: 'MašaAvramović2',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Maša Avramović',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/mashta' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'title',
-      title: 'Контрастность',
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Разница - это средство выразительности. Если разница велика - это контраст. Если мала - нюанс. Когда мы подчеркиваем разницу - размеров, форм, яркости, чего угодно - мы делаем рисунок более выразительным.',
-        },
-        {
-          tag: 'p',
-          content: 'Контраст — большая разница в листе. Объемное и плоское, фактурное и однородное, толстое и тонюсенькое, заполненное и пустое, чб и цветное, пятно и линия. С помощью контраста можно направить внимание зрителя, выделить главное в листе, разделить планы, объединить персонажей.',
-        },
-        {
-          tag: 'p',
-          content: 'Нюанс — едва заметная разница. Она обогащает рисунок, наполняет его деталями.',
-        },
-        {
-          tag: 'p',
-          content: 'Акцент — самый сильный контраст в листе. Акцент всегда маленький, всегда один.',
-        },
-        {
-          tag: 'p',
-          content: 'Например, если тона в рисунке отличаются слабо, рисунок нюансный:',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'AndrewGraves1.webp',
-        alt: 'AndrewGraves1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Andrew Graves',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.andrewjgraves.com/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'NadyaDrobysheva2.webp',
-        alt: 'NadyaDrobysheva2',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Nadya Drobysheva',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/nadyadrobysheva' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Если тона в рисунке отличаются сильно, рисунок контрастный:',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'ArinaSerebriakova1.webp',
-        alt: 'ArinaSerebriakova1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Arina Serebriakova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/ri.silver/?g=5' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'ArinaSerebriakova2.webp',
-        alt: 'ArinaSerebriakova2',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Arina Serebriakova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/ri.silver/?g=5' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Акцент линией в пятновом рисунке. Контраст по светлоте.',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'ArinaSerebriakova.webp',
-        alt: 'ArinaSerebriakova',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Arina Serebriakova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/ri.silver/?g=5' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'title',
-      title: 'Контрастность: противопоставление формы и содержания',
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Противопоставление формы и содержания — частный случай темы контрастов. Таких примеров может быть много: противопоставление линии и пятна, цветного и чб, плоского и объемного. Но логика у всех будет схожа. Выбираем параметр, по которому инструменты будут различны, и думаем, что мы можем сделать с этой разницей.',
-        },
-        {
-          tag: 'p',
-          content: 'Чтобы сделать свои рисунки выразительными, André Carrilho использует контраст формы и содержания. Форма сильно изменена, без содержимого внутри порой невозможно догадаться, что это изображение человека. При этом внутренняя часть показана точно и убедительно.',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'AndréCarrilho1.webp',
-        alt: 'AndréCarrilho1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'André Carrilho',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/andre_carrilho/?ysclid=ln321z8cus372402208' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'AndréCarrilho2.webp',
-        alt: 'AndréCarrilho2',
-        caption: [
-          {
-            tag: 'a',
-            content: 'André Carrilho',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/andre_carrilho/?ysclid=ln321z8cus372402208' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'AndréCarrilho3.webp',
-        alt: 'AndréCarrilho3',
-        caption: [
-          {
-            tag: 'a',
-            content: 'André Carrilho',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/andre_carrilho/?ysclid=ln321z8cus372402208' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'AndréCarrilho4.webp',
-        alt: 'AndréCarrilho4',
-        caption: [
-          {
-            tag: 'a',
-            content: 'André Carrilho',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/andre_carrilho/?ysclid=ln321z8cus372402208' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'AndréCarrilho5.webp',
-        alt: 'AndréCarrilho5',
-        caption: [
-          {
-            tag: 'a',
-            content: 'André Carrilho',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/andre_carrilho/?ysclid=ln321z8cus372402208' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'AndréCarrilho6.webp',
-        alt: 'AndréCarrilho6',
-        caption: [
-          {
-            tag: 'a',
-            content: 'André Carrilho',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/andre_carrilho/?ysclid=ln321z8cus372402208' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'AndréCarrilho7.webp',
-        alt: 'AndréCarrilho7',
-        caption: [
-          {
-            tag: 'a',
-            content: 'André Carrilho',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/andre_carrilho/?ysclid=ln321z8cus372402208' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'AndréCarrilho8.webp',
-        alt: 'AndréCarrilho8',
-        caption: [
-          {
-            tag: 'a',
-            content: 'André Carrilho',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/andre_carrilho/?ysclid=ln321z8cus372402208' },
-          },
-        ],
-      },
     },
     {
       type: 'title',
@@ -7988,8 +7255,8 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'BrechtEvens1.webp',
-        alt: 'BrechtEvens1',
+        id: 'BrechtEvens6.webp',
+        alt: 'BrechtEvens6',
         caption: [
           {
             tag: 'a',
@@ -8002,8 +7269,8 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'BrechtEvens2.webp',
-        alt: 'BrechtEvens2',
+        id: 'BrechtEvens7.webp',
+        alt: 'BrechtEvens7',
         caption: [
           {
             tag: 'a',
@@ -8016,8 +7283,8 @@ const lessonDataFYS3: ILessonDataDB = {
     {
       type: 'image',
       imageData: {
-        id: 'BrechtEvens3.webp',
-        alt: 'BrechtEvens3',
+        id: 'BrechtEvens8.webp',
+        alt: 'BrechtEvens8',
         caption: [
           {
             tag: 'a',
@@ -8266,6 +7533,739 @@ const lessonDataFYS3: ILessonDataDB = {
     },
     {
       type: 'title',
+      title: 'Контрастность',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Разница - это средство выразительности. Если разница велика - это контраст. Если мала - нюанс. Когда мы подчеркиваем разницу - размеров, форм, яркости, чего угодно - мы делаем рисунок более выразительным.',
+        },
+        {
+          tag: 'p',
+          content: 'Контраст — большая разница в листе. Объемное и плоское, фактурное и однородное, толстое и тонюсенькое, заполненное и пустое, чб и цветное, пятно и линия. С помощью контраста можно направить внимание зрителя, выделить главное в листе, разделить планы, объединить персонажей.',
+        },
+        {
+          tag: 'p',
+          content: 'Нюанс — едва заметная разница. Она обогащает рисунок, наполняет его деталями.',
+        },
+        {
+          tag: 'p',
+          content: 'Акцент — самый сильный контраст в листе. Акцент всегда маленький, всегда один.',
+        },
+        {
+          tag: 'p',
+          content: 'Например, если тона в рисунке отличаются слабо, рисунок нюансный:',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AndrewGraves1.webp',
+        alt: 'AndrewGraves1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Andrew Graves',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.andrewjgraves.com/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'NadyaDrobysheva2.webp',
+        alt: 'NadyaDrobysheva2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Nadya Drobysheva',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/nadyadrobysheva' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Если тона в рисунке отличаются сильно, рисунок контрастный:',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ArinaSerebriakova1.webp',
+        alt: 'ArinaSerebriakova1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Arina Serebriakova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/ri.silver/?g=5' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ArinaSerebriakova2.webp',
+        alt: 'ArinaSerebriakova2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Arina Serebriakova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/ri.silver/?g=5' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Акцент линией в пятновом рисунке. Контраст по светлоте.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ArinaSerebriakova.webp',
+        alt: 'ArinaSerebriakova',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Arina Serebriakova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/ri.silver/?g=5' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'title',
+      title: 'Контрастность: противопоставление формы и содержания',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Противопоставление формы и содержания — частный случай темы контрастов. Таких примеров может быть много: противопоставление линии и пятна, цветного и чб, плоского и объемного. Но логика у всех будет схожа. Выбираем параметр, по которому инструменты будут различны, и думаем, что мы можем сделать с этой разницей.',
+        },
+        {
+          tag: 'p',
+          content: 'Чтобы сделать свои рисунки выразительными, André Carrilho использует контраст формы и содержания. Форма сильно изменена, без содержимого внутри порой невозможно догадаться, что это изображение человека. При этом внутренняя часть показана точно и убедительно.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AndréCarrilho1.webp',
+        alt: 'AndréCarrilho1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'André Carrilho',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/andre_carrilho/?ysclid=ln321z8cus372402208' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AndréCarrilho2.webp',
+        alt: 'AndréCarrilho2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'André Carrilho',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/andre_carrilho/?ysclid=ln321z8cus372402208' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AndréCarrilho3.webp',
+        alt: 'AndréCarrilho3',
+        caption: [
+          {
+            tag: 'a',
+            content: 'André Carrilho',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/andre_carrilho/?ysclid=ln321z8cus372402208' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AndréCarrilho4.webp',
+        alt: 'AndréCarrilho4',
+        caption: [
+          {
+            tag: 'a',
+            content: 'André Carrilho',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/andre_carrilho/?ysclid=ln321z8cus372402208' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AndréCarrilho5.webp',
+        alt: 'AndréCarrilho5',
+        caption: [
+          {
+            tag: 'a',
+            content: 'André Carrilho',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/andre_carrilho/?ysclid=ln321z8cus372402208' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AndréCarrilho6.webp',
+        alt: 'AndréCarrilho6',
+        caption: [
+          {
+            tag: 'a',
+            content: 'André Carrilho',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/andre_carrilho/?ysclid=ln321z8cus372402208' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AndréCarrilho7.webp',
+        alt: 'AndréCarrilho7',
+        caption: [
+          {
+            tag: 'a',
+            content: 'André Carrilho',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/andre_carrilho/?ysclid=ln321z8cus372402208' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AndréCarrilho8.webp',
+        alt: 'AndréCarrilho8',
+        caption: [
+          {
+            tag: 'a',
+            content: 'André Carrilho',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/andre_carrilho/?ysclid=ln321z8cus372402208' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'title',
+      title: 'Композиция',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Композиция — организация листа, которую автор делает сознательно и целенаправленно. На композицию влияют: размер, форма масс, их взаимодействие друг с другом и с пустым пространством листа.',
+        },
+        {
+          tag: 'p',
+          content: 'Масса может равняться одному объекту.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'MashaShishova9.webp',
+        alt: 'MashaShishova9',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Masha Shishova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/MariaShishova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Масса может состоять из нескольких объектов. В этом случае несколько объектов воспринимаются как одна масса.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'MashaShishova6.webp',
+        alt: 'MashaShishova6',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Masha Shishova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/MariaShishova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Масса может быть частью объекта. Купальник — масса, но он лишь часть тела девушки.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'АлександрДейнека1.webp',
+        alt: 'АлександрДейнека1',
+        caption: [
+          {
+            tag: 'p',
+            content: 'Александр Дейнека',
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Объекты объединяются в одну массу, когда они схожи по какому-то признаку: светлота, цвет, техника исполнения.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'StasyaSokolovskaya1.webp',
+        alt: 'StasyaSokolovskaya1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Stasya Sokolovskaya',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/stasyasokolovska/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Четкие границы массы могут упрощать чтение сюжета.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'LorenzoMattotti1.jpeg',
+        alt: 'LorenzoMattotti1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Lorenzo Mattotti',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.mattotti.com/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Масса может затруднять восприятие. Абстрактная масса — хороший способ устранения. Мощный куб некера.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'MashaShishova8.webp',
+        alt: 'MashaShishova8',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Masha Shishova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/MariaShishova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Персонажи рифмуются с деревьями, встают в один ряд, создают равномерный ритм.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'LorenzoMattotti2.webp',
+        alt: 'LorenzoMattotti2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Lorenzo Mattotti',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.mattotti.com/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Масса и фигуратив (объект) — два инструмента художника. Их необязательно жестко привязывать друг к другу. Иллюстратор может в любую форму врисовать нужный ему сюжет.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'MašaAvramović2.webp',
+        alt: 'MašaAvramović2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Maša Avramović',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/mashta' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'title',
+      title: 'Лозунги и метафоры',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Творческие ценности и интересы удобно формулировать в лозунги и метафоры. Формулировка из 2-4 слов поможет сконцентрироваться на нужном, обрежет лишнее.',
+        },
+        {
+          tag: 'p',
+          content: 'Тесная, шумная тусовка Брехт Эванса.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'BrechtEvens1.webp',
+        alt: 'BrechtEvens1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'BRECHT EVENS',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.brechtevens.com/illustration/2017/9/17/vinyl-cover-unik-ubik' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'BrechtEvens2.webp',
+        alt: 'BrechtEvens2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'BRECHT EVENS',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.brechtevens.com/illustration/2017/9/17/vinyl-cover-unik-ubik' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'BrechtEvens3.webp',
+        alt: 'BrechtEvens3',
+        caption: [
+          {
+            tag: 'a',
+            content: 'BRECHT EVENS',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.brechtevens.com/illustration/2017/9/17/vinyl-cover-unik-ubik' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'BrechtEvens4.webp',
+        alt: 'BrechtEvens4',
+        caption: [
+          {
+            tag: 'a',
+            content: 'BRECHT EVENS',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.brechtevens.com/illustration/2017/9/17/vinyl-cover-unik-ubik' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'BrechtEvens5.webp',
+        alt: 'BrechtEvens5',
+        caption: [
+          {
+            tag: 'a',
+            content: 'BRECHT EVENS',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.brechtevens.com/illustration/2017/9/17/vinyl-cover-unik-ubik' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Уютное, родное пространство Анны Десницкой.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AnnaDesnitskaya1.webp',
+        alt: 'AnnaDesnitskaya1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Anna Desnitskaya',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/anyadesnitskaya/?g=5' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AnnaDesnitskaya2.webp',
+        alt: 'AnnaDesnitskaya2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Anna Desnitskaya',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/anyadesnitskaya/?g=5' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AnnaDesnitskaya3.webp',
+        alt: 'AnnaDesnitskaya3',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Anna Desnitskaya',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/anyadesnitskaya/?g=5' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AnnaDesnitskaya4.webp',
+        alt: 'AnnaDesnitskaya4',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Anna Desnitskaya',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/anyadesnitskaya/?g=5' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AnnaDesnitskaya5.webp',
+        alt: 'AnnaDesnitskaya5',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Anna Desnitskaya',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/anyadesnitskaya/?g=5' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AnnaDesnitskaya6.webp',
+        alt: 'AnnaDesnitskaya6',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Anna Desnitskaya',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/anyadesnitskaya/?g=5' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Скрежет когтей, шибуршание шерсти от Léo Forest.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'LéoForest1.webp',
+        alt: 'LéoForest1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Léo Forest',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/leo___forest/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'LéoForest2.webp',
+        alt: 'LéoForest2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Léo Forest',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/leo___forest/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'LéoForest3.webp',
+        alt: 'LéoForest3',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Léo Forest',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/leo___forest/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'title',
+      title: 'Сформулируйте свой лозунг из 2-4 слов',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Придумайте лозунг для серии, которую будете рисовать на интенсиве.',
+        },
+        {
+          tag: 'p',
+          content: 'Можно подобрать лозунг, который хорошо описывает ваши прошлые рисунки. Тогда на интенсиве будет задача — а как усилить сформулированное впечатление?',
+        },
+        {
+          tag: 'p',
+          content: 'Можно сформулировать лозунг вашего любимого художника. Тогда задача будет другая. Как создать сформулированное впечатление в моих собственных работах, используя те навыки, которые у меня уже есть?',
+        },
+        {
+          tag: 'p',
+          content: 'Лозунг описывает ощущения, эмоции. По нему мы будем выстраивать пластический сюжет. Например,',
+          props: { className: 'listHeader' },
+        },
+        {
+          tag: 'p',
+          content: 'Теплое, родное пространство',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'Шумно и тесно',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'Скрежет ногтей по стеклу',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'Один в большом пространстве',
+          props: { className: 'listItem' },
+        },
+        {
+          tag: 'p',
+          content: 'Холодный, леденящий душу сквозняк',
+          props: { className: 'listItem' },
+        },
+      ]
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Бывает так, что лозунг задает направление. Вначале мы придумываем формулировку, потом под нее ищем инструменты. Бывает наоборот. Путем экспериментов мы находим интересное визуальное решение. Анализируем его, формулируем для себя в виде лозунга. И после этого развиваем. Делайте то, что ближе. Правильного пути нет, есть ваш путь.',
+        },
+        {
+          tag: 'p',
+          content: 'Пришлите свои идеи в телеграм-чат группы.',
+          props: { className: 'listHeader' },
+        },
+      ]
+    },
+    {
+      type: 'title',
       title: 'Выберите одно-два средства выразительности, из которых сложится пластический сюжет',
     },
     {
@@ -8297,11 +8297,7 @@ const lessonDataFYS3: ILessonDataDB = {
         },
         {
           tag: 'p',
-          content: 'Просмотрите список, который вы составили на первом уроке: какие средства выразительности для вас важны? На что вы обращаете внимание? ',
-        },
-        {
-          tag: 'p',
-          content: 'Вспомните лозунг с первого урока. Он должен помочь ограничить набор инструментов. Что стоит оставить, чтобы получилось задуманное вами впечатление от рисунка? От чего можно отказаться?',
+          content: 'Лозунг должен помочь ограничить набор инструментов. Что стоит оставить, чтобы получилось задуманное вами впечатление от рисунка? От чего можно отказаться?',
         },
       ]
     },
@@ -8315,9 +8311,9 @@ const lessonDataFYS4: ILessonDataDB = {
   title: 'Практика интенсива',
   type: 'Practice',
   week: 1,
-  startDate: '2024.01.3 21:00:00 GMT',
-  endDate: '2024.01.06 20:59:00 GMT',
-  resultsEndDate: '2024.01.06 21:00:00 GMT',
+  startDate: '2024.02.08 21:00:00 GMT',
+  endDate: '2024.02.17 20:59:00 GMT',
+  resultsEndDate: '2024.02.17 21:00:00 GMT',
   content: [
     {
       type: 'text',

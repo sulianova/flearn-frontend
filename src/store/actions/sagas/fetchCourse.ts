@@ -80,9 +80,9 @@ const courseDB1: ICourseDataDB = {
   id: 'how-to-draw', // how-to-draw-free
   type: 'course',
   title: 'Как рисовать',
-  startDate: '2024.02.18 21:00:00 GMT', // '2023.12.03 21:00:00 GMT'
-  endDate: '2024.03.10 20:59:00 GMT', // '2023.12.31 20:59:00 GMT'
-  accessDeadline: '2024.03.17 20:59:00 GMT', // '2023.12.31 20:59:00 GMT'
+  startDate: '2024.03.18 21:00:00 GMT', // '2023.12.03 21:00:00 GMT'
+  endDate: '2024.04.07 20:59:00 GMT', // '2023.12.31 20:59:00 GMT'
+  accessDeadline: '2024.04.14 20:59:00 GMT', // '2023.12.31 20:59:00 GMT'
   duration: {
     unit: 'week',
     value: 3,
@@ -91,12 +91,12 @@ const courseDB1: ICourseDataDB = {
   videosNumber: 3,
   feild: 'Иллюстрация',
   introImageId: 'LineCat6.jpg',
-  introDescription: 'Практический мини-курс для тех, кто хочет рисовать убедительные иллюстрации, не копируя фотографии.',
+  introDescription: 'Практический курс для тех, кто хочет освоить навыки иллюстрации. За 3 недели научимся уверенно рисовать любые сюжеты. Узнаем, как управлять вниманием зрителя',
   introImageAlt: 'SpotCat27',
-  discontAmount: 50,
-  discontDeadline: '2024.02.08 20:59:00 GMT',
+  discontAmount: 20,
+  discontDeadline: '2024.03.08 20:59:00 GMT',
   creditWas: 12000,
-  creditPrice: 6000,
+  creditPrice: 9600,
   telegramLink: 'https://t.me/+yIvKOdKrLYdlYzMy',
   description: [
     {
@@ -115,10 +115,10 @@ const courseDB1: ICourseDataDB = {
       answer: 'На первых этапах в рисовании мешает не столько отсутствие навыков, сколько предубеждения и страхи: «а если не получится», «не знаю, как правильно». Поэтому в начале важна поддержка и рабочий настрой.',
       question: 'Боится, что не получится'
     },
-    {
-      answer: 'Преподаватель лично общается с учениками, обсуждает с ними рисунки. Помогает понять, что пошло не так. Подсказывает, что сделать, чтобы получилось.',
-      question: 'Не знает, как передать то, что хочется'
-    },
+    // {
+    //   answer: 'Преподаватель лично общается с учениками, обсуждает с ними рисунки. Помогает понять, что пошло не так. Подсказывает, что сделать, чтобы получилось.',
+    //   question: 'Не знает, как передать то, что хочется'
+    // },
   ],
   modulesDescription: 'Программа рассчитана на 3 недели, ей нужно посвящать 5-6 часов в неделю.',
   modules: [
@@ -150,7 +150,7 @@ const courseDB1: ICourseDataDB = {
       title: 'Линия',
       meta: [
         {
-          content: '19 февраля – 25 февраля',
+          content: '18 марта – 24 марта',
           tag: 'span',
         }
       ],
@@ -181,7 +181,7 @@ const courseDB1: ICourseDataDB = {
       title: 'Пятно',
       meta: [
         {
-          content: '26 февраля — 3 марта',
+          content: '25 марта —31 марта',
           tag: 'span',
         }
       ],
@@ -208,7 +208,7 @@ const courseDB1: ICourseDataDB = {
       title: 'Линия и пятно',
       meta: [
         {
-          content: '4 марта — 10 марта',
+          content: '1 апреля — 7 апреля',
           tag: 'span',
         }
       ],
