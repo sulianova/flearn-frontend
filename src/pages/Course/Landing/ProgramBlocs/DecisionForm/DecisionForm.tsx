@@ -1,21 +1,33 @@
 import classNames from 'classnames/bind';
 import { useState } from 'react';
+import { connect } from 'react-redux';
 
 import { formatI18nT, i18n } from 'shared';
 import { formatDate } from 'utils';
 
 import Link from 'ui/Link/Link';
 import Form from './Form/Form';
+import FreeForm from './FreeForm/FreeForm';
 import classes from './DecisionForm.module.scss';
 
-import { URLSections } from 'types';
+import { IRootState, URLSections } from 'types';
 import type { ICourseData } from 'services/course.service';
+import type { IUserData } from 'services/user.service';
 
-export default DecisionForm;
+export default connect(mapStateToProps)(DecisionForm);
 
 const cx = classNames.bind(classes);
 
-interface IProps {
+interface IConnectedProps {
+  user: IUserData | null
+}
+
+function mapStateToProps(state: IRootState): IConnectedProps {
+  return {
+    user: state.user.user ?? null,
+  };
+}
+interface IProps extends IConnectedProps {
   data: ICourseData
 }
 
@@ -49,26 +61,46 @@ function DecisionForm(props: IProps) {
         </div>
       </div>
       <div className={classes.block}>
-        {orderEmail ? <span>{t(`orderIsCreated.${type}.free=${courseIsFree}`, { email: orderEmail })}</span>
-        : (<>
-          <Form
-            onOrderCreated={({ email }) => setOrderEmail(email)}
-            courseIsFree={courseIsFree}
-          />
-          <div className={classes.agreement}>
-            <Link
-              className='link'
-              to={URLSections.Static.Oferta.index}
-              target='_blank'
-            >
-              <span className={classes.agreementText + ' s-text-18'}>
-                {t('agreement')}
-              </span>
-            </Link>
-          </div>
-        </>)}
+        {courseIsFree && props.user ? (
+          <>
+            <FreeForm userData={props.user} courseData={props.data} />
+            <div className={classes.agreement}>
+                <Link
+                  className='link'
+                  to={URLSections.Static.Oferta.index}
+                  target='_blank'
+                >
+                  <span className={classes.agreementText + ' s-text-18'}>
+                    {t('agreement')}
+                  </span>
+                </Link>
+              </div>
+          </>
+        ) : (
+          orderEmail ?
+            (
+              <span>{t(`orderIsCreated.${type}.free=${courseIsFree}`, { email: orderEmail })}</span>
+            ) : (
+            <>
+              <Form
+                onOrderCreated={({ email }) => setOrderEmail(email)}
+                courseIsFree={courseIsFree}
+              />
+              <div className={classes.agreement}>
+                <Link
+                  className='link'
+                  to={URLSections.Static.Oferta.index}
+                  target='_blank'
+                >
+                  <span className={classes.agreementText + ' s-text-18'}>
+                    {t('agreement')}
+                  </span>
+                </Link>
+              </div>
+            </>
+          )
+        )}
       </div>
-
     </div>
   );
 }

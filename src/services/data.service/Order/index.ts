@@ -54,13 +54,18 @@ class Order {
       const id = this.getId(courseId, email);
       const orderDB = await firebaseService.getDocOrThrow<IOrderDataDB>(ECollections.Order, id);
       const order = orderConverter.fromFirestore(orderDB);
-      await firebaseService.setDoc(ECollections.Order, id, { ...order, ...patch });
+      await firebaseService.setDoc(ECollections.Order, id, orderConverter.toFirestore({ ...order, ...patch }));
     } catch (err) {
       const error = err as Error;
       // tslint:disable-next-line
       console.error(error);
       throw new Error(`Failed to set Order: ${error.message}`);
     }
+  }
+
+  public async exists(courseId: string, email: string) {
+    const id = this.getId(courseId, email);
+    return await firebaseService.docExists(ECollections.Order, id);
   }
 
   private getId(courseId: string, email: string) {
