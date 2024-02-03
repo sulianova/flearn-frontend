@@ -22,8 +22,10 @@ interface IProps {
 const t = formatI18nT('courseLanding.form');
 
 function DecisionForm(props: IProps) {
-  const { type, duration } = props.data;
+  const { type, duration, creditWas, creditPrice, discontDeadline } = props.data;
   const [orderEmail, setOrderEmail] = useState<string | null>(null);
+
+  const courseIsFree = Boolean(creditWas === 0 || (creditPrice === 0 && (discontDeadline === null || new Date() < discontDeadline)));
 
   return (
     <div className={classes.wrapper} id='decision-form'>
@@ -47,9 +49,12 @@ function DecisionForm(props: IProps) {
         </div>
       </div>
       <div className={classes.block}>
-        {orderEmail ? <span>{t(`orderIsCreated.${type}`, { email: orderEmail })}</span>
+        {orderEmail ? <span>{t(`orderIsCreated.${type}.free=${courseIsFree}`, { email: orderEmail })}</span>
         : (<>
-          <Form onOrderCreated={({ email }) => setOrderEmail(email)}/>
+          <Form
+            onOrderCreated={({ email }) => setOrderEmail(email)}
+            courseIsFree={courseIsFree}
+          />
           <div className={classes.agreement}>
             <Link
               className='link'

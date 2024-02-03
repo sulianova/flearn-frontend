@@ -1,19 +1,19 @@
+import type { ICourseData } from 'services/course.service';
 import { firebaseService } from 'services/firebase.service';
-import Store from 'store';
-import { ECollections, IOrderData, IRootState } from 'types';
+import type { IUserData } from 'services/user.service';
+
+import { ECollections, IOrderData, IOrderDataDB } from 'types';
 import { orderConverter } from './orderConverter';
 
 class Order {
-  public async create(userFromForm: IOrderData['userFromForm']) {
+  public async create(props: {
+    userFromForm: IOrderData['userFromForm'],
+    courseData: ICourseData,
+    userData: IUserData | undefined,
+  }) {
     try {
-      const state = Store.getState() as IRootState;
-      const courseData = state.course?.data;
-      const courseId = state.course?.courseId;
-  
-      if (!courseData || !courseId) {
-        throw new Error('Cannot create order: courseData or courseId is undefined');
-      }
-      const id = `${courseId}_${userFromForm.email}`;
+      const { userFromForm, courseData, userData } = props;
+      const id = this.getId(courseData.id, userFromForm.email);
 
       const orderAlreadyExists = await firebaseService.docExists(ECollections.Order, id);
       if (orderAlreadyExists) {
@@ -25,9 +25,9 @@ class Order {
       const data: IOrderData = {
         status: 'created',
         userFromForm,
-        currentAuthedUser: state.user?.user ?? null,
+        currentAuthedUser: userData ?? null,
         course: {
-          id: courseId,
+          id: courseData.id,
           dataSnapshot: {
             discontAmount,
             discontDeadline,
@@ -47,6 +47,24 @@ class Order {
       console.error(error);
       throw new Error(`Failed to create Order: ${error.message}`);
     }
+  }
+
+  public async set(courseId: string, email: string, patch: Partial<IOrderData>) {
+    try {
+      const id = this.getId(courseId, email);
+      const orderDB = await firebaseService.getDocOrThrow<IOrderDataDB>(ECollections.Order, id);
+      const order = orderConverter.fromFirestore(orderDB);
+      await firebaseService.setDoc(ECollections.Order, id, { ...order, ...patch });
+    } catch (err) {
+      const error = err as Error;
+      // tslint:disable-next-line
+      console.error(error);
+      throw new Error(`Failed to set Order: ${error.message}`);
+    }
+  }
+
+  private getId(courseId: string, email: string) {
+    return `${courseId}_${email}`;
   }
 }
 

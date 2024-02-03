@@ -50,12 +50,12 @@ export class FirebaseService {
     }
   }
 
-  public async getDocOrThrow(collectionName: ECollections, id: string, converter: FirestoreDataConverter<DocumentData, DocumentData> | null = null) {
+  public async getDocOrThrow<T extends object = DocumentData>(collectionName: ECollections, id: string, converter: FirestoreDataConverter<DocumentData, DocumentData> | null = null) {
     try {
       const docRef = converter ? getDocRef(this._db, collectionName, id).withConverter(converter) : getDocRef(this._db, collectionName, id);
       const doc = await getDoc(docRef);
       if (doc.exists()) {
-        return doc.data();
+        return doc.data() as T;
       } else {
         throw new Error(`Doc doesn't exist`);
       }

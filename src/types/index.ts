@@ -1,4 +1,3 @@
-export * from './access';
 export * from './article';
 export * from './backend';
 export * from './course';

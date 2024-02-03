@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { dataService } from 'services';
 import type { IUserData } from 'services/user.service';
 import { formatI18nT } from 'shared';
+import store from 'store';
 
 import InputField from 'ui/Form/Input/InputField';
 import Spinner from 'ui/Spinner/Spinner';
@@ -39,11 +40,12 @@ function mapStateToProps(state: IRootState): IConnectedProps {
 
 interface IProps extends IConnectedProps {
   onOrderCreated: (props: { email: string }) => void
+  courseIsFree: boolean
 }
 
-function Form({ user, onOrderCreated }: IProps) {
+function Form({ user, onOrderCreated, courseIsFree }: IProps) {
   const [formData, setFormData] = useState<IFormData>(() => user ? ({ ...initialFormData, email: user.email }) : initialFormData);
-  const handleSubmit = useCallback((formData: IFormData) => submit(formData, setFormData), []);
+  const handleSubmit = useCallback((formData: IFormData) => submit({ formData, setFormData, courseIsFree }), [courseIsFree]);
 
   useEffect(() => {
     if (formData.state.type === 'Success') {
@@ -92,11 +94,21 @@ function isValid(formData: IFormData) {
   return email && state.type !== 'Pending';
 }
 
-async function submit(formData: IFormData, setFormData: React.Dispatch<React.SetStateAction<IFormData>>) {
+async function submit(props: { formData: IFormData, setFormData: React.Dispatch<React.SetStateAction<IFormData>>, courseIsFree: boolean }) {
+  const { formData, setFormData, courseIsFree } = props;
   setFormData(d => ({ ...d, state: { type: 'Pending' } }));
-  const { email } = formData;
   try {
-    await dataService.order.create({ email });
+    const state = store.getState() as IRootState;
+    const courseData = state.course.data;
+    const userData = state.user.user;
+    if (!courseData) {
+      throw new Error('Failed to get course from store');
+    }
+    await dataService.order.create({ userFromForm: formData, courseData, userData });
+    if (courseIsFree) {
+      await dataService.access.add(courseData.id, formData.email);
+      await dataService.order.set(courseData.id, formData.email, { status: 'closed' });
+    }
     setFormData(d => ({ ...d, state: { type: 'Success' } }));
   } catch (e) {
     setFormData(d => ({ ...d, state: { type: 'Error', error: e as Error } }));

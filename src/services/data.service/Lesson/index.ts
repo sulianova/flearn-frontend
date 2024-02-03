@@ -1,9 +1,10 @@
 import { authService, firebaseService } from 'services';
+import type { IAccessData } from 'services/data.service/Access';
 
 import { lessonConverter } from './lessonConverter';
 
 import { ECollections, ECommonErrorTypes } from 'types';
-import type { IAccessData, ILessonData, ILessonDataDB } from 'types';
+import type { ILessonData, ILessonDataDB } from 'types';
 
 interface ILessonsFilter {
     courseId: string
