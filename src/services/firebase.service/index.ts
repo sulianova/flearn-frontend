@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { collection, doc as getDocRef, getDoc, getDocs, getFirestore, setDoc, query, where } from 'firebase/firestore';
+import { collection, doc as getDocRef, getDoc, getDocs, getFirestore, setDoc, query, where, FieldPath } from 'firebase/firestore';
 import { deleteObject, getStorage, ref as getStorageRef, getDownloadURL, uploadBytes } from 'firebase/storage';
 import { getFirebaseConfig } from './firebase.config';
 
@@ -83,7 +83,7 @@ export class FirebaseService {
     try {
       const queryConstraints = whereProps
         .filter(({ value, operator }) => operator !== 'in' || (Array.isArray(value) && value.length))
-        .map(({ param, value, operator }) => where(param, operator ?? '==', value));
+        .map(({ param, value, operator }) => where(typeof param === 'string' ? param : new FieldPath(...param), operator ?? '==', value));
       const q = query(collection(this._db, collectionName), ...queryConstraints);
       const querySnapshot = await getDocs(q);
       const data = [] as { id: string, data: DocumentData }[];

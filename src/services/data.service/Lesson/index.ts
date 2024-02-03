@@ -70,7 +70,11 @@ class Lesson {
       throw new Error('Server error: failed to find access table');
     }
 
-    const userHasAccess = Boolean(accessData.users[user.uid]);
+    if (!user.email) {
+      throw new Error('Server error: failed to find user email');
+    }
+
+    const userHasAccess = Boolean(accessData.users[user.email]);
     return userHasAccess;
   }
 }

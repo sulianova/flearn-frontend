@@ -1,5 +1,6 @@
 import { TWhereProps, firebaseService } from 'services';
 import type { ICourseData, ICourseDataDB } from 'services/course.service';
+import type { IUserDataDB } from 'services/user.service';
 
 import { courseConverter } from './courseConverter';
 
@@ -19,7 +20,11 @@ class Course {
   public async getAll(filter: { ids?: string[], userId?: string }): Promise<ICourseData[]> {
     let usersCoursesIds: string[] | undefined;
     if (filter.userId) {
-      const filteredAccess = await firebaseService.getDocs(ECollections.Access, [{ param: `users.${filter.userId}`, value: true }]);
+      const user = await firebaseService.getDoc(ECollections.User, filter.userId) as IUserDataDB | undefined;
+      if (!user) {
+        throw new Error(ECommonErrorTypes.FailedToFindData);
+      }
+      const filteredAccess = await firebaseService.getDocs(ECollections.Access, [{ param: ['users', user.email], value: true }]);
       usersCoursesIds = filteredAccess.map(a => a.id);
       if (usersCoursesIds.length === 0) {
         return [];
