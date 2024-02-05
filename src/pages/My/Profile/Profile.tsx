@@ -91,7 +91,13 @@ function renderCourses(courses: ICourseData[]) {
           >
             {course.title}
           </Link>
-          <div className={classesCourseCard.date + ' s-text-24'}>{t('endDate', { date: formatDate(course.accessDeadline, { timeZone: 'Europe/Moscow' }) })}</div>
+          <div className={classesCourseCard.date + ' s-text-24'}>
+            {
+              course.startDate > new Date()
+              ? t('startDate', { date: formatDate(course.startDate, { timeZone: 'Europe/Moscow' }) })
+              : t('endDate', { date: formatDate(course.accessDeadline, { timeZone: 'Europe/Moscow' }) })
+            }
+          </div>
         </div>
         <div className={classesCourseCard.cover}>
           <Img
