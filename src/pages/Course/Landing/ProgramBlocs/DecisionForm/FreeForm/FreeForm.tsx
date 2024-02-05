@@ -7,6 +7,8 @@ import type { IUserData } from 'services/user.service';
 
 import { URLSections } from 'types';
 
+import classes from './FreeForm.module.scss';
+
 export default FreeForm;
 
 function FreeForm(props: { userData: IUserData, courseData: ICourseData }) {
@@ -14,8 +16,8 @@ function FreeForm(props: { userData: IUserData, courseData: ICourseData }) {
   const navigate = useNavigate();
   const [errorTxt, setErrorTxt] = useState('');
   return (
-    <div>
-      <button onClick={() => handleSubmit({ userData, courseData, navigate, onError: setErrorTxt })}>Начать учиться бесплатно</button>
+    <div className={classes.btnWrapper}>
+      <button className={classes.btn + ' s-text-24'} onClick={() => handleSubmit({ userData, courseData, navigate, onError: setErrorTxt })}>Начать учиться бесплатно</button>
       {errorTxt && <div>{errorTxt}</div>}
     </div>
   );

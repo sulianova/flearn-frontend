@@ -1,0 +1,39 @@
+@import 'styles/index';
+
+.btnWrapper {
+  position: relative;
+
+  display: flex;
+}
+
+.btn {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: set-calc(20) set-calc(80);
+  margin-bottom: set-calc(24);
+  width: 100%;
+
+  color: $white;
+
+  background-color: $green;
+  border-radius: set-calc(20);
+  cursor: pointer;
+  pointer-events: all;
+
+  transition: background-color $d-hover ease-in-out, color ease-in-out $d-hover;
+
+  &:hover {
+    background-color: $green-hover;
+  }
+
+  @include set-media(md) {
+    padding: set-calc(15) 0;
+    margin-bottom: set-calc(24);
+
+    border-radius: set-calc(15);
+  }
+}
