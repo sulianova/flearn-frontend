@@ -43,6 +43,11 @@ function Lessons({ courseState, lessonsState }: IConnectedProps) {
 
   const authedUser = userService.useAuthedUser();
   const authedUserId = authedUser?.id;
+  const minStartDate = (lessonsState.lessons ?? [])
+    .reduce(
+      ( minDate, l) => minDate < l.lesson.startDate ? minDate : l.lesson.startDate
+      , lessonsState.lessons?.[0]?.lesson?.startDate
+    );
 
   useEffect(() => {
     refetch();
@@ -122,8 +127,8 @@ function Lessons({ courseState, lessonsState }: IConnectedProps) {
 
   }, [filteredLessons]);
 
-  const fallback = useFallback({ courseState, lessonsState, filteredLessons });
-  if (!courseState.data || !lessonsState.lessons || !lessonsState.lessons.length || !filteredLessons.length) {
+  const fallback = useFallback({ courseState, lessonsState });
+  if (!courseState.data || !lessonsState.lessons || !lessonsState.lessons.length) {
     return fallback;
   }
 
@@ -142,9 +147,13 @@ function Lessons({ courseState, lessonsState }: IConnectedProps) {
         >{t('linksTelegram')}</Link>
       </div>
     </div>
-    <div className={classesList.wrapper}>
-      {renderGroups(groupes)}
-    </div>
+    {filteredLessons.length ? (
+      <div className={classesList.wrapper}>
+        {renderGroups(groupes)}
+      </div>
+    ) : (
+      <div>{t(`courseNotStartedYet.${courseState.data.type}`, { minStartDate: formatDate(minStartDate, { timeZone: 'Europe/Moscow' }) })}</div>
+    )}
   </Page>);
 }
 
