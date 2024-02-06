@@ -40,7 +40,6 @@ async function submitFreeOrderAndGrandAccess(props: { userData: IUserData, cours
       await dataService.order.create({ userFromForm: { email: userData.email }, courseData, userData });
     }
     await dataService.access.add(courseData.id, userData.email);
-    await dataService.order.set(courseData.id, userData.email, { status: 'closed' });
   } catch (e) {
     const error = e as Error;
     // tslint:disable-next-line: no-console

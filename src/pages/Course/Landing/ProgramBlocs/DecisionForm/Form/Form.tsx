@@ -107,7 +107,6 @@ async function submit(props: { formData: IFormData, setFormData: React.Dispatch<
     await dataService.order.create({ userFromForm: formData, courseData, userData });
     if (courseIsFree) {
       await dataService.access.add(courseData.id, formData.email);
-      await dataService.order.set(courseData.id, formData.email, { status: 'closed' });
     }
     setFormData(d => ({ ...d, state: { type: 'Success' } }));
   } catch (e) {
