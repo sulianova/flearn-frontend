@@ -54,7 +54,8 @@
     "eject": "react-scripts eject",
     "lint": "tslint --project tsconfig.json",
     "tsc": "tsc",
-    "check": "npm run lint && npm run tsc"
+    "check": "npm run lint && npm run tsc",
+    "pull:fb": "firebase ext:export"
   },
   "eslintConfig": {
     "extends": [
