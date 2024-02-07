@@ -109,11 +109,13 @@ async function submit(props: { formData: IFormData, setFormData: React.Dispatch<
     if (courseIsFree) {
       await dataService.access.add(courseData.id, formData.email);
     }
-    await emailService.sendEmail({
-      type: emailService.EEmail.OrderCreated,
-      to: { email: formData.email },
-      orderId,
-    });
+    if (courseData.id === 'finding-your-style') {
+      await emailService.sendEmail({
+        type: emailService.EEmail.FindingYourStyle1,
+        to: { email: formData.email },
+        orderId,
+      });
+    }
     setFormData(d => ({ ...d, state: { type: 'Success' } }));
   } catch (e) {
     setFormData(d => ({ ...d, state: { type: 'Error', error: e as Error } }));
