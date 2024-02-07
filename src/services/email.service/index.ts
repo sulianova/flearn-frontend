@@ -1,26 +1,19 @@
-import { firebaseService } from "services/firebase.service";
-import { ECollections } from "types";
-import { v4 } from "uuid";
-import type { TEmail, TContact } from "./types";
+import { firebaseService } from 'services/firebase.service';
+import { ECollections } from 'types';
+import { v4 } from 'uuid';
+import { EEmail, type TEmail, type TContact } from './types';
 
+export { EEmail } from './types';
 class EmailService {
-  public async sendEmail(emailTo: string) {
-    const id = v4().slice(0, 4);
-    const email = {
-      to: [{
-        email: emailTo,
-        name: 'Vladimir Fyodorov',
-      }],
-      from: {
-        email: 'MS_aXZ7Sh@flearn.net',
-        // email: 'info@flearn.net',
-        name: 'Sofi',
-      },
-      subject: 'Hello from Firebase!',
-      html: 'This is an HTML email body.',
-      text: 'This is an TEXT email body.',
-    };
-    console.log('try to send email', { email, id });
+  public EEmail = EEmail;
+  public async sendEmail(props: { type: EEmail.OrderCreated, to: TContact, orderId: string }) {
+    if ((window as any)?.sendEmail !== true) {
+      console.log('skip email sending', props);
+      return;
+    }
+    const email = this.getEmail(props);
+    const id = this.getId(props);
+    console.log('try to send email', props);
     await firebaseService.setDoc(ECollections.EmailCollection, id, email);
   }
 
@@ -28,6 +21,25 @@ class EmailService {
     email: 'info@flearn.net',
     name: 'Sofi',
   };
+
+  private getId(props: { type: EEmail.OrderCreated, orderId: string }) {
+    const id = v4().slice(0, 4);
+    switch (props.type) {
+      case EEmail.OrderCreated:
+        return `order-created-${props.orderId}-${id}`;
+      default:
+        throw new Error('Unknown email type');
+    }
+  }
+
+  private getEmail(props: { type: EEmail.OrderCreated, to: TContact, orderId: string }): TEmail {
+    switch (props.type) {
+      case EEmail.OrderCreated:
+        return this.getOrderEmail(props);
+      default:
+        throw new Error('Unknown email type');
+    }
+  }
 
   private getOrderEmail(props: { to: TContact, orderId: string }): TEmail {
     const { to, orderId } = props;

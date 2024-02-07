@@ -9,3 +9,7 @@ export type TEmail = {
   subject: string,
   html: string,
 }
+
+export enum EEmail {
+  OrderCreated = 'OrderCreated',
+}

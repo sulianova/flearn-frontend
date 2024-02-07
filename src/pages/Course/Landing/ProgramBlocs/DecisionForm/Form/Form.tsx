@@ -105,13 +105,15 @@ async function submit(props: { formData: IFormData, setFormData: React.Dispatch<
     if (!courseData) {
       throw new Error('Failed to get course from store');
     }
-    await dataService.order.create({ userFromForm: formData, courseData, userData });
+    const { id: orderId } = await dataService.order.create({ userFromForm: formData, courseData, userData });
     if (courseIsFree) {
       await dataService.access.add(courseData.id, formData.email);
     }
-    if ((window as any)?.sendEmail === true) {
-      await emailService.sendEmail(formData.email);
-    }
+    await emailService.sendEmail({
+      type: emailService.EEmail.OrderCreated,
+      to: { email: formData.email },
+      orderId,
+    });
     setFormData(d => ({ ...d, state: { type: 'Success' } }));
   } catch (e) {
     setFormData(d => ({ ...d, state: { type: 'Error', error: e as Error } }));
