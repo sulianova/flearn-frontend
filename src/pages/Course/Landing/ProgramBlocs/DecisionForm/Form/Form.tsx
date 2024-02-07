@@ -109,7 +109,9 @@ async function submit(props: { formData: IFormData, setFormData: React.Dispatch<
     if (courseIsFree) {
       await dataService.access.add(courseData.id, formData.email);
     }
-    await emailService.sendEmail(formData.email);
+    if ((window as any)?.sendEmail === true) {
+      await emailService.sendEmail(formData.email);
+    }
     setFormData(d => ({ ...d, state: { type: 'Success' } }));
   } catch (e) {
     setFormData(d => ({ ...d, state: { type: 'Error', error: e as Error } }));
