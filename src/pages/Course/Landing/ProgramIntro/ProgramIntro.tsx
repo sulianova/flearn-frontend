@@ -6,6 +6,7 @@ import Image from 'ui/Img/Img';
 import classes from './ProgramIntro.module.scss';
 
 import type { ICourseData } from 'services/course.service';
+import { EAnalyticsEvent, analyticsService } from 'services/analytics.service';
 
 export default ProgramIntro;
 
@@ -39,7 +40,19 @@ function ProgramIntro(props: IProps) {
           <h1 className={classes.title}>{props.data.title}</h1>
           <div className={classes.block + ' s-text-24'}>{props.data.introDescription}</div>
           <div className={classes.actions}>
-            <a className={classes.actionsBtn + ' s-text-24'} href='#decision-form'>{i18n.t('signUp')}</a>
+            <a
+              className={classes.actionsBtn + ' s-text-24'}
+              href='#decision-form'
+              onClick={() => analyticsService.logEvent({
+                  type: EAnalyticsEvent.ButtonClicked,
+                  data: {
+                    type: 'scroll_to_decision_form_button_clicked',
+                  },
+                })
+              }
+            >
+              {i18n.t('signUp')}
+            </a>
           </div>
         </div>
         <div className={classes.cover}><Image src={props.data.introImageSrc} alt={props.data.introImageAlt}/></div>

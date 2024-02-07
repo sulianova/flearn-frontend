@@ -12,6 +12,9 @@ import ProgramBlocks from './ProgramBlocs/ProgramBlocks';
 import ProgramIntro from './ProgramIntro/ProgramIntro';
 
 import type { IRootState } from 'types';
+import { useEffect } from 'react';
+import { analyticsService, EAnalyticsEvent } from 'services/analytics.service';
+import { envService } from 'services';
 
 export default connect(mapStateToProps)(Course);
 
@@ -32,6 +35,16 @@ function Course({ data }: IConnectedProps) {
     actionCreator: fetchCourse,
     payload: { courseId: courseId! },
   }));
+
+  useEffect(() => {
+    analyticsService.logEvent({
+      type: EAnalyticsEvent.PageVisited,
+      data: {
+        type: 'landing_page',
+        courseId: courseId!,
+      },
+    });
+  }, []);
 
   if (!data) {
     return (

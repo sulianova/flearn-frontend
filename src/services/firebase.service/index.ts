@@ -1,4 +1,5 @@
 import { initializeApp } from 'firebase/app';
+import { getAnalytics, type Analytics, logEvent, type AnalyticsCallOptions } from "firebase/analytics";
 import { collection, doc as getDocRef, getDoc, getDocs, getFirestore, setDoc, query, where, FieldPath } from 'firebase/firestore';
 import { deleteObject, getStorage, ref as getStorageRef, getDownloadURL, uploadBytes } from 'firebase/storage';
 import { getFirebaseConfig } from './firebase.config';
@@ -6,7 +7,7 @@ import { getFirebaseConfig } from './firebase.config';
 import { ECollections } from 'types';
 
 import type { FirebaseApp, FirebaseOptions } from 'firebase/app';
-import type { DocumentData, Firestore, FirestoreDataConverter, WhereFilterOp } from 'firebase/firestore';
+import type { DocumentData, Firestore, FirestoreDataConverter } from 'firebase/firestore';
 import type { FirebaseStorage } from 'firebase/storage';
 import type { IObject } from 'types';
 import type { TWhereProps } from './types';
@@ -18,6 +19,7 @@ export class FirebaseService {
     this._app = initializeApp(config);
     this._db = getFirestore(this._app);
     this._storage = getStorage(this._app);
+    this._analytics = getAnalytics(this._app);
   }
 
   public async docExists(collectionName: ECollections, id: string, throws?: boolean) {
@@ -158,9 +160,14 @@ export class FirebaseService {
     }
   }
 
+  public logEvent(eventName: string, eventParams?: IObject, options?: AnalyticsCallOptions) {
+    logEvent(this._analytics, eventName, eventParams, options);
+  }
+
   private _app: FirebaseApp;
   private _db: Firestore;
   private _storage: FirebaseStorage;
+  private _analytics: Analytics;
 }
 
 export const firebaseService = new FirebaseService(getFirebaseConfig());
