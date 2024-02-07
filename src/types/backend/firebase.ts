@@ -5,4 +5,5 @@ export enum ECollections {
   Access = 'access',
   User = 'user',
   Order = 'order',
+  EmailCollection = 'EMAIL_COLLECTION',
 }

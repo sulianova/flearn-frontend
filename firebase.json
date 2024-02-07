@@ -1,4 +1,3 @@
-
 {
   "hosting": {
     "public": "build",
@@ -17,5 +16,8 @@
   "firestore": {
     "rules": "firestore.rules",
     "indexes": "firestore.indexes.json"
+  },
+  "extensions": {
+    "mailersend-email": "mailersend/mailersend-email@0.1.7"
   }
 }

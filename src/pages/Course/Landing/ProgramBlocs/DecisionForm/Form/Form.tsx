@@ -3,6 +3,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
 import { dataService } from 'services';
+import { emailService } from 'services/email.service';
 import type { IUserData } from 'services/user.service';
 import { formatI18nT } from 'shared';
 import store from 'store';
@@ -108,6 +109,7 @@ async function submit(props: { formData: IFormData, setFormData: React.Dispatch<
     if (courseIsFree) {
       await dataService.access.add(courseData.id, formData.email);
     }
+    await emailService.sendEmail(formData.email);
     setFormData(d => ({ ...d, state: { type: 'Success' } }));
   } catch (e) {
     setFormData(d => ({ ...d, state: { type: 'Error', error: e as Error } }));
