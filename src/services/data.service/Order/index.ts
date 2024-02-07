@@ -41,6 +41,7 @@ class Order {
       };
 
       await firebaseService.setDoc(ECollections.Order, id, orderConverter.toFirestore(data));
+      return { id };
     } catch (err) {
       const error = err as Error;
       // tslint:disable-next-line
