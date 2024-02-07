@@ -16,7 +16,7 @@ class EmailService {
   public async sendEmail(props: TProps): Promise<void> {
     const email = this.getEmail(props);
     const id = this.getId(props);
-    await firebaseService.setDoc(ECollections.EmailCollection, id, email);
+    await firebaseService.setDoc(ECollections.Email, id, email);
   }
 
   private senderContact: TContact = {
