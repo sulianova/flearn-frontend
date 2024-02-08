@@ -8,6 +8,7 @@ export { EEmail } from './types';
 type TProps = { to: TContact } & (
   | { type: EEmail.OrderCreated, orderId: string }
   | { type: EEmail.FindingYourStyle1, orderId: string }
+  | { type: EEmail.FindingYourStyleCourseIsStartingTomorrow }
 );
 
 class EmailService {
@@ -31,6 +32,8 @@ class EmailService {
         return `${props.orderId}-${id}`;
       case EEmail.FindingYourStyle1:
         return `${props.orderId}-${id}`;
+      case EEmail.FindingYourStyleCourseIsStartingTomorrow:
+        return `finding-your-style-${props.to.email}-course-is-starting-tomorrow-${id}`;
       default:
         throw new Error('Unknown email type');
     }
@@ -42,6 +45,8 @@ class EmailService {
         return this.getOrderEmail(props);
       case EEmail.FindingYourStyle1:
         return this.getFindingYourStyle1Email(props);
+      case EEmail.FindingYourStyleCourseIsStartingTomorrow:
+        return this.getCourseIsStartingTomorrowEmail(props);
       default:
         throw new Error('Unknown email type');
     }
@@ -83,6 +88,33 @@ class EmailService {
       `,
     };
   }
+
+  private getCourseIsStartingTomorrowEmail(props: { to: TContact }): TEmail {
+    return {
+      to: [props.to],
+      from: this.senderContact,
+      subject: 'Старт 9 февраля: “Как найти стиль”, приглашение в телеграм-чат',
+      html: `
+        <!DOCTYPE html>
+        <html lang="ru">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+        </head>
+        <body>
+          <p>Добрый день! Завтра, 9 февраля, стартует интенсив “Как найти стиль”.</p>
+        
+          <p><a href="https://t.me/+84BAabO9pZE5YTFi">Переходите в телеграм-чат</a>, в группе будет вся дальнейшая информация.</p>
+        
+          <p style="white-space: pre-line;">София&#10;Преподаватель, график-иллюстратор</p>
+        </body>
+        </html>
+      `,
+    };
+  }
 }
 
 export const emailService = new EmailService();
+
+// (window as any).emailService = emailService;
