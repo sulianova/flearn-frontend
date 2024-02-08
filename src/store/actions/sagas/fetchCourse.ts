@@ -91,7 +91,7 @@ const courseDB1: ICourseDataDB = {
   videosNumber: 3,
   feild: 'Иллюстрация',
   introImageId: 'LineCat6.jpg',
-  introDescription: 'Практический курс для тех, кто хочет освоить навыки иллюстрации. За 3 недели научимся уверенно рисовать любые сюжеты. Узнаем, как управлять вниманием зрителя',
+  introDescription: 'Базовый курс по иллюстрации. За 3 недели научимся уверенно рисовать любые сюжеты. Узнаем, как управлять вниманием зрителя',
   introImageAlt: 'SpotCat27',
   discontAmount: 20,
   discontDeadline: '2024.03.08 20:59:00 GMT',
@@ -423,7 +423,7 @@ const courseDB2: ICourseDataDB = {
   discontDeadline: null,
   creditWas: 4000,
   creditPrice: 0,
-  telegramLink: 'https://t.me/+LZp7VXnGjUQ3ZTRi',
+  telegramLink: 'https://t.me/+84BAabO9pZE5YTFi',
   about: [
     {
       tag: 'p',
@@ -465,7 +465,7 @@ const courseDB2: ICourseDataDB = {
           props: { className: 'key-link', target: "_blank", to: 'https://flearn.net/course/how-to-draw' },
         },
       ],
-      content: 'Практический курс для тех, кто хочет освоить навыки иллюстрации. За 3 недели научимся уверенно рисовать любые сюжеты. Узнаем, как управлять вниманием зрителя'
+      content: 'Базовый курс по иллюстрации. За 3 недели научимся уверенно рисовать любые сюжеты. Узнаем, как управлять вниманием зрителя'
     },
     {
       title: 'Приглашение в телеграм-чат выпускников школы flearn',

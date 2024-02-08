@@ -15,6 +15,9 @@ export type IText = {
   } | {
     tag: 'a'
     props?: ILinkProps
+  } | {
+    tag: 'strong'
+    props?: HTMLAttributes<HTMLElement>
   }
 )
 | {

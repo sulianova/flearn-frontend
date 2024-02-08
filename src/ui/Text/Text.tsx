@@ -24,10 +24,12 @@ export default function Text({ text }: IProps) {
 
   switch(tag) {
     case 'p':
-      return (<p {...props}><Text text={content!}/></p>);
+      return (<p {...props}><Text text={content}/></p>);
     case 'a':
-      return (<Link {...props}><Text text={content!}/></Link>);
+      return (<Link {...props}><Text text={content}/></Link>);
     case 'span':
       return (<span {...props}><Text text={content}/></span>);
+    case 'strong':
+      return (<strong {...props}><Text text={content}/></strong>);
   }
 }
