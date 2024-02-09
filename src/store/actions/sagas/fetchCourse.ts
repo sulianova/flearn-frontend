@@ -406,9 +406,9 @@ const courseDB2: ICourseDataDB = {
   id: 'finding-your-style',
   type: 'webinar',
   title: 'Как найти стиль',
-  startDate: '2024.02.08 21:00:00 GMT',
-  endDate: '2024.02.18 20:59:00 GMT',
-  accessDeadline: '2024.02.18 20:59:00 GMT',
+  startDate: '2024.03.07 21:00:00 GMT',
+  endDate: '2024.03.17 20:59:00 GMT',
+  accessDeadline: '2024.03.17 20:59:00 GMT',
   duration: {
     unit: 'day',
     value: 10,
@@ -510,7 +510,7 @@ const courseDB2: ICourseDataDB = {
       title: 'Теория: из чего складывается стиль',
       meta: [
         {
-          content: '9, 10, 11 февраля в 20:00 по Мск',
+          content: '8, 9, 10 марта в 20:00 по Мск',
           tag: 'span',
         }
       ],
@@ -520,7 +520,7 @@ const courseDB2: ICourseDataDB = {
       title: 'Практика: серия графических работ из 3-5 иллюстраций',
       meta: [
         {
-          content: '12 – 17 февраля',
+          content: '11 – 16 марта',
           tag: 'span',
         }
       ],
@@ -530,7 +530,7 @@ const courseDB2: ICourseDataDB = {
       title: 'Итоги и разбор работ участников',
       meta: [
         {
-          content: '18 февраля',
+          content: '17 марта',
           tag: 'span',
         }
       ],
