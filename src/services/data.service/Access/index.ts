@@ -5,10 +5,10 @@ import { IAccessData } from './types';
 export type { IAccessData } from './types';
 
 class Access {
-  public async add(courseId: string, email: string) {
+  public async add(courseId: string, email: string, accessValue: boolean = true) {
     try {
       const access = await firebaseService.getDocOrThrow<IAccessData>(ECollections.Access, courseId);
-      await firebaseService.setDoc(ECollections.Access, courseId, { ...access, users: { ...access.users, [email]: true } });
+      await firebaseService.setDoc(ECollections.Access, courseId, { ...access, users: { ...access.users, [email]: accessValue } });
     } catch (err) {
       const error = err as Error;
       // tslint:disable-next-line

@@ -66,7 +66,7 @@ class EmailService {
     return {
       to: [props.to],
       from: this.senderContact,
-      subject: 'Интенсив "Как найти стиль" 9 февраля',
+      subject: 'Интенсив "Как найти стиль" 8 марта',
       html: `
         <!DOCTYPE html>
         <html lang="ru">
@@ -80,7 +80,7 @@ class EmailService {
         
           <p>Мы получили вашу заявку на интенсив “Как найти стиль”. Переходите по ссылке ниже, в группе будет вся дальнейшая информация по интенсиву.</p>
         
-          <p><a href="https://t.me/+84BAabO9pZE5YTFi">Ссылка на телеграм-чат интенсива</a></p>
+          <p><a href="https://t.me/+Pi3lxGTKYdhkZmYy">Ссылка на телеграм-чат интенсива</a></p>
         
           <p style="white-space: pre-line;">София&#10;Преподаватель, график-иллюстратор</p>
         </body>

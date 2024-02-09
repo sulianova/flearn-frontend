@@ -39,7 +39,10 @@ async function submitFreeOrderAndGrandAccess(props: { userData: IUserData, cours
     if (!await dataService.order.exists(courseData.id, userData.email)) {
       await dataService.order.create({ userFromForm: { email: userData.email }, courseData, userData });
     }
-    await dataService.access.add(courseData.id, userData.email);
+
+    // TEMP
+    const accessValue = courseData.id !== 'finding-your-style';
+    await dataService.access.add(courseData.id, userData.email, accessValue);
   } catch (e) {
     const error = e as Error;
     // tslint:disable-next-line: no-console

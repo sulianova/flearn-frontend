@@ -107,7 +107,8 @@ async function submit(props: { formData: IFormData, setFormData: React.Dispatch<
     }
     const { id: orderId } = await dataService.order.create({ userFromForm: formData, courseData, userData });
     if (courseIsFree) {
-      await dataService.access.add(courseData.id, formData.email);
+      const accessValue = courseData.id !== 'finding-your-style';
+      await dataService.access.add(courseData.id, formData.email, accessValue);
     }
     if (courseData.id === 'finding-your-style') {
       await emailService.sendEmail({
