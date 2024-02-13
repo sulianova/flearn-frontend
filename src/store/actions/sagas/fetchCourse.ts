@@ -80,7 +80,7 @@ const courseDB1: ICourseDataDB = {
   id: 'how-to-draw', // how-to-draw-free
   type: 'course',
   title: 'Как рисовать',
-  startDate: '2024.03.18 21:00:00 GMT', // '2023.12.03 21:00:00 GMT'
+  startDate: '2024.03.17 21:00:00 GMT', // '2023.12.03 21:00:00 GMT'
   endDate: '2024.04.07 20:59:00 GMT', // '2023.12.31 20:59:00 GMT'
   accessDeadline: '2024.04.14 20:59:00 GMT', // '2023.12.31 20:59:00 GMT'
   duration: {
