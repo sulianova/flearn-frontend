@@ -5024,13 +5024,13 @@ const lessonDataFYS1: ILessonDataDB = {
   endDate: '2024.02.17 20:59:00 GMT',
   resultsEndDate: '2024.02.17 21:00:00 GMT',
   content: [
-    // {
-    //   type: 'video',
-    //   videoData: {
-    //     src: 'https://www.youtube.com/embed/20i3w9-LdSM?si=nLTV3fgcw4PFT9Zk',
-    //     title: 'YouTube video player',
-    //   },
-    // },
+    {
+      type: 'video',
+      videoData: {
+        src: 'https://www.youtube.com/embed/AewDkjBBW64?si=i7wLe8W9y7eFwFu1',
+        title: 'YouTube video player',
+      },
+    },
     {
       type: 'text',
       text: [
@@ -6349,6 +6349,13 @@ const lessonDataFYS2: ILessonDataDB = {
   endDate: '2024.02.17 20:59:00 GMT',
   resultsEndDate: '2024.02.17 21:00:00 GMT',
   content: [
+    {
+      type: 'video',
+      videoData: {
+        src: 'https://www.youtube.com/embed/Htk0qwFkpMg?si=u2ja6ROVeH1Jiumb',
+        title: 'YouTube video player',
+      },
+    },
     {
       type: 'text',
       text: [
