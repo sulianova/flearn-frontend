@@ -345,6 +345,58 @@ const reviewFYS2: TReview = {
   ],
 };
 
+const reviewFYS3: TReview = {
+  homeworkId: 'finding-your-style_FindingYourStyle_Practice_ t4jUts_hw-e0hqTpnEIeRRlK85YRxtcVGIIgA2',
+  review: [
+    { type: 'text', text: 'Анастасия, добрый день! Сюжеты просто волшебные, очень нравится ваша идея для серии!)' },
+    { type: 'text', text: 'Пластика изображения хорошо сработала. Серия читается, как серия. Основные моменты рисунка раскрываются за счет контрастов, противопоставлении линий и пятен.' },
+    { type: 'text', text: 'По ссылке ниже холст с вашими рисунками и моими комментариями. Чтобы отвечать на комменты, вести диалог, нужно залогиниться под любой почтой в Figma, с ноута это можно сделать в любом браузере, с телефона вначале нужно скачать приложение Figma и установить его.' },
+    { type: 'text',
+      text: [
+        {
+          tag: 'a',
+          content: 'Комментарии к рисункам в Figma',
+          props: { className: 'link', target: "_blank", to: 'https://www.figma.com/file/Ved8iFf8VIq1THOf4lQ38a/Ana-Ana?type=design&node-id=0%3A1&mode=design&t=t1FPPaxhAVRlbdG5-1' },
+        },
+      ]}
+
+  ],
+};
+
+const reviewFYS4: TReview = {
+  homeworkId: 'finding-your-style_FindingYourStyle_Practice_ t4jUts_hw-xAjP5m8ZJHWvYPPH7AzR2hoLc1C2',
+  review: [
+    { type: 'text', text: 'Юлия, добрый день! Глубокая идея для серии, вызывает эмоции, сразу появляется сопережевание главному герою — чайке.' },
+    { type: 'text', text: 'По ссылке ниже холст с вашими рисунками и моими комментариями. Чтобы отвечать на комменты, вести диалог, нужно залогиниться под любой почтой в Figma, с ноута это можно сделать в любом браузере, с телефона вначале нужно скачать приложение Figma и установить его.' },
+    { type: 'text',
+      text: [
+        {
+          tag: 'a',
+          content: 'Комментарии к рисункам в Figma',
+          props: { className: 'link', target: "_blank", to: 'https://www.figma.com/file/bNmB5Ti1ezr3sH5k8tdx2W/Wambanuka?type=design&node-id=0%3A1&mode=design&t=Lq7jhxJP6euccA4R-1' },
+        },
+      ]}
+
+  ],
+};
+
+const reviewFYS5: TReview = {
+  homeworkId: 'finding-your-style_FindingYourStyle_Practice_ t4jUts_hw-xcN3gBQ6GIPi4Nlfr56W3Toj3pf1',
+  review: [
+    { type: 'text', text: 'Елена, добрый день! Общая идея действительно понятна. И это хороший заход для серии. Здесь много направлений, с которыми интересно работать.' },
+    { type: 'text', text: 'По ссылке ниже холст с вашими рисунками и моими комментариями. Чтобы отвечать на комменты, вести диалог, нужно залогиниться под любой почтой в Figma, с ноута это можно сделать в любом браузере, с телефона вначале нужно скачать приложение Figma и установить его.' },
+    { type: 'text',
+      text: [
+        {
+          tag: 'a',
+          content: 'Комментарии к рисункам в Figma',
+          props: { className: 'link', target: "_blank", to: 'https://www.figma.com/file/DIqT2X5DbjYjlnGAeyw6IB/Tsurikova-Elena?type=design&node-id=0%3A1&mode=design&t=AnCQjP2K27lknBsz-1' },
+        },
+      ]}
+
+  ],
+};
+
 const allReviews = [
   review11,
   review12,
@@ -354,6 +406,9 @@ const allReviews = [
   review32,
   reviewFYS1,
   reviewFYS2,
+  reviewFYS3,
+  reviewFYS4,
+  reviewFYS5,
 ];
 
 function getReview(filter: { homeworkId: string }) {
