@@ -79,7 +79,7 @@ function DecisionForm(props: IProps) {
         ) : (
           orderEmail ?
             (
-              <span>{t(`orderIsCreated.${type}.free=${courseIsFree}`, { email: orderEmail })}</span>
+              <span>{t(`orderIsCreated.free=${courseIsFree}`, { email: orderEmail })}</span>
             ) : (
             <>
               <Form

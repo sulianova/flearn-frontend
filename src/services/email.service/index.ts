@@ -2,12 +2,13 @@ import { firebaseService } from 'services/firebase.service';
 import { ECollections } from 'types';
 import { v4 } from 'uuid';
 import { EEmail, type TEmail, type TContact } from './types';
+import { formatDate } from 'utils';
 
 export { EEmail } from './types';
 
 type TProps = { to: TContact } & (
   | { type: EEmail.OrderCreated, orderId: string }
-  | { type: EEmail.FindingYourStyle1, orderId: string }
+  | { type: EEmail.FindingYourStyle1, orderId: string, price: number, startDate: Date }
   | { type: EEmail.FindingYourStyleCourseIsStartingTomorrow }
 );
 
@@ -62,11 +63,13 @@ class EmailService {
     };  
   }
 
-  private getFindingYourStyle1Email(props: { to: TContact }): TEmail {
+  private getFindingYourStyle1Email(props: { to: TContact, price: number, startDate: Date }): TEmail {
+    const { to, price, startDate } = props;
+    const startDateStr = formatDate(startDate, { timeZone: 'Europe/Moscow' });
     return {
-      to: [props.to],
+      to: [to],
       from: this.senderContact,
-      subject: 'Интенсив "Как найти стиль" 8 марта',
+      subject: `Интенсив "Как найти стиль" ${startDateStr}`,
       html: `
         <!DOCTYPE html>
         <html lang="ru">
@@ -78,9 +81,15 @@ class EmailService {
         <body>
           <p>Здравствуйте!</p>
         
-          <p>Мы получили вашу заявку на интенсив “Как найти стиль”. Переходите по ссылке ниже, в группе будет вся дальнейшая информация по интенсиву.</p>
+          <p>Мы получили вашу заявку на интенсив “Как найти стиль”. Оплатить участие можно переводом на российскую карту или через Paypal.</p>
         
-          <p><a href="https://t.me/+Pi3lxGTKYdhkZmYy">Ссылка на телеграм-чат интенсива</a></p>
+          <p style="white-space: pre-line;"><strong>Оплата в России</strong>&#10;На карту Тинькофф по номеру телефона +79162380397 Ульянова София Романовна — ${Math.round(price)} руб.</p>
+        
+          <p style="white-space: pre-line;"><strong>Оплата с зарубежной карты</strong>&#10;Через Paypal на аккаунт <a href="http://paypal.me/sofiulyanova">paypal.me/sofiulyanova</a> (Ulianova Sofiia) — ${Math.round(price/100)} евро. В назначении платежа не указывайте, пожалуйста, за что и для кого.</p>
+        
+          <p style="white-space: pre-line;"><strong>После оплаты</strong>&#10;Пришлите мне <a href="https://t.me/ulianova_sofia">в телеграмм</a> чек об оплате и почту, по которой планируете проходить курс. К этой почте должен быть привязан гугл-аккаунт.</p>
+        
+          <p>Если возникнут вопросы и трудности, <a href="https://t.me/ulianova_sofia">пишите мне в телеграмме</a></p>
         
           <p style="white-space: pre-line;">София&#10;Преподаватель, график-иллюстратор</p>
         </body>

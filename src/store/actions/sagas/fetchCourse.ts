@@ -406,9 +406,9 @@ const courseDB2: ICourseDataDB = {
   id: 'finding-your-style',
   type: 'webinar',
   title: 'Как найти стиль',
-  startDate: '2024.03.07 21:00:00 GMT',
-  endDate: '2024.03.17 20:59:00 GMT',
-  accessDeadline: '2024.03.17 20:59:00 GMT',
+  startDate: '2024.04.11 21:00:00 GMT',
+  endDate: '2024.04.21 20:59:00 GMT',
+  accessDeadline: '2024.04.21 20:59:00 GMT',
   duration: {
     unit: 'day',
     value: 10,
@@ -419,10 +419,10 @@ const courseDB2: ICourseDataDB = {
   introImageId: 'introImage.jpg',
   introDescription: 'Разберемся, из чего состоит авторский стиль и сделаем  серию графических работ для портфолио',
   introImageAlt: 'introImage',
-  discontAmount: 100,
-  discontDeadline: null,
-  creditWas: 4000,
-  creditPrice: 0,
+  discontAmount: 30,
+  discontDeadline: '2024.04.10 21:00:00 GMT',
+  creditWas: 5000,
+  creditPrice: 3500,
   telegramLink: 'https://t.me/+84BAabO9pZE5YTFi',
   about: [
     {
@@ -510,7 +510,7 @@ const courseDB2: ICourseDataDB = {
       title: 'Теория: из чего складывается стиль',
       meta: [
         {
-          content: '8, 9, 10 марта в 20:00 по Мск',
+          content: '12, 13, 14 апреля в 20:00 по Мск',
           tag: 'span',
         }
       ],
@@ -520,7 +520,7 @@ const courseDB2: ICourseDataDB = {
       title: 'Практика: серия графических работ из 3-5 иллюстраций',
       meta: [
         {
-          content: '11 – 16 марта',
+          content: '15 – 20 апреля',
           tag: 'span',
         }
       ],
@@ -530,7 +530,7 @@ const courseDB2: ICourseDataDB = {
       title: 'Итоги и разбор работ участников',
       meta: [
         {
-          content: '17 марта',
+          content: '21 апреля',
           tag: 'span',
         }
       ],

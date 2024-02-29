@@ -115,6 +115,8 @@ async function submit(props: { formData: IFormData, setFormData: React.Dispatch<
         type: emailService.EEmail.FindingYourStyle1,
         to: { email: formData.email },
         orderId,
+        startDate: courseData.startDate,
+        price: (courseData.discontDeadline === null || new Date() < courseData.discontDeadline) ? courseData.creditPrice : courseData.creditWas,
       });
     }
     setFormData(d => ({ ...d, state: { type: 'Success' } }));
