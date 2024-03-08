@@ -4942,9 +4942,9 @@ const lessonDataFYS0: ILessonDataDB = {
   title: 'Чек-лист продуктивного обучения',
   type: 'Theory',
   week: 1,
-  startDate: '2024.02.08 21:00:00 GMT',
-  endDate: '2024.02.17 20:59:00 GMT',
-  resultsEndDate: '2024.02.17 21:00:00 GMT',
+  startDate: '2024.03.07 21:00:00 GMT',
+  endDate: '2024.03.16 20:59:00 GMT',
+  resultsEndDate: '2024.03.16 21:00:00 GMT',
   content: [
     {
       type: 'title',
@@ -5020,9 +5020,9 @@ const lessonDataFYS1: ILessonDataDB = {
   title: '1. Что такое иллюстрация, серия, стиль',
   type: 'Theory',
   week: 1,
-  startDate: '2024.02.08 21:00:00 GMT',
-  endDate: '2024.02.17 20:59:00 GMT',
-  resultsEndDate: '2024.02.17 21:00:00 GMT',
+  startDate: '2024.03.07 21:00:00 GMT',
+  endDate: '2024.03.16 20:59:00 GMT',
+  resultsEndDate: '2024.03.16 21:00:00 GMT',
   content: [
     {
       type: 'video',
@@ -6345,9 +6345,9 @@ const lessonDataFYS2: ILessonDataDB = {
   title: '2. Литературный сюжет: что рисовать',
   type: 'Theory',
   week: 1,
-  startDate: '2024.02.08 21:00:00 GMT',
-  endDate: '2024.02.17 20:59:00 GMT',
-  resultsEndDate: '2024.02.17 21:00:00 GMT',
+  startDate: '2024.03.07 21:00:00 GMT',
+  endDate: '2024.03.16 20:59:00 GMT',
+  resultsEndDate: '2024.03.16 21:00:00 GMT',
   content: [
     {
       type: 'video',
@@ -7507,9 +7507,9 @@ const lessonDataFYS3: ILessonDataDB = {
   title: '3. Пластический сюжет: как рисовать',
   type: 'Theory',
   week: 1,
-  startDate: '2024.02.08 21:00:00 GMT',
-  endDate: '2024.02.17 20:59:00 GMT',
-  resultsEndDate: '2024.02.17 21:00:00 GMT',
+  startDate: '2024.03.07 21:00:00 GMT',
+  endDate: '2024.03.16 20:59:00 GMT',
+  resultsEndDate: '2024.03.16 21:00:00 GMT',
   content: [
     {
       type: 'video',
@@ -9209,9 +9209,9 @@ const lessonDataFYS4: ILessonDataDB = {
   title: 'Практика интенсива',
   type: 'Practice',
   week: 1,
-  startDate: '2024.02.08 21:00:00 GMT',
-  endDate: '2024.02.17 20:59:00 GMT',
-  resultsEndDate: '2024.02.17 21:00:00 GMT',
+  startDate: '2024.03.07 21:00:00 GMT',
+  endDate: '2024.03.16 20:59:00 GMT',
+  resultsEndDate: '2024.03.16 21:00:00 GMT',
   content: [
     {
       type: 'text',

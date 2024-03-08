@@ -80,9 +80,9 @@ const courseDB1: ICourseDataDB = {
   id: 'how-to-draw', // how-to-draw-free
   type: 'course',
   title: 'Как рисовать',
-  startDate: '2024.03.17 21:00:00 GMT', // '2023.12.03 21:00:00 GMT'
-  endDate: '2024.04.07 20:59:00 GMT', // '2023.12.31 20:59:00 GMT'
-  accessDeadline: '2024.04.14 20:59:00 GMT', // '2023.12.31 20:59:00 GMT'
+  startDate: '2024.04.28 21:00:00 GMT', // '2023.12.03 21:00:00 GMT'
+  endDate: '2024.05.19 20:59:00 GMT', // '2023.12.31 20:59:00 GMT'
+  accessDeadline: '2024.05.26 20:59:00 GMT', // '2023.12.31 20:59:00 GMT'
   duration: {
     unit: 'week',
     value: 3,
@@ -94,7 +94,7 @@ const courseDB1: ICourseDataDB = {
   introDescription: 'Базовый курс по иллюстрации. За 3 недели научимся уверенно рисовать любые сюжеты. Узнаем, как управлять вниманием зрителя',
   introImageAlt: 'SpotCat27',
   discontAmount: 20,
-  discontDeadline: '2024.03.08 20:59:00 GMT',
+  discontDeadline: '2024.04.11 20:59:00 GMT',
   creditWas: 12000,
   creditPrice: 9600,
   telegramLink: 'https://t.me/+yIvKOdKrLYdlYzMy',
@@ -150,7 +150,7 @@ const courseDB1: ICourseDataDB = {
       title: 'Линия',
       meta: [
         {
-          content: '18 марта – 24 марта',
+          content: '29 апреля – 5 мая',
           tag: 'span',
         }
       ],
@@ -181,7 +181,7 @@ const courseDB1: ICourseDataDB = {
       title: 'Пятно',
       meta: [
         {
-          content: '25 марта —31 марта',
+          content: '6 мая — 12 мая',
           tag: 'span',
         }
       ],
@@ -208,7 +208,7 @@ const courseDB1: ICourseDataDB = {
       title: 'Линия и пятно',
       meta: [
         {
-          content: '1 апреля — 7 апреля',
+          content: '13 мая — 19 мая',
           tag: 'span',
         }
       ],
