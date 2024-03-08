@@ -423,7 +423,7 @@ const courseDB2: ICourseDataDB = {
   discontDeadline: '2024.04.10 21:00:00 GMT',
   creditWas: 5000,
   creditPrice: 3500,
-  telegramLink: 'https://t.me/+84BAabO9pZE5YTFi',
+  telegramLink: 'https://t.me/+Pi3lxGTKYdhkZmYy',
   about: [
     {
       tag: 'p',
