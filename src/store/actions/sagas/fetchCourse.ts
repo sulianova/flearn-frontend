@@ -557,8 +557,8 @@ const courseDB2: ICourseDataDB = {
       imageAlt: 'SofiUlianova4',
     },
     {
-      imageId: 'SofiUlianova8.jpg',
-      imageAlt: 'SofiUlianova8',
+      imageId: 'SofiUlianova7.jpg',
+      imageAlt: 'SofiUlianova7',
     },
     {
       imageId: 'SofiUlianova10.jpg',
