@@ -24,13 +24,13 @@ export default function Card({ course }: Readonly<IProps>) {
       </div>
       <div className={classes.content}>
         <Link
-          className={classes.title + ' s-text-56'}
+          className={classes.title + ' s-text-36'}
           to={URLSections.Course.to({ courseId: course.id })}
         >
           {course.title}
         </Link>
         <div className={classes.info}>
-          <div className={classes.infoDate + ' s-text-24'}>
+          <div className={classes.infoDate + ' s-text-21'}>
             {i18n.t('catalogue.card.info', {
               startDate: formatDate(course.startDate, { timeZone: 'Europe/Moscow' }),
               endDate: formatDate(course.endDate, { timeZone: 'Europe/Moscow' }),

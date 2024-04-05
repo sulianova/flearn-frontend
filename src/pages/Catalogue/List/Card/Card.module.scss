@@ -17,13 +17,14 @@
 
   background-color: $beige;
   border-radius: set-calc(20);
-
+  
+  box-shadow: 0 set-calc(4) set-calc(8) rgb(0 0 0 / 10%);
   transition: opacity 0.35s ease;
 
-  aspect-ratio: 1.4 / 1;
+  aspect-ratio: 1.1 / 1;
 
   @include set-media(md) {
-    margin-bottom: set-calc(8);
+    margin-bottom: set-calc(16);
   }
 
   img {
@@ -33,7 +34,7 @@
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
   }
 
   &:hover {
@@ -60,7 +61,7 @@ padding-right: set-calc(24);
   margin-bottom: set-calc(16);
 
   @include set-media(md) {
-    margin-bottom: set-calc(8);
+    margin-bottom: set-calc(16);
   }
 
   &:hover {
@@ -70,19 +71,28 @@ padding-right: set-calc(24);
 
 .info {
   margin-bottom: set-calc(16);
+
+  @include set-media(md) {
+    margin-bottom: set-calc(8);
+  }
 }
 
 
 .description {
-  margin-bottom: set-calc(24);
+  margin-bottom: set-calc(48);
   padding-right: set-calc(48);
   overflow-y: hidden;
+
+  @include set-media(md) {
+    margin-bottom: set-calc(24);
+  }
 }
 
 .tags {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
+  margin-bottom: set-calc(24);
 }
 
 .tag {
@@ -90,14 +100,14 @@ padding-right: set-calc(24);
   background-position: 0 90%;
   background-repeat: repeat-x;
   background-size: set-calc(1) set-calc(1);
-  color: $grey;
+  color: $grey-inactive;
   width: fit-content;
 
   margin-right: set-calc(6);
   cursor: pointer;
 
   &:hover {
-    background-image: linear-gradient(to bottom, $black 0, $black 100%);
+    background-image: linear-gradient(to bottom, $grey-inactive 0, $grey-inactive 100%);
     background-position: 0 90%;
     background-repeat: repeat-x;
     background-size: set-calc(1) set-calc(1);

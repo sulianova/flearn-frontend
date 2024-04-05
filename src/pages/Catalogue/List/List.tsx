@@ -15,7 +15,7 @@ export default function List() {
         if (!o || o instanceof Error || cancelled) {
           return;
         }
-        setCourses(o.courses);
+        setCourses(o.courses.filter(course => !['illustration', 'how-to-draw-free'].includes(course.id)));
       });
     return () => {
       s.unsubscribe();

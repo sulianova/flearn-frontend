@@ -26,12 +26,12 @@
   @include set-media(md) {
     display: flex;
     flex-direction: column;
-    padding-bottom: set-calc(40);
+    padding-bottom: set-calc(24);
   }
 }
 
 .description {
   position: relative;
 
-  grid-column: span 3;
+  grid-column: span 5;
 }
