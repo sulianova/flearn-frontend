@@ -12,7 +12,7 @@
   position: relative;
 
   width: 100%;
-  margin-bottom: set-calc(16);
+  margin-bottom: set-calc(32);
   overflow: hidden;
 
   background-color: $beige;
@@ -21,7 +21,7 @@
   box-shadow: 0 set-calc(4) set-calc(8) rgb(0 0 0 / 10%);
   transition: opacity 0.35s ease;
 
-  aspect-ratio: 1.1 / 1;
+  aspect-ratio: 1.3 / 1;
 
   @include set-media(md) {
     margin-bottom: set-calc(16);
@@ -60,8 +60,11 @@ padding-right: set-calc(24);
   font-family: $font-family-serif;
   margin-bottom: set-calc(16);
 
+  @include s-text-36;
+
   @include set-media(md) {
     margin-bottom: set-calc(16);
+    @include s-text-56;
   }
 
   &:hover {
@@ -79,12 +82,54 @@ padding-right: set-calc(24);
 
 
 .description {
-  margin-bottom: set-calc(48);
+  margin-bottom: set-calc(8);
   padding-right: set-calc(48);
   overflow-y: hidden;
 
   @include set-media(md) {
-    margin-bottom: set-calc(24);
+    margin-bottom: set-calc(8);
+  }
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: set-calc(32);
+
+  @include set-media(md) {
+    flex-direction: row-reverse;
+    padding-bottom: set-calc(24);
+  }
+}
+
+.actionsBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: none;
+  background-color: transparent;
+  color: $black;
+
+  border: set-calc(2) solid $black-new;
+  border-radius: set-calc(20);
+  cursor: pointer;
+
+  transition: background-color $d-hover ease-in-out, color ease-in-out $d-hover;
+
+  width: max-content;
+  margin: 0 set-calc(4) set-calc(4) 0;
+  padding: set-calc(8) set-calc(40);
+
+  @include set-media(md) {
+    margin: 0 0 set-calc(4) 0;
+    flex: 1 1 max-content;
+    padding: set-calc(12) set-calc(80);
+  }
+
+  &:hover {
+    background-color: $black-new;
+    color: $white;
   }
 }
 
@@ -92,11 +137,12 @@ padding-right: set-calc(24);
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  margin-bottom: set-calc(24);
+  margin-bottom: set-calc(40);
   padding-right: set-calc(64);
 
   @include set-media(md) {
     padding-right: 0;
+    margin-bottom: set-calc(32);
   }
 }
 
@@ -105,7 +151,7 @@ padding-right: set-calc(24);
   background-position: 0 90%;
   background-repeat: repeat-x;
   background-size: set-calc(1) set-calc(1);
-  color: $grey-inactive;
+  color: $grey;
   width: fit-content;
 
   margin-right: set-calc(6);
