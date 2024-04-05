@@ -90,9 +90,14 @@ const courseDB1: ICourseDataDB = {
   homeworksNumber: 3,
   videosNumber: 3,
   feild: 'Иллюстрация',
+  tags: ['композиция', 'рисование по фото', 'наброски', 'персонаж'],
   introImageId: 'LineCat6.jpg',
   introDescription: 'Базовый курс по иллюстрации. За 3 недели научимся уверенно рисовать любые сюжеты. Узнаем, как управлять вниманием зрителя',
   introImageAlt: 'SpotCat27',
+  cardImage: {
+    imageId: 'SpotCat7.jpg',
+    imageAlt: 'SpotCat7',
+  },
   discontAmount: 20,
   discontDeadline: '2024.04.11 20:59:00 GMT',
   creditWas: 12000,
@@ -416,9 +421,14 @@ const courseDB2: ICourseDataDB = {
   homeworksNumber: 1,
   videosNumber: 3,
   feild: 'Иллюстрация',
+  tags: ['иллюстрация', 'рисование по воображению', 'серия'],
   introImageId: 'introImage.jpg',
   introDescription: 'Разберемся, из чего состоит авторский стиль и сделаем  серию графических работ для портфолио',
   introImageAlt: 'introImage',
+  cardImage: {
+    imageId: 'SofiUlianova4.jpg',
+    imageAlt: 'SofiUlianova4',
+  },
   discontAmount: 30,
   discontDeadline: '2024.04.10 21:00:00 GMT',
   creditWas: 5000,
@@ -549,24 +559,12 @@ const courseDB2: ICourseDataDB = {
       imageAlt: 'SofiUlianova2',
     },
     {
-      imageId: 'SofiUlianova3.jpg',
-      imageAlt: 'SofiUlianova3',
+      imageId: 'SofiUlianova6.jpg',
+      imageAlt: 'SofiUlianova6',
     },
     {
       imageId: 'SofiUlianova4.jpg',
       imageAlt: 'SofiUlianova4',
-    },
-    {
-      imageId: 'SofiUlianova7.jpg',
-      imageAlt: 'SofiUlianova7',
-    },
-    {
-      imageId: 'SofiUlianova10.jpg',
-      imageAlt: 'SofiUlianova10',
-    },
-    {
-      imageId: 'SofiUlianova6.jpg',
-      imageAlt: 'SofiUlianova6',
     },
   ],
   studentResults: {

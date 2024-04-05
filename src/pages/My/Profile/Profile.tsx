@@ -31,11 +31,10 @@ function Profile(props: IProps) {
 
   const userId = props.user.id;
   useEffect(() => {
-    let subscription: Subscription;
-    courseService
+    let cancelled = false;
+    const s = courseService
       .getCourseBS({ filter: { userId }})
-      .then(bs => {
-        subscription = bs.subscribe(action => {
+      .subscribe(action => {
           if (action && !(action instanceof Error)) {
             setCourses(action.courses);
             setCourseState({ type: 'idle' });
@@ -43,8 +42,11 @@ function Profile(props: IProps) {
             setCourses(undefined);
             setCourseState({ type: 'error', error: action, errorType: action.ErrorType });
           }
-        })
       });
+    return () => {
+      s.unsubscribe();
+      cancelled = true;
+    };
   }, [userId]);
 
   const fallback = useFallback({ courseState });
@@ -101,8 +103,8 @@ function renderCourses(courses: ICourseData[]) {
         </div>
         <div className={classesCourseCard.cover}>
           <Img
-            src={course.introImageSrc}
-            alt={course.introImageAlt}
+            src={course.cardImage?.imageSrc ?? ''}
+            alt={course.cardImage?.imageAlt ?? ''}
           />
         </div>
       </div>

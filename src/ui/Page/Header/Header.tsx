@@ -46,17 +46,18 @@ function Header(props: IConnectedProps) {
       <div className={classes.desc}>
         <div className={classes.logo}>
           <div className={classes.logoWrapper}>
-            <Link to={URLSections.FreeZone.index} className='s-text-24'>{i18n.t('logo')}</Link>
+            {/* <Link to={URLSections.FreeZone.index} className='s-text-24'>{i18n.t('logo')}</Link> */}
+            <Link to={URLSections.Catalogue.index} className='s-text-24'>{i18n.t('logo')}</Link>
           </div>
         </div>
         <div className={classes.nav}>
           {/* <div className={classes.navItem}>
             <Link to={URLSections.My.Profile.index} className='inline-link'>{t('my')}</Link>
-          </div>
-          <div className={classes.navItem}>
+          </div> */}
+          {/* <div className={classes.navItem}>
             <Link to={URLSections.FreeZone.index} className='inline-link'>{t('freeZone')}</Link>
-          </div>
-          <div className={classes.navItem}>
+          </div> */}
+          {/* <div className={classes.navItem}>
             <Link to={URLSections.Catalogue.index} className='inline-link'>{t('catalogue')}</Link>
           </div> */}
         </div>
@@ -84,7 +85,7 @@ function Header(props: IConnectedProps) {
           <div className={classes.mobItem}>
             <Link
               className='inline-link s-text-36'
-              to={URLSections.Course.to({ courseId: 'how-to-draw' })}
+              to={URLSections.Catalogue.index}
               onClick={() => setIsOpened(false)}
             >
               <span className='inline-text'>{t('catalogue')}</span>

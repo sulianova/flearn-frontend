@@ -7,6 +7,7 @@ export function courseDataFR2DB(course: ICourseData): ICourseDataDB {
 
   return {
     ...courseRest,
+    cardImage: cardImageFR2DB(course.cardImage),
     startDate: dateFR2DB(course.startDate),
     endDate: dateFR2DB(course.endDate),
     accessDeadline: dateFR2DB(course.accessDeadline),
@@ -95,4 +96,13 @@ function courseStudyProcessItemFR2DB(studyProcessItem: NonNullable<ICourseData['
   }
 
   return studyProcessItem;
+}
+
+function cardImageFR2DB(cardImage: ICourseData['cardImage']): ICourseDataDB['cardImage'] {
+  if (cardImage && 'imageSrc' in cardImage) {
+    const { imageSrc, ...restStudyProcessItem } = cardImage;
+    return restStudyProcessItem;
+  }
+
+  return cardImage;
 }

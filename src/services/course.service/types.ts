@@ -13,11 +13,13 @@ export interface ICourseData {
   homeworksNumber: number
   videosNumber: number
   feild: 'Иллюстрация' | 'Adobe'
+  tags?: string[]
   title: string
   introImageId: string
   introDescription: string
   introImageSrc: string
   introImageAlt: string
+  cardImage?: TImageData
   discontAmount: number
   discontDeadline: Date | null
   creditWas: number
@@ -52,10 +54,12 @@ export interface ICourseDataDB {
   homeworksNumber: number
   videosNumber: number
   feild: 'Иллюстрация' | 'Adobe'
+  tags?: string[]
   title: string
   introImageId: string
   introDescription: string
   introImageAlt: string
+  cardImage?: TImageDataDB
   discontAmount: number
   discontDeadline: string | null
   creditWas: number
