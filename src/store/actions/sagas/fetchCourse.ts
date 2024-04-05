@@ -421,7 +421,7 @@ const courseDB2: ICourseDataDB = {
   homeworksNumber: 1,
   videosNumber: 3,
   feild: 'Иллюстрация',
-  tags: ['иллюстрация', 'присование по воображению', 'серия'],
+  tags: ['иллюстрация', 'рисование по воображению', 'серия'],
   introImageId: 'introImage.jpg',
   introDescription: 'Разберемся, из чего состоит авторский стиль и сделаем  серию графических работ для портфолио',
   introImageAlt: 'introImage',
