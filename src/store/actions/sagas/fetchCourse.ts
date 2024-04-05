@@ -559,24 +559,12 @@ const courseDB2: ICourseDataDB = {
       imageAlt: 'SofiUlianova2',
     },
     {
-      imageId: 'SofiUlianova3.jpg',
-      imageAlt: 'SofiUlianova3',
+      imageId: 'SofiUlianova6.jpg',
+      imageAlt: 'SofiUlianova6',
     },
     {
       imageId: 'SofiUlianova4.jpg',
       imageAlt: 'SofiUlianova4',
-    },
-    {
-      imageId: 'SofiUlianova7.jpg',
-      imageAlt: 'SofiUlianova7',
-    },
-    {
-      imageId: 'SofiUlianova10.jpg',
-      imageAlt: 'SofiUlianova10',
-    },
-    {
-      imageId: 'SofiUlianova6.jpg',
-      imageAlt: 'SofiUlianova6',
     },
   ],
   studentResults: {

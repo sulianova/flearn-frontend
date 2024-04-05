@@ -17,7 +17,7 @@
 
   background-color: $beige;
   border-radius: set-calc(20);
-  
+
   box-shadow: 0 set-calc(4) set-calc(8) rgb(0 0 0 / 10%);
   transition: opacity 0.35s ease;
 
@@ -93,6 +93,11 @@ padding-right: set-calc(24);
   flex-wrap: wrap;
   align-items: flex-start;
   margin-bottom: set-calc(24);
+  padding-right: set-calc(64);
+
+  @include set-media(md) {
+    padding-right: 0;
+  }
 }
 
 .tag {

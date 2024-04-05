@@ -103,8 +103,8 @@ function renderCourses(courses: ICourseData[]) {
         </div>
         <div className={classesCourseCard.cover}>
           <Img
-            src={course.introImageSrc}
-            alt={course.introImageAlt}
+            src={course.cardImage?.imageSrc ?? ''}
+            alt={course.cardImage?.imageAlt ?? ''}
           />
         </div>
       </div>
