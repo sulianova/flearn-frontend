@@ -1,0 +1,120 @@
+@import 'styles/index';
+
+.__ {
+  grid-column: span 4;
+  margin-bottom: set-calc(24);
+
+  will-change: transform;
+}
+
+
+.preview {
+  position: relative;
+
+  width: 100%;
+  margin-bottom: set-calc(16);
+  overflow: hidden;
+
+  background-color: $beige;
+  border-radius: set-calc(20);
+
+  transition: opacity 0.35s ease;
+
+  aspect-ratio: 1.4 / 1;
+
+  @include set-media(md) {
+    margin-bottom: set-calc(8);
+  }
+
+  img {
+    position: absolute;
+    inset: 0;
+  
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &:hover {
+    transform: translateY(set-calc(-3));
+    }
+}
+
+.previewLink {
+  position: absolute;
+  inset: 0;
+
+  z-index: 1;
+}
+
+.content {
+display: flex;
+flex-direction: column;
+box-sizing: border-box;
+padding-right: set-calc(24);
+}
+
+.title {
+  font-family: $font-family-serif;
+  margin-bottom: set-calc(16);
+
+  @include set-media(md) {
+    margin-bottom: set-calc(8);
+  }
+
+  &:hover {
+    color: $orange;
+  }
+}
+
+.info {
+  margin-bottom: set-calc(16);
+}
+
+
+.description {
+  margin-bottom: set-calc(24);
+  padding-right: set-calc(48);
+  overflow-y: hidden;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.tag {
+  background-image: linear-gradient(to bottom, $grey 0, $grey 100%);
+  background-position: 0 90%;
+  background-repeat: repeat-x;
+  background-size: set-calc(1) set-calc(1);
+  color: $grey;
+  width: fit-content;
+
+  margin-right: set-calc(6);
+  cursor: pointer;
+
+  &:hover {
+    background-image: linear-gradient(to bottom, $black 0, $black 100%);
+    background-position: 0 90%;
+    background-repeat: repeat-x;
+    background-size: set-calc(1) set-calc(1);
+
+    color: $grey-inactive;
+  }
+}
+
+.hashTag {
+  display: inline-block;
+  vertical-align: top;
+  line-height: set-calc(22);
+  margin-right: set-calc(6);
+
+  color: $grey-inactive;
+
+  @include set-media(md) {
+    line-height: set-calc(19);
+  }
+}

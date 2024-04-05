@@ -1,0 +1,37 @@
+@import 'styles/index';
+
+.headerWrapper {
+  position: relative;
+  display: block;
+
+  padding-bottom: set-calc(24);
+
+  @include set-media(md) {
+    padding-bottom: set-calc(16);
+  }
+}
+
+.headerTitle {
+  @include s-text-88;
+}
+
+.descriptionWrapper {
+  position: relative;
+
+  display: grid;
+  grid-column-gap: set-calc(1.5 * $s-gap);
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  padding-bottom: set-calc(40);
+
+  @include set-media(md) {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: set-calc(40);
+  }
+}
+
+.description {
+  position: relative;
+
+  grid-column: span 3;
+}

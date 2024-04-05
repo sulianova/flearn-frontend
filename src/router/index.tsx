@@ -4,7 +4,7 @@ import { IRootState, IUserState, URLSections } from 'types';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 // import FreeZone from 'pages/FreeZone';
-import Catalogue from 'pages/Catalogue';
+import Catalogue from 'pages/Catalogue/Catalogue';
 import Course from 'pages/Course/Landing/Course';
 import Lesson from 'pages/Course/Lesson/Lesson';
 import Lessons from 'pages/Course/Lessons/Lessons';

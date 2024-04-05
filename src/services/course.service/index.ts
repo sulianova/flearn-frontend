@@ -8,8 +8,8 @@ import { ECommonErrorTypes } from 'types';
 export { type ICourseData, type ICourseDataDB, type TCourseState } from './types';
 
 class CourseService {
-  public async getCourseBS(props: {
-    filter: { id?: string, ids?: string[], userId?: string }
+  public getCourseBS(props?: {
+    filter?: { id?: string, ids?: string[], userId?: string }
   }) {
     try {
       const mainSubject = new BehaviorSubject<TActionBS>(null);
@@ -68,14 +68,14 @@ class CourseService {
     return errorType;
   }
 
-  private async _fetch(props: {
-    filter: { id?: string, ids?: string[], userId?: string },
+  private async _fetch(props?: {
+    filter?: { id?: string, ids?: string[], userId?: string },
   }) {
     try {
-      if (props.filter.id) {
+      if (props?.filter?.id) {
         return [await dataService.course.get(props.filter.id)];
       }
-      return await dataService.course.getAll({ ids: props.filter.ids, userId: props.filter.userId });
+      return await dataService.course.getAll({ ids: props?.filter?.ids, userId: props?.filter?.userId });
     } catch (error) {
       // tslint:disable-next-line
       console.log(`Failed to fetch courses`, { props, error });
