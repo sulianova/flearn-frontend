@@ -147,23 +147,23 @@ padding-right: set-calc(24);
 }
 
 .tag {
-  background-image: linear-gradient(to bottom, $grey 0, $grey 100%);
+  background-image: linear-gradient(to bottom, $grey-inactive 0, $grey-inactive 100%);
   background-position: 0 90%;
   background-repeat: repeat-x;
   background-size: set-calc(1) set-calc(1);
-  color: $grey;
+  color: $grey-inactive;
   width: fit-content;
 
   margin-right: set-calc(6);
   cursor: pointer;
 
   &:hover {
-    background-image: linear-gradient(to bottom, $grey-inactive 0, $grey-inactive 100%);
+    background-image: linear-gradient(to bottom, $grey 0, $grey 100%);
     background-position: 0 90%;
     background-repeat: repeat-x;
     background-size: set-calc(1) set-calc(1);
 
-    color: $grey-inactive;
+    color: $grey;
   }
 }
 
