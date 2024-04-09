@@ -3,7 +3,7 @@
 ._ {
   display: flex;
   flex-direction: column;
-  height: set-calc(-100, true, 100vh);
+  // height: set-calc(-100, true, 100vh);
   overflow: visible;
 
   @include set-media(md) {
@@ -11,7 +11,6 @@
     left: set-calc(-$padding-x-mob-page);
 
     width: set-calc(2 * $padding-x-mob-page, true, 100%);
-    height: set-calc(-50, true, 100vh);
   }
 }
 
@@ -51,7 +50,7 @@
 
   @include set-media(md) {
     margin-bottom: cset-calc(-8);
-    padding-bottom: set-calc(32);
+    padding-bottom: set-calc(16);
   }
 }
 
@@ -76,7 +75,7 @@
   letter-spacing: -.01rem;
 
   @include set-media(md) {
-    padding-bottom: set-calc(24);
+    padding-bottom: set-calc(8);
     @include set-typography(48, 52, 500);
   }
 }
@@ -123,6 +122,7 @@
   padding: set-calc(16) set-calc(80);
 
   @include set-media(md) {
+    display: none;
     margin: 0 0 set-calc(4) 0;
     flex: 1 1 max-content;
   }

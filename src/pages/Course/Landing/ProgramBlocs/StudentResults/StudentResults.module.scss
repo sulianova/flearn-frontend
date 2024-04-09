@@ -5,6 +5,15 @@
   flex-direction: column;
 }
 
+.title {
+  padding-bottom: set-calc(60);
+  font-family: $font-family-serif;
+
+  @include set-media(md) {
+    padding-bottom: set-calc(32);
+  }
+}
+
 .list {
   display: flex;
   flex-direction: column;

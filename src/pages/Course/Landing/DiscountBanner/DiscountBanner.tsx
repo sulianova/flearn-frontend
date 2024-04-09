@@ -1,7 +1,7 @@
 import { memo } from 'react';
 
 import Sticker from 'assets/images/Svg/Sticker';
-import { formatI18nT } from 'shared';
+import { formatI18nT, i18n } from 'shared';
 import { formatDate } from 'utils';
 
 import useCountDown from './useCountDown';
@@ -17,54 +17,35 @@ interface IProps {
 }
 
 function DiscountBanner(props: IProps) {
-  const { discontAmount, discontDeadline } = props;
+  const { discontDeadline } = props;
   const { days, hours, minutes, seconds } = useCountDown({ deadline: discontDeadline });
 
   return (
     <div className={classes._}>
-      <div className={classes.inner}>
-        <a className={classes.content} /*href='#decision-form'*/>
-          <div className={classes.discountWrapper}>
-            <div className={classes.stickerWrapper}>
-              <div className={classes.sticker}>
-                <div className={classes.stickerPercentage}>
-                  {discontAmount}
-                  <span className='s-text-36'>%</span>
-                </div>
-                <div className={classes.stickerText}>{t('discount')}</div>
-                <div className={classes.svgWrapper}>
-                  <Sticker/>
-                </div>
-              </div>
-            </div>
-            <div className={classes.descriptionWrapper + ' s-text-24'}>
-              {t('description', { deadline: formatDate(discontDeadline, { timeZone: 'Europe/Moscow', wTime: true }) })}
-            </div>
+        <div className={classes.discountWrapper} /*href='#decision-form'*/>
+          <h2 className={classes.title + ' s-text-20'}>Запишитесь заранее и сэкономьте</h2>
+          <div className={classes.descriptionWrapper + ' s-text-20'}>
+            {t('description1')}
+            <span className={classes.count + ' s-text-20'}>
+              {`${props.discontAmount}%`}
+            </span>
+            {t('description2')}
+            <span className={classes.count + ' s-text-20'}>
+              {t('description3', {
+                day: i18n.t('day.p', { count: days }),
+                days,
+                hours: numeric(hours),
+                minutes: numeric(minutes),
+                seconds: numeric(seconds),
+              })}
+            </span>
+            {/* {t('description', { discountAmount: props.discontAmount }) }
+            <span className={classes.count + ' s-text-20'}>{` ${numeric(days)} день `}</span>
+            <span className={classes.count + ' s-text-20'}>{`${numeric(hours)}:`}</span>
+            <span className={classes.count + ' s-text-20'}>{`${numeric(minutes)}:`}</span>
+            <span className={classes.count + ' s-text-20'}>{numeric(seconds)}</span> */}
           </div>
-          <div className={classes.timerWrapper}>
-            <div className={classes.timer}>
-              <div className={classes.realtimeCountDown}>
-                <div className={classes.realtimeCountDownSection}>
-                  <span className='s-text-88'>{numeric(days)}</span>
-                  <small className='s-text-24'>{t('day')}</small>
-                </div>
-                <div className={classes.realtimeCountDownSection}>
-                  <span className='s-text-88'>{numeric(hours)}</span>
-                  <small className='s-text-24'>{t('hour')}</small>
-                </div>
-                <div className={classes.realtimeCountDownSection}>
-                  <span className='s-text-88'>{numeric(minutes)}</span>
-                  <small className='s-text-24'>{t('minute')}</small>
-                </div>
-                <div className={classes.realtimeCountDownSection}>
-                  <span className='s-text-88'>{numeric(seconds)}</span>
-                  <small className='s-text-24'>{t('second')}</small>
-                </div>
-              </div>
-            </div>
-          </div>
-        </a>
-      </div>
+        </div>
     </div>
   );
 }

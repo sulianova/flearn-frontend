@@ -21,7 +21,7 @@ interface IProps {
 
 export default function ProgramBlocks(props: IProps) {
   const blocks: JSX.Element[] = [
-    <About key='about' {...props}/>,
+    props.data.about && <About key='about' {...props}/>,
     <Description key='description' {...props}/>,
     props.data.prizes && <Prizes key='prizes' {...props}/>,
     <Modules key='modules' modules={props.data.modules} {...props}/>,

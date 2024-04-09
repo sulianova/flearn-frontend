@@ -7,10 +7,17 @@
 
 .item {
   display: block;
-  padding-top: set-calc(100);
   position: relative;
+  padding-top: set-calc(100);
 
   @include set-media(md) {
     padding-top: set-calc(80);
+  }
+}
+
+.item:first-child {
+
+  @include set-media(md) {
+    padding-top: 0;
   }
 }

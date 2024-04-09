@@ -105,6 +105,9 @@
               "free=true": "Мы получили вашу заявку! На почту {{email}} отправили письмо со ссылкой на телеграм-чат. Чтобы начать обучение, авторизуйтесь под почтой {{email}}"
           }
       },
+      "StudentsResults": {
+        "title": "Что получится в результате"
+      },
       "description": {
         "title": {
           "course": "Курс подойдeт тем, кто",
@@ -118,12 +121,9 @@
         }
       },
       "discountBanner": {
-        "discount": "скидка",
-        "description": "Успейте записаться\nсо скидкой\nдо {{deadline}} по Мск",
-        "day": "д",
-        "hour": "ч",
-        "minute": "м",
-        "second": "с"
+        "description1": "Скидка ",
+        "description2": " действует ",
+        "description3": "{{days}} {{day}} {{hours}}:{{minutes}}:{{seconds}}"
       },
       "explain": {
         "headerTitle": "Любой может научиться иллюстрации",

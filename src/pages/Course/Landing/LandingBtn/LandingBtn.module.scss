@@ -1,0 +1,44 @@
+@import 'styles/index';
+
+.__ {
+
+  display: none;
+
+  @include set-media(md) {
+    display: block;
+    position: fixed;
+    z-index: 600;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: set-calc(12) set-calc(15);
+    border-top: set-calc(1) solid $border;
+    text-align: center;
+    background-color: $white;
+    transition: .3s ease;
+    will-change: transform;
+  }
+
+
+}
+
+.btnLink {
+  width: 100%;
+  overflow: hidden;
+
+  padding: set-calc(12) set-calc(48);
+  border-radius: set-calc(10);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: none;
+  background-color: $green;
+  color: $white;
+
+  border: none;
+  border-radius: set-calc(20);
+  cursor: pointer;
+
+}

@@ -10,6 +10,7 @@ import Page, { EFooter } from 'ui/Page/Page';
 import DiscountBanner from './DiscountBanner/DiscountBanner';
 import ProgramBlocks from './ProgramBlocs/ProgramBlocks';
 import ProgramIntro from './ProgramIntro/ProgramIntro';
+import LandingBtn from './LandingBtn/LandingBtn';
 
 import type { IRootState } from 'types';
 import { useEffect } from 'react';
@@ -56,6 +57,7 @@ function Course({ data }: IConnectedProps) {
 
   return (
     <Page header footer={EFooter.Big} wrapper='Course'>
+      <LandingBtn/>
       <ProgramIntro data={data}/>
       {data.discontDeadline && (
         <DiscountBanner

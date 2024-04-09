@@ -9,7 +9,7 @@ import Text from 'ui/Text/Text';
 
 export default StudentResults;
 
-const t = formatI18nT('courseLanding.modules');
+const t = formatI18nT('courseLanding.StudentsResults');
 const cx = classNames.bind(classes);
 
 interface IProps {
@@ -24,9 +24,9 @@ function StudentResults(props: IProps) {
 
   return (
     <div className={classes.wrapper}>
+      <h2 className={cx({ title: true }) + ' s-text-56'} >{t(`title`)}</h2>
       <div className={classes.listItem}>
         <div className={cx({ listItemCard: true })}>
-          <div className={classes.listItemTitle + ' s-text-36'}>Что получится в результате</div>
           <div className={classes.listItemContent + ' s-text-24'}><Text text={studentResults.content}/></div>
         </div>
         <div className={cx({ listItemCard: true })}>
