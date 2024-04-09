@@ -95,8 +95,8 @@ const courseDB1: ICourseDataDB = {
   introDescription: 'Базовый курс по иллюстрации. За 3 недели научимся уверенно рисовать любые сюжеты. Узнаем, как управлять вниманием зрителя',
   introImageAlt: 'SpotCat27',
   cardImage: {
-    imageId: 'SpotCat7.jpg',
-    imageAlt: 'SpotCat7',
+    imageId: 'imageCard.jpg',
+    imageAlt: 'imageCard',
   },
   discontAmount: 20,
   discontDeadline: '2024.04.11 20:59:00 GMT',

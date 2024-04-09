@@ -151,7 +151,6 @@ padding-right: set-calc(24);
   background-position: 0 90%;
   background-repeat: repeat-x;
   background-size: set-calc(1) set-calc(1);
-  color: $grey-inactive;
   width: fit-content;
 
   margin-right: set-calc(6);
@@ -172,8 +171,6 @@ padding-right: set-calc(24);
   vertical-align: top;
   line-height: set-calc(22);
   margin-right: set-calc(6);
-
-  color: $grey-inactive;
 
   @include set-media(md) {
     line-height: set-calc(19);
