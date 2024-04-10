@@ -149,9 +149,9 @@ const courseDB1: ICourseDataDB = {
           content: 'Задание недели: 30 котов линией'
         },
       ],
-      imageId: { desktop: 'Block1.jpg', mobile: 'Block1-mobile.jpg' },
-      imageAlt: 'Block1',
-      imageDesc: 'Рисунки преподавателя',
+      // imageId: { desktop: 'Block1.jpg', mobile: 'Block1-mobile.jpg' },
+      // imageAlt: 'Block1',
+      // imageDesc: 'Рисунки преподавателя',
       title: 'Линия',
       meta: [
         {
@@ -180,9 +180,9 @@ const courseDB1: ICourseDataDB = {
           content: 'Задание недели: 30 котов пятном'
         },
       ],
-      imageId: { desktop: 'Block2.jpg', mobile: 'Block2-mobile.jpg'},
-      imageAlt: 'Block2',
-      imageDesc: 'Рисунки преподавателя',
+      // imageId: { desktop: 'Block2.jpg', mobile: 'Block2-mobile.jpg'},
+      // imageAlt: 'Block2',
+      // imageDesc: 'Рисунки преподавателя',
       title: 'Пятно',
       meta: [
         {
@@ -207,9 +207,9 @@ const courseDB1: ICourseDataDB = {
           content: 'Задание недели: 30 котов линией и пятном'
         },
       ],
-      imageId: { desktop: 'Block3.jpg', mobile: 'Block3-mobile.jpg' },
-      imageAlt: 'Block3',
-      imageDesc: 'Рисунки преподавателя',
+      // imageId: { desktop: 'Block3.jpg', mobile: 'Block3-mobile.jpg' },
+      // imageAlt: 'Block3',
+      // imageDesc: 'Рисунки преподавателя',
       title: 'Линия и пятно',
       meta: [
         {
