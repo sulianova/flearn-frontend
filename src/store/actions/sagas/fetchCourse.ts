@@ -426,8 +426,8 @@ const courseDB2: ICourseDataDB = {
   introDescription: 'Разберемся, из чего состоит авторский стиль и сделаем  серию графических работ для портфолио',
   introImageAlt: 'introImage',
   cardImage: {
-    imageId: 'SofiUlianova4.jpg',
-    imageAlt: 'SofiUlianova4',
+    imageId: 'imageCard.jpg',
+    imageAlt: 'imageCard',
   },
   discontAmount: 30,
   discontDeadline: '2024.04.10 21:00:00 GMT',
