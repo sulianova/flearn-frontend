@@ -23,6 +23,10 @@ export default function Card({ course }: Readonly<IProps>) {
         <Img src={course.cardImage?.imageSrc ?? ''} alt={course.cardImage?.imageAlt ?? ''}/>
       </div>
       <div className={classes.content}>
+      <div className={classes.tags}>
+          <span className={classes.hashTag}>#</span>
+          {course.tags?.map(tag => (<span key={tag} className={classes.tag + ' s-text-14'}>{tag}</span>))}
+        </div>
         <Link
           className={classes.title}
           to={URLSections.Course.to({ courseId: course.id })}
@@ -39,10 +43,6 @@ export default function Card({ course }: Readonly<IProps>) {
           </div>
         </div>
         <div className={classes.description + ' s-text-18'}>{course.introDescription}</div>
-        <div className={classes.tags}>
-          <span className={classes.hashTag}>#</span>
-          {course.tags?.map(tag => (<span key={tag} className={classes.tag + ' s-text-16'}>{tag}</span>))}
-        </div>
         <div className={classes.actions}>
             <Link
               className={classes.actionsBtn + ' s-text-20'}
