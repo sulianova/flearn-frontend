@@ -1,13 +1,10 @@
 @import 'styles/index';
 
 .wrapper {
-  @include is-grid-12;
-  grid-gap: set-calc($s-gap * 2);
   margin-top: set-calc(24);
 }
 
 .wrapperShowMore {
-  grid-column: span 12;
   margin: 0 0 set-calc(140);
   padding: set-calc(8) 0 0;
 

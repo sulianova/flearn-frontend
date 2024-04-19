@@ -15,13 +15,6 @@ interface IProps {
 export default function Card({ course }: Readonly<IProps>) {
   return (
     <div className={classes.__}>
-      <div className={classes.preview}>
-        <Link
-          className={classes.previewLink}
-          to={URLSections.Course.to({ courseId: course.id })}
-        />
-        <Img src={course.cardImage?.imageSrc ?? ''} alt={course.cardImage?.imageAlt ?? ''}/>
-      </div>
       <div className={classes.content}>
       {/* <div className={classes.tags}>
           <span className={classes.hashTag}>#</span>
@@ -51,6 +44,13 @@ export default function Card({ course }: Readonly<IProps>) {
           {i18n.t('signUp')}
         </Link>
       </div>
+      </div>
+      <div className={classes.preview}>
+        <Link
+          className={classes.previewLink}
+          to={URLSections.Course.to({ courseId: course.id })}
+        />
+        <Img src={course.cardImage?.imageSrc ?? ''} alt={course.cardImage?.imageAlt ?? ''}/>
       </div>
     </div>
   );

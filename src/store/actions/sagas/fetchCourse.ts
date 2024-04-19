@@ -291,24 +291,8 @@ const courseDB1: ICourseDataDB = {
       imageAlt: 'activeSpot14',
     },
     {
-      imageId: 'activeSpot16.jpg',
-      imageAlt: 'activeSpot16',
-    },
-    {
-      imageId: 'activeSpot8.jpg',
-      imageAlt: 'activeSpot8',
-    },
-    {
       imageId: 'activeSpot9.jpg',
       imageAlt: 'activeSpot9',
-    },
-    {
-      imageId: 'LineCat28.jpg',
-      imageAlt: 'LineCat28',
-    },
-    {
-      imageId: 'activeSpot5.jpg',
-      imageAlt: 'activeSpot5',
     },
   ],
   faq: [
@@ -520,7 +504,7 @@ const courseDB2: ICourseDataDB = {
       title: 'Теория: из чего складывается стиль',
       meta: [
         {
-          content: '12, 13, 14 апреля в 20:00 по Мск',
+          content: '17, 18, 19 мая в 20:00 по Мск',
           tag: 'span',
         }
       ],
@@ -530,7 +514,7 @@ const courseDB2: ICourseDataDB = {
       title: 'Практика: серия графических работ из 3-5 иллюстраций',
       meta: [
         {
-          content: '15 – 20 апреля',
+          content: '20 – 25 мая',
           tag: 'span',
         }
       ],
@@ -540,7 +524,7 @@ const courseDB2: ICourseDataDB = {
       title: 'Итоги и разбор работ участников',
       meta: [
         {
-          content: '21 апреля',
+          content: '26 мая',
           tag: 'span',
         }
       ],
