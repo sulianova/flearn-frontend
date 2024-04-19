@@ -23,34 +23,34 @@ export default function Card({ course }: Readonly<IProps>) {
         <Img src={course.cardImage?.imageSrc ?? ''} alt={course.cardImage?.imageAlt ?? ''}/>
       </div>
       <div className={classes.content}>
-      <div className={classes.tags}>
+      {/* <div className={classes.tags}>
           <span className={classes.hashTag}>#</span>
           {course.tags?.map(tag => (<span key={tag} className={classes.tag + ' s-text-14'}>{tag}</span>))}
+      </div> */}
+      <div className={classes.info}>
+        <div className={classes.infoDate + ' s-text-18'}>
+          {i18n.t('catalogue.card.info', {
+          startDate: formatDate(course.startDate, { timeZone: 'Europe/Moscow' }),
+          endDate: formatDate(course.endDate, { timeZone: 'Europe/Moscow' }),
+          duration: i18n.t(`duration.${course.duration.unit}`, { count: course.duration.value }),
+          })}
         </div>
+      </div>
+      <Link
+        className={classes.title}
+        to={URLSections.Course.to({ courseId: course.id })}
+      >
+        {course.title}
+      </Link>
+      <div className={classes.description + ' s-text-24'}>{course.introDescription}</div>
+      <div className={classes.actions}>
         <Link
-          className={classes.title}
+          className={classes.actionsBtn + ' s-text-24'}
           to={URLSections.Course.to({ courseId: course.id })}
         >
-          {course.title}
+          {i18n.t('signUp')}
         </Link>
-        <div className={classes.info}>
-          <div className={classes.infoDate + ' s-text-20'}>
-              {i18n.t('catalogue.card.info', {
-              startDate: formatDate(course.startDate, { timeZone: 'Europe/Moscow' }),
-              endDate: formatDate(course.endDate, { timeZone: 'Europe/Moscow' }),
-              duration: i18n.t(`duration.${course.duration.unit}`, { count: course.duration.value }),
-            })}
-          </div>
-        </div>
-        <div className={classes.description + ' s-text-18'}>{course.introDescription}</div>
-        <div className={classes.actions}>
-            <Link
-              className={classes.actionsBtn + ' s-text-20'}
-              to={URLSections.Course.to({ courseId: course.id })}
-            >
-              {i18n.t('signUp')}
-            </Link>
-          </div>
+      </div>
       </div>
     </div>
   );

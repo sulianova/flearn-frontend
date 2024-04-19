@@ -11,7 +11,7 @@ function Catalogue() {
   return (
     <Page header footer={EFooter.Big} wrapper='Catalogue'>
       <div className={classes.headerWrapper}>
-          <h1 className={classes.headerTitle }>{i18n.t('catalogue.title')}</h1>
+          <h1 className={classes.headerTitle + ' s-text-88'}>{i18n.t('catalogue.title')}</h1>
       </div>
       <div className={classes.descriptionWrapper }>
         <div className={classes.description + ' s-text-24'}>{i18n.t('catalogue.description')}</div>
