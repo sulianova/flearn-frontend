@@ -1,23 +1,22 @@
 import classNames from 'classnames/bind';
+
+import type { ICourseData } from 'services/course.service';
 import { formatI18nT } from 'shared';
-import { ICourseData } from 'services/course.service';
+
 import Animated from 'ui/Animated';
 import Video from 'ui/Video/Video';
+
 import classes from './Promo.module.scss';
 
 export default Promo;
 interface IProps {
-  data: ICourseData
+  promoVideo: NonNullable<ICourseData['promoVideo']>
 }
 
 const cx = classNames.bind(classes);
 const t = formatI18nT('courseLanding.promo');
 
-function Promo(props: IProps) {
-  if (!props.data.promoVideo) {
-    return null;
-  }
-
+function Promo({ promoVideo }: IProps) {
   return (
     <div className={classes.wrapper}>
       <div className={classes.cards}>
@@ -28,7 +27,7 @@ function Promo(props: IProps) {
         </div>
         <div className={cx({ card: true, videoCard: true })}>
           <div className={classes.videoCardContainer}>
-            <Video.IFrame src={props.data.promoVideo.src} title={props.data.promoVideo.title}/>
+            <Video.IFrame src={promoVideo.src} title={promoVideo.title}/>
           </div>
         </div>
       </div>

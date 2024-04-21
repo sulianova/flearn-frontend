@@ -1,29 +1,21 @@
 import classNames from 'classnames/bind';
 import { Fragment } from 'react';
-import { formatI18nT } from 'shared';
-import Animated from 'ui/Animated';
-import Image from 'ui/Img/Img';
-import Sticker from 'assets/images/Svg/Sticker';
-import classes from './About.module.scss';
 
-import { ICourseData } from 'services/course.service';
+import type { ICourseData } from 'services/course.service';
+
 import Text from 'ui/Text/Text';
+
+import classes from './About.module.scss';
 
 export default About;
 
-const t = formatI18nT('courseLanding.prizes');
 const cx = classNames.bind(classes);
 
 interface IProps {
-  data: ICourseData
+  about: NonNullable<ICourseData['about']>
 }
 
-function About(props: IProps) {
-  const { about } = props.data;
-  if (!about) {
-    return null;
-  }
-
+function About({ about }: IProps) {
   return (
     <Fragment>
       <div className={classes.wrapper}>

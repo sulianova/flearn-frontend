@@ -1,12 +1,12 @@
-import classes from './Feedbacks.module.scss';
-
 import classNames from 'classnames/bind';
+
+import type { ICourseData } from 'services/course.service';
 import { formatI18nT } from 'shared';
+
 import Animated from 'ui/Animated';
 
 import Item from './Item/Item';
-
-import type { ICourseData } from 'services/course.service';
+import classes from './Feedbacks.module.scss';
 
 export default Feedbacks;
 
@@ -14,10 +14,10 @@ const t = formatI18nT('courseLanding.feedback');
 const cx = classNames.bind(classes);
 
 interface IProps {
-  data: ICourseData
+  feedbacks: NonNullable<ICourseData['feedbacks']>
 }
 
-function Feedbacks(props: IProps) {
+function Feedbacks({ feedbacks }: IProps) {
   return (
     <div className={classes.wrapper}>
       <Animated.Scroll>
@@ -28,7 +28,7 @@ function Feedbacks(props: IProps) {
         )}
       </Animated.Scroll>
       <div className={classes.list}>
-        {props.data.feedbacks && props.data.feedbacks.map((d, index) =>
+        {feedbacks.map((d, index) =>
           <Item key={index} {...d}/>
         )}
       </div>

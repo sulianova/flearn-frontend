@@ -1,21 +1,28 @@
 import classNames from 'classnames/bind';
-import { formatI18nT, i18n } from 'shared';
+
 import { ICourseData } from 'services/course.service';
+import { formatI18nT } from 'shared';
+
 import Animated from 'ui/Animated';
-import classes from './Explain.module.scss';
 import Img from 'ui/Img/Img';
 import Video from 'ui/Video/Video';
+
+import classes from './Explain.module.scss';
 
 export default Explain;
 
 interface IProps {
-  data: ICourseData
+  explainMedia: NonNullable<ICourseData['explainMedia']>
 }
 
 const t = formatI18nT('courseLanding.explain');
 const cx = classNames.bind(classes);
 
-function Explain(props: IProps) {
+function Explain({ explainMedia }: IProps) {
+  if (!explainMedia) {
+    return null;
+  }
+
   return (
     <div className={classes.wrapper}>
       <div className={classes.header}>
@@ -30,15 +37,15 @@ function Explain(props: IProps) {
         </div>
         <div className={classes.videoCard}>
           <div className={classes.videoCardContainer}>
-            {props.data.explainMedia.type === 'image' ? (
+            {explainMedia.type === 'image' ? (
               <Img
-                src={props.data.explainMedia.imageSrc}
-                alt={props.data.explainMedia.imageAlt}
+                src={explainMedia.imageSrc}
+                alt={explainMedia.imageAlt}
               />
             ): (
               <Video.IFrame
-                src={props.data.explainMedia.src}
-                title={props.data.explainMedia.title}
+                src={explainMedia.src}
+                title={explainMedia.title}
               />
             )}
           </div>

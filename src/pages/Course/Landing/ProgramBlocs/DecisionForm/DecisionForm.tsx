@@ -2,17 +2,18 @@ import classNames from 'classnames/bind';
 import { useState } from 'react';
 import { connect } from 'react-redux';
 
+import type { ICourseData } from 'services/course.service';
+import type { IUserData } from 'services/user.service';
 import { formatI18nT, i18n } from 'shared';
 import { formatDate } from 'utils';
 
 import Link from 'ui/Link/Link';
+
 import Form from './Form/Form';
 import FreeForm from './FreeForm/FreeForm';
 import classes from './DecisionForm.module.scss';
 
-import { IRootState, URLSections } from 'types';
-import type { ICourseData } from 'services/course.service';
-import type { IUserData } from 'services/user.service';
+import { type IRootState, URLSections } from 'types';
 
 export default connect(mapStateToProps)(DecisionForm);
 
@@ -28,13 +29,13 @@ function mapStateToProps(state: IRootState): IConnectedProps {
   };
 }
 interface IProps extends IConnectedProps {
-  data: ICourseData
+  course: ICourseData
 }
 
 const t = formatI18nT('courseLanding.form');
 
-function DecisionForm(props: IProps) {
-  const { type, duration, creditWas, creditPrice, discontDeadline } = props.data;
+function DecisionForm({ course, user }: IProps) {
+  const { type, duration, creditWas, creditPrice, discontDeadline } = course;
   const [orderEmail, setOrderEmail] = useState<string | null>(null);
 
   const courseIsFree = Boolean(creditWas === 0 || (creditPrice === 0 && (discontDeadline === null || new Date() < discontDeadline)));
@@ -45,25 +46,25 @@ function DecisionForm(props: IProps) {
         <div className={classes.titleWrapper}>
           <div>
             <div className={classes.subtitle + ' s-text-24'}>{t(`title.${type}`)}</div>
-            <h1 className={classes.title}>{t('courseName', { courseName: props.data.title })}</h1>
+            <h1 className={classes.title}>{t('courseName', { courseName: course.title })}</h1>
           </div>
           <div className={classes.courseInfo}>
-            <div className={' s-text-18'}>{formatCourseDate(props.data.startDate, props.data.endDate)}</div>
+            <div className={' s-text-18'}>{formatCourseDate(course.startDate, course.endDate)}</div>
             <div className={' s-text-18'}>{i18n.t(`duration.${duration.unit}`, { count: duration.value })}</div>
           </div>
         </div>
         <div className={classes.credit}>
-          <s className={classes.creditWas + ' s-text-24'}>{formatCredit(props.data.creditWas)} &#8381;</s>
+          <s className={classes.creditWas + ' s-text-24'}>{formatCredit(course.creditWas)} &#8381;</s>
           <div className={classes.creditPrice + ' s-text-88'}>
-            {formatCredit(props.data.creditPrice)} &#8381;
-            <span className={classes.discount + ' s-text-18'}>{formatCourseDiscount(props.data.discontAmount)}</span>
+            {formatCredit(course.creditPrice)} &#8381;
+            <span className={classes.discount + ' s-text-18'}>{formatCourseDiscount(course.discontAmount)}</span>
           </div>
         </div>
       </div>
       <div className={classes.block}>
-        {courseIsFree && props.user ? (
+        {courseIsFree && user ? (
           <>
-            <FreeForm userData={props.user} courseData={props.data} />
+            <FreeForm userData={user} courseData={course} />
             <div className={classes.agreement}>
                 <Link
                   className='link'

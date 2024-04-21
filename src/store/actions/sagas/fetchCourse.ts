@@ -79,53 +79,49 @@ function getData(id: string) {
 const courseDB1: ICourseDataDB = {
   id: 'how-to-draw', // how-to-draw-free
   type: 'course',
-  title: 'Как рисовать',
-  startDate: '2024.04.28 21:00:00 GMT', // '2023.12.03 21:00:00 GMT'
-  endDate: '2024.05.19 20:59:00 GMT', // '2023.12.31 20:59:00 GMT'
-  accessDeadline: '2024.05.26 20:59:00 GMT', // '2023.12.31 20:59:00 GMT'
+  title: 'Инструменты иллюстратора',
+  startDate: '2024.05.26 21:00:00 GMT', // '2023.12.03 21:00:00 GMT'
+  endDate: '2024.06.23 20:59:00 GMT', // '2023.12.31 20:59:00 GMT'
+  accessDeadline: '2024.06.23 20:59:00 GMT', // '2023.12.31 20:59:00 GMT'
   duration: {
     unit: 'week',
-    value: 3,
+    value: 4,
   },
-  homeworksNumber: 3,
-  videosNumber: 3,
+  homeworksNumber: 4,
+  videosNumber: 4,
   feild: 'Иллюстрация',
   tags: ['композиция', 'рисование по фото', 'наброски', 'персонаж'],
-  introImageId: 'LineCat6.jpg',
-  introDescription: 'Базовый курс по иллюстрации. За 3 недели научимся уверенно рисовать любые сюжеты. Узнаем, как управлять вниманием зрителя',
+  introImageId: 'introImage.jpg',
+  introDescription: 'За 4 недели научимся уверенно рисовать любые сюжеты и сделаем серию стикеров для телеграмма',
   introImageAlt: 'SpotCat27',
   cardImage: {
     imageId: 'imageCard.jpg',
     imageAlt: 'imageCard',
   },
-  discontAmount: 20,
-  discontDeadline: '2024.04.11 20:59:00 GMT',
-  creditWas: 12000,
-  creditPrice: 9600,
+  discontAmount: 50,
+  discontDeadline: '2024.04.29 20:59:00 GMT',
+  creditWas: 16000,
+  creditPrice: 8000,
   telegramLink: 'https://t.me/+yIvKOdKrLYdlYzMy',
   description: [
+    {
+      answer: 'На курсе сделаем серию стикеров для телеграмма. Нарисуем 15-30 набросков, определимся с цветом, отрисуем стикеры в Photoshop или Procreate и загрузим стикер-пак в telegram. На каждом этапе —  индивидуальная обратная связь от преподавателя. ',
+      question: 'Хочет сделать проект для портфолио'
+    },
     {
       answer: 'На курсе будем учиться работать базовыми инструментами: линией и пятном. Разберемся, чем они отличаются, как их использовать. Сделаем упражнения, чтобы разрисоваться.',
       question: 'Не знает с чего начать'
     },
     {
-      answer: 'Необязательно точь в точь перерисовывать каждую деталь. Фотоаппарат справится с этим лучше, чем человек. На курсе будем учиться делать убедительные рисунки, не копируя фотографию.',
-      question: 'Уверен, что всё зря, если рисунок «не как на фотографии»'
-    },
-    {
       answer: 'В условном рисовании мы получаем больше свободы, больше возможностей для экспериментов с формой и контрформой. На курсе будем рисовать по упражнениям,  которые сами по себе мешают срисовывать, поощряют упрощение, стилизацию.',
       question: 'Хочет научиться упрощать, уходить от реализма'
     },
-    {
-      answer: 'На первых этапах в рисовании мешает не столько отсутствие навыков, сколько предубеждения и страхи: «а если не получится», «не знаю, как правильно». Поэтому в начале важна поддержка и рабочий настрой.',
-      question: 'Боится, что не получится'
-    },
     // {
-    //   answer: 'Преподаватель лично общается с учениками, обсуждает с ними рисунки. Помогает понять, что пошло не так. Подсказывает, что сделать, чтобы получилось.',
-    //   question: 'Не знает, как передать то, что хочется'
+    //   answer: 'Необязательно точь в точь перерисовывать каждую деталь. Фотоаппарат справится с этим лучше, чем человек. На курсе будем учиться делать убедительные рисунки, не копируя фотографию.',
+    //   question: 'Уверен, что всё зря, если рисунок «не как на фотографии»'
     // },
   ],
-  modulesDescription: 'Программа рассчитана на 3 недели, ей нужно посвящать 5-6 часов в неделю.',
+  modulesDescription: 'Программа рассчитана на 4 недели, ей нужно посвящать 5-6 часов в неделю.',
   modules: [
     {
       content: [
@@ -136,7 +132,7 @@ const courseDB1: ICourseDataDB = {
         { tag: 'span', content: '• Как рисовать похоже' },
         { tag: 'span', content: '• Линия: как попадать в пропорции' },
         { tag: 'span', content: '• Как выделить главное: контраст, нюанс' },
-        { tag: 'span', content: '• Линия: как выделить главное' },
+        { tag: 'span', content: '• Как выделить главное линией' },
         { tag: 'span', content: '• Как оцифровать линейный рисунок в Photoshop' },
       ],
       activities: [
@@ -144,30 +140,30 @@ const courseDB1: ICourseDataDB = {
           tag: 'p',
           content: 'Вебинар: скоростные рисунки линией за 5, 10, 15 минут'
         },
-        {
-          tag: 'p',
-          content: 'Задание недели: 30 котов линией'
-        },
+        // {
+        //   tag: 'p',
+        //   content: 'Итог недели: серия иллюстраций из 5-6 линейных рисунков'
+        // },
       ],
-      // imageId: { desktop: 'Block1.jpg', mobile: 'Block1-mobile.jpg' },
-      // imageAlt: 'Block1',
-      // imageDesc: 'Рисунки преподавателя',
+      imageId: { desktop: 'Block1.jpg', mobile: 'Block1-mobile.jpg' },
+      imageAlt: 'Block1',
+      imageDesc: 'Итог недели: серия иллюстраций из 5-6 линейных рисунков',
       title: 'Линия',
       meta: [
         {
-          content: '29 апреля – 5 мая',
+          content: '27 мая – 2 июня',
           tag: 'span',
         }
       ],
     },
     {
       content: [
-        { tag: 'p', content: 'Проанализируем результаты первой недели. Продолжим тренироваться рисовать похоже и выделять главное, но уже в пятновом рисунке.' },
+        { tag: 'p', content: 'Проанализируем результаты первой недели. Продолжим тренироваться выделять главное, но уже в пятновом рисунке.' },
         { tag: 'span', content: '• Про разницу между линией и пятном' },
         { tag: 'span', content: '• Пятно: контроль, светлота, прозрачность, фактура' },
         { tag: 'span', content: '• Пятно: как рисовать объемно' },
         { tag: 'span', content: '• Пятно: как попадать в пропорции' },
-        { tag: 'span', content: '• Пятно: как выделить главное' },
+        { tag: 'span', content: '• Как выделить главное пятном' },
         { tag: 'span', content: '• Как оцифровать пятновой рисунок в Photoshop' },
       ],
       activities: [
@@ -186,16 +182,17 @@ const courseDB1: ICourseDataDB = {
       title: 'Пятно',
       meta: [
         {
-          content: '6 мая — 12 мая',
+          content: '3 июня — 9 июня',
           tag: 'span',
         }
       ],
     },
     {
       content: [
-        { tag: 'p', content: 'Будем учиться совмещать линейное и пятновое рисование в одной работе.' },
-        { tag: 'span', content: '• Линия и пятно: как совмещать' },
-        { tag: 'span', content: '• Какие задачи могут решать линии и пятна' },
+        { tag: 'p', content: 'Познакомимся со свойствами цвета и подберем палитру для итогового проекта.' },
+        { tag: 'span', content: '• Свойства цвета: светлота, насыщенность, теплота, цвет, размер пятна' },
+        { tag: 'span', content: '• Как выделить главное цветом' },
+        { tag: 'span', content: '• Учимся цвету у иллюстраторов: анализ, конспект, коллаж' },
       ],
       activities: [
         {
@@ -210,10 +207,35 @@ const courseDB1: ICourseDataDB = {
       // imageId: { desktop: 'Block3.jpg', mobile: 'Block3-mobile.jpg' },
       // imageAlt: 'Block3',
       // imageDesc: 'Рисунки преподавателя',
-      title: 'Линия и пятно',
+      title: 'Цвет',
       meta: [
         {
-          content: '13 мая — 19 мая',
+          content: '10 июня — 16 июня',
+          tag: 'span',
+        }
+      ],
+    },
+    {
+      content: [
+        { tag: 'p', content: 'Соберем все наработки с курса и оформим их в стикеры для телеграмма' },
+      ],
+      activities: [
+        {
+          tag: 'p',
+          content: 'Вебинар: скоростные рисунки линией и пятном за 5, 10, 15 минут'
+        },
+        {
+          tag: 'p',
+          content: 'Задание недели: 30 котов линией и пятном'
+        },
+      ],
+      // imageId: { desktop: 'Block3.jpg', mobile: 'Block3-mobile.jpg' },
+      // imageAlt: 'Block3',
+      // imageDesc: 'Рисунки преподавателя',
+      title: 'Итоговый проект',
+      meta: [
+        {
+          content: '17 июня — 23 июня',
           tag: 'span',
         }
       ],
@@ -224,77 +246,74 @@ const courseDB1: ICourseDataDB = {
     imageId: 'SofiUlianova.jpg',
     imageAlt: 'SofiUlianova',
   },
-  promoVideo: {
-    src: 'https://www.youtube.com/embed/XQYJAnh6ABU?si=i86TtEisk_kuEUba?autoplay=1&loop=1',
-    title: 'Как рисовать – promo'
-  },
-  teachers: [
-
-  ],
+  // promoVideo: {
+  //   src: 'https://www.youtube.com/embed/XQYJAnh6ABU?si=i86TtEisk_kuEUba?autoplay=1&loop=1',
+  //   title: 'Как рисовать – promo'
+  // },
   teacherGallery: [
     {
       imageId: 'SofiUlianova2.jpg',
       imageAlt: 'SofiUlianova2',
     },
     {
+      imageId: 'SofiUlianova6.jpg',
+      imageAlt: 'SofiUlianova6',
+    },
+    {
       imageId: 'SofiUlianova3.jpg',
       imageAlt: 'SofiUlianova3',
     },
-    {
-      imageId: 'SofiUlianova5.jpg',
-      imageAlt: 'SofiUlianova5',
-    },
   ],
-  studentsWorks: [
-    {
-      imageId: 'SpotCat27.jpg',
-      imageAlt: 'SpotCat27',
-    },
-    {
-      imageId: 'SpotCat14.jpg',
-      imageAlt: 'SpotCat14',
-    },
-    {
-      imageId: 'activeSpot2.jpg',
-      imageAlt: 'activeSpot2',
-    },
-    {
-      imageId: 'LineCat3.jpg',
-      imageAlt: 'LineCat3',
-    },
-    {
-      imageId: 'SpotCat8.jpg',
-      imageAlt: 'SpotCat8',
-    },
-    {
-      imageId: 'activeSpot7.jpg',
-      imageAlt: 'activeSpot7',
-    },
-    {
-      imageId: 'SpotCat3.jpg',
-      imageAlt: 'SpotCat3',
-    },
-    {
-      imageId: 'SpotCat7.jpg',
-      imageAlt: 'SpotCat7',
-    },
-    {
-      imageId: 'SpotCat2.jpg',
-      imageAlt: 'SpotCat2',
-    },
-    {
-      imageId: 'LineCat6.jpg',
-      imageAlt: 'LineCat6',
-    },
-    {
-      imageId: 'activeSpot14.jpg',
-      imageAlt: 'activeSpot14',
-    },
-    {
-      imageId: 'activeSpot9.jpg',
-      imageAlt: 'activeSpot9',
-    },
-  ],
+  // studentsWorks: [
+  //   {
+  //     imageId: 'SpotCat27.jpg',
+  //     imageAlt: 'SpotCat27',
+  //   },
+  //   {
+  //     imageId: 'SpotCat14.jpg',
+  //     imageAlt: 'SpotCat14',
+  //   },
+  //   {
+  //     imageId: 'activeSpot2.jpg',
+  //     imageAlt: 'activeSpot2',
+  //   },
+  //   {
+  //     imageId: 'LineCat3.jpg',
+  //     imageAlt: 'LineCat3',
+  //   },
+  //   {
+  //     imageId: 'SpotCat8.jpg',
+  //     imageAlt: 'SpotCat8',
+  //   },
+  //   {
+  //     imageId: 'activeSpot7.jpg',
+  //     imageAlt: 'activeSpot7',
+  //   },
+  //   {
+  //     imageId: 'SpotCat3.jpg',
+  //     imageAlt: 'SpotCat3',
+  //   },
+  //   {
+  //     imageId: 'SpotCat7.jpg',
+  //     imageAlt: 'SpotCat7',
+  //   },
+  //   {
+  //     imageId: 'SpotCat2.jpg',
+  //     imageAlt: 'SpotCat2',
+  //   },
+  //   {
+  //     imageId: 'LineCat6.jpg',
+  //     imageAlt: 'LineCat6',
+  //   },
+  //   {
+  //     imageId: 'activeSpot14.jpg',
+  //     imageAlt: 'activeSpot14',
+  //   },
+  //   {
+  //     imageId: 'activeSpot9.jpg',
+  //     imageAlt: 'activeSpot9',
+  //   },
+  // ],
   faq: [
     {
       question: 'Как проходит онлайн обучение',
@@ -302,23 +321,23 @@ const courseDB1: ICourseDataDB = {
     },
     {
       question: 'Какие материалы нужны',
-      answer: 'Линейные: ручка или черный карандаш. Пятновые: черная тушь, круглая кисточка. Бумага плотностью 180-250г/м. Компьютер или телефон с приложением для обработки фотографий.'
+      answer: 'Линейные: ручка или черный карандаш. Пятновые: черная тушь, круглая кисточка. Бумага плотностью 180-250г/м. Photoshop или Procreate.'
     },
     {
       question: 'Подойдет ли мне курс, если я раньше не рисовал',
       answer: 'Да, подойдет. Курс рассчитан для начинающих рисовальщиков.'
     },
-    {
-      question: 'Возможно ли совмещать учебу с работой',
-      answer: 'Занятия проходят онлайн, все уроки доступны в записи. Вы сможете смотреть лекции или выполнять практические задания в удобное для вас время.'
-    },
-    {
-      question: 'Что будет, если я вовремя не загрузил домашнее задание',
-      answer: 'На каждое задание дается 7 дней. Чтобы получить обратную связь преподавателя, нужно отправить работу до дедлайна. После дедлайна задание на проверку отправить нельзя. Вопросы по заданиям можно задавать и после дедлайна.'
-    },
+    // {
+    //   question: 'Возможно ли совмещать учебу с работой',
+    //   answer: 'Занятия проходят онлайн, все уроки доступны в записи. Вы сможете смотреть лекции или выполнять практические задания в удобное для вас время.'
+    // },
+    // {
+    //   question: 'Что будет, если я вовремя не загрузил домашнее задание',
+    //   answer: 'На каждое задание дается 7 дней. Чтобы получить обратную связь преподавателя, нужно отправить работу до дедлайна. После дедлайна задание на проверку отправить нельзя. Вопросы по заданиям можно задавать и после дедлайна.'
+    // },
     {
       question: 'Сколько длится доступ к материалам курса',
-      answer: 'Если загрузить все задания, доступ к материалам останется навсегда. Если не сдать одно задание и больше — доступ на время курса + 1 неделя после. Всего 1 месяц.'
+      answer: 'Если загрузить все задания, доступ к материалам останется навсегда. Если не сдать одно задание и больше — доступ на время курса + 1 неделя после. Всего 5 недель.'
     },
     {
       question: 'Как оплатить зарубежной картой',
@@ -535,8 +554,6 @@ const courseDB2: ICourseDataDB = {
     imageId: 'SofiUlianova.jpg',
     imageAlt: 'SofiUlianova',
   },
-  promoVideo: null,
-  teachers: [],
   teacherGallery: [
     {
       imageId: 'SofiUlianova2.jpg',

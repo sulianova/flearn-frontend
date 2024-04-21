@@ -1,12 +1,14 @@
-import { Fragment } from 'react';
+import classNames from 'classnames/bind';
+
+import type { ICourseData } from 'services/course.service';
 import { formatI18nT } from 'shared';
+
 import Animated from 'ui/Animated';
+import Link from 'ui/Link/Link';
+import Text from 'ui/Text/Text';
+
 import classes from './FAQ.module.scss';
 
-import classNames from 'classnames/bind';
-import type { ICourseData } from 'services/course.service';
-import Text from 'ui/Text/Text';
-import Link from 'ui/Link/Link';
 
 export default FAQ;
 
@@ -14,14 +16,10 @@ const t = formatI18nT('courseLanding.faq');
 const cx = classNames.bind(classes);
 
 interface IProps {
-  data: ICourseData
+  faq: NonNullable<ICourseData['faq']>
 }
 
-function FAQ(props: IProps) {
-  if (props.data.faq.length === 0) {
-    return null;
-  }
-
+function FAQ({ faq }: IProps) {
   return (
     <div className={classes.wrapper}>
       <div className={classes.header}>
@@ -35,25 +33,17 @@ function FAQ(props: IProps) {
         </div>
       </div>
       <div className={classes.list}>
-        {renderItems(props.data.faq)}
+        {faq.map(({ question, answer }, index) => (
+          <Animated.Scroll key={index}>
+            {(id, className) => (
+              <div className={cx({ item: true }, className)} id={id}>
+                <div className={classes.itemQuestion + ' s-text-24'}><Text text={question}/></div>
+                <div className={classes.itemAnswer + ' s-text-18'}><Text text={answer}/></div>
+              </div>
+            )}
+          </Animated.Scroll>
+        ))}
       </div>
     </div>
   );
-}
-
-function renderItem(props: ICourseData['faq'][number]) {
-  return (
-    <Animated.Scroll>
-      {(id, className) => (
-        <div className={cx({ item: true }, className)} id={id}>
-          <div className={classes.itemQuestion + ' s-text-24'}><Text text={props.question}/></div>
-          <div className={classes.itemAnswer + ' s-text-18'}><Text text={props.answer}/></div>
-        </div>
-      )}
-    </Animated.Scroll>
-  );
-}
-
-function renderItems(props: ICourseData['faq'] ) {
-  return props.map((d, index) => (<Fragment key={index}>{renderItem(d)}</Fragment>));
 }

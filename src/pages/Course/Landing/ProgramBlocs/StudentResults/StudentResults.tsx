@@ -1,11 +1,12 @@
 import classNames from 'classnames/bind';
 
+import type { ICourseData } from 'services/course.service';
 import { formatI18nT } from 'shared';
-import Image from 'ui/Img/Img';
-import classes from './StudentResults.module.scss';
 
-import { ICourseData } from 'services/course.service';
+import Image from 'ui/Img/Img';
 import Text from 'ui/Text/Text';
+
+import classes from './StudentResults.module.scss';
 
 export default StudentResults;
 
@@ -13,15 +14,10 @@ const t = formatI18nT('courseLanding.StudentsResults');
 const cx = classNames.bind(classes);
 
 interface IProps {
-  data: ICourseData
+  studentResults: NonNullable<ICourseData['studentResults']>
 }
 
-function StudentResults(props: IProps) {
-  const { studentResults } = props.data;
-  if (!studentResults) {
-    return null;
-  }
-
+function StudentResults({ studentResults }: IProps) {
   return (
     <div className={classes.wrapper}>
       <h2 className={cx({ title: true }) + ' s-text-56'} >{t(`title`)}</h2>

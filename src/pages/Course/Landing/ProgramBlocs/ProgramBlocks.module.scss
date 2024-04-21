@@ -16,8 +16,5 @@
 }
 
 .item:first-child {
-
-  @include set-media(md) {
-    padding-top: 0;
-  }
+  padding-top: 0;
 }

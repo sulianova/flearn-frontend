@@ -31,7 +31,6 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 
 }
 
@@ -65,17 +64,16 @@
 .title {
   z-index: 100;
   font-family: $font-family-serif;
-  color: $orange;
+  // color: $orange;
 
-  max-width: set-calc(820);
-  padding-bottom: set-calc(60);
+  padding-bottom: set-calc(24);
 
-  @include set-typography(186, 150, 500);
+  @include set-typography(110, 110, 500);
   letter-spacing: -.01rem;
 
   @include set-media(md) {
     padding-bottom: set-calc(8);
-    @include set-typography(48, 52, 500);
+    @include set-typography(54, 54, 500);
   }
 }
 
@@ -161,10 +159,12 @@
 
   width: set-calc(700);
   overflow: hidden;
+  padding-left: set-calc(150);
   border-radius: set-calc(20);
 
   @include set-media(md) {
     width: 100%;
+    padding-left: 0;
   }
 }
 

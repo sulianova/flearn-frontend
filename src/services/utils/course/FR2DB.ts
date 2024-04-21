@@ -14,7 +14,6 @@ export function courseDataFR2DB(course: ICourseData): ICourseDataDB {
     discontDeadline: course.discontDeadline ? dateFR2DB(course.discontDeadline) : null,
     modules: courseModulesFR2DB(course.modules),
     explainMedia: courseExplainMediaFR2DB(course.explainMedia),
-    teachers: courseTeachersFR2DB(course.teachers),
     teacherGallery: courseTeacherGallerysFR2DB(course.teacherGallery),
     studentResults: studentResultsFR2DB(course.studentResults),
     studentsWorks: courseStudentsWorksFR2DB(course.studentsWorks),
@@ -24,15 +23,23 @@ export function courseDataFR2DB(course: ICourseData): ICourseDataDB {
 
 // modules
 function courseModulesFR2DB(modules: ICourseData['modules']): ICourseDataDB['modules'] {
+  if (!modules) {
+    return modules;
+  }
+
   return modules.map(m => courseModuleFR2DB(m));
 }
 
-function courseModuleFR2DB(module: ICourseData['modules'][number]): ICourseDataDB['modules'][number] {
+function courseModuleFR2DB(module: NonNullable<ICourseData['modules']>[number]): NonNullable<ICourseDataDB['modules']>[number] {
   const { imageSrc, ...restModule } = module;
   return restModule;
 }
 
 function courseExplainMediaFR2DB(explainMedia: ICourseData['explainMedia']): ICourseDataDB['explainMedia'] {
+  if (!explainMedia) {
+    return explainMedia;
+  }
+
   if (explainMedia.type === 'video') {
     return explainMedia;
   }
@@ -41,22 +48,16 @@ function courseExplainMediaFR2DB(explainMedia: ICourseData['explainMedia']): ICo
   return restExplainMedia;
 }
 
-// teachers
-function courseTeachersFR2DB(teachers: ICourseData['teachers']): ICourseDataDB['teachers'] {
-  return teachers.map(t => courseTeacherFR2DB(t));
-}
-
-function courseTeacherFR2DB(teacher: ICourseData['teachers'][number]): ICourseDataDB['teachers'][number] {
-  const { imageSrc, ...restTeacher } = teacher;
-  return restTeacher;
-}
-
 // teacherGallery
 function courseTeacherGallerysFR2DB(teacherGallerys: ICourseData['teacherGallery']): ICourseDataDB['teacherGallery'] {
+  if (!teacherGallerys) {
+    return teacherGallerys;
+  }
+
   return teacherGallerys.map(tg => courseTeacherGalleryFR2DB(tg));
 }
 
-function courseTeacherGalleryFR2DB(teacherGallery: ICourseData['teacherGallery'][number]): ICourseDataDB['teacherGallery'][number] {
+function courseTeacherGalleryFR2DB(teacherGallery: NonNullable<ICourseData['teacherGallery']>[number]): NonNullable<ICourseDataDB['teacherGallery']>[number] {
   const { imageSrc, ...restTeacherGallery } = teacherGallery;
   return restTeacherGallery;
 }
@@ -73,10 +74,14 @@ function studentResultsFR2DB(studentResults: ICourseData['studentResults']): ICo
 
 // studentsWorks
 function courseStudentsWorksFR2DB(studentsWorks: ICourseData['studentsWorks']): ICourseDataDB['studentsWorks'] {
+  if (!studentsWorks) {
+    return studentsWorks;
+  }
+
   return studentsWorks.map(courseStudentsWorkFR2DB);
 }
 
-function courseStudentsWorkFR2DB(studentsWork: ICourseData['studentsWorks'][number]): ICourseDataDB['studentsWorks'][number] {
+function courseStudentsWorkFR2DB(studentsWork: NonNullable<ICourseData['studentsWorks']>[number]): NonNullable<ICourseDataDB['studentsWorks']>[number] {
   const { imageSrc, ...restStudentWork } = studentsWork;
   return restStudentWork;
 }

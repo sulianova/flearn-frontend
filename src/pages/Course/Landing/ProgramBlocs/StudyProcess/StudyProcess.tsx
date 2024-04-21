@@ -1,26 +1,20 @@
-import { formatI18nT } from 'shared';
-import classes from './StudyProcess.module.scss';
-
 import type { ICourseData } from 'services/course.service';
-import Text from 'ui/Text/Text';
+
 import Img from 'ui/Img/Img';
+import Text from 'ui/Text/Text';
+
+import classes from './StudyProcess.module.scss';
 
 export default StudyProcess;
 
-const t = formatI18nT('courseLanding.studyProcess');
-
 interface IProps {
-  data: ICourseData
+  studyProcess: NonNullable<ICourseData['studyProcess']>
 }
 
-function StudyProcess(props: IProps) {
-  if (!props.data.studyProcess || props.data.studyProcess.length === 0) {
-    return null;
-  }
-
+function StudyProcess({ studyProcess }: IProps) {
   return (
     <div className={classes.wrapper}>
-      {props.data.studyProcess.map((d, index) => (
+      {studyProcess.map((d, index) => (
         <div className={classes.item} key={index}>
           <p className={classes.factoid}>{index + 1}</p>
           <div className={classes.content}>

@@ -1,6 +1,7 @@
 import type { ICourseData, ICourseDataDB } from 'services/course.service';
 import { firebaseService } from 'services/firebase.service';
-import { addImageSrc, dateDB2FR } from '../shared';
+
+import { dateDB2FR } from '../shared';
 
 export async function courseDataDB2FR(courseDB: ICourseDataDB): Promise<ICourseData> {
   const courseId = courseDB.id;
@@ -15,7 +16,6 @@ export async function courseDataDB2FR(courseDB: ICourseDataDB): Promise<ICourseD
     discontDeadline: courseDB.discontDeadline ? dateDB2FR(courseDB.discontDeadline) : null,
     modules: await courseModulesDB2FR(courseDB.modules, courseId),
     explainMedia: await courseExplainMediaDB2FR(courseDB.explainMedia, courseId),
-    teachers: await courseTeachersDB2FR(courseDB.teachers, courseId),
     teacherGallery: await courseTeacherGallerysDB2FR(courseDB.teacherGallery, courseId),
     studentResults: await studentResultsDB2FR(courseDB.studentResults, courseId),
     studentsWorks: await courseStudentsWorksDB2FR(courseDB.studentsWorks, courseId),
@@ -25,10 +25,14 @@ export async function courseDataDB2FR(courseDB: ICourseDataDB): Promise<ICourseD
 
 // modules
 async function courseModulesDB2FR(modules: ICourseDataDB['modules'], courseId: string): Promise<ICourseData['modules']> {
+  if (!modules) {
+    return modules;
+  }
+
   return await Promise.all(modules.map(m => courseModuleDB2FR(m, courseId)));
 }
 
-async function courseModuleDB2FR(module: ICourseDataDB['modules'][number], courseId: string): Promise<ICourseData['modules'][number]> {
+async function courseModuleDB2FR(module: NonNullable<ICourseDataDB['modules']>[number], courseId: string): Promise<NonNullable<ICourseData['modules']>[number]> {
   if (module.imageId === undefined) {
     return {
       ...module,
@@ -45,10 +49,14 @@ async function courseModuleDB2FR(module: ICourseDataDB['modules'][number], cours
   return {
     ...module,
     imageSrc: imageSrc,
-  } as ICourseData['modules'][number];
+  } as NonNullable<ICourseData['modules']>[number];
 }
 
 async function courseExplainMediaDB2FR(explainMedia: ICourseDataDB['explainMedia'], courseId: string): Promise<ICourseData['explainMedia']> {
+  if (!explainMedia) {
+    return explainMedia;
+  }
+
   if (explainMedia.type === 'video') {
     return explainMedia;
   }
@@ -59,24 +67,16 @@ async function courseExplainMediaDB2FR(explainMedia: ICourseDataDB['explainMedia
   };
 }
 
-// teachers
-async function courseTeachersDB2FR(teachers: ICourseDataDB['teachers'], courseId: string): Promise<ICourseData['teachers']> {
-  return await Promise.all(teachers.map(t => courseTeacherDB2FR(t, courseId)));
-}
-
-async function courseTeacherDB2FR(teacher: ICourseDataDB['teachers'][number], courseId: string): Promise<ICourseData['teachers'][number]> {
-  return {
-    ...teacher,
-    imageSrc: (await firebaseService.getImageURL({ courseId, folder: 'landing', imageId: teacher.imageId })) ?? '',
-  };
-}
-
 // teacherGallery
 async function courseTeacherGallerysDB2FR(teacherGallerys: ICourseDataDB['teacherGallery'], courseId: string): Promise<ICourseData['teacherGallery']> {
+  if (!teacherGallerys) {
+    return teacherGallerys;
+  }
+
   return await Promise.all(teacherGallerys.map(tg => courseTeacherGalleryDB2FR(tg, courseId)));
 }
 
-async function courseTeacherGalleryDB2FR(teacherGallery: ICourseDataDB['teacherGallery'][number], courseId: string): Promise<ICourseData['teacherGallery'][number]> {
+async function courseTeacherGalleryDB2FR(teacherGallery: NonNullable<ICourseDataDB['teacherGallery']>[number], courseId: string): Promise<NonNullable<ICourseData['teacherGallery']>[number]> {
   return {
     ...teacherGallery,
     imageSrc: (await firebaseService.getImageURL({ courseId, folder: 'landing', imageId: teacherGallery.imageId })) ?? '',
@@ -104,10 +104,14 @@ async function studentResultsDB2FR(studentResults: ICourseDataDB['studentResults
 
 // studentsWorks
 async function courseStudentsWorksDB2FR(studentsWorks: ICourseDataDB['studentsWorks'], courseId: string): Promise<ICourseData['studentsWorks']> {
+  if (!studentsWorks) {
+    return studentsWorks;
+  }
+
   return await Promise.all(studentsWorks.map(sw => courseStudentsWorkDB2FR(sw, courseId)));
 }
 
-async function courseStudentsWorkDB2FR(studentsWork: ICourseDataDB['studentsWorks'][number], courseId: string): Promise<ICourseData['studentsWorks'][number]> {
+async function courseStudentsWorkDB2FR(studentsWork: NonNullable<ICourseDataDB['studentsWorks']>[number], courseId: string): Promise<NonNullable<ICourseData['studentsWorks']>[number]> {
   return {
     ...studentsWork,
     imageSrc: (await firebaseService.getImageURL({ courseId, folder: 'landing', imageId: studentsWork.imageId })) ?? '',

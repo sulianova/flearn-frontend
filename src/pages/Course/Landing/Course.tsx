@@ -20,16 +20,16 @@ import { envService } from 'services';
 export default connect(mapStateToProps)(Course);
 
 interface IConnectedProps {
-  data?: ICourseData
+  course?: ICourseData
 }
 
 function mapStateToProps(state: IRootState): IConnectedProps {
   return {
-    data: state.course?.data,
+    course: state.course?.data,
   };
 }
 
-function Course({ data }: IConnectedProps) {
+function Course({ course }: IConnectedProps) {
   const { courseId } = useParams();
 
   useFetch<IFetchCoursePayload>(({
@@ -47,7 +47,7 @@ function Course({ data }: IConnectedProps) {
     });
   }, []);
 
-  if (!data) {
+  if (!course) {
     return (
       <Page header footer={EFooter.Big} wrapper='Course'>
         <p>loading course</p>
@@ -58,14 +58,14 @@ function Course({ data }: IConnectedProps) {
   return (
     <Page header footer={EFooter.Big} wrapper='Course'>
       <LandingBtn/>
-      <ProgramIntro data={data}/>
-      {data.discontDeadline && (
+      <ProgramIntro data={course}/>
+      {course.discontDeadline && (
         <DiscountBanner
-          discontAmount={data.discontAmount}
-          discontDeadline={data.discontDeadline}
+          discontAmount={course.discontAmount}
+          discontDeadline={course.discontDeadline}
         />
       )}
-      <ProgramBlocks data={data} />
+      <ProgramBlocks course={course} />
     </Page>
   );
 }

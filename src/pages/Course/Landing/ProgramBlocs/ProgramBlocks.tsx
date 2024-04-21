@@ -16,33 +16,42 @@ import StudyProcess from './StudyProcess/StudyProcess';
 import type { ICourseData } from 'services/course.service';
 
 interface IProps {
-  data: ICourseData
+  course: ICourseData
 }
 
-export default function ProgramBlocks(props: IProps) {
+export default function ProgramBlocks({ course }: IProps) {
   const blocks: JSX.Element[] = [
-    props.data.about && <About key='about' {...props}/>,
-    <Description key='description' {...props}/>,
-    props.data.prizes && <Prizes key='prizes' {...props}/>,
-    <Modules key='modules' modules={props.data.modules} {...props}/>,
-    props.data.studentResults && <StudentResults key='studentResults' {...props}/>,
-    props.data.studentsWorks.length && <StudentsWorks key='studentsWorks' {...props}/>,
-    props.data.studyProcess && <StudyProcess key='studyProcess' {...props}/>,
-    <Explain key='explain' {...props}/>,
-    <Gallery key='gallery' {...props}/>,
-    props.data.promoVideo && <Promo key='promo' {...props}/>,
-    props.data.feedbacks && <Feedbacks key='feedbacks' {...props}/>,
-    <DecisionForm key='decisionForm' {...props}/>,
-    props.data.faq.length && <FAQ key='faq' {...props}/>,
+    course.about && <About key='about' about={course.about}/>,
+    course.description && <Description key='description' type={course.type} description={course.description}/>,
+    course.prizes && course.prizes.length && <Prizes key='prizes' type={course.type} prizes={course.prizes}/>,
+    course.modules && course.modulesDescription && (
+      <Modules
+        key='modules'
+        modules={course.modules}
+        modulesDescription={course.modulesDescription}
+        videosNumber={course.videosNumber}
+        homeworksNumber={course.homeworksNumber}
+        duration={course.duration}
+      />
+    ),
+    course.studentResults && <StudentResults key='studentResults' studentResults={course.studentResults}/>,
+    course.studentsWorks && course.studentsWorks.length && <StudentsWorks key='studentsWorks' studentsWorks={course.studentsWorks}/>,
+    course.studyProcess && course.studyProcess.length && <StudyProcess key='studyProcess' studyProcess={course.studyProcess}/>,
+    course.explainMedia && <Explain key='explain' explainMedia={course.explainMedia}/>,
+    course.teacherGallery && <Gallery key='gallery' teacherGallery={course.teacherGallery}/>,
+    course.promoVideo && <Promo key='promo' promoVideo={course.promoVideo}/>,
+    course.feedbacks && course.feedbacks.length && <Feedbacks key='feedbacks' feedbacks={course.feedbacks}/>,
+    <DecisionForm key='decisionForm' course={course}/>,
+    course.faq && course.faq.length && <FAQ key='faq' faq={course.faq}/>,
   ].filter(Boolean) as JSX.Element[];
 
   return (
     <div className={classes._}>
-      {renderBlocks(blocks)}
+      {blocks.map((block, index) => (
+        <div key={index} className={classes.item}>
+          {block}
+        </div>
+      ))}
     </div>
   );
-}
-
-function renderBlocks(blocks: JSX.Element[]) {
-  return blocks.map((block, index) => (<div key={index} className={classes.item}>{block}</div>));
 }
