@@ -20,22 +20,24 @@ export default function Card({ course }: Readonly<IProps>) {
           <span className={classes.hashTag}>#</span>
           {course.tags?.map(tag => (<span key={tag} className={classes.tag + ' s-text-14'}>{tag}</span>))}
       </div> */}
-      <div className={classes.info}>
-        <div className={classes.infoDate + ' s-text-18'}>
-          {i18n.t('catalogue.card.info', {
-          startDate: formatDate(course.startDate, { timeZone: 'Europe/Moscow' }),
-          endDate: formatDate(course.endDate, { timeZone: 'Europe/Moscow' }),
-          duration: i18n.t(`duration.${course.duration.unit}`, { count: course.duration.value }),
-          })}
+      <div className={classes.contentWrapper}>
+        <div className={classes.info}>
+          <div className={classes.infoDate + ' s-text-18'}>
+            {i18n.t('catalogue.card.info', {
+            startDate: formatDate(course.startDate, { timeZone: 'Europe/Moscow' }),
+            endDate: formatDate(course.endDate, { timeZone: 'Europe/Moscow' }),
+            duration: i18n.t(`duration.${course.duration.unit}`, { count: course.duration.value }),
+            })}
+          </div>
         </div>
+        <Link
+          className={classes.title}
+          to={URLSections.Course.to({ courseId: course.id })}
+        >
+          {course.title}
+        </Link>
+        <div className={classes.description + ' s-text-24'}>{course.introDescription}</div>
       </div>
-      <Link
-        className={classes.title}
-        to={URLSections.Course.to({ courseId: course.id })}
-      >
-        {course.title}
-      </Link>
-      <div className={classes.description + ' s-text-24'}>{course.introDescription}</div>
       <div className={classes.actions}>
         <Link
           className={classes.actionsBtn + ' s-text-24'}
