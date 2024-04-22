@@ -227,7 +227,7 @@ const courseDB1: ICourseDataDB = {
       activities: [
         {
           tag: 'p',
-          content: 'Вебинар: просмотр работ и подведение'
+          content: 'Вебинар: просмотр работ и подведение итогов'
         },
       ],
       imageId: { desktop: 'Block4.png', mobile: 'Block4-mobile.png' },
