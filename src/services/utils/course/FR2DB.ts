@@ -3,10 +3,9 @@ import { dateFR2DB } from '../shared';
 import type { ICourseData, ICourseDataDB } from 'services/course.service';
 
 export function courseDataFR2DB(course: ICourseData): ICourseDataDB {
-  const { introImageSrc, ...courseRest } = course;
-
   return {
-    ...courseRest,
+    ...course,
+    introImage: courseIntoImageFR2DB(course.introImage),
     cardImage: cardImageFR2DB(course.cardImage),
     startDate: dateFR2DB(course.startDate),
     endDate: dateFR2DB(course.endDate),
@@ -20,6 +19,13 @@ export function courseDataFR2DB(course: ICourseData): ICourseDataDB {
     studyProcess: courseStudyProcessFR2DB(course.studyProcess),
   };
 };
+
+// intro image
+function courseIntoImageFR2DB(introImage: ICourseData['introImage']): ICourseDataDB['introImage'] {
+  const { imageSrc, ...restIntroImage } = introImage;
+  return restIntroImage;
+}
+
 
 // modules
 function courseModulesFR2DB(modules: ICourseData['modules']): ICourseDataDB['modules'] {

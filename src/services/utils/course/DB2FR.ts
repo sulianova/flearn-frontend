@@ -8,7 +8,7 @@ export async function courseDataDB2FR(courseDB: ICourseDataDB): Promise<ICourseD
 
   return {
     ...courseDB,
-    introImageSrc: (await firebaseService.getImageURL({ courseId, folder: 'landing', imageId: courseDB.introImageId })) ?? '',
+    introImage: await courseIntoImageDB2FR(courseDB.introImage, courseId),
     cardImage: await cardImageDB2FR(courseDB.cardImage, courseId),
     startDate: dateDB2FR(courseDB.startDate),
     endDate: dateDB2FR(courseDB.endDate),
@@ -22,6 +22,21 @@ export async function courseDataDB2FR(courseDB: ICourseDataDB): Promise<ICourseD
     studyProcess: await courseStudyProcessDB2FR(courseDB.studyProcess, courseId),
   };
 };
+
+// intro image
+async function courseIntoImageDB2FR(introImage: ICourseDataDB['introImage'], courseId: string): Promise<ICourseData['introImage']> {
+  const imageSrc = typeof introImage.imageId === 'string' ?
+    (await firebaseService.getImageURL({ courseId, folder: 'landing', imageId: introImage.imageId })) ?? ''
+    : {
+      desktop: (await firebaseService.getImageURL({ courseId, folder: 'landing', imageId: introImage.imageId.desktop })) ?? '',
+      mobile: (await firebaseService.getImageURL({ courseId, folder: 'landing', imageId: introImage.imageId.mobile })) ?? '',
+    };
+
+  return {
+    ...introImage,
+    imageSrc: imageSrc,
+  } as ICourseData['introImage'];
+}
 
 // modules
 async function courseModulesDB2FR(modules: ICourseDataDB['modules'], courseId: string): Promise<ICourseData['modules']> {

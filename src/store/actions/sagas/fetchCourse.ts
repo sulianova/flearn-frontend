@@ -91,9 +91,14 @@ const courseDB1: ICourseDataDB = {
   videosNumber: 4,
   feild: 'Иллюстрация',
   tags: ['композиция', 'рисование по фото', 'наброски', 'персонаж'],
-  introImageId: 'introImage.jpg',
-  introDescription: 'За 4 недели научимся уверенно рисовать любые сюжеты и сделаем серию стикеров для телеграмма',
-  introImageAlt: 'SpotCat27',
+  introImage: {
+    imageId: {
+      desktop: 'introImage.jpg',
+      mobile: 'introImage-mobile.jpg',
+    },
+    imageAlt: 'SpotCat27',
+  },
+  introDescription: 'Будем учиться схватывать силуэт и утрировать характерные черты в быстрых набросках. А из удачных эскизов сделаем серию стикеров для телеграмма и оформим в проект на Behance',
   cardImage: {
     imageId: 'imageCard.jpg',
     imageAlt: 'imageCard',
@@ -426,9 +431,14 @@ const courseDB2: ICourseDataDB = {
   videosNumber: 3,
   feild: 'Иллюстрация',
   tags: ['иллюстрация', 'рисование по воображению', 'серия'],
-  introImageId: 'introImage.jpg',
+  introImage: {
+    imageId: {
+      desktop: 'introImage.jpg',
+      mobile: 'introImage-mobile.jpg',
+    },
+    imageAlt: 'introImage',
+  },
   introDescription: 'Разберемся, из чего состоит авторский стиль и сделаем  серию графических работ для портфолио',
-  introImageAlt: 'introImage',
   cardImage: {
     imageId: 'imageCard.jpg',
     imageAlt: 'imageCard',
