@@ -103,6 +103,16 @@ const courseDB1: ICourseDataDB = {
   creditWas: 16000,
   creditPrice: 8000,
   telegramLink: 'https://t.me/+yIvKOdKrLYdlYzMy',
+  about: [
+    {
+      tag: 'p',
+      content: 'Иллюстратор София Ульянова расскажет, как от быстрых набросков перейти к законченным иллюстрациям и оформить их в стекеры для телеграма '
+    },
+    {
+      tag: 'p',
+      content: '— познакомитесь с инструментами иллюстратора: линия, пятно, цвет\n— узнаете, как выделять главное в рисунке\n— сделаете серию стикеров и добавите новый проект в свое портфолио на Behance'
+    },
+  ],
   description: [
     {
       answer: 'На курсе сделаем серию стикеров для телеграмма. Нарисуем 15-30 набросков, определимся с цветом, отрисуем стикеры в Photoshop или Procreate и загрузим стикер-пак в telegram. На каждом этапе —  индивидуальная обратная связь от преподавателя. ',
@@ -151,7 +161,7 @@ const courseDB1: ICourseDataDB = {
       title: 'Линия',
       meta: [
         {
-          content: '27 мая – 2 июня',
+          content: 'Неделя 1',
           tag: 'span',
         }
       ],
@@ -169,20 +179,16 @@ const courseDB1: ICourseDataDB = {
       activities: [
         {
           tag: 'p',
-          content: 'Вебинар: скоростные рисунки пятном за 5, 10, 15 минут'
-        },
-        {
-          tag: 'p',
-          content: 'Задание недели: 30 котов пятном'
+          content: 'Вебинар : скоростные рисунки пятном за 5, 10, 15 минут'
         },
       ],
-      // imageId: { desktop: 'Block2.jpg', mobile: 'Block2-mobile.jpg'},
-      // imageAlt: 'Block2',
-      // imageDesc: 'Рисунки преподавателя',
+      imageId: { desktop: 'Block2.jpg', mobile: 'Block2-mobile.jpg'},
+      imageAlt: 'Block2',
+      imageDesc: 'Итог недели: серия иллюстраций из 5-6 рисунков пятном',
       title: 'Пятно',
       meta: [
         {
-          content: '3 июня — 9 июня',
+          content: 'Неделя 2',
           tag: 'span',
         }
       ],
@@ -199,25 +205,24 @@ const courseDB1: ICourseDataDB = {
           tag: 'p',
           content: 'Вебинар: скоростные рисунки линией и пятном за 5, 10, 15 минут'
         },
-        {
-          tag: 'p',
-          content: 'Задание недели: 30 котов линией и пятном'
-        },
       ],
-      // imageId: { desktop: 'Block3.jpg', mobile: 'Block3-mobile.jpg' },
-      // imageAlt: 'Block3',
-      // imageDesc: 'Рисунки преподавателя',
+      imageId: { desktop: 'Block3.jpg', mobile: 'Block3-mobile.jpg' },
+      imageAlt: 'Block3',
+      imageDesc: 'Итог недели: серия иллюстраций из 5-6 цветных рисунков',
       title: 'Цвет',
       meta: [
         {
-          content: '10 июня — 16 июня',
+          content: 'Неделя 3',
           tag: 'span',
         }
       ],
     },
     {
       content: [
-        { tag: 'p', content: 'Соберем все наработки с курса и оформим их в стикеры для телеграмма' },
+        { tag: 'p', content: 'Соберем наработки с курса и оформим их в стикеры для телеграмма' },
+        { tag: 'span', content: '• Как придумать текст к иллюстрации' },
+        { tag: 'span', content: '• Как собрать иллюстрации в серию' },
+        { tag: 'span', content: '• Как оформить проект на Behance' },
       ],
       activities: [
         {
@@ -235,7 +240,7 @@ const courseDB1: ICourseDataDB = {
       title: 'Итоговый проект',
       meta: [
         {
-          content: '17 июня — 23 июня',
+          content: 'Неделя 4',
           tag: 'span',
         }
       ],

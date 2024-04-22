@@ -19,7 +19,7 @@ function About({ about }: IProps) {
   return (
     <Fragment>
       <div className={classes.wrapper}>
-        <h2 className={cx({ title: true }) + ' s-text-56'} >Об интенсиве</h2>
+        <h2 className={cx({ title: true }) + ' s-text-56'} >Что будет</h2>
         <div className={classes.listItem}>
           <div className={cx({ listItemCard: true })}>
             <div className={classes.listItemContent + ' s-text-24'}><Text text={about}/></div>
