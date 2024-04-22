@@ -144,6 +144,7 @@
       },
       "modules": {
         "title": "Программа",
+        "listItemLabelText": "Проект в портфолио",
         "videosNumber": {
           "p_one": "{{count}} видео-урок",
           "p_few": "{{count}} видео-урока",
@@ -184,6 +185,12 @@
       },
       "studyProcess": {
         "headerTitle": "Как проходит обучение"
+      },
+      "About": {
+        "title": {
+          "course": "Что будет на курсе",
+          "webinar": "Что будет на интенсиве"
+        }
       }
   },
   "courseLessons": {

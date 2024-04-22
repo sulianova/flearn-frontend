@@ -69,7 +69,7 @@ function renderItem(props: NonNullable<ICourseData['modules']>[number]) {
                 <span className={classes.listItemLabelIcon}>
                   <Plus/>
                 </span>
-                <span className={classes.listItemLabelText + ' s-text-21'}>Проект в портфолио</span>
+                <span className={classes.listItemLabelText + ' s-text-21'}>{t('listItemLabelText')}</span>
               </div>
             </div>
           )}

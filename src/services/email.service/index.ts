@@ -9,7 +9,7 @@ export { EEmail } from './types';
 type TProps = { to: TContact } & (
   | { type: EEmail.OrderCreated, orderId: string }
   | { type: EEmail.FindingYourStyle1, orderId: string, price: number, startDate: Date }
-  | { type: EEmail.FindingYourStyleCourseIsStartingTomorrow }
+  | { type: EEmail.FindingYourStyleCourseIsStartingTomorrow, startDate: Date }
 );
 
 class EmailService {
@@ -98,11 +98,13 @@ class EmailService {
     };
   }
 
-  private getCourseIsStartingTomorrowEmail(props: { to: TContact }): TEmail {
+  private getCourseIsStartingTomorrowEmail(props: { to: TContact, startDate: Date  }): TEmail {
+    const { to, startDate } = props;
+    const startDateStr = formatDate(startDate, { timeZone: 'Europe/Moscow' });
     return {
       to: [props.to],
       from: this.senderContact,
-      subject: 'Старт 17 мая: “Как найти стиль”, приглашение в телеграм-чат',
+      subject: `Старт ${startDateStr}: “Как найти стиль”, приглашение в телеграм-чат`,
       html: `
         <!DOCTYPE html>
         <html lang="ru">
@@ -112,7 +114,7 @@ class EmailService {
           <title>Document</title>
         </head>
         <body>
-          <p>Добрый день! Сегодня, 8 марта, стартует интенсив “Как найти стиль”.</p>
+          <p>Добрый день! Завтра, ${startDateStr}, стартует интенсив “Как найти стиль”.</p>
         
           <p><a href="https://t.me/+Pi3lxGTKYdhkZmYy">Переходите в телеграм-чат</a>, в группе будет вся дальнейшая информация.</p>
         
