@@ -227,16 +227,12 @@ const courseDB1: ICourseDataDB = {
       activities: [
         {
           tag: 'p',
-          content: 'Вебинар: скоростные рисунки линией и пятном за 5, 10, 15 минут'
-        },
-        {
-          tag: 'p',
-          content: 'Задание недели: 30 котов линией и пятном'
+          content: 'Вебинар: просмотр работ и подведение итогов'
         },
       ],
-      // imageId: { desktop: 'Block3.jpg', mobile: 'Block3-mobile.jpg' },
-      // imageAlt: 'Block3',
-      // imageDesc: 'Рисунки преподавателя',
+      imageId: { desktop: 'Block4.png', mobile: 'Block4-mobile.png' },
+      imageAlt: 'Block3',
+      imageDesc: 'Итог недели: оформленный проект на Behance',
       title: 'Итоговый проект',
       meta: [
         {
