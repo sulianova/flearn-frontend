@@ -102,7 +102,7 @@ class EmailService {
     return {
       to: [props.to],
       from: this.senderContact,
-      subject: 'Старт 8 марта: “Как найти стиль”, приглашение в телеграм-чат',
+      subject: 'Старт 17 мая: “Как найти стиль”, приглашение в телеграм-чат',
       html: `
         <!DOCTYPE html>
         <html lang="ru">

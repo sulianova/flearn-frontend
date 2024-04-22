@@ -3,8 +3,8 @@
 ._ {
   display: flex;
   flex-direction: column;
-  // height: set-calc(-100, true, 100vh);
   overflow: visible;
+  // height: set-calc(-100, true, 100vh);
 
   @include set-media(md) {
     position: relative;
@@ -64,7 +64,6 @@
 .title {
   z-index: 100;
   font-family: $font-family-serif;
-  // color: $orange;
 
   padding-bottom: set-calc(24);
 
@@ -157,13 +156,13 @@
   grid-column: span 2;
   position: relative;
 
-  width: set-calc(700);
+  width: 80%;
   overflow: hidden;
-  padding-left: set-calc(150);
   border-radius: set-calc(20);
 
   @include set-media(md) {
     width: 100%;
+    height: 100%;
     padding-left: 0;
   }
 }
