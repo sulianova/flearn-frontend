@@ -418,7 +418,7 @@ const courseDB1: ICourseDataDB = {
 
 const courseDB2: ICourseDataDB = {
   id: 'finding-your-style',
-  type: 'webinar',
+  type: 'intensive',
   title: 'Как найти стиль',
   startDate: '2024.05.16 21:00:00 GMT',
   endDate: '2024.05.26 20:59:00 GMT',

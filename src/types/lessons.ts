@@ -13,7 +13,7 @@ export interface ILessonInfoDB {
   title: string
   lectureLink?: string
   homeworkLink?: string
-  webinarLink?: string
+  intensiveLink?: string
   resultsLink?: string
   week: number
 }
@@ -22,7 +22,7 @@ export interface ILessonInfo {
   title: string
   lectureLink?: string
   homeworkLink?: string
-  webinarLink?: string
+  intensiveLink?: string
   resultsLink?: string
   week: number
   startDate: Date

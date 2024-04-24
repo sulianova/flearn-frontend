@@ -118,7 +118,7 @@ export const fetchLessons = createAction<'saga', IFetchLessonsPayload>(
 //     week: 3,
 //     lectureLink: 'lesson.html',
 //     homeworkLink: 'homework.html',
-//     webinarLink: 'homework.html',
+//     intensiveLink: 'homework.html',
 //     resultsLink: 'homework-editor.html',
 //   },
 // ];

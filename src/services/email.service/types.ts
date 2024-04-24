@@ -13,5 +13,6 @@ export type TEmail = {
 export enum EEmail {
   OrderCreated = 'OrderCreated',
   FindingYourStyle1 = 'FindingYourStyle1',
+  PaymentMethods = 'PaymentMethods',
   FindingYourStyleCourseIsStartingTomorrow = 'FindingYourStyleCourseIsStartingTomorrow',
 }

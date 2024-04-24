@@ -211,7 +211,7 @@ function renderItem(lesson: ILessonsData) {
       <div className={classesList.task + ' s-text-21'}>{lesson.lesson.title}</div>
       <div className={classesList.itemLinks}>
         {homeworkLink}
-        {/* {props.lesson.webinarLink && <div className={classesList.itemLink}><a className='link s-text-18' href={props.lesson.webinarLink}>{t('webinar')}</a></div>} */}
+        {/* {props.lesson.intensiveLink && <div className={classesList.itemLink}><a className='link s-text-18' href={props.lesson.intensiveLink}>{t('intensive')}</a></div>} */}
         {/* {props.lesson.resultsLink && <div className={classesList.itemLink}><a className='link s-text-18' href={props.lesson.resultsLink}>{t('results')}</a></div>} */}
       </div>
     </div>

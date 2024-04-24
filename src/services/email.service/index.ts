@@ -3,12 +3,14 @@ import { ECollections } from 'types';
 import { v4 } from 'uuid';
 import { EEmail, type TEmail, type TContact } from './types';
 import { formatDate } from 'utils';
+import { ICourseData } from 'services/course.service';
+import { i18n } from 'shared/translations'
 
 export { EEmail } from './types';
 
 type TProps = { to: TContact } & (
   | { type: EEmail.OrderCreated, orderId: string }
-  | { type: EEmail.FindingYourStyle1, orderId: string, price: number, startDate: Date }
+  | { type: EEmail.PaymentMethods, orderId: string, course: ICourseData }
   | { type: EEmail.FindingYourStyleCourseIsStartingTomorrow, startDate: Date }
 );
 
@@ -31,7 +33,7 @@ class EmailService {
     switch (props.type) {
       case EEmail.OrderCreated:
         return `${props.orderId}-${id}`;
-      case EEmail.FindingYourStyle1:
+      case EEmail.PaymentMethods:
         return `${props.orderId}-${id}`;
       case EEmail.FindingYourStyleCourseIsStartingTomorrow:
         return `finding-your-style-${props.to.email}-course-is-starting-tomorrow-${id}`;
@@ -44,8 +46,8 @@ class EmailService {
     switch (props.type) {
       case EEmail.OrderCreated:
         return this.getOrderEmail(props);
-      case EEmail.FindingYourStyle1:
-        return this.getFindingYourStyle1Email(props);
+      case EEmail.PaymentMethods:
+        return this.getPaymentMethodsEmail(props)
       case EEmail.FindingYourStyleCourseIsStartingTomorrow:
         return this.getCourseIsStartingTomorrowEmail(props);
       default:
@@ -63,13 +65,15 @@ class EmailService {
     };  
   }
 
-  private getFindingYourStyle1Email(props: { to: TContact, price: number, startDate: Date }): TEmail {
-    const { to, price, startDate } = props;
-    const startDateStr = formatDate(startDate, { timeZone: 'Europe/Moscow' });
+  private getPaymentMethodsEmail(props: { to: TContact, course: ICourseData }): TEmail {
+    const { to, course } = props;
+    const startDate = formatDate(course.startDate, { timeZone: 'Europe/Moscow' });
+    const price = (course.discontDeadline === null || new Date() < course.discontDeadline) ? course.creditPrice : course.creditWas;
+    const courseTypeStr = i18n.t(`courseType.${course.type}`);
     return {
       to: [to],
       from: this.senderContact,
-      subject: `Интенсив "Как найти стиль" ${startDateStr}`,
+      subject: i18n.t(`emails.PaymentMethods.subject.${course.type}`, { startDate, title: course.title }),
       html: `
         <!DOCTYPE html>
         <html lang="ru">
@@ -79,15 +83,13 @@ class EmailService {
           <title>Document</title>
         </head>
         <body>
-          <p>Здравствуйте!</p>
-        
-          <p>Мы получили вашу заявку на интенсив “Как найти стиль”. Оплатить участие можно переводом на российскую карту или через Paypal.</p>
+          <p>Здравствуйте! Мы получили вашу заявку на ${courseTypeStr} “${course.title}”. Оплатить участие можно переводом на российскую карту или через Paypal.</p>
         
           <p style="white-space: pre-line;"><strong>Оплата в России</strong>&#10;На карту Тинькофф по номеру телефона +79162380397 Ульянова София Романовна — ${Math.round(price)} руб.</p>
         
           <p style="white-space: pre-line;"><strong>Оплата с зарубежной карты</strong>&#10;Через Paypal на аккаунт <a href="http://paypal.me/sofiulyanova">paypal.me/sofiulyanova</a> (Ulianova Sofiia) — ${Math.round(price/100)} евро. В назначении платежа не указывайте, пожалуйста, за что и для кого.</p>
         
-          <p style="white-space: pre-line;"><strong>После оплаты</strong>&#10;Пришлите мне <a href="https://t.me/ulianova_sofia">в телеграмм</a> чек об оплате и почту, по которой планируете проходить курс. К этой почте должен быть привязан гугл-аккаунт.</p>
+          <p style="white-space: pre-line;"><strong>После оплаты</strong>&#10;Пришлите мне <a href="https://t.me/ulianova_sofia">в телеграмм</a> чек об оплате и почту, по которой планируете проходить ${courseTypeStr}. К этой почте должен быть привязан гугл-аккаунт.</p>
         
           <p>Если возникнут вопросы и трудности, <a href="https://t.me/ulianova_sofia">пишите мне в телеграмме</a></p>
         
@@ -102,7 +104,7 @@ class EmailService {
     const { to, startDate } = props;
     const startDateStr = formatDate(startDate, { timeZone: 'Europe/Moscow' });
     return {
-      to: [props.to],
+      to: [to],
       from: this.senderContact,
       subject: `Старт ${startDateStr}: “Как найти стиль”, приглашение в телеграм-чат`,
       html: `
