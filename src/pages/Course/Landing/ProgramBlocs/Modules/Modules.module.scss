@@ -48,11 +48,11 @@
 .listItem {
   display: grid;
   grid-template-columns: repeat(var(--items-in-row, 2),minmax(0,1fr));
-  grid-column-gap: set-calc($s-gap);
+  grid-column-gap: set-calc(10);
 
   @include set-media(md) {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     margin-bottom: set-calc(4 * $s-gap);
   }
 }
@@ -63,7 +63,7 @@
   flex-direction: column;
   align-items: flex-start;
   padding: set-calc(32);
-  margin-bottom: set-calc($s-gap);
+  margin-bottom: set-calc(10);
 
   background-color: $beige;
   border-radius: set-calc(20);
@@ -75,8 +75,12 @@
   }
 }
 
+.listItemCardMedia {
+  background-color: $purple;
+}
+
 .listItemMeta {
-  background: $beige-light;
+  background: $white;
   border-radius: set-calc(20);
   display: inline-flex;
   align-items: center;
@@ -158,7 +162,7 @@
   align-items: center;
   justify-content: center;
 
-  background: $white;
+  background: $purple;
   border-radius: set-calc(40);
   border: none;
   margin: set-calc(40) 0 0;
@@ -176,7 +180,7 @@
   align-items: center;
   justify-content: center;
 
-  background: $grey;
+  background: $white;
   border-radius: 100%;
   flex-shrink: 0;
   margin-right: set-calc(8);
@@ -190,6 +194,7 @@
 
 .listItemLabelText {
   margin: 0;
+  color: $white;
 }
 
 .listItemMedia {
@@ -197,7 +202,7 @@
   margin: set-calc(-32);
   overflow: hidden;
 
-  display: block;
+  display: flex;
   border-radius: set-calc(20);
 
   @include set-media(md) {

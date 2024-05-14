@@ -70,15 +70,9 @@ function renderItem(props: NonNullable<ICourseData['modules']>[number]) {
         </Animated.Scroll>
         <Animated.Scroll>
           {(id, className) => (
-            <div className={cx({ listItemCard: true }, className)} id={id}>
+            <div className={cx({ listItemCard: true, listItemCardMedia: true }, className)} id={id}>
               <div className={classes.listItemMedia}><Image src={props.imageSrc!} alt={props.imageAlt!}/></div>
               {/* <div className={classes.listItemMediaDesc + ' s-text-21'}><Text text={props.imageDesc!}/></div> */}
-              {/* <div className={classes.listItemLabel}>
-                <span className={classes.listItemLabelIcon}>
-                  <Plus/>
-                </span>
-                <span className={classes.listItemLabelText + ' s-text-21'}>{t('listItemLabelText')}</span>
-              </div> */}
             </div>
           )}
         </Animated.Scroll>

@@ -225,8 +225,8 @@ const courseDB1: ICourseDataDB = {
         //   content: 'Вебинар: просмотр работ и подведение итогов'
         // },
       ],
-      imageId: { desktop: 'Block4.png', mobile: 'Block4-mobile.png' },
-      imageAlt: 'Block3',
+      imageId: { desktop: 'Block4.jpg', mobile: 'Block4.jpg' },
+      imageAlt: 'Block4',
       imageDesc: 'Оформленный проект на Behance',
       title: 'Итоговый проект',
       meta: [
