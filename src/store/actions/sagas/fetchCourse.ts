@@ -103,10 +103,10 @@ const courseDB1: ICourseDataDB = {
     imageId: 'imageCard.jpg',
     imageAlt: 'imageCard',
   },
-  discontAmount: 50,
-  discontDeadline: '2024.04.29 20:59:00 GMT',
+  discontAmount: 15,
+  discontDeadline: '2024.05.20 20:59:00 GMT',
   creditWas: 16000,
-  creditPrice: 8000,
+  creditPrice: 13600,
   telegramLink: 'https://t.me/+yIvKOdKrLYdlYzMy',
   about: [
     {

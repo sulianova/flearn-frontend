@@ -43,6 +43,16 @@
   }
 }
 
+.s-text-18-uppercase {
+  @include set-typography(18, 24, 500);
+  text-transform: uppercase;
+
+  @include set-media(md) {
+    @include set-typography(16, 22, 500);
+    text-transform: uppercase;
+  }
+}
+
 //article
 .s-text-20 {
   @include set-typography(20, 30, 500);
