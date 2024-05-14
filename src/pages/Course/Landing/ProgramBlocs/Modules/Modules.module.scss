@@ -51,7 +51,9 @@
   grid-column-gap: set-calc($s-gap);
 
   @include set-media(md) {
-    display: block;
+    display: flex;
+    flex-direction: column-reverse;
+    margin-bottom: set-calc(4 * $s-gap);
   }
 }
 
@@ -74,7 +76,7 @@
 }
 
 .listItemMeta {
-  background: $white;
+  background: $beige-light;
   border-radius: set-calc(20);
   display: inline-flex;
   align-items: center;
@@ -131,13 +133,14 @@
 
 
 .listItemActivities {
+  display: flex;
   border-top: set-calc(2) solid $white;
   margin: set-calc(20) 0 0;
   padding: set-calc(20) 0 0;
 
   white-space: pre-line;
   padding-bottom: set-calc(16);
-  max-width: set-calc(950);
+  width: 100%;
 
   p {
     font-size: inherit;

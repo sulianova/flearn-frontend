@@ -55,8 +55,16 @@ function renderItem(props: NonNullable<ICourseData['modules']>[number]) {
             <div className={cx({ listItemCard: true }, className)} id={id}>
               <div className={classes.listItemMeta + ' s-text-18'}><Text text={props.meta}/></div>
               <div className={classes.listItemTitle + ' s-text-56'}><Text text={props.title}/></div>
-              <div className={classes.listItemContent + ' s-text-21'}><Text text={props.content}/></div>
-              {props.activities && Boolean(!Array.isArray(props.activities) || props.activities.length) && <div className={classes.listItemActivities + ' s-text-21'}><Text text={props.activities}/></div>}
+              <div className={classes.listItemContent + ' s-text-24'}><Text text={props.content}/></div>
+              {/* {props.activities && Boolean(!Array.isArray(props.activities) || props.activities.length) && <div className={classes.listItemActivities + ' s-text-21'}><Text text={props.activities}/></div>} */}
+              <div className={classes.listItemActivities + ' s-text-24'}>
+                <div className={classes.listItemLabel}>
+                  <span className={classes.listItemLabelIcon}>
+                    <Plus/>
+                  </span>
+                  <span className={classes.listItemLabelText + ' s-text-21'}>{t('listItemLabelText')}</span>
+                </div>
+              </div>
             </div>
           )}
         </Animated.Scroll>
@@ -64,13 +72,13 @@ function renderItem(props: NonNullable<ICourseData['modules']>[number]) {
           {(id, className) => (
             <div className={cx({ listItemCard: true }, className)} id={id}>
               <div className={classes.listItemMedia}><Image src={props.imageSrc!} alt={props.imageAlt!}/></div>
-              <div className={classes.listItemMediaDesc + ' s-text-18'}><Text text={props.imageDesc!}/></div>
-              <div className={classes.listItemLabel}>
+              <div className={classes.listItemMediaDesc + ' s-text-21'}><Text text={props.imageDesc!}/></div>
+              {/* <div className={classes.listItemLabel}>
                 <span className={classes.listItemLabelIcon}>
                   <Plus/>
                 </span>
                 <span className={classes.listItemLabelText + ' s-text-21'}>{t('listItemLabelText')}</span>
-              </div>
+              </div> */}
             </div>
           )}
         </Animated.Scroll>
