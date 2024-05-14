@@ -79,7 +79,7 @@ function getData(id: string) {
 const courseDB1: ICourseDataDB = {
   id: 'how-to-draw', // how-to-draw-free
   type: 'course',
-  title: 'Инструменты иллюстратора',
+  title: 'Стикеры для Telegram',
   startDate: '2024.05.26 21:00:00 GMT', // '2023.12.03 21:00:00 GMT'
   endDate: '2024.06.23 20:59:00 GMT', // '2023.12.31 20:59:00 GMT'
   accessDeadline: '2024.06.23 20:59:00 GMT', // '2023.12.31 20:59:00 GMT'
@@ -98,7 +98,7 @@ const courseDB1: ICourseDataDB = {
     },
     imageAlt: 'SpotCat27',
   },
-  introDescription: 'Будем учиться схватывать силуэт и утрировать характерные черты в быстрых набросках. А из удачных эскизов сделаем серию стикеров для телеграмма и оформим в проект на Behance',
+  introDescription: 'Научимся схватывать силуэт и утрировать характерные черты в быстрых набросках. А из удачных эскизов сделаем серию стикеров для телеграмма и оформим в проект на Behance',
   cardImage: {
     imageId: 'imageCard.jpg',
     imageAlt: 'imageCard',
@@ -153,9 +153,9 @@ const courseDB1: ICourseDataDB = {
         //   content: 'Вебинар: скоростные рисунки линией за 5, 10, 15 минут'
         // },
       ],
-      imageId: { desktop: 'Block1.jpg', mobile: 'Block1-mobile.jpg' },
+      imageId: { desktop: 'Block1.png', mobile: 'Block1-mobile.png' },
       imageAlt: 'Block1',
-      imageDesc: 'Итог недели: 5-6 стикеров линией',
+      imageDesc: '5-6 стикеров линией',
       title: 'Линия',
       meta: [
         {
@@ -179,9 +179,9 @@ const courseDB1: ICourseDataDB = {
         //   content: 'Вебинар : скоростные рисунки пятном за 5, 10, 15 минут'
         // },
       ],
-      imageId: { desktop: 'Block2.jpg', mobile: 'Block2-mobile.jpg'},
+      imageId: { desktop: 'Block2.png', mobile: 'Block2-mobile.png'},
       imageAlt: 'Block2',
-      imageDesc: 'Итог недели: 5-6 стикеров пятном',
+      imageDesc: '5-6 стикеров пятном',
       title: 'Пятно',
       meta: [
         {
@@ -202,9 +202,9 @@ const courseDB1: ICourseDataDB = {
         //   content: 'Итог недели: 5-6 стикеров в цвете'
         // },
       ],
-      imageId: { desktop: 'Block3.jpg', mobile: 'Block3-mobile.jpg' },
+      imageId: { desktop: 'Block3.png', mobile: 'Block3-mobile.png' },
       imageAlt: 'Block3',
-      imageDesc: 'Итог недели: 5-6 стикеров в цвете',
+      imageDesc: '5-6 стикеров в цвете',
       title: 'Цвет',
       meta: [
         {
@@ -227,7 +227,7 @@ const courseDB1: ICourseDataDB = {
       ],
       imageId: { desktop: 'Block4.png', mobile: 'Block4-mobile.png' },
       imageAlt: 'Block3',
-      imageDesc: 'Итог курса: оформленный проект на Behance',
+      imageDesc: 'Оформленный проект на Behance',
       title: 'Итоговый проект',
       meta: [
         {
