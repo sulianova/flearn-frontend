@@ -44,21 +44,12 @@
   @include set-media(md) {
     min-height: set-calc(430);
     padding: set-calc($padding-x-mob-page) set-calc($padding-x-mob-page);
-    background-image: linear-gradient(98deg, $pastelBlue, $pastelWarmGreen);
     
     &:not(:last-child) {
       margin-bottom: set-calc(8);
     }
   }
 }
-
-.listItemCard:nth-child(2n+1) {
-
-  @include set-media(md) {
-    background-image: linear-gradient(98deg, $pastelWarmGreen, $pastelBlue,);
-  }
-}
-
 
 .listItemTitle {
   margin-bottom: set-calc(32);
