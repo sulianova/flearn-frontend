@@ -29,8 +29,10 @@
   margin-right: set-calc(8);
   width: 100%;
   overflow: hidden;
-  border-radius: set-calc(20);
+  border-radius: 0;
   border: set-calc(2) solid $black-new;
+
+  aspect-ratio: 1 / 1.5;
 
   text-align: center;
 }

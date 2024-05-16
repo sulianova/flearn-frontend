@@ -27,7 +27,6 @@
   overflow: hidden;
 
   padding: set-calc(12) set-calc(48);
-  border-radius: set-calc(10);
 
   display: flex;
   align-items: center;
@@ -38,7 +37,7 @@
   color: $black;
 
   border: set-calc(2) solid $black;
-  border-radius: set-calc(20);
+  border-radius: set-calc(30);
   cursor: pointer;
 
 }

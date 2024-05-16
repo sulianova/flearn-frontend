@@ -5,6 +5,7 @@
   align-items: start;
 
   @include is-grid-12;
+  gap: set-calc(16);
 
   @include set-media(md) {
     align-items: start;
@@ -16,10 +17,13 @@
 
   display: flex;
   grid-column: span 3;
-  padding: 0 set-calc(32) 0 0;
+  padding: set-calc(16);
+  border: set-calc(2) solid $black;
+  height: 100%;
+
 
   @include set-media(md) {
-    padding-right: 0;
+    width: 100%;
   }
 }
 
@@ -28,11 +32,9 @@
 
   width: 100%;
   margin-bottom: auto;
-  color: $warmGreenDark;
 
   @include set-media(md) {
     text-align: left;
-    background-color: $white;
     border-radius: 0;
   }
 }

@@ -38,7 +38,7 @@ padding-bottom: set-calc(54);
   position: relative;
   overflow: hidden;
   padding: set-calc(32);
-  border-radius: set-calc(20);
+  border-radius: 0;
   border: set-calc(2) solid $black-new;
 
   @include set-media(md) {
@@ -73,7 +73,7 @@ padding-bottom: set-calc(54);
   flex-shrink: 1;
   height: set-calc(500);
 
-  border-radius: set-calc(20);
+  border-radius: 0;
   overflow: hidden;
 
   border: set-calc(2) solid $black-new;

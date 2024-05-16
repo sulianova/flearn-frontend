@@ -2,22 +2,17 @@
 
 .__ {
   position: relative;
-  border-radius: set-calc(20);
   @include is-grid-4;
   grid-gap: 0;
   overflow: hidden;
-  background-color: $white;
+  background-color: transparent;
   margin-bottom: set-calc(40);
   border: set-calc(2) solid $black-new;
-  transition: background-color $d-hover ease;
+  transition: transform 0.3s ease;
   cursor: pointer;
 
   &:hover {
-    // transform: translateY(set-calc(-3));
-    background-color: $warmGreen;
-    .info {
-      color:  $warmGreen;
-    }
+    transform: scale(0.97);
   }
 
   @include set-media(md) {
@@ -94,9 +89,12 @@
   padding: set-calc(2) set-calc($padding-x-mob-page);
   width: fit-content;
 
-  background-color: $black-new;
-  color: $white;
-  border-radius: set-calc(20);
+  border: set-calc(1.5) solid $black;
+  border-radius: set-calc(30);
+
+  @include set-media(md) {
+    border: set-calc(1.3) solid $black;
+  }
 }
 
 
@@ -131,7 +129,6 @@
   color: $black;
 
   border: set-calc(2) solid $black-new;
-  border-radius: set-calc(20);
   cursor: pointer;
 
   transition: background-color $d-hover ease-in-out, color ease-in-out $d-hover;
@@ -147,49 +144,5 @@
   &:hover {
     background-color: $black-new;
     color: $white;
-  }
-}
-
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  margin-bottom: set-calc(24);
-  padding-right: set-calc(64);
-
-  @include set-media(md) {
-    padding-right: 0;
-    margin-bottom: set-calc(32);
-  }
-}
-
-.tag {
-  background-image: linear-gradient(to bottom, $grey-inactive 0, $grey-inactive 100%);
-  background-position: 0 90%;
-  background-repeat: repeat-x;
-  background-size: set-calc(1) set-calc(1);
-  width: fit-content;
-
-  margin-right: set-calc(6);
-  cursor: pointer;
-
-  &:hover {
-    background-image: linear-gradient(to bottom, $grey 0, $grey 100%);
-    background-position: 0 90%;
-    background-repeat: repeat-x;
-    background-size: set-calc(1) set-calc(1);
-
-    color: $grey;
-  }
-}
-
-.hashTag {
-  display: inline-block;
-  vertical-align: top;
-  line-height: set-calc(22);
-  margin-right: set-calc(6);
-
-  @include set-media(md) {
-    line-height: set-calc(19);
   }
 }

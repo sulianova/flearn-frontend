@@ -35,9 +35,9 @@
   justify-content: space-between;
   flex-direction: column;
   padding: set-calc(32);
-  border-radius: set-calc(20);
+  border-radius: set-calc(30);
   border: set-calc(2) solid $black-new;
-  background-color: $white;
+  background-color: transparent;
 
   @include set-media(md) {
     padding: 0;

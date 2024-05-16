@@ -38,7 +38,7 @@
   min-height: set-calc(330);
   color: $black-new;
 
-  border-radius: set-calc(20);
+  border-radius: 0;
   border: set-calc(2) solid $black-new;
 
   @include set-media(md) {

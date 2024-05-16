@@ -4,8 +4,6 @@
   display: grid;
   grid-gap: set-calc($s-gap);
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  @include is-beige;
-  background-color: $warmGreen;
 
   @include set-media(md) {
     padding: set-calc(2 * $padding-x-mob-page) set-calc($padding-x-mob-page);
@@ -25,7 +23,8 @@
   padding: set-calc(32);
   border: set-calc(2) solid $black-new;
   color: $black;
-  border-radius: set-calc(20);
+  border-radius: 0;
+  background-color: $warmGreen;
 
   @include set-media(md) {
     margin-bottom: set-calc(8);

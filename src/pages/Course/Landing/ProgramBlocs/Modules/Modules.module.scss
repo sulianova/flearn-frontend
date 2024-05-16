@@ -69,13 +69,22 @@
   padding: set-calc(32);
   margin-bottom: set-calc(10);
 
-  border-radius: set-calc(20);
   border: set-calc(2) solid $black-new;
 
   @include set-media(md) {
     left: set-calc(-$padding-x-mob-page);
     width: set-calc(32, true, 100%);
     padding: set-calc($padding-x-mob-page) set-calc($padding-x-mob-page);
+    margin-bottom: 0;
+    border-right: 0;
+    border-left: 0;
+
+  }
+}
+
+.listItemCard:not(:last-child) {
+  @include set-media(md) {
+    border-bottom: 0;
   }
 }
 
@@ -101,7 +110,7 @@
   }
 
   .listItemMeta {
-    border-radius: set-calc(20);
+    border-radius: 0;
     display: inline-flex;
     align-items: center;
     text-align: center;
@@ -111,11 +120,11 @@
     margin-bottom: set-calc(8);
   
     padding: set-calc(4) set-calc(16);
-    border: set-calc(2) solid $warmGreenDark;
-    color: $warmGreenDark;
+    border: set-calc(2) solid $black;
+    color: $black;
   
     @include set-media(md) {
-      border: set-calc(1.3) solid $warmGreenDark;
+      border: set-calc(1.3) solid $black;
     }
   }
 
@@ -145,7 +154,7 @@
   transition: background-color $d-hover ease;
 
   &:hover {
-    background-color: $warmGreen;
+    background-color: transparent;
   }
 }
 
@@ -264,7 +273,6 @@
   overflow: hidden;
 
   display: flex;
-  border-radius: set-calc(20);
 
   @include set-media(md) {
     margin: set-calc(-16);
