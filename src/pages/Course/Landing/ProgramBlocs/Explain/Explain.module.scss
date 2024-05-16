@@ -80,7 +80,6 @@ padding-bottom: set-calc(54);
 
   @include set-media(md) {
     height: set-calc(375);
-    border: set-calc(1) solid $black-new;
   }
 }
 

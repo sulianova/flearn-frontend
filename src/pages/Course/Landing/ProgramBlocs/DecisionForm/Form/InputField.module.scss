@@ -16,14 +16,17 @@
   &::placeholder {
     color: $black;
     opacity: 1;
+    font-family: $font-family;
   }
   
   &:-ms-input-placeholder {
     color: $black;
+    font-family: $font-family;
   }
   
   &::-ms-input-placeholder {
     color: $black;
+    font-family: $font-family;
   }
 
   @include set-media(md) {

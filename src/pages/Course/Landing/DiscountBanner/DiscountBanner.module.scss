@@ -13,7 +13,7 @@
     width: set-calc(32, true, 100%);
     padding: set-calc($padding-x-mob-page) set-calc($padding-x-mob-page) set-calc($padding-x-mob-page * 2);
     background-image: linear-gradient(98deg, $pastelBlue, $pastelWarmGreen);
-    border: set-calc(1) solid $black-new;
+    border: set-calc(2) solid $black-new;
     cursor: pointer;
     -webkit-font-smoothing: subpixel-antialiased;
   }

@@ -24,7 +24,6 @@
     padding: 0;
     margin-bottom: set-calc(40);
     grid-gap: 0;
-    border: set-calc(1) solid $black-new;
   }
 }
 
@@ -68,7 +67,7 @@
   
   @include set-media(md) {
     padding: set-calc(24) set-calc(24) set-calc(24) set-calc(24);
-    border-bottom: set-calc(1) solid $black-new;
+    border-bottom: set-calc(2) solid $black-new;
     border-right: 0;
   }
 }
@@ -143,7 +142,6 @@
   @include set-media(md) {
     flex: 1 1 max-content;
     padding: set-calc(12) set-calc(80);
-    border: set-calc(1) solid $black-new;
   }
 
   &:hover {

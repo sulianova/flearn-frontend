@@ -40,8 +40,8 @@
   background-color: $white;
 
   @include set-media(md) {
-    padding: set-calc($padding-x-mob-page) set-calc($padding-x-mob-page);
-    border: set-calc(1) solid $black-new;
+    padding: 0;
+    border: 0;
     
     &:not(:last-child) {
       margin-bottom: set-calc(8);
@@ -54,7 +54,7 @@
   line-height: inherit;
   white-space: pre-line;
 
-  p {
+  p:not(:last-child) {
     padding-bottom: set-calc(16);
   }
 }

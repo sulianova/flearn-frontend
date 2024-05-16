@@ -113,11 +113,10 @@
   
     padding: set-calc(4) set-calc(16);
     border: set-calc(2) solid $black-new;
-    background-color: $warmGreen;
     color: $black;
   
     @include set-media(md) {
-      border: set-calc(1) solid $black-new;
+      border: set-calc(1.3) solid $black-new;
     }
   }
 

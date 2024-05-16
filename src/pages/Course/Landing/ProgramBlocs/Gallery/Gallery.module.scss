@@ -33,10 +33,6 @@
   border: set-calc(2) solid $black-new;
 
   text-align: center;
-
-  @include set-media(md) {
-    border: set-calc(1) solid $black-new;
-  }
 }
 
 .item:not(:last-child) {
