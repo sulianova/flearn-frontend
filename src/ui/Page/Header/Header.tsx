@@ -46,7 +46,7 @@ function Header(props: IConnectedProps) {
       <div className={classes.desc}>
         <div className={classes.logo}>
           <div className={classes.logoWrapper}>
-            <Link to={URLSections.Catalogue.index} className='s-text-18'>{i18n.t('logo')}</Link>
+            <Link to={URLSections.Catalogue.index} className='s-text-21'>{i18n.t('logo')}</Link>
           </div>
         </div>
         <div className={classes.nav}>

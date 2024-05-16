@@ -7,7 +7,7 @@
   width: 100%;
   z-index: 1000;
 
-  @include set-typography(18, 24, 500);
+  @include s-text-21;
 
   @include set-media(md) {
     transition: top 0.5s, transform 0.5s;
@@ -36,7 +36,7 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: set-calc(4) set-calc($padding-x-desk-page) set-calc(8);
+  padding: set-calc(8) set-calc($padding-x-desk-page) set-calc(16);
   background-color: $white;
 
   @include is-grid-12;
@@ -52,25 +52,8 @@
   }
 }
 
-// .desc::before {
-//   content: '';
-//   position: absolute;
-//   top: 100%;
-//   left: 50%;
-//   transform: translateX(-50%);
-//   // width: calc(100% - 106px);
-//   width: set-calc(-106, true, 100%);
-//   height: set-calc(20);
-//   z-index: 800;
-//   background: url('./left-conner.png') 0 100% / set-calc(20) set-calc(20) no-repeat, url('./right-corner.png') 100% 0 / set-calc(20) set-calc(20) no-repeat;
-
-//   @include set-media(md) {
-//     display: none;
-//   }
-// }
-
 .logo {
-  grid-column: span 2;
+  grid-column: span 3;
   padding-top: set-calc(4);
 
   @include set-media(md) {
@@ -85,15 +68,20 @@
   align-items: center;
   justify-content: flex-start;
   position: relative;
-
-  a:hover {
-      color: $orange;
-      cursor: pointer;
+  background-color: $warmGreen;
+  max-width: fit-content;
+  color: $black;
+  padding: set-calc(4) set-calc(32);
+  border-radius: set-calc(15);
+  
+  &:hover {
+    cursor: pointer;
+    background-color: $warmGreen-hover;
   }
 }
 
 .nav {
-  grid-column: 3/12;
+  grid-column: 4/12;
   position: relative;
   display: flex;
   align-items: center;
@@ -213,5 +201,5 @@
 }
 
 .isActive {
-  color: $orange !important;
+  color: $blue !important;
 }

@@ -56,10 +56,9 @@
   left: set-calc(-$padding-x-desk-page);
 
   width: set-calc(2 * $padding-x-desk-page, true, 100%);
-  padding: set-calc(72) set-calc($padding-x-desk-page);
+  padding: set-calc($padding-x-desk-page) set-calc($padding-x-desk-page);
 
   background-color: $beige;
-  border-radius: set-calc(20);
 
   @include set-media(md) {
     left: set-calc(-$padding-x-mob-page);

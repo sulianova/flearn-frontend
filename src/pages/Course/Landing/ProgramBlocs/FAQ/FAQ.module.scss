@@ -39,7 +39,7 @@
   left: 0;
 
   display: grid;
-  grid-gap: set-calc($s-gap) set-calc($s-gap);
+  grid-gap: 0;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   width: 100%;
 
@@ -48,49 +48,5 @@
 
     display: flex;
     flex-direction: column;
-  }
-}
-
-.item {
-  position: relative;
-  grid-column: span 4;
-
-  display: flex;
-  flex-direction: column;
-  min-height: set-calc(330);
-  padding: set-calc(24);
-
-  background-color: $beige;
-  border-radius: set-calc(20);
-
-  @include set-media(md) {
-    position: relative;
-
-    display: flex;
-    flex-direction: column;
-    grid-row-gap: 0;
-    min-height: set-calc(222);
-    padding: set-calc(16) set-calc($padding-x-mob-page);
-  }
-}
-
-
-.itemQuestion {
-  margin-bottom: set-calc(24);
-
-  p {
-    font-size: inherit;
-    line-height: inherit;
-    padding-bottom: set-calc(16);
-  }
-}
-
-.itemAnswer {
-  margin-top: auto;
-
-  p {
-    font-size: inherit;
-    line-height: inherit;
-    padding-bottom: set-calc(16);
   }
 }

@@ -37,22 +37,20 @@ padding-bottom: set-calc(54);
   grid-area: explain-intro;
   position: relative;
   overflow: hidden;
-  background-color: $beige;
   padding: set-calc(32);
   border-radius: set-calc(20);
+  background-image: linear-gradient(98deg, $beige, $beige);
 
   @include set-media(md) {
     padding: set-calc(32) set-calc(24);
     margin-bottom: set-calc(24);
-    background-color: $beige-light;
   }
 }
 
 .introCardQuote {
   position: relative;
-  max-width: calc(var(--scale)*840);
+  max-width: set-calc(840);
   z-index: 2;
-  font-family: $font-family-serif;
 }
 
 .videoCard {
@@ -62,12 +60,7 @@ padding-bottom: set-calc(54);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  // min-height: set-calc(450);
   overflow: hidden;
-
-  @include set-media(md) {
-    // min-height: set-calc(375);
-  }
 }
 
 .videoCardContainer {
@@ -77,7 +70,6 @@ padding-bottom: set-calc(54);
   flex-shrink: 1;
   height: set-calc(500);
 
-  // background: $black-new;
   border-radius: set-calc(20);
   overflow: hidden;
 
@@ -107,6 +99,7 @@ padding-bottom: set-calc(54);
   @include set-media(md) {
     padding: set-calc(24);
     width: 100%;
+    background-color: transparent;
   }
  }
 

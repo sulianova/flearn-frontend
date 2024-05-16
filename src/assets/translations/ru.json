@@ -9,7 +9,7 @@
   "inputEmail": {
     "placeholder": "Email"
   },
-  "logo": "Freadom to Learn the Arts",
+  "logo": "Freedom to Learn the Art",
   "logoLong": "Freedom to Learn the Arts",
   "header": {
     "my": "Moe обучение",
@@ -106,7 +106,7 @@
               "free=true": "Мы получили вашу заявку! На почту {{email}} отправили письмо со ссылкой на телеграм-чат. Чтобы начать обучение, авторизуйтесь под почтой {{email}}"
           }
       },
-      "StudentsResults": {
+      "studentsResults": {
         "title": "Что получится в результате"
       },
       "description": {
@@ -187,7 +187,7 @@
         "title": "Отзывы участников"
       },
       "studyProcess": {
-        "headerTitle": "Как проходит обучение"
+        "headerTitle": "Что входит в стоимость"
       },
       "About": {
         "title": {

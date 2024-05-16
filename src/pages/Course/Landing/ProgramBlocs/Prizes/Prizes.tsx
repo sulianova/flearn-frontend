@@ -24,8 +24,8 @@ function Prizes({ type, prizes }: IProps) {
       <div className={classes.listItem}>
         {prizes.map((prize, i) => (
           <div className={cx({ listItemCard: true })} key={i}>
-            <div className={classes.listItemTitle + ' s-text-28'}><Text text={prize.title}/></div>
-            {prize.content && <div className={classes.listItemContent + ' s-text-18'}><Text text={prize.content}/></div>}
+            <div className={classes.listItemTitle + ' s-text-36'}><Text text={prize.title}/></div>
+            {prize.content && <div className={classes.listItemContent + ' s-text-21'}><Text text={prize.content}/></div>}
           </div>
         ))}
       </div>

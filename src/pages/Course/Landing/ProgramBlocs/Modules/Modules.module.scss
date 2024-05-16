@@ -27,7 +27,7 @@
 }
 
 .tag {
-  background: $beige;
+  border: set-calc(2) solid $black-new;
   border-radius: set-calc(20);
   display: inline-flex;
   align-items: center;
@@ -38,6 +38,10 @@
   margin-bottom: set-calc(8);
 
   padding: set-calc(4) set-calc(16);
+
+  @include set-media(md) {
+    border: set-calc(1.3) solid $black-new;
+  }
 }
 
 .list {
@@ -75,27 +79,73 @@
   }
 }
 
+.listItemCardContent {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  
+  margin-bottom: 0;
+  padding-bottom: set-calc(40);
+  padding-top: set-calc(24);
+  border-top: set-calc(3) solid $black-new;
+  cursor: pointer;
+
+  @include set-media(md) {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    border-top: set-calc(2) solid $black-new;
+    padding-bottom: 0;
+  }
+
+  .listItemMeta {
+    background-color: $blue;
+    color: $white;
+    border-radius: set-calc(20);
+    display: inline-flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  
+    margin-right: set-calc(8);
+    margin-bottom: set-calc(8);
+  
+    padding: set-calc(4) set-calc(16);
+  }
+
+  .listItemContent {
+    width: 60%;
+
+    @include set-media(md) {
+      width: 100%;
+    }
+  }
+
+  .listItemTitle {
+    width: 60%;
+
+    @include set-media(md) {
+      width: 100%;
+    }
+  }
+  
+}
+
 .listItemCardMedia {
-  background-color: $purple;
+  background-color: $blue;
+  margin-bottom: set-calc(4);
 }
 
 .listItemMeta {
-  background: $white;
-  border-radius: set-calc(20);
+  color: $blue;
   display: inline-flex;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
 
-  margin-right: set-calc(8);
-  margin-bottom: set-calc(16);
-
-  padding: set-calc(4) set-calc(16);
 }
 
 .listItemTitle {
   padding-bottom: set-calc(24);
-  font-family: $font-family-serif;
 }
 
 .listItemContent {
@@ -162,7 +212,7 @@
   align-items: center;
   justify-content: center;
 
-  background: $purple;
+  background: $blue;
   border-radius: set-calc(40);
   border: none;
   margin: set-calc(40) 0 0;

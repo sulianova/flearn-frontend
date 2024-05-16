@@ -131,10 +131,6 @@ const courseDB1: ICourseDataDB = {
       answer: 'В условном рисовании мы получаем больше свободы, больше возможностей для экспериментов с формой и контрформой. На курсе будем рисовать по упражнениям,  которые сами по себе мешают срисовывать, поощряют упрощение, стилизацию.',
       question: 'Хочет научиться упрощать, уходить от реализма'
     },
-    // {
-    //   answer: 'Необязательно точь в точь перерисовывать каждую деталь. Фотоаппарат справится с этим лучше, чем человек. На курсе будем учиться делать убедительные рисунки, не копируя фотографию.',
-    //   question: 'Уверен, что всё зря, если рисунок «не как на фотографии»'
-    // },
   ],
   modulesDescription: 'Программа рассчитана на 4 недели, ей нужно посвящать 5-6 часов в неделю.',
   modules: [
@@ -248,12 +244,12 @@ const courseDB1: ICourseDataDB = {
   // },
   teacherGallery: [
     {
-      imageId: 'SofiUlianova2.jpg',
-      imageAlt: 'SofiUlianova2',
+      imageId: 'SofiUlianova10.jpg',
+      imageAlt: 'SofiUlianova10',
     },
     {
-      imageId: 'SofiUlianova6.jpg',
-      imageAlt: 'SofiUlianova6',
+      imageId: 'SofiUlianova4.jpg',
+      imageAlt: 'SofiUlianova4',
     },
     {
       imageId: 'SofiUlianova3.jpg',
@@ -361,20 +357,20 @@ const courseDB1: ICourseDataDB = {
       title: 'Задания и теория',
       caption: 'Для самостоятельного изучения',
       description: 'Работаем на платформе школы. Все учебные материалы: текст, фото и видео-уроки доступны в личном кабинете на сайте. Их можно пересматривать в любое время.',
-      imageId: {
-        mobile: 'studyProcess1.jpg',
-        desktop: 'studyProcess1.jpg',
-      },
+      // imageId: {
+      //   mobile: 'studyProcess1.jpg',
+      //   desktop: 'studyProcess1.jpg',
+      // },
       imageAlt: 'studyProcess2',
     },
     {
       title: 'Вопросы по ходу',
       caption: 'Каждый день',
       description: 'Вопросы, возникающие по ходу, задаем в любое время в телеграм-чате. В чате можно задавать любые вопросы по рисованию, делиться радостями, горестями, лайфхаками и красивыми картинками, поддерживать друг друга и болтать.',
-      imageId: {
-        mobile: 'studyProcess2-mobile.jpg',
-        desktop: 'studyProcess2.jpg',
-      },
+      // imageId: {
+      //   mobile: 'studyProcess2-mobile.jpg',
+      //   desktop: 'studyProcess2.jpg',
+      // },
       imageAlt: 'studyProcess2',
     },
     {
@@ -384,10 +380,10 @@ const courseDB1: ICourseDataDB = {
         { tag: 'p', content: 'Индивидуальная обратная связь по домашним заданиям. Преподаватель создает для каждого участника рабочий холст в Figma, где можно писать комментарии, прикладывать фото и ссылки.' },
         { tag: 'p', content: 'Чтобы отвечать на комментарии, вести диалог, нужно залогиниться под любой почтой в Figma. С ноутбука это можно сделать в любом браузере, с телефона вначале нужно скачать приложение Figma и установить его.' },
       ],
-      imageId: {
-        mobile: 'studyProcess3-mobile.jpg',
-        desktop: 'studyProcess3.jpg',
-      },
+      // imageId: {
+      //   mobile: 'studyProcess3-mobile.jpg',
+      //   desktop: 'studyProcess3.jpg',
+      // },
       imageAlt: 'studyProcess3',
     },
     {
@@ -442,10 +438,6 @@ const courseDB2: ICourseDataDB = {
   ],
   description: [
     {
-      answer: 'На интенсиве будем разбираться, как ставить перед собой посильные маленькие задачки. А затем развивать из них готовые графические серии.',
-      question: 'Не знает с чего начать'
-    },
-    {
       answer: 'На интенсиве пошагово разберем, из чего состоит иллюстрация, что делает рисунок выразительным, интересным для разглядывания. Будем анализировать работы других иллюстраторов, пробовать новые подходы в собственных рисунках. По итогу, у студентов останется алгоритм, по которому можно разбирать иллюстрации любимых художников, самостоятельно у них учиться и развивать свой графический язык.',
       question: 'Хочет найти свой стиль в иллюстрации'
     },
@@ -467,11 +459,11 @@ const courseDB2: ICourseDataDB = {
         },
         {
           tag: 'a',
-          content: '“Инструменты иллюстратора”',
+          content: '“Стикеры для Telegram”',
           props: { className: 'key-link', target: "_blank", to: 'https://flearn.net/course/how-to-draw' },
         },
       ],
-      content: 'Базовый курс по иллюстрации. За 4 недели научимся уверенно рисовать любые сюжеты и сделаем серию стикеров для телеграмма'
+      content: 'Научимся схватывать силуэт и утрировать характерные черты в быстрых набросках. А из удачных эскизов сделаем серию стикеров для телеграмма и оформим в проект на Behance'
     },
     {
       title: 'Приглашение в телеграм-чат выпускников школы flearn',
@@ -487,7 +479,7 @@ const courseDB2: ICourseDataDB = {
           { tag: 'span',
           content: '1. Что такое иллюстрация, серия, стиль'
           },
-          { tag: 'span', props: { className: 'blue' }, content: 'Консультация с преподавателем на 5-10 мин: ставим цели на интенсив' },
+          { tag: 'span', props: { className: 'blue' }, content: 'Консультация с преподавателем на 5-10 мин: ставим цели на интенсив.' },
           ]
         },
         { tag: 'p', content: [
@@ -496,7 +488,7 @@ const courseDB2: ICourseDataDB = {
           },
           { tag: 'span', content: '• сюжет в один кадр' },
           { tag: 'span', content: '• конфликт в графике' },
-          { tag: 'span', props: { className: 'blue' }, content: 'Упражнение: "Генератор сюжетов"' },
+          { tag: 'span', props: { className: 'blue' }, content: 'Вебинар: "Генератор сюжетов". Разберемся, как придумывать острые, запоминающиеся сюжеты.' },
           ]
         },
         { tag: 'p', content: [
@@ -509,7 +501,7 @@ const courseDB2: ICourseDataDB = {
           { tag: 'span', content: '• модульность' },
           { tag: 'span', content: '• силуэт' },
           { tag: 'span', content: '• контрформа' },
-          { tag: 'span', props: { className: 'blue' }, content: 'Упражнение: "Дневник наблюдений"' },
+          { tag: 'span', props: { className: 'blue' }, content: 'Вебинар: "Дневник наблюдений". Научимся анализировать работы других иллюстраторов и применять находки в своих рисунках.' },
           ]
         },
       ],
@@ -549,16 +541,16 @@ const courseDB2: ICourseDataDB = {
   },
   teacherGallery: [
     {
-      imageId: 'SofiUlianova2.jpg',
-      imageAlt: 'SofiUlianova2',
-    },
-    {
-      imageId: 'SofiUlianova6.jpg',
-      imageAlt: 'SofiUlianova6',
+      imageId: 'SofiUlianova10.jpg',
+      imageAlt: 'SofiUlianova10',
     },
     {
       imageId: 'SofiUlianova4.jpg',
       imageAlt: 'SofiUlianova4',
+    },
+    {
+      imageId: 'SofiUlianova3.jpg',
+      imageAlt: 'SofiUlianova3',
     },
   ],
   studentResults: {
@@ -575,21 +567,21 @@ const courseDB2: ICourseDataDB = {
       title: 'Задания и теория',
       caption: 'Для самостоятельного изучения',
       description: 'Работаем на платформе школы. Все учебные материалы: текст, фото и видео-уроки доступны в личном кабинете на сайте. Их можно пересматривать в любое время.',
-      imageId: {
-        mobile: 'studyProcess1.jpg',
-        desktop: 'studyProcess1.jpg',
-      },
-      imageAlt: 'studyProcess2',
+      // imageId: {
+      //   mobile: 'studyProcess1.jpg',
+      //   desktop: 'studyProcess1.jpg',
+      // },
+      // imageAlt: 'studyProcess2',
     },
     {
       title: 'Вопросы по ходу',
       caption: 'Каждый день',
       description: 'Вопросы, возникающие по ходу, задаем в любое время в телеграм-чате. В чате можно задавать любые вопросы по рисованию, делиться радостями, горестями, лайфхаками и красивыми картинками, поддерживать друг друга и болтать.',
-      imageId: {
-        mobile: 'studyProcess2-mobile.jpg',
-        desktop: 'studyProcess2.jpg',
-      },
-      imageAlt: 'studyProcess2',
+      // imageId: {
+      //   mobile: 'studyProcess2-mobile.jpg',
+      //   desktop: 'studyProcess2.jpg',
+      // },
+      // imageAlt: 'studyProcess2',
     },
     {
       title: 'Обратная связь',
@@ -598,11 +590,11 @@ const courseDB2: ICourseDataDB = {
         { tag: 'p', content: 'Индивидуальная обратная связь по домашним заданиям. Преподаватель создает для каждого участника рабочий холст в Figma, где можно писать комментарии, прикладывать фото и ссылки.' },
         { tag: 'p', content: 'Чтобы отвечать на комментарии, вести диалог, нужно залогиниться под любой почтой в Figma. С ноутбука это можно сделать в любом браузере, с телефона вначале нужно скачать приложение Figma и установить его.' },
       ],
-      imageId: {
-        mobile: 'studyProcess3-mobile.jpg',
-        desktop: 'studyProcess3.jpg',
-      },
-      imageAlt: 'studyProcess3',
+      // imageId: {
+      //   mobile: 'studyProcess3-mobile.jpg',
+      //   desktop: 'studyProcess3.jpg',
+      // },
+      // imageAlt: 'studyProcess3',
     },
     {
       title: 'Вебинары',

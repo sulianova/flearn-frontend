@@ -1,0 +1,81 @@
+@import 'styles/index';
+
+.item {
+  position: relative;
+  grid-column: 1 / 8;
+
+  margin-bottom: 0;
+  padding-bottom: set-calc(20);
+  border-top: set-calc(3) solid $black-new;
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+
+  @include set-media(md) {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    border-top: set-calc(2) solid $black-new;
+  }
+}
+
+
+.itemQuestion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: set-calc(20);
+  padding-top: set-calc(40);
+  cursor: pointer;
+
+  @include set-media(md) {
+    padding-bottom: 0;
+    padding-top: set-calc(20);
+  }
+}
+
+.itemQuestionText {
+  font-size: inherit;
+  line-height: inherit;
+  max-width: 80%;
+}
+
+.itemQuestionPlus {
+  display: inline-block;
+  width: set-calc(28);
+  height: set-calc(28);
+  min-width: set-calc(28);
+
+  svg {
+    stroke-width: set-calc(2);
+    stroke: $black-new;
+  }
+
+  @include set-media(md) {
+    width: set-calc(22);
+    height: set-calc(22);
+    min-width: set-calc(22);
+
+  }
+}
+
+.itemAnswer {
+  height: 0;
+  overflow: hidden;
+  transition: height $d-collapse linear;
+}
+
+.itemAnswerExpanded {
+  transition: height $d-expansion cubic-bezier(0, 0, 0.15, 1);
+}
+
+.itemAnswerText {
+  margin: 0 set-calc(88) set-calc(48) 0;
+
+  @include set-media(md) {
+    margin: set-calc(20) 0 set-calc(20) 0;
+  }
+}

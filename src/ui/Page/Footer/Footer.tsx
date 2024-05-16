@@ -62,8 +62,8 @@ function Footer({ type =  EFooter.Default }: IProps) {
           <p className={'s-text-16-18'}>{t('emailComment')}</p>
         </div>
         <div className={cx({ documents: true, col: true })}>
-          <Link to={URLSections.Static.Policy.index} className={'s-text-16-18 link'} target='_blank'>{t('documentsPrivacyPolicy.title')}</Link>
-          <Link to={URLSections.Static.Oferta.index} className={'s-text-16-18 link'} target='_blank'>{t('documentsTermsOfUse.title')}</Link>
+          <Link to={URLSections.Static.Policy.index} className={'s-text-16-18 nav-link'} target='_blank'>{t('documentsPrivacyPolicy.title')}</Link>
+          <Link to={URLSections.Static.Oferta.index} className={'s-text-16-18 nav-link'} target='_blank'>{t('documentsTermsOfUse.title')}</Link>
         </div>
         <div className={cx({ social: true, col: false })}>
           {/* <div className={classes.socialLink}>

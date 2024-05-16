@@ -198,7 +198,7 @@ function renderItem(lesson: ILessonsData) {
   const homeworkLink = (
     <div className={classesList.itemLink}>
       <Link
-        className='nav-link s-text-18'
+        className='key-link s-text-18'
         to={URLSections.Course.Lesson.to({ courseId: lesson.lesson.courseId, lessonId: lesson.lesson.id })}
       >
         {t('homework')}

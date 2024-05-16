@@ -1,19 +1,14 @@
-import classNames from 'classnames/bind';
-
 import type { ICourseData } from 'services/course.service';
 import { formatI18nT } from 'shared';
 
-import Animated from 'ui/Animated';
 import Link from 'ui/Link/Link';
-import Text from 'ui/Text/Text';
 
 import classes from './FAQ.module.scss';
-
+import Item from './Item/Item';
 
 export default FAQ;
 
 const t = formatI18nT('courseLanding.faq');
-const cx = classNames.bind(classes);
 
 interface IProps {
   faq: NonNullable<ICourseData['faq']>
@@ -34,14 +29,7 @@ function FAQ({ faq }: IProps) {
       </div>
       <div className={classes.list}>
         {faq.map(({ question, answer }, index) => (
-          <Animated.Scroll key={index}>
-            {(id, className) => (
-              <div className={cx({ item: true }, className)} id={id}>
-                <div className={classes.itemQuestion + ' s-text-24'}><Text text={question}/></div>
-                <div className={classes.itemAnswer + ' s-text-18'}><Text text={answer}/></div>
-              </div>
-            )}
-          </Animated.Scroll>
+          <Item key={index} faq={{ question, answer }}/>
         ))}
       </div>
     </div>

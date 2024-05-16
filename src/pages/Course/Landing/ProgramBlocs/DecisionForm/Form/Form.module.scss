@@ -23,9 +23,9 @@
   padding: set-calc(16) set-calc(16);
   min-width: set-calc(58);
 
-  color: $white;
+  color: $blackLight;
 
-  background-color: $green;
+  background-color: $warmGreen;
   border-radius: 0 set-calc(15) set-calc(15) 0;
   cursor: pointer;
   pointer-events: all;
@@ -33,20 +33,23 @@
   transition: background-color $d-hover ease-in-out, color ease-in-out $d-hover;
 
   &:hover {
-    background-color: $green-hover;
+    background-color: $warmGreen-hover;
   }
 }
 
 .isSuccess {
   pointer-events: none;
+  color: $white;
 }
 
 .isPending {
+  color: $white;
   opacity: 0.7;
   pointer-events: none;
 }
 
 .isError {
+  color: $white;
   background-color: $yellow;
   transition: background-color $d-hover ease-in-out, color ease-in-out $d-hover;
 
@@ -56,6 +59,7 @@
 }
 
 .isDisabled {
+  color: $white;
   background-color: $grey;
   pointer-events: none;
 }

@@ -12,7 +12,7 @@
     left: set-calc(-$padding-x-mob-page);
     width: set-calc(32, true, 100%);
     padding: set-calc($padding-x-mob-page) set-calc($padding-x-mob-page) set-calc($padding-x-mob-page * 2);
-    background-image: linear-gradient(98deg, rgba(255, 196, 196, 0.6745098039), rgba(228, 236, 183, 0.8));
+    background-image: linear-gradient(98deg, $pastelBlue, $pastelWarmGreen);
     cursor: pointer;
     -webkit-font-smoothing: subpixel-antialiased;
   }
@@ -37,5 +37,5 @@
 }
 
 .count {
-  color: $orange;
+  color: $blue;
 }

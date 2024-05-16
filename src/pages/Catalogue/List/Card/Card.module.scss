@@ -4,13 +4,14 @@
   position: relative;
   border-radius: set-calc(20);
   @include is-grid-4;
-  background: $beige;
+  grid-gap: 0;
   overflow: hidden;
   margin-bottom: set-calc(40);
 
   @include set-media(md) {
     padding: 0;
     margin-bottom: set-calc(40);
+    grid-gap: 0;
   }
 }
 
@@ -21,11 +22,9 @@
 
   width: 100%;
   overflow: hidden;
-
-  background-color: $beige;
   border-radius: 0;
 
-  transition: opacity 0.35s ease;
+  transition: transform 0.1s ease;
 
   aspect-ratio: 1.4 / 1;
 
@@ -54,6 +53,7 @@
 .content {
   grid-column: span 2;
   display: flex;
+  background-color: $beige;
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
@@ -81,7 +81,7 @@
   }
 
   &:hover {
-    color: $orange;
+    color: $blue;
   }
 }
 
@@ -90,7 +90,7 @@
   padding: set-calc(2) set-calc($padding-x-mob-page);
   width: fit-content;
 
-  background-color: $pastelPinkLight;
+  background-color: $pastelBlue;
   border-radius: set-calc(20);
 }
 

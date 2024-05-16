@@ -41,25 +41,8 @@
   }
 }
 
-.factoid {
-  font-family: $font-family-serif;
-  grid-column: 1 / 2;
-  font-variant-numeric: normal;
-
-  @include set-typography(256, 240, 500);
-  letter-spacing: -.01rem;
-
-  @include set-media(md) {
-    @include set-typography(256, 240, 500);
-  }
-
-  @include set-media(md) {
-    display: none;
-  }
-}
-
 .content {
-  grid-column: 1 / 8;
+  grid-column: span 6;
   display: flex;
   flex-direction: column;
 }
@@ -73,15 +56,11 @@
 }
 
 .caption {
-  padding-bottom: set-calc(8);
-
-  @include set-media(md) {
-    padding-bottom: set-calc(4);
-  }
+  padding-bottom: set-calc(4);
+  color: $blue;
 }
 
 .title {
-  font-family: $font-family-serif;
   margin-bottom: set-calc(24);
 }
 
@@ -111,10 +90,9 @@
 }
 
 .videoCard {
-  grid-column: span 11;
+  grid-column: 7 / 12;
   position: relative;
 
-  height: set-calc(800);
   overflow: hidden;
   border-radius: set-calc(10);
 
