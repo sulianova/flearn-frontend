@@ -12,7 +12,8 @@
     left: set-calc(-$padding-x-mob-page);
     width: set-calc(32, true, 100%);
     padding: set-calc($padding-x-mob-page) set-calc($padding-x-mob-page) set-calc($padding-x-mob-page * 2);
-    border: set-calc(2) solid $black-new;
+    border-top: set-calc(2) solid $black-new;
+    border-bottom: set-calc(2) solid $black-new;
     cursor: pointer;
     -webkit-font-smoothing: subpixel-antialiased;
   }
