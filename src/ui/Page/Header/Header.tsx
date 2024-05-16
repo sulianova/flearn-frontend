@@ -62,8 +62,8 @@ function Header(props: IConnectedProps) {
         </div>
         <div className={classes.navLogin}>
           {props.user ?
-            (<Link to={URLSections.My.Profile.index} className='inline-link'>{t('login.profile')}</Link>)
-            : (<div className='inline-link' onClick={handleLogin}>{t('login.signIn')}</div>)
+            (<Link to={URLSections.My.Profile.index}>{t('login.profile')}</Link>)
+            : (<div onClick={handleLogin}>{t('login.signIn')}</div>)
           }
         </div>
         <div className={classes.humburger} onClick={() => setIsOpened(o => !o)}/>

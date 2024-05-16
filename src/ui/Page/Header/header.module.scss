@@ -40,6 +40,7 @@
   background-color: $white;
 
   @include is-grid-12;
+  gap: 0;
 
   @include set-media(md) {
     width: max-content;
@@ -106,11 +107,24 @@
 }
 
 .navLogin {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding-top: set-calc(4);
   grid-column: 12;
+
+  display: flex;
+  align-items: center;
+  position: relative;
+  background-color: transparent;
+  border: set-calc(1.5) solid $black-new;
+  color: $black;
+  padding: set-calc(4) set-calc(16);
+  border-radius: set-calc(30);
+
+  transition: background-color $d-hover ease;
+  
+  &:hover {
+    cursor: pointer;
+    background-color: $black-new;
+    color: $white;
+  }
 
   @include set-media(md) {
     display: none;
@@ -171,8 +185,8 @@
   color: $white;
   height: set-calc(68);
   margin: set-calc(40) 0 set-calc(16);
-  background-color: $black-new;
-  border-radius: set-calc(20);
+  border-radius: 0;
+  border: set-calc(2) solid $black;
   cursor: pointer;
   transition: color 0.2s, background-color 0.2s, opacity 0.2s;
 
