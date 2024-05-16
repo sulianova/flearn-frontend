@@ -55,7 +55,7 @@ function DecisionForm({ course, user }: IProps) {
         </div>
         <div className={classes.credit}>
           <s className={classes.creditWas + ' s-text-24'}>{formatCredit(course.creditWas)} &#8381;</s>
-          <div className={classes.creditPrice + ' s-text-88'}>
+          <div className={classes.creditPrice}>
             {formatCredit(course.creditPrice)} &#8381;
             <span className={classes.discount + ' s-text-18'}>{formatCourseDiscount(course.discontAmount)}</span>
           </div>

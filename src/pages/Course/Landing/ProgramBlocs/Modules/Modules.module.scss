@@ -73,7 +73,6 @@
   border: set-calc(2) solid $black-new;
 
   @include set-media(md) {
-    border: set-calc(1) solid $black-new;
     left: set-calc(-$padding-x-mob-page);
     width: set-calc(32, true, 100%);
     padding: set-calc($padding-x-mob-page) set-calc($padding-x-mob-page);
@@ -112,11 +111,11 @@
     margin-bottom: set-calc(8);
   
     padding: set-calc(4) set-calc(16);
-    border: set-calc(2) solid $black-new;
-    color: $black;
+    border: set-calc(2) solid $warmGreenDark;
+    color: $warmGreenDark;
   
     @include set-media(md) {
-      border: set-calc(1.3) solid $black-new;
+      border: set-calc(1.3) solid $warmGreenDark;
     }
   }
 

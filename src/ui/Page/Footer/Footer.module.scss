@@ -60,6 +60,7 @@
 }
 
 .nav {
+  display: none;
   grid-column: 3 / 4;
 
   @include set-media(md) {
