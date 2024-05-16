@@ -4,6 +4,8 @@
   display: grid;
   grid-gap: set-calc($s-gap);
   grid-template-columns: repeat(12, minmax(0, 1fr));
+  @include is-beige;
+  background-color: $warmGreen;
 
   @include set-media(md) {
     padding: set-calc($padding-x-mob-page) set-calc($padding-x-mob-page);
@@ -21,13 +23,14 @@
   grid-column: span 6;
   position: relative;
   padding: set-calc(32);
-  background-color: $beige;
+  border: set-calc(2) solid $black-new;
   color: $black;
   border-radius: set-calc(20);
 
   @include set-media(md) {
     margin-bottom: set-calc(8);
     padding: set-calc($padding-x-mob-page);
+    border: set-calc(1) solid $black-new;
   }
 }
 
@@ -35,10 +38,13 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: $beige;
   color: $black;
 
   padding-right: set-calc(24);
+
+  @include set-media(md) {
+    padding-right: 0;
+  }
 }
 
 .titleWrapper{
@@ -82,13 +88,17 @@
   font-family: $font-family-serif;
 
   s:after {
-    margin-top: 1px;
-    border-bottom: 1px solid var(--keyColor, $orange);
+    margin-top: set-calc(1);
+    border-bottom: set-calc(1.5) solid $black;
     content: "";
-    left: -2px;
+    left: set-calc(-2);
     position: absolute;
-    right: -2px;
+    right: set-calc(-2);
     top: 50%;
+
+    @include set-media(md) {
+      border-bottom: set-calc(1) solid $black;
+    }
   }
 }
 
@@ -102,7 +112,13 @@
 
   display: inline-block;
   letter-spacing: -0.05rem;
-  color: $orange;
+  color: $white;
+  -webkit-text-stroke: set-calc(1.5) $black;
+
+  @include set-media(md) {
+    -webkit-text-stroke: set-calc(1) $black;
+  }
+
 }
 
 .discount {
@@ -112,11 +128,18 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: set-calc(12) set-calc(24);
+  padding: set-calc(8) set-calc(16);
   letter-spacing: 0;
 
-  background: hsla(0,0%,100%,.8);
+  color: $black;
   border-radius: set-calc(30);
+  border: set-calc(1.5) solid $black-new;
+  -webkit-text-stroke: 0;
+
+
+  @include set-media(md) {
+    border: set-calc(1) solid $black-new;
+  }
 }
 
 .courseInfo {

@@ -8,10 +8,11 @@
   grid-template-columns: repeat(8, minmax(0, 1fr));
   padding-bottom: set-calc(80);
 
-  border-top: set-calc(calc($s-gap / 2)) solid $black-new;
+  border-top: set-calc(3) solid $black-new;
 
   @include set-media(md) {
     padding-bottom: set-calc(56);
+    border-top: set-calc(2) solid $black-new;
   }
 }
 
@@ -27,12 +28,16 @@
     right: 0;
 
     display: block;
-    width: set-calc(calc($s-gap / 2));
+    width: set-calc(3);
     height: set-calc(30);
 
     background-color: $black-new;
 
     content: '';
+
+    @include set-media(md) {
+      width: set-calc(2);
+    }
   }
 }
 

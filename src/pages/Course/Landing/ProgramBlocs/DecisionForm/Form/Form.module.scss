@@ -23,9 +23,11 @@
   padding: set-calc(16) set-calc(16);
   min-width: set-calc(58);
 
-  color: $blackLight;
+  color: $black;
 
-  background-color: $warmGreen;
+  background-color: $white;
+  border: set-calc(2) solid $black-new;
+  border-left: 0;
   border-radius: 0 set-calc(15) set-calc(15) 0;
   cursor: pointer;
   pointer-events: all;
@@ -33,7 +35,13 @@
   transition: background-color $d-hover ease-in-out, color ease-in-out $d-hover;
 
   &:hover {
-    background-color: $warmGreen-hover;
+    background-color: $black-new;
+    color: $white;
+  }
+
+  @include set-media(md) {
+    border: set-calc(1) solid $black-new;
+    border-left: 0;
   }
 }
 
@@ -59,9 +67,15 @@
 }
 
 .isDisabled {
-  color: $white;
-  background-color: $grey;
+  color: transparent;
+  -webkit-text-stroke: set-calc(1) $black;
+  background-color: transparent;
   pointer-events: none;
+
+  @include set-media(md) {
+    color: $black;
+    -webkit-text-stroke: 0;
+  }
 }
 
 .Error {

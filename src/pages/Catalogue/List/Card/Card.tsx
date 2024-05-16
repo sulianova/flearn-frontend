@@ -14,12 +14,11 @@ interface IProps {
 
 export default function Card({ course }: Readonly<IProps>) {
   return (
-    <div className={classes.__}>
+    <Link
+      className={classes.__}
+      to={URLSections.Course.to({ courseId: course.id })}
+    >
       <div className={classes.content}>
-      {/* <div className={classes.tags}>
-          <span className={classes.hashTag}>#</span>
-          {course.tags?.map(tag => (<span key={tag} className={classes.tag + ' s-text-14'}>{tag}</span>))}
-      </div> */}
       <div className={classes.contentWrapper}>
         <div className={classes.info}>
           <div className={classes.infoDate + ' s-text-18'}>
@@ -30,12 +29,7 @@ export default function Card({ course }: Readonly<IProps>) {
             })}
           </div>
         </div>
-        <Link
-          className={classes.title}
-          to={URLSections.Course.to({ courseId: course.id })}
-        >
-          {course.title}
-        </Link>
+        <h3 className={classes.title}>{course.title}</h3>
         <div className={classes.description + ' s-text-24'}>{course.introDescription}</div>
       </div>
       <div className={classes.actions}>
@@ -54,6 +48,6 @@ export default function Card({ course }: Readonly<IProps>) {
         />
         <Img src={course.cardImage?.imageSrc ?? ''} alt={course.cardImage?.imageAlt ?? ''}/>
       </div>
-    </div>
+    </Link>
   );
 }

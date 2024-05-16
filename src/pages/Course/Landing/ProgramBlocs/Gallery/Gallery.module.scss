@@ -30,9 +30,13 @@
   width: 100%;
   overflow: hidden;
   border-radius: set-calc(20);
-  // box-shadow: 0 set-calc(4) set-calc(8) rgb(0 0 0 / 10%);
+  border: set-calc(2) solid $black-new;
 
   text-align: center;
+
+  @include set-media(md) {
+    border: set-calc(1) solid $black-new;
+  }
 }
 
 .item:not(:last-child) {
@@ -42,6 +46,5 @@
 .item img {
   width: 100%;
   height: 100%;
-  border-radius: set-calc(20);
   object-fit: cover;
 }

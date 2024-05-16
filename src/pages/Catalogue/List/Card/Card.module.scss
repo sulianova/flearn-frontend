@@ -6,12 +6,25 @@
   @include is-grid-4;
   grid-gap: 0;
   overflow: hidden;
+  background-color: $white;
   margin-bottom: set-calc(40);
+  border: set-calc(2) solid $black-new;
+  transition: background-color $d-hover ease;
+  cursor: pointer;
+
+  &:hover {
+    // transform: translateY(set-calc(-3));
+    background-color: $warmGreen;
+    .info {
+      color:  $warmGreen;
+    }
+  }
 
   @include set-media(md) {
     padding: 0;
     margin-bottom: set-calc(40);
     grid-gap: 0;
+    border: set-calc(1) solid $black-new;
   }
 }
 
@@ -24,8 +37,6 @@
   overflow: hidden;
   border-radius: 0;
 
-  transition: transform 0.1s ease;
-
   aspect-ratio: 1.4 / 1;
 
   img {
@@ -37,10 +48,6 @@
     height: 100%;
     object-fit: cover;
   }
-
-  &:hover {
-    transform: translateY(set-calc(-3));
-    }
 }
 
 .previewLink {
@@ -53,14 +60,16 @@
 .content {
   grid-column: span 2;
   display: flex;
-  background-color: $beige;
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
   padding: set-calc(24) 0 0 set-calc(24);
+  border-right: set-calc(2) solid $black-new;
   
   @include set-media(md) {
     padding: set-calc(24) set-calc(24) set-calc(24) set-calc(24);
+    border-bottom: set-calc(1) solid $black-new;
+    border-right: 0;
   }
 }
 
@@ -79,10 +88,6 @@
     margin-bottom: set-calc(16);
     @include s-text-56;
   }
-
-  &:hover {
-    color: $blue;
-  }
 }
 
 .info {
@@ -90,7 +95,8 @@
   padding: set-calc(2) set-calc($padding-x-mob-page);
   width: fit-content;
 
-  background-color: $pastelBlue;
+  background-color: $black-new;
+  color: $white;
   border-radius: set-calc(20);
 }
 
@@ -106,11 +112,11 @@
 }
 
 .actions {
-  display: flex;
-  flex-wrap: wrap;
-  padding-bottom: set-calc(32);
+  display: none;
 
   @include set-media(md) {
+    display: flex;
+    flex-wrap: wrap;
     flex-direction: row-reverse;
     padding-bottom: set-calc(24);
   }
@@ -137,6 +143,7 @@
   @include set-media(md) {
     flex: 1 1 max-content;
     padding: set-calc(12) set-calc(80);
+    border: set-calc(1) solid $black-new;
   }
 
   &:hover {

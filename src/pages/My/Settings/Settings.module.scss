@@ -5,7 +5,11 @@
 }
 
 .isBig {
-  border-top: set-calc(calc($s-gap / 2)) solid $black-new;
+  border-top: set-calc(3) solid $black-new;
+
+  @include set-media(md) {
+    border-top: set-calc(2) solid $black-new;
+  }
 }
 
 .block {
@@ -42,7 +46,6 @@
 
 .blockForm {
   grid-column: 3 / 5;
-  // padding-top: set-calc(56);
   padding-top: set-calc(32);
 
   @include set-media(md) {

@@ -69,14 +69,22 @@
   justify-content: flex-start;
   position: relative;
   background-color: $warmGreen;
+  border: set-calc(1.5) solid $black-new;
   max-width: fit-content;
   color: $black;
   padding: set-calc(4) set-calc(32);
   border-radius: set-calc(15);
+
+  transition: background-color $d-hover ease;
   
   &:hover {
     cursor: pointer;
-    background-color: $warmGreen-hover;
+    background-color: $blue;
+    color: $white;
+  }
+
+  @include set-media(md) {
+    border: set-calc(1) solid $black-new;
   }
 }
 
@@ -120,7 +128,7 @@
 
     background: url("./menu.svg") no-repeat;
     background-size: contain;
-    opacity: 0.4;
+    opacity: 1;
     cursor: pointer;
   }
 }
@@ -143,7 +151,7 @@
       padding: set-calc(24) 0;
       display: flex;
       justify-content: start;
-      border-bottom: set-calc(calc($s-gap/2)) solid $black-new;
+      border-bottom: set-calc(2) solid $black-new;
     }
   }
 

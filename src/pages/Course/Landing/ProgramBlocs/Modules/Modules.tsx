@@ -83,8 +83,7 @@ function renderItem(props: NonNullable<ICourseData['modules']>[number]) {
           <div className={cx({ listItemCardContent: true }, className)} id={id}>
             <div className={classes.listItemMeta + ' s-text-18'}><Text text={props.meta}/></div>
             <div className={classes.listItemTitle + ' s-text-36'}><Text text={props.title}/></div>
-            <div className={classes.listItemContent + ' s-text-24'}><Text text={props.content}/></div>
-            {props.activities && Boolean(!Array.isArray(props.activities) || props.activities.length) && <div className={classes.listItemActivities + ' s-text-21'}><Text text={props.activities}/></div>}
+            {props.content && Boolean(!Array.isArray(props.content) || props.content.length) && <div className={classes.listItemContent + ' s-text-24'}><Text text={props.content}/></div>}
           </div>
         )}
       </Animated.Scroll>

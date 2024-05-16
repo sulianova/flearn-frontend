@@ -38,13 +38,13 @@
   min-height: set-calc(330);
   color: $black-new;
 
-  // background-image: linear-gradient(98deg, $warmGreen, $beige);
   border-radius: set-calc(20);
   border: set-calc(2) solid $black-new;
 
   @include set-media(md) {
     min-height: set-calc(230);
     padding: set-calc($padding-x-mob-page) set-calc($padding-x-mob-page);
+    border: set-calc(1) solid $black-new;
     
     &:not(:last-child) {
       margin-bottom: set-calc(8);

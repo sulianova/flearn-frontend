@@ -479,7 +479,7 @@ const courseDB2: ICourseDataDB = {
           { tag: 'span',
           content: '1. Что такое иллюстрация, серия, стиль'
           },
-          { tag: 'span', props: { className: 'blue' }, content: 'Консультация с преподавателем на 5-10 мин: ставим цели на интенсив.' },
+          { tag: 'span', props: { className: 'warmGreenDark' }, content: 'Консультация с преподавателем на 5-10 мин: ставим цели на интенсив.' },
           ]
         },
         { tag: 'p', content: [
@@ -488,7 +488,7 @@ const courseDB2: ICourseDataDB = {
           },
           { tag: 'span', content: '• сюжет в один кадр' },
           { tag: 'span', content: '• конфликт в графике' },
-          { tag: 'span', props: { className: 'blue' }, content: 'Вебинар: "Генератор сюжетов". Разберемся, как придумывать острые, запоминающиеся сюжеты.' },
+          { tag: 'span', props: { className: 'warmGreenDark' }, content: 'Вебинар: "Генератор сюжетов". Разберемся, как придумывать острые, запоминающиеся сюжеты.' },
           ]
         },
         { tag: 'p', content: [
@@ -501,7 +501,7 @@ const courseDB2: ICourseDataDB = {
           { tag: 'span', content: '• модульность' },
           { tag: 'span', content: '• силуэт' },
           { tag: 'span', content: '• контрформа' },
-          { tag: 'span', props: { className: 'blue' }, content: 'Вебинар: "Дневник наблюдений". Научимся анализировать работы других иллюстраторов и применять находки в своих рисунках.' },
+          { tag: 'span', props: { className: 'warmGreenDark' }, content: 'Вебинар: "Дневник наблюдений". Научимся анализировать работы других иллюстраторов и применять находки в своих рисунках.' },
           ]
         },
       ],

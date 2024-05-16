@@ -35,16 +35,13 @@
   justify-content: space-between;
   flex-direction: column;
   padding: set-calc(32);
-  min-height: set-calc(330);
-
-  background-color: $beige;
   border-radius: set-calc(20);
+  border: set-calc(2) solid $black-new;
+  background-color: $white;
 
   @include set-media(md) {
-    min-height: set-calc(230);
-    // left: set-calc(-$padding-x-mob-page);
-    // width: set-calc(32, true, 100%);
     padding: set-calc($padding-x-mob-page) set-calc($padding-x-mob-page);
+    border: set-calc(1) solid $black-new;
     
     &:not(:last-child) {
       margin-bottom: set-calc(8);

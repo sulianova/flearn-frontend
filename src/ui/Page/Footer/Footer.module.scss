@@ -24,17 +24,16 @@
 
 .card {
   position: relative;
-  left: set-calc(-32);
-  width: set-calc(32 * 2, true, 100%);
-  padding: set-calc(32);
-
-  background-color: $beige;
-  border-radius: set-calc(20);
+  left: set-calc(-$padding-x-desk-page);
+  width: set-calc($padding-x-desk-page * 2, true, 100%);
+  padding: set-calc($padding-x-desk-page / 2) set-calc($padding-x-desk-page) 0;
+  border-top: set-calc(3) solid $black-new;
 
   @include set-media(md) {
     left: set-calc(-16);
     width: set-calc(16 * 2, true, 100%);
     padding: set-calc(16) set-calc($padding-x-mob-page) set-calc(16);
+    border-top: set-calc(2) solid $black-new;
   }
 }
 

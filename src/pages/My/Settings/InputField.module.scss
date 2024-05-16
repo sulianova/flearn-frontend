@@ -24,10 +24,16 @@
 
   background: none;
   border: none;
-  border-bottom: set-calc(calc($s-gap / 2)) solid $black-new;
+  border-bottom: set-calc(3) solid $black-new;
+
   border-radius: 0;
   outline: none;
   box-shadow: none;
+
+  @include set-media(md) {
+    border-bottom: set-calc(2) solid $black-new;
+  }
+
 }
 
 .isDisabled {

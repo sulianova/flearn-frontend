@@ -14,16 +14,16 @@
   outline: none;
 
   &::placeholder {
-    color: $text-grey;
+    color: $black;
     opacity: 1;
   }
   
   &:-ms-input-placeholder {
-    color: $text-grey;
+    color: $black;
   }
   
   &::-ms-input-placeholder {
-    color: $text-grey;
+    color: $black;
   }
 
   @include set-media(md) {
@@ -48,7 +48,11 @@
 
 .light {
   background: hsla(0,0%,100%,.4);
-  border: set-calc(1) solid rgba(19, 19, 19, 0.1);
+  border: set-calc(2) solid $black-new;
+
+  @include set-media(md) {
+    border: set-calc(1) solid $black-new;
+  }
 }
 
 .isReset {

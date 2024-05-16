@@ -69,10 +69,11 @@
   padding: set-calc(32);
   margin-bottom: set-calc(10);
 
-  background-color: $beige;
   border-radius: set-calc(20);
+  border: set-calc(2) solid $black-new;
 
   @include set-media(md) {
+    border: set-calc(1) solid $black-new;
     left: set-calc(-$padding-x-mob-page);
     width: set-calc(32, true, 100%);
     padding: set-calc($padding-x-mob-page) set-calc($padding-x-mob-page);
@@ -86,7 +87,7 @@
   align-items: flex-start;
   
   margin-bottom: 0;
-  padding-bottom: set-calc(40);
+  padding-bottom: set-calc(20);
   padding-top: set-calc(24);
   border-top: set-calc(3) solid $black-new;
   cursor: pointer;
@@ -101,8 +102,6 @@
   }
 
   .listItemMeta {
-    background-color: $blue;
-    color: $white;
     border-radius: set-calc(20);
     display: inline-flex;
     align-items: center;
@@ -113,6 +112,13 @@
     margin-bottom: set-calc(8);
   
     padding: set-calc(4) set-calc(16);
+    border: set-calc(2) solid $black-new;
+    background-color: $warmGreen;
+    color: $black;
+  
+    @include set-media(md) {
+      border: set-calc(1) solid $black-new;
+    }
   }
 
   .listItemContent {
@@ -125,6 +131,7 @@
 
   .listItemTitle {
     width: 60%;
+    padding-bottom: set-calc(20);
 
     @include set-media(md) {
       width: 100%;
@@ -135,7 +142,13 @@
 
 .listItemCardMedia {
   background-color: $blue;
-  margin-bottom: set-calc(4);
+  margin-bottom: set-calc(10);
+  cursor: pointer;
+  transition: background-color $d-hover ease;
+
+  &:hover {
+    background-color: $warmGreen;
+  }
 }
 
 .listItemMeta {
