@@ -5,6 +5,7 @@
 
   width: 100%;
   padding: set-calc(16) set-calc(30);
+  font-family: $font-family!important;
 
   position: relative;
   background: none;
@@ -16,17 +17,17 @@
   &::placeholder {
     color: $black;
     opacity: 1;
-    font-family: $font-family;
+    font-family: $font-family!important;
   }
   
   &:-ms-input-placeholder {
     color: $black;
-    font-family: $font-family;
+    font-family: $font-family!important;
   }
   
   &::-ms-input-placeholder {
     color: $black;
-    font-family: $font-family;
+    font-family: $font-family!important;
   }
 
   @include set-media(md) {

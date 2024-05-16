@@ -56,7 +56,6 @@
 
   @include set-media(md) {
     width: 100%;
-    border: set-calc(1) solid $black-new;
   }
 
   img {
