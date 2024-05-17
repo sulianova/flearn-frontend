@@ -79,7 +79,7 @@ function getData(id: string) {
 const courseDB1: ICourseDataDB = {
   id: 'how-to-draw', // how-to-draw-free
   type: 'course',
-  title: 'Стикеры для Telegram',
+  title: 'Дизайн для стикеров',
   startDate: '2024.05.26 21:00:00 GMT', // '2023.12.03 21:00:00 GMT'
   endDate: '2024.06.23 20:59:00 GMT', // '2023.12.31 20:59:00 GMT'
   accessDeadline: '2024.06.23 20:59:00 GMT', // '2023.12.31 20:59:00 GMT'
@@ -98,7 +98,7 @@ const courseDB1: ICourseDataDB = {
     },
     imageAlt: 'SpotCat27',
   },
-  introDescription: 'Научимся схватывать силуэт и утрировать характерные черты в быстрых набросках. А из удачных эскизов сделаем серию стикеров для телеграмма и оформим в проект на Behance',
+  introDescription: 'Придумаем и отрисуем стикеры в трех разных техниках. Сделаем наброски, доработаем скетчи в дижитал. Отберем лучшие иллюстрации и оформим в проект на Behance',
   cardImage: {
     imageId: 'imageCard.jpg',
     imageAlt: 'imageCard',
@@ -397,7 +397,7 @@ const courseDB1: ICourseDataDB = {
 const courseDB2: ICourseDataDB = {
   id: 'finding-your-style',
   type: 'intensive',
-  title: 'Как найти стиль',
+  title: 'Стиль в иллюстрации',
   startDate: '2024.05.16 21:00:00 GMT',
   endDate: '2024.05.26 20:59:00 GMT',
   accessDeadline: '2024.05.26 20:59:00 GMT',

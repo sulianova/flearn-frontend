@@ -29,8 +29,8 @@ export default function Card({ course }: Readonly<IProps>) {
             })}
           </div>
         </div>
-        <h3 className={classes.title + ' s-text-56'}>{course.title}</h3>
-        <div className={classes.description + ' s-text-24'}>{course.introDescription}</div>
+        <h3 className={classes.title + ' s-text-36'}>{course.title}</h3>
+        <div className={classes.description + ' s-text-18'}>{course.introDescription}</div>
       </div>
       <div className={classes.actions}>
         <Link
@@ -41,13 +41,13 @@ export default function Card({ course }: Readonly<IProps>) {
         </Link>
       </div>
       </div>
-      <div className={classes.preview}>
+      {/* <div className={classes.preview}>
         <Link
           className={classes.previewLink}
           to={URLSections.Course.to({ courseId: course.id })}
         />
         <Img src={course.cardImage?.imageSrc ?? ''} alt={course.cardImage?.imageAlt ?? ''}/>
-      </div>
+      </div> */}
     </Link>
   );
 }

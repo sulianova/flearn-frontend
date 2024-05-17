@@ -1,31 +1,30 @@
 @import 'styles/index';
 
 .__ {
+  grid-column: span 1;
   position: relative;
-  @include is-grid-4;
-  grid-gap: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   overflow: hidden;
   background-color: transparent;
-  margin-bottom: set-calc(40);
   border-radius: set-calc(16);
   background-color: $color-background-default;
-  transition: transform 0.3s ease;
-  cursor: pointer;
+  transition: box-shadow 0.3s ease;
 
   &:hover {
-    transform: scale(0.99);
+    box-shadow: $shadow-medium-hovered;
+    cursor: pointer;
   }
 
   @include set-media(md) {
     padding: 0;
-    margin-bottom: set-calc(40);
     grid-gap: 0;
   }
 }
 
 
 .preview {
-  grid-column: span 2;
   position: relative;
 
   width: 100%;
@@ -53,15 +52,16 @@
 }
 
 .content {
-  grid-column: span 2;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
-  padding: set-calc(24) 0 0 set-calc(24);
+  padding: set-calc(16);
+  margin-bottom: set-calc(40);
   
   @include set-media(md) {
     padding: set-calc(16);
+    margin-bottom: 0;
   }
 }
 
@@ -71,10 +71,10 @@
 }
 
 .title {
-  margin-bottom: set-calc(16);
+  margin-bottom: set-calc(4);
 
   @include set-media(md) {
-    margin-bottom: set-calc(16);
+    margin-bottom: set-calc(4);
   }
 }
 
@@ -89,12 +89,10 @@
 
 
 .description {
-  padding-right: set-calc(148);
-  overflow-y: hidden;
+  padding-right: set-calc(16);
 
   @include set-media(md) {
     margin-bottom: set-calc(32);
-    padding-right: 0;
   }
 }
 

@@ -65,3 +65,5 @@ $breakpoints: (
 $d-hover: 0.1s;
 $d-expansion: 0.5s;
 $d-collapse: calc($d-expansion / 3);
+$shadow-medium-hovered: 0px 1px 12px 2px rgba(36, 36, 36, 0.07);
+$shadow-medium-default: 0px 1px 12px 2px rgba(36, 36, 36, 0.07);

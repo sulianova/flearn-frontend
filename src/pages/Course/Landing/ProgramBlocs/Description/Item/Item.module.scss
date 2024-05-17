@@ -8,7 +8,7 @@
   padding: set-calc(24);
 
   @include is-grid-12;
-  gap: set-calc(24);
+  gap: set-calc(16);
 
   @include set-media(md) {
     align-items: start;
@@ -41,5 +41,5 @@
 }
 
 .answear {
-  grid-column: 4 / -2;
+  grid-column: 4 / -1;
 }
