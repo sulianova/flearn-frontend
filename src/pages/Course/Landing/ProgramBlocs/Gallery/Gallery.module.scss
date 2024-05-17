@@ -5,22 +5,28 @@
 
   display: block;
   padding-top: set-calc(0);
+  @include is-beige;
+  background-color: $black-new;
 }
 
 .title {
-  padding-bottom: set-calc(60);
-  font-family: $font-family-serif;
+  margin-bottom: set-calc(24);
+  padding: set-calc(16);
+  background-color: rgba(255, 255, 255, 0.12);
+  color: $white;
+  border-radius: set-calc(16);
 
   @include set-media(md) {
-    padding-bottom: set-calc(32);
+    margin-bottom: set-calc(16);
   }
 }
 
 .list {
-  display: flex;
-  box-sizing: content-box;
-  width: 100%;
   @include is-grid-3;
+
+  @include set-media(md) {
+    display: flex;
+  }
 }
 
 .item {
@@ -29,8 +35,7 @@
   margin-right: set-calc(8);
   width: 100%;
   overflow: hidden;
-  border-radius: 0;
-  border: set-calc(2) solid $black-new;
+  border-radius: set-calc(16);
 
   aspect-ratio: 1 / 1.5;
 
@@ -38,7 +43,7 @@
 }
 
 .item:not(:last-child) {
-  margin-bottom: set-calc(8);
+  margin-right: 0;
 }
 
 .item img {

@@ -15,9 +15,7 @@
 
 
 .title {
-  padding-bottom: set-calc(60);
-  font-family: $font-family-serif;
-  color: white;
+  color: $white;
 
   @include set-media(md) {
     padding-bottom: set-calc(32);

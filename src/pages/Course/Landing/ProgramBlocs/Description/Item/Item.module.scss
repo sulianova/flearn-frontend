@@ -3,12 +3,16 @@
 ._ {
   grid-column: span 12;
   align-items: start;
+  background-color: $color-background-default;
+  border-radius: set-calc(16);
+  padding: set-calc(24);
 
   @include is-grid-12;
-  gap: set-calc(16);
+  gap: set-calc(24);
 
   @include set-media(md) {
     align-items: start;
+    padding: set-calc(16);
   }
 }
 
@@ -17,8 +21,6 @@
 
   display: flex;
   grid-column: span 3;
-  padding: set-calc(16);
-  border: set-calc(2) solid $black;
   height: 100%;
 
 
@@ -35,20 +37,9 @@
 
   @include set-media(md) {
     text-align: left;
-    border-radius: 0;
   }
 }
 
 .answear {
   grid-column: 4 / -2;
-}
-
-._:not(:last-child) {
-  margin-bottom: set-calc(80);
-}
-
-@include set-media(md) {
-  ._:not(:last-child) {
-    margin-bottom: set-calc(40);
-  }
 }

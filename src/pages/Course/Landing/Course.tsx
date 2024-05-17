@@ -59,12 +59,12 @@ function Course({ course }: IConnectedProps) {
     <Page header footer={EFooter.Big} wrapper='Course'>
       <LandingBtn/>
       <ProgramIntro data={course}/>
-      {course.discontDeadline && (
+      {/* {course.discontDeadline && (
         <DiscountBanner
           discontAmount={course.discontAmount}
           discontDeadline={course.discontDeadline}
         />
-      )}
+      )} */}
       <ProgramBlocks course={course} />
     </Page>
   );

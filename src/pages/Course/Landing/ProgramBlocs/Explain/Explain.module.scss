@@ -14,7 +14,6 @@ padding-bottom: set-calc(54);
 
 .headerTitle {
   padding-bottom: set-calc(24);
-  font-family: $font-family-serif;
 }
 
 .headerDesc {
@@ -38,15 +37,15 @@ padding-bottom: set-calc(54);
   position: relative;
   overflow: hidden;
   padding: set-calc(32);
-  border-radius: 0;
-  border: set-calc(2) solid $black-new;
+  border-radius: set-calc(16);
+  background-color: $color-background-default;
 
   @include set-media(md) {
     padding: set-calc(4) 0 set-calc(4) set-calc(24);
     border-radius: 0;
     margin-bottom: set-calc(24);
-    border: 0;
     border-left: set-calc(2) solid $black-new;
+    background-color: $color-background-alternate;
   }
 }
 
@@ -72,11 +71,9 @@ padding-bottom: set-calc(54);
   flex-grow: 1;
   flex-shrink: 1;
   height: set-calc(500);
-
-  border-radius: 0;
   overflow: hidden;
 
-  border: set-calc(2) solid $black-new;
+  border-radius: set-calc(16);
 
   @include set-media(md) {
     height: set-calc(375);

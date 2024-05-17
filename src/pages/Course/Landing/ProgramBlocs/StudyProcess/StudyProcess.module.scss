@@ -18,10 +18,6 @@
   }
 }
 
-.headerTitle {
-  font-family: $font-family-serif;
-}
-
 .item {
   @include is-grid-12;
   grid-row-gap: 0;
@@ -56,17 +52,11 @@
 }
 
 .caption {
-  padding: set-calc(4) set-calc(16);
-  border: set-calc(2) solid $black;
   color: $black;
   width: max-content;
   
   margin-right: set-calc(8);
   margin-bottom: set-calc(8);
-
-  @include set-media(md) {
-    border: set-calc(1.3) solid $black;
-  }
 }
 
 .title {

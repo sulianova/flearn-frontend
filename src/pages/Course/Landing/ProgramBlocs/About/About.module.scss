@@ -7,7 +7,6 @@
 
 .title {
   padding-bottom: set-calc(60);
-  font-family: $font-family-serif;
 
   @include set-media(md) {
     padding-bottom: set-calc(32);
@@ -35,12 +34,11 @@
   justify-content: space-between;
   flex-direction: column;
   padding: set-calc(32);
-  border-radius: set-calc(30);
-  border: set-calc(2) solid $black-new;
-  background-color: transparent;
+  border-radius: set-calc(16);
+  background-color: $color-background-default;
 
   @include set-media(md) {
-    padding: 0;
+    padding: set-calc(16);
     border: 0;
     
     &:not(:last-child) {

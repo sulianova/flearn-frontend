@@ -37,7 +37,7 @@
   display: flex;
   justify-content: space-between;
   padding: set-calc(8) set-calc($padding-x-desk-page) set-calc(16);
-  background-color: $white;
+  background-color: $color-background-alternate;
 
   @include is-grid-12;
   gap: 0;
@@ -69,18 +69,17 @@
   align-items: center;
   justify-content: flex-start;
   position: relative;
-  background-color: transparent;
-  border: set-calc(1.5) solid $black-new;
+  background-color: $black-new;
   max-width: fit-content;
-  color: $black;
+  color: $white;
   padding: set-calc(4) set-calc(32);
-  border-radius: 0;
+  border-radius: set-calc(8);
 
   transition: background-color $d-hover ease;
   
   &:hover {
     cursor: pointer;
-    background-color: $black-new;
+    background-color: $black;
     color: $white;
   }
 
@@ -112,17 +111,16 @@
   display: flex;
   align-items: center;
   position: relative;
-  background-color: transparent;
-  border: set-calc(1.5) solid $black-new;
-  color: $black;
+  background-color: $black-new;
+  color: $white;
   padding: set-calc(4) set-calc(16);
-  border-radius: set-calc(30);
+  border-radius: set-calc(8);
 
   transition: background-color $d-hover ease;
   
   &:hover {
     cursor: pointer;
-    background-color: $black-new;
+    background-color: $black;
     color: $white;
   }
 
@@ -142,7 +140,7 @@
 
     background: url("./menu.svg") no-repeat;
     background-size: contain;
-    opacity: 1;
+    opacity: 0.5;
     cursor: pointer;
   }
 }
@@ -184,7 +182,7 @@
   width: 100%;
   height: set-calc(68);
   margin: set-calc(40) 0 set-calc(16);
-  border-radius: 0;
+  border-radius: set-calc(16);
   border: set-calc(2) solid $black;
   cursor: pointer;
   transition: color 0.2s, background-color 0.2s, opacity 0.2s;

@@ -7,7 +7,6 @@
 
 .title {
   padding-bottom: set-calc(60);
-  font-family: $font-family-serif;
 
   @include set-media(md) {
     padding-bottom: set-calc(32);
@@ -36,10 +35,8 @@
   flex-direction: column;
   padding: set-calc(32);
   min-height: set-calc(330);
-  color: $black-new;
-
-  border-radius: 0;
-  border: set-calc(2) solid $black-new;
+  border-radius: set-calc(16);
+  background-color: $color-background-default;
 
   @include set-media(md) {
     min-height: set-calc(430);

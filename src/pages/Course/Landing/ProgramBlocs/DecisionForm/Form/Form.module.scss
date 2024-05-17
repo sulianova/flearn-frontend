@@ -23,9 +23,9 @@
   padding: set-calc(16) set-calc(16);
   min-width: set-calc(58);
 
-  color: $black;
+  color: $white;
 
-  background-color: $white;
+  background-color: $black-new;
   border: set-calc(2) solid $black-new;
   border-left: 0;
   border-radius: 0 set-calc(15) set-calc(15) 0;
@@ -47,11 +47,11 @@
 
 .isSuccess {
   pointer-events: none;
-  color: $white;
+  color: $black;
 }
 
 .isPending {
-  color: $white;
+  color: $black;
   opacity: 0.7;
   pointer-events: none;
 }
@@ -67,8 +67,7 @@
 }
 
 .isDisabled {
-  color: transparent;
-  -webkit-text-stroke: set-calc(1) $black;
+  color: $black;
   background-color: transparent;
   pointer-events: none;
 

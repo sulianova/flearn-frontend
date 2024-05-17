@@ -93,8 +93,8 @@ const courseDB1: ICourseDataDB = {
   tags: ['композиция', 'рисование по фото', 'наброски', 'персонаж'],
   introImage: {
     imageId: {
-      desktop: 'introImage.jpg',
-      mobile: 'introImage-mobile.jpg',
+      desktop: 'introImage.png',
+      mobile: 'introImage-mobile.png',
     },
     imageAlt: 'SpotCat27',
   },

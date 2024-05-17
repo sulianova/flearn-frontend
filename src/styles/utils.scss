@@ -64,8 +64,8 @@
     left: set-calc(-$padding-x-mob-page);
 
     display: block;
-    width: set-calc(32, true, 100%);
-    padding: set-calc(40) 0;
+    width: set-calc(2 * $padding-x-mob-page, true, 100%);
+    padding: set-calc(2 * $padding-x-mob-page) set-calc($padding-x-mob-page);
   }
 }
 

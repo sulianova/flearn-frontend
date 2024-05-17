@@ -33,7 +33,6 @@
 
   p {
     @include s-text-21;
-    font-family: $font-family-serif;
 
     @include set-media(md) {
       @include s-text-24;

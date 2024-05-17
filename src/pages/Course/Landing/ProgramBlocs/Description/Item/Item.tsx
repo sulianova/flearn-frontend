@@ -16,9 +16,9 @@ export default function Item(props: IProps) {
       {(id, className) => (
         <div className={cx({ _: true }, className)} id={id}>
           <div className={classes.questionWrapper}>
-            <div className={classes.question + ' s-text-24'}>{props.question}</div>
+            <div className={classes.question + ' s-text-28'}>{props.question}</div>
           </div>
-          <div className={classes.answear + ' s-text-24'}>{props.answer}</div>
+          <div className={classes.answear + ' s-text-21'}>{props.answer}</div>
         </div>
       )}
     </Animated.Scroll>

@@ -158,7 +158,7 @@
 
 @mixin s-text-56 {
   @include set-typography(56, 61, 500);
-  letter-spacing: -.01rem;
+  letter-spacing: -.08rem;
 
   @include set-media(md) {
     @include set-typography(40, 44, 500);

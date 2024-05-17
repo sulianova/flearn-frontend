@@ -11,7 +11,6 @@
 
 .title {
   padding-bottom: set-calc(24);
-  font-family: $font-family-serif;
 }
 
 .desc {
@@ -28,7 +27,7 @@
 
 .tag {
   border: set-calc(2) solid $black-new;
-  border-radius: set-calc(20);
+  border-radius: set-calc(30);
   display: inline-flex;
   align-items: center;
   text-align: center;
@@ -69,22 +68,20 @@
   padding: set-calc(32);
   margin-bottom: set-calc(10);
 
-  border: set-calc(2) solid $black-new;
+  border-radius: set-calc(16);
+  background-color: $color-background-default;
+  overflow: hidden;
 
   @include set-media(md) {
-    left: set-calc(-$padding-x-mob-page);
-    width: set-calc(32, true, 100%);
-    padding: set-calc($padding-x-mob-page) set-calc($padding-x-mob-page);
+    padding: set-calc(16) set-calc(16);
     margin-bottom: 0;
-    border-right: 0;
-    border-left: 0;
 
   }
 }
 
 .listItemCard:not(:last-child) {
   @include set-media(md) {
-    border-bottom: 0;
+    margin-bottom: set-calc(8);
   }
 }
 
@@ -93,20 +90,17 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  
-  margin-bottom: 0;
-  padding-bottom: set-calc(20);
-  padding-top: set-calc(24);
-  border-top: set-calc(3) solid $black-new;
-  cursor: pointer;
+  padding: set-calc(32);
+  margin-bottom: set-calc(10);
+
+  border-radius: set-calc(16);
+  background-color: $color-background-default;
+  overflow: hidden;
 
   @include set-media(md) {
-    position: relative;
-
-    display: flex;
-    flex-direction: column;
-    border-top: set-calc(2) solid $black-new;
-    padding-bottom: 0;
+    padding: set-calc(16) set-calc(16);
+    margin-bottom: 0;
+    border: 0;
   }
 
   .listItemMeta {
@@ -120,12 +114,9 @@
     margin-bottom: set-calc(8);
   
     padding: set-calc(4) set-calc(16);
-    border: set-calc(2) solid $black;
+    border-radius: set-calc(6);
+    background-color: $color-background-alternate;
     color: $black;
-  
-    @include set-media(md) {
-      border: set-calc(1.3) solid $black;
-    }
   }
 
   .listItemContent {

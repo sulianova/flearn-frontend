@@ -21,14 +21,12 @@
   grid-column: span 6;
   position: relative;
   padding: set-calc(32);
-  border: set-calc(2) solid $black-new;
-  color: $black;
-  border-radius: 0;
-  background-color: $warmGreen;
+  border-radius: set-calc(16);
+  background-color: $color-background-default;
 
   @include set-media(md) {
     margin-bottom: set-calc(8);
-    padding: set-calc($padding-x-mob-page);
+    padding: set-calc(16);
   }
 }
 
@@ -41,7 +39,7 @@
   padding-right: set-calc(24);
 
   @include set-media(md) {
-    padding-right: set-calc($padding-x-mob-page);
+    padding-right: set-calc(16);
   }
 }
 
@@ -56,7 +54,6 @@
 
 .title {
   padding-bottom: set-calc(40);
-  font-family: $font-family-serif;
   @include s-text-36;
 
   @include set-media(md) {
