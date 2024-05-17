@@ -7,6 +7,10 @@
 
 .header {
   margin-bottom: set-calc(32);
+
+  @include set-media(md) {
+    margin-bottom: set-calc(24);
+  }
 }
 
 .title {
@@ -56,7 +60,7 @@
   @include set-media(md) {
     display: flex;
     flex-direction: column;
-    margin-bottom: set-calc(4 * $s-gap);
+    margin-bottom: set-calc(8);
   }
 }
 

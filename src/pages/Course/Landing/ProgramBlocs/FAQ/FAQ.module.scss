@@ -14,13 +14,13 @@
   @include is-grid-12;
 
   grid-row-gap: 0;
-  margin-bottom: set-calc(60);
+  margin-bottom: set-calc(32);
 
   @include set-media(md) {
     position: relative;
 
     display: block;
-    margin-bottom: set-calc(32);
+    margin-bottom: set-calc(24);
   }
 }
 

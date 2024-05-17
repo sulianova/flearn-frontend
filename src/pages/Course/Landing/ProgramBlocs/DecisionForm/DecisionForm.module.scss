@@ -36,8 +36,6 @@
   justify-content: space-between;
   color: $black;
 
-  padding-right: set-calc(24);
-
   @include set-media(md) {
     padding-right: set-calc(16);
   }

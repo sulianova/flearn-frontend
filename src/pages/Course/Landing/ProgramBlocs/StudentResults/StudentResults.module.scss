@@ -7,6 +7,10 @@
 
 .header {
   margin-bottom: set-calc(32);
+
+  @include set-media(md) {
+    margin-bottom: set-calc(24);
+  }
 }
 
 .title {

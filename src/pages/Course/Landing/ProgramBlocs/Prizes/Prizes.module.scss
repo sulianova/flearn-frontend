@@ -6,10 +6,10 @@
 }
 
 .title {
-  padding-bottom: set-calc(60);
+  padding-bottom: set-calc(32);
 
   @include set-media(md) {
-    padding-bottom: set-calc(32);
+    padding-bottom: set-calc(24);
   }
 }
 

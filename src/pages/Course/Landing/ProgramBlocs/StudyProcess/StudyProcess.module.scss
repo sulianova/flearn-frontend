@@ -10,31 +10,31 @@
 
 .header {
   position: relative;
-  padding-bottom: set-calc(60);
+  padding-bottom: set-calc(32);
 
   @include set-media(md) {
     position: relative;
-    padding-bottom: set-calc(40);
+    padding-bottom: set-calc(24);
   }
 }
 
 .item {
   @include is-grid-12;
   grid-row-gap: 0;
+  background-color: $color-background-default;
+  padding: set-calc(32);
+  border-radius: set-calc(16);
 
   @include set-media(md) {
     display: flex;
     flex-direction: column;
     grid-gap: 0;
+    padding: set-calc(16);
   }
 }
 
 .item:not(:last-child) {
-  margin-bottom: set-calc(80);
-
-  @include set-media(md) {
-    margin-bottom: set-calc(56);
-  }
+  margin-bottom: set-calc(8);
 }
 
 .content {
