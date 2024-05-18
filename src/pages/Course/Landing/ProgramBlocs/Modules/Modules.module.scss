@@ -78,9 +78,9 @@
   margin-bottom: set-calc(10);
 
   border-radius: set-calc($border-radius-medium);
-  background-color: $black-new;
+  background-color: $color-background-default;
   overflow: hidden;
-  color: $color-background-default;
+  color: $black;
 
   @include set-media(md) {
     padding: set-calc(16) set-calc(16);
@@ -205,7 +205,7 @@
   align-items: center;
   justify-content: center;
 
-  background: $gradient-background-red-rose;
+  background: $black-new;
   border-radius: set-calc($border-radius-large);
   border: none;
   margin: set-calc(40) 0 0;
@@ -241,7 +241,7 @@
 }
 
 .listItemMedia {
-  background-color: $color-background-light-opacity-75;
+  background-color: $color-background-light-opacity-35;
   position: relative;
   margin: set-calc(-32);
   overflow: hidden;

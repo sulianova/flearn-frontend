@@ -36,8 +36,8 @@
   padding: set-calc(32);
   min-height: set-calc(330);
   border-radius: set-calc($border-radius-medium);
-  background-color: $black;
-  color: $white;
+  background-color: $color-background-default;
+  color: $black;
 
   @include set-media(md) {
     min-height: set-calc(230);
