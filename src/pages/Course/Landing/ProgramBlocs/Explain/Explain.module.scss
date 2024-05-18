@@ -37,7 +37,7 @@ padding-bottom: set-calc(32);
   background-color: $color-background-default;
 
   @include set-media(md) {
-    padding: set-calc(24);
+    padding: set-calc(16);
     margin-bottom: set-calc(6);
     background-color: $color-background-default;
   }

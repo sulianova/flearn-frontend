@@ -12,6 +12,7 @@
   @include set-media(md) {
     align-items: start;
     padding: set-calc(16);
+    grid-gap: 0;
   }
 }
 
@@ -36,6 +37,7 @@
 
   @include set-media(md) {
     text-align: left;
+    padding-bottom: set-calc(16);
   }
 }
 

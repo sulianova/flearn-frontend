@@ -25,8 +25,8 @@
 
   color: $white;
 
-  background-color: $black;
-  border: set-calc(2) solid $black;
+  background-color: $black-new;
+  border: set-calc(2) solid $black-new;
   border-left: 0;
   border-radius: 0 set-calc(15) set-calc(15) 0;
   cursor: pointer;
@@ -35,7 +35,7 @@
   transition: background-color $d-hover ease-in-out, color ease-in-out $d-hover;
 
   &:hover {
-    background-color: $black-new;
+    background-color: $black;
     color: $white;
   }
 

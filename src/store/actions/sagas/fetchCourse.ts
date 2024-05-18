@@ -79,7 +79,7 @@ function getData(id: string) {
 const courseDB1: ICourseDataDB = {
   id: 'how-to-draw', // how-to-draw-free
   type: 'course',
-  title: 'Дизайн для стикеров',
+  title: 'Дизайн стикеров',
   startDate: '2024.05.26 21:00:00 GMT', // '2023.12.03 21:00:00 GMT'
   endDate: '2024.06.23 20:59:00 GMT', // '2023.12.31 20:59:00 GMT'
   accessDeadline: '2024.06.23 20:59:00 GMT', // '2023.12.31 20:59:00 GMT'

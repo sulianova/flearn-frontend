@@ -26,6 +26,10 @@
   display: flex;
   flex-direction: column;
   grid-column: span 2;
+
+  @include set-media(md) {
+    padding-top: set-calc(8);
+  }
 }
 
 .feedbackQuote {
@@ -33,20 +37,21 @@
 
   p {
     @include s-text-21;
-
-    @include set-media(md) {
-      @include s-text-24;
-    }
   }
 
   p:not(:last-child) {
     padding-bottom: set-calc(16);
+  }
+
+  @include set-media(md) {
+    padding-right: set-calc(24);
   }
 }
 
 .feedbackExcerpt {
   grid-column: 10 / -1;
   padding-right: set-calc(24);
+  color: $orange;
 
   @include set-media(md) {
     display: none;

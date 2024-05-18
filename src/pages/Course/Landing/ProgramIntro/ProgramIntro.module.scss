@@ -106,15 +106,13 @@
   align-items: center;
   justify-content: center;
 
-  background: none;
-  background-color: transparent;
-  color: $black;
+  background: $gradient-background-red-rose;
+  color: $white;
 
-  border: set-calc(2) solid $black-new;
-  border-radius: set-calc(16);
+  border-radius: set-calc($border-radius-medium);
   cursor: pointer;
 
-  transition: background-color $d-hover ease-in-out, color ease-in-out $d-hover;
+  transition: opacity $d-hover ease-in-out, color ease-in-out $d-hover;
 
   width: max-content;
   margin: 0 set-calc(4) set-calc(4) 0;
@@ -127,8 +125,7 @@
   }
 
   &:hover {
-    background-color: $black-new;
-    color: $white;
+    opacity: 0.9;
   }
 }
 

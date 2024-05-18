@@ -197,6 +197,7 @@
 
 
 .b-black-new {
-  background-color: $black!important;
+  background-color: $black-new!important;
   color: $white!important;
+  border-radius: set-calc($border-radius-small);
 }

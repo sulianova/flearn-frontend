@@ -155,10 +155,10 @@
           "p_other": "{{count}} видео-уроков"
         },
         "homeworksNumber": {
-          "p_one": "{{count}} практическое задание",
-          "p_few": "{{count}} практических заданий",
-          "p_many": "{{count}} практических заданий",
-          "p_other": "{{count}} практических заданий"
+          "p_one": "{{count}} задание",
+          "p_few": "{{count}} задания",
+          "p_many": "{{count}} заданий",
+          "p_other": "{{count}} заданий"
         },
         "duration": {
           "day": {

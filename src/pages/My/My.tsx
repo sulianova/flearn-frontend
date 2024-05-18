@@ -77,7 +77,7 @@ function My(props: IProps) {
       <div className={classes.menu}>
         <div className={classes.menuLinkWrapper}>
         <Link
-            className={cx({ menuLink: true, isActive: mode === 'Profile' }) + ' s-text-20-uppercase'}
+            className={cx({ menuLink: true, isActive: mode === 'Profile' }) + ' s-text-21-uppercase'}
             to={URLSections.My.Profile.index}
             aria-current='page'
           >
@@ -86,7 +86,7 @@ function My(props: IProps) {
         </div>
         <div className={classes.menuLinkWrapper}>
           <Link
-            className={cx({ menuLink: true, isActive: mode === 'Settings' }) + ' s-text-20-uppercase'}
+            className={cx({ menuLink: true, isActive: mode === 'Settings' }) + ' s-text-21-uppercase'}
             to={URLSections.My.Settings.index}
             aria-current='page'
           >

@@ -7,10 +7,10 @@
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
-  background-color: transparent;
   border-radius: set-calc($border-radius-medium);
-  background-color: $color-background-default;
+  background: $gradient-background-red-rose;
   transition: box-shadow 0.3s ease;
+  color: $white;
 
 
   &:hover {
@@ -79,7 +79,7 @@
   width: fit-content;
 
   border-radius: set-calc($border-radius-large);
-  background-color: $color-background-alternate;
+  background-color: $color-background-light-opacity-15;
 }
 
 
@@ -108,8 +108,8 @@
   justify-content: center;
 
   background: none;
-  background-color: $black-new;
-  color: $white;
+  background-color: $color-background-default;
+  color: $black;
   cursor: pointer;
 
   transition: background-color $d-hover ease-in-out, color ease-in-out $d-hover;

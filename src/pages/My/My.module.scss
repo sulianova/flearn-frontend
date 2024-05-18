@@ -8,11 +8,11 @@
   grid-template-columns: repeat(8, minmax(0, 1fr));
   padding-bottom: set-calc(80);
 
-  border-top: set-calc(3) solid $black-new;
+  border-top: set-calc(3) solid $black;
 
   @include set-media(md) {
     padding-bottom: set-calc(56);
-    border-top: set-calc(2) solid $black-new;
+    border-top: set-calc(2) solid $black;
   }
 }
 
@@ -31,7 +31,7 @@
     width: set-calc(3);
     height: set-calc(30);
 
-    background-color: $black-new;
+    background-color: $black;
 
     content: '';
 
@@ -48,7 +48,7 @@
 }
 
 .isActive {
-  color: $blue !important;
+  color: $orange !important;
 
   cursor: default;
 
