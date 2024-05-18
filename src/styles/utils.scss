@@ -53,17 +53,18 @@
 
 @mixin is-beige {
   position: relative;
-  left: set-calc(-$padding-x-desk-page);
-
-  width: set-calc(2 * $padding-x-desk-page, true, 100%);
-  padding: set-calc($padding-x-desk-page) set-calc($padding-x-desk-page);
+  // left: set-calc(-$padding-x-desk-page);
+  // width: set-calc(2 * $padding-x-desk-page, true, 100%);
+  padding: set-calc(32) set-calc(32);
 
   background-color: $beige;
+  border-radius: set-calc($border-radius-medium);
 
   @include set-media(md) {
-    left: set-calc(-$padding-x-mob-page);
-
     display: block;
+    border-radius: 0;
+
+    left: set-calc(-$padding-x-mob-page);
     width: set-calc(2 * $padding-x-mob-page, true, 100%);
     padding: set-calc(2 * $padding-x-mob-page) set-calc($padding-x-mob-page);
   }
@@ -71,37 +72,37 @@
 
 @mixin is-grid-3 {
   display: grid;
-  grid-gap: 0 set-calc($s-gap);
+  grid-gap: set-calc($s-gap);
   grid-template-columns: repeat(3,minmax(0,1fr));
 
   @include set-media(md) {
     display: flex;
     flex-direction: column;
-    grid-gap: set-calc($s-gap);
+    grid-gap: set-calc($mobile-gap);
   }
 }
 
 @mixin is-grid-4 {
   display: grid;
-  grid-gap: 0 set-calc(2 * $s-gap);
+  grid-gap: set-calc($s-gap);
   grid-template-columns: repeat(4,minmax(0,1fr));
 
   @include set-media(md) {
     display: flex;
     flex-direction: column;
-    grid-gap: set-calc($s-gap);
+    grid-gap: set-calc($mobile-gap);
   }
 }
 
 @mixin is-grid-12 {
   display: grid;
-  grid-gap: 0 set-calc($s-gap);
+  grid-gap: set-calc($s-gap);
   grid-template-columns: repeat(12,minmax(0,1fr));
 
   @include set-media(md) {
     display: flex;
     flex-direction: column;
-    grid-gap: set-calc($s-gap);
+    grid-gap: set-calc($mobile-gap);
   }
 }
 

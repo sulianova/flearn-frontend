@@ -27,7 +27,7 @@ function Modules(props: IProps) {
       <div className={classes.wrapper}>
         <div className={classes.header}>
           <h2 className={cx({ title: true }) + ' s-text-56'} >{t('title')}</h2>
-          <div className={classes.desc + ' s-text-24'}>{<Text text={modulesDescription}/>}</div>
+          <div className={classes.desc + ' s-text-21'}>{<Text text={modulesDescription}/>}</div>
           <div className={classes.tags}>
             <div className={classes.tag + ' s-text-18'}>{t('videosNumber.p', { count: videosNumber })}</div>
             <div className={classes.tag + ' s-text-18'}>{t('homeworksNumber.p', { count: homeworksNumber })}</div>
@@ -55,7 +55,7 @@ function renderItem(props: NonNullable<ICourseData['modules']>[number]) {
             <div className={cx({ listItemCard: true }, className)} id={id}>
               <div className={classes.listItemMeta + ' s-text-18'}><Text text={props.meta}/></div>
               <div className={classes.listItemTitle + ' s-text-36'}><Text text={props.title}/></div>
-              <div className={classes.listItemContent + ' s-text-24'}><Text text={props.content}/></div>
+              <div className={classes.listItemContent + ' s-text-21'}><Text text={props.content}/></div>
                 <div className={classes.listItemLabel}>
                   <span className={classes.listItemLabelIcon}>
                     <Plus/>
@@ -83,7 +83,7 @@ function renderItem(props: NonNullable<ICourseData['modules']>[number]) {
           <div className={cx({ listItemCardContent: true }, className)} id={id}>
             <div className={classes.listItemMeta + ' s-text-18'}><Text text={props.meta}/></div>
             <div className={classes.listItemTitle + ' s-text-36'}><Text text={props.title}/></div>
-            {props.content && Boolean(!Array.isArray(props.content) || props.content.length) && <div className={classes.listItemContent + ' s-text-24'}><Text text={props.content}/></div>}
+            {props.content && Boolean(!Array.isArray(props.content) || props.content.length) && <div className={classes.listItemContent + ' s-text-21'}><Text text={props.content}/></div>}
           </div>
         )}
       </Animated.Scroll>

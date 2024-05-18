@@ -38,10 +38,10 @@ function ProgramIntro(props: IProps) {
             ))}
           </div>
           <h1 className={classes.title}>{props.data.title}</h1>
-          <div className={classes.block + ' s-text-24'}>{props.data.introDescription}</div>
+          <div className={classes.block + ' s-text-21'}>{props.data.introDescription}</div>
           <div className={classes.actions}>
             <a
-              className={classes.actionsBtn + ' s-text-24'}
+              className={classes.actionsBtn + ' s-text-21'}
               href='#decision-form'
               onClick={() => analyticsService.logEvent({
                   type: EAnalyticsEvent.ButtonClicked,

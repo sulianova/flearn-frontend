@@ -6,7 +6,7 @@
   display: block;
   padding-top: set-calc(0);
   @include is-beige;
-  background-color: $black-new;
+  background-color: $black;
 }
 
 .title {
@@ -14,7 +14,7 @@
   padding: set-calc(16);
   background-color: rgba(255, 255, 255, 0.12);
   color: $white;
-  border-radius: set-calc(16);
+  border-radius: set-calc($border-radius-medium);
 
   @include set-media(md) {
     margin-bottom: set-calc(16);
@@ -35,7 +35,7 @@
   margin-right: set-calc(8);
   width: 100%;
   overflow: hidden;
-  border-radius: set-calc(16);
+  border-radius: set-calc($border-radius-medium);
 
   aspect-ratio: 1 / 1.5;
 

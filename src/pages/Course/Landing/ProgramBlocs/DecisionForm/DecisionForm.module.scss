@@ -6,14 +6,8 @@
   grid-template-columns: repeat(12, minmax(0, 1fr));
 
   @include set-media(md) {
-    padding: set-calc(2 * $padding-x-mob-page) set-calc($padding-x-mob-page);
-  }
-
-  @include set-media(md) {
     position: relative;
     display: block;
-    left: set-calc(-$padding-x-mob-page);
-    width: set-calc(calc($padding-x-mob-page * 2), true, 100%);
   }
 }
 
@@ -21,7 +15,7 @@
   grid-column: span 6;
   position: relative;
   padding: set-calc(32);
-  border-radius: set-calc(16);
+  border-radius: set-calc($border-radius-medium);
   background-color: $color-background-default;
 
   @include set-media(md) {
@@ -56,7 +50,6 @@
 
   @include set-media(md) {
     padding-bottom: set-calc(16);
-
     @include s-text-56;
   }
 }
@@ -128,7 +121,7 @@
   letter-spacing: 0;
 
   color: $black;
-  border-radius: set-calc(30);
+  border-radius: set-calc($border-radius-large);
   border: set-calc(1.5) solid $black-new;
   -webkit-text-stroke: 0;
 
@@ -151,7 +144,7 @@
   @include set-media(md) {
     align-items: start;
     padding-top:  0;
-    padding-bottom: set-calc(200);
+    padding-bottom: set-calc(150);
   }
 }
 

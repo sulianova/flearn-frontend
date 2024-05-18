@@ -35,11 +35,11 @@
   flex-direction: column;
   padding: set-calc(32);
   min-height: set-calc(330);
-  border-radius: set-calc(16);
+  border-radius: set-calc($border-radius-medium);
   background-color: $color-background-default;
 
   @include set-media(md) {
-    min-height: set-calc(430);
+    min-height: set-calc(230);
     padding: set-calc($padding-x-mob-page) set-calc($padding-x-mob-page);
     
     &:not(:last-child) {

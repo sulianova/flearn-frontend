@@ -6,7 +6,7 @@
 
   margin-bottom: set-calc(8);
   padding: set-calc(24);
-  border-radius: set-calc(16);
+  border-radius: set-calc($border-radius-medium);
   background-color: $color-background-default;
   cursor: pointer;
 

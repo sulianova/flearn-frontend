@@ -27,12 +27,11 @@ function Explain({ explainMedia }: IProps) {
     <div className={classes.wrapper}>
       <div className={classes.header}>
         <div className={classes.headerTitle + ' s-text-56'}>{t('headerTitle')}</div>
-        <div className={classes.headerDesc + ' s-text-24'}>{t('headerDesc')}</div>
       </div>
       <div className={classes.cards}>
         <div className={classes.introCard}>
           <Animated.Scroll>
-            {(id, className) => (<div className={cx({ introCardQuote: true }, className) + ' s-text-36'} id={id}>{t('introCardQuote')}</div>)}
+            {(id, className) => (<div className={cx({ introCardQuote: true }, className) + ' s-text-28'} id={id}>{t('introCardQuote')}</div>)}
           </Animated.Scroll>
         </div>
         <div className={classes.videoCard}>

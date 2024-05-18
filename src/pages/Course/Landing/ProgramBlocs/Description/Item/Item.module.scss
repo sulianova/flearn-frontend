@@ -1,14 +1,13 @@
 @import 'styles/index';
 
 ._ {
-  grid-column: span 12;
+  grid-column: span 10;
   align-items: start;
   background-color: $color-background-default;
-  border-radius: set-calc(16);
+  border-radius: set-calc($border-radius-medium);
   padding: set-calc(24);
 
   @include is-grid-12;
-  gap: set-calc(16);
 
   @include set-media(md) {
     align-items: start;

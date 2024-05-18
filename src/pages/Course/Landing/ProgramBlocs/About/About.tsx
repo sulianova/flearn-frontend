@@ -25,7 +25,7 @@ function About({ type, about }: IProps) {
         <h2 className={cx({ title: true }) + ' s-text-56'} >{t(`title.${type}`)}</h2>
         <div className={classes.listItem}>
           <div className={cx({ listItemCard: true })}>
-            <div className={classes.listItemContent + ' s-text-24'}><Text text={about}/></div>
+            <div className={classes.listItemContent + ' s-text-21'}><Text text={about}/></div>
           </div>
         </div>
       </div>

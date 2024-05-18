@@ -28,7 +28,7 @@ function StudyProcess({ studyProcess }: IProps) {
           <div className={classes.content}>
             {d.caption && <p className={classes.caption + ' s-text-18'}><Text text={d.caption}/></p>}
             <h2 className={classes.title + ' s-text-36'}><Text text={d.title}/></h2>
-            <div className={classes.desc + ' s-text-24'}><Text text={d.description}/></div>
+            <div className={classes.desc + ' s-text-21'}><Text text={d.description}/></div>
           </div>
           {'imageSrc' in d && 'imageAlt' in d && (
             <div className={classes.videoCard}>

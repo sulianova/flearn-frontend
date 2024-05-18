@@ -10,10 +10,15 @@
 
 @font-face {
   font-weight: 500;
+  font-family: TTNormsProCompact-Normall;
+  src: url("../assets/fonts/TTNormsPro-Normal.ttf");
+}
+
+@font-face {
+  font-weight: 500;
   font-family: TTNormsProSerif-Medium;
   src: url("../assets/fonts/TTNormsProSerif-Medium.ttf");
 }
-
 
 html {
   font-family: $font-family;

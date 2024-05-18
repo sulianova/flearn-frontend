@@ -19,7 +19,7 @@ function FAQ({ faq }: IProps) {
     <div className={classes.wrapper}>
       <div className={classes.header}>
         <h2 className={classes.headerTitle + ' s-text-56'}>{t('headerTitle')}</h2>
-        <div className={classes.headerDesc + ' s-text-24'}>
+        <div className={classes.headerDesc + ' s-text-21'}>
           {t('headerDesc1')}
           <Link to={t('creatorLink')}  target='_blank'>
             <span className='key-link'>{t('headerDesc2')}</span>

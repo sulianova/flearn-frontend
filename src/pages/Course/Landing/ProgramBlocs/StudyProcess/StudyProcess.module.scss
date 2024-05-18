@@ -20,21 +20,23 @@
 
 .item {
   @include is-grid-12;
-  grid-row-gap: 0;
   background-color: $color-background-default;
   padding: set-calc(32);
-  border-radius: set-calc(16);
+  border-radius: set-calc($border-radius-medium);
 
   @include set-media(md) {
     display: flex;
     flex-direction: column;
-    grid-gap: 0;
     padding: set-calc(16);
   }
 }
 
 .item:not(:last-child) {
   margin-bottom: set-calc(8);
+
+  @include set-media(md) {
+    margin-bottom: set-calc(6);
+  }
 }
 
 .content {
@@ -54,13 +56,10 @@
 .caption {
   color: $black;
   width: max-content;
-  
-  margin-right: set-calc(8);
-  margin-bottom: set-calc(8);
 }
 
 .title {
-  margin-bottom: set-calc(24);
+  margin-bottom: set-calc(16);
 }
 
 .desc {
@@ -68,6 +67,7 @@
 
   p {
     font-size: inherit;
+    line-height: inherit;
     font-family: inherit;
   }
 
@@ -102,15 +102,11 @@
 
 .videoCardContainer {
   position: relative;
-  // max-width: fit-content;
-
-  border-radius: set-calc(10);
+  border-radius: set-calc($border-radius-medium);
   overflow: hidden;
 }
 
 .videoCardContainer img {
-  border-radius: set-calc(10);
-  // width: set-calc(490);
   width: 100%;
   height: 100%;
   -o-object-fit: cover;

@@ -3,7 +3,7 @@
 .wrapper {
   margin-top: set-calc(24);
   @include is-grid-3;
-  gap: set-calc(8);
+
 }
 
 .wrapperShowMore {

@@ -25,8 +25,8 @@
 
   color: $white;
 
-  background-color: $black-new;
-  border: set-calc(2) solid $black-new;
+  background-color: $black;
+  border: set-calc(2) solid $black;
   border-left: 0;
   border-radius: 0 set-calc(15) set-calc(15) 0;
   cursor: pointer;
@@ -40,7 +40,7 @@
   }
 
   @include set-media(md) {
-    border: set-calc(1) solid $black-new;
+    border: set-calc(1) solid $black;
     border-left: 0;
   }
 }

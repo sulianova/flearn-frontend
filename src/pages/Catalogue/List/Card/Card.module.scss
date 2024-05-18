@@ -8,18 +8,14 @@
   justify-content: space-between;
   overflow: hidden;
   background-color: transparent;
-  border-radius: set-calc(16);
+  border-radius: set-calc($border-radius-medium);
   background-color: $color-background-default;
   transition: box-shadow 0.3s ease;
+
 
   &:hover {
     box-shadow: $shadow-medium-hovered;
     cursor: pointer;
-  }
-
-  @include set-media(md) {
-    padding: 0;
-    grid-gap: 0;
   }
 }
 
@@ -29,7 +25,7 @@
 
   width: 100%;
   overflow: hidden;
-  border-radius: set-calc(16);
+  border-radius: set-calc($border-radius-medium);
 
   aspect-ratio: 1.4 / 1;
 
@@ -57,7 +53,6 @@
   justify-content: space-between;
   box-sizing: border-box;
   padding: set-calc(16);
-  margin-bottom: set-calc(40);
   
   @include set-media(md) {
     padding: set-calc(16);
@@ -83,7 +78,7 @@
   padding: set-calc(2) set-calc($padding-x-mob-page);
   width: fit-content;
 
-  border-radius: set-calc(30);
+  border-radius: set-calc($border-radius-large);
   background-color: $color-background-alternate;
 }
 
@@ -125,7 +120,7 @@
   @include set-media(md) {
     flex: 1 1 max-content;
     padding: set-calc(12) set-calc(80);
-    border-radius: set-calc(16);
+    border-radius: set-calc($border-radius-medium);
   }
 
   &:hover {

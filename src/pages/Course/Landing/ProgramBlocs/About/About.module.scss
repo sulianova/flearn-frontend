@@ -34,23 +34,21 @@
   justify-content: space-between;
   flex-direction: column;
   padding: set-calc(32);
-  border-radius: set-calc(16);
+  border-radius: set-calc($border-radius-medium);
   background-color: $color-background-default;
 
   @include set-media(md) {
     padding: set-calc(16);
-    border: 0;
-    
-    &:not(:last-child) {
-      margin-bottom: set-calc(8);
-    }
   }
 }
 
 .listItemContent {
-  font-size: inherit;
-  line-height: inherit;
   white-space: pre-line;
+
+  p {
+    font-size: inherit;
+    line-height: inherit;
+  }
 
   p:not(:last-child) {
     padding-bottom: set-calc(16);

@@ -1,8 +1,7 @@
-//baidge in cards
 .s-text-14 {
   @include set-typography(14, 19, 500);
 }
-//xxs
+
 .s-text-16-18 {
   @include set-typography(16, 22, 500);
 
@@ -26,7 +25,7 @@
     @include set-typography(14, 19, 500)
   }
 }
-//xs
+
 @mixin s-text-18 {
   @include set-typography(18, 24, 500);
 
@@ -61,17 +60,7 @@
 @mixin s-text-20 {
   @include set-typography(20, 30, 500);
 }
-// tabs
-.s-text-20-uppercase  {
-  @include set-typography(20, 26, 500);
-  text-transform: uppercase;
 
-  @include set-media(md) {
-    @include set-typography(18, 24, 500);
-    text-transform: uppercase;
-  }
-}
-//text in table
 .s-text-21  {
   @include set-typography(21, 28, 500);
 
@@ -88,7 +77,6 @@
   }
 }
 
-//links & headers in table
 .s-text-21-uppercase  {
   @include set-typography(21, 28, 500);
   text-transform: uppercase;
@@ -98,7 +86,7 @@
     text-transform: uppercase;
   }
 }
-//s
+
 @mixin s-text-24 {
   @include set-typography(24, 32, 500);
 
@@ -114,82 +102,76 @@
     @include set-typography(20, 28, 500);
   }
 }
-//cards
+
 @mixin s-text-28 {
   @include set-typography(28, 37, 500);
+  font-family: $font-family-compact;
 
   @include set-media(md) {
-    @include set-typography(20, 28, 500);
+    @include set-typography(24, 30, 500);
   }
 }
 
 .s-text-28 {
   @include set-typography(28, 37, 500);
-
-  @include set-media(md) {
-    @include set-typography(20, 28, 500);
-  }
-}
-//cards – important
-.s-text-36 {
-  @include set-typography(36, 48, 500);
+  font-family: $font-family-compact;
 
   @include set-media(md) {
     @include set-typography(24, 30, 500);
+  }
+}
+
+.s-text-36 {
+  @include set-typography(36, 48, 500);
+  font-family: $font-family-compact;
+
+  @include set-media(md) {
+    @include set-typography(28, 37, 500);
   }
 }
 
 @mixin s-text-36 {
   @include set-typography(36, 48, 500);
+  font-family: $font-family-compact;
 
   @include set-media(md) {
-    @include set-typography(24, 30, 500);
+    @include set-typography(28, 37, 500);
   }
 }
-//h2
+
 .s-text-56 {
   @include set-typography(56, 61, 500);
-  letter-spacing: -.01rem;
+  font-family: $font-family-compact;
 
   @include set-media(md) {
-    @include set-typography(40, 44, 500);
+    @include set-typography(36, 48, 500);
   }
 }
 
 @mixin s-text-56 {
   @include set-typography(56, 61, 500);
-  letter-spacing: -.08rem;
+  font-family: $font-family-compact;
 
   @include set-media(md) {
-    @include set-typography(40, 44, 500);
+    @include set-typography(36, 48, 500);
   }
 }
 
 @mixin s-text-88 {
   @include set-typography(88, 96, 500);
-  letter-spacing: -.01rem;
+  font-family: $font-family-compact;
 
   @include set-media(md) {
     @include set-typography(48, 52, 500);
   }
 }
 
-//h1
 .s-text-88 {
   @include set-typography(88, 96, 500);
-  letter-spacing: -.01rem;
+  font-family: $font-family-compact;
 
   @include set-media(md) {
     @include set-typography(48, 52, 500);
-  }
-}
-
-.s-text-256 {
-  @include set-typography(256, 256, 500);
-  letter-spacing: -.01rem;
-
-  @include set-media(md) {
-    @include set-typography(64, 58, 500);
   }
 }
 
@@ -215,6 +197,6 @@
 
 
 .b-black-new {
-  background-color: $black-new!important;
+  background-color: $black!important;
   color: $white!important;
 }
