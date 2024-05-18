@@ -41,7 +41,7 @@
 
   @include set-media(md) {
     min-height: set-calc(230);
-    padding: set-calc($padding-x-mob-page) set-calc($padding-x-mob-page);
+    padding: set-calc(16);
     
     &:not(:last-child) {
       margin-bottom: set-calc(8);
