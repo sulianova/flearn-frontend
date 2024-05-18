@@ -14,10 +14,9 @@ interface IProps {
 
 export default function Card({ course }: Readonly<IProps>) {
   return (
-    <Link
+    <Link 
       className={classes.__}
-      to={URLSections.Course.to({ courseId: course.id })}
-    >
+      to={URLSections.Course.to({ courseId: course.id })}>
       <div className={classes.content}>
       <div className={classes.contentWrapper}>
         <div className={classes.info}>
@@ -41,6 +40,7 @@ export default function Card({ course }: Readonly<IProps>) {
         </Link>
       </div> */}
       </div>
+      <div className={classes.background}></div>
       {/* <div className={classes.preview}>
         <Link
           className={classes.previewLink}

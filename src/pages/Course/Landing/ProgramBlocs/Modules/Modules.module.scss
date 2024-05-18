@@ -151,16 +151,10 @@
 .listItemCardMedia {
   background: $gradient-background-red-rose;
   margin-bottom: set-calc(10);
-  cursor: pointer;
-  transition: background $d-hover ease;
-
-  &:hover {
-    background: transparent;
-  }
 }
 
 .listItemMeta {
-  color: $orange;
+  color: $blue;
   display: inline-flex;
 
 }

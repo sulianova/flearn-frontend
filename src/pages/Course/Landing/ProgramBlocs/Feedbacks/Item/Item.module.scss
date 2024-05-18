@@ -51,7 +51,6 @@
 .feedbackExcerpt {
   grid-column: 10 / -1;
   padding-right: set-calc(24);
-  color: $orange;
 
   @include set-media(md) {
     display: none;

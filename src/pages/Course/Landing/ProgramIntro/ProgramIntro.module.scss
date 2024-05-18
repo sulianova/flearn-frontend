@@ -29,6 +29,7 @@
 }
 
 .info {
+  position: relative;
   grid-column: span 2;
   position: relative;
   display: flex;
@@ -99,20 +100,17 @@
   @include set-media(md) {
     flex-direction: row-reverse;
   }
+
 }
 
 .actionsBtn {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
 
-  background: $gradient-background-red-rose;
-  color: $white;
-
-  border-radius: set-calc($border-radius-medium);
-  cursor: pointer;
-
-  transition: opacity $d-hover ease-in-out, color ease-in-out $d-hover;
+  border-radius: $border-radius-large;
+  transition: transform .2s ease, box-shadow .2s;
 
   width: max-content;
   margin: 0 set-calc(4) set-calc(4) 0;
@@ -124,9 +122,31 @@
     flex: 1 1 max-content;
   }
 
-  &:hover {
-    opacity: 0.9;
+  .text {
+    color: $white;
+    z-index: 200;
   }
+
+  &:hover {
+    .background {
+      cursor: pointer;
+      box-shadow: $shadow-medium-hovered;
+      transform: scale(1.02);
+    }
+  }
+}
+
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  background: $gradient-background-red-rose;
+  border-radius: set-calc($border-radius-large);
+  transition: transform .2s ease, box-shadow .2s;
+  transform-origin: center center;
 }
 
 .cover {

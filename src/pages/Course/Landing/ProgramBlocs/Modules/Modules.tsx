@@ -29,11 +29,11 @@ function Modules(props: IProps) {
           <h2 className={cx({ title: true }) + ' s-text-56'} >{t('title')}</h2>
           <div className={classes.desc + ' s-text-21'}>{<Text text={modulesDescription}/>}</div>
           <div className={classes.tags}>
-            <div className={classes.tag + ' s-text-18'}>{t('videosNumber.p', { count: videosNumber })}</div>
-            <div className={classes.tag + ' s-text-18'}>{t('homeworksNumber.p', { count: homeworksNumber })}</div>
+            <div className={classes.tag + ' s-text-18 b-black-new'}>{t('videosNumber.p', { count: videosNumber })}</div>
+            <div className={classes.tag + ' s-text-18 b-black-new'}>{t('homeworksNumber.p', { count: homeworksNumber })}</div>
             {/* <div className={classes.tag + ' s-text-18'}>{t(`duration.${duration.unit}.p`, { count: duration.value })}</div> */}
-            <div className={classes.tag + ' s-text-18 b-black-new'}>{t('feedback')}</div>
-            <div className={classes.tag + ' s-text-18 b-black-new'}>{t('chat')}</div>
+            <div className={classes.tag + ' s-text-18'}>{t('feedback')}</div>
+            <div className={classes.tag + ' s-text-18'}>{t('chat')}</div>
           </div>
         </div>
         <div className={classes.list}>

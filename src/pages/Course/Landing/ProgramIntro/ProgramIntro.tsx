@@ -51,7 +51,8 @@ function ProgramIntro(props: IProps) {
                 })
               }
             >
-              {i18n.t('signUp')}
+              <div className={classes.text}>{i18n.t('signUp')}</div>
+              <div className={classes.background}></div>
             </a>
           </div>
         </div>

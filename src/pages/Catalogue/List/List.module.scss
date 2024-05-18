@@ -3,6 +3,11 @@
 .wrapper {
   margin-top: set-calc(24);
   @include is-grid-3;
+  column-gap: set-calc(24);
+
+  @include set-media(md) {
+    column-gap: set-calc(6);
+  }
 
 }
 
