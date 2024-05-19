@@ -34,7 +34,7 @@ function ProgramIntro(props: IProps) {
         <div className={classes.info}>
           <div className={classes.categories}>
             {labels.map((label, i) => (
-              <div className={classes.categoriesItem + ' s-text-18'} key={i}>{label}</div>
+              <div className={classes.categoriesItem + ' s-text-16'} key={i}>{label}</div>
             ))}
           </div>
           <h1 className={classes.title}>{props.data.title}</h1>

@@ -22,10 +22,12 @@
   display: flex;
   grid-column: span 3;
   height: 100%;
+  padding-right: set-calc(8);
 
 
   @include set-media(md) {
     width: 100%;
+    padding-right: set-calc(0);
   }
 }
 
@@ -43,4 +45,8 @@
 
 .answear {
   grid-column: 4 / -1;
+
+  @include set-media(md) {
+    color: $color-content-secondary;
+  }
 }

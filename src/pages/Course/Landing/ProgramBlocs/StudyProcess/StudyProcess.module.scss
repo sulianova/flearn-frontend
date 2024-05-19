@@ -54,7 +54,7 @@
 }
 
 .caption {
-  color: $black;
+  color: $color-content-primary;
   width: max-content;
 }
 
@@ -64,6 +64,9 @@
 
 .desc {
   padding-right: set-calc(32);
+  @include set-media(md) {
+    color: $color-content-secondary;
+  }
 
   p {
     font-size: inherit;

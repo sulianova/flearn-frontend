@@ -98,7 +98,7 @@ const courseDB1: ICourseDataDB = {
     },
     imageAlt: 'SpotCat27',
   },
-  introDescription: 'Придумаем и отрисуем стикеры в трех разных техниках. Сделаем наброски, доработаем скетчи в дижитал. Отберем лучшие иллюстрации и оформим в проект на Behance',
+  introDescription: 'Нарисуем стикеры в трех разных техниках. Сделаем наброски, доработаем в дижитал, отберем лучшее и оформим в проект на Behance.',
   cardImage: {
     imageId: 'imageCard.jpg',
     imageAlt: 'imageCard',
@@ -416,7 +416,7 @@ const courseDB2: ICourseDataDB = {
     },
     imageAlt: 'introImage',
   },
-  introDescription: 'Разберемся, из чего состоит авторский стиль и сделаем  серию графических работ для портфолио',
+  introDescription: 'Разберемся, из чего состоит авторский стиль и сделаем  серию для портфолио',
   cardImage: {
     imageId: 'imageCard.jpg',
     imageAlt: 'imageCard',

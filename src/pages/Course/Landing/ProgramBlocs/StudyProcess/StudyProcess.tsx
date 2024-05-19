@@ -26,7 +26,7 @@ function StudyProcess({ studyProcess }: IProps) {
       {studyProcess.map((d, index) => (
         <div className={classes.item} key={index}>
           <div className={classes.content}>
-            {d.caption && <p className={classes.caption + ' s-text-18'}><Text text={d.caption}/></p>}
+            {d.caption && <p className={classes.caption + ' s-text-16'}><Text text={d.caption}/></p>}
             <h2 className={classes.title + ' s-text-36'}><Text text={d.title}/></h2>
             <div className={classes.desc + ' s-text-21'}><Text text={d.description}/></div>
           </div>
