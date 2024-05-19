@@ -126,7 +126,7 @@
   font-family: $font-family-compact;
 
   @include set-media(md) {
-    @include set-typography(28, 37, 500);
+    @include set-typography(28, 32, 500);
   }
 }
 
@@ -135,7 +135,7 @@
   font-family: $font-family-compact;
 
   @include set-media(md) {
-    @include set-typography(28, 37, 500);
+    @include set-typography(28, 32, 500);
   }
 }
 

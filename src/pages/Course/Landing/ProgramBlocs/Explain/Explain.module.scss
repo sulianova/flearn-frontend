@@ -97,3 +97,9 @@ padding-bottom: set-calc(32);
  .videoCardTitle {
   padding-bottom: set-calc(8);
  }
+
+ .videoCardText {
+  @include set-media(md) {
+    color: $color-content-secondary;
+  }
+ }

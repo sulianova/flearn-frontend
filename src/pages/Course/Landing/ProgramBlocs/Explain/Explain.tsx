@@ -55,7 +55,7 @@ function Explain({ explainMedia }: IProps) {
               </div>)}
             </Animated.Scroll>
             <Animated.Scroll>
-              {(id, className) => (<div className={className + ' s-text-18'} id={id}>
+              {(id, className) => (<div className={classes.videoCardText + ' s-text-18'} id={id}>
                 {t('videoCardText')}
               </div>)}
               </Animated.Scroll>
