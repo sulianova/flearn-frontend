@@ -244,16 +244,16 @@ const courseDB1: ICourseDataDB = {
   // },
   teacherGallery: [
     {
-      imageId: 'SofiUlianova10.jpg',
-      imageAlt: 'SofiUlianova10',
+      imageId: 'SofiUlianova23.jpg',
+      imageAlt: 'SofiUlianova23',
     },
     {
-      imageId: 'SofiUlianova4.jpg',
-      imageAlt: 'SofiUlianova4',
+      imageId: 'SofiUlianova21.jpg',
+      imageAlt: 'SofiUlianova21',
     },
     {
-      imageId: 'SofiUlianova3.jpg',
-      imageAlt: 'SofiUlianova3',
+      imageId: 'SofiUlianova22.jpg',
+      imageAlt: 'SofiUlianova22',
     },
   ],
   // studentsWorks: [
@@ -411,8 +411,8 @@ const courseDB2: ICourseDataDB = {
   tags: ['иллюстрация', 'рисование по воображению', 'серия'],
   introImage: {
     imageId: {
-      desktop: 'introImage.jpg',
-      mobile: 'introImage-mobile.jpg',
+      desktop: 'introImage.png',
+      mobile: 'introImage.png',
     },
     imageAlt: 'introImage',
   },
@@ -541,16 +541,16 @@ const courseDB2: ICourseDataDB = {
   },
   teacherGallery: [
     {
-      imageId: 'SofiUlianova10.jpg',
-      imageAlt: 'SofiUlianova10',
+      imageId: 'SofiUlianova23.jpg',
+      imageAlt: 'SofiUlianova23',
     },
     {
-      imageId: 'SofiUlianova4.jpg',
-      imageAlt: 'SofiUlianova4',
+      imageId: 'SofiUlianova21.jpg',
+      imageAlt: 'SofiUlianova21',
     },
     {
-      imageId: 'SofiUlianova3.jpg',
-      imageAlt: 'SofiUlianova3',
+      imageId: 'SofiUlianova22.jpg',
+      imageAlt: 'SofiUlianova22',
     },
   ],
   studentResults: {
