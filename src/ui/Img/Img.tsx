@@ -1,6 +1,8 @@
 import classnames from 'classnames/bind';
 import{ useLayoutEffect, useState } from 'react';
 
+import { useMemoize } from 'hooks';
+
 import classes from './Img.module.scss';
 
 const cx = classnames.bind(classes);
@@ -19,10 +21,11 @@ function Img(props: Readonly<IProps>) {
   const { alt, src, lazy = true, className } = props;
 
   const [imgStatus, setImgStatus] = useState<null | 'loaded' | 'failed'>(null);
+  const [, changed] = useMemoize(src, true);
 
   useLayoutEffect(() => {
       setImgStatus(null);
-  }, [src]);
+  }, [changed]);
 
   if (imgStatus === 'failed') {
     if (props.placeholder) {
