@@ -27,13 +27,13 @@
   left: set-calc(-$padding-x-desk-page);
   width: set-calc($padding-x-desk-page * 2, true, 100%);
   padding: set-calc($padding-x-desk-page / 2) set-calc($padding-x-desk-page) 0;
-  border-top: set-calc(3) solid $black-new;
+  border-top: set-calc(3) solid $color-content-background-primary;
 
   @include set-media(md) {
     left: set-calc(-16);
     width: set-calc(16 * 2, true, 100%);
     padding: set-calc(16) set-calc(16) set-calc(16);
-    border-top: set-calc(2) solid $black-new;
+    border-top: set-calc(2) solid $color-content-background-primary;
   }
 }
 
@@ -117,11 +117,11 @@
 
   svg {
     display: block;
-    fill: $black-new;
+    fill: $color-content-background-secondary;
     height: set-calc(32);
 
     &:hover {
-      fill: $blue;
+      fill: $orange;
     }
 
     @include set-media(md) {

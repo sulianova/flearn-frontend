@@ -1,0 +1,15 @@
+@import 'styles/index';
+
+.section {
+  display: block;
+  position: relative;
+  padding-top: set-calc(100);
+
+  @include set-media(md) {
+    padding-top: set-calc(80);
+  }
+}
+
+.section:first-child {
+  padding-top: 0;
+}

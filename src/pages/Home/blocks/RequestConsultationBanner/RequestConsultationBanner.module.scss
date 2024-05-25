@@ -1,0 +1,61 @@
+@import 'styles/index';
+
+.__ {
+  min-height: set-calc(350);
+  background: $matt-black;
+  border-radius: set-calc($border-radius-medium);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  padding: set-calc(24);
+}
+
+.contentTitle {
+  color: $color-content-inverted-primary;
+  margin-bottom: set-calc(16);
+}
+
+.contentDescription {
+  color: $color-content-inverted-secondary;
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  gap: set-calc(8);
+  overflow: hidden;
+
+  margin-top: set-calc(24);
+}
+
+.button {
+  position: relative;
+
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: set-calc(52);
+  padding: set-calc(16) set-calc(24);
+
+  background-color: $color-content-inverted-primary;
+  border-radius: set-calc($border-radius-small);
+  white-space: nowrap;
+  max-width: fit-content;
+
+  opacity: 1;
+  transition: color $d-hover, opacity $d-hover;
+}
+
+.button:hover {
+  opacity: .8;
+}

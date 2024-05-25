@@ -7,19 +7,34 @@ $padding-x-desk-page: 40;
 $padding-x-mob-page: 10;
 $s-gap: 8;
 $mobile-gap: 6;
+
 $white: #fff;
-$black: #161616;
-$color-background-alternate: #f5f5f5;
-$color-background-default: #fff;
-$color-background-light-opacity-15: hsla(0, 0%, 100%, .15);
-$color-background-light-opacity-35: hsla(0, 0%, 100%,.35);
-$color-background-dark-opacity: hsla(0, 0%, 0%, 0.25);
+$black: #000000;
+$matt-black: #181818;
+$matt-black_hover: #303030;
+
+//dark
+$color-palette-black-50: #f5f5f5;
+$color-palette-black-100: #f0f0f0;
+$color-palette-black-200: #e0e0e0;
+$color-palette-black-300: #bfbfbf;
+$color-palette-black-500: #808080;
+$color-palette-black-700: #262626;
+$color-palette-black-800: #1c1c1c;
+$color-palette-black-900: #161616;
+$color-palette-black-1000: #000000;
+
+//light
+$color-palette-white-200-a: rgba(255, 255, 255, 0.12);
+$color-palette-white-300-a: rgba(255, 255, 255, 0.25);
+$color-palette-white-500-a: rgba(255, 255, 255, 0.5);
+$color-palette-white-800-a: rgba(255, 255, 255, 0.75);
+$color-palette-white-1000: #ffffff;
+
+//gradient
 $gradient-background-red-rose: linear-gradient(90deg, #ff4e10, #ff1b17 28%, #ff0f47 53%, #ff0571 67%, #f101e5);
-$black-new: #262626;
-$link: #161616e7;
-$link-underline: #161616e7;
-$link-visited: #161616e7;
-$link-visited-underline: #161616e7;
+
+//colors
 $orange: #ff2800;
 $orange-hover: #e61e00;
 $orange-underline: rgba(255, 40, 0, 0.2);
@@ -42,6 +57,8 @@ $violetCool: #725ef2;
 $warmGreen:  #d0f500;
 $warmGreen-hover: #bdfd55;
 $warmGreenDark: #9fbb00;
+
+//grey
 $beige: #F3F3F3;
 $beige-light: #F9F9F9;
 $beige-dark: #E7E7E7;
@@ -50,6 +67,8 @@ $grey: #aaa;
 $grey-hover: #969696;
 $grey-inactive: #707070;
 $border: #d7d7d7;
+
+//pastel
 $keyText: #e25050;
 $pastelPink: #ffc4c4ac;
 $pastelPinkLight: #ffc4c465;
@@ -59,6 +78,54 @@ $pastelColdGreen: #71e76e;
 $pastelYellow: #f3e9c9;
 $pastelBlue: #D9E7F9;
 
+//theme-light
+$color-accent-notice: #e67046;
+$color-accent-success: #1c9c75;
+$color-accent-warning: #ffb72c;
+$color-background-alternate: $color-palette-black-50;
+$color-background-default: $color-palette-white-1000;
+$color-background-glassy-a: rgba(0, 0, 0, 0.06);
+$color-background-glassy-b: rgba(0, 0, 0, 0.12);
+$color-background-glassy-c: rgba(0, 0, 0, 0.25);
+$color-background-highlighted: #edf1f8;
+$color-background-overlay: rgba(0, 0, 0, 0.5);
+$color-background-stroke: #e0e0e0;
+$color-content-inverted-primary: $color-palette-white-1000;
+$color-content-inverted-secondary: rgba(255, 255, 255, 0.5);
+$color-content-primary: $color-palette-black-900;
+$color-content-secondary: rgba(0, 0, 0, 0.5);
+$color-content-tertiary: rgba(0, 0, 0, 0.25);
+$color-content-background-primary: $color-palette-black-900;
+$color-content-background-secondary: $color-palette-black-700;
+
+// //theme-dark
+// $color-accent-neutral: $color-palette-white-1000;
+// $color-accent-neutral-hover: $color-palette-black-300;
+// $color-accent-notice: #e67046;
+// $color-accent-success: #1c9c75;
+// $color-accent-warning: #ffb72c;
+// $color-background-default: $color-palette-black-700;
+// $color-background-alternate: $color-palette-black-800;
+// $color-background-glassy-a: rgba(255, 255, 255, 0.06);
+// $color-background-glassy-b: rgba(255, 255, 255, 0.12);
+// $color-background-glassy-c: rgba(255, 255, 255, 0.25);
+// $color-background-highlighted: #404959;
+// $color-background-overlay: rgba(0, 0, 0, 0.85);
+// $color-background-stroke: #2e2e2e;
+// $color-content-inverted-primary: rgba(0, 0, 0, 0.85);
+// $color-content-inverted-secondary: rgba(0, 0, 0, 0.5);
+// $color-content-primary: $color-palette-black-300;
+// $color-content-secondary: rgba(255, 255, 255, 0.5);
+// $color-content-tertiary: rgba(255, 255, 255, 0.25);
+// $color-content-background-primary: $color-palette-black-300;
+// $color-content-background-secondary: $color-palette-black-500;
+
+//links
+$link: #161616e7;
+$link-underline: #161616e7;
+$link-visited: #161616e7;
+$link-visited-underline: #161616e7;
+
 $breakpoints: (
   xxs: 319.98px,
   xs: 374.98px,
@@ -67,13 +134,14 @@ $breakpoints: (
   lg: 991.98px,
   xl: 1199.98px,
 );
+//duration
 $d-hover: 0.2s;
 $d-expansion: 0.5s;
 $d-collapse: calc($d-expansion / 3);
+//shadow
 $shadow-medium-hovered: 0px 1px 12px 2px rgba(36, 36, 36, 0.07);
 $shadow-medium-default: 0px 1px 12px 2px rgba(36, 36, 36, 0.07);
+//border
 $border-radius-large: 30;
 $border-radius-medium: 16;
 $border-radius-small: 6;
-$color-content-primary: rgba(0, 0, 0, 0.85);
-$color-content-secondary: rgba(0, 0, 0, 0.5);

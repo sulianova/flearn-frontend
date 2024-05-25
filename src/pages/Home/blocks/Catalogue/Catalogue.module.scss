@@ -1,0 +1,37 @@
+@import 'styles/index';
+
+.header {
+  @include is-grid-12;
+  grid-row-gap: 0;
+
+  margin-bottom: set-calc(32);
+
+
+  @include set-media(md) {
+    position: relative;
+    display: block;
+
+    margin-bottom: set-calc(24);
+  }
+}
+
+.headerTitle {
+  grid-column: 1 / 7;
+  padding-bottom: set-calc(24);
+}
+
+.description {
+  grid-column: 1 / 6;
+}
+
+.wrapper {
+  grid-column: span 12;
+  @include is-grid-3;
+  column-gap: set-calc(16);
+  margin-bottom: set-calc(40);
+
+  @include set-media(md) {
+    column-gap: set-calc(6);
+    margin-bottom: 0;
+  }
+}

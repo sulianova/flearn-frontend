@@ -1,8 +1,7 @@
 import { RouteObject } from 'react-router-dom';
 
 export const URLSections = {
-    FreeZone: { index: '/' },
-    Catalogue: { index: '/catalogue' },
+    Home: { index: '/' },
     Course: {
         index: '/course/:courseId',
         to: (props: { courseId: string, params?: Record<string, any> }) => `/course/${props.courseId}${getSearchQuery(props.params)}`,

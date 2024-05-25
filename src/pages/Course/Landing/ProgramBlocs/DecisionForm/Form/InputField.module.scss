@@ -15,18 +15,18 @@
   outline: none;
 
   &::placeholder {
-    color: $black;
+    color: $color-content-background-primary;
     opacity: 1;
     font-family: $font-family!important;
   }
   
   &:-ms-input-placeholder {
-    color: $black;
+    color: $color-content-background-primary;
     font-family: $font-family!important;
   }
   
   &::-ms-input-placeholder {
-    color: $black;
+    color: $color-content-background-primary;
     font-family: $font-family!important;
   }
 
@@ -45,17 +45,17 @@
 }
 
 .dark {
-  color: $white;
+  color: $color-palette-white-1000;
   background: hsla(0,0%,100%,.05);
   border: set-calc(1) solid hsla(0,0%,100%,.1);
 }
 
 .light {
   background: hsla(0,0%,100%,.4);
-  border: set-calc(2) solid $black-new;
+  border: set-calc(2) solid $color-content-background-primary;
 
   @include set-media(md) {
-    border: set-calc(1) solid $black-new;
+    border: set-calc(1) solid $color-content-background-primary;
   }
 }
 

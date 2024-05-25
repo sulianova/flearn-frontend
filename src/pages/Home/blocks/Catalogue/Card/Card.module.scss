@@ -7,7 +7,7 @@
   flex-direction: column;
   justify-content: space-between;
   border-radius: set-calc($border-radius-medium);
-  color: $white;
+  color: $color-content-inverted-primary;
 
   transition: transform .2s ease, box-shadow .2s;
   box-shadow: none;
@@ -54,7 +54,7 @@
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
-  padding: set-calc(16);
+  padding: set-calc(24);
   cursor: pointer;
   
   @include set-media(md) {
@@ -79,7 +79,7 @@
   z-index: 1;
 
   border-radius: set-calc($border-radius-large);
-  background-color: $color-background-light-opacity-15;
+  background-color: $color-palette-white-300-a;
 }
 
 .title {
@@ -119,7 +119,7 @@
 
   background: none;
   background-color: $color-background-default;
-  color: $black;
+  color: $color-content-background-primary;
   cursor: pointer;
 
   transition: background-color $d-hover ease-in-out, color ease-in-out $d-hover;
@@ -134,7 +134,7 @@
   }
 
   &:hover {
-    background-color: $black;
+    background-color: $color-content-background-primary;
   }
 }
 

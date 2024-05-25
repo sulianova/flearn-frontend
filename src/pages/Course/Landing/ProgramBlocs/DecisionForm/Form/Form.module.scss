@@ -23,10 +23,10 @@
   padding: set-calc(16) set-calc(16);
   min-width: set-calc(58);
 
-  color: $white;
+  color: $color-content-inverted-primary;
 
-  background-color: $black-new;
-  border: set-calc(2) solid $black-new;
+  background-color: $color-content-background-secondary;
+  border: set-calc(2) solid $color-content-background-primary;
   border-left: 0;
   border-radius: 0 set-calc(15) set-calc(15) 0;
   cursor: pointer;
@@ -35,29 +35,29 @@
   transition: background-color $d-hover ease-in-out, color ease-in-out $d-hover;
 
   &:hover {
-    background-color: $black;
-    color: $white;
+    background-color: $color-content-background-primary;
+    color: $color-content-inverted-primary;
   }
 
   @include set-media(md) {
-    border: set-calc(1) solid $black;
+    border: set-calc(1) solid $color-content-background-primary;
     border-left: 0;
   }
 }
 
 .isSuccess {
   pointer-events: none;
-  color: $black;
+  color: $color-content-background-primary;
 }
 
 .isPending {
-  color: $black;
+  color: $color-content-background-primary;
   opacity: 0.7;
   pointer-events: none;
 }
 
 .isError {
-  color: $white;
+  color: $color-content-inverted-primary;
   background-color: $yellow;
   transition: background-color $d-hover ease-in-out, color ease-in-out $d-hover;
 
@@ -67,12 +67,12 @@
 }
 
 .isDisabled {
-  color: $black;
+  color: $color-content-background-primary;
   background-color: transparent;
   pointer-events: none;
 
   @include set-media(md) {
-    color: $black;
+    color: $color-content-background-primary;
     -webkit-text-stroke: 0;
   }
 }

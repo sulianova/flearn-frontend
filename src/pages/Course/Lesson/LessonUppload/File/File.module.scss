@@ -86,7 +86,7 @@
 }
 
 .deleteBtnBackground {
-  background-color: $black-new;
+  background-color: $color-content-background-secondary;
   width: set-calc(48);
   height: set-calc(48);
   border-radius: 999em;
@@ -133,11 +133,11 @@
   fill: none;
 
   path {
-    stroke: $white;
+    stroke: $color-content-inverted-primary;
   }
 
   rect {
-    fill: $white;
+    fill: $color-content-inverted-primary;
   }
 }
 
@@ -146,7 +146,7 @@
 }
 
 .addCaption {
-  color: $black;
+  color: $color-content-background-primary;
   font: inherit;
 
   background: none;

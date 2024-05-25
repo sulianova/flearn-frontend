@@ -60,12 +60,12 @@
 .categoriesItem {
   margin-bottom: set-calc(8);
   padding: set-calc(2) set-calc($padding-x-mob-page);
-  color: $black;
-  border: set-calc(1.5) solid $black;
+  color: $color-content-background-primary;
+  border: set-calc(1.5) solid $color-content-background-primary;
   border-radius: set-calc(30);
 
   @include set-media(md) {
-    border: set-calc(1) solid $black;
+    border: set-calc(1) solid $color-content-background-primary;
   }
 }
 
@@ -126,7 +126,7 @@
   }
 
   .text {
-    color: $white;
+    color: $color-content-inverted-primary;
     z-index: 200;
   }
 

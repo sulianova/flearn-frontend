@@ -14,7 +14,7 @@ interface IProps {
   children: React.ReactNode
   header?: boolean
   footer?: boolean | EFooter
-  wrapper?: 'Course' | 'Catalogue' | 'FreeZone' | 'My' | 'Lessons' | 'Lesson' | 'Fallback'
+  wrapper?: 'Course' | 'Home' | 'FreeZone' | 'My' | 'Lessons' | 'Lesson' | 'Fallback'
 }
 
 function Page({ children, header = false, footer, wrapper }: IProps) {

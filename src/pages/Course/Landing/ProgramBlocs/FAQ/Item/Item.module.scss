@@ -50,7 +50,7 @@
 
   svg {
     stroke-width: set-calc(2);
-    stroke: $black-new;
+    stroke: $color-content-background-secondary;
   }
 
   @include set-media(md) {

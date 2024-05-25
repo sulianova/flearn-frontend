@@ -72,10 +72,10 @@
 
 .edit:hover {
   .editTitle {
-    color: $black;
+    color: $color-content-background-primary;
   }
   .editImg path{
-    fill: $black;
+    fill: $color-content-background-primary;
   }
 
 }
@@ -119,7 +119,7 @@
 
   padding: set-calc(8) set-calc(80);
 
-  border: set-calc(2) solid $black-new;
+  border: set-calc(2) solid $color-content-background-primary;
   border-radius: set-calc(20);
 
   cursor: pointer;

@@ -5,14 +5,14 @@
 
   grid-column: 1 / 5;
   padding: set-calc($s-gap) 0 0;
-  border-top: set-calc(3) solid $black-new;
+  border-top: set-calc(3) solid $color-content-background-primary;
 
   &:not(:last-child) {
     padding-bottom: set-calc(80);
   }
 
   @include set-media(md) {
-    border-top: set-calc(2) solid $black-new;
+    border-top: set-calc(2) solid $color-content-background-primary;
   }
 }
 

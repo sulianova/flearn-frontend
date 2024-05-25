@@ -1,0 +1,101 @@
+@import 'styles/index';
+
+.wrapperShowMore {
+  margin: 0 0 set-calc(140);
+  padding: set-calc(8) 0 0;
+
+  border-top: set-calc(calc($s-gap / 2)) solid $color-content-background-primary;
+
+  &Btn {
+    grid-column: 3 / 4;
+    margin-right: 0;
+    margin-left: auto;
+  }
+}
+
+.header {
+  padding-bottom: set-calc(32);
+  
+  @include set-media(md) {
+    padding-bottom: set-calc(24);
+  }
+}
+
+.content {
+  display: grid;
+  grid-gap: set-calc($s-gap);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-areas: "feedback-points feedback-image";
+
+  @include set-media(md) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.points {
+  display: grid;
+  grid-gap: set-calc($s-gap);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-area: feedback-points;
+
+  @include set-media(md) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.pointsCard {
+  display: flex;
+  flex-direction: column;
+
+  min-height: set-calc(252);
+  padding: set-calc(16);
+
+  border-radius: set-calc($border-radius-medium);
+  background-color: $color-background-default;
+
+  @include set-media(md) {
+    min-height: set-calc(145);
+    padding: set-calc(16);
+  }
+}
+
+.pointsCard:first-child {
+  position: relative;
+  grid-column: span 2;
+  padding-right: set-calc(120);
+
+  @include set-media(md) {
+    padding-right: 0;
+  }
+}
+
+.pointsCardTitle {
+  margin-bottom: set-calc(16);
+}
+
+.imageCard {
+  grid-area: feedback-image;
+  position: relative;
+  overflow: hidden;
+
+  flex-grow: 1;
+  flex-shrink: 1;
+  height: set-calc(500);
+  border-radius: set-calc($border-radius-medium);
+  background-color: $matt-black;
+
+  @include set-media(md) {
+    height: set-calc(375);
+    display: none;
+  }
+}
+
+.imageCard img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  opacity: 0.9;
+}

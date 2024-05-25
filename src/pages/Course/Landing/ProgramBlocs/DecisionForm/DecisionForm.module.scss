@@ -28,7 +28,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  color: $black;
+  color: $color-content-background-primary;
 
   @include set-media(md) {
     padding-right: set-calc(16);
@@ -78,7 +78,7 @@
 
   s:after {
     margin-top: set-calc(1);
-    border-bottom: set-calc(1.5) solid $black;
+    border-bottom: set-calc(1.5) solid $color-content-background-primary;
     content: "";
     left: set-calc(-2);
     position: absolute;
@@ -86,7 +86,7 @@
     top: 50%;
 
     @include set-media(md) {
-      border-bottom: set-calc(1) solid $black;
+      border-bottom: set-calc(1) solid $color-content-background-primary;
     }
   }
 }
@@ -103,11 +103,11 @@
 
   display: inline-block;
   letter-spacing: -0.05rem;
-  color: $white;
-  -webkit-text-stroke: set-calc(1.5) $black;
+  color: $color-content-inverted-primary;
+  -webkit-text-stroke: set-calc(1.5) $color-content-background-primary;
 
   @include set-media(md) {
-    -webkit-text-stroke: set-calc(1) $black;
+    -webkit-text-stroke: set-calc(1) $color-content-background-primary;
     @include set-typography(72, 78, 500);
   }
 
@@ -123,7 +123,7 @@
   padding: set-calc(8) set-calc(16);
   letter-spacing: 0;
 
-  color: $white;
+  color: $color-content-inverted-primary;
   background: $gradient-background-red-rose;
   border-radius: set-calc($border-radius-large);
   -webkit-text-stroke: 0;

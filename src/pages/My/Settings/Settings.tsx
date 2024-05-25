@@ -78,7 +78,7 @@ export default function Settings(props: IProps) {
         <div className={classes.logoutBtn}>
           <Link
             className='inline-link s-text-21-uppercase'
-            to={URLSections.FreeZone.index}
+            to={URLSections.Home.index}
             onClick={() => Store.dispatch(logout({}))}
           >
             <span className='inline-link-text'>Выйти из профиля →</span>

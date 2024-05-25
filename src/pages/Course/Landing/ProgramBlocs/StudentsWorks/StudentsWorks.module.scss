@@ -6,7 +6,7 @@
   display: block;
   @include is-beige;
   padding: set-calc(72) set-calc($padding-x-desk-page) set-calc(72);
-  background-color: $black-new;
+  background-color: $color-content-background-primary;
 
   @include set-media(md) {
     padding: set-calc($padding-x-mob-page) set-calc($padding-x-mob-page);
@@ -15,7 +15,7 @@
 
 
 .title {
-  color: $white;
+  color: $color-content-inverted-primary;
 
   @include set-media(md) {
     padding-bottom: set-calc(32);

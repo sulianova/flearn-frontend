@@ -77,7 +77,7 @@
 
   @include is-grid-3;
 
-  border-top: set-calc(calc($s-gap / 2)) solid $black-new;
+  border-top: set-calc(calc($s-gap / 2)) solid $color-content-background-primary;
 }
 
 .showMoreLessBtn {

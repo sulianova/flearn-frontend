@@ -1,12 +1,12 @@
-import classNames from 'classnames/bind';
 import { useEffect, useState } from 'react';
+
 import { ICourseData, courseService } from 'services/course.service';
 
 import Card from './Card/Card';
 
-import classes from './List.module.scss';
+import classes from './Catalogue.module.scss';
 
-export default function List() {
+export default function Catalogue() {
   const [courses, setCourses] = useState<ICourseData[] | null>(null);
   useEffect(() => {
     let cancelled = false;
@@ -28,8 +28,14 @@ export default function List() {
   }
 
   return (
-  <div className={classes.wrapper}>
-      {courses.map(course => <Card key={course.id} course={course}/>)}
-  </div>
+    <>
+      <div className={classes.header}>
+        <div className={classes.headerTitle + ' s-text-56'}>Курсы по иллюстрации</div>
+        <div className={classes.description + ' s-text-21'}> Познакомимся с иллюстрацией, потренируемся в цифровом и обычном рисовании.</div>
+      </div>
+      <div className={classes.wrapper}>
+        {courses.map(course => <Card key={course.id} course={course}/>)}
+      </div>
+    </>
   );
 }

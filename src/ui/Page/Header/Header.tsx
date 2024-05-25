@@ -46,7 +46,7 @@ function Header(props: IConnectedProps) {
       <div className={classes.desc}>
         <div className={classes.logo}>
           <div className={classes.logoWrapper}>
-            <Link to={URLSections.Catalogue.index} className='s-text-21'>{i18n.t('logo')}</Link>
+            <Link to={URLSections.Home.index} className='s-text-21'>{i18n.t('logo')}</Link>
           </div>
         </div>
         <div className={classes.nav}>
@@ -84,7 +84,7 @@ function Header(props: IConnectedProps) {
           <div className={classes.mobItem}>
             <Link
               className='inline-link s-text-36'
-              to={URLSections.Catalogue.index}
+              to={URLSections.Home.index}
               onClick={() => setIsOpened(false)}
             >
               <span className='inline-text'>{t('catalogue')}</span>

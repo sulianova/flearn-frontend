@@ -76,7 +76,7 @@
   
   padding: set-calc(4) set-calc(24);
 
-  color: $white;
+  color: $color-content-inverted-primary;
 
   background: $green;
   border-radius: set-calc(15);
@@ -190,10 +190,10 @@
   min-height: set-calc(48);
   padding: set-calc(4) set-calc(40);
 
-  color: $black-new;
+  color: $color-content-background-primary;
   text-align: center;
 
-  border: set-calc(2) solid $black-new;
+  border: set-calc(2) solid $color-content-background-primary;
   border-radius: set-calc(20);
 
   cursor: pointer;

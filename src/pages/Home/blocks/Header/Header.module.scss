@@ -1,0 +1,75 @@
+@import 'styles/index';
+
+.__ {
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+  background-image: url(./SofiUlianova25.jpg);
+  background-size: cover;
+  aspect-ratio: 1600 / 600;
+  border-radius: set-calc($border-radius-medium);
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: set-calc(20);
+  }
+
+  @include set-media(md) {
+    position: relative;
+    padding-bottom: 0;
+
+    aspect-ratio: 414 / 600;
+  }
+}
+
+.inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  padding: set-calc(32);
+  background-color: $color-background-overlay;
+
+  @include set-media(md) {
+    padding: set-calc(16);
+  }
+}
+
+.headerWrapper {
+  position: relative;
+  display: block;
+
+  padding-bottom: set-calc(24);
+
+  @include set-media(md) {
+    padding-bottom: set-calc(16);
+  }
+}
+
+.headerTitle {
+  text-align: center;
+  color: $color-content-inverted-primary;
+}
+
+.descriptionWrapper {
+  position: relative;
+  max-width: set-calc(600);
+  text-align: center;
+  margin-bottom: set-calc(60);
+
+  @include set-media(md) {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: set-calc(0);
+  }
+}
+
+.description {
+  position: relative;
+  color: $color-content-inverted-secondary;
+}
