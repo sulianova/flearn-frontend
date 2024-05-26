@@ -3,7 +3,7 @@
 .section {
   display: block;
   position: relative;
-  padding-top: set-calc(100);
+  padding-top: set-calc(80);
 
   @include set-media(md) {
     padding-top: set-calc(80);

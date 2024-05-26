@@ -1,0 +1,62 @@
+@import 'styles/index';
+
+.__ {
+  @include is-grid-3;
+  grid-gap: set-calc($s-gap);
+
+  padding: set-calc(24);
+  margin: set-calc(8) auto 0;
+
+  background: $color-background-default;
+  border-radius: set-calc($border-radius-medium);
+
+  @include set-media(md) {
+    row-gap: set-calc(3 * $s-gap);
+  }
+}
+
+.item {
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+  gap: set-calc(12);
+
+  @include set-media(md) {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .itemSvg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: set-calc(44);
+    height: set-calc(44);
+    border-radius: set-calc($border-radius-small);
+    background-color: $color-background-glassy-a;
+
+    svg {
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      padding: set-calc(6);
+  
+      stroke-width: 0;
+  
+      rect, path {
+        fill: $color-content-background-primary;
+      }
+    }
+
+    @include set-media(md) {
+      margin-top: set-calc(1);
+      width: set-calc(38);
+      height: set-calc(38);
+
+    }
+  }
+}
+
+.itemText {
+  max-width: set-calc(350);
+}

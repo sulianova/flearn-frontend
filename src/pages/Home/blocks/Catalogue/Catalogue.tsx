@@ -31,7 +31,7 @@ export default function Catalogue() {
     <>
       <div className={classes.header}>
         <div className={classes.headerTitle + ' s-text-56'}>Курсы по иллюстрации</div>
-        <div className={classes.description + ' s-text-21'}> Познакомимся с иллюстрацией, потренируемся в цифровом и обычном рисовании.</div>
+        <div className={classes.description + ' s-text-21'}> Познакомимся с иллюстрацией, потренируемся в цифровом и обычном рисовании. Отберем лучшие работы и оформим их в проекты на Behance.</div>
       </div>
       <div className={classes.wrapper}>
         {courses.map(course => <Card key={course.id} course={course}/>)}

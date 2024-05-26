@@ -79,7 +79,7 @@ function getData(id: string) {
 const courseDB1: ICourseDataDB = {
   id: 'how-to-draw', // how-to-draw-free
   type: 'course',
-  title: 'Дизайн стикеров',
+  title: 'Проект в портфолио: стикерпак',
   startDate: '2024.05.26 21:00:00 GMT', // '2023.12.03 21:00:00 GMT'
   endDate: '2024.06.23 20:59:00 GMT', // '2023.12.31 20:59:00 GMT'
   accessDeadline: '2024.06.23 20:59:00 GMT', // '2023.12.31 20:59:00 GMT'
@@ -98,7 +98,7 @@ const courseDB1: ICourseDataDB = {
     },
     imageAlt: 'SpotCat27',
   },
-  introDescription: 'Нарисуем стикеры в трех разных техниках. Сделаем наброски, доработаем в дижитал, отберем лучшее и оформим в проект на Behance.',
+  introDescription: 'Научитесь изображать эмоции в иллюстрациях и создадите набор стикеров со своим персонажем',
   cardImage: {
     imageId: 'imageCard.jpg',
     imageAlt: 'imageCard',
