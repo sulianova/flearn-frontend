@@ -18,11 +18,21 @@
 .contentTitle {
   color: $color-content-inverted-primary;
   margin-bottom: set-calc(16);
+
+  text-align: center;
+
+  @include set-media(md) {
+    text-align: start;
+  }
 }
 
 .contentDescription {
   color: $color-content-inverted-secondary;
   text-align: center;
+
+  @include set-media(md) {
+    text-align: start;
+  }
 }
 
 .buttons {
@@ -35,6 +45,10 @@
   overflow: hidden;
 
   margin-top: set-calc(24);
+
+  @include set-media(md) {
+    align-items: start;
+  }
 }
 
 .button {

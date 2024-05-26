@@ -12,7 +12,7 @@ export default function Bullets() {
       </li>
       <li className={classes.item}>
         <div className={classes.itemSvg}><BulletMedium/></div>
-        <div className={classes.itemText + ' s-text-16'}>Погрузитесь в востребованные направления индустрии: веб-иллюстрация, книжная иллюстрация и брендинг</div>
+        <div className={classes.itemText + ' s-text-16'}>Погрузитесь в востребованные направления: веб-иллюстрация, книжная иллюстрация и брендинг</div>
       </li>
       <li className={classes.item}>
         <div className={classes.itemSvg}><BulletAdvanced/></div>
