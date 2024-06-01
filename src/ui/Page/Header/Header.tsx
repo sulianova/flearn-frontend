@@ -1,35 +1,56 @@
 import classnames from 'classnames/bind';
 import { useEffect, useState } from 'react';
 
-import type { IUserData } from 'services/user.service';
+import { userService } from 'services/user.service';
 import { formatI18nT, i18n } from 'shared';
-import { IRootState, URLSections } from 'types';
-
-import Link from 'ui/Link/Link';
-
-import classes from './header.module.scss';
-import { connect } from 'react-redux';
 import store from 'store';
 import { login } from 'store/actions/sagas';
+import { URLSections } from 'types';
+
+import SelectToggleIcon from 'assets/images/Svg/SelectToggleIcon';
+import Link from 'ui/Link/Link';
+import List from 'assets/images/Svg/List';
+import { MenuHTMLAttributes } from 'react';
+
+import { EPageVariant } from '../Page';
+import classes from './header.module.scss';
+import Dropdown from 'ui/Dropdown/Dropdown';
+import CoursesDropdownContent from './CoursesDropdownContent/CoursesDropdownContent';
+import { ICourseData, courseService } from 'services/course.service';
 
 const cx = classnames.bind(classes);
 const t = formatI18nT('header');
 
-export default connect(mapStateToProps)(Header);
-
-interface IConnectedProps {
-  user?: IUserData
+interface IProps {
+  variant: EPageVariant
 }
 
-function mapStateToProps(state: IRootState): IConnectedProps {
-  return {
-    user: state.user?.user,
-  };
-}
-
-function Header(props: IConnectedProps) {
+export default function Header({ variant }: Readonly<IProps>) {
+  const user = userService.useAuthedUser();
   const [isOpened, setIsOpened] = useState<boolean>(false);
-  const headerClass = cx({ _: true, IsMobileMenuOpened: isOpened });
+  const [userCourses, setUserCourses] = useState<ICourseData[]>();
+
+  const userId = user?.id;
+  useEffect(() => {
+    if (!userId) {
+      return;
+    }
+  
+    let cancelled = false;
+    const s = courseService
+      .getCourseBS({ filter: { userId }})
+      .subscribe(action => {
+        if (!action || (action instanceof Error) || cancelled) {
+          return;
+        }
+
+        setUserCourses(action.courses);
+      });
+    return () => {
+      s.unsubscribe();
+      cancelled = true;
+    };
+  }, [userId]);
 
   useEffect(() => {
     if (isOpened) {
@@ -41,46 +62,42 @@ function Header(props: IConnectedProps) {
     }
   }, [isOpened]);
 
+  const headerClass = cx({ _: true, __Hidden: false, IsMobileMenuOpened: isOpened, [variant]: true });
+
   return (
     <div className={headerClass} data-is-mobile-menu-opened={isOpened}>
-      <div className={classes.desc}>
+      <div className={cx({ desk: true, [`deskPadding${variant}`]: true })}>
         <div className={classes.logo}>
           <div className={classes.logoWrapper}>
-            <Link to={URLSections.Home.index} className='s-text-21'>{i18n.t('logo')}</Link>
+            <Link to={URLSections.Home.index}>{i18n.t('logo')}</Link>
           </div>
         </div>
         <div className={classes.nav}>
-          {/* <div className={classes.navItem}>
-            <Link to={URLSections.My.Profile.index} className='inline-link'>{t('my')}</Link>
-          </div> */}
-          {/* <div className={classes.navItem}>
-            <Link to={URLSections.FreeZone.index} className='inline-link'>{t('freeZone')}</Link>
-          </div> */}
-          {/* <div className={classes.navItem}>
-            <Link to={URLSections.Catalogue.index} className='inline-link'>{t('catalogue')}</Link>
-          </div> */}
+          <Dropdown
+            content={({ close }) => (
+              <CoursesDropdownContent
+                courses={userCourses}
+                close={close}
+              />
+            )}
+            children={({ open, close, opened }) => (
+              <div className={cx({ navContent: true, navItem: true, selectToggleIsOpened: opened })} onClick={opened ? close : open}>
+                <span className={classes.selectToggleContent}>Мои курсы</span>
+                <span className={classes.selectToggleIcon}><SelectToggleIcon/></span>
+              </div>
+            )}
+          />
+          <div className={cx({ navLogin: true, navItem: true })}>
+            {user ?
+              (<Link to={URLSections.My.Profile.index}>{t('login.profile')}</Link>)
+              : (<div onClick={handleLogin}>{t('login.signIn')}</div>)
+            }
+          </div>
         </div>
-        <div className={classes.navLogin}>
-          {props.user ?
-            (<Link to={URLSections.My.Profile.index}>{t('login.profile')}</Link>)
-            : (<div onClick={handleLogin}>{t('login.signIn')}</div>)
-          }
+        <div className={classes.humburger} onClick={() => setIsOpened(o => !o)}><List/></div>
         </div>
-        <div className={classes.humburger} onClick={() => setIsOpened(o => !o)}/>
-      </div>
       <div className={classes.mob}>
         <div className={classes.mobMenuMain}>
-          {/* <div className={classes.mobItem}>
-            <Link to={URLSections.My.Profile.index} className='inline-link s-text-36'>
-              <span className='inline-text'>{t('my')}</span>
-            </Link>
-          </div>
-          <div className={classes.mobItem}>
-            <Link to={URLSections.FreeZone.index} className='inline-link s-text-36'>
-              <span className='inline-text'>{t('freeZone')}</span>
-            </Link>
-          </div>
-          */}
           <div className={classes.mobItem}>
             <Link
               className='inline-link s-text-36'
@@ -92,7 +109,7 @@ function Header(props: IConnectedProps) {
           </div>
         </div>
         <div className={classes.mobMenuControls}>
-          {props.user ? (
+          {user ? (
             <Link
               className={classes.loginBtn + ' s-text-24'}
               to={URLSections.My.Profile.index}

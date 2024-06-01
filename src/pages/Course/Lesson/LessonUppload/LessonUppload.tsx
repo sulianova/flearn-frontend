@@ -75,33 +75,18 @@ function LessonUppload({ homeworkWPopulate, scroll, onScrollEnd }: IProps) {
 
   return (
       <div className={classes._} ref={ref}>
-        <div className={classes.nav}>
-          {errors.map(error => (<div className={classes.error} key={error.id}>{error.error}</div>))}
-          <div className={classes.submit}>
-            <button
-              onClick={() => handleSubmit(state)}
-              className={cx({submitBtn: true, isDisabled: isDisabled(state) })+ ' s-text-16-18'}
-              disabled={isDisabled(state)}
-            >
-              {
-                state.formState.type === 'pending' ? <Spinner/>
-                : state.formState.type === 'success' ? 'Отправлено'
-                : t('submitBtn')
-              }
-            </button>
-          </div>
-        </div>
+        <div className={classes.wrapper}>
+        <div className={classes.fieldsTitle + ' s-text-18'}>{t('fieldsTitle')}</div>
         <div className={classes.inner}>
           <div className={classes.fields}>
-            <div className={classes.fieldsTitle + ' s-text-36'}>{t('fieldsTitle')}</div>
             <div className={classes.fieldsInner}>
-              <Textarea
+              {/* <Textarea
                 value={state.description}
                 onChange={description => {
                   dispatch({ type: 'PATCH_STATE', payload: { description } });
                   handleSaveDescriptionAndLink({ id: state.id, description, externalHomeworkLink: state.externalHomeworkLink });
                 }}
-              />
+              /> */}
               <Input
                   value={state.externalHomeworkLink}
                   onChange={externalHomeworkLink => {
@@ -109,9 +94,23 @@ function LessonUppload({ homeworkWPopulate, scroll, onScrollEnd }: IProps) {
                     handleSaveDescriptionAndLink({ id: state.id, description: state.description, externalHomeworkLink });
                   }}
               />
+              {errors.map(error => (<div className={classes.error} key={error.id}>{error.error}</div>))}
+              <div className={classes.submit}>
+                <button
+                  onClick={() => handleSubmit(state)}
+                  className={cx({submitBtn: true, isDisabled: isDisabled(state) })+ ' s-text-16-18'}
+                  disabled={isDisabled(state)}
+                >
+                  {
+                    state.formState.type === 'pending' ? <Spinner/>
+                    : state.formState.type === 'success' ? 'Отправлено'
+                    : t('submitBtn')
+                  }
+                </button>
+              </div>
             </div>
           </div>
-          <div className={classes.files}>
+          {/* <div className={classes.files}>
             <div className={classes.filesHeader}>
               <div className={classes.filesTitle + ' s-text-36'}>{t('filesTitle')}</div>
             </div>
@@ -148,7 +147,8 @@ function LessonUppload({ homeworkWPopulate, scroll, onScrollEnd }: IProps) {
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
+        </div>
         </div>
       </div>
   );

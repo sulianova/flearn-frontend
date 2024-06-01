@@ -9,7 +9,7 @@ import { fetchCourse, type IFetchCoursePayload, login } from 'store/actions/saga
 
 import { useFetch } from 'hooks';
 import Link from 'ui/Link/Link';
-import Page from 'ui/Page/Page';
+import Page, { EPageVariant } from 'ui/Page/Page';
 
 import classes from './My.module.scss';
 import classesTitle from './Title.module.scss';
@@ -55,7 +55,7 @@ function My(props: IProps) {
 
   if (!user) {
     return (
-      <Page header footer wrapper='My'>
+      <Page variant={EPageVariant.LMS} header footer>
         Failed to authenticate
       </Page>
     );
@@ -63,14 +63,14 @@ function My(props: IProps) {
 
   if (!course) {
     return (
-      <Page header footer wrapper='My'>
+      <Page variant={EPageVariant.LMS} header footer>
         Loading...
       </Page>
     );
   }
 
   return (
-    <Page header footer wrapper='My'>
+    <Page variant={EPageVariant.LMS} header footer>
       <div className={classesTitle.wrapper}>
         <h1 className={classesTitle.text + ' s-text-88'}>{user.displayName}</h1>
       </div>

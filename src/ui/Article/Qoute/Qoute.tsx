@@ -1,4 +1,3 @@
-import { Fragment } from 'react';
 import type { IArticleQouteBlock } from 'types';
 import classes from './Qoute.module.scss';
 
@@ -12,8 +11,8 @@ interface IProps {
 
 function Qoute(props: IProps) {
   return (
-    <Fragment>
+    <div className={classes.__}>
       {props.data.qoute && <div className={classes.qouteWrapper}><UIText text={props.data.qoute}/></div>}
-    </Fragment>
+    </div>
   );
 }

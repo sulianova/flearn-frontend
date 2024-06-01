@@ -1,6 +1,7 @@
 import { Fragment } from 'react';
 import type { IArticleTextImportantBlock } from 'types';
 import classes from './TextImportant.module.scss';
+import UIText from 'ui/Text/Text';
 
 export default TextImportant;
 
@@ -10,8 +11,8 @@ interface IProps {
 
 function TextImportant(props: IProps) {
   return (
-    <Fragment>
-      {props.data.text && <p className={classes.textImportant + ' s-text-28'}>{props.data.text}</p>}
-    </Fragment>
+    <div className={classes.__}>
+      {props.data.text && <div className={classes.textImportantWrapper}><UIText text={props.data.text}/></div>}
+    </div>
   );
 }

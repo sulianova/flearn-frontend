@@ -32,7 +32,6 @@ html {
 
   color: $color-content-primary;
   background-color: $color-background-alternate;
-  
 }
 
 body,
@@ -106,7 +105,7 @@ a {
 }
 
 button {
-  word-spacing: 1px;
+  word-spacing: set-calc(1);
   border: none;
   padding: 0;
   background: none;
@@ -122,6 +121,14 @@ button {
   -webkit-font-smoothing: antialiased;
 }
 
+button:hover,
+div:hover,
+a:hover {
+  @include set-media(md) {
+    pointer-events: auto;
+  }
+}
+
 s {
   position: relative;
   text-decoration: none;
@@ -133,11 +140,11 @@ s {
   cursor: pointer;
 
   &:hover {
-    color: $orange;
+    color: $blue;
   }
 
   &:active {
-    color: $orange;
+    color: $blue;
   }
 
   &-text {
@@ -175,20 +182,20 @@ s {
   transition-duration: $d-hover;
 
   &:hover {
-    color: $orange;
+    color: $blue;
   }
 }
 
 .key-link {
-  background-image: linear-gradient(to bottom, $orange-underline 0, $orange-underline 100%);
+  background-image: linear-gradient(to bottom, $blue-underline 0, $blue-underline 100%);
   background-position: 0 90%;
   background-repeat: repeat-x;
   background-size: set-calc(1) set-calc(1);
-  color: $orange;
+  color: $blue;
   width: fit-content;
 
   &:hover {
-    background-image: linear-gradient(to bottom, $orange 0, $orange 100%);
+    background-image: linear-gradient(to bottom, $blue 0, $blue 100%);
     background-position: 0 90%;
     background-repeat: repeat-x;
     background-size: set-calc(1) set-calc(1);
@@ -204,11 +211,11 @@ s {
   width: fit-content;
 
   &:hover {
-    background-image: linear-gradient(to bottom, $orange 0, $orange 100%);
+    background-image: linear-gradient(to bottom, $blue 0, $blue 100%);
     background-position: 0 90%;
     background-repeat: repeat-x;
     background-size: set-calc(1) set-calc(1);
-    color: $orange;
+    color: $blue;
   }
 
   &:visited {
@@ -220,11 +227,11 @@ s {
     width: fit-content;
   
     &:hover {
-      background-image: linear-gradient(to bottom, $orange 0, $orange 100%);
+      background-image: linear-gradient(to bottom, $blue 0, $blue 100%);
       background-position: 0 90%;
       background-repeat: repeat-x;
       background-size: set-calc(1) set-calc(1);
-      color: $orange;
+      color: $blue;
     }
   }
 }
@@ -234,11 +241,11 @@ s {
   cursor: pointer;
 
   &:hover {
-    color: $orange;
+    color: $blue;
   }
 
   &:active {
-    color: $orange;
+    color: $blue;
   }
 
   &-text {
@@ -271,5 +278,5 @@ s {
 }
 
 .isActive {
-  color: $orange !important;
+  color: $blue !important;
 }

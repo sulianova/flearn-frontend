@@ -1,0 +1,11 @@
+.Container {
+    position: relative;
+}
+
+.Tippy {
+    transition-property: opacity;
+
+    &[data-placement="bottom-end"] {
+        margin-top: 0;
+    }
+}

@@ -1,18 +1,22 @@
 @import 'styles/index';
 
 ._ {
-  margin-top: set-calc(24);
-  padding-bottom: set-calc(16);
+  position: relative;
 
-  text-align: left;
-
-  border-bottom: set-calc(2) solid rgb(196 196 196 / 45% );
+  display: flex;
+  align-items: center;
+  flex: 1 1 auto;
+  margin: 0 set-calc(8) 0 0;
+  color: currentColor;
 }
 
 .content {
   position: relative;
-
-  display: flex;
+  width: 100%;
+  display: inline-block;
+  order: 2;
+  border: set-calc(1) solid $color-background-stroke;
+  border-radius: set-calc($border-radius-small);
 
   @include set-media(md) {
     min-width: 100%;
@@ -30,12 +34,15 @@
   }
 
   input {
-    flex: 1;
-    margin: 0;
-    padding: 0;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    padding: set-calc(8) set-calc(16);
 
-    color: $color-content-background-primary;
-    font: inherit;
+    color: $color-content-primary;
+    font-family: inherit;
+    font-size: set-calc(18);
+    line-height: set-calc(32);
 
     background: none;
     border: none;
@@ -43,7 +50,7 @@
   }
 
   input::placeholder {
-    color: $grey;
+    color: $color-content-secondary;
 
     @include set-typography(18, 24, 500);
 

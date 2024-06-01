@@ -6,7 +6,8 @@ import { useFetch } from 'hooks';
 import { userService } from 'services/user.service';
 import { IFetchLessonPayload, fetchLesson } from 'store/actions/sagas';
 
-import Page from 'ui/Page/Page';
+import classes from './Lesson.module.scss';
+import Page, { EPageVariant } from 'ui/Page/Page';
 import LessonContent from './LessonContent/LessonContent';
 import LessonUppload from './LessonUppload/LessonUppload';
 import LessonWorks from './LessonWorks/LessonWorks';
@@ -79,30 +80,32 @@ function Lesson(props: IProps) {
   }
 
   return (
-    <Page header wrapper='Lesson'>
-      <LessonHeader
-        lesson={lessonState.data}
-        section={section}
-      />
-      {section === 'task' &&
-        (<LessonContent
-          courseId={courseId!}
-          lessonId={lessonId!}
-          blocks={lessonState.data.content}
-          data={lessonState.data}
-          homework={homework}
-          scrollToUpload={() => setScrollToUpload(true)}
-          canShowResults={canShowResults}
-        />)
-      }
-      {section === 'task' && lessonState.data.endDate > now && homework?.homework?.state === 'DRAFT' &&
-        <LessonUppload
-          homeworkWPopulate={homework}
-          scroll={scrollToUpload}
-          onScrollEnd={() => setScrollToUpload(false)}
+    <Page variant={EPageVariant.LMS} header footer={false} style={{ backgroundColor: 'var(--color-background-default)'}}>
+      <div className={classes.__}>
+        <LessonHeader
+          lesson={lessonState.data}
+          section={section}
         />
-      }
-      {section === 'results' && canShowResults && <LessonWorks/>}
-      {section === 'my-work' && <MyWork homework={homework!}/>}
+        {section === 'task' &&
+          (<LessonContent
+            courseId={courseId!}
+            lessonId={lessonId!}
+            blocks={lessonState.data.content}
+            data={lessonState.data}
+            homework={homework}
+            scrollToUpload={() => setScrollToUpload(true)}
+            canShowResults={canShowResults}
+          />)
+        }
+        {section === 'task' && lessonState.data.endDate > now && homework?.homework?.state === 'DRAFT' &&
+          <LessonUppload
+            homeworkWPopulate={homework}
+            scroll={scrollToUpload}
+            onScrollEnd={() => setScrollToUpload(false)}
+          />
+        }
+        {section === 'results' && canShowResults && <LessonWorks/>}
+        {section === 'my-work' && <MyWork homework={homework!}/>}
+      </div>
     </Page>);
 }

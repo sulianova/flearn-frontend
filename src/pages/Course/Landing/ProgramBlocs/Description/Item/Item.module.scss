@@ -1,52 +1,52 @@
 @import 'styles/index';
 
 ._ {
-  grid-column: span 10;
-  align-items: start;
+  grid-column: span 1;
   background-color: $color-background-default;
-  border-radius: set-calc($border-radius-medium);
   padding: set-calc(24);
-
-  @include is-grid-12;
+  border-radius: set-calc($border-radius-medium);
 
   @include set-media(md) {
-    align-items: start;
+    display: flex;
+    flex-direction: column;
     padding: set-calc(16);
-    grid-gap: 0;
   }
 }
 
-.questionWrapper {
-  position: relative;
-
+.content {
   display: flex;
-  grid-column: span 3;
-  height: 100%;
-  padding-right: set-calc(8);
-
-
-  @include set-media(md) {
-    width: 100%;
-    padding-right: set-calc(0);
-  }
+  flex-direction: column;
 }
 
-.question {
-  position: relative;
-
-  width: 100%;
-  margin-bottom: auto;
-
-  @include set-media(md) {
-    text-align: left;
-    padding-bottom: set-calc(16);
-  }
+.title {
+  margin-bottom: set-calc(16);
 }
 
-.answear {
-  grid-column: 4 / -1;
-
+.desc {
+  padding-right: set-calc(32);
   @include set-media(md) {
     color: $color-content-secondary;
+  }
+
+  p {
+    font-size: inherit;
+    line-height: inherit;
+    font-family: inherit;
+  }
+
+  p:not(:last-child) {
+    padding-bottom: set-calc(16);
+  }
+
+  @include set-media(md) {
+    padding-right: 0;
+  }
+}
+
+.desc:not(:last-child) {
+  padding-bottom: set-calc(48);
+
+  @include set-media(md) {
+    padding-bottom: set-calc(24);
   }
 }

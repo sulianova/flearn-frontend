@@ -20,11 +20,10 @@ function Input(props: Readonly<IProps>) {
         <label
           htmlFor={getId('contentInput')}
         >
-          {t('contentInputLabel')}
         </label>
         <input
           id={getId('contentInput')}
-          placeholder='https://'
+          placeholder='Ссылка на задание'
           type='text'
           value={props.value}
           onChange={e => props.onChange(e.target.value)}

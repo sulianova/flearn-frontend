@@ -100,13 +100,12 @@ function LessonHeader(props: IProps) {
 
   return (
     <div className={classes._}>
-      <Link
+      {/* <Link
         className={classes.nav + ' nav-link s-text-18'} to={URLSections.Course.Lessons.to({ courseId })}
       >
         <span className='nav-link-text'>{(t('navToLessons'))}</span>
         <span className='nav-link-arrow'>&rarr;</span>
-      </Link>
-      <h1 className={classes.title + ' s-text-56'}>{lesson.title}</h1>
+      </Link> */}
       {tabs.length > 1 && (
         <div className={classes.navTubs}>
           {tabs.map((tab, i) => (
@@ -121,6 +120,7 @@ function LessonHeader(props: IProps) {
           {fakeTab}
         </div>
       )}
+      <h1 className={classes.title + ' s-text-56'}>{lesson.title}</h1>
     </div>
   );
 }

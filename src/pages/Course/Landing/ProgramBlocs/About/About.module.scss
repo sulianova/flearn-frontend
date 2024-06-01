@@ -1,56 +1,117 @@
 @import 'styles/index';
 
-.wrapper {
-  display: flex;
-  flex-direction: column;
-}
+.__ {
+  @include is-grid-3;
+  grid-gap: set-calc($s-gap);
 
-.title {
-  padding-bottom: set-calc(32);
+  padding: set-calc(12);
+  margin: set-calc(8) auto 0;
+  color:$color-content-background-secondary;
 
-  @include set-media(md) {
-    padding-bottom: set-calc(24);
-  }
-}
-
-.list {
-  display: flex;
-  flex-direction: column;
-}
-
-.listItem {
-  display: grid;
-  grid-template-columns: repeat(2,minmax(0,1fr));
-  grid-column-gap: set-calc($s-gap);
-
-  @include set-media(md) {
-    display: block;
-  }
-}
-
-.listItemCard {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  padding: set-calc(32);
+  background: $color-background-glassy-a;
   border-radius: set-calc($border-radius-medium);
-  background-color: $color-background-default;
 
   @include set-media(md) {
-    padding: set-calc(16);
+    margin: set-calc(6) auto 0;
+    row-gap: set-calc(2 * $s-gap);
+    padding: set-calc(16) set-calc(16);
   }
 }
 
-.listItemContent {
-  white-space: pre-line;
+.item {
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+  gap: set-calc(12);
 
-  p {
-    font-size: inherit;
-    line-height: inherit;
+  @include set-media(md) {
+    gap: set-calc(12);
   }
 
-  p:not(:last-child) {
-    padding-bottom: set-calc(16);
+  .itemSvg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: set-calc(34);
+    height: set-calc(34);
+
+    svg {
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+  
+      stroke-width: 0;
+  
+     path {
+        fill: $color-content-background-secondary;
+      }
+    }
+
+    @include set-media(md) {
+      width: set-calc(26);
+      height: set-calc(26);
+
+    }
   }
 }
+
+.itemText {
+  max-width: set-calc(350);
+}
+
+// .wrapper {
+//   display: flex;
+//   flex-direction: column;
+// }
+
+// .title {
+//   padding-bottom: set-calc(32);
+
+//   @include set-media(md) {
+//     padding-bottom: set-calc(16);
+//     padding-left: set-calc(8);
+//     padding-right: set-calc(8);
+//   }
+// }
+
+// .list {
+//   display: flex;
+//   flex-direction: column;
+// }
+
+// .listItem {
+//   display: grid;
+//   grid-template-columns: repeat(2,minmax(0,1fr));
+//   grid-column-gap: set-calc($s-gap);
+
+//   @include set-media(md) {
+//     display: block;
+//   }
+// }
+
+// .listItemCard {
+//   position: relative;
+//   display: flex;
+//   justify-content: space-between;
+//   flex-direction: column;
+//   padding: set-calc(32);
+//   border-radius: set-calc($border-radius-medium);
+//   background-color: $color-background-default;
+
+//   @include set-media(md) {
+//     padding: set-calc(16);
+//   }
+// }
+
+// .listItemContent {
+//   white-space: pre-line;
+
+//   p {
+//     font-size: inherit;
+//     line-height: inherit;
+//   }
+
+//   p:not(:last-child) {
+//     padding-bottom: set-calc(16);
+//   }
+// }

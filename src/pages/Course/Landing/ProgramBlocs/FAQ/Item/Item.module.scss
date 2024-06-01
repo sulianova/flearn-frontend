@@ -4,7 +4,6 @@
   position: relative;
   grid-column: 1 / 8;
 
-  margin-bottom: set-calc(8);
   padding: set-calc(16);
   border-radius: set-calc($border-radius-medium);
   background-color: $color-background-default;
@@ -14,11 +13,20 @@
   flex-direction: column;
 
   @include set-media(md) {
+    border-radius: set-calc($border-radius-small);
     position: relative;
     padding: set-calc(16);
 
     display: flex;
     flex-direction: column;
+  }
+}
+
+.item:not(:last-child) {
+  margin-bottom: set-calc(8);
+
+  @include set-media(md) {
+    margin-bottom: set-calc(4);
   }
 }
 
@@ -43,9 +51,9 @@
 
 .itemQuestionPlus {
   display: inline-block;
-  width: set-calc(28);
-  height: set-calc(28);
-  min-width: set-calc(28);
+  width: set-calc(24);
+  height: set-calc(24);
+  min-width: set-calc(24);
 
 
   svg {
@@ -54,9 +62,9 @@
   }
 
   @include set-media(md) {
-    width: set-calc(22);
-    height: set-calc(22);
-    min-width: set-calc(22);
+    width: set-calc(18);
+    height: set-calc(18);
+    min-width: set-calc(18);
 
   }
 }

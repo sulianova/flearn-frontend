@@ -21,7 +21,7 @@ function StudentResults({ studentResults }: IProps) {
   return (
     <div className={classes.wrapper}>
       <div className={classes.header}>
-        <h2 className={cx({ title: true }) + ' s-text-56'} >{t(`title`)}</h2>
+        <h2 className={cx({ title: true }) + ' s-text-70'} >{t(`title`)}</h2>
         <div className={classes.desc + ' s-text-24'}>{<Text text={studentResults.content}/>}</div>
       </div>
       {/* <div className={classes.listItem}>

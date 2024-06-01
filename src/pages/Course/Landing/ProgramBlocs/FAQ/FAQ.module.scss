@@ -20,13 +20,19 @@
     position: relative;
 
     display: block;
-    margin-bottom: set-calc(24);
+    margin-bottom: set-calc(16);
+    padding-right: set-calc(8);
+    padding-left: set-calc(8);
   }
 }
 
 .headerTitle {
   grid-column: 1 / 7;
   margin-bottom: set-calc(24);
+
+  @include set-media(md) {
+    margin-bottom: set-calc(16);
+  }
 }
 
 .headerDesc {

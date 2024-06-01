@@ -1,11 +1,11 @@
 @import 'styles/index';
 
 ._ {
-  @include is-grid-4;
+  width: set-calc(700);
   position: relative;
 
   @include set-media(md) {
-    grid-gap: 0;
+    width: 100%;
   }
 }
 

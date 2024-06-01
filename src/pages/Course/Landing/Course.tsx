@@ -5,7 +5,7 @@ import { useFetch } from 'hooks';
 import type { ICourseData } from 'services/course.service';
 import { fetchCourse, type IFetchCoursePayload } from 'store/actions/sagas';
 
-import Page, { EFooter } from 'ui/Page/Page';
+import Page, { EFooter, EPageVariant } from 'ui/Page/Page';
 
 import DiscountBanner from './DiscountBanner/DiscountBanner';
 import ProgramBlocks from './ProgramBlocs/ProgramBlocks';
@@ -49,14 +49,14 @@ function Course({ course }: IConnectedProps) {
 
   if (!course) {
     return (
-      <Page header footer={EFooter.Big} wrapper='Course'>
+      <Page variant={EPageVariant.WEB} header footer={EFooter.Big}>
         <p>loading course</p>
       </Page>
     );
   }
 
   return (
-    <Page header footer={EFooter.Big} wrapper='Course'>
+    <Page variant={EPageVariant.WEB} header footer={EFooter.Big}>
       <LandingBtn/>
       <ProgramIntro data={course}/>
       {/* {course.discontDeadline && (

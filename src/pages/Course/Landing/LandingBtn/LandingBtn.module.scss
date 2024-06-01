@@ -8,11 +8,9 @@
     display: block;
     position: fixed;
     z-index: 600;
-    bottom: 0;
-    left: 0;
+    bottom: set-calc(16);
     width: 100%;
-    padding: set-calc(12) set-calc(15);
-    // border-top: set-calc(1) solid $border;
+    padding: 0 set-calc(32);
     text-align: center;
     background-color: transparent;
     transition: .3s ease;
@@ -26,16 +24,20 @@
   width: 100%;
   overflow: hidden;
 
-  padding: set-calc(12) set-calc(48);
+  padding: set-calc(10) set-calc(48);
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  background-color: $color-content-background-secondary;
-  color: $color-content-inverted-primary;
+  background-color: $blue;
+  -webkit-backdrop-filter: $backdrop-filter;
+  backdrop-filter: $backdrop-filter;
+  color: $color-palette-white-1000;
+  border-radius: set-calc($border-radius-small);
+  border: $border-backdrop-filter;
 
-  border-radius: set-calc(16);
+  border-radius: set-calc($border-radius-large);
   cursor: pointer;
 
 }

@@ -94,7 +94,7 @@ const courseDB1: ICourseDataDB = {
   introImage: {
     imageId: {
       desktop: 'introImage.png',
-      mobile: 'introImage-mobile.png',
+      mobile: 'introImage.png',
     },
     imageAlt: 'SpotCat27',
   },
@@ -111,7 +111,7 @@ const courseDB1: ICourseDataDB = {
   about: [
     {
       tag: 'p',
-      content: 'Иллюстратор София Ульянова расскажет, как от быстрых набросков перейти к законченным иллюстрациям и оформить их в стекеры для телеграма '
+      content: 'Преподаватель расскажет, как от быстрых набросков перейти к законченным иллюстрациям и оформить их в стекеры для телеграма '
     },
     {
       tag: 'p',
@@ -143,19 +143,10 @@ const courseDB1: ICourseDataDB = {
         { tag: 'span', content: '• Как выделить главное линией' },
         { tag: 'span', content: '• Как оцифровать линейный рисунок в Photoshop' },
       ],
-      activities: [
-        // {
-        //   tag: 'p',
-        //   content: 'Вебинар: скоростные рисунки линией за 5, 10, 15 минут'
-        // },
-      ],
-      imageId: { desktop: 'Block1.png', mobile: 'Block1-mobile.png' },
-      imageAlt: 'Block1',
-      imageDesc: '5-6 стикеров линией',
-      title: 'Линия',
+      title: 'Проект: стикерпак из линейных рисунков ',
       meta: [
         {
-          content: 'Неделя 1',
+          content: '1 практическая работа・5 уроков・1 неделя',
           tag: 'span',
         }
       ],
@@ -169,15 +160,6 @@ const courseDB1: ICourseDataDB = {
         { tag: 'span', content: '• Как выделить главное пятном' },
         { tag: 'span', content: '• Как оцифровать пятновой рисунок в Photoshop' },
       ],
-      activities: [
-        // {
-        //   tag: 'p',
-        //   content: 'Вебинар : скоростные рисунки пятном за 5, 10, 15 минут'
-        // },
-      ],
-      imageId: { desktop: 'Block2.png', mobile: 'Block2-mobile.png'},
-      imageAlt: 'Block2',
-      imageDesc: '5-6 стикеров пятном',
       title: 'Пятно',
       meta: [
         {
@@ -192,15 +174,6 @@ const courseDB1: ICourseDataDB = {
         { tag: 'span', content: '• Свойства цвета: светлота, насыщенность, теплота, цвет, размер пятна' },
         { tag: 'span', content: '• Как выделить главное цветом' },
       ],
-      activities: [
-        // {
-        //   tag: 'p',
-        //   content: 'Итог недели: 5-6 стикеров в цвете'
-        // },
-      ],
-      imageId: { desktop: 'Block3.png', mobile: 'Block3-mobile.png' },
-      imageAlt: 'Block3',
-      imageDesc: '5-6 стикеров в цвете',
       title: 'Цвет',
       meta: [
         {
@@ -215,15 +188,6 @@ const courseDB1: ICourseDataDB = {
         { tag: 'span', content: '• Как собрать иллюстрации в серию' },
         { tag: 'span', content: '• Как оформить проект на Behance' },
       ],
-      activities: [
-        // {
-        //   tag: 'p',
-        //   content: 'Вебинар: просмотр работ и подведение итогов'
-        // },
-      ],
-      imageId: { desktop: 'Block4.png', mobile: 'Block4.png' },
-      imageAlt: 'Block4',
-      imageDesc: 'Оформленный проект на Behance',
       title: 'Итоговый проект',
       meta: [
         {
@@ -256,56 +220,24 @@ const courseDB1: ICourseDataDB = {
       imageAlt: 'SofiUlianova22',
     },
   ],
-  // studentsWorks: [
-  //   {
-  //     imageId: 'SpotCat27.jpg',
-  //     imageAlt: 'SpotCat27',
-  //   },
-  //   {
-  //     imageId: 'SpotCat14.jpg',
-  //     imageAlt: 'SpotCat14',
-  //   },
-  //   {
-  //     imageId: 'activeSpot2.jpg',
-  //     imageAlt: 'activeSpot2',
-  //   },
-  //   {
-  //     imageId: 'LineCat3.jpg',
-  //     imageAlt: 'LineCat3',
-  //   },
-  //   {
-  //     imageId: 'SpotCat8.jpg',
-  //     imageAlt: 'SpotCat8',
-  //   },
-  //   {
-  //     imageId: 'activeSpot7.jpg',
-  //     imageAlt: 'activeSpot7',
-  //   },
-  //   {
-  //     imageId: 'SpotCat3.jpg',
-  //     imageAlt: 'SpotCat3',
-  //   },
-  //   {
-  //     imageId: 'SpotCat7.jpg',
-  //     imageAlt: 'SpotCat7',
-  //   },
-  //   {
-  //     imageId: 'SpotCat2.jpg',
-  //     imageAlt: 'SpotCat2',
-  //   },
-  //   {
-  //     imageId: 'LineCat6.jpg',
-  //     imageAlt: 'LineCat6',
-  //   },
-  //   {
-  //     imageId: 'activeSpot14.jpg',
-  //     imageAlt: 'activeSpot14',
-  //   },
-  //   {
-  //     imageId: 'activeSpot9.jpg',
-  //     imageAlt: 'activeSpot9',
-  //   },
-  // ],
+  studentsWorks: [
+    {
+      imageId: 'Block1.png',
+      imageAlt: 'Block1',
+    },
+    {
+      imageId: 'Block2.png',
+      imageAlt: 'Block2',
+    },
+    {
+      imageId: 'Block3.png',
+      imageAlt: 'Block3',
+    },
+    {
+      imageId: 'Block4.png',
+      imageAlt: 'Block4',
+    },
+  ],
   faq: [
     {
       question: 'Как проходит онлайн обучение',
@@ -354,43 +286,42 @@ const courseDB1: ICourseDataDB = {
   ],
   studyProcess: [
     {
-      title: 'Задания и теория',
+      title: 'Наглядная теория с бессрочным доступом',
       caption: 'Для самостоятельного изучения',
-      description: 'Работаем на платформе школы. Все учебные материалы: текст, фото и видео-уроки доступны в личном кабинете на сайте. Их можно пересматривать в любое время.',
+      description: 'Объясняем теорию простым языком, с иллюстрациями и схемами. Всю информацию и практические задания мы собрали в интерактивном учебнике. Проходить его можно в любое удобное время, с компьютера или с телефона.',
       // imageId: {
       //   mobile: 'studyProcess1.jpg',
       //   desktop: 'studyProcess1.jpg',
       // },
-      imageAlt: 'studyProcess2',
+      // imageAlt: 'studyProcess2',
     },
     {
       title: 'Вопросы по ходу',
       caption: 'Каждый день',
-      description: 'Вопросы, возникающие по ходу, задаем в любое время в телеграм-чате. В чате можно задавать любые вопросы по рисованию, делиться радостями, горестями, лайфхаками и красивыми картинками, поддерживать друг друга и болтать.',
+      description: 'Вопросы, возникающие по ходу, задаем в любое время в телеграм-чате. В чате можно обсуждать рисование, делиться радостями, горестями, лайфхаками и красивыми картинками, поддерживать друг друга и болтать.',
       // imageId: {
       //   mobile: 'studyProcess2-mobile.jpg',
       //   desktop: 'studyProcess2.jpg',
       // },
-      imageAlt: 'studyProcess2',
+      // imageAlt: 'studyProcess2',
     },
     {
-      title: 'Обратная связь',
+      title: 'Обратная связь от практикующих экспертов',
       caption: 'По заданиям',
       description: [
-        { tag: 'p', content: 'Индивидуальная обратная связь по домашним заданиям. Преподаватель создает для каждого участника рабочий холст в Figma, где можно писать комментарии, прикладывать фото и ссылки.' },
-        { tag: 'p', content: 'Чтобы отвечать на комментарии, вести диалог, нужно залогиниться под любой почтой в Figma. С ноутбука это можно сделать в любом браузере, с телефона вначале нужно скачать приложение Figma и установить его.' },
+        { tag: 'p', content: 'В конце каждого блока вы сдаёте проект, чтобы закрепить пройденное и получить обратную связь от эксперта. Опытные иллюстраторы подробно разберут ваши работы и подскажут, как их развивать дальше.' },
       ],
       // imageId: {
       //   mobile: 'studyProcess3-mobile.jpg',
       //   desktop: 'studyProcess3.jpg',
       // },
-      imageAlt: 'studyProcess3',
+      // imageAlt: 'studyProcess3',
     },
-    {
-      title: 'Вебинары',
-      caption: 'Для практики',
-      description: 'Онлайн-созвоны с участниками в Skype на 1-1,5 часа. Вместе разбираем теорию, а затем делаем короткие рисовальные упражнения.',
-    },
+    // {
+    //   title: 'Вебинары',
+    //   caption: 'Для практики',
+    //   description: 'Онлайн-созвоны с участниками на 1-1,5 часа. Вместе разбираем теорию, а затем делаем короткие рисовальные упражнения.',
+    // },
   ],
 }
 
@@ -429,7 +360,7 @@ const courseDB2: ICourseDataDB = {
   about: [
     {
       tag: 'p',
-      content: 'Иллюстратор София Ульянова расскажет, как формируется собственный стиль в иллюстрации и поможет улучшить вашу изобразительную манеру.'
+      content: 'Преподаватель расскажет, как формируется собственный стиль в иллюстрации и поможет улучшить вашу изобразительную манеру.'
     },
     {
       tag: 'p',
@@ -450,26 +381,26 @@ const courseDB2: ICourseDataDB = {
       question: 'Боится, что не получится'
     },
   ],
-  prizes: [
-    { title:
-      [
-        {
-          tag: 'span',
-          content: 'Cкидка 20% на курс '
-        },
-        {
-          tag: 'a',
-          content: '“Стикеры для Telegram”',
-          props: { className: 'key-link', target: "_blank", to: 'https://flearn.net/course/how-to-draw' },
-        },
-      ],
-      content: 'Научимся схватывать силуэт и утрировать характерные черты в быстрых набросках. А из удачных эскизов сделаем серию стикеров для телеграмма и оформим в проект на Behance'
-    },
-    {
-      title: 'Приглашение в телеграм-чат выпускников школы flearn',
-      content: 'В чате мы задаем любые вопросы по рисованию, делимся радостями, горестями, лайфхаками и красивыми картинками, поддерживаем друг друга и болтаем',
-    },
-  ],
+  // prizes: [
+  //   { title:
+  //     [
+  //       {
+  //         tag: 'span',
+  //         content: 'Cкидка 20% на курс '
+  //       },
+  //       {
+  //         tag: 'a',
+  //         content: '“Стикеры для Telegram”',
+  //         props: { className: 'key-link', target: "_blank", to: 'https://flearn.net/course/how-to-draw' },
+  //       },
+  //     ],
+  //     content: 'Научимся схватывать силуэт и утрировать характерные черты в быстрых набросках. А из удачных эскизов сделаем серию стикеров для телеграмма и оформим в проект на Behance'
+  //   },
+  //   {
+  //     title: 'Приглашение в телеграм-чат выпускников школы flearn',
+  //     content: 'В чате мы задаем любые вопросы по рисованию, делимся радостями, горестями, лайфхаками и красивыми картинками, поддерживаем друг друга и болтаем',
+  //   },
+  // ],
   modulesDescription: 'Программа рассчитана на 10 дней, ей нужно посвятить 10-12 часов.',
   modules: [
     {
@@ -553,20 +484,20 @@ const courseDB2: ICourseDataDB = {
       imageAlt: 'SofiUlianova22',
     },
   ],
-  studentResults: {
-    content: 'Вы создадите серию графических работ из 3-5 иллюстраций, которая продемонстрирует ваши хард-скилы и подчеркнет ценности. Тема серии свободная: от лягушки до автопортрета.',
-    imageId: {
-      desktop: 'StudentsResult.jpg',
-      mobile: 'StudentsResult-mobile.jpg',
-    },
-    imageAlt: 'StudentsResult',
-  },
+  // studentResults: {
+  //   content: 'Вы создадите серию графических работ из 3-5 иллюстраций, которая продемонстрирует ваши хард-скилы и подчеркнет ценности. Тема серии свободная: от лягушки до автопортрета.',
+  //   imageId: {
+  //     desktop: 'StudentsResult.jpg',
+  //     mobile: 'StudentsResult-mobile.jpg',
+  //   },
+  //   imageAlt: 'StudentsResult',
+  // },
   studentsWorks: [],
   studyProcess: [
     {
-      title: 'Задания и теория',
+      title: 'Наглядная теория с бессрочным доступом',
       caption: 'Для самостоятельного изучения',
-      description: 'Работаем на платформе школы. Все учебные материалы: текст, фото и видео-уроки доступны в личном кабинете на сайте. Их можно пересматривать в любое время.',
+      description: 'Объясняем теорию простым языком, с иллюстрациями и схемами. Всю информацию и практические задания мы собрали в интерактивном учебнике. Проходить его можно в любое удобное время, с компьютера или с телефона.',
       // imageId: {
       //   mobile: 'studyProcess1.jpg',
       //   desktop: 'studyProcess1.jpg',
@@ -576,7 +507,7 @@ const courseDB2: ICourseDataDB = {
     {
       title: 'Вопросы по ходу',
       caption: 'Каждый день',
-      description: 'Вопросы, возникающие по ходу, задаем в любое время в телеграм-чате. В чате можно задавать любые вопросы по рисованию, делиться радостями, горестями, лайфхаками и красивыми картинками, поддерживать друг друга и болтать.',
+      description: 'Вопросы, возникающие по ходу, задаем в любое время в телеграм-чате. В чате можно обсуждать рисование, делиться радостями, горестями, лайфхаками и красивыми картинками, поддерживать друг друга и болтать.',
       // imageId: {
       //   mobile: 'studyProcess2-mobile.jpg',
       //   desktop: 'studyProcess2.jpg',
@@ -584,11 +515,10 @@ const courseDB2: ICourseDataDB = {
       // imageAlt: 'studyProcess2',
     },
     {
-      title: 'Обратная связь',
+      title: 'Обратная связь от практикующих экспертов',
       caption: 'По заданиям',
       description: [
-        { tag: 'p', content: 'Индивидуальная обратная связь по домашним заданиям. Преподаватель создает для каждого участника рабочий холст в Figma, где можно писать комментарии, прикладывать фото и ссылки.' },
-        { tag: 'p', content: 'Чтобы отвечать на комментарии, вести диалог, нужно залогиниться под любой почтой в Figma. С ноутбука это можно сделать в любом браузере, с телефона вначале нужно скачать приложение Figma и установить его.' },
+        { tag: 'p', content: 'В конце каждого блока вы сдаёте проект, чтобы закрепить пройденное и получить обратную связь от эксперта. Опытные иллюстраторы подробно разберут ваши работы и подскажут, как их развивать дальше.' },
       ],
       // imageId: {
       //   mobile: 'studyProcess3-mobile.jpg',
@@ -596,11 +526,11 @@ const courseDB2: ICourseDataDB = {
       // },
       // imageAlt: 'studyProcess3',
     },
-    {
-      title: 'Вебинары',
-      caption: 'Для практики',
-      description: 'Онлайн-созвоны с участниками в Skype на 1-1,5 часа. Вместе разбираем теорию, а затем делаем короткие рисовальные упражнения.',
-    },
+    // {
+    //   title: 'Вебинары',
+    //   caption: 'Для практики',
+    //   description: 'Онлайн-созвоны с участниками в Skype на 1-1,5 часа. Вместе разбираем теорию, а затем делаем короткие рисовальные упражнения.',
+    // },
   ],
   feedbacks: [
     {

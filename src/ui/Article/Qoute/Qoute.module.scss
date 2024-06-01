@@ -1,30 +1,42 @@
 @import 'styles/index';
 
-.qouteWrapper {
-  grid-column: span 3;
-  font-family: $font-family-serif;
+.__ {
+  position: relative;
+  color: $color-content-primary;
+  margin: set-calc(20) 0 set-calc(40);
 
-  border-left: set-calc(4) solid $color-content-background-primary;
-  padding-left: set-calc(24);
-  padding-right: set-calc(160);
+  width: set-calc(764);
+  left: set-calc(-32);
+
+  @include set-media(md) {
+    margin: set-calc(30) 0 set-calc(30);
+    width: set-calc(398);
+    left: set-calc(-16);
+  };
+}
+.qouteWrapper {
+  padding: set-calc(32);
+  background-color: $color-background-alternate;
+  border-radius: set-calc($border-radius-medium);
 
   display: flex;
   flex-direction: column;
 
-  margin: set-calc(36) 0 set-calc(72);
-
   @include set-media(md) {
-    margin: set-calc(24) 0 set-calc(56);
-    padding-right: 0;
+    padding: set-calc(16);
   }
 }
 
 .qouteWrapper > *:not(:last-child) {
-  padding-bottom: set-calc(28);
+  margin: set-calc(20) 0 set-calc(16);
 
   @include set-media(md) {
-    padding-bottom: set-calc(16);
+    margin: set-calc(20) 0 set-calc(16);
   }
+}
+
+.qouteWrapper > *:first-child {
+  margin-top: 0;
 }
 
 .qouteWrapper > * {

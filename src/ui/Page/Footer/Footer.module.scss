@@ -8,6 +8,7 @@
   margin-top: set-calc(32);
 
   @include set-media(md) {
+    margin-top: set-calc(8);
     padding: 0 set-calc(16) set-calc(16);
     grid-gap: set-calc(24);
   }
@@ -24,16 +25,18 @@
 
 .card {
   position: relative;
-  left: set-calc(-$padding-x-desk-page);
-  width: set-calc($padding-x-desk-page * 2, true, 100%);
-  padding: set-calc($padding-x-desk-page / 2) set-calc($padding-x-desk-page) 0;
-  border-top: set-calc(3) solid $color-content-background-primary;
+  padding: set-calc(24);
+  background-color: $color-background-default;
+  border-radius: set-calc($border-radius-medium);
 
   @include set-media(md) {
-    left: set-calc(-16);
-    width: set-calc(16 * 2, true, 100%);
-    padding: set-calc(16) set-calc(16) set-calc(16);
-    border-top: set-calc(2) solid $color-content-background-primary;
+    left: set-calc(-$padding-xs-mob-page);
+    width: set-calc($padding-xs-mob-page * 2, true, 100%);
+    background-color: $color-background-glassy-a;
+    padding: set-calc(16);
+    border: none;
+    border-radius: set-calc($border-radius-small);
+
   }
 }
 
@@ -54,8 +57,7 @@
   width: 100%;
 
   @include set-media(md) {
-    width: 100%;
-    padding-bottom: set-calc(24);
+    display: none;
   }
 }
 
@@ -70,19 +72,29 @@
 
 .creator {
   grid-column: 4 / 5;
+  text-align: end;
 
   &Name {
     margin-left: set-calc(8);
+  }
+
+  @include set-media(md) {
+    text-align: left;
+
+    a {
+      line-height: set-calc(24);
+    }
   }
 }
 
 .copyright {
   grid-column: 1 / 1;
   grid-row: 1;
-  padding-bottom: set-calc(16);
+  margin-bottom: set-calc(16);
+
 
   @include set-media(md) {
-    padding-bottom: set-calc(8);
+    margin-bottom: set-calc(8);
   }
 }
 
@@ -91,7 +103,7 @@
   grid-row: 2;
 
   @include set-media(md) {
-    padding-bottom: set-calc(8);
+    margin-bottom: set-calc(8);
   }
 }
 
@@ -99,8 +111,9 @@
   grid-column: 2 / 3;
   grid-row: 2;
 
+
   @include set-media(md) {
-    padding-bottom: set-calc(32);
+    margin-bottom: set-calc(16);
   }
 }
 
@@ -121,11 +134,11 @@
     height: set-calc(32);
 
     &:hover {
-      fill: $orange;
+      fill: $blue;
     }
 
     @include set-media(md) {
-      height: set-calc(48);
+      height: set-calc(32);
     }
   }
 
@@ -137,5 +150,5 @@
 }
 
 .socialLink:not(:last-child) {
-  margin-right: set-calc(16);
+  margin-right: set-calc(10);
 }

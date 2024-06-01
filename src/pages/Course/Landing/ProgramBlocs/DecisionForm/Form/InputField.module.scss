@@ -15,18 +15,18 @@
   outline: none;
 
   &::placeholder {
-    color: $color-content-background-primary;
+    color:  $color-palette-black-300;
     opacity: 1;
     font-family: $font-family!important;
   }
   
   &:-ms-input-placeholder {
-    color: $color-content-background-primary;
+    color:  $color-palette-black-300;
     font-family: $font-family!important;
   }
   
   &::-ms-input-placeholder {
-    color: $color-content-background-primary;
+    color:  $color-palette-black-300;
     font-family: $font-family!important;
   }
 
@@ -52,10 +52,10 @@
 
 .light {
   background: hsla(0,0%,100%,.4);
-  border: set-calc(2) solid $color-content-background-primary;
+  border: set-calc(1) solid $color-background-stroke;
 
   @include set-media(md) {
-    border: set-calc(1) solid $color-content-background-primary;
+    border: set-calc(0.5) solid $color-background-stroke;
   }
 }
 

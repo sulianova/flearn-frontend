@@ -1,0 +1,61 @@
+@import 'styles/index';
+
+.wrapperShowMore {
+  margin: 0 0 set-calc(140);
+  padding: set-calc(8) 0 0;
+
+  border-top: set-calc(calc($s-gap / 2)) solid $color-content-background-primary;
+
+  &Btn {
+    grid-column: 3 / 4;
+    margin-right: 0;
+    margin-left: auto;
+  }
+}
+
+.header {
+  padding-bottom: set-calc(32);
+  
+  @include set-media(md) {
+    padding-bottom: set-calc(16);
+  }
+}
+
+.headerTitle {
+  @include set-media(md) {
+    padding: 0 set-calc(8);
+  }
+}
+
+.points {
+  @include is-grid-3;
+}
+
+.pointsCard {
+  display: flex;
+  flex-direction: column;
+
+  padding: set-calc(24);
+
+  border-radius: set-calc($border-radius-medium);
+  background-color: $color-background-default;
+
+  @include set-media(md) {
+    min-height: unset;
+    padding: set-calc(16);
+  }
+}
+
+.pointsCardTitle {
+  margin-bottom: set-calc(16);
+
+  @include set-media(md) {
+    margin-bottom: set-calc(8);
+  }
+}
+
+.pointsCardText {
+  @include set-media(md) {
+    color: $color-content-secondary;
+  }
+}

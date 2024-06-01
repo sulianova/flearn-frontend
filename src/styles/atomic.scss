@@ -1,5 +1,9 @@
 .s-text-14 {
-  @include set-typography(14, 19, 500);
+  @include set-typography(14, 16, 500);
+} 
+
+@mixin s-text-14 {
+  @include set-typography(14, 16, 500);
 }
 
 .s-text-16-18 {
@@ -11,18 +15,18 @@
 }
 
 .s-text-16 {
-  @include set-typography(16, 20, 500);
+  @include set-typography(16, 18, 500);
 
   @include set-media(md) {
-    @include set-typography(14, 18, 500)
+    @include set-typography(14, 16, 500)
   }
 }
 
 @mixin s-text-16 {
-  @include set-typography(16, 20, 500);
+  @include set-typography(16, 18, 500);
 
   @include set-media(md) {
-    @include set-typography(14, 18, 500)
+    @include set-typography(14, 16, 500)
   }
 }
 
@@ -30,7 +34,7 @@
   @include set-typography(18, 24, 500);
 
   @include set-media(md) {
-    @include set-typography(16, 22, 500)
+    @include set-typography(16, 20, 500)
   }
 }
 
@@ -38,13 +42,14 @@
   @include set-typography(18, 24, 500);
 
   @include set-media(md) {
-    @include set-typography(16, 22, 500)
+    @include set-typography(16, 20, 500)
   }
 }
 
 .s-text-18-uppercase {
   @include set-typography(18, 24, 500);
   text-transform: uppercase;
+  letter-spacing: set-calc(-0.5);
 
   @include set-media(md) {
     @include set-typography(16, 22, 500);
@@ -54,11 +59,11 @@
 
 //article
 .s-text-20 {
-  @include set-typography(20, 30, 500);
+  @include set-typography(20, 28, 500);
 }
 
 @mixin s-text-20 {
-  @include set-typography(20, 30, 500);
+  @include set-typography(20, 28, 500);
 }
 
 .s-text-21  {
@@ -88,18 +93,18 @@
 }
 
 @mixin s-text-24 {
-  @include set-typography(24, 32, 500);
+  @include set-typography(24, 28, 500);
 
   @include set-media(md) {
-    @include set-typography(20, 28, 500);
+    @include set-typography(20, 24, 500);
   }
 }
 
 .s-text-24 {
-  @include set-typography(24, 32, 500);
+  @include set-typography(24, 28, 500);
 
   @include set-media(md) {
-    @include set-typography(20, 28, 500);
+    @include set-typography(20, 24, 500);
   }
 }
 
@@ -108,7 +113,7 @@
   font-family: $font-family-compact;
 
   @include set-media(md) {
-    @include set-typography(24, 26, 500);
+    @include set-typography(20, 20, 500);
   }
 }
 
@@ -117,25 +122,25 @@
   font-family: $font-family-compact;
 
   @include set-media(md) {
-    @include set-typography(24, 26, 500);
+    @include set-typography(20, 20, 500);
   }
 }
 
 .s-text-36 {
-  @include set-typography(36, 38, 500);
+  @include set-typography(36, 36, 500);
   font-family: $font-family-compact;
 
   @include set-media(md) {
-    @include set-typography(28, 32, 500);
+    @include set-typography(28, 28, 500);
   }
 }
 
 @mixin s-text-36 {
-  @include set-typography(36, 38, 500);
+  @include set-typography(36, 36, 500);
   font-family: $font-family-compact;
 
   @include set-media(md) {
-    @include set-typography(28, 32, 500);
+    @include set-typography(28, 28, 500);
   }
 }
 
@@ -145,7 +150,7 @@
   letter-spacing: set-calc(-1);
 
   @include set-media(md) {
-    @include set-typography(36, 38, 500);
+    @include set-typography(36, 36, 500);
   }
 }
 
@@ -155,7 +160,27 @@
   letter-spacing: set-calc(-1);
 
   @include set-media(md) {
-    @include set-typography(36, 38, 500);
+    @include set-typography(36, 36, 500);
+  }
+}
+
+.s-text-70 {
+  @include set-typography(70, 66, 500);
+  font-family: $font-family-compact;
+  letter-spacing: set-calc(-1);
+
+  @include set-media(md) {
+    @include set-typography(36, 36, 500);
+  }
+}
+
+@mixin s-text-70 {
+  @include set-typography(70, 66, 500);
+  font-family: $font-family-compact;
+  letter-spacing: set-calc(-1);
+
+  @include set-media(md) {
+    @include set-typography(36, 36, 500);
   }
 }
 

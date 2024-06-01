@@ -6,6 +6,7 @@ import Gallery from './Gallery/Gallery';
 import Image from './Image/Image';
 import Qoute from './Qoute/Qoute';
 import Text from './Text/Text';
+import List from './List/List';
 import TextImportant from './TextImportant/TextImportant';
 import Title from './Title/Title';
 import Video from './Video/Video';
@@ -19,6 +20,7 @@ Article.Gallery = Gallery;
 Article.Image = Image;
 Article.Qoute = Qoute;
 Article.Text = Text;
+Article.List = List;
 Article.TextImportant = TextImportant;
 Article.Title = Title;
 Article.Video = Video;
@@ -45,6 +47,8 @@ function renderBlock(block: IArticleContent[number]) {
       return (<Title data={block}/>);
     case 'text':
       return (<Text data={block}/>);
+    case 'list':
+      return (<List data={block}/>);
     case 'textImportant':
       return (<TextImportant data={block}/>);
     case 'qoute':

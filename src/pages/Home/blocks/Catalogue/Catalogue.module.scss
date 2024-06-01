@@ -11,27 +11,36 @@
     position: relative;
     display: block;
 
-    margin-bottom: set-calc(24);
+    margin-bottom: set-calc(16);
   }
 }
 
 .headerTitle {
   grid-column: 1 / 7;
   padding-bottom: set-calc(24);
+
+  @include set-media(md) {
+    padding-bottom: set-calc(8);
+    padding-left: set-calc(8);
+    padding-right: set-calc(8);
+  }
 }
 
 .description {
   grid-column: 1 / 6;
+
+  @include set-media(md) {
+    padding-left: set-calc(8);
+    padding-right: set-calc(8);
+  }
 }
 
 .wrapper {
   grid-column: span 12;
-  @include is-grid-3;
+  @include is-grid-4;
   column-gap: set-calc(16);
-  margin-bottom: set-calc(40);
 
   @include set-media(md) {
     column-gap: set-calc(6);
-    margin-bottom: 0;
   }
 }

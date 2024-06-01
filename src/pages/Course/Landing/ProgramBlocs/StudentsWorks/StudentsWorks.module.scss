@@ -5,20 +5,24 @@
 
   display: block;
   @include is-beige;
-  padding: set-calc(72) set-calc($padding-x-desk-page) set-calc(72);
-  background-color: $color-content-background-primary;
+  padding: set-calc(32);
+  background-color: $color-palette-black-700;
+  border-radius: set-calc($border-radius-medium);
 
   @include set-media(md) {
-    padding: set-calc($padding-x-mob-page) set-calc($padding-x-mob-page);
+    padding: set-calc(32) set-calc(8);
+    border-radius: set-calc($border-radius-medium);
   }
 }
 
 
 .title {
-  color: $color-content-inverted-primary;
+  color: $color-palette-white-500-a;
+  margin-bottom: set-calc(18);
 
   @include set-media(md) {
-    padding-bottom: set-calc(32);
+    margin-bottom: set-calc(8);
+    padding-left: set-calc(8);
   }
 }
 
@@ -26,29 +30,21 @@
   display: flex;
   box-sizing: content-box;
   width: 100%;
-  @include is-grid-4;
-  grid-gap: 0;
+  @include is-grid-3;
+  grid-gap: set-calc(8);
 }
 
 .item {
   grid-column: span 1;
   display: flex;
   width: 100%;
-  padding-right: set-calc(8);
-  padding-bottom: set-calc(8);
   overflow: hidden;
-  border-radius: set-calc(20);
-  // box-shadow: 0 set-calc(4) set-calc(8) rgb(0 0 0 / 10%);
+  border-radius: set-calc($border-radius-8);
+  background-color: $color-palette-black-50;
   text-align: center;
-
-  @include set-media(md) {
-    padding-right: 0;
-    padding-bottom: 0;
-  }
 }
 
 .item img {
   width: 100%;
   height: 100%;
-  border-radius: set-calc(20);
 }

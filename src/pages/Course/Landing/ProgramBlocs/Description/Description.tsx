@@ -21,13 +21,9 @@ interface IProps {
 function Description({ type, description }: IProps) {
   return (
     <div className={classes.wrapper}>
-      <Animated.Scroll>
-        {(id, className) => (
-          <h2 className={cx({ title: true }, className) + ' s-text-56'} id={id}>
-            {t(`title.${type}`)}
-          </h2>
-        )}
-      </Animated.Scroll>
+      <div className={classes.header}>
+        <h2 className={' s-text-70'}>{t(`title.${type}`)}</h2>
+      </div>
       <div className={classes.list}>
         {description.map((d, index) => (
           <Item key={index} {...d}/>

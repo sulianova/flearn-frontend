@@ -14,7 +14,7 @@ import { IFetchCoursePayload, IFetchLessonsPayload, fetchCourse, fetchLessons } 
 import useFallback from './useFallback';
 
 import Link from 'ui/Link/Link';
-import Page from 'ui/Page/Page';
+import Page, { EPageVariant } from 'ui/Page/Page';
 import classesHeader from './LessonsHeader.module.scss';
 import classesList from './LessonsList.module.scss';
 
@@ -133,20 +133,8 @@ function Lessons({ courseState, lessonsState }: IConnectedProps) {
   }
 
   return (
-  <Page header footer wrapper='Lessons'>
-
-    <div className={classesHeader._}>
-    <div className={classesHeader.title + ' s-text-56'}>{courseState.data.title}</div>
-      <div className={classesHeader.subTitle + ' s-text-24'}>{t(['subTitle', courseState.data.type])}</div>
-      <div className={classesHeader.links}>
-        {/* <a className='key-link  s-text-18'>{t('linksAbout')}</a> */}
-        <Link
-          className='key-link  s-text-18'
-          to={courseState.data.telegramLink}
-          target='_blank'
-        >{t('linksTelegram')}</Link>
-      </div>
-    </div>
+  <Page variant={EPageVariant.LMS} header footer>
+    <div className={classesHeader.title + ' s-text-28'}>{courseState.data.title}</div>
     {filteredLessons.length ? (
       <div className={classesList.wrapper}>
         {renderGroups(groupes)}
@@ -170,52 +158,40 @@ function renderGroups(groups: IGroup[]) {
 
 function renderGroup(props: IGroup) {
   return (
-    <div className={classesList.itemWrapper}>
-      <div className={classesList.listDate + ' s-text-28'}>{formatWeekDate(props.startDate, props.endDate)}</div>
+    <>
       {renderItems(props.lessons)}
-    </div>
+    </>
   );
 }
 
 function renderItems(props: ILessonsData[]) {
-  return props.map(l => (<Fragment key={l.lesson.id}>{renderItem(l)}</Fragment>));
+  return props.map(l => (<div className={classesList.itemWrapper} key={l.lesson.id}>{renderItem(l)}</div>));
 }
 
 function renderItem(lesson: ILessonsData) {
-  if (lesson.lesson.type === 'Theory') {
     return (
-      <div className={classesList.item}>
-        <Link
-          to={URLSections.Course.Lesson.to({ courseId: lesson.lesson.courseId, lessonId: lesson.lesson.id })}
-          className={classesList.itemTitle + ' nav-link s-text-21'}
-        >
-          {lesson.lesson.title}
-        </Link>
-      </div>
-    );
-  }
-
-  const homeworkLink = (
-    <div className={classesList.itemLink}>
-      <Link
-        className='key-link s-text-18'
+      <Link 
+        className={classesList.item}
         to={URLSections.Course.Lesson.to({ courseId: lesson.lesson.courseId, lessonId: lesson.lesson.id })}
       >
-        {t('homework')}
+        <div className={classesList.imageWrapper}></div>
+        <div className={classesList.itemBody}>
+          <div className={classesList.itemBodyContainer}>
+            <div className={classesList.titleContainer}>
+              <h2 className={classesList.title + ' s-text-21'}>
+                {lesson.lesson.title}
+              </h2>
+            </div>
+          </div>
+          <div className={classesList.info}>
+            <div className={classesList.infoMain}>
+              <span className={classesList.infoItem + ' s-text-18'}>4 темы</span>
+              <span className={classesList.infoItem + ' s-text-18'}>≈ 2 ч  </span>
+            </div>
+          </div>
+        </div>
       </Link>
-    </div>
-  );
-
-  return (
-    <div className={classesList.item}>
-      <div className={classesList.task + ' s-text-21'}>{lesson.lesson.title}</div>
-      <div className={classesList.itemLinks}>
-        {homeworkLink}
-        {/* {props.lesson.intensiveLink && <div className={classesList.itemLink}><a className='link s-text-18' href={props.lesson.intensiveLink}>{t('intensive')}</a></div>} */}
-        {/* {props.lesson.resultsLink && <div className={classesList.itemLink}><a className='link s-text-18' href={props.lesson.resultsLink}>{t('results')}</a></div>} */}
-      </div>
-    </div>
-  );
+    );
 }
 
 function formatWeekDate(startDate: Date, endDate: Date) {

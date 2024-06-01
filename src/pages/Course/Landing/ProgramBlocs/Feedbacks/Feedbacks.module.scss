@@ -8,7 +8,9 @@
   padding-bottom: set-calc(32);
 
   @include set-media(md) {
-    padding-bottom: set-calc(24);
+    padding-bottom: set-calc(16);
+    padding-left: set-calc(8);
+    padding-right: set-calc(8);
   }
 }
 

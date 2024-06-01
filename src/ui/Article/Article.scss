@@ -1,7 +1,7 @@
 @import 'styles/index';
 
 .keyText {
-  color: $grey-hover;
+  color: $darken-profession-color;
   font-family: $font-family!important;
 }
 
@@ -10,6 +10,8 @@
 }
 
 .listItem {
+  position: relative;
+  
   padding-bottom: set-calc(8)!important;
   padding-left: set-calc(24);
 

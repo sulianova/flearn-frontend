@@ -2,21 +2,29 @@
 
 .__ {
   min-height: set-calc(350);
-  background: $matt-black;
+  background: $color-background-default;
   border-radius: set-calc($border-radius-medium);
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @include set-media(md) {
+    min-height: unset;
+  }
 }
 
 .content {
   padding: set-calc(24);
+
+  @include set-media(md) {
+    padding: set-calc(24) set-calc(16);
+  }
 }
 
 .contentTitle {
-  color: $color-content-inverted-primary;
+  color: $color-content-primary;
   margin-bottom: set-calc(16);
 
   text-align: center;
@@ -27,7 +35,7 @@
 }
 
 .contentDescription {
-  color: $color-content-inverted-secondary;
+  color: $color-content-secondary;
   text-align: center;
 
   @include set-media(md) {
@@ -60,8 +68,9 @@
   justify-content: center;
   height: set-calc(52);
   padding: set-calc(16) set-calc(24);
-
-  background-color: $color-content-inverted-primary;
+  
+  color: $color-palette-white-1000;
+  background-color: $blue;
   border-radius: set-calc($border-radius-small);
   white-space: nowrap;
   max-width: fit-content;

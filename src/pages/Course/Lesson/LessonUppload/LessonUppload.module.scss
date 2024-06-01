@@ -1,27 +1,40 @@
 @import 'styles/index';
 
 ._ {
+  width: set-calc(700);
+  position: relative;
+
+  @include set-media(md) {
+    width: 100%;
+  }
+}
+
+.wrapper {
   position: relative;
 
   display: flex;
   flex-direction: column;
-  z-index: 3000;
+  justify-content: center;
+  align-items: center;
+  border: set-calc(1) solid $border;
+  border-radius: set-calc($border-radius-medium);
+  z-index: 100;
   margin-top: set-calc(64);
+  width: set-calc(764);
+  left: set-calc(-32);
+  padding: set-calc(32);
 
-  @include is-beige;
-  padding: 0 set-calc($padding-x-desk-page) set-calc(72);
-  background-color: $beige-light;
 
   @include set-media(md) {
-    padding: set-calc($padding-x-mob-page) set-calc($padding-x-mob-page);
+    width: set-calc(398);
+    left: set-calc(-16);
   }
 }
 
 .nav {
   position: sticky;
   top: 0;
-  background-color: $beige-light;
-  z-index: 12;
+  background-color: transparent;
   margin-top: set-calc(16);
 
   display: flex;
@@ -45,7 +58,7 @@
   border-radius: set-calc(15);
   width: 100%;
 
-  color: $orange;
+  color: $color-accent-error;
   white-space: pre-line;
   text-align: center;
 
@@ -56,30 +69,36 @@
   margin-bottom: set-calc(16);
   margin-top: set-calc(16);
   display: flex;
+  flex: 0 1 auto;
   flex-direction: column;
   justify-content: end;
 
   @include set-media(md) {
-    // width: fit-content;
     width: 100%;
   }
 }
 
 .submitBtn {
-  position: relative;
-
-  display: flex;
-  align-items: center;
+  display: inline-flex;
   justify-content: center;
-  min-height: set-calc(40);
-  width: fit-content;
+  align-items: center;
+  box-sizing: border-box;
+  min-width: set-calc(132);
+
+  user-select: none;
+  transition-timing-function: ease-in-out;
+  transition-duration: .1s;
+  transition-property: transform, background-color, border-color, color;
+  border: none;
+  outline: none;
   
-  padding: set-calc(4) set-calc(24);
+  padding: 0 set-calc(16);
+  height: set-calc(50);
 
   color: $color-content-inverted-primary;
 
-  background: $green;
-  border-radius: set-calc(15);
+  background: $color-accent-neutral;
+  border-radius: set-calc($border-radius-small);
   cursor: pointer;
 
   transition: background-color $d-hover ease-in-out, color ease-in-out $d-hover;
@@ -90,12 +109,12 @@
 }
 
 .submitBtn:hover {
-  background-color: $green-hover;
+  background-color: $color-accent-neutral-hover;
 }
 
 .isDisabled {
-  color: $grey-inactive;
-  background: $grey;
+  color: $color-content-tertiary;
+  background: $color-background-glassy-a;
 
   pointer-events: none;
 }
@@ -112,44 +131,28 @@
 
 .inner {
   position: relative;
-  margin-top: set-calc(32);
-
+  width: 100%;
   display: flex;
 
   @include set-media(md) {
     flex-direction: column;
-    margin-top: 0;
   }
 }
 
 .fields {
   display: flex;
-  width: 50%;
   flex-flow: column;
-  padding-right: set-calc(88);
-
-  @include set-media(md) {
-    padding-right: 0;
-    padding-bottom: set-calc(32);
-    width: 100%;
-  }
+  width: 100%;
 }
 
 .fieldsTitle {
-  padding-bottom: set-calc(56);
 
-  @include set-media(md) {
-    padding-bottom: set-calc(32);
-    padding-top: set-calc(24);
-  }
 }
 
 .fieldsInner {
-  margin-bottom: set-calc(56);
-
-  @include set-media(md) {
-    margin-bottom: set-calc(24);
-  }
+  display: flex;
+  width: 100%;
+  flex-direction: row;
 }
 
 .files {

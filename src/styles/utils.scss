@@ -53,8 +53,6 @@
 
 @mixin is-beige {
   position: relative;
-  // left: set-calc(-$padding-x-desk-page);
-  // width: set-calc(2 * $padding-x-desk-page, true, 100%);
   padding: set-calc(32) set-calc(32);
 
   background-color: $beige;
@@ -64,9 +62,9 @@
     display: block;
     border-radius: 0;
 
-    left: set-calc(-$padding-x-mob-page);
-    width: set-calc(2 * $padding-x-mob-page, true, 100%);
-    padding: set-calc(2 * $padding-x-mob-page) set-calc($padding-x-mob-page);
+    left: set-calc(-$padding-xs-mob-page);
+    width: set-calc(2 * $padding-xs-mob-page, true, 100%);
+    padding: set-calc(2 * $padding-x-mob-page) set-calc($padding-xs-mob-page);
   }
 }
 

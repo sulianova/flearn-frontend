@@ -9,7 +9,7 @@ export default function Header() {
     <div className={classes.__}>
       <div className={classes.inner}>
         <div className={classes.headerWrapper}>
-          <h1 className={classes.headerTitle + ' s-text-56'}>{i18n.t('catalogue.title')}</h1>
+          <h1 className={classes.headerTitle}>{i18n.t('catalogue.title')}</h1>
         </div>
         <div className={classes.descriptionWrapper }>
           <div className={classes.description + ' s-text-21'}>{i18n.t('catalogue.description')}</div>

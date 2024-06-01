@@ -1,0 +1,45 @@
+@import 'styles/index';
+
+.__ {
+  box-sizing: border-box;
+  max-width: set-calc(700);
+  width: set-calc(-44, true, -44);
+  padding-top: set-calc(40);
+  padding-bottom: set-calc(120);
+}
+
+.buttons {
+  display: flex;
+  align-items: flex-start;
+}
+
+.nextLesson {
+  display: flex;
+}
+
+.button {
+  font-feature-settings: 'pnum' on, 'lnum' on;
+  padding-block: set-calc(20);
+  padding-inline: set-calc(24);
+  border-radius: set-calc(8);
+  gap: set-calc(8);
+  background-color: $color-accent-neutral;
+  color: $color-content-inverted-primary;
+
+  outline: none;
+  border: none;
+  position: relative;
+  transition-property: background-color, border-color, box-shadow, color, transform;
+  transition-duration: 0.15s;
+  transition-timing-function: ease-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+
+  max-width: 100%;
+
+  &:hover {
+    background-color: $color-accent-neutral-hover;
+  }
+}

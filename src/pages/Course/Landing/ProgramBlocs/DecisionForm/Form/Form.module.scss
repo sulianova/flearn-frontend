@@ -26,7 +26,7 @@
   color: $color-content-inverted-primary;
 
   background-color: $color-content-background-secondary;
-  border: set-calc(2) solid $color-content-background-primary;
+  border: set-calc(1) solid $color-background-stroke;
   border-left: 0;
   border-radius: 0 set-calc(15) set-calc(15) 0;
   cursor: pointer;
@@ -40,7 +40,7 @@
   }
 
   @include set-media(md) {
-    border: set-calc(1) solid $color-content-background-primary;
+    border: set-calc(0.5) solid $color-background-stroke;
     border-left: 0;
   }
 }
@@ -67,16 +67,16 @@
 }
 
 .isDisabled {
-  color: $color-content-background-primary;
+  color: $color-palette-black-300;
   background-color: transparent;
   pointer-events: none;
 
   @include set-media(md) {
-    color: $color-content-background-primary;
+    color: $color-palette-black-300;
     -webkit-text-stroke: 0;
   }
 }
 
 .Error {
-  color: $orange;
+  color: $color-accent-error;
 }

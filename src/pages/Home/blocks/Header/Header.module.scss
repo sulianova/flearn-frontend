@@ -33,7 +33,7 @@
   height: 100%;
 
   padding: set-calc(32);
-  background-color: $color-background-glassy-c;
+  background-color: $color-palette-black-300-a;
 
   @include set-media(md) {
     padding: set-calc(16);
@@ -53,7 +53,13 @@
 
 .headerTitle {
   text-align: center;
-  color: $color-content-inverted-primary;
+  color: $color-palette-white-1000;
+
+  @include s-text-88;
+
+  @include set-media(md) {
+    @include s-text-56;
+  }
 }
 
 .descriptionWrapper {
@@ -71,5 +77,5 @@
 
 .description {
   position: relative;
-  color: $color-content-inverted-secondary;
+  color: $color-palette-white-500-a;
 }

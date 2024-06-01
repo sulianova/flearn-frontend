@@ -1,4 +1,4 @@
-import Page from 'ui/Page/Page';
+import Page, { EPageVariant } from 'ui/Page/Page';
 import InPageFallback from '../InPageFallback/InPageFallback';
 
 interface Iprops {
@@ -19,7 +19,7 @@ export default function OtherError(props: Iprops) {
 
   if (fullPage) {
     return (
-      <Page header footer wrapper='Fallback'>
+      <Page variant={EPageVariant.Fallback} header footer>
         {content}
       </Page>
     );

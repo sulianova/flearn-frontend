@@ -1,18 +1,10 @@
 @import 'styles/index';
 
 .title {
-  grid-column: span 3;
-  padding: set-calc(72) set-calc(160) set-calc(28) 0;
+  margin: set-calc(48) 0 set-calc(20);
+  color: $color-content-primary;
 
   @include set-media(md) {
-    padding: set-calc(56) 0 set-calc(24) 0;
+    margin: set-calc(40) 0 set-calc(16);
   }
-}
-
-div + [data--title] {
-  padding-top: 0;
-}
-
-.title:first-child {
-  padding-top: 0;
 }

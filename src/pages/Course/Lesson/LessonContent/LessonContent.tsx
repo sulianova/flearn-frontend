@@ -3,6 +3,7 @@ import { Fragment } from 'react';
 import { formatI18nT } from 'shared';
 
 import Edit from 'assets/images/Svg/Edit';
+import TheoryFooter from '../TheoryFooter/TheoryFooter';
 import Article from 'ui/Article/Article';
 import Link from 'ui/Link/Link';
 
@@ -41,6 +42,7 @@ function LessonContent(props: IProps) {
           canShowResults={props.canShowResults}
         />}
       <Article blocks={props.blocks}/>
+      <TheoryFooter/>
     </div>
   );
 }
@@ -59,14 +61,14 @@ function Uppload(props: IUpploadProps) {
   const { courseId, lessonId, endDate, resultsEndDate, homework } = props;
   return (
     <Fragment>
-      <div className={classes.uploadDeadline}>
+      {/* <div className={classes.uploadDeadline}>
         <p className='s-text-24'>
           {t('uploadDeadline', { date: formatDate(endDate, { timeZone: 'Europe/Moscow', wWeekDay: true, wTime: true }) })}
         </p>
         <p className='s-text-24'>
           {t('resultsDeadline', { date: formatDate(resultsEndDate, { timeZone: 'Europe/Moscow', wWeekDay: true }) })}
         </p>
-      </div>
+      </div> */}
       {homework && homework.homework.state !== 'DRAFT' && (!props.canShowResults || homework.populate?.user?.role === 'support') && (
         <div className={classes.myWorkLinkWrapper}>
           <h3 className={classes.myWorkLinkTitle + ' s-text-28'}>{t('myWorkLinkTitle')}</h3>

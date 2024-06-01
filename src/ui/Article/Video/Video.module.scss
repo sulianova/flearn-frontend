@@ -1,18 +1,24 @@
 @import 'styles/index';
 
 .videoWrapper {
-  grid-column: span 3;
-  padding-bottom: set-calc(72);
-  padding-top: set-calc(36);
+  position: relative;
+
+  width: set-calc(764);
+  left: set-calc(-32);
+
+
+  margin: set-calc(40) 0 set-calc(20);
 
   @include set-media(md) {
-    padding-bottom: set-calc(56);
-    padding-top: set-calc(16);
+    width: set-calc(398);
+    left: set-calc(-16);
+
+    margin: set-calc(30) 0 set-calc(16);
   }
 }
 
 .video {
-  border-radius: set-calc(20);
+  border-radius: set-calc($border-radius-medium);
   position: relative;
 
   padding-bottom: 56.25%;

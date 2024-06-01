@@ -12,6 +12,7 @@ import Promo from './Promo/Promo';
 import StudentResults from './StudentResults/StudentResults';
 import StudentsWorks from './StudentsWorks/StudentsWorks';
 import StudyProcess from './StudyProcess/StudyProcess';
+import Feedback from './Feedback/Feedback';
 
 import type { ICourseData } from 'services/course.service';
 
@@ -35,6 +36,7 @@ export default function ProgramBlocks({ course }: IProps) {
       />
     ),
     course.studentResults && <StudentResults key='studentResults' studentResults={course.studentResults}/>,
+    <Feedback key='feedback'></Feedback>,
     course.studentsWorks && course.studentsWorks.length && <StudentsWorks key='studentsWorks' studentsWorks={course.studentsWorks}/>,
     course.studyProcess && course.studyProcess.length && <StudyProcess key='studyProcess' studyProcess={course.studyProcess}/>,
     course.explainMedia && <Explain key='explain' explainMedia={course.explainMedia}/>,

@@ -1,28 +1,56 @@
 @import 'styles/index';
 
 .wrapper {
-  @include is-grid-4;
+  @include is-grid-3;
+  max-width: set-calc(956);
+  margin: 0 auto;
+  gap: set-calc(16);
 }
 
 .itemWrapper {
-  grid-column: 1 / 3;
+  grid-column: span 1;
   position: relative;
 
   display: flex;
   flex-direction: column;
-}
-
-.itemWrapper:not(:last-child) {
-  padding-bottom: set-calc(32);
 }
 
 .item {
   position: relative;
-
   display: flex;
   flex-direction: column;
-  align-items: start;
-  justify-content: space-between;
+  align-items: stretch;
+  height: set-calc(360);
+  width: 100%;
+
+  padding: 0;
+  margin: 0;
+  border: none;
+
+  cursor: pointer;
+  transition-property: transform, box-shadow;
+  transition-timing-function: ease;
+  transition-duration: 0.2s;
+  border-radius: set-calc(8);
+
+  box-sizing: border-box;
+  background: $color-background-default;
+  text-align: left;
+
+  @include set-media(md) {
+    flex-direction: row;
+    height: auto;
+  }
+
+  &:hover,
+  &:focus {
+    transform: translateY(set-calc(-4));
+    box-shadow: $shadow-medium-hovered;
+
+    .infoItem {
+      opacity: 1;
+    }
+  }
 }
 
 .listDate {
@@ -33,9 +61,94 @@
   }
 }
 
-.itemTitle {
+.itemBody {
+  box-sizing: border-box;
   position: relative;
-  margin-bottom: set-calc(8);
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  width: 100%;
+
+  text-align: left;
+  padding: set-calc(16);
+  cursor: pointer;
+}
+
+.itemBodyContainer {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.titleContainer {
+  height: set-calc(78);
+}
+
+.title {
+  margin: 0;
+  color: $color-content-primary;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.infoMain {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.infoItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-right: set-calc(16);
+  transition: opacity 0.3s;
+  opacity: 0;
+  color: $color-content-tertiary;
+
+  &:not(:first-child)::before {
+    position: absolute;
+    left: set-calc(-10);
+    display: block;
+    width: set-calc(3);
+    height: set-calc(3);
+    content: "";
+    border-radius: 50%;
+    background: $color-content-tertiary;
+  }
+}
+
+.imageWrapper {
+  overflow: hidden;
+  width: 100%;
+  height: set-calc(180);
+
+  cursor: pointer;
+
+  @include set-media(md) {
+    height: auto;
+    width: 45%;
+    min-width: 45%;
+  }
+}
+
+.image {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  color: $profession-color;
+  background: $color-palette-white-1000;
+  border-radius: set-calc(8) set-calc(8) 0 0;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .task {

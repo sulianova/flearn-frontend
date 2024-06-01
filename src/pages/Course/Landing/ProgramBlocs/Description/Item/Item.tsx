@@ -15,10 +15,10 @@ export default function Item(props: IProps) {
     <Animated.Scroll>
       {(id, className) => (
         <div className={cx({ _: true }, className)} id={id}>
-          <div className={classes.questionWrapper}>
-            <div className={classes.question + ' s-text-28'}>{props.question}</div>
+          <div className={classes.content}>
+            <div className={classes.title + ' s-text-36'}>{props.question}</div>
+            <div className={classes.desc + ' s-text-21'}>{props.answer}</div>
           </div>
-          <div className={classes.answear + ' s-text-21'}>{props.answer}</div>
         </div>
       )}
     </Animated.Scroll>

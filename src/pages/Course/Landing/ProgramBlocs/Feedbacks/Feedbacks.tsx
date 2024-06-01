@@ -22,7 +22,7 @@ function Feedbacks({ feedbacks }: IProps) {
     <div className={classes.wrapper}>
       <Animated.Scroll>
         {(id, className) => (
-          <h2 className={cx({ title: true }, className) + ' s-text-56'} id={id}>
+          <h2 className={cx({ title: true }, className) + ' s-text-70'} id={id}>
             {t(`title`)}
           </h2>
         )}

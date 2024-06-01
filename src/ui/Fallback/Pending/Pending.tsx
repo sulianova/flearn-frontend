@@ -1,4 +1,4 @@
-import Page from 'ui/Page/Page';
+import Page, { EPageVariant } from 'ui/Page/Page';
 import Spinner from 'ui/Spinner/Spinner';
 import InPageFallback from '../InPageFallback/InPageFallback';
 
@@ -18,7 +18,7 @@ export default function Pending(props: IProps) {
 
   if (fullPage) {
     return (
-      <Page header footer wrapper='Fallback'>
+      <Page variant={EPageVariant.Fallback} header footer>
         {content}
       </Page>
     );

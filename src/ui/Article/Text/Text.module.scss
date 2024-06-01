@@ -1,14 +1,12 @@
 @import 'styles/index';
 
 .text {
-  grid-column: span 3;
-  font-family: $font-family-serif;
   @include s-text-20;
-
-  padding-right: set-calc(160);
-
+  color: $color-content-primary;
+  margin: set-calc(20) 0 set-calc(16);
+  
   @include set-media(md) {
-    padding-right: 0;
+    margin: set-calc(16) 0 set-calc(8);
   }
 
   p {
@@ -19,19 +17,11 @@
     @include s-text-20;
   }
 
-  p:not(:last-child) {
-    padding-bottom: set-calc(28);
+  p {
+    margin: set-calc(20) 0 set-calc(16);
   
     @include set-media(md) {
-      padding-bottom: set-calc(16);
+      margin: set-calc(16) 0 set-calc(8);
     }
-  }
-}
-
-.text + .text {
-  padding-top: set-calc(28);
-
-  @include set-media(md) {
-    padding-top: set-calc(16);
   }
 }

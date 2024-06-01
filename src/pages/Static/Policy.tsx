@@ -1,8 +1,8 @@
-import Page from 'ui/Page/Page';
+import Page, { EPageVariant } from 'ui/Page/Page';
 
 export default function Policy() {
     return (
-        <Page header footer wrapper='Lesson'>
+        <Page variant={EPageVariant.WEB} header footer>
             <h3>Политика обработки персональных данных</h3>
             <h4>I. Общие положения</h4>
             <p>Настоящая политика обработки персональных данных составлена в соответствии с требованиями Федерального закона от 27.07.2006. №152-ФЗ «О персональных данных» и определяет порядок обработки персональных данных и меры по обеспечению безопасности персональных данных Ульянова София Романовна (далее – Оператор).</p>

@@ -6,18 +6,20 @@
   display: block;
   padding-top: set-calc(0);
   @include is-beige;
-  background-color: $color-content-background-secondary;
+  background-color: $color-palette-black-700;
+
+  @include set-media(md) {
+    border-radius: set-calc($border-radius-medium);
+  }
 }
 
 .title {
-  margin-bottom: set-calc(24);
-  padding: set-calc(16);
-  background-color: rgba(255, 255, 255, 0.12);
-  color: $color-content-inverted-primary;
-  border-radius: set-calc($border-radius-medium);
+  margin-bottom: set-calc(18);
+  color: $color-palette-white-500-a;
 
   @include set-media(md) {
-    margin-bottom: set-calc(16);
+    padding-left: set-calc(8);
+    margin-bottom: set-calc(8);
   }
 }
 

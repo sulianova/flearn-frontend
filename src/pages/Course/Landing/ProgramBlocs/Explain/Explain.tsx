@@ -25,14 +25,13 @@ function Explain({ explainMedia }: IProps) {
 
   return (
     <div className={classes.wrapper}>
-      <div className={classes.header}>
+      {/* <div className={classes.header}>
         <div className={classes.headerTitle + ' s-text-56'}>{t('headerTitle')}</div>
-      </div>
+      </div> */}
       <div className={classes.cards}>
         <div className={classes.introCard}>
-          <Animated.Scroll>
-            {(id, className) => (<div className={cx({ introCardQuote: true }, className) + ' s-text-28'} id={id}>{t('introCardQuote')}</div>)}
-          </Animated.Scroll>
+            <div className={classes.introCardQuote + ' s-text-70'}>{t('introCardQuote0')}</div>
+            <div className={classes.introCardQuote + ' s-text-70 color-content-inverted-secondary'}>{t('introCardQuote')}</div>
         </div>
         <div className={classes.videoCard}>
           <div className={classes.videoCardContainer}>
@@ -49,13 +48,13 @@ function Explain({ explainMedia }: IProps) {
             )}
           </div>
           <div className={classes.videoCardDesc}>
-            <Animated.Scroll>
-              {(id, className) => (<div className={cx({ videoCardTitle: true }, className) + ' s-text-24'} id={id}>
+            {/* <Animated.Scroll>
+              {(id, className) => (<div className={cx({ videoCardTitle: true }, className) + ' s-text-21'} id={id}>
                 {t('videoCardTitle')}
               </div>)}
-            </Animated.Scroll>
+            </Animated.Scroll> */}
             <Animated.Scroll>
-              {(id, className) => (<div className={classes.videoCardText + ' s-text-18'} id={id}>
+              {(id, className) => (<div className={classes.videoCardText + ' s-text-16'} id={id}>
                 {t('videoCardText')}
               </div>)}
               </Animated.Scroll>

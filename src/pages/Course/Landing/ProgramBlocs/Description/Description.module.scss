@@ -1,17 +1,26 @@
 @import 'styles/index';
 
 .wrapper {
-  display: block;
+  padding-top: 0;
+
+  @include set-media(md) {
+    padding-top: 0;
+  }
 }
 
-.title {
+.header {
+  position: relative;
   padding-bottom: set-calc(32);
 
   @include set-media(md) {
-    padding-bottom: set-calc(24);
+    position: relative;
+    padding-bottom: set-calc(16);
+    padding-right: set-calc(8);
+    padding-left: (set-calc(8));
   }
 }
 
 .list {
-  @include is-grid-12;
+  @include is-grid-3;
+  gap: set-calc(8);
 }

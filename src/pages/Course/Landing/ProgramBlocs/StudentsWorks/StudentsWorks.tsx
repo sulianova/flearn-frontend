@@ -21,7 +21,7 @@ function StudentsWorks({ studentsWorks }: IProps) {
   return (
     <div className={classes.__}>
       <Animated.Scroll>
-        {(id, className) => (<h2 className={cx({ title: true }, className) + ' s-text-56'} id={id}>{t('title')}</h2>)}
+        {(id, className) => (<h2 className={cx({ title: true }, className) + ' s-text-18'} id={id}>{t('title')}</h2>)}
       </Animated.Scroll>
       <div className={cx({ list: true })}>
       {studentsWorks.map(({ imageSrc, imageAlt }, index) => (

@@ -1,13 +1,13 @@
 @import 'styles/index';
 
 ._ {
-  position: absolute;
+  position: sticky;
   top: 0;
-  left: 0;
+  transition: transform 0.15s ease-in;
+  z-index: 100;
   width: 100%;
-  z-index: 1000;
 
-  @include s-text-21;
+  @include s-text-16;
 
   @include set-media(md) {
     transition: top 0.5s, transform 0.5s;
@@ -29,15 +29,18 @@
   }
 }
 
-.desc {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 100%;
+.__Hidden {
+  transform: translateY(-100%);
+}
+
+.desk {
   display: flex;
   justify-content: space-between;
-  padding: set-calc(8) set-calc($padding-x-desk-page) set-calc(16);
-  background-color: $color-background-alternate;
+  align-items: center;
+  width: 100%;
+  height: set-calc(58);
+  padding: set-calc(10) set-calc($padding-x-mob-page) set-calc(16);
+  background-color: transparent;
 
   @include is-grid-12;
   gap: 0;
@@ -53,9 +56,24 @@
   }
 }
 
+.deskPaddingWEB {
+  padding: set-calc(10) set-calc($padding-x-desk-page) set-calc(16);
+
+  @include set-media(md) {
+    padding: set-calc(8) set-calc($padding-x-mob-page) set-calc(8);
+  }
+}
+
+.deskPaddingLMS {
+  padding: set-calc(10) set-calc($padding-x-mob-page) set-calc(16);
+
+  @include set-media(md) {
+    padding: set-calc(8) set-calc($padding-x-mob-page) set-calc(8);
+  }
+}
+
 .logo {
   grid-column: span 3;
-  padding-top: set-calc(4);
 
   @include set-media(md) {
     position: relative;
@@ -69,58 +87,58 @@
   align-items: center;
   justify-content: flex-start;
   position: relative;
-  background-color: $color-content-background-secondary;
+  background-color: $color-content-background-primary;
   max-width: fit-content;
   color: $color-content-inverted-primary;
-  padding: set-calc(4) set-calc(32);
-  border-radius: set-calc(8);
+  padding: set-calc(4) set-calc(16);
+  border-radius: set-calc($border-radius-small);
+  height: set-calc(32);
 
   transition: background-color $d-hover ease;
   
   &:hover {
     cursor: pointer;
-    background-color: $color-content-background-primary;
+    background-color: $color-content-background-secondary;
     color: $color-content-inverted-primary;
   }
 
   @include set-media(md) {
-    border: set-calc(1.3) solid $color-content-background-primary;
+    border: set-calc(1.3) solid $color-content-background-secondary;
   }
 }
 
 .nav {
-  grid-column: 4/12;
+  grid-column: 4 / -1;
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding-top: set-calc(4);
+  justify-content: end;
 
   @include set-media(md) {
     display: none;
   }
 }
 
-.navItem:not(:last-child) {
-  padding-right: set-calc(24);
+.navItem:not(:first-child) {
+  margin-left: set-calc(8);
 }
 
 .navLogin {
-  grid-column: 12;
-
   display: flex;
   align-items: center;
   position: relative;
-  background-color: $color-content-background-secondary;
+  background-color: $color-content-background-primary;
   color: $color-content-inverted-primary;
   padding: set-calc(4) set-calc(16);
-  border-radius: set-calc(8);
+  border-radius: set-calc($border-radius-small);
+  width: max-content;
+  height: set-calc(32);
 
   transition: background-color $d-hover ease;
   
   &:hover {
     cursor: pointer;
-    background-color: $color-content-background-primary;
+    background-color: $color-content-background-secondary;
     color: $color-content-inverted-primary;
   }
 
@@ -128,20 +146,96 @@
     display: none;
   }
 }
+
+.navContent {
+  display: flex;
+  align-items: center;
+  position: relative;
+  background-color: $color-background-glassy-a;
+  padding: set-calc(4) set-calc(16);
+  border-radius: set-calc($border-radius-small);
+  width: max-content;
+  height: set-calc(32);
+
+  gap: set-calc(4);
+
+  transition: background-color $d-hover ease;
+  
+  &:hover {
+    cursor: default;
+    background-color: $color-background-glassy-b;
+  }
+
+  &:active {
+    background-color: $color-background-glassy-c;
+    transform: scale(0.98);
+  }
+
+  @include set-media(md) {
+    display: none;
+  }
+}
+
+.selectToggleContent {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.selectToggleIcon {
+  display: inline-flex;
+  align-items: center;
+  height: set-calc(32);
+  justify-content: center;
+
+  svg {
+    display: inline-block;
+    text-align: center;
+    width: set-calc(16);
+    height: set-calc(16);
+    background: 50% no-repeat;
+    background-size: contain;
+
+    fill: $color-content-primary;
+    opacity: 0.85;
+
+    transition: transform 200ms;
+  }
+}
+
+.selectToggleIsOpened {
+  svg {
+    transform: rotate(180deg);
+  }
+}
+
 
 .humburger {
   display: none;
 
   @include set-media(md) {
-    display: block;
     position: relative;
-    width: set-calc(44);
-    height: set-calc(44);
+    display: inline-flex;
+    justify-content: center;
 
-    background: url("./menu.svg") no-repeat;
-    background-size: contain;
+    background-color: $color-background-glassy-b;
+    -webkit-backdrop-filter: $backdrop-filter;
+    backdrop-filter: $backdrop-filter;
+    color: $color-content-primary;
+    border-radius: set-calc($border-radius-small);
+    border: $border-backdrop-filter;
+
+    padding: set-calc(6);
     opacity: 1;
-    cursor: pointer;
+
+    svg {
+      display: inline-block;
+      text-align: center;
+      background: 50% no-repeat;
+      background-size: contain;
+      width: set-calc(24);
+      height: set-calc(24);
+    }
   }
 }
 
@@ -202,7 +296,7 @@
     display: flex;
   }
 
-  .desc {
+  .desk {
     background-color: $color-background-default;
   }
 
@@ -216,9 +310,13 @@
     opacity: 1;
     background-size: contain;
     cursor: pointer;
+
+    svg {
+      display: none;
+    }
   }
 }
 
 .isActive {
-  color: $orange !important;
+  color: $blue !important;
 }

@@ -9210,8 +9210,8 @@ const lessonDataFYS4: ILessonDataDB = {
   type: 'Practice',
   week: 1,
   startDate: '2024.03.07 21:00:00 GMT',
-  endDate: '2024.03.16 20:59:00 GMT',
-  resultsEndDate: '2024.03.16 21:00:00 GMT',
+  endDate: '2024.06.16 20:59:00 GMT',
+  resultsEndDate: '2024.06.16 21:00:00 GMT',
   content: [
     {
       type: 'text',
