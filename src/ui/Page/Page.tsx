@@ -37,7 +37,6 @@ function Page({ children, variant, header = false, footer, style }: IProps) {
       {header && <Header variant={variant}/>}
       <Sidebar/>
       <div className={classes.content}>
-        <div className={classes.headerPlaceholder}></div>
           <section className={classes[`${variant}Wrapper`]}>
             {children}
           </section>

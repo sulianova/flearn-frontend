@@ -16,7 +16,7 @@
 }
 .qouteWrapper {
   padding: set-calc(32);
-  background-color: $color-background-alternate;
+  border: set-calc(1.5) solid $border-color;
   border-radius: set-calc($border-radius-medium);
 
   display: flex;

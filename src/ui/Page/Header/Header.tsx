@@ -67,11 +67,11 @@ export default function Header({ variant }: Readonly<IProps>) {
   return (
     <div className={headerClass} data-is-mobile-menu-opened={isOpened}>
       <div className={cx({ desk: true, [`deskPadding${variant}`]: true })}>
-        <div className={classes.logo}>
+        {/* <div className={classes.logo}>
           <div className={classes.logoWrapper}>
             <Link to={URLSections.Home.index}>{i18n.t('logo')}</Link>
           </div>
-        </div>
+        </div> */}
         <div className={classes.nav}>
           <Dropdown
             content={({ close }) => (
@@ -87,12 +87,12 @@ export default function Header({ variant }: Readonly<IProps>) {
               </div>
             )}
           />
-          <div className={cx({ navLogin: true, navItem: true })}>
+          {/* <div className={cx({ navLogin: true, navItem: true })}>
             {user ?
               (<Link to={URLSections.My.Profile.index}>{t('login.profile')}</Link>)
               : (<div onClick={handleLogin}>{t('login.signIn')}</div>)
             }
-          </div>
+          </div> */}
         </div>
         <div className={classes.humburger} onClick={() => setIsOpened(o => !o)}><List/></div>
         </div>

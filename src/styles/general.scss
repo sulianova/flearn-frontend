@@ -121,14 +121,6 @@ button {
   -webkit-font-smoothing: antialiased;
 }
 
-button:hover,
-div:hover,
-a:hover {
-  @include set-media(md) {
-    pointer-events: auto;
-  }
-}
-
 s {
   position: relative;
   text-decoration: none;
