@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import EditBar from './EditBar/EditBar';
 import Footer, { EFooter } from './Footer/Footer';
 import Header from './Header/Header';
-import Sidebar from 'ui/Sidebar/Sidebar';
+// import Sidebar from 'ui/Sidebar/Sidebar';
 
 import useHeightToCss from './useHeightToCss';
 
@@ -35,7 +35,7 @@ function Page({ children, variant, header = false, footer, style }: IProps) {
   return (
     <div className={classes._} ref={ref} style={style}>
       {header && <Header variant={variant}/>}
-      <Sidebar/>
+      {/* <Sidebar/> */}
       <div className={classes.content}>
           <section className={classes[`${variant}Wrapper`]}>
             {children}

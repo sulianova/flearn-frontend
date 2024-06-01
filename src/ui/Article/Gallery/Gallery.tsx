@@ -1,11 +1,12 @@
 import classnames from 'classnames/bind';
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import type { IArticleGalleryBlock } from 'types';
 import Img from 'ui/Img/Img';
 import ModalCross from 'assets/images/Svg/ModalCross';
 import ArrowButton from 'assets/images/Svg/ArrowButton';
 
 import classes from './Gallery.module.scss';
+import ImageModal from 'ui/ImageModal/ImageModal';
 const cx = classnames.bind(classes);
 
 export default Gallery;
@@ -16,57 +17,30 @@ interface IProps {
 }
 
 function Gallery(props: IProps) {
+  const [opened, setOpened] = useState(false);
   const style = props.galleryHeightPx ?
     { '--gallery-height': props.galleryHeightPx } as React.CSSProperties
     : undefined;
 
+  console.log({ opened })
+
   return (
     <>
     <div className={classes.list} style={style}>
-      {renderItems(props.data)}
-    </div>
-
-    <div className={cx({ modal: true, modalVisible: false})}>
-      <div className={classes.modalContentWrapper}>
-        <div className={cx({ modalContent: true, modalContent_AnimationEnterDone: true, modalContent_AnimationExitDone: false})}>
-          <div className={classes.imageGallery__modalContentWrapper}>
-            <div className={classes.imageGallery__modalContent}>
-              <div className={classes.modalClose}><ModalCross/></div>
-              <div>
-              <div className={classes.imageGallery__mainImageWrapper}>
-                <div className={classes.imageGallery__backwardButton}>
-                  <ArrowButton/>
-                </div>
-                  <div className={classes.imageGallery__mainImage}>
-                    <div className={classes.list} style={style}>
-                      {renderItems(props.data)}
-                    </div>
-                  </div>
-                  <div className={classes.imageGallery__forwardButton}>
-                    <ArrowButton/>
-                  </div>
-                </div>
-                {<div className={classes.imageGallery__captionWrapper}><div className={classes.imageGallery__caption + ' s-text-14'}>Привет!</div></div>}
-              </div>
-            </div>
-          </div>
+      {props.data.map((image, index) => (
+        <div key={index} className={classes.item} onClick={() => setOpened(true)}>
+          <Img src={image.src} alt={image.alt}/>
+          {/* {props.caption && <div className={cx({ itemCaption: true, overlay: true })}>{props.caption}</div>} */}
+          <div className={cx({ itemCaption: true, overlay: true })}>Привет!</div>
         </div>
-      </div>
+      ))}
     </div>
+    <ImageModal
+      visible={opened}
+      image={props.data[0]}
+      onClose={() => setOpened(false)}
+      onNext={() => {}}
+    />
   </>
-  );
-}
-
-function renderItems(props: IArticleGalleryBlock['images']) {
-  return props.map((d, index) => (<Fragment key={index}>{renderItem(d)}</Fragment>));
-}
-
-function renderItem(props: IArticleGalleryBlock['images'][number]) {
-  return (
-    <div className={classes.item}>
-      <Img src={props.src} alt={props.alt}/>
-      {/* {props.caption && <div className={cx({ itemCaption: true, overlay: true})}>{props.caption}</div>} */}
-      <div className={cx({ itemCaption: true, overlay: true})}>Привет!</div>
-    </div>
   );
 }

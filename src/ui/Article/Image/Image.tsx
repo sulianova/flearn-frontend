@@ -24,7 +24,7 @@ function Image(props: IProps) {
         {imageData.caption && <div className={classes.imageCaption}><UIText text={imageData.caption}/></div>}
       </div>
 
-      <div className={cx({ modal: true, modalVisible: false})}>
+      <div className={cx({ modal: true, modalVisible: true})}>
         <div className={classes.modalContentWrapper}>
           <div className={cx({ modalContent: true, modalContent_AnimationEnterDone: true, modalContent_AnimationExitDone: false})}>
             <div className={classes.modalClose}><ModalCross/></div>
