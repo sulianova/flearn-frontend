@@ -38,7 +38,7 @@
   flex-direction: column;
   grid-row: 1;
   grid-column: 3 / 5;
-  color: $grey-inactive;
+  color: $color-content-secondary;
 }
 
 .cover {
@@ -62,7 +62,4 @@
 
     display: block;
     object-fit: cover;
-    width: 100%;
-
-  }
-}
+    width: 10

@@ -1,4 +1,4 @@
-import { TText } from './course';
+import { ECommonErrorTypes, TStateState, TText } from 'types';
 
 export interface ILessonBlock {
   factoid?: TText | TText[]
@@ -99,3 +99,22 @@ export interface ILessonDataDB {
   }
   content: ILessonContentDB
 }
+
+export type TActionS =
+  | { type: 'updated', payload: { id: string } };
+
+export type TLessonError =
+  | ECommonErrorTypes.DataIsCorrupted
+  | ECommonErrorTypes.FailedToFindData
+  | ECommonErrorTypes.Other;
+
+export type TLessonState = TStateState<TLessonError>;
+
+interface MyError extends Error {
+  ErrorType: TLessonError
+}
+
+export type TActionBS =
+  | null
+  | { lessons: ILessonData[] }
+  | MyError;

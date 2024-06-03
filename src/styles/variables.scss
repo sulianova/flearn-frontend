@@ -16,7 +16,7 @@ $matt-white_hover: #E0E0E0;
 $matt-black: #181818;
 $matt-black_hover: #303030;
 
-//dark
+//color-palette-black
 $color-palette-black-50: #f5f5f5;
 $color-palette-black-100: #f0f0f0;
 $color-palette-black-200: #e0e0e0;
@@ -32,7 +32,7 @@ $color-palette-black-300-a: rgba(0, 0, 0, 0.25);
 $color-palette-black-500-a: rgba(0, 0, 0, 0.5);
 $color-palette-black-800-a: rgba(0, 0, 0, 0.85);
 
-//light
+//color-palette-white
 $color-palette-white-200-a: rgba(255, 255, 255, 0.12);
 $color-palette-white-300-a: rgba(255, 255, 255, 0.25);
 $color-palette-white-500-a: rgba(255, 255, 255, 0.5);
@@ -40,51 +40,57 @@ $color-palette-white-800-a: rgba(255, 255, 255, 0.75);
 $color-palette-white-900-a: rgba(255, 255, 255, 0.8);
 $color-palette-white-1000: #ffffff;
 
+//color-promo-highlight
+$color-promo-highlight-silver: #edf2f7;
+$color-promo-highlight-gold: #fff1b8;
+$color-promo-highlight-asphalt: #eaebeb;
+$color-promo-highlight-tomato: #ffdede;
+$color-promo-highlight-copper: #ffe6c4;
+$color-promo-highlight-mint: #ccf0d2;
+$color-promo-highlight-sky: #d6e9fd;
+$color-promo-highlight-neon: #ece2fc;
+
+//color-palette-blue-a
+$color-palette-blue-50-a: rgba(82,130,255,0.1);
+$color-palette-blue-100-a: rgba(82,130,255,0.16);
+$color-palette-blue-300-a: rgba(82,130,255,0.5);
+$color-palette-blue-450-a: rgba(82,130,255,0.75);
+$color-palette-blue-500-a: rgba(82,130,255,0.9);
+
+//color-palette-blue
+$color-palette-blue-50: #eef3ff;
+$color-palette-blue-100: #e3ebff;
+$color-palette-blue-450: #7da1ff;
+$color-palette-blue-550: #5282ff;
+$color-palette-blue-600: #4a71d6;
+$color-palette-blue-800: #3f5799;
+
+// $primary-lighten: #0078ff;
+// $primary-color: #0076ff;
+// $primary-color-hover: #006aeb;
+// $primary-color-underline: #609af856;
+
+$primary-lighten: #CDD9FF;
+$primary-color: #5282ff;
+$primary-color-hover: #4a71d6;
+$primary-color-underline: rgba(97, 127, 229, 0.2);
+
+//LMS
+$color-profession-lighten: #CDD9FF;
+$color-profession: #6c8eff;
+$color-profession-darken: rgba(97, 127, 229, 1);
+
+
 //gradient
 $gradient-background-red-rose: linear-gradient(90deg, #ff4e10, #ff1b17 28%, #ff0f47 53%, #ff0571 67%, #f101e5);
+$gradient-background-profession: linear-gradient(-45deg, #ece2fc, #e3ebff 28%, rgba(82,130,255,0.5) 100%, #e3ebff 67%, #ccf0d2);
+$gradient-background-profession-darken: linear-gradient(30deg, #ece2fc, #7da1ff 28%, #5282ff 53%, #7da1ff 67%, #ccf0d2);
 
 //colors
 $orange: #ff2800;
-$orange-hover: #e61e00;
-$orange-underline: rgba(255, 40, 0, 0.2);
-$blue: #0076ff;
-$blue-hover: #006aeb;
-$blue-underline: #609af856;
-$pink: #EF005D;
-$pink-hover: #e61e00;
-$pink-underline: rgba(255, 40, 0, 0.2);
-$popup-blue: #2e7cf6;
-$popup-hover-blue: #609bf8;
-$yellow: #fbbf44;
-$tooltip-bg-color: #FFF705;
-$yellow-hover: #e2a52b;
-$green: hsl(107,94%,35%);
-$green-hover: hsl(107,94%,29%);
-$violet: #8d46f6;
-$violet-hover: #6631b4;
-$violetCool: #725ef2;
-$warmGreen:  #d0f500;
-$warmGreen-hover: #bdfd55;
-$warmGreenDark: #9fbb00;
-
-//grey
-$beige: #F3F3F3;
-$beige-light: #F9F9F9;
-$beige-dark: #E7E7E7;
-$text-grey: #C4C4C4;
-$grey: #aaa;
-$grey-hover: #969696;
-$grey-inactive: #707070;
-$border: #d7d7d7;
-
-//pastel
-$keyText: #e25050;
-$pastelPink: #ffc4c4ac;
-
-//lesson
-$lighten-profession-color: #CDD9FF;
-$profession-color: #6c8eff;
-$darken-profession-color: rgba(97, 127, 229, 1);
+$orange-darken: #e61e00;
+$green: #3ab935;
+$green-darken: #379a34;
 
 //theme-light
 $color-accent-error: #f22a2a;

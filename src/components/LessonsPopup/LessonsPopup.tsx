@@ -1,24 +1,21 @@
 import Popup from 'ui/Popup/Popup';
-import classes from './LessonsPopup.module.scss';
+
 import ModalCross from 'assets/images/Svg/ModalCross';
 
-interface IProps {
+import { ILessonsData, URLSections, type ILessonData } from 'types';
+
+import classes from './LessonsPopup.module.scss';
+import Link from 'ui/Link/Link';
+import { useEffect, useState } from 'react';
+import Spinner from 'ui/Spinner/Spinner';
+import { lessonService } from 'services/lesson.service';
+import { Subscription } from 'rxjs';
+import { dataService } from 'services';
+
+type TProps = {
   courseId: string
   onClose: () => void
-}
-
-export default function LessonsPopup(props: IProps) {
-  return (
-    <Popup>
-      <div className={classes.__}>
-        <div className={classes.close} onClick={props.onClose}>
-          <ModalCross/>
-        </div>
-        <div className={classes.body}>
-          <div>Lesson 1</div>
-          <div>Lesson2</div>
-        </div>
-      </div>
-    </Popup>
-  );
-}
+} & (
+  {
+    lessons: ILessonData[]
+  } 

@@ -11,7 +11,7 @@
   justify-content: center;
   align-items: center;
 
-  background: $beige;
+  background: $color-content-tertiary;
   border-radius: set-calc(8);
   height: set-calc(320);
 
@@ -22,14 +22,14 @@
   svg {
     width: set-calc(46);
     height: set-calc(58);
-    fill: $text-grey;
+    fill: $color-content-secondary;
   }
 }
 
 .emptyPreviewDescription {
   padding-top: set-calc(16);
   text-align: center;
-  color: $text-grey;
+  color: $color-content-secondary;
 }
 
 .preview {
@@ -41,7 +41,7 @@
   margin-bottom: set-calc(10);
   overflow: hidden;
 
-  background: $beige;
+  background: $color-content-tertiary;
   border-radius: set-calc(8);
 
 
@@ -81,7 +81,7 @@
   margin-right: set-calc(8);
   overflow: hidden;
 
-  background: $beige;
+  background: $color-content-tertiary;
   border-radius: 50%;
 
   fill: $color-content-background-secondary;

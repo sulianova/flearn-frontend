@@ -1,4 +1,4 @@
-import { addImageSrc, dateDB2FR } from '../shared';
+import { addImageSrc } from '../shared';
 
 import type {
   ILessonContent,
@@ -15,9 +15,6 @@ export async function lessonDataDB2FR(lessonDB: ILessonDataDB): Promise<ILessonD
   return {
     ...lessonDB,
     content: await lessonContencDB2FR(lessonDB.content, lessonDB.courseId, lessonDB.id),
-    startDate: dateDB2FR(lessonDB.startDate),
-    endDate: dateDB2FR(lessonDB.endDate),
-    resultsEndDate: dateDB2FR(lessonDB.resultsEndDate),
   };
 }
 

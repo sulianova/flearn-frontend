@@ -24,7 +24,7 @@ export default function useCanShowResults(props: Readonly<IProps>) {
 
   const authedUser = userService.useAuthedUser();
   const [sentForReviewHomeworksCount, setSentForReviewHomeworksCount] = useState<number | null>(null);
-  const canShowResults = (lesson && lesson.resultsEndDate < new Date() && sentForReviewHomeworksCount === 0)
+  const canShowResults = (lesson && /*lesson.resultsEndDate < new Date() &&*/ sentForReviewHomeworksCount === 0)
     || authedUser?.role === 'support';
 
   useEffect(() => {
@@ -45,15 +45,9 @@ export default function useCanShowResults(props: Readonly<IProps>) {
     return () => subscription?.unsubscribe();
   }, [courseId, lessonId]);
 
-  const fallBackType = !lesson ? null:
-    lesson.resultsEndDate > new Date() ? 'beforeDeadline'
-    : addDays(lesson.resultsEndDate, 1) > new Date() ? 'deadlineDay'
-    : 'pastDeadline';
-  const fallBack = canShowResults || !fallBackType ? null : (
+  const fallBack = canShowResults ? null : (
     <Fallback.Info>
-      {t(`fallback.noResults.${fallBackType}`, {
-        resultsEndDate: formatDate(lesson!.resultsEndDate, { timeZone: 'Europe/Moscow', wWeekDay: true })
-      })}
+      {t(`fallback.noResults`)}
     </Fallback.Info>
   );
 

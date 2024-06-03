@@ -1,12 +1,16 @@
-import classes from './Sidebar.module.scss';
-import Link from 'ui/Link/Link';
-import Portfolio from 'assets/images/Svg/Portfolio';
 import { useState } from 'react';
+import { useParams } from 'react-router';
+
+import Portfolio from 'assets/images/Svg/Portfolio';
 import LessonsPopup from 'components/LessonsPopup/LessonsPopup';
+import Link from 'ui/Link/Link';
+
+import classes from './Sidebar.module.scss';
 
 export default Sidebar;
 
 function Sidebar() {
+  const { courseId, lessonId } = useParams();
   const [lessonsPopupVisible, setLessonsPopupVisible] = useState(false);
   return (
     <>
@@ -73,7 +77,4 @@ function Sidebar() {
           </ul>
         </aside>
       </div>
-      {lessonsPopupVisible && <LessonsPopup onClose={() => setLessonsPopupVisible(false)} courseId='someid'/>}
-    </>
-  );
-}
+      {courseId && lessonId && lesso

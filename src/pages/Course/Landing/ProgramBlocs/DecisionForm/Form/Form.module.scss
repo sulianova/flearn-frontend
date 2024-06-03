@@ -58,11 +58,12 @@
 
 .isError {
   color: $color-content-inverted-primary;
-  background-color: $yellow;
-  transition: background-color $d-hover ease-in-out, color ease-in-out $d-hover;
+  background-color: $color-accent-warning;
+  opacity: 1;
+  transition: opacity $d-hover ease-in-out, color ease-in-out $d-hover;
 
   &:hover {
-    background-color: $yellow-hover;
+    opacity: 0.8;
   }
 }
 

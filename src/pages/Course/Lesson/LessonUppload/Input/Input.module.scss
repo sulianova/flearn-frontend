@@ -26,7 +26,7 @@
     width: set-calc(210);
     margin-right: set-calc(4);
 
-    color: $grey-inactive;
+    color: $color-content-secondary;
 
     @include set-media(md) {
       display: none;
@@ -56,6 +56,4 @@
 
     @include set-media(md) {
       @include set-typography(16, 22, 500);
-    }
-  }
-}
+ 

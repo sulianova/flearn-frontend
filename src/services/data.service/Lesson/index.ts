@@ -1,13 +1,16 @@
-import { authService, firebaseService } from 'services';
+import { TWhereProps, authService, firebaseService } from 'services';
 import type { IAccessData } from 'services/data.service/Access';
 
 import { lessonConverter } from './lessonConverter';
 
 import { ECollections, ECommonErrorTypes } from 'types';
 import type { ILessonData, ILessonDataDB } from 'types';
+import { isDefined } from 'utils';
 
 interface ILessonsFilter {
-    courseId: string
+  courseId: string
+  lessonId?: string
+  topic?: string
 }
 
 class Lesson {
@@ -36,7 +39,13 @@ class Lesson {
       throw new Error(ECommonErrorTypes.Restricted);
     }
 
-    const lessonsDataDB = (await firebaseService.getDocs(ECollections.Lesson, [{ param: 'courseId', value: filter.courseId }]))
+    const queryConstraints: (TWhereProps[number] | undefined)[] = [
+      { param: 'courseId', value: filter.courseId },
+      filter.lessonId ? { param: 'lessonId', value: filter.lessonId } : undefined,
+      filter.topic ? { param: 'topic', value: filter.topic } : undefined,
+    ];
+    const lessonsDataDB =
+      (await firebaseService.getDocs(ECollections.Lesson, queryConstraints.filter(isDefined)))
       .map(d => d.data) as ILessonDataDB[];
     // TODO add check for restricted access for each lesson
     const lessonsData = await Promise.all(lessonsDataDB.map(lessonDataDB => lessonConverter.fromFirestore(lessonDataDB)));

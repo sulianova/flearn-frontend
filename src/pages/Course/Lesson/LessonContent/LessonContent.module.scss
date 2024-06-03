@@ -89,12 +89,12 @@
   height: set-calc(24);
 
   path {
-    fill: $grey-inactive;
+    fill: $color-content-secondary;
   }
 }
 
 .editTitle {
-  color: $grey-inactive;
+  color: $color-content-secondary;
 }
 
 .uploadBtnWrapper {
@@ -138,5 +138,5 @@
 
 .uploadBtnCaption {
   text-align: center;
-  color: $grey;
+  color: $color-content-secondary;
 }

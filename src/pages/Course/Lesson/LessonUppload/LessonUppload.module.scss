@@ -61,8 +61,6 @@
   color: $color-accent-error;
   white-space: pre-line;
   text-align: center;
-
-  background-color: $pastelPink;
 }
 
 .submit {
@@ -121,7 +119,7 @@
 
 .submitDescription {
   margin-top: set-calc(8);
-  color: $grey;
+  color: $color-content-secondary;
 
   @include set-media(md) {
     width: 100%;
@@ -236,17 +234,17 @@
   margin-bottom: set-calc(20);
   border-radius: set-calc(20);
 
-  background-color: $beige;
+  background-color: $color-content-tertiary;
 
-  color: $grey;
+  color: $color-content-secondary;
   text-align: center;
 
   transition: background-color $d-hover ease-in-out, color ease-in-out $d-hover;
 }
 
 .filesEmpty:hover {
-  background-color: $beige-dark;
-  color: $grey-inactive;
+  background-color: $color-content-tertiary;
+  color: $color-content-secondary;
   cursor: pointer;
 }
 
@@ -256,7 +254,4 @@
   margin-bottom: set-calc(8);
 
   path {
-    stroke: $grey-inactive;
-    stroke-width: 3;
-  }
-}
+    stroke:

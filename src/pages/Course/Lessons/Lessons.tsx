@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router';
 
@@ -13,13 +13,12 @@ import { IFetchCoursePayload, IFetchLessonsPayload, fetchCourse, fetchLessons } 
 
 import useFallback from './useFallback';
 
-import Link from 'ui/Link/Link';
 import Page, { EPageVariant } from 'ui/Page/Page';
 import classesHeader from './LessonsHeader.module.scss';
 import classesList from './LessonsList.module.scss';
 
-import { URLSections } from 'types';
 import type { ICourseState, ILessonsState, IRootState, ILessonsData } from 'types';
+import LessonsPopup from 'components/LessonsPopup/LessonsPopup';
 
 export default connect(mapStateToProps)(Lessons);
 
@@ -35,6 +34,12 @@ function mapStateToProps(state: IRootState): IConnectedProps {
   };
 }
 
+interface IGroup {
+  topic: string
+  topicOrder: number
+  lessons: ILessonsData[]
+}
+
 const t = formatI18nT('courseLessons');
 
 function Lessons({ courseState, lessonsState }: IConnectedProps) {
@@ -43,11 +48,8 @@ function Lessons({ courseState, lessonsState }: IConnectedProps) {
 
   const authedUser = userService.useAuthedUser();
   const authedUserId = authedUser?.id;
-  const minStartDate = (lessonsState.lessons ?? [])
-    .reduce(
-      ( minDate, l) => minDate < l.lesson.startDate ? minDate : l.lesson.startDate
-      , lessonsState.lessons?.[0]?.lesson?.startDate
-    );
+
+  const [openedTopic, setOpenedTopic] = useState<string | null>(null);
 
   useEffect(() => {
     refetch();
@@ -101,29 +103,30 @@ function Lessons({ courseState, lessonsState }: IConnectedProps) {
       return lessons;
     }
 
-    return lessons.filter(l => l.lesson.startDate < new Date());
+    return lessons;
   }, [lessons, authedUser]);
 
   const groupes: IGroup[] = useMemo(() => {
+    const getKey = (topic: string, topicOrder: number) => `${topic}-${topicOrder}`;
     return [...filteredLessons
       .reduce((acc, lessonData) => {
-        if (!acc.has(lessonData.lesson.week)) {
-          acc.set(lessonData.lesson.week, {
-            week: lessonData.lesson.week,
-            startDate: lessonData.lesson.startDate,
-            endDate: lessonData.lesson.endDate,
+        const key = getKey(lessonData.lesson.topic, lessonData.lesson.topicOrder);
+        if (!acc.has(key)) {
+          acc.set(key, {
+            topic: lessonData.lesson.topic,
+            topicOrder: lessonData.lesson.topicOrder,
             lessons: [lessonData],
           })
         } else {
-          const group = acc.get(lessonData.lesson.week)!;
+          const group = acc.get(key)!;
           group.lessons.push(lessonData);
-          group.lessons.sort((a, b) => a.lesson.orderInWeek - b.lesson.orderInWeek);
+          group.lessons.sort((a, b) => a.lesson.orderInTopic - b.lesson.orderInTopic);
         }
 
         return acc;
-      }, new Map() as Map<number, { lessons: ILessonsState['lessons'], week: number, startDate: Date, endDate: Date }>)
+      }, new Map() as Map<string, IGroup>)
       .values()]
-      .sort((a, b) => a.week - b.week);
+      .sort((a, b) => a.topicOrder - b.topicOrder);
 
   }, [filteredLessons]);
 
@@ -133,70 +136,52 @@ function Lessons({ courseState, lessonsState }: IConnectedProps) {
   }
 
   return (
-  <Page variant={EPageVariant.LMS} header footer>
-    <div className={classesHeader.title + ' s-text-28'}>{courseState.data.title}</div>
-    {filteredLessons.length ? (
-      <div className={classesList.wrapper}>
-        {renderGroups(groupes)}
-      </div>
-    ) : (
-      <div>{t(`courseNotStartedYet.${courseState.data.type}`, { minStartDate: formatDate(minStartDate, { timeZone: 'Europe/Moscow' }) })}</div>
-    )}
-  </Page>);
-}
-
-interface IGroup {
-  lessons: ILessonsData[]
-  week: number
-  startDate: Date
-  endDate: Date
-}
-
-function renderGroups(groups: IGroup[]) {
-  return groups.map(g => (<Fragment key={g.week}>{renderGroup(g)}</Fragment>));
-}
-
-function renderGroup(props: IGroup) {
-  return (
     <>
-      {renderItems(props.lessons)}
+      <Page variant={EPageVariant.LMS} header footer>
+        <div className={classesHeader.title + ' s-text-28'}>{courseState.data.title}</div>
+        {filteredLessons.length ? (
+          <div className={classesList.wrapper}>
+              {groupes.map((group, index) => {
+                const totalDurationMinutes = group.lessons.reduce((acc, l) => acc + durationToMinutes(l.lesson.duration), 0);
+                return (
+                  <div className={classesList.itemWrapper} onClick={() => setOpenedTopic(group.topic)}>
+                    <div key={index} className={classesList.item}>
+                      <div className={classesList.imageWrapper}/>
+                      <div className={classesList.itemBody}>
+                        <div className={classesList.itemBodyContainer}>
+                          <div className={classesList.titleContainer}>
+                            <h2 className={classesList.title + ' s-text-21'}>
+                              {group.topic}
+                            </h2>
+                          </div>
+                        </div>
+                        <div className={classesList.info}>
+                          <div className={classesList.infoMain}>
+                            <span className={classesList.infoItem + ' s-text-18'}>{`${group.lessons.length} урока`}</span>
+                            <span className={classesList.infoItem + ' s-text-18'}>{`≈ ${Math.round(totalDurationMinutes / 6) / 10} ч  `}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+          </div>
+        ) : (
+          <div>{t(`courseNotStartedYet.${courseState.data.type}`, { minStartDate: formatDate(courseState.data.startDate, { timeZone: 'Europe/Moscow' }) })}</div>
+        )}
+      </Page>
+      {openedTopic && courseId && (
+        <LessonsPopup
+          courseId={courseId}
+          lessons={groupes.find(g => g.topic === openedTopic)!.lessons.map(l => l.lesson)}
+          onClose={() => setOpenedTopic(null)}
+        />
+      )}
     </>
   );
 }
 
-function renderItems(props: ILessonsData[]) {
-  return props.map(l => (<div className={classesList.itemWrapper} key={l.lesson.id}>{renderItem(l)}</div>));
-}
-
-function renderItem(lesson: ILessonsData) {
-    return (
-      <Link 
-        className={classesList.item}
-        to={URLSections.Course.Lesson.to({ courseId: lesson.lesson.courseId, lessonId: lesson.lesson.id })}
-      >
-        <div className={classesList.imageWrapper}></div>
-        <div className={classesList.itemBody}>
-          <div className={classesList.itemBodyContainer}>
-            <div className={classesList.titleContainer}>
-              <h2 className={classesList.title + ' s-text-21'}>
-                {lesson.lesson.title}
-              </h2>
-            </div>
-          </div>
-          <div className={classesList.info}>
-            <div className={classesList.infoMain}>
-              <span className={classesList.infoItem + ' s-text-18'}>4 урока</span>
-              <span className={classesList.infoItem + ' s-text-18'}>≈ 2 ч  </span>
-            </div>
-          </div>
-        </div>
-      </Link>
-    );
-}
-
-function formatWeekDate(startDate: Date, endDate: Date) {
-  const startDateStr = formatDate(startDate, { timeZone: 'Europe/Moscow' });
-  const endDateStr = formatDate(endDate, { timeZone: 'Europe/Moscow' });
-
-  return `${startDateStr} – ${endDateStr}`;
+function durationToMinutes(duration: { unit: 'minutes' | 'hours', value: number }) {
+  return (duration.unit === 'hours' ? 60 : 1) * duration.value;
 }

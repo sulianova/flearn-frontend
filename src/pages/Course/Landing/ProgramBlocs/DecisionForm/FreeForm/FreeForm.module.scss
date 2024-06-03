@@ -19,21 +19,22 @@
 
   color: $color-content-inverted-primary;
 
-  background-color: $green;
-  border-radius: set-calc(20);
+  background-color: $color-accent-success;
+  border-radius: set-calc($border-radius-medium);
+  opacity: 1;
   cursor: pointer;
   pointer-events: all;
 
-  transition: background-color $d-hover ease-in-out, color ease-in-out $d-hover;
+  transition: opacity $d-hover ease-in-out, color ease-in-out $d-hover;
 
   &:hover {
-    background-color: $green-hover;
+    opacity: 0.8;
   }
 
   @include set-media(md) {
     padding: set-calc(15) 0;
     margin-bottom: set-calc(24);
 
-    border-radius: set-calc(15);
+    border-radius: set-calc($border-radius-medium);
   }
 }

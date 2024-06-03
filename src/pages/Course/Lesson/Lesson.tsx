@@ -40,7 +40,6 @@ interface IProps extends IConnectedProps {
 
 function Lesson(props: IProps) {
   const { lessonState, section } = props;
-  const now = new Date();
 
   const { courseId, lessonId } = useParams();
   const [scrollToUpload, setScrollToUpload] = useState<boolean>(false);
@@ -63,7 +62,7 @@ function Lesson(props: IProps) {
   const homeworkFallback = useHomeworkFallback(homeworkState);
   const { canShowResults, fallBack: resultsFallback } = useCanShowResults({ courseId, lessonId, lesson: lessonState.data })
 
-  if (!lessonState.data || (authedUser?.role !== 'support' && lessonState.data.startDate > now)) {
+  if (!lessonState.data) {
     return fallback;
   }
 
@@ -97,7 +96,7 @@ function Lesson(props: IProps) {
             canShowResults={canShowResults}
           />)
         }
-        {section === 'task' && lessonState.data.endDate > now && homework?.homework?.state === 'DRAFT' &&
+        {section === 'task' && homework?.homework?.state === 'DRAFT' &&
           <LessonUppload
             homeworkWPopulate={homework}
             scroll={scrollToUpload}
@@ -107,5 +106,6 @@ function Lesson(props: IProps) {
         {section === 'results' && canShowResults && <LessonWorks/>}
         {section === 'my-work' && <MyWork homework={homework!}/>}
       </div>
-    </Page>);
+    </Page>
+  );
 }

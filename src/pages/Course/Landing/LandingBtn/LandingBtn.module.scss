@@ -30,7 +30,7 @@
   align-items: center;
   justify-content: center;
 
-  background-color: $blue;
+  background-color: $primary-color;
   -webkit-backdrop-filter: $backdrop-filter;
   backdrop-filter: $backdrop-filter;
   color: $color-palette-white-1000;
@@ -38,6 +38,4 @@
   border: $border-backdrop-filter;
 
   border-radius: set-calc($border-radius-large);
-  cursor: pointer;
-
-}
+  cursor: po

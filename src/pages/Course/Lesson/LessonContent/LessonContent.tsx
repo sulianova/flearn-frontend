@@ -35,8 +35,6 @@ function LessonContent(props: IProps) {
         <Uppload
           courseId={props.courseId}
           lessonId={props.lessonId}
-          endDate={props.data.endDate}
-          resultsEndDate={props.data.resultsEndDate}
           homework={props.homework}
           scrollToUpload={props.scrollToUpload}
           canShowResults={props.canShowResults}
@@ -50,15 +48,13 @@ function LessonContent(props: IProps) {
 interface IUpploadProps {
   courseId: string
   lessonId: string
-  endDate: Date
-  resultsEndDate: Date
   homework?: IHomeworkDataWPopulate
   scrollToUpload: () => void
   canShowResults: boolean
 }
 
 function Uppload(props: IUpploadProps) {
-  const { courseId, lessonId, endDate, resultsEndDate, homework } = props;
+  const { courseId, lessonId, homework } = props;
   return (
     <Fragment>
       {/* <div className={classes.uploadDeadline}>
@@ -79,7 +75,7 @@ function Uppload(props: IUpploadProps) {
             >
               {homework.populate?.user?.displayName}
             </Link>
-            {endDate > new Date() && (
+            {(
               <button
                 className={classes.edit}
                 onClick={() =>

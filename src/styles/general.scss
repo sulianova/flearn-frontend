@@ -132,11 +132,11 @@ s {
   cursor: pointer;
 
   &:hover {
-    color: $blue;
+    color: $primary-color;
   }
 
   &:active {
-    color: $blue;
+    color: $primary-color;
   }
 
   &-text {
@@ -174,20 +174,20 @@ s {
   transition-duration: $d-hover;
 
   &:hover {
-    color: $blue;
+    color: $primary-color;
   }
 }
 
 .key-link {
-  background-image: linear-gradient(to bottom, $blue-underline 0, $blue-underline 100%);
+  background-image: linear-gradient(to bottom, $primary-color-underline 0, $primary-color-underline 100%);
   background-position: 0 90%;
   background-repeat: repeat-x;
   background-size: set-calc(1) set-calc(1);
-  color: $blue;
+  color: $primary-color;
   width: fit-content;
 
   &:hover {
-    background-image: linear-gradient(to bottom, $blue 0, $blue 100%);
+    background-image: linear-gradient(to bottom, $primary-color 0, $primary-color 100%);
     background-position: 0 90%;
     background-repeat: repeat-x;
     background-size: set-calc(1) set-calc(1);
@@ -203,11 +203,11 @@ s {
   width: fit-content;
 
   &:hover {
-    background-image: linear-gradient(to bottom, $blue 0, $blue 100%);
+    background-image: linear-gradient(to bottom, $primary-color 0, $primary-color 100%);
     background-position: 0 90%;
     background-repeat: repeat-x;
     background-size: set-calc(1) set-calc(1);
-    color: $blue;
+    color: $primary-color;
   }
 
   &:visited {
@@ -219,11 +219,11 @@ s {
     width: fit-content;
   
     &:hover {
-      background-image: linear-gradient(to bottom, $blue 0, $blue 100%);
+      background-image: linear-gradient(to bottom, $primary-color 0, $primary-color 100%);
       background-position: 0 90%;
       background-repeat: repeat-x;
       background-size: set-calc(1) set-calc(1);
-      color: $blue;
+      color: $primary-color;
     }
   }
 }
@@ -233,11 +233,11 @@ s {
   cursor: pointer;
 
   &:hover {
-    color: $blue;
+    color: $primary-color;
   }
 
   &:active {
-    color: $blue;
+    color: $primary-color;
   }
 
   &-text {
@@ -270,5 +270,5 @@ s {
 }
 
 .isActive {
-  color: $blue !important;
+  color: $primary-color !important;
 }

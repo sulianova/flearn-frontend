@@ -151,7 +151,7 @@
 
   border-radius: set-calc($border-radius-small);
   transition: opacity .2s ease, box-shadow .2s, color .2s;;
-  background-color: $blue;
+  background-color: $primary-color;
 
   padding: set-calc(16) set-calc(48);
   width: 100%;
@@ -176,18 +176,6 @@
 }
 
 .cover {
-  // grid-column: span 2;
-  // position: relative;
-
-  // overflow: hidden;
-  // border-radius: set-calc($border-radius-medium);
-  // aspect-ratio: 1 / 1;
-
-  // @include set-media(md) {
-  //   width: 100%;
-  //   height: 100%;
-  //   padding-left: 0;
-  // }
   position: absolute;
   top: 0;
   left: 0;

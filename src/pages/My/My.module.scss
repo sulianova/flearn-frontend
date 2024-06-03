@@ -48,9 +48,8 @@
 }
 
 .isActive {
-  color: $blue !important;
+  color: $primary-color !important;
 
   cursor: default;
 
-  pointer-events: none;
-}
+  pointer-events
