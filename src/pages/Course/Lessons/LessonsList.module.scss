@@ -34,7 +34,8 @@
   border-radius: set-calc(8);
 
   box-sizing: border-box;
-  background: $color-background-default;
+  background: $color-content-inverted-secondary;
+  border: set-calc(1.5) solid $color-background-default;
   text-align: left;
 
   @include set-media(md) {

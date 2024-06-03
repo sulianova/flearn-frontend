@@ -6,6 +6,7 @@
 
 .title {
   padding-bottom: set-calc(32);
+  padding-left: set-calc(16);
 
   @include set-media(md) {
     padding-bottom: set-calc(16);

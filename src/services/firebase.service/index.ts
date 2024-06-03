@@ -1,7 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getAnalytics, type Analytics, logEvent, type AnalyticsCallOptions } from "firebase/analytics";
 import { collection, doc as getDocRef, getDoc, getDocs, getFirestore, setDoc, query, where, FieldPath } from 'firebase/firestore';
-import { deleteObject, getStorage, ref as getStorageRef, getDownloadURL, uploadBytes } from 'firebase/storage';
+import { deleteObject, getStorage, ref as getStorageRef, getDownloadURL, getBytes, getBlob, uploadBytes } from 'firebase/storage';
 import { getFirebaseConfig } from './firebase.config';
 
 import { ECollections } from 'types';
@@ -111,7 +111,19 @@ export class FirebaseService {
       return url;
     } catch(e) {
         // tslint:disable-next-line
-        console.error('Failed to get image from storage', { props, e });
+        console.error('Failed to get image URL from storage', { props, e });
+    }
+  }
+
+  public async getImage(props: { path: string }) {
+    try {
+      const ref = getStorageRef(this._storage, props.path);
+      return await getBlob(ref);
+      // return new Blob([arrayBuffer]);
+    } catch(err) {
+        // tslint:disable-next-line
+        console.error('Failed to get image from storage', { props, err });
+        throw new Error('Failed to get image from storage');
     }
   }
 
@@ -121,8 +133,8 @@ export class FirebaseService {
       return await getDownloadURL(ref);;
     } catch(err) {
         // tslint:disable-next-line
-        console.error('Failed to get image from storage', { props, err });
-        throw new Error('Failed to get image from storage');
+        console.error('Failed to get image URL from storage', { props, err });
+        throw new Error('Failed to get image URL from storage');
     }
   }
 

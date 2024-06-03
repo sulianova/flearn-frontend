@@ -1,0 +1,68 @@
+@import 'styles/index';
+
+.modal {
+  z-index: 1001;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  visibility: visible;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: background-color $modal-animation-duration ease-in-out;
+  background-color: transparent;
+}
+
+.modal_Animation {
+  background-color: $color-background-overlay;
+}
+
+.modalContentWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modalContent {
+  position: relative;
+  margin: set-calc(10);
+
+  color: $color-content-primary;
+  background-color: $color-background-default;
+  border-radius: set-calc($border-radius-8);
+  box-shadow: $shadow-popup;
+
+
+}
+
+.modalContent_Animation {
+}
+
+.modalClose {
+  z-index: 1;
+  position: absolute;
+  top: set-calc(36);
+  right: set-calc(36);
+  display: inline-block;
+  text-align: center;
+  background: 50% no-repeat;
+  background-size: contain;
+  cursor: pointer;
+  opacity: .7;
+  color: $color-palette-white-1000;
+  
+  svg {
+    width: set-calc(33);
+    height: set-calc(33);
+    fill: none;
+  }
+}
+
+.modalClose:hover {
+  opacity: 1;
+}

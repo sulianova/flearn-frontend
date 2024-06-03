@@ -185,7 +185,7 @@ function renderItem(lesson: ILessonsData) {
           </div>
           <div className={classesList.info}>
             <div className={classesList.infoMain}>
-              <span className={classesList.infoItem + ' s-text-18'}>4 темы</span>
+              <span className={classesList.infoItem + ' s-text-18'}>4 урока</span>
               <span className={classesList.infoItem + ' s-text-18'}>≈ 2 ч  </span>
             </div>
           </div>

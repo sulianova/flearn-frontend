@@ -1,4 +1,5 @@
 import classnames from 'classnames/bind';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 import type { TText } from 'types';
@@ -6,73 +7,172 @@ import type { TText } from 'types';
 import ModalCross from 'assets/images/Svg/ModalCross';
 import ArrowButton from 'assets/images/Svg/ArrowButton';
 import Img from 'ui/Img/Img';
+import Text from 'ui/Text/Text';
 
 import classes from './ImageModal.module.scss';
-import { useState } from 'react';
 
 const cx = classnames.bind(classes);
 
 export default ImageModal;
 
-// const modalAnimationDuration = 3_000;
+const MODAL_ANIMATION_DURATION = 200;
+const GALLERY_IMAGE_MAX_WIDTH_VW = 70;
+const GALLERY_IMAGE_MAX_HEIGHT_VH = 66;
+const IMAGE_IMAGE_MIN_PADDING_SCALED = 40;
 
-interface IProps {
-  visible: boolean
-  image: {
+export interface IImage {
+  data: {
     src: string
     alt: string
     caption?: TText | TText[]
   }
+  originalSize: {
+    height: number
+    width: number
+  }
+  originalPositioning: {
+    top: number
+    left: number
+  }
+}
+
+interface IProps {
+  image: IImage
+  variant: 'IMAGE' | 'GALLERY'
   onClose: () => void
   onNext?: () => void
   onPrev?: () => void
 }
 
-function ImageModal({ visible, image, onClose, onNext, onPrev }: Readonly<IProps>) {
-  const [state, setState] = useState<'OPENED' | 'CLOSING'>('OPENED');
-  console.log('ImageModal')
+function ImageModal({ variant, image, onClose, onNext, onPrev }: Readonly<IProps>) {
+  const [state, setState] = useState<null | 'OPENING' | 'OPENED' | 'CLOSING' | 'SWITCHING_FROM' | 'SWITCHING_TO'>(null);
+
+  useEffect(() => {
+    setState('OPENING');
+    setTimeout(() => setState('OPENED'), MODAL_ANIMATION_DURATION);
+  }, []);
+
+  const close = useCallback(() => {
+    setState('CLOSING');
+    setTimeout(onClose, MODAL_ANIMATION_DURATION);
+  }, []);
+
+  const style = useMemo(() => {
+    const IMAGE_IMAGE_MIN_PADDING = IMAGE_IMAGE_MIN_PADDING_SCALED * (window.innerWidth / 1600);
+    const imageImageMaxHeight = window.innerHeight - 2 * IMAGE_IMAGE_MIN_PADDING;
+    const imageImageMaxWidth = window.innerWidth - 2 * IMAGE_IMAGE_MIN_PADDING;
+  
+    const imageRation = image.originalSize.height / image.originalSize.width;
+    const imageBoxMaxHeight = variant === 'IMAGE' ? imageImageMaxHeight : GALLERY_IMAGE_MAX_HEIGHT_VH * window.innerHeight / 100;
+    const imageBoxMaxWidth = variant === 'IMAGE' ? imageImageMaxWidth : GALLERY_IMAGE_MAX_WIDTH_VW * window.innerWidth / 100;
+    const imageBoxRatio = imageBoxMaxHeight / imageBoxMaxWidth;
+    const originalScale = imageRation > imageBoxRatio
+      ? image.originalSize.height / imageBoxMaxHeight
+      : image.originalSize.width / imageBoxMaxWidth;
+    const top2 = variant === 'IMAGE' ?
+      (imageRation > imageBoxRatio
+        ? IMAGE_IMAGE_MIN_PADDING
+        : (window.innerHeight - image.originalSize.height / originalScale) / 2
+      ) : (
+        imageRation > imageBoxRatio
+        ? originalScale * (window.innerHeight - imageBoxMaxHeight) / 2
+        : originalScale * (window.innerHeight - image.originalSize.height / originalScale) / 2
+      );
+    const left2 = variant === 'IMAGE' ?
+      (imageRation > imageBoxRatio
+        ? (window.innerWidth - image.originalSize.width / originalScale) / 2
+        : IMAGE_IMAGE_MIN_PADDING
+      ) : (
+        imageRation > imageBoxRatio
+        ? originalScale * (window.innerWidth - image.originalSize.width / originalScale) / 2
+        : originalScale * (window.innerWidth - imageBoxMaxWidth) / 2
+      );
+    const y = image.originalPositioning.top - top2;
+    const x = image.originalPositioning.left - left2;
+
+    return {
+      '--image-image-min-padding-scaled': IMAGE_IMAGE_MIN_PADDING_SCALED,
+      '--gallery-image-max-height': `${GALLERY_IMAGE_MAX_HEIGHT_VH}vh`,
+      '--gallery-image-max-width': `${GALLERY_IMAGE_MAX_WIDTH_VW}vw`,
+      '--original-translate-y': `${y}px`,
+      '--original-translate-x': `${x}px`,
+      '--original-scale': `${originalScale}`,
+    } as React.CSSProperties;
+  }, []);
+
+  const content = variant === 'IMAGE' ? (
+    <>
+      {<Img src={image.data.src} alt={image.data.alt} lazy={false}/>}
+      {image.data.caption && <div className={classes.modalCaptionWrapper}><div className={classes.modalCaption + ' s-text-14'}><Text text={image.data.caption}/></div></div>}
+    </>
+  ) : (
+      <div className={classes.imageGallery__modalContentWrapper}>
+        <div className={classes.imageGallery__modalContent}>
+        <div>
+          <div className={classes.imageGallery__mainImageWrapper}>
+            {onPrev && (
+              <div
+                className={classes.imageGallery__backwardButton}
+                onClick={() => {
+                  setState('SWITCHING_FROM');
+                  setTimeout(() => {
+                    setState('SWITCHING_TO');
+                    onPrev();
+
+                    setTimeout(() => {
+                      setState('OPENED');
+                    }, 250);
+                  }, 250);
+                }}
+              >
+                <ArrowButton/>
+              </div>
+            )}
+              <Img className={cx({ imageGallery__mainImage: true, fade: state === 'SWITCHING_FROM' })} src={image.data.src} alt={image.data.alt}/>
+            {onNext && (
+              <div
+                className={classes.imageGallery__forwardButton}
+                onClick={() => {
+                  setState('SWITCHING_FROM');
+                  setTimeout(() => {
+                    setState('SWITCHING_TO');
+                    onNext();
+
+                    setTimeout(() => {
+                      setState('OPENED');
+                    }, 250);
+                  }, 250);
+                }}
+              >
+                <ArrowButton/>
+              </div>
+            )}
+          </div>
+            {image.data.caption && <div className={classes.modalCaptionWrapper}><div className={classes.modalCaption + ' s-text-16'}><Text text={image.data.caption}/></div></div>}
+          </div>
+        </div>
+      </div>
+  );
+
+  const openCloseAnimation = state != null && state != 'CLOSING';
+
   return createPortal(
     (
-      <div className={cx({ modal: true, modalVisible: visible })}>
+      <div
+        data-variant={variant}
+        className={cx({ modal: true, modal_Animation: openCloseAnimation })}
+        style={style}
+      >
+        <div className={classes.modalClose} onClick={close}>
+          <ModalCross/>
+        </div>
         <div className={classes.modalContentWrapper}>
-          <div className={cx({ modalContent: true, modalContent_AnimationEnterDone: state === 'OPENED', modalContent_AnimationExitDone: state === 'OPENED' })}>
-            <div className={classes.imageGallery__modalContentWrapper}>
-              <div className={classes.imageGallery__modalContent}>
-                <div
-                  className={classes.modalClose}
-                  onClick={() => {
-                    setState('CLOSING');
-                    onClose();
-                  }}
-                >
-                  <ModalCross/>
-                </div>
-                <div>
-                <div className={classes.imageGallery__mainImageWrapper}>
-                  {onPrev && (
-                    <div className={classes.imageGallery__backwardButton} onClick={onPrev}>
-                      <ArrowButton/>
-                    </div>
-                  )}
-                  <div className={classes.imageGallery__mainImage}>
-                    <Img src={image.src} alt={image.alt}/>
-                    {/* {props.caption && <div className={cx({ itemCaption: true, overlay: true})}>{image.caption}</div>} */}
-                    <div className={cx({ itemCaption: true, overlay: true})}>Привет!</div>
-                  </div>
-                  {onNext && (
-                    <div className={classes.imageGallery__forwardButton} onClick={onNext}>
-                      <ArrowButton/>
-                    </div>
-                  )}
-                  </div>
-                  {<div className={classes.imageGallery__captionWrapper}><div className={classes.imageGallery__caption + ' s-text-14'}>Привет!</div></div>}
-                </div>
-              </div>
-            </div>
+          <div className={cx({ modalContent: true, modalContent_Animation: openCloseAnimation })}>
+            {content}
           </div>
         </div>
       </div>
     ),
-    document.body
+  document.body
   );
 }

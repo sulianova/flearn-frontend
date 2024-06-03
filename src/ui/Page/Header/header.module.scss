@@ -1,6 +1,6 @@
 @import 'styles/index';
 
-._ {
+.__ {
   position: sticky;
   top: 0;
   transition: transform 0.15s ease-in;
@@ -40,6 +40,7 @@
   height: set-calc(58);
   padding: set-calc(10) set-calc($padding-x-mob-page) set-calc(16);
   background-color: transparent;
+  transition: transform 0.15s ease-in;
 
   @include is-grid-12;
   gap: 0;
@@ -63,7 +64,7 @@
   padding: set-calc(10) set-calc($padding-x-desk-page) set-calc(16);
 
   @include set-media(md) {
-    padding: set-calc(8) set-calc($padding-x-mob-page) set-calc(8);
+    padding: set-calc(8) set-calc($padding-xs-mob-page) set-calc(8);
   }
 }
 
@@ -154,7 +155,8 @@
   display: flex;
   align-items: center;
   position: relative;
-  background-color: $color-background-default;
+  background: $color-content-inverted-secondary;
+  border: set-calc(1.2) solid $color-background-default;
   padding: set-calc(4) set-calc(16);
   border-radius: set-calc($border-radius-small);
   width: max-content;
@@ -221,12 +223,13 @@
     display: inline-flex;
     justify-content: center;
 
-    background-color: $color-background-glassy-b;
-    -webkit-backdrop-filter: $backdrop-filter;
-    backdrop-filter: $backdrop-filter;
+    background: $color-palette-white-800-a;
+    border: set-calc(0.8) solid $color-background-default;
+    -webkit-backdrop-filter: blur($backdrop-filter);
+    backdrop-filter: blur($backdrop-filter);
     color: $color-content-primary;
     border-radius: set-calc($border-radius-small);
-    border: $border-backdrop-filter;
+    transition: transform 0.15s ease-in;
 
     padding: set-calc(6);
     opacity: 1;
@@ -240,6 +243,18 @@
       height: set-calc(24);
     }
   }
+}
+
+.__Hidden {
+  transform: translateY(-100%);
+
+    @include set-media(md) {
+      transform: none;
+
+      .desk {
+        transform: translateY(-100%);
+      }
+    }
 }
 
 .mob {

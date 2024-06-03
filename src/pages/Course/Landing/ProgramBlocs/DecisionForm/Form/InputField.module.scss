@@ -44,19 +44,19 @@
   }
 }
 
-.dark {
-  color: $color-palette-white-1000;
-  background: hsla(0,0%,100%,.05);
-  border: set-calc(1) solid hsla(0,0%,100%,.1);
-}
-
 .light {
-  background: hsla(0,0%,100%,.4);
+  background: $color-content-inverted-secondary;
   border: set-calc(1) solid $color-background-stroke;
 
   @include set-media(md) {
     border: set-calc(0.5) solid $color-background-stroke;
   }
+}
+
+.dark {
+  color: $color-palette-white-1000;
+  background: hsla(0,0%,100%,.05);
+  border: set-calc(1) solid hsla(0,0%,100%,.1);
 }
 
 .isReset {

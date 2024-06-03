@@ -152,5 +152,6 @@
   transform-origin: center center;
 
   background: $gradient-background-red-rose;
+  border: set-calc(1.5) solid $color-background-default;
   border-radius: set-calc($border-radius-medium);
 }

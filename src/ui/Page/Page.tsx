@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import EditBar from './EditBar/EditBar';
 import Footer, { EFooter } from './Footer/Footer';
 import Header from './Header/Header';
-// import Sidebar from 'ui/Sidebar/Sidebar';
+import Sidebar from 'ui/Sidebar/Sidebar';
 
 import useHeightToCss from './useHeightToCss';
 
@@ -27,22 +27,35 @@ interface IProps {
 
 function Page({ children, variant, header = false, footer, style }: IProps) {
   const ref = useHeightToCss();
+  const pageRef = useRef<HTMLDivElement>(null);
+  const lastScrollTop = useRef(0);
+  const [headerVisible, setHeaderVisible] = useState(true);
 
   useEffect(() => {
     window.scrollTo({ top: 0 });
   }, []);
 
+  const handleScroll = useCallback(() => {
+    const scrollTop = pageRef?.current?.scrollTop ?? 0;
+    setHeaderVisible(lastScrollTop.current > scrollTop);
+    lastScrollTop.current = scrollTop;
+  }, []);
+
   return (
-    <div className={classes._} ref={ref} style={style}>
-      {header && <Header variant={variant}/>}
-      {/* <Sidebar/> */}
-      <div className={classes.content}>
-          <section className={classes[`${variant}Wrapper`]}>
-            {children}
-          </section>
-        <EditBar/>
+    <div className={classes.trainerContent}>
+
+      <div className={classes.theoryPage} onScroll={handleScroll} ref={pageRef}>
+        <div className={classes._} ref={ref} style={style}>
+          {header && <Header variant={variant} visible={headerVisible}/>}
+          <div className={classes.content}>
+              <section className={classes[`${variant}Wrapper`]}>
+                {children}
+              </section>
+            <EditBar/>
+          </div>
+          {footer !== false && <Footer type={footer === true ? EFooter.Default : footer}/>}
+        </div>
       </div>
-      {footer !== false && <Footer type={footer === true ? EFooter.Default : footer}/>}
     </div>
   );
 }

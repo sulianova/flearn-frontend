@@ -23,9 +23,10 @@ const t = formatI18nT('header');
 
 interface IProps {
   variant: EPageVariant
+  visible: boolean
 }
 
-export default function Header({ variant }: Readonly<IProps>) {
+export default function Header({ variant, visible }: Readonly<IProps>) {
   const user = userService.useAuthedUser();
   const [isOpened, setIsOpened] = useState<boolean>(false);
   const [userCourses, setUserCourses] = useState<ICourseData[]>();
@@ -62,7 +63,7 @@ export default function Header({ variant }: Readonly<IProps>) {
     }
   }, [isOpened]);
 
-  const headerClass = cx({ _: true, __Hidden: false, IsMobileMenuOpened: isOpened, [variant]: true });
+  const headerClass = cx({ __: true, __Hidden: !visible, IsMobileMenuOpened: isOpened, [variant]: true });
 
   return (
     <div className={headerClass} data-is-mobile-menu-opened={isOpened}>

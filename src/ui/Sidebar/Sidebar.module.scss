@@ -2,13 +2,15 @@
 
 .__ {
   z-index: 1100;
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: relative;
   display: flex;
 
   transition: transform 450ms, box-shadow 0.2s;
   transition-timing-function: cubic-bezier(0.06, 0.45, 0, 1);
+
+  @include set-media(md) {
+    display: none;
+  }
 }
 
 .container {
@@ -33,6 +35,11 @@
   list-style: none;
 }
 
+.items:last-child {
+  margin-top: auto;
+  justify-content: end;
+}
+
 .item {
   position: relative;
   margin-bottom: set-calc(16);
@@ -53,7 +60,7 @@
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  height:100%;
+  height: 100%;
 
   &:hover {
     background-color: $color-background-glassy-a;

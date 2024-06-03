@@ -1,0 +1,49 @@
+@import 'styles/index';
+
+.__ {
+  position: relative;
+  width: 100%;
+  padding: set-calc(32);
+  color: $color-content-primary;
+}
+
+.close {
+  z-index: 1;
+  position: absolute;
+  top: set-calc(12);
+  right: set-calc(12);
+
+  border-radius: set-calc($border-radius-small);
+  padding: set-calc(13);
+
+  display: flex;
+  color: $color-content-primary;
+
+  cursor: pointer;
+
+  transition-property: background-color, border-color, box-shadow, color, transform;
+  transition-duration: 0.15s;
+  transition-timing-function: ease-out;
+  
+  svg {
+    width: set-calc(24);
+    height: set-calc(24);
+    fill: none;
+  }
+}
+
+.close:hover {
+  background-color: $color-background-glassy-a;
+}
+
+.close:active {
+  transform: scale(0.96);
+  background-color: $color-background-glassy-b;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  width: set-calc(700);
+  min-height: max-content;
+}

@@ -10,6 +10,7 @@
 
 .header {
   position: relative;
+  padding-left: set-calc(16);
 
   @include is-grid-12;
 
@@ -21,7 +22,6 @@
 
     display: block;
     margin-bottom: set-calc(16);
-    padding-right: set-calc(8);
     padding-left: set-calc(8);
   }
 }

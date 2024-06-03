@@ -1,97 +1,22 @@
 @import 'styles/index';
 
-.list {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: set-calc(50);
-  grid-auto-rows: auto;
-  grid-auto-flow: dense;
-
-  position: relative;
-  width: set-calc(700);
-  left: set-calc(-32);
-  margin: set-calc(40) 0 set-calc(20);
-
-  @include set-media(md) {
-    margin: set-calc(30) 0 set-calc(16);
-    width: set-calc(398);
-    left: set-calc(-16);
-  }
-}
-
-.item {
-  position: relative;
-  height: set-calc(300);
-  border-radius: set-calc($border-radius-large);
-
-  @include set-media(md) {
-    width: 100%;
-    height: 100%;
-  }
-}
-
-.item:hover .overlay {
-  opacity: 1;
-  cursor: zoom-in;
-}
-
-.item img {
-  position: relative;
-  box-shadow: $shadow-medium-default;
-  border-radius: set-calc($border-radius-large);
-
-  vertical-align: middle;
-  height: 100%;
-  width: 100%;
-  object-fit: contain;
-  background-color: $color-palette-white-1000;
-}
-
-.overlay {
-  position: absolute;
+.modal {
+  z-index: 1001;
+  position: fixed;
   top: 0;
   left: 0;
-  opacity: 0;
-  width: 100%;
-  height: 100%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-
-  background-color: $color-background-glassy-c;
-  border-radius: set-calc($border-radius-large);
-  transition: opacity $d-hover ease;
-  color: $color-background-default;
-
-}
-
-.itemCaption {
-  @include s-text-14;
-  text-transform: uppercase;
-}
-
-.modal {
-  position: fixed;
   right: 0;
   bottom: 0;
   display: flex;
-  visibility: hidden;
+  visibility: visible;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  transition: $modal-animation-duration;
+  transition: background-color $modal-animation-duration ease-in-out, transform  $modal-animation-duration ease-in-out;
   background-color: transparent;
 }
 
-.modalVisible {
-  z-index: 1001;
-  top: 0;
-  left: 0;
-  visibility: visible;
+.modal_Animation {
   background-color: $color-background-overlay;
 }
 
@@ -102,22 +27,12 @@
   transform: translate(-50%, -50%);
 }
 
-.modalContent_AnimationEnterDone {
-  transform: translate(0, 0) scale(1, 1);
-}
-
-.modalContent_AnimationExitDone {
-  transform: translate($modal-origin-x-offset, $modal-origin-y-offset) scale($modal-origin-x-scale, $modal-origin-y-scale);
-}
-
 .modalContent {
-  transition: $modal-animation-duration;
-  transition-timing-function: ease-in-out;
-  transform: translate(0, 0) scale(1, 1);
-  transform-origin: left top;
-  overflow: hidden;
+  transition: background-color $modal-animation-duration ease-in-out, transform  $modal-animation-duration ease-in-out;
+  transform: translate(var(--original-translate-x), var(--original-translate-y)) scale(calc(1 * var(--original-scale)), calc(1 * var(--original-scale)));
+  transform-origin: top left;
 
-  background: transparent;
+  background: transparent; 
   box-shadow: none;
 
   position: relative;
@@ -125,17 +40,42 @@
   color: $color-content-primary;
 }
 
+[data-variant="GALLERY"] .modalContent {
+  overflow: hidden;
+}
+
+[data-variant="IMAGE"] .modalContent {
+  img {
+    position: relative;
+    max-width: set-calc(calc(-2 * var(--image-image-min-padding-scaled)), true, 100vw);
+    max-height: set-calc(calc(-2 * var(--image-image-min-padding-scaled)), true, 100vh);
+    touch-action: none;
+    pointer-events: none;
+    will-change: transform;
+    cursor: default;
+  }
+}
+
+.modalContent_Animation {
+  transform: translate(0, 0) scale(1, 1);
+}
+
 .modalClose {
+  z-index: 1;
   position: absolute;
-  top: set-calc(-48);
-  right: set-calc(-48);
+  top: set-calc(36);
+  right: set-calc(36);
+  display: inline-block;
+  text-align: center;
+  background: 50% no-repeat;
+  background-size: contain;
   cursor: pointer;
   opacity: .7;
-  color: $color-background-default;
-
+  color: $color-palette-white-1000;
   svg {
     width: set-calc(33);
     height: set-calc(33);
+    fill: none;
   }
 }
 
@@ -157,10 +97,7 @@
   display: flex;
   flex-direction: column;
 
-  max-width: set-calc(954);
-  width: 80vw;
-
-  margin-top: set-calc(60);
+  width: var(--gallery-image-max-width);
   position: relative;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -169,10 +106,9 @@
 
 .imageGallery__mainImageWrapper {
   position: relative;
+
   width: 100%;
-  max-width: set-calc(954);
-  max-height: set-calc(640);
-  padding-top: 66%;
+  height: var(--gallery-image-max-height);
 }
 
 .imageGallery__mainImage {
@@ -182,22 +118,18 @@
   bottom: 0;
   left: 0;
   width: 100%;
-
+  height: 100%;
+  object-fit: contain;
   overflow: hidden;
 
-  max-width: set-calc(954);
-  max-height: set-calc(640);
-  cursor: default;
+  transition: opacity $d-fade ease-out;
+  opacity: 1;
 
-  img {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    touch-action: none;
-    pointer-events: none;
-    will-change: transform;
-    cursor: default;
-  }
+  cursor: default;
+}
+
+.fade {
+  opacity: 0;
 }
 
 .imageGallery__backwardButton {
@@ -262,19 +194,18 @@
   }
 }
 
-.imageGallery__captionWrapper {
-  margin: set-calc(8) set-calc(64);
+.modalCaptionWrapper {
+  margin: set-calc(16) set-calc(64);
 }
 
-.imageGallery__caption {
-  color: $color-background-stroke;
+.modalCaption {
+  color: $color-palette-white-1000;
   margin: 0;
   text-align: center;
   white-space: normal;
 }
 
-.imageGallery__caption > * {
+.modalCaption > * {
   font-size: inherit;
   line-height: inherit;
-  color: inherit;
 }

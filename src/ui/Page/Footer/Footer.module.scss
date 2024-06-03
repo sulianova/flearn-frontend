@@ -26,15 +26,17 @@
 .card {
   position: relative;
   padding: set-calc(24);
-  background-color: $color-background-default;
+  background-color: $color-content-inverted-secondary;
+  border: set-calc(1.5) solid $color-background-default;
+  box-shadow: $shadow-huge-default;
   border-radius: set-calc($border-radius-medium);
 
   @include set-media(md) {
     left: set-calc(-$padding-xs-mob-page);
     width: set-calc($padding-xs-mob-page * 2, true, 100%);
-    background-color: $color-background-glassy-a;
+    background-color: $color-content-inverted-secondary;
+    border: set-calc(1.5) solid $color-background-default;
     padding: set-calc(16);
-    border: none;
     border-radius: set-calc($border-radius-small);
 
   }
