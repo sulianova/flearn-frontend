@@ -49,9 +49,9 @@
 .title {
   padding-bottom: set-calc(40);
   @include s-text-36;
-  background-image: $gradient-background-profession-darken;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  // background-image: $gradient-background-profession-darken;
+  // -webkit-background-clip: text;
+  // -webkit-text-fill-color: transparent;
 
   @include set-media(md) {
     padding-bottom: set-calc(16);
@@ -126,7 +126,7 @@
   letter-spacing: 0;
 
   color: $color-content-inverted-primary;
-  background: $gradient-background-profession-darken;
+  background: $primary-color;
   border-radius: set-calc($border-radius-large);
   -webkit-text-stroke: 0;
 

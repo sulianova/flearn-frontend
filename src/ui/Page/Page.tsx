@@ -43,7 +43,7 @@ function Page({ children, variant, header = false, footer, style }: IProps) {
 
   return (
     <div className={classes.trainerContent}>
-      <Sidebar/>
+      {/* <Sidebar/> */}
       <div className={classes.theoryPage}   onScroll={handleScroll} ref={pageRef}>
         <div className={classes._} ref={ref} style={style}>
           {header && <Header variant={variant} visible={headerVisible}/>}
