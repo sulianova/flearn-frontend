@@ -45,4 +45,17 @@ function Page({ children, variant, header = false, footer, style }: IProps) {
     <div className={classes.trainerContent}>
       <Sidebar/>
       <div className={classes.theoryPage}   onScroll={handleScroll} ref={pageRef}>
-        <div 
+        <div className={classes._} ref={ref} style={style}>
+          {header && <Header variant={variant} visible={headerVisible}/>}
+          <div className={classes.content}>
+              <section className={classes[`${variant}Wrapper`]}>
+                {children}
+              </section>
+            <EditBar/>
+          </div>
+          {footer !== false && <Footer type={footer === true ? EFooter.Default : footer}/>}
+        </div>
+         </div>
+       </div>
+  );
+}

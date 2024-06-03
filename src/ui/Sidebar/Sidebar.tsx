@@ -77,4 +77,13 @@ function Sidebar() {
           </ul>
         </aside>
       </div>
-      {courseId && lessonId && lesso
+      {courseId && lessonId && lessonsPopupVisible && (
+        <LessonsPopup
+          onClose={() => setLessonsPopupVisible(false)}
+          courseId={courseId}
+          lessonIdOfLessonsWithSameTopic={lessonId}
+        />
+      )}
+    </>
+  );
+}

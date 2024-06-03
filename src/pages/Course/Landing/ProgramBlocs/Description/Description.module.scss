@@ -22,4 +22,6 @@
 }
 
 .list {
-  @include is-g
+  @include is-grid-3;
+  gap: set-calc(8);
+}

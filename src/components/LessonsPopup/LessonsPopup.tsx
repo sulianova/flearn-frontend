@@ -18,4 +18,68 @@ type TProps = {
 } & (
   {
     lessons: ILessonData[]
-  } 
+  } | {
+    lessonIdOfLessonsWithSameTopic: string
+  }
+)
+
+export default function LessonsPopup(props: TProps) {
+  const { courseId, onClose } = props;
+  const [lessons, setLessons] = useState<ILessonData[] | null>('lessons' in props ? props.lessons : null);
+
+  const lessonIdOfLessonsWithSameTopic = 'lessonIdOfLessonsWithSameTopic' in props ? props.lessonIdOfLessonsWithSameTopic : null;
+  useEffect(() => {
+    if (lessonIdOfLessonsWithSameTopic === null) {
+      return;
+    }
+
+
+
+    let cancelled = false;
+    let subscription: Subscription;
+
+    dataService.lesson.get(courseId, lessonIdOfLessonsWithSameTopic)
+      .then(lesson => {
+        subscription = lessonService
+          .getLessonBS({ filter: { courseId, topic: lesson.topic } })
+          .subscribe(o => {
+            if (!o || o instanceof Error || cancelled) {
+              return;
+            }
+    
+            setLessons(o.lessons);
+          })
+      })
+      .catch(err => { console.log(err) /* do nothing */ })
+
+    return () => {
+      cancelled = false;
+      subscription.unsubscribe();
+    };
+  }, [courseId, lessonIdOfLessonsWithSameTopic]);
+
+  return (
+    <Popup>
+      <div className={classes.__}>
+        <div className={classes.close} onClick={onClose}>
+          <ModalCross/>
+        </div>
+        <div className={classes.body}>
+          {lessons ?
+            lessons.map(lesson => (
+              <Link
+                key={lesson.id}
+                to={URLSections.Course.Lesson.to({ courseId, lessonId: lesson.id })}
+                onClick={onClose}
+              >
+                {lesson.title}
+              </Link>
+            )) : (
+              <Spinner variant='local'/>
+            )
+          }
+        </div>
+      </div>
+    </Popup>
+  );
+}

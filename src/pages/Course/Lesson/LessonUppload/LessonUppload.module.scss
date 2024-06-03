@@ -254,4 +254,7 @@
   margin-bottom: set-calc(8);
 
   path {
-    stroke:
+    stroke: $color-content-secondary;
+    stroke-width: 3;
+  }
+}
