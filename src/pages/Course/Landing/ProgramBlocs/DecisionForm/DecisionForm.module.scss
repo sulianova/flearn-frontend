@@ -17,7 +17,7 @@
   padding: set-calc(32);
   border-radius: set-calc($border-radius-medium);
   background-color: $color-content-inverted-secondary;
-  border: set-calc(1.5) solid $color-background-default;
+  border: set-calc(1) solid $color-background-default;
   box-shadow: $shadow-huge-default;
 
   @include set-media(md) {

@@ -4,26 +4,27 @@
   display: flex;
   flex-direction: column;
   overflow: visible;
+  border-radius: set-calc($border-radius-medium);
+  border: set-calc(1) solid $color-background-default;
 
   @include set-media(md) {
     position: relative;
-
-    left: set-calc(-$padding-xs-mob-page);
-    width: set-calc(2 * $padding-xs-mob-page, true, 100%);
   }
 }
 
 .inner {
   position: relative;
   overflow: hidden;
-  height: set-calc(554);
+  min-height: 60vh;
 
+  padding: set-calc(32);
   border-radius: set-calc($border-radius-medium);
   @include is-grid-4;
+  background-color: $color-palette-blue-100;
 
   @include set-media(md) {
     padding: set-calc(8) set-calc(8) 0;
-    height: 100%
+    min-height: 80vh;
   }
 }
 
@@ -54,7 +55,7 @@
 .bottomContent {
   display: grid;
   grid-template-areas: '. actions c';
-  grid-template-columns: 1fr set-calc(472) 1fr;
+  grid-template-columns: 1fr set-calc(600) 1fr;
   align-items: flex-end;
   width: 100%;
   max-width: 100%;
@@ -81,13 +82,10 @@
 .categoriesItem {
   margin-bottom: set-calc(8);
   padding: set-calc(6) set-calc(24);
-  color: $color-palette-white-1000;
-  border: set-calc(1.5) solid $color-palette-white-1000;
+  border: set-calc(2) solid $color-content-primary;
   border-radius: set-calc($border-radius-large);
 
   @include set-media(md) {
-    color: $color-content-primary;
-
     border: set-calc(1) solid $color-content-primary;
     padding: set-calc(4) set-calc(16);
   }
@@ -95,14 +93,14 @@
 
 .title {
   padding-bottom: set-calc(24);
-  color: $color-palette-white-1000;
+  max-width: set-calc(1100);
+  text-align: center;
 
-  @include set-typography(88, 96, 500);
+  @include set-typography(88, 80, 500);
 
   @include set-media(md) {
 
     @include s-text-56;
-    color: $color-content-primary;
     padding-bottom: set-calc(16);
     padding-right: set-calc(8);
     padding-left: set-calc(8);
@@ -114,14 +112,11 @@
 .block {
   max-width: set-calc(550);
   padding-bottom: set-calc(16);
-  color: $color-palette-white-1000;
   text-align: center;
 
   white-space: pre-line;
 
   @include set-media(md) {
-    color: $color-content-primary;
-
     padding-bottom: set-calc(16);
     padding-right: set-calc(20);
     padding-left: set-calc(20);
@@ -149,12 +144,12 @@
   align-items: center;
   justify-content: center;
 
-  border-radius: set-calc($border-radius-small);
-  transition: opacity .2s ease, box-shadow .2s, color .2s;;
-  background-color: $primary-color;
+  border-radius: set-calc($border-radius-medium);
+  transition: opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
+  background: $color-background-default;
+  color: $primary-color;
 
-  padding: set-calc(16) set-calc(48);
-  width: 100%;
+  padding: set-calc(20) set-calc(80);
 
   @include set-media(md) {
     display: none;
@@ -163,15 +158,12 @@
   }
 
   .text {
-    color: $color-palette-white-1000;
     z-index: 200;
   }
 
   &:hover {
     cursor: pointer;
     box-shadow: $shadow-medium-hovered;
-    opacity: 0.85;
-    color: $color-content-inverted-secondary;
   }
 }
 
@@ -187,7 +179,6 @@
   overflow: hidden;
 
   &:before {
-    background: rgba(0, 0, 0, 0.75);
     content: "";
     position: absolute;
     inset: 0;

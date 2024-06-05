@@ -31,7 +31,7 @@
   transition-property: transform, box-shadow;
   transition-timing-function: ease;
   transition-duration: 0.2s;
-  border-radius: set-calc(8);
+  border-radius: set-calc($border-radius-medium);
 
   box-sizing: border-box;
   background: $color-content-inverted-secondary;

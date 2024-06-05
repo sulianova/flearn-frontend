@@ -156,7 +156,7 @@
   align-items: center;
   position: relative;
   background: $color-content-inverted-secondary;
-  border: set-calc(1.2) solid $color-background-default;
+  border: set-calc(0.5) solid $color-background-default;
   padding: set-calc(4) set-calc(16);
   border-radius: set-calc($border-radius-small);
   width: max-content;
@@ -168,11 +168,11 @@
   
   &:hover {
     cursor: default;
-    background-color: $color-background-glassy-b;
+    background-color: $color-background-glassy-a;
   }
 
   &:active {
-    background-color: $color-background-glassy-c;
+    background-color: $color-background-glassy-b;
     transform: scale(0.98);
   }
 

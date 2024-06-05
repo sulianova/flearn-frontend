@@ -29,10 +29,12 @@ export default function Catalogue() {
 
   return (
     <>
-      {/* <div className={classes.header}>
-        <div className={classes.headerTitle + ' s-text-70'}>Курсы по иллюстрации</div>
-        <div className={classes.description + ' s-text-21'}> Познакомимся с иллюстрацией, потренируемся в цифровом и обычном рисовании. Отберем лучшие работы и оформим их в проекты на Behance.</div>
-      </div> */}
+      <div className={classes.promo}>
+        <div className={classes.title + ' s-text-36'}>Наброски: 10 упражнений для иллюстратора</div>
+        <div className={classes.btnWrapper}>
+          <div className={classes.btn + ' s-text-18'}>Сделать первый шаг</div>
+        </div>
+      </div>
       <div className={classes.wrapper}>
         {courses.map(course => <Card key={course.id} course={course}/>)}
       </div>

@@ -1,37 +1,64 @@
 @import 'styles/index';
 
-.header {
-  @include is-grid-12;
-  grid-row-gap: 0;
+.promo{
+  display: flex;
+  flex-direction: column;
+  height: set-calc(400);
+  padding: set-calc(32) set-calc(40);
+  background-color: $matt-white;
+  border-radius: set-calc($border-radius-medium);
+  margin-bottom: set-calc(16);
+  border: set-calc(1) solid $color-background-default;
 
-  margin-bottom: set-calc(32);
-
+  // background-image: ;
+  // background-position: right bottom;
+  // background-repeat: no-repeat;
+  // background-size: 45% auto;
 
   @include set-media(md) {
-    position: relative;
-    display: block;
-
-    margin-bottom: set-calc(16);
+    padding: set-calc(16) set-calc(8);
+    border-radius: set-calc(10);
+    margin-bottom: set-calc(6);
   }
 }
 
-.headerTitle {
-  grid-column: 1 / 7;
-  padding-bottom: set-calc(24);
-
-  @include set-media(md) {
-    padding-bottom: set-calc(8);
-    padding-left: set-calc(8);
-    padding-right: set-calc(8);
-  }
+.title {
+  margin-bottom: set-calc(24);
+  text-align: left;
+  max-width: set-calc(800);
 }
 
-.description {
-  grid-column: 1 / 6;
+.btnWrapper {
+  position: relative;
+}
+
+.btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: set-calc($border-radius-small);
+  transition: background-color $d-hover ease, box-shadow $d-hover ease;
+  background: $color-content-background-primary;
+  color: $color-palette-white-1000;
+  border: set-calc(1) solid $color-background-default;
+
+  height: set-calc(52);
+  width: max-content;
+
+  padding: 0 set-calc(20);
 
   @include set-media(md) {
-    padding-left: set-calc(8);
-    padding-right: set-calc(8);
+    padding: set-calc(16) set-calc(40);
+    width: 100%;
+    flex: 1 1 max-content;
+  }
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: $shadow-medium-hovered;
+    background-color: $color-content-background-secondary;
   }
 }
 
