@@ -17,81 +17,121 @@ import Page, { EPageVariant } from 'ui/Page/Page';
 import classesHeader from './LessonsHeader.module.scss';
 import classesList from './LessonsList.module.scss';
 
-import type { ICourseState, ILessonsState, IRootState, ILessonsData } from 'types';
+import { type ICourseState, type ILessonsState, type IRootState, type ILessonsData, ECommonErrorTypes } from 'types';
 import LessonsPopup from 'components/LessonsPopup/LessonsPopup';
+import { ILessonData, TLessonState, lessonService } from 'services/lesson.service';
+import { ICourseData, TCourseState, courseService } from 'services/course.service';
+import { TCourseError } from 'services/course.service/types';
+import { TAccess, TAccessData } from 'services/data.service/Access';
+import { TUserCourseProgress } from 'services/data.service/UserCourseProgress';
+import { dataService } from 'services';
 
-export default connect(mapStateToProps)(Lessons);
-
-interface IConnectedProps {
-  courseState: ICourseState
-  lessonsState: ILessonsState
-}
-
-function mapStateToProps(state: IRootState): IConnectedProps {
-  return {
-    courseState: state.course,
-    lessonsState: state.lessons,
-  };
-}
 
 interface IGroup {
   topic: string
   topicOrder: number
-  lessons: ILessonsData[]
+  isFree: boolean
+  lessons: (ILessonData & { canBeAccessed: boolean })[]
 }
 
 const t = formatI18nT('courseLessons');
 
-function Lessons({ courseState, lessonsState }: IConnectedProps) {
+export default function Lessons() {
   const { courseId } = useParams();
-  const [guid, refetch] = useGuid();
 
   const authedUser = userService.useAuthedUser();
-  const authedUserId = authedUser?.id;
+  const [courseState, setCourseState] = useState<{ state: TCourseState, course?: ICourseData }>({ state: { type: 'pending' }, course: undefined });
+  const [lessonsState, setLessonsState] = useState<{ state: TLessonState, lessons: ILessonData[] }>({ state: { type: 'pending' }, lessons: [] });
+  const [access, setAccess] = useState<TAccess | null>(null);
+  const [userCourseProgress, setUserCourseProgress] = useState<TUserCourseProgress | null>(null);
 
   const [openedTopic, setOpenedTopic] = useState<string | null>(null);
 
   useEffect(() => {
-    refetch();
-  }, [authedUserId]);
-
-  useFetch<IFetchCoursePayload>(({
-    actionCreator: fetchCourse,
-    payload: {
-      courseId: courseId ?? '',
+    if (!courseId) {
+      return;
     }
-  }));
 
-  useFetch<IFetchLessonsPayload & { guid: string }>(({
-    actionCreator: fetchLessons,
-    payload: {
-      filter: { courseId: courseId ?? '' },
-      guid,
-    }
-  }));
-
-  useEffect(() => {
-    // temp fix
-    // TODO: fetch Lesson through service and not via Store
-    store.dispatch(updateState({ stateName: 'lesson', payload: {
-      courseId: undefined,
-      lessonId: undefined,
-      source: undefined,
-      data: undefined,
-      state: undefined,
-    } }))
-  }, []);
-
-  useEffect(() => {
-    // temp fix
-    // TODO: fetch Lessons through service and not via Store
+    let cancelled = false;
+    const s = courseService
+      .getCourseBS({ filter: { id: courseId }})
+      .subscribe(o => {
+        if (!o || cancelled) {
+          return;
+        }
+        if (o instanceof Error) {
+          const error = o;
+          const errorIsUnknown = !(Object.values(ECommonErrorTypes) as string[]).includes(error.message);
+          const errorType = errorIsUnknown ? ECommonErrorTypes.Other : error.message as TCourseError;
+          setCourseState({ state: { type: 'error', error, errorType }, course: undefined });
+          return;
+        }
+        setCourseState({ state: { type: 'idle' }, course: o.courses[0]})
+      });
     return () => {
-      store.dispatch(updateState({ stateName: 'lessons', payload: {
-        lessons: [],
-        state: undefined,
-      } }));
+      cancelled = true;
+      s.unsubscribe();
+    };
+  }, [courseId]);
+
+  useEffect(() => {
+    if (!courseId) {
+      return;
     }
-  }, []);
+
+    let cancelled = false;
+    const s = lessonService
+      .getLessonBS({ filter: { courseId }})
+      .subscribe(o => {
+        if (!o || cancelled) {
+          return;
+        }
+        if (o instanceof Error) {
+          const error = o;
+          const errorIsUnknown = !(Object.values(ECommonErrorTypes) as string[]).includes(error.message);
+          const errorType = errorIsUnknown ? ECommonErrorTypes.Other : error.message as ECommonErrorTypes;
+          setLessonsState({ state: { type: 'error', error, errorType }, lessons: [] });
+          return;
+        }
+        setLessonsState({ state: { type: 'idle' }, lessons: o.lessons });
+      });
+    return () => {
+      cancelled = true;
+      s.unsubscribe();
+    };
+  }, [courseId]);
+
+  useEffect(() => {
+    if (!courseId || !authedUser?.email) {
+      return;
+    }
+
+    let cancelled = false;
+    dataService.access
+      .get(courseId, authedUser?.email)
+      .then(a => {
+        if (cancelled || !a) {
+          return;
+        }
+
+        setAccess(a);
+      });
+
+    dataService.userCourseProgress
+      .get(courseId, authedUser?.email)
+      .then(a => {
+        if (cancelled || !a) {
+          return;
+        }
+
+        setUserCourseProgress(a);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [courseId, authedUser?.email]);
+
+  console.log({ access, userCourseProgress })
 
   const lessons = lessonsState?.lessons;
   const filteredLessons = useMemo(() => {
@@ -106,21 +146,59 @@ function Lessons({ courseState, lessonsState }: IConnectedProps) {
     return lessons;
   }, [lessons, authedUser]);
 
+  const firstNotLearnedLesson = useMemo(() => {
+    if (!userCourseProgress) {
+      return undefined;
+    }
+
+    const sortedA = lessons
+      .sort((a, b) => {
+        const key = a.topicOrder != b.topicOrder ? 'topicOrder' : 'orderInTopic';
+        return a[key] - b[key];
+      })
+    const one = sortedA.find(l => !userCourseProgress[l.id]);
+    // console.log({ sortedA, one });
+    return one;
+  }, [userCourseProgress, lessons]);
+
+  // console.log({ firstNotLearnedLesson })
+
   const groupes: IGroup[] = useMemo(() => {
     const getKey = (topic: string, topicOrder: number) => `${topic}-${topicOrder}`;
     return [...filteredLessons
       .reduce((acc, lessonData) => {
-        const key = getKey(lessonData.lesson.topic, lessonData.lesson.topicOrder);
+        const key = getKey(lessonData.topic, lessonData.topicOrder);
+        const canBeAccessed = !firstNotLearnedLesson ? false
+          : firstNotLearnedLesson.topicOrder === lessonData.topicOrder
+            ? firstNotLearnedLesson.orderInTopic >= lessonData.orderInTopic
+            : firstNotLearnedLesson.topicOrder > lessonData.topicOrder;
+
+        // console.log({
+        //   canBeAccessed,
+        //   firstNotLearnedLesson: {
+        //     topic: firstNotLearnedLesson?.topic,
+        //     title: firstNotLearnedLesson?.title,
+        //     topicOrder: firstNotLearnedLesson?.topicOrder,
+        //     orderInTopic: firstNotLearnedLesson?.orderInTopic,
+        //   },
+        //   lesson: {
+        //     topic: lessonData.topic,
+        //     title: lessonData.title,
+        //     topicOrder: lessonData?.topicOrder,
+        //     orderInTopic: lessonData?.orderInTopic,
+        //   }
+        // })
         if (!acc.has(key)) {
           acc.set(key, {
-            topic: lessonData.lesson.topic,
-            topicOrder: lessonData.lesson.topicOrder,
-            lessons: [lessonData],
+            topic: lessonData.topic,
+            topicOrder: lessonData.topicOrder,
+            isFree: true,
+            lessons: [{ ...lessonData, canBeAccessed }],
           })
         } else {
           const group = acc.get(key)!;
-          group.lessons.push(lessonData);
-          group.lessons.sort((a, b) => a.lesson.orderInTopic - b.lesson.orderInTopic);
+          group.lessons.push({ ...lessonData, canBeAccessed });
+          group.lessons.sort((a, b) => a.orderInTopic - b.orderInTopic);
         }
 
         return acc;
@@ -128,21 +206,23 @@ function Lessons({ courseState, lessonsState }: IConnectedProps) {
       .values()]
       .sort((a, b) => a.topicOrder - b.topicOrder);
 
-  }, [filteredLessons]);
+  }, [filteredLessons, firstNotLearnedLesson]);
+
+  console.log({ groupes });
 
   const fallback = useFallback({ courseState, lessonsState });
-  if (!courseState.data || !lessonsState.lessons || !lessonsState.lessons.length) {
+  if (!courseState.course || !lessonsState.lessons || !lessonsState.lessons.length) {
     return fallback;
   }
 
   return (
     <>
       <Page variant={EPageVariant.LMS} header footer>
-        <div className={classesHeader.title + ' s-text-28'}>{courseState.data.title}</div>
+        <div className={classesHeader.title + ' s-text-28'}>{courseState.course.title}</div>
         {filteredLessons.length ? (
           <div className={classesList.wrapper}>
               {groupes.map((group, index) => {
-                const totalDurationMinutes = group.lessons.reduce((acc, l) => acc + durationToMinutes(l.lesson.duration), 0);
+                const totalDurationMinutes = group.lessons.reduce((acc, l) => acc + durationToMinutes(l.duration), 0);
                 return (
                   <div className={classesList.itemWrapper} onClick={() => setOpenedTopic(group.topic)}>
                     <div key={index} className={classesList.item}>
@@ -168,13 +248,13 @@ function Lessons({ courseState, lessonsState }: IConnectedProps) {
               })}
           </div>
         ) : (
-          <div>{t(`courseNotStartedYet.${courseState.data.type}`, { minStartDate: formatDate(courseState.data.startDate, { timeZone: 'Europe/Moscow' }) })}</div>
+          <div>{t(`courseNotStartedYet.${courseState.course.type}`, { minStartDate: formatDate(courseState.course.startDate, { timeZone: 'Europe/Moscow' }) })}</div>
         )}
       </Page>
       {openedTopic && courseId && (
         <LessonsPopup
           courseId={courseId}
-          lessons={groupes.find(g => g.topic === openedTopic)!.lessons.map(l => l.lesson)}
+          lessons={groupes.find(g => g.topic === openedTopic)!.lessons}
           onClose={() => setOpenedTopic(null)}
         />
       )}

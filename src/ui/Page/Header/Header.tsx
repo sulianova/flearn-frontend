@@ -72,20 +72,22 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
           </div>
         </div>
         <div className={classes.nav}>
-          <Dropdown
-            content={({ close }) => (
-              <CoursesDropdownContent
-                courses={userCourses}
-                close={close}
-              />
-            )}
-            children={({ open, close, opened }) => (
-              <div className={cx({ navContent: true, navItem: true, selectToggleIsOpened: opened })} onClick={opened ? close : open}>
-                <span className={classes.selectToggleContent}>Мои курсы</span>
-                <span className={classes.selectToggleIcon}><SelectToggleIcon/></span>
-              </div>
-            )}
-          />
+          {user && (
+            <Dropdown
+              content={({ close }) => (
+                <CoursesDropdownContent
+                  courses={userCourses}
+                  close={close}
+                />
+              )}
+              children={({ open, close, opened }) => (
+                <div className={cx({ navContent: true, navItem: true, selectToggleIsOpened: opened })} onClick={opened ? close : open}>
+                  <span className={classes.selectToggleContent}>Мои курсы</span>
+                  <span className={classes.selectToggleIcon}><SelectToggleIcon/></span>
+                </div>
+              )}
+            />
+          )}
           <div className={cx({ navLogin: true, navItem: true })}>
             {user ?
               (<Link to={URLSections.My.Profile.index}>{t('login.profile')}</Link>)

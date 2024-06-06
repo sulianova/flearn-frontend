@@ -17,7 +17,7 @@ type TProps = {
   onClose: () => void
 } & (
   {
-    lessons: ILessonData[]
+    lessons: (ILessonData & { canBeAccessed?: boolean })[]
   } | {
     lessonIdOfLessonsWithSameTopic: string
   }
@@ -25,7 +25,7 @@ type TProps = {
 
 export default function LessonsPopup(props: TProps) {
   const { courseId, onClose } = props;
-  const [lessons, setLessons] = useState<ILessonData[] | null>('lessons' in props ? props.lessons : null);
+  const [lessons, setLessons] = useState<(ILessonData & { canBeAccessed?: boolean })[] | null>('lessons' in props ? props.lessons : null);
 
   const lessonIdOfLessonsWithSameTopic = 'lessonIdOfLessonsWithSameTopic' in props ? props.lessonIdOfLessonsWithSameTopic : null;
   useEffect(() => {
@@ -67,13 +67,17 @@ export default function LessonsPopup(props: TProps) {
         <div className={classes.body}>
           {lessons ?
             lessons.map(lesson => (
-              <Link
-                key={lesson.id}
-                to={URLSections.Course.Lesson.to({ courseId, lessonId: lesson.id })}
-                onClick={onClose}
-              >
-                {lesson.title}
-              </Link>
+              lesson.canBeAccessed ? (
+                <Link
+                  key={lesson.id}
+                  to={URLSections.Course.Lesson.to({ courseId, lessonId: lesson.id })}
+                  onClick={onClose}
+                >
+                  {lesson.title}
+                </Link>
+              ) : (
+                <div>{lesson.title}</div>
+              )
             )) : (
               <Spinner variant='local'/>
             )

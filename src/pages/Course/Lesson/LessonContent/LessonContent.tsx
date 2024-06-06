@@ -1,4 +1,5 @@
 import { Fragment } from 'react';
+import { useNavigate } from "react-router-dom";
 
 import { formatI18nT } from 'shared';
 
@@ -13,6 +14,8 @@ import { URLSections } from 'types';
 import type { IHomeworkDataWPopulate, ILessonContent, ILessonData } from 'types';
 import { homeworkService } from 'services';
 import { formatDate } from 'utils';
+import userCourseProgress from 'services/data.service/UserCourseProgress';
+import { IUserData } from 'services/user.service';
 
 export default LessonContent;
 
@@ -26,9 +29,14 @@ interface IProps {
   homework?: IHomeworkDataWPopulate
   scrollToUpload: () => void
   canShowResults: boolean
+  user: IUserData | null
+  nextLessonId: string | undefined
 }
 
 function LessonContent(props: IProps) {
+  const { courseId, user, nextLessonId } = props;
+  const navigate = useNavigate();
+
   return (
     <div className={classes._}>
       {props.data.type === 'Practice' &&
@@ -40,7 +48,16 @@ function LessonContent(props: IProps) {
           canShowResults={props.canShowResults}
         />}
       <Article blocks={props.blocks}/>
-      <TheoryFooter/>
+      <TheoryFooter
+        onNext={() => {
+          if (!user || !nextLessonId) {
+            return;
+          }
+          userCourseProgress
+            .markLessonAsRead(props.courseId, user.email, props.data.id)
+            .then(() => navigate(URLSections.Course.Lesson.to({ courseId, lessonId: nextLessonId })))
+        }}
+      />
     </div>
   );
 }

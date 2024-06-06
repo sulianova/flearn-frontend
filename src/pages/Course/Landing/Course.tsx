@@ -16,6 +16,7 @@ import type { IRootState } from 'types';
 import { useEffect } from 'react';
 import { analyticsService, EAnalyticsEvent } from 'services/analytics.service';
 import { envService } from 'services';
+import Fallback from 'ui/Fallback';
 
 export default connect(mapStateToProps)(Course);
 
@@ -48,11 +49,7 @@ function Course({ course }: IConnectedProps) {
   }, []);
 
   if (!course) {
-    return (
-      <Page variant={EPageVariant.WEB} header footer={EFooter.Big}>
-        <p>loading course</p>
-      </Page>
-    );
+    return <Fallback.Pending text={'loading course'}/>;
   }
 
   return (

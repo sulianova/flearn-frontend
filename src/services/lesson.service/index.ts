@@ -3,18 +3,12 @@ import { BehaviorSubject, CompletionObserver, ErrorObserver, NextObserver, Subje
 import { dataService } from 'services/data.service';
 
 import { ECommonErrorTypes } from 'types';
-import type { TActionBS, TActionS, TLessonError } from './types';
+import type { IFetchLessonsProps, TActionBS, TActionS, TLessonError } from './types';
 
-export type { ILessonData, TActionS, ILessonDataDB, TLessonState } from './types';
+export type { ILessonData, TActionS, ILessonDataDB, TLessonState, IFetchLessonsProps } from './types';
 
 class LessonService {
-  public getLessonBS(props: {
-    filter: {
-      courseId: string
-      lessonId?: string
-      topic?: string
-    },
-  }) {
+  public getLessonBS(props: IFetchLessonsProps) {
     try {
       const mainSubject = new BehaviorSubject<TActionBS>(null);
 
@@ -72,13 +66,7 @@ class LessonService {
     return errorType;
   }
 
-  private async _fetch(props: {
-    filter: {
-      courseId: string
-      lessonId?: string
-      topic?: string
-    },
-  }) {
+  private async _fetch(props: IFetchLessonsProps) {
     try {
       return await dataService.lesson.getAll(props.filter);
     } catch (error) {
@@ -92,3 +80,4 @@ class LessonService {
 }
 
 export const lessonService = new LessonService;
+export default LessonService;

@@ -1,5 +1,13 @@
 import { ECommonErrorTypes, TStateState, TText } from 'types';
 
+export interface IFetchLessonsProps {
+  filter: {
+    courseId: string
+    lessonId?: string
+    topic?: string
+  }
+}
+
 export interface ILessonBlock {
   factoid?: TText | TText[]
 }
@@ -104,6 +112,8 @@ export type TActionS =
   | { type: 'updated', payload: { id: string } };
 
 export type TLessonError =
+  | ECommonErrorTypes.Restricted
+  | ECommonErrorTypes.Unauthorized
   | ECommonErrorTypes.DataIsCorrupted
   | ECommonErrorTypes.FailedToFindData
   | ECommonErrorTypes.Other;

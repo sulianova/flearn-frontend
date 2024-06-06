@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getAnalytics, type Analytics, logEvent, type AnalyticsCallOptions } from "firebase/analytics";
-import { collection, doc as getDocRef, getDoc, getDocs, getFirestore, setDoc, query, where, FieldPath } from 'firebase/firestore';
+import { collection, doc as getDocRef, getDoc, getDocs, getFirestore, setDoc, query, where, FieldPath, DocumentSnapshot } from 'firebase/firestore';
 import { deleteObject, getStorage, ref as getStorageRef, getDownloadURL, getBytes, getBlob, uploadBytes } from 'firebase/storage';
 import { getFirebaseConfig } from './firebase.config';
 
@@ -40,9 +40,11 @@ export class FirebaseService {
     }
   }
 
-  public async getDoc(collectionName: ECollections, id: string, converter: FirestoreDataConverter<DocumentData, DocumentData> | null = null) {
+  public async getDoc(collectionName: ECollections, id: string, converter: FirestoreDataConverter<DocumentData, DocumentData> | null = null, subCollection?: { collection: string, id: string }) {
     try {
-      const docRef = converter ? getDocRef(this._db, collectionName, id).withConverter(converter) : getDocRef(this._db, collectionName, id);
+      const subcollectionPathSegments = subCollection ? [subCollection.collection, subCollection.id] : [];
+      const pathSegments = [collectionName, id, ...subcollectionPathSegments] as const;
+      const docRef = converter ? getDocRef(this._db, ...pathSegments).withConverter(converter) : getDocRef(this._db, ...pathSegments);
       const doc = await getDoc(docRef);
       return doc.data();
     } catch(e) {
@@ -52,9 +54,11 @@ export class FirebaseService {
     }
   }
 
-  public async getDocOrThrow<T extends object = DocumentData>(collectionName: ECollections, id: string, converter: FirestoreDataConverter<DocumentData, DocumentData> | null = null) {
+  public async getDocOrThrow<T extends object = DocumentData>(collectionName: ECollections, id: string, converter: FirestoreDataConverter<DocumentData, DocumentData> | null = null, subCollection?: { collection: string, id: string }) {
     try {
-      const docRef = converter ? getDocRef(this._db, collectionName, id).withConverter(converter) : getDocRef(this._db, collectionName, id);
+      const subcollectionPathSegments = subCollection ? [subCollection.collection, subCollection.id] : [];
+      const pathSegments = [collectionName, id, ...subcollectionPathSegments] as const;
+      const docRef = converter ? getDocRef(this._db, ...pathSegments).withConverter(converter) : getDocRef(this._db, ...pathSegments);
       const doc = await getDoc(docRef);
       if (doc.exists()) {
         return doc.data() as T;
@@ -68,11 +72,13 @@ export class FirebaseService {
     }
   }
 
-  public async setDoc(collectionName: ECollections, id: string, data: IObject, converter: FirestoreDataConverter<DocumentData, DocumentData> | null = null) {
+  public async setDoc(collectionName: ECollections, id: string, data: IObject, converter: FirestoreDataConverter<DocumentData, DocumentData> | null = null, subCollection?: { collection: string, id: string }) {
     try {
-      const docRef = converter ? getDocRef(this._db, collectionName, id).withConverter(converter) : getDocRef(this._db, collectionName, id);
+      const subcollectionPathSegments = subCollection ? [subCollection.collection, subCollection.id] : [];
+      const pathSegments = [collectionName, id, ...subcollectionPathSegments] as const;
+      const docRef = converter ? getDocRef(this._db, ...pathSegments).withConverter(converter) : getDocRef(this._db, ...pathSegments);
       await setDoc(docRef, filterData(data));
-      const savedDoc = await this.getDoc(collectionName, id, converter);
+      const savedDoc = await this.getDoc(collectionName, id, converter, subCollection);
       return savedDoc;
     } catch(e) {
       // tslint:disable-next-line

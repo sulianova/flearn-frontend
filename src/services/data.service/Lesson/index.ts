@@ -1,5 +1,5 @@
 import { TWhereProps, authService, firebaseService } from 'services';
-import type { IAccessData } from 'services/data.service/Access';
+import type { TAccessData } from 'services/data.service/Access';
 
 import { lessonConverter } from './lessonConverter';
 
@@ -16,7 +16,7 @@ interface ILessonsFilter {
 class Lesson {
   public async get(courseId: string, lessonId: string) {
     const fullLessonId = this.getFullId(courseId, lessonId);
-    const userHasAccess = await this._checkCourseAccess(courseId);
+    const userHasAccess = await this._getUserCourseAccess(courseId);
 
     if (!userHasAccess) {
       throw new Error(ECommonErrorTypes.Restricted);
@@ -33,7 +33,7 @@ class Lesson {
 
   public async getAll(filter: ILessonsFilter) {
     // TODO add filter for other than course
-    const userHasAccess = await this._checkCourseAccess(filter.courseId);
+    const userHasAccess = await this._getUserCourseAccess(filter.courseId);
 
     if (!userHasAccess) {
       throw new Error(ECommonErrorTypes.Restricted);
@@ -69,23 +69,24 @@ class Lesson {
     return `${courseId}_${lessonId}`;
   }
 
-  public async _checkCourseAccess(courseId: string) {
+  public async _getUserCourseAccess(courseId: string) {
     const user = authService.user;
+
     if (!user) {
       throw new Error(ECommonErrorTypes.Unauthorized);
     }
 
-    const accessData = await firebaseService.getDoc(ECollections.Access, courseId) as IAccessData | undefined;
-    if (!accessData) {
-      throw new Error('Server error: failed to find access table');
-    }
+    // const accessData = await firebaseService.getDoc(ECollections.Access, courseId) as TAccessData | undefined;
+    // if (!accessData) {
+    //   throw new Error('Server error: failed to find access table');
+    // }
 
-    if (!user.email) {
-      throw new Error('Server error: failed to find user email');
-    }
+    // if (!user.email) {
+    //   throw new Error('Server error: failed to find user email');
+    // }
 
-    const userHasAccess = Boolean(accessData.users[user.email]);
-    return userHasAccess;
+    return true;
+    // return accessData[user.email]
   }
 }
 

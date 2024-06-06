@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router';
 
@@ -19,8 +19,9 @@ import useHomeworkFallback from './useHomeworkFallback';
 import useInitHomework from './useInitHomework';
 import useLessonFallback from './useLessonFallback';
 
-import type { ILessonState, IRootState } from 'types';
+import { ECommonErrorTypes, type ILessonData, type ILessonState, type IRootState } from 'types';
 import MyWork from './MyWork/MyWork';
+import { TLessonState, lessonService } from 'services/lesson.service';
 
 export default connect(mapStateToProps)(Lesson);
 
@@ -60,7 +61,48 @@ function Lesson(props: IProps) {
 
   const fallback = useLessonFallback({ lessonState, authedUser });
   const homeworkFallback = useHomeworkFallback(homeworkState);
-  const { canShowResults, fallBack: resultsFallback } = useCanShowResults({ courseId, lessonId, lesson: lessonState.data })
+  const { canShowResults, fallBack: resultsFallback } = useCanShowResults({ courseId, lessonId, lesson: lessonState.data });
+  const [lessonsState, setLessonsState] = useState<{ state: TLessonState, lessons: ILessonData[] }>({ state: { type: 'pending' }, lessons: [] });
+
+  useEffect(() => {
+    if (!courseId) {
+      return;
+    }
+
+    let cancelled = false;
+    const s = lessonService
+      .getLessonBS({ filter: { courseId }})
+      .subscribe(o => {
+        if (!o || cancelled) {
+          return;
+        }
+        if (o instanceof Error) {
+          const error = o;
+          const errorIsUnknown = !(Object.values(ECommonErrorTypes) as string[]).includes(error.message);
+          const errorType = errorIsUnknown ? ECommonErrorTypes.Other : error.message as ECommonErrorTypes;
+          setLessonsState({ state: { type: 'error', error, errorType }, lessons: [] });
+          return;
+        }
+        setLessonsState({ state: { type: 'idle' }, lessons: o.lessons });
+      });
+    return () => {
+      cancelled = true;
+      s.unsubscribe();
+    };
+  }, [courseId]);
+
+  const nextLessonId = useMemo(() => {
+    const sortedA = lessonsState.lessons
+      .sort((a, b) => {
+        const key = a.topicOrder != b.topicOrder ? 'topicOrder' : 'orderInTopic';
+        return a[key] - b[key];
+      });
+    const currentLessonIndex = sortedA.findIndex(l => l.id === lessonState.data?.id);
+    if (currentLessonIndex === -1 || currentLessonIndex + 1 === sortedA.length) {
+      return undefined
+    }
+    return sortedA[currentLessonIndex + 1].id;
+  }, [lessonsState.lessons, lessonState.data]);
 
   if (!lessonState.data) {
     return fallback;
@@ -94,6 +136,8 @@ function Lesson(props: IProps) {
             homework={homework}
             scrollToUpload={() => setScrollToUpload(true)}
             canShowResults={canShowResults}
+            user={authedUser}
+            nextLessonId={nextLessonId}
           />)
         }
         {section === 'task' && homework?.homework?.state === 'DRAFT' &&

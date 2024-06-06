@@ -30,32 +30,32 @@ class AuthService {
     this._authProvider.setCustomParameters({ prompt: 'consent' });
 
     this._authenticationInProgress = false;
-    this._resolveAwaitPersistedUser = undefined;
+    let resolvePersistedAuthPromise: () => void;
+    this._awaitPersistedAuth = new Promise<void>(r => {
+      resolvePersistedAuthPromise = r;
+    });
 
     setPersistence(this._auth, browserLocalPersistence)
       .then(async () => {
         const user = this._auth.currentUser;
-        await this._afterAuth(user!);
+        if (user) {
+          await this._afterAuth(user);
+        }
         // save persisted user
         this.firebaseUserBS.next(user!);
-        // call _resolveAwaitPersistedUser to resolve pending authUsingPersistance calls
-        this._resolveAwaitPersistedUser?.(user!);
-        // save _resolveAwaitPersistedUser as null to indicate that persisted user already have been parsed
-        this._resolveAwaitPersistedUser = null;
-      });
+      })
+      .finally(() => {
+        resolvePersistedAuthPromise();
+    });
   }
 
-  // public async authUsingPersistance() {
-  //   // setPersistence ends work before authUsingPersistance was called => 
-  //   // if persisted user existed he will be already in this.user
-  //   if (this._resolveAwaitPersistedUser === null) {
-  //     return this.firebaseUserBS.getValue();
-  //   }
+  public async getUserAfterPersistenceAuth() {
+    if (this._awaitPersistedAuth) {
+      await this._awaitPersistedAuth;
+    }
 
-  //   return new Promise(resolve => {
-  //     this._resolveAwaitPersistedUser = resolve as (user: FirebaseUser | null) => {};
-  //   });
-  // }
+    return this.firebaseUserBS.getValue();
+  }
 
   public async authenticate() {
     try {
@@ -109,8 +109,7 @@ class AuthService {
   private _auth: Auth;
   private _authProvider: GoogleAuthProvider;
   private _authenticationInProgress: boolean;
-
-  private _resolveAwaitPersistedUser: ((user: FirebaseUser | null) => {}) | undefined | null;
+  private _awaitPersistedAuth: Promise<void> | null;
 }
 
 export const authService = new AuthService(getFirebaseConfig());

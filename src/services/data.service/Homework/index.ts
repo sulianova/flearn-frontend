@@ -11,11 +11,11 @@ interface IHomeworksFilter extends
 }
 class Homework {
   public async get(courseId: string, lessonId: string, userId: string) {
-    const hasAccess = await dataService.lesson._checkCourseAccess(courseId);
+    // const hasAccess = await dataService.lesson._checkCourseAccess(courseId);
 
-    if (!hasAccess) {
-      throw new Error('Homework: access restricted');
-    }
+    // if (!hasAccess) {
+    //   throw new Error('Homework: access restricted');
+    // }
 
     const id = this.getFullId(courseId, lessonId, userId);
     const homeworkDataDB = await firebaseService.getDoc(ECollections.Homework, id) as IHomeworkDataDB | undefined;
@@ -29,11 +29,11 @@ class Homework {
 
   public async getAll(filter: IHomeworksFilter) {
     // TODO add filter for other than course and lesson
-    const userHasAccess = await dataService.lesson._checkCourseAccess(filter.courseId);
+    // const userHasAccess = await dataService.lesson._checkCourseAccess(filter.courseId);
 
-    if (!userHasAccess) {
-      throw new Error(ECommonErrorTypes.Restricted);
-    }
+    // if (!userHasAccess) {
+    //   throw new Error(ECommonErrorTypes.Restricted);
+    // }
 
     const queryConstraints = Object.entries(filter).map(([param, value]) => ({ param, value }));
     const homeworksDataDB = (await firebaseService.getDocs(ECollections.Homework, queryConstraints))
