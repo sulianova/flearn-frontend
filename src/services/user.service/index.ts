@@ -3,13 +3,14 @@ import { BehaviorSubject, CompletionObserver, ErrorObserver, NextObserver, Subje
 import { dataService } from 'services/data.service';
 
 import type { TActionBS, TActionS } from './types';
+
 import useAuthedUser from './useAuthUser';
+import { authService } from 'services/auth.service';
 
 export { type IUserData, type IUserDataDB } from './types';
 
 class UserService {
   public useAuthedUser = useAuthedUser;
-
   public async getUserBS(props: {
     filter: { id?: string, ids?: string[] }
   }) {
@@ -57,6 +58,26 @@ class UserService {
       } as BehaviorSubject<TActionBS>;
     } catch (err) {
       console.error('Failed to subscribe for users', { props });
+      throw err;
+    }
+  }
+
+  public async getAuthenticatedUser() {
+    try {
+      const fbUser = await authService.getAuthenticatedUser();
+      if (!fbUser) {
+        return null;
+      }
+
+      const users = await this._fetch({ filter: { id: fbUser.uid }});
+      const user = users[0];
+      if (!user) {
+        throw new Error('Does not have user in database');
+      }
+
+      return user;
+    } catch (err) {
+      console.log('Failed to get authenticated user', { err });
       throw err;
     }
   }

@@ -1,9 +1,7 @@
-import { IUserData } from 'services/user.service';
 import { ICourseData } from 'services/course.service';
 import { IHomeworkData, IHomeworkDataWPopulate, ILessonData, ILessonsData } from 'types';
 
 export interface IRootState {
-  user: IUserState
   course: ICourseState
   lessons: ILessonsState
   lesson: ILessonState
@@ -13,7 +11,6 @@ export interface IRootState {
 }
 
 export type IState =
-  | IUserState
   | ICourseState
   | ILessonsState
   | ILessonState
@@ -35,10 +32,6 @@ export type TStateState<T> =
   | { type: 'idle' }
   | { type: 'pending' }
   | { type: 'error', error: Error, errorType: T };
-
-export interface IUserState {
-  user?: IUserData
-}
 
 export interface ICourseState {
   courseId: string

@@ -1,11 +1,9 @@
 import classNames from 'classnames/bind';
 import { useCallback, useEffect, useState } from 'react';
-import { connect } from 'react-redux';
 import Link from 'ui/Link/Link';
 
-import { dataService } from 'services';
+import { authService, dataService } from 'services';
 import { emailService } from 'services/email.service';
-import type { IUserData } from 'services/user.service';
 import { formatI18nT } from 'shared';
 import store from 'store';
 
@@ -14,10 +12,8 @@ import Spinner from 'ui/Spinner/Spinner';
 
 import classes from './Form.module.scss';
 import classesInputField from './InputField.module.scss';
-
-import { type URLSections, IRootState } from 'types';
-
-export default connect(mapStateToProps)(Form);
+import { IRootState } from 'types';
+import { userService } from 'services/user.service';
 
 const cx = classNames.bind(classes);
 const cx2 = classNames.bind(classesInputField);
@@ -30,23 +26,13 @@ interface IFormData {
 
 const initialFormData: IFormData = { email: '', state: { type: 'Idle' } };
 
-interface IConnectedProps {
-  user?: IUserData
-}
-
-function mapStateToProps(state: IRootState): IConnectedProps {
-  return {
-    user: state.user.user,
-  };
-}
-
-interface IProps extends IConnectedProps {
+interface IProps {
   onOrderCreated: (props: { email: string }) => void
   courseIsFree: boolean
 }
 
-function Form({ user, onOrderCreated, courseIsFree }: IProps) {
-  const [formData, setFormData] = useState<IFormData>(() => user ? ({ ...initialFormData, email: user.email }) : initialFormData);
+export default function Form({ onOrderCreated, courseIsFree }: IProps) {
+  const [formData, setFormData] = useState<IFormData>(() => authService.user ? ({ ...initialFormData, email: authService.user.email! }) : initialFormData);
   const handleSubmit = useCallback((formData: IFormData) => submit({ formData, setFormData, courseIsFree }), [courseIsFree]);
 
   useEffect(() => {
@@ -112,7 +98,7 @@ async function submit(props: { formData: IFormData, setFormData: React.Dispatch<
   try {
     const state = store.getState() as IRootState;
     const courseData = state.course.data;
-    const userData = state.user.user;
+    const userData = await userService.getAuthenticatedUser() ?? undefined;
     if (!courseData) {
       throw new Error('Failed to get course from store');
     }

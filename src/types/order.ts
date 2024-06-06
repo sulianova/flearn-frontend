@@ -1,3 +1,4 @@
+import { FirebaseUser } from 'services';
 import type { IUserData, IUserDataDB } from 'services/user.service';
 
 export interface IOrderData {

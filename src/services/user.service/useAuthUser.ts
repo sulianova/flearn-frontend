@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import type { Subscription } from 'rxjs';
 
-import { IRootState } from 'types';
+import { useBehaviourSubjectValue } from 'hooks';
+import { authService } from 'services/auth.service';
 
-import type UserService from '.';
-import type { IUserData } from './types';
+import type { default as UserService, IUserData } from '.';
 
 export default function useAuthedUser(this: UserService) {
-  const authedUserId = useSelector((state: IRootState) => state.user.user?.id);
+  const authedUserId = useBehaviourSubjectValue(authService.firebaseUserBS)?.uid;
   const [user, setUser] = useState<IUserData | null>(null);
 
   useEffect(() => {

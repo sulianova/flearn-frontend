@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { formatI18nT } from 'shared';
 
 import Store from 'store';
-import { fetchCourse, type IFetchCoursePayload, login } from 'store/actions/sagas';
+import { fetchCourse, type IFetchCoursePayload } from 'store/actions/sagas';
 
 import { useFetch } from 'hooks';
 import Link from 'ui/Link/Link';
@@ -17,9 +17,10 @@ import Profile from './Profile/Profile';
 import Settings from './Settings/Settings';
 
 import type { ICourseData } from 'services/course.service';
-import type { IUserData } from 'services/user.service';
+import { userService, type IUserData } from 'services/user.service';
 import { URLSections } from 'types';
 import type { IRootState } from 'types';
+import { authService } from 'services';
 
 const cx = classNames.bind(classes);
 const t = formatI18nT('my');
@@ -27,13 +28,11 @@ const t = formatI18nT('my');
 export default connect(mapStateToProps)(My);
 
 interface IConnectedProps {
-  user?: IUserData
   course?: ICourseData
 }
 
 function mapStateToProps(state: IRootState): IConnectedProps {
   return {
-    user: state.user?.user,
     course: state.course?.data,
   };
 }
@@ -42,10 +41,12 @@ interface IProps extends IConnectedProps {
 }
 
 function My(props: IProps) {
-  const { mode, user, course } = props;
+  const { mode, course } = props;
+
+  const user = userService.useAuthedUser();
 
   useEffect(() => {
-    Store.dispatch(login({ payload: {} }));
+    authService.authenticate();
   }, []);
 
   useFetch<IFetchCoursePayload>({

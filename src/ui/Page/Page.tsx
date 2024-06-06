@@ -36,8 +36,8 @@ function Page({ children, variant, header = false, footer, style }: IProps) {
   }, []);
 
   const handleScroll = useCallback(() => {
-    const scrollTop = pageRef?.current?.scrollTop ?? 0;
-    setHeaderVisible(lastScrollTop.current > scrollTop);
+    const scrollTop = Math.max(pageRef?.current?.scrollTop ?? 0, 0);
+    setHeaderVisible(lastScrollTop.current >= scrollTop);
     lastScrollTop.current = scrollTop;
   }, []);
 

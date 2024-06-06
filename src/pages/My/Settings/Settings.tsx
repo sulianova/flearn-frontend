@@ -1,19 +1,13 @@
 import classNames from 'classnames/bind';
-import { useState } from 'react';
 
-import { dataService } from 'services';
-import Store from 'store';
-import { fetchUser, logout } from 'store/actions/sagas';
-
-import Link from 'ui/Link/Link';
-import classesInputField from './InputField.module.scss';
-import classesImageUppload from './ImageUppload.module.scss';
-import classes from './Settings.module.scss';
-
-import UserImage from 'assets/images/Svg/UserImage';
-
+import { authService } from 'services/auth.service';
 import type { IUserData } from 'services/user.service';
 import { URLSections } from 'types';
+
+import Link from 'ui/Link/Link';
+
+import classesInputField from './InputField.module.scss';
+import classes from './Settings.module.scss';
 
 const cx = classNames.bind(classes);
 const cx2 = classNames.bind(classesInputField);
@@ -23,8 +17,6 @@ interface IProps {
 }
 
 export default function Settings(props: IProps) {
-  const [localDisplayName, setLocalDisplayName] = useState<string>(props.user.displayName ?? '');
-
   return (
     <div className={classes._}>
       <div className={cx({ block: true, isBig: true })}>
@@ -79,7 +71,7 @@ export default function Settings(props: IProps) {
           <Link
             className='inline-link s-text-21-uppercase'
             to={URLSections.Home.index}
-            onClick={() => Store.dispatch(logout({}))}
+            onClick={() => authService.logout()}
           >
             <span className='inline-link-text'>Выйти из профиля →</span>
           </Link>
@@ -87,10 +79,4 @@ export default function Settings(props: IProps) {
       </div>
     </div>
   );
-}
-
-async function handleUpdate(id: string, email: string, updateData: Partial<IUserData>) {
-  await dataService.user.update(id, updateData);
-
-  Store.dispatch(fetchUser({ payload: { email }}));
 }

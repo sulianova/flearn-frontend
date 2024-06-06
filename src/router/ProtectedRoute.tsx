@@ -1,9 +1,8 @@
-import { useContext } from 'react';
 import { Outlet } from 'react-router-dom';
 
-import Fallback from 'ui/Fallback';
+import { userService } from 'services/user.service';
 
-import { AuthContext } from './index';
+import Fallback from 'ui/Fallback';
 
 export default ProtectedRoute;
 
@@ -12,9 +11,9 @@ interface IProtectedRouteProps {
 }
 
 function ProtectedRoute({ children }: IProtectedRouteProps): ReturnType<React.FC> {
-  const userState = useContext(AuthContext);
+  const authedUser = userService.useAuthedUser();
 
-  if (!userState.user) {
+  if (!authedUser) {
     return <Fallback.Unauthorized/>;
   }
 

@@ -11,16 +11,19 @@
   }
 }
 
-.subsectionClosed {
-  display: none;
-  height: 0;
-}
-
 .subsectionSlideDown {
   width: 100%;
-  transition-timing-function: ease-in-out;
-  transition-duration: $d-zoom;
-  transition-property: none;
+  transition: max-height $d-expansion ease-in-out;
+  transition-delay: -80ms;
+  max-height: 100vh;
+  opacity: 1;
+}
+
+.subsectionClosed {
+  opacity: 0;
+  max-height: 0;
+  transition: max-height $d-expansion ease-in-out;
+  transition-delay: -200ms;
 }
 
 .subsectionTitle {

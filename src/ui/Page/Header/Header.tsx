@@ -1,22 +1,20 @@
 import classnames from 'classnames/bind';
 import { useEffect, useState } from 'react';
 
-import { userService } from 'services/user.service';
 import { formatI18nT, i18n } from 'shared';
-import store from 'store';
-import { login } from 'store/actions/sagas';
+import { authService } from 'services/auth.service';
+import { ICourseData, courseService } from 'services/course.service';
+import { userService } from 'services/user.service';
 import { URLSections } from 'types';
 
 import SelectToggleIcon from 'assets/images/Svg/SelectToggleIcon';
 import Link from 'ui/Link/Link';
 import List from 'assets/images/Svg/List';
-import { MenuHTMLAttributes } from 'react';
 
 import { EPageVariant } from '../Page';
 import classes from './header.module.scss';
 import Dropdown from 'ui/Dropdown/Dropdown';
 import CoursesDropdownContent from './CoursesDropdownContent/CoursesDropdownContent';
-import { ICourseData, courseService } from 'services/course.service';
 
 const cx = classnames.bind(classes);
 const t = formatI18nT('header');
@@ -91,7 +89,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
           <div className={cx({ navLogin: true, navItem: true })}>
             {user ?
               (<Link to={URLSections.My.Profile.index}>{t('login.profile')}</Link>)
-              : (<div onClick={handleLogin}>{t('login.signIn')}</div>)
+              : (<div onClick={() => authService.authenticate()}>{t('login.signIn')}</div>)
             }
           </div>
         </div>
@@ -121,7 +119,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
           ) : (
             <div
               className={classes.loginBtn + ' s-text-24'}
-              onClick={handleLogin}
+              onClick={() => authService.authenticate()}
             >
               {t('login.signIn')}
             </div>
@@ -130,8 +128,4 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
       </div>
     </div>
   );
-}
-
-function handleLogin() {
-  store.dispatch(login({ payload: {}}));
 }
