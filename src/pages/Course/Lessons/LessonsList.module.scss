@@ -41,6 +41,10 @@
   @include set-media(md) {
     flex-direction: row;
     height: auto;
+    
+    .infoItem {
+      opacity: 1;
+    }
   }
 
   &:hover,
@@ -50,6 +54,11 @@
 
     .infoItem {
       opacity: 1;
+    }
+
+    @include set-media(md) {
+      box-shadow: none;
+      transform: none;
     }
   }
 }

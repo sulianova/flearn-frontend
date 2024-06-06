@@ -1,6 +1,7 @@
 import classNames from 'classnames/bind';
 import { useCallback, useEffect, useState } from 'react';
 import { connect } from 'react-redux';
+import Link from 'ui/Link/Link';
 
 import { dataService } from 'services';
 import { emailService } from 'services/email.service';
@@ -14,7 +15,7 @@ import Spinner from 'ui/Spinner/Spinner';
 import classes from './Form.module.scss';
 import classesInputField from './InputField.module.scss';
 
-import type { IRootState } from 'types';
+import { type URLSections, IRootState } from 'types';
 
 export default connect(mapStateToProps)(Form);
 
@@ -69,7 +70,7 @@ function Form({ user, onOrderCreated, courseIsFree }: IProps) {
             onChange={v => setFormData(d => ({ ...d, email: v }))}
           />
           <button
-            className={cx({ submitButton: true, isDisabled: !isValid(formData), [`is${formData.state.type}`]: true }) + ' s-text-36'}
+            className={cx({ submitButton: true, isDisabled: !isValid(formData), [`is${formData.state.type}`]: true }) + ' s-text-56'}
             type="submit"
             disabled={!isValid(formData)}
             onClick={() => handleSubmit(formData)}
@@ -79,13 +80,23 @@ function Form({ user, onOrderCreated, courseIsFree }: IProps) {
                 formData.state.type === 'Idle' ? '→' :
                 formData.state.type === 'Pending' ? <Spinner/> :
                 formData.state.type === 'Success' ? '✓' :
-                formData.state.type === 'Error' ? '↻' : ''
+                formData.state.type === 'Error' ? '\u21aa' : ''
               }
             </span>
           </button>
         </div>
+        <div className={classes.agreement}>
+                    <Link
+                      className='link'
+                      // to={URLSections.Static.Oferta.index}
+                      target='_blank'
+                    >
+                      <span className={classes.agreementText + ' s-text-16'}>
+                        {t('agreement')}
+                      </span>
+                    </Link>
+                </div>
       </form>
-      <div className={classesInputField.inputCaption + ' s-text-18'}>{t('emailCaption')}</div>
     </>
   );
 }

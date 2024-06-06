@@ -7,24 +7,12 @@
 
 .header {
   padding-left: set-calc(16);
-  margin-bottom: set-calc(24);
+  margin-bottom: set-calc(32);
 
   @include set-media(md) {
     padding-left: set-calc(8);
     margin-bottom: set-calc(16);
   }
-}
-
-.headerTitle {
-  padding-bottom: set-calc(16);
-
-  @include set-media(md) {
-    padding-bottom:  set-calc(8);
-  }
-}
-
-.headerDesc {
-  max-width: set-calc(600);
 }
 
 .list {

@@ -53,10 +53,11 @@
 
 @mixin is-beige {
   position: relative;
-  padding: set-calc(32) set-calc(32);
-
   background-color: $color-content-tertiary;
-  border-radius: set-calc($border-radius-medium);
+
+  left: set-calc(-$padding-x-desk-page);
+  width: set-calc(2 * $padding-x-desk-page, true, 100%);
+  padding: set-calc($padding-x-desk-page) set-calc($padding-x-desk-page);
 
   @include set-media(md) {
     display: block;
@@ -64,7 +65,7 @@
 
     left: set-calc(-$padding-xs-mob-page);
     width: set-calc(2 * $padding-xs-mob-page, true, 100%);
-    padding: set-calc(2 * $padding-x-mob-page) set-calc($padding-xs-mob-page);
+    padding: set-calc($padding-xs-mob-page) set-calc($padding-xs-mob-page);
   }
 }
 

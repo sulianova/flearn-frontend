@@ -10,7 +10,6 @@
 }
 
 .inputWrap {
-  padding-bottom: set-calc(8);
   display: flex;
 }
 
@@ -58,7 +57,7 @@
 
 .isError {
   color: $color-content-inverted-primary;
-  background-color: $color-accent-warning;
+  background-color: $color-content-background-primary;
   opacity: 1;
   transition: opacity $d-hover ease-in-out, color ease-in-out $d-hover;
 
@@ -80,4 +79,15 @@
 
 .Error {
   color: $color-accent-error;
+}
+
+
+.agreement {
+  margin-top: set-calc(18);
+  margin-left: set-calc(4);
+
+  @include set-media(md) {
+    margin-top: set-calc(8);
+    margin-left: set-calc(4);
+  }
 }

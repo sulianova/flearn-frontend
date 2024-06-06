@@ -25,9 +25,6 @@ function Explain({ explainMedia }: IProps) {
 
   return (
     <div className={classes.wrapper}>
-      {/* <div className={classes.header}>
-        <div className={classes.headerTitle + ' s-text-56'}>{t('headerTitle')}</div>
-      </div> */}
       <div className={classes.cards}>
         <div className={classes.introCard}>
             <div className={classes.introCardQuote + ' s-text-70'}>{t('introCardQuote0')}</div>
@@ -35,6 +32,9 @@ function Explain({ explainMedia }: IProps) {
         </div>
         <div className={classes.videoCard}>
           <div className={classes.videoCardContainer}>
+            <div className={classes.buble + ' s-text-21'}>
+              <div>иллюстратор, преподаватель</div>
+            </div>
             {explainMedia.type === 'image' ? (
               <Img
                 src={explainMedia.imageSrc}
@@ -48,16 +48,7 @@ function Explain({ explainMedia }: IProps) {
             )}
           </div>
           <div className={classes.videoCardDesc}>
-            {/* <Animated.Scroll>
-              {(id, className) => (<div className={cx({ videoCardTitle: true }, className) + ' s-text-21'} id={id}>
-                {t('videoCardTitle')}
-              </div>)}
-            </Animated.Scroll> */}
-            <Animated.Scroll>
-              {(id, className) => (<div className={classes.videoCardText + ' s-text-16'} id={id}>
-                {t('videoCardText')}
-              </div>)}
-              </Animated.Scroll>
+            <div className={classes.videoCardText + ' s-text-16'}>{t('videoCardText')}</div>
           </div>
         </div>
       </div>

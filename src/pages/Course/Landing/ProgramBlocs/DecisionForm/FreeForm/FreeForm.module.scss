@@ -8,33 +8,28 @@
 
 .btn {
   position: relative;
-
   display: flex;
-  align-items: center;
   justify-content: center;
-
-  padding: set-calc(20) set-calc(80);
-  margin-bottom: set-calc(24);
-  width: 100%;
+  align-items: center;
 
   color: $color-content-inverted-primary;
 
-  background-color: $color-accent-success;
   border-radius: set-calc($border-radius-medium);
-  opacity: 1;
+  background: $gradient-button;
+  padding: set-calc(22) set-calc(60);
+  margin-bottom: set-calc(16);
+  width: max-content;
+
+  transition: opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
   cursor: pointer;
-  pointer-events: all;
-
-  transition: opacity $d-hover ease-in-out, color ease-in-out $d-hover;
-
-  &:hover {
-    opacity: 0.8;
-  }
 
   @include set-media(md) {
-    padding: set-calc(15) 0;
-    margin-bottom: set-calc(24);
+    width: 100%;
+  }
 
-    border-radius: set-calc($border-radius-medium);
+  &:hover {
+    cursor: pointer;
+    box-shadow: $shadow-medium-hovered;
+    opacity: 0.85;
   }
 }

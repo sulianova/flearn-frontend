@@ -135,6 +135,15 @@
   }
 }
 
+.s-text-40 {
+  @include set-typography(40, 42, 500);
+  font-family: $font-family-compact;
+
+  @include set-media(md) {
+    @include set-typography(28, 28, 500);
+  }
+}
+
 @mixin s-text-36 {
   @include set-typography(36, 36, 500);
   font-family: $font-family-compact;

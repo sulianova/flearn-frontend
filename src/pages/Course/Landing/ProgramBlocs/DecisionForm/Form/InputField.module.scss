@@ -33,15 +33,6 @@
   @include set-media(md) {
     padding: set-calc(20) set-calc(16);
   }
-
-  &Caption {
-    padding-bottom: set-calc(16);
-    padding-left: set-calc(8);
-
-    @include set-media(md) {
-      padding-left: set-calc(2);
-    }
-  }
 }
 
 .light {

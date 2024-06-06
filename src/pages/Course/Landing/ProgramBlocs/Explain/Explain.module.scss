@@ -41,7 +41,7 @@ padding-bottom: set-calc(32);
   border-radius: set-calc($border-radius-medium);
 
   @include set-media(md) {
-    padding: set-calc(16) set-calc(16) set-calc(48);
+    padding: 0 set-calc(16) set-calc(24);
   }
 }
 
@@ -60,7 +60,6 @@ padding-bottom: set-calc(32);
   flex-direction: column;
   justify-content: flex-end;
   align-items: end;
-  overflow: hidden;
 }
 
 .videoCardContainer {
@@ -70,14 +69,33 @@ padding-bottom: set-calc(32);
   flex-shrink: 1;
   width: 100%;
   max-height: set-calc(1000);
-  overflow: hidden;
-
-  border-radius: set-calc($border-radius-medium);
 
   @include set-media(md) {
-    margin-bottom: set-calc(8);
+    margin-bottom: set-calc(14);
     max-height: unset;
-    height: set-calc(375);
+    height: set-calc(475);
+  }
+}
+
+.buble {
+  position: absolute;
+  display: flex;
+  transform: rotate(4deg);
+  padding: set-calc(12) set-calc(18);
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 9;
+  right: set-calc(20);
+  top: set-calc(-30);
+  border-radius: set-calc($border-radius-large);
+  background: $color-content-primary;
+  color: $color-palette-white-1000;
+
+  @include set-media(md) {
+    padding: set-calc(8) set-calc(12);
+    transform: rotate(0deg);
+    right: set-calc(-4);
+    top: set-calc(450);
   }
 }
 
@@ -86,12 +104,13 @@ padding-bottom: set-calc(32);
   height: 100%;
   -o-object-fit: cover;
   object-fit: cover;
+  border-radius: set-calc($border-radius-medium);
 }
 
 .videoCardDesc {
   border-radius: set-calc($border-radius-medium);
   margin-bottom: auto;
-  width: 60%;
+  width: 70%;
   text-align: right;
   padding-right: set-calc(8);
 

@@ -28,8 +28,8 @@ export default function Card({ course }: Readonly<IProps>) {
             })}
           </div>
         </div>
-        <h3 className={classes.title + ' s-text-36'}>{course.title}</h3>
-        <div className={classes.description + ' s-text-18'}>{course.introDescription}</div>
+        <h3 className={classes.title + ' s-text-40'}>{course.title}</h3>
+        {/* <div className={classes.description + ' s-text-18'}>{course.introDescription}</div> */}
       </div>
       {/* <div className={classes.actions}>
         <Link

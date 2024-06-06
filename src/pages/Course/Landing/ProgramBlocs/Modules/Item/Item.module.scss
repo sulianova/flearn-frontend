@@ -70,20 +70,6 @@
   }
 }
 
-.itemCard:hover {
-  box-shadow: $shadow-medium-hovered;
-  .slideDownClosed {
-    max-height: 56px;
-  }
-
-  @include set-media(md) {
-    box-shadow: none;
-    .slideDownClosed {
-      max-height: 0;
-    }
-  }
-}
-
 .bullet {
   display: flex;
   justify-content: center;
@@ -158,14 +144,26 @@
   display: flex;
   flex-direction: column;
   max-height: 1000vh;
-  transition-property: max-height;
-  transition-duration: 400ms;
-  transition-timing-function: ease-out;
+  transition: max-height 400ms ease-out;
   transition-delay: -200ms;
 }
 
 .slideDownClosed {
   max-height: 0;
+}
+
+.itemCard:hover {
+  box-shadow: $shadow-medium-hovered;
+  .slideDownClosed {
+    max-height: 56px;
+  }
+
+  @include set-media(md) {
+    box-shadow: none;
+    .slideDownClosed {
+      max-height: 0;
+    }
+  }
 }
 
 .additionalInfo {
@@ -188,99 +186,4 @@
   @include set-media(md) {
     gap: set-calc(12);
   }
-}
-
-.subsection {
-  display: flex;
-  flex-direction: column;
-  gap: set-calc(10);
-  position: relative;
-
-  @include set-media(md) {
-    padding-bottom: set-calc(12);
-    border-bottom: solid set-calc(1) $color-background-stroke;
-  }
-}
-
-.subsectionClosed {
-  display: none;
-  height: 0;
-}
-
-.subsectionSlideDown {
-  width: 100%;
-  transition-timing-function: ease-in-out;
-  transition-duration: $d-zoom;
-  transition-property: none;
-}
-
-.subsectionTitle {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-feature-settings: 'pnum' on, 'lnum' on;
-}
-
-.subsectionDescription {
-  @include set-media(md) {
-    color: $color-content-secondary;
-  }
-}
-
-.projects {
-  display: flex;
-  flex-direction: column;
-  gap: set-calc(16);
-  min-width: set-calc(320);
-  position: relative;
-}
-
-.projectsDescription {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  font-feature-settings: 'pnum' on, 'lnum' on;
-}
-
-.hiddenButton {
-  padding: 0;
-  border: none;
-  opacity: 0;
-  font-size: 0;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-    cursor: pointer;
-  }
-}
-
-.subsectionArrow {
-  display: none;
-
-  @include set-media(md) {
-    display: block;
-
-    svg {
-      flex-shrink: 0;
-      margin-inline-start: set-calc(8);
-      display: inline-block;
-      text-align: center;
-      background: 50% no-repeat;
-      background-size: contain;
-      opacity: 0.85;
-      width: set-calc(24);
-      height: set-calc(24);
-    }
-  }
-}
-
-.subsectionArrowOpened {
-  transform: rotate(180deg);
 }

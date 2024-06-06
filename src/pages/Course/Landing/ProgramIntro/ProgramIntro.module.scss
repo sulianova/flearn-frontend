@@ -20,7 +20,7 @@
   padding: set-calc(32);
   border-radius: set-calc($border-radius-medium);
   @include is-grid-4;
-  background-color: $color-palette-blue-100;
+  background: $gradient-background-profession;
 
   @include set-media(md) {
     padding: set-calc(8) set-calc(8) 0;
@@ -201,7 +201,7 @@
   width: 100%;
   object-fit: cover;
   border-radius: set-calc($border-radius-medium);
-  background-color: $color-palette-black-100;
+  background: $gradient-background-profession;
 
   @include set-media(md) {
     background-color: $color-palette-black-200;

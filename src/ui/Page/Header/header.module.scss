@@ -91,18 +91,19 @@
   align-items: center;
   justify-content: flex-start;
   position: relative;
-  background-color: $color-content-background-primary;
+  background-color: $color-content-background-secondary;
   max-width: fit-content;
   color: $color-content-inverted-primary;
   padding: set-calc(4) set-calc(16);
   border-radius: set-calc($border-radius-small);
+  border: set-calc(1.5) solid $color-content-background-primary;
   height: set-calc(32);
 
   transition: background-color $d-hover ease;
   
   &:hover {
     cursor: pointer;
-    background-color: $color-content-background-secondary;
+    background-color: $color-content-background-primary;
     color: $color-content-inverted-primary;
   }
 
@@ -131,10 +132,11 @@
   display: flex;
   align-items: center;
   position: relative;
-  background-color: $color-content-background-primary;
+  background-color: $color-content-background-secondary;
   color: $color-content-inverted-primary;
   padding: set-calc(4) set-calc(16);
   border-radius: set-calc($border-radius-small);
+  border: set-calc(1.5) solid $color-content-background-primary;
   width: max-content;
   height: set-calc(32);
 
@@ -142,7 +144,7 @@
   
   &:hover {
     cursor: pointer;
-    background-color: $color-content-background-secondary;
+    background-color: $color-content-background-primary;
     color: $color-content-inverted-primary;
   }
 

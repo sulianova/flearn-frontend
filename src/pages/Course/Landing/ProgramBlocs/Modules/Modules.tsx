@@ -27,10 +27,7 @@ function Modules(props: IProps) {
   const { modules, modulesDescription, videosNumber, homeworksNumber, duration } = props;
   return (
       <div className={classes.wrapper}>
-        <div className={classes.header}>
-          <h2 className={cx({ headerTitle: true }) + ' s-text-70'} >{t('title')}</h2>
-          <div className={classes.headerDesc + ' s-text-21'}>{<Text text={modulesDescription}/>}</div>
-        </div>
+        <div className={classes.header + ' s-text-70'}>{t('title')}</div>
         <div className={classes.list}>
           {modules.map((d, index) => <Item key={index} {...d}/>)}
         </div>

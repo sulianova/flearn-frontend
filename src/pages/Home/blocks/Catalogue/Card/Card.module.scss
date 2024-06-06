@@ -9,7 +9,7 @@
   border-radius: set-calc($border-radius-medium);
   color: $color-content-primary;
   
-  min-height: set-calc(300);
+  min-height: set-calc(400);
 
   transition: transform $d-hover ease, box-shadow $d-hover ease;
   box-shadow: none;
@@ -84,6 +84,7 @@
   padding: set-calc(2) set-calc($padding-x-mob-page);
   width: fit-content;
   z-index: 1;
+  color: $color-content-inverted-primary;
 
   border-radius: set-calc($border-radius-large);
   background-color: $color-palette-white-300-a;
@@ -119,7 +120,7 @@
   box-shadow: none;
   transform-origin: center center;
 
-  background-color: $color-palette-blue-100;
+  background: $gradient-background-profession;
   border: set-calc(1) solid $color-background-default;
   border-radius: set-calc($border-radius-medium);
 

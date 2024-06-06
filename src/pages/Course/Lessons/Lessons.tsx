@@ -157,8 +157,8 @@ function Lessons({ courseState, lessonsState }: IConnectedProps) {
                         </div>
                         <div className={classesList.info}>
                           <div className={classesList.infoMain}>
-                            <span className={classesList.infoItem + ' s-text-18'}>{`${group.lessons.length} урока`}</span>
-                            <span className={classesList.infoItem + ' s-text-18'}>{`≈ ${Math.round(totalDurationMinutes / 6) / 10} ч  `}</span>
+                            <span className={classesList.infoItem + ' s-text-16'}>{`${group.lessons.length} урока`}</span>
+                            <span className={classesList.infoItem + ' s-text-16'}>{`≈ ${Math.round(totalDurationMinutes / 6) / 10} ч  `}</span>
                           </div>
                         </div>
                       </div>

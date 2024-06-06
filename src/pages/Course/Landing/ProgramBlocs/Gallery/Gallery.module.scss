@@ -6,15 +6,12 @@
   display: block;
   padding-top: set-calc(0);
   @include is-beige;
-  background-color: $color-palette-black-700;
-
-  @include set-media(md) {
-    border-radius: set-calc($border-radius-medium);
-  }
+  background-color: $color-palette-black-900;
 }
 
 .title {
-  margin-bottom: set-calc(18);
+  padding-left: set-calc(8);
+  margin-bottom: set-calc(10);
   color: $color-palette-white-500-a;
 
   @include set-media(md) {
@@ -23,11 +20,31 @@
   }
 }
 
+.commonFlowRow {
+
+  @include set-media(md) {
+    position: relative;
+  }
+}
+
 .list {
   @include is-grid-3;
 
   @include set-media(md) {
+    position: relative;
     display: flex;
+    flex-flow: row nowrap;
+
+    width: set-calc(16, true, 100%);
+    left: set-calc(-8);
+    padding: 0 set-calc(8);
+
+    scrollbar-width: none;
+    overflow-y: hidden;
+    overflow-x: scroll;
+
+    scroll-behavior: smooth;
+    scroll-snap-type: block;
   }
 }
 
@@ -42,6 +59,10 @@
   aspect-ratio: 1 / 1.5;
 
   text-align: center;
+
+  @include set-media(md) {
+    min-width: min(380px, 90vw);
+  }
 }
 
 .item:not(:last-child) {
