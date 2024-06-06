@@ -21,6 +21,7 @@
   justify-content: center;
   padding: set-calc(16) set-calc(16);
   min-width: set-calc(58);
+  max-width: set-calc(58);
 
   color: $color-content-inverted-primary;
 
@@ -30,6 +31,7 @@
   border-radius: 0 set-calc(15) set-calc(15) 0;
   cursor: pointer;
   pointer-events: all;
+  height: set-calc(62);
 
   transition: background-color $d-hover ease-in-out, color ease-in-out $d-hover;
 
@@ -41,6 +43,7 @@
   @include set-media(md) {
     border: set-calc(0.5) solid $color-background-stroke;
     border-left: 0;
+    height: set-calc(65);
   }
 }
 
@@ -89,5 +92,28 @@
   @include set-media(md) {
     margin-top: set-calc(8);
     margin-left: set-calc(4);
+  }
+}
+
+.btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: $color-content-inverted-primary;
+
+  border-radius: set-calc($border-radius-medium);
+  background: $gradient-button;
+  padding: set-calc(22) set-calc(60);
+  width: 100%;
+
+  transition: opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
+  cursor: pointer;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: $shadow-medium-hovered;
+    opacity: 0.85;
   }
 }

@@ -33,13 +33,21 @@ interface IProps {
 
 export default function Form({ onOrderCreated, courseIsFree }: IProps) {
   const [formData, setFormData] = useState<IFormData>(() => authService.user ? ({ ...initialFormData, email: authService.user.email! }) : initialFormData);
+  const [orderIsCreated, setOrderIsCreated] = useState(false);
   const handleSubmit = useCallback((formData: IFormData) => submit({ formData, setFormData, courseIsFree }), [courseIsFree]);
 
   useEffect(() => {
     if (formData.state.type === 'Success') {
       onOrderCreated({ email: formData.email });
+      setOrderIsCreated(true);
     }
   }, [formData, onOrderCreated]);
+
+  if (orderIsCreated) {
+    return (
+      <button className={classes.btn + ' s-text-21'}>Начать учиться</button>
+    );
+  }
 
   return (
     <>

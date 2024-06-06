@@ -38,26 +38,16 @@ export default function SignupToCoursePopup(props: Readonly<IProps>) {
             <ModalCross/>
           </div>
           <div className={classes.header}>
-            <div className={classes.title}>{t('subtitle')}</div>
-            <div className={classes.caption + ' s-text-18'}>{t('emailCaption')}</div>
+            <div className={classes.title}>{t(orderEmail ? 'subtitle2' : 'subtitle', { email: orderEmail })}</div>
+            <div className={classes.caption + ' s-text-18'}>{t(orderEmail ? 'emailCaption2' : 'emailCaption')}</div>
           </div>
-          <button className={classes.btn + ' s-text-21'}>Начать учиться</button>
           {user ? (
-            <>
-              <FreeForm userData={user} courseData={course} />
-            </>
+            <FreeForm userData={user} courseData={course} />
           ) : (
-            orderEmail ?
-              (
-                <span>{t(`orderIsCreated.free=${courseIsFree}`, { email: orderEmail })}</span>
-              ) : (
-              <>
-                <Form
-                  onOrderCreated={({ email }) => setOrderEmail(email)}
-                  courseIsFree={courseIsFree}
-                />
-              </>
-            )
+            <Form
+              onOrderCreated={({ email }) => setOrderEmail(email)}
+              courseIsFree={courseIsFree}
+            />
           )}
         </div>
       )}

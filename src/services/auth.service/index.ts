@@ -80,21 +80,6 @@ class AuthService {
     }
   }
 
-  public async getAuthenticatedUser() {
-    try {
-      const user = this.firebaseUserBS.getValue();
-      if (user) {
-        return user;
-      }
-  
-      await this.authenticate();
-      return this.firebaseUserBS.getValue()!;
-    } catch (err) {
-      console.log('Failed to getAuthenticatedUser', { err });
-      return null;
-    }
-  }
-
   public async logout() {
     await signOut(this._auth);
     this.firebaseUserBS.next(this._auth.currentUser);

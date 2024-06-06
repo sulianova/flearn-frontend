@@ -64,7 +64,7 @@ class UserService {
 
   public async getAuthenticatedUser() {
     try {
-      const fbUser = await authService.getAuthenticatedUser();
+      const fbUser = authService.user;
       if (!fbUser) {
         return null;
       }

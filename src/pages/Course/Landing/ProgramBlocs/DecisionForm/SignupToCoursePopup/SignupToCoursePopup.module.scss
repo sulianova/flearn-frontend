@@ -92,26 +92,3 @@
 .caption {
   margin-right: set-calc(24);
 }
-
-.btn {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  color: $color-content-inverted-primary;
-
-  border-radius: set-calc($border-radius-medium);
-  background: $gradient-button;
-  padding: set-calc(22) set-calc(60);
-  width: 100%;
-
-  transition: opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
-  cursor: pointer;
-
-  &:hover {
-    cursor: pointer;
-    box-shadow: $shadow-medium-hovered;
-    opacity: 0.85;
-  }
-}
