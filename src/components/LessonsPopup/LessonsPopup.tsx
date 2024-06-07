@@ -12,6 +12,12 @@ import { lessonService } from 'services/lesson.service';
 import { Subscription } from 'rxjs';
 import { dataService } from 'services';
 
+import Tick from 'assets/images/Svg/Tick';
+import Lock from 'assets/images/Svg/Lock';
+
+import classnames from 'classnames/bind';
+const cx = classnames.bind(classes);
+
 type TProps = {
   courseId: string
   onClose: () => void
@@ -65,18 +71,38 @@ export default function LessonsPopup(props: TProps) {
           <ModalCross/>
         </div>
         <div className={classes.body}>
+          <div className={classes.header}>
+            <div className={classes.title + ' s-text-36'}>Название темы</div>
+          </div>
           {lessons ?
             lessons.map(lesson => (
               lesson.canBeAccessed ? (
-                <Link
-                  key={lesson.id}
-                  to={URLSections.Course.Lesson.to({ courseId, lessonId: lesson.id })}
-                  onClick={onClose}
-                >
-                  {lesson.title}
-                </Link>
+                <div className={classes.navigationItem}>
+                  <Link
+                    key={lesson.id}
+                    to={URLSections.Course.Lesson.to({ courseId, lessonId: lesson.id })}
+                    onClick={onClose}
+                    className={classes.navigationItemTitle + ' s-text-18'}
+                  >
+                     <span className={classes.navigationItemIndex}>1.</span>
+                    {lesson.title}
+                  </Link>
+                </div>
               ) : (
-                <div>{lesson.title}</div>
+                <div className={cx({ navigationItem: true, solved: false, disabled: true })}>
+                  <div className={classes.navigationItemTitle + ' s-text-18'}>
+                    <span className={classes.navigationItemIndex}>1.</span>
+                    {lesson.title}
+                  </div>
+                  <div className={classes.navigationItemInfo}>
+                    <div className={classes.infoItem}>
+                      <div className={cx({ infoIcon: true, itemStatus: true})}>
+                        <Lock/>
+                        {/* <Tick/> */}
+                      </div>
+                    </div>
+                  </div>
+                </div>
               )
             )) : (
               <Spinner variant='local'/>

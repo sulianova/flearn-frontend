@@ -14,8 +14,8 @@ import { IFetchCoursePayload, IFetchLessonsPayload, fetchCourse, fetchLessons } 
 import useFallback from './useFallback';
 
 import Page, { EPageVariant } from 'ui/Page/Page';
-import classesHeader from './LessonsHeader.module.scss';
 import classesList from './LessonsList.module.scss';
+import classes from './Lessons.module.scss';
 
 import { type ICourseState, type ILessonsState, type IRootState, type ILessonsData, ECommonErrorTypes } from 'types';
 import LessonsPopup from 'components/LessonsPopup/LessonsPopup';
@@ -218,38 +218,61 @@ export default function Lessons() {
   return (
     <>
       <Page variant={EPageVariant.LMS} header footer>
-        <div className={classesHeader.title + ' s-text-28'}>{courseState.course.title}</div>
-        {filteredLessons.length ? (
-          <div className={classesList.wrapper}>
-              {groupes.map((group, index) => {
-                const totalDurationMinutes = group.lessons.reduce((acc, l) => acc + durationToMinutes(l.duration), 0);
-                return (
-                  <div className={classesList.itemWrapper} onClick={() => setOpenedTopic(group.topic)}>
-                    <div key={index} className={classesList.item}>
-                      <div className={classesList.imageWrapper}/>
-                      <div className={classesList.itemBody}>
-                        <div className={classesList.itemBodyContainer}>
-                          <div className={classesList.titleContainer}>
-                            <h2 className={classesList.title + ' s-text-21'}>
-                              {group.topic}
-                            </h2>
-                          </div>
-                        </div>
-                        <div className={classesList.info}>
-                          <div className={classesList.infoMain}>
-                            <span className={classesList.infoItem + ' s-text-16'}>{`${group.lessons.length} урока`}</span>
-                            <span className={classesList.infoItem + ' s-text-16'}>{`≈ ${Math.round(totalDurationMinutes / 6) / 10} ч  `}</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+        <div className={classes.profilePage}>
+          <div className={classes.title + ' s-text-28'}>{courseState.course.title}</div>
+          <div className={classes.profilePageContent}>
+            <div className={classes.currentLesson}>
+              <div className={classes.currentLessonWrapper}>
+                <div className={classes.currentLessonReminder}>
+                  <div className={classes.currentLessonSubtitle + ' s-text-16'}>
+                    Чек-лист продуктивного обучения
                   </div>
-                );
-              })}
+                  <div className={classes.currentLessonTitle + ' s-text-24'}>
+                    Введение
+                  </div>
+                  <div className={classes.currentLessonDetails}></div>
+                  <div>
+                    <div className={classes.currentLessonButton + ' s-text-18'}>Учиться</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className={classes.program}>
+              <div className={classes.programTitle + ' s-text-28'}>Доступно сейчас и бесплатно</div>
+              {filteredLessons.length ? (
+                <div className={classesList.wrapper}>
+                    {groupes.map((group, index) => {
+                      const totalDurationMinutes = group.lessons.reduce((acc, l) => acc + durationToMinutes(l.duration), 0);
+                      return (
+                        <div className={classesList.itemWrapper} onClick={() => setOpenedTopic(group.topic)}>
+                          <div key={index} className={classesList.item}>
+                            <div className={classesList.imageWrapper}/>
+                            <div className={classesList.itemBody}>
+                              <div className={classesList.itemBodyContainer}>
+                                <div className={classesList.titleContainer}>
+                                  <h2 className={classesList.title + ' s-text-24'}>
+                                    {group.topic}
+                                  </h2>
+                                </div>
+                              </div>
+                              <div className={classesList.info}>
+                                <div className={classesList.infoMain}>
+                                  <span className={classesList.infoItem + ' s-text-16'}>{`${group.lessons.length} урока`}</span>
+                                  <span className={classesList.infoItem + ' s-text-16'}>{`≈ ${Math.round(totalDurationMinutes / 6) / 10} ч  `}</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                </div>
+              ) : (
+                <div>{t(`courseNotStartedYet.${courseState.course.type}`, { minStartDate: formatDate(courseState.course.startDate, { timeZone: 'Europe/Moscow' }) })}</div>
+              )}
+            </div>
           </div>
-        ) : (
-          <div>{t(`courseNotStartedYet.${courseState.course.type}`, { minStartDate: formatDate(courseState.course.startDate, { timeZone: 'Europe/Moscow' }) })}</div>
-        )}
+        </div>
       </Page>
       {openedTopic && courseId && (
         <LessonsPopup
