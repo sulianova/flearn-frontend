@@ -3,10 +3,10 @@
 .__ {
   position: sticky;
   top: 0;
-  transition: transform 0.15s ease-in;
   z-index: 100;
   width: 100%;
   z-index: 1000;
+  transition: transform .5s;
 
   @include s-text-16;
 
