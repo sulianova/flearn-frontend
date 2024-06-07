@@ -1,0 +1,146 @@
+@import 'styles/index';
+
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.popup{
+  position: absolute;
+  top: unset;
+  bottom: 0;
+  left: set-calc(54);
+  right: unset;
+
+  visibility: visible;
+  transform: none;
+  opacity: 1;
+  z-index: -1;
+  visibility: hidden;
+  opacity: 0;
+
+  transition: visibility 0.3s, opacity 0.3s, transform 0.3s;
+  transition-timing-function: cubic-bezier(0.25, 1.15, 0.5, 1.1);
+
+  width: set-calc(300);
+  padding: set-calc(8);
+
+  color: $color-content-primary;
+  border-radius: set-calc(12);
+  background-color: $color-background-default;
+  border: set-calc(1) solid $color-background-stroke;
+  box-shadow: $shadow-medium-default;
+
+  @include set-media(md) {
+    display: flex;
+    flex-direction: column;
+
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    min-height: fill-available;
+
+    width: 100%;
+  }
+}
+
+.animated {
+  transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
+  transition-timing-function: cubic-bezier(0.25, 1.15, 0.5, 1.1);
+  transform: scale(0.5);
+  transform-origin: calc(100% - var(--right)) calc(var(--top) + var(--size) / 4);
+}
+
+.inverseAnimated {
+  transform-origin: calc(var(--right)) calc(100% - var(--top) + var(--size) / 4);
+}
+
+// --top: calc( var(--popup-offset-top) + var(--popup-padding) + (var(--item-height) + var(--popup-padding) * 2 - var(--size) - var(--spacing-16)) / 2 );
+// --right: calc(var(--popup-offset-right) + 2 * var(--popup-padding));
+// --size: 24;
+
+.open {
+  visibility: visible;
+  transform: none;
+  opacity: 1;
+}
+
+.itemsGroup {
+  display: flex;
+  flex-direction: column;
+  margin-top: set-calc(16);
+}
+
+.itemsGroupfirst-child {
+  margin-top: 0;
+}
+
+.item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  align-content: space-between;
+  height: auto;
+  user-select: none;
+
+  margin-right: set-calc(36);
+  padding: set-calc(8);
+}
+
+.withIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: set-calc(8);
+
+  svg {
+    display: inline-block;
+    text-align: center;
+    background: 50% no-repeat;
+    background-size: contain;
+
+    width: set-calc(24);
+    height: set-calc(24);
+
+    path {
+      fill: $color-content-background-secondary;
+    }
+  }
+
+  span {
+    font-size: inherit;
+    line-height: inherit;
+  }
+}
+
+.itemTitle {
+  display: flex;
+  align-items: center;
+  gap: set-calc(8);
+  height: auto;
+}
+
+.itemSubtitle {
+  margin: set-calc(4) 0 0;
+  opacity: 0.4;
+}
+
+.itemHoverable {
+  transition: background-color 0.2s;
+  border-radius: set-calc(8);
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.itemHoverable:hover {
+  background-color: $color-background-glassy-a;
+}
+
+.itemHoverable:active {
+  background-color: $color-background-active;
+}
