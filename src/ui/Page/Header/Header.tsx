@@ -1,5 +1,5 @@
 import classnames from 'classnames/bind';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { formatI18nT, i18n } from 'shared';
 import { authService } from 'services/auth.service';
@@ -28,6 +28,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
   const user = userService.useAuthedUser();
   const [isOpened, setIsOpened] = useState<boolean>(false);
   const [userCourses, setUserCourses] = useState<ICourseData[]>();
+  const currentCloseCourseDropdown = useRef<() => void>();
 
   const userId = user?.id;
   useEffect(() => {
@@ -61,6 +62,12 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
     }
   }, [isOpened]);
 
+  useEffect(() => {
+    if (!visible) {
+      currentCloseCourseDropdown.current?.();
+    }
+  }, [visible]);
+
   const headerClass = cx({ __: true, __Hidden: !visible, IsMobileMenuOpened: isOpened, [variant]: true });
 
   return (
@@ -80,12 +87,15 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
                   close={close}
                 />
               )}
-              children={({ open, close, opened }) => (
-                <div className={cx({ navContent: true, navItem: true, selectToggleIsOpened: opened })} onClick={opened ? close : open}>
-                  <span className={classes.selectToggleContent}>Мои курсы</span>
-                  <span className={classes.selectToggleIcon}><SelectToggleIcon/></span>
-                </div>
-              )}
+              children={({ open, close, opened }) => {
+                currentCloseCourseDropdown.current = close;
+                return (
+                  <div className={cx({ navContent: true, navItem: true, selectToggleIsOpened: opened })} onClick={opened ? close : open}>
+                    <span className={classes.selectToggleContent}>Мои курсы</span>
+                    <span className={classes.selectToggleIcon}><SelectToggleIcon/></span>
+                  </div>
+                );
+              }}
             />
           )}
           <div className={cx({ navLogin: true, navItem: true })}>
