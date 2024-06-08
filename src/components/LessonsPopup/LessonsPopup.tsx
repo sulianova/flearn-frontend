@@ -1,22 +1,22 @@
-import Popup from 'ui/Popup/Popup';
-
-import ModalCross from 'assets/images/Svg/ModalCross';
-
-import { ILessonsData, URLSections, type ILessonData } from 'types';
-
-import classes from './LessonsPopup.module.scss';
-import Link from 'ui/Link/Link';
+import classnames from 'classnames/bind';
 import { useEffect, useState } from 'react';
-import Spinner from 'ui/Spinner/Spinner';
-import { lessonService } from 'services/lesson.service';
 import { Subscription } from 'rxjs';
-import { dataService } from 'services';
+
+import { dataService } from 'services/data.service';
+import { type ILessonData, lessonService } from 'services/lesson.service';
+import { userService } from 'services/user.service';
+import { URLSections } from 'types';
 
 import Tick from 'assets/images/Svg/Tick';
 import Lock from 'assets/images/Svg/Lock';
+import ModalCross from 'assets/images/Svg/ModalCross';
+import Popup from 'ui/Popup/Popup';
+import Link from 'ui/Link/Link';
+import Spinner from 'ui/Spinner/Spinner';
 
-import classnames from 'classnames/bind';
-import { IUserData, userService } from 'services/user.service';
+import classes from './LessonsPopup.module.scss';
+
+
 const cx = classnames.bind(classes);
 
 type TProps = {

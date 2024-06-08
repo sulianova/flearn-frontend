@@ -1,7 +1,7 @@
 
 import { lessonDataDB2FR, lessonDataFR2DB } from 'services/utils/lesson';
 
-import type { ILessonData, ILessonDataDB } from 'types';
+import type { ILessonData, ILessonDataDB } from 'services/lesson.service';
 
 export const lessonConverter = {
   toFirestore: (lessonData: ILessonData): ILessonDataDB => {

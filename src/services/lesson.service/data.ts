@@ -1,108 +1,6 @@
-import { put, select } from 'redux-saga/effects';
-import { dataService, localFilesServise } from 'services';
-import { createAction } from 'store/utils';
-import { updateState } from '../redux';
+import { ILessonDataDB } from "./types";
 
-import { ECommonErrorTypes, ILessonData, ILessonDataDB, ILessonState, IRootState, TAction } from 'types';
-
-export interface IFetchLessonPayload {
-  courseId: string
-  lessonId: string
-  source?: 'local' | 'remote'
-}
-
-export const fetchLesson = createAction<'saga', IFetchLessonPayload>(
-  '***saga*** fetch Lesson',
-  function* execute(action: TAction<IFetchLessonPayload>) {
-    const { courseId, lessonId, source = 'remote' } = action.payload;
-
-    // {
-    //   yield Promise.all(allLessons.map(async lesson => {
-    //     try {
-    //       console.log({ id: lesson.id, lessonDb: lesson });
-    //       const data = await localFilesServise.Lesson.localToFR(lesson, lesson.courseId);
-    //       console.log({ id: lesson.id, lessonFR: data });
-    //       if (!data) {
-    //         throw new Error('no data')
-    //       }
-    //       await dataService.lesson.set(lesson.courseId, lesson.id, data);
-    //       console.log('succes', { id: lesson.id });
-    //     } catch (err) {
-    //       console.log('err', { id: lesson.id, err })
-    //     }
-    //   }));
-    // }
-
-    // if (source === 'remote') {
-    //   return;
-    // }
-
-    // console.log('fetch Lesson', action);
-
-    const prevState: ILessonState = yield select((state: IRootState): ILessonState => state.lesson);
-    const pendingState: ILessonState = { ...prevState, state: { type: 'pending' } };
-    yield put(updateState({ stateName: 'lesson', payload: pendingState }));
-
-    try {
-      if (source === 'remote') {
-        const data: ILessonData = yield dataService.lesson.get(courseId, lessonId);
-  
-        const state: ILessonState = { courseId, lessonId, source, data, state: { type: 'idle' } };
-  
-        yield put(updateState({ stateName: 'lesson', payload: state }));
-      } else {
-      //   const fullId = dataService.lesson.getFullId(courseId, lessonId);
-      //   let file: any
-      //   try {
-      //     // @ts-ignore
-      //     file = yield import(`edit-files/lesson-${fullId}.json`);
-      //   } catch (e) {
-      //     throw new Error(ELessonErrorTypes.FailedToFindLesson);
-      //   }
-
-      //   const isValid = localFilesServise.Lesson.test(file.lessonData);
-      //   if (!isValid) {
-      //     throw new Error(ELessonErrorTypes.LessonDataIsCorrupted);
-      //   }
-      //   const data = localFilesServise.Lesson.localToFR(file.lessonData);
-      //   if (!data) {
-      //     throw new Error(ELessonErrorTypes.LessonDataIsCorrupted);
-      //   }
-      //   const state: ILessonState = { courseId, lessonId, source, data, state: { type: 'idle' } };
-  
-      //   yield put(updateState({ stateName: 'lesson', payload: state }));
-      // } else {
-        const dataDB = getData(courseId, lessonId);
-        const data: ILessonData | undefined = dataDB ? (yield localFilesServise.Lesson.localToFR(dataDB, dataDB.courseId)) : undefined
-        const state: ILessonState = { courseId, lessonId, source, data, state: { type: 'idle' } };
-  
-        yield put(updateState({ stateName: 'lesson', payload: state }));
-      }
-    } catch(e) {
-      const error = e as Error;
-      const errorIsUnknown = !(Object.values(ECommonErrorTypes) as string[]).includes(error.message);
-      const state: ILessonState = {
-        courseId,
-        lessonId,
-        source,
-        data: undefined,
-        state: {
-          type: 'error',
-          error,
-          errorType: errorIsUnknown ? ECommonErrorTypes.Other : error.message as ECommonErrorTypes
-        },
-      };
-  
-      yield put(updateState({ stateName: 'lesson', payload: state }));
-
-      const fullId = dataService.lesson.getFullId(action.payload.courseId, action.payload.lessonId);
-      // tslint:disable-next-line
-      console.log(`Failed to fetch lesson: ${fullId}`, state);
-    }
-  }
-);
-
-function getData(courseId: string, lessonId: string) {
+export function getData(courseId: string, lessonId: string) {
   return allLessons.find(l => l.courseId === courseId && l.id === lessonId);
 }
 
@@ -118,6 +16,7 @@ const lessonData10: ILessonDataDB = {
     unit: 'hours',
     value: 1
   },
+  isFree: true,
   content: [
     {
       type: 'title',
@@ -198,6 +97,7 @@ const lessonData11: ILessonDataDB = {
     unit: 'hours',
     value: 1
   },
+  isFree: true,
   content: [
     {
       type: 'text',
@@ -600,6 +500,7 @@ const lessonData12: ILessonDataDB = {
     unit: 'hours',
     value: 1
   },
+  isFree: true,
   content: [
     {
       type: 'text',
@@ -1211,6 +1112,7 @@ const lessonData13: ILessonDataDB = {
     unit: 'hours',
     value: 1
   },
+  isFree: true,
   content: [
     {
       type: 'text',
@@ -1427,6 +1329,7 @@ const lessonData14: ILessonDataDB = {
     unit: 'hours',
     value: 1
   },
+  isFree: true,
   content: [
     {
       type: 'title',
@@ -1756,6 +1659,7 @@ const lessonData15: ILessonDataDB = {
     unit: 'hours',
     value: 1
   },
+  isFree: true,
   content: [
     {
       type: 'text',
@@ -1999,6 +1903,7 @@ const lessonData16: ILessonDataDB = {
     unit: 'hours',
     value: 1
   },
+  isFree: false,
   content: [
     {
       type: 'text',
@@ -2371,6 +2276,7 @@ const lessonData21: ILessonDataDB = {
     unit: 'hours',
     value: 1
   },
+  isFree: false,
   content: [
     {
       type: 'text',
@@ -2506,6 +2412,7 @@ const lessonData22: ILessonDataDB = {
     unit: 'hours',
     value: 1
   },
+  isFree: false,
   content: [
     {
       type: 'text',
@@ -3276,6 +3183,7 @@ const lessonData23: ILessonDataDB = {
     unit: 'hours',
     value: 1
   },
+  isFree: false,
   content: [
     {
       type: 'text',
@@ -3432,6 +3340,7 @@ const lessonData24: ILessonDataDB = {
     unit: 'hours',
     value: 1
   },
+  isFree: false,
   content: [
     {
       type: 'text',
@@ -3531,6 +3440,7 @@ const lessonData25: ILessonDataDB = {
     unit: 'hours',
     value: 1
   },
+  isFree: false,
   content: [
     {
       type: 'text',
@@ -3907,6 +3817,7 @@ const lessonData31: ILessonDataDB = {
     unit: 'hours',
     value: 1
   },
+  isFree: false,
   content: [
     {
       type: 'text',
@@ -4511,6 +4422,7 @@ const lessonData32: ILessonDataDB = {
     unit: 'hours',
     value: 1
   },
+  isFree: false,
   content: [
     {
       type: 'text',
@@ -4699,6 +4611,7 @@ const lessonData33: ILessonDataDB = {
     unit: 'hours',
     value: 1
   },
+  isFree: false,
   content: [
     {
       type: 'text',
@@ -4999,6 +4912,7 @@ const lessonDataFYS0: ILessonDataDB = {
     unit: 'hours',
     value: 1
   },
+  isFree: false,
   content: [
     {
       type: 'title',
@@ -5079,6 +4993,7 @@ const lessonDataFYS1: ILessonDataDB = {
     unit: 'hours',
     value: 1
   },
+  isFree: false,
   content: [
     {
       type: 'video',
@@ -6406,6 +6321,7 @@ const lessonDataFYS2: ILessonDataDB = {
     unit: 'hours',
     value: 1
   },
+  isFree: false,
   content: [
     {
       type: 'video',
@@ -7570,6 +7486,7 @@ const lessonDataFYS3: ILessonDataDB = {
     unit: 'hours',
     value: 1
   },
+  isFree: false,
   content: [
     {
       type: 'video',
@@ -9274,6 +9191,7 @@ const lessonDataFYS4: ILessonDataDB = {
     unit: 'hours',
     value: 1
   },
+  isFree: false,
   content: [
     {
       type: 'text',
@@ -9602,7 +9520,7 @@ const lessonDataFYS4: ILessonDataDB = {
 //   ]
 // }
 
-const allLessons = [
+export const allLessons = [
   lessonData10,
   lessonData11,
   lessonData12,

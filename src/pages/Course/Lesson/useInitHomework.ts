@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 
 import { homeworkService } from 'services';
-import type { ILessonData } from 'types';
+import { ILessonData } from 'services/lesson.service';
 
 interface IProps {
   courseId?: string
   lessonId?: string
   userId?: string
-  lesson?: ILessonData
+  lesson: ILessonData | null
 }
 
 export default function useInitHomework(props: Readonly<IProps>) {

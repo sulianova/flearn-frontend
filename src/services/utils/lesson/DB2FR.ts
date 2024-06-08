@@ -9,7 +9,7 @@ import type {
   ILessonGalleryBlockDB,
   ILessonImageBlock,
   ILessonImageBlockDB
-} from 'types';
+} from 'services/lesson.service/types';
 
 export async function lessonDataDB2FR(lessonDB: ILessonDataDB): Promise<ILessonData> {
   return {

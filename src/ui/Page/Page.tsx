@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { createContext, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import EditBar from './EditBar/EditBar';
 import Footer, { EFooter } from './Footer/Footer';
 import Header from './Header/Header';
@@ -17,6 +17,13 @@ export enum EPageVariant {
   Fallback = 'Fallback',
 }
 
+type TSource = 'remote' | 'local';
+interface IPageSourceContext {
+  source: TSource 
+  setSource: (source: TSource) => void
+}
+export const PageSourceContext = createContext<IPageSourceContext>({ source: 'remote', setSource: () => {} });
+
 interface IProps {
   children: React.ReactNode
   variant: EPageVariant
@@ -26,6 +33,8 @@ interface IProps {
 }
 
 function Page({ children, variant, header = false, footer, style }: IProps) {
+  const [source, setSource] = useState<TSource>('remote');
+  const contextValue = useMemo(() => ({ source, setSource }), [source]);
   const ref = useHeightToCss();
   const pageRef = useRef<HTMLDivElement>(null);
   const lastScrollTop = useRef(0);
@@ -42,20 +51,22 @@ function Page({ children, variant, header = false, footer, style }: IProps) {
   }, []);
 
   return (
-    <div className={classes.trainerContent}>
-      {variant === EPageVariant.LMS && <Sidebar/>}
-      <div className={classes.theoryPage} onScroll={handleScroll} ref={pageRef}>
-        <div className={classes._} ref={ref} style={style}>
-          {header && <Header variant={variant} visible={headerVisible}/>}
-          <div className={classes.content}>
-              <section className={classes[`${variant}Wrapper`]}>
-                {children}
-              </section>
-            <EditBar/>
+    <PageSourceContext.Provider value={contextValue}>
+      <div className={classes.trainerContent}>
+        {variant === EPageVariant.LMS && <Sidebar/>}
+        <div className={classes.theoryPage} onScroll={handleScroll} ref={pageRef}>
+          <div className={classes._} ref={ref} style={style}>
+            {header && <Header variant={variant} visible={headerVisible}/>}
+            <div className={classes.content}>
+                <section className={classes[`${variant}Wrapper`]}>
+                  {children}
+                </section>
+              <EditBar/>
+            </div>
+            {footer !== false && <Footer type={footer === true ? EFooter.Default : footer}/>}
           </div>
-          {footer !== false && <Footer type={footer === true ? EFooter.Default : footer}/>}
         </div>
-         </div>
-       </div>
+      </div>
+    </PageSourceContext.Provider>
   );
 }

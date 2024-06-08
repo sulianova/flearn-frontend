@@ -2,19 +2,17 @@ import { useEffect, useState } from 'react';
 import type { Subscription } from 'rxjs';
 
 import { formatI18nT } from 'shared';
-import { addDays, formatDate } from 'utils';
 
-import { homeworkService } from 'services';
+import { homeworkService } from 'services/homework.service';
+import { ILessonData } from 'services/lesson.service';
 import { userService } from 'services/user.service';
 
 import Fallback from 'ui/Fallback';
 
-import type { ILessonData } from 'types';
-
 const t = formatI18nT('courseLesson');
 
 interface IProps {
-  lesson: ILessonData | undefined
+  lesson: ILessonData | null
   courseId: string | undefined
   lessonId: string | undefined
 }

@@ -1,32 +1,25 @@
 import { useEffect, useMemo, useState } from 'react';
-import { connect } from 'react-redux';
 import { useParams } from 'react-router';
 
-import { useFetch, useGuid } from 'hooks';
 import { formatI18nT } from 'shared';
-import { formatDate } from 'utils';
+import { ECommonErrorTypes, URLSections } from 'types';
 
 import { userService } from 'services/user.service';
-import store from 'store';
-import { updateState } from 'store/actions/redux';
-import { IFetchCoursePayload, IFetchLessonsPayload, fetchCourse, fetchLessons } from 'store/actions/sagas';
-
-import useFallback from './useFallback';
-
-import Page, { EPageVariant } from 'ui/Page/Page';
-import classesList from './LessonsList.module.scss';
-import classes from './Lessons.module.scss';
-
-import { type ICourseState, type ILessonsState, type IRootState, type ILessonsData, ECommonErrorTypes, URLSections } from 'types';
-import LessonsPopup from 'components/LessonsPopup/LessonsPopup';
 import { ILessonData, TLessonState, lessonService } from 'services/lesson.service';
 import { ICourseData, TCourseState, courseService } from 'services/course.service';
 import { TCourseError } from 'services/course.service/types';
-import { TAccess, TAccessData } from 'services/data.service/Access';
+import { TAccess } from 'services/data.service/Access';
 import { TUserCourseProgress } from 'services/data.service/UserCourseProgress';
 import { dataService } from 'services';
-import Link from 'ui/Link/Link';
 
+import LessonsPopup from 'components/LessonsPopup/LessonsPopup';
+import Link from 'ui/Link/Link';
+import Page, { EPageVariant } from 'ui/Page/Page';
+
+import useFallback from './useFallback';
+
+import classesList from './LessonsList.module.scss';
+import classes from './Lessons.module.scss';
 
 interface IGroup {
   topic: string
@@ -174,11 +167,12 @@ export default function Lessons() {
           acc.set(key, {
             topic: lessonData.topic,
             topicOrder: lessonData.topicOrder,
-            isFree: true,
+            isFree: lessonData.isFree,
             lessons: [{ ...lessonData, canBeAccessed, solved }],
           })
         } else {
           const group = acc.get(key)!;
+          group.isFree = group.isFree && lessonData.isFree;
           group.lessons.push({ ...lessonData, canBeAccessed, solved });
           group.lessons.sort((a, b) => a.orderInTopic - b.orderInTopic);
         }
@@ -194,6 +188,9 @@ export default function Lessons() {
   if (!courseState.course || !lessonsState.lessons || !lessonsState.lessons.length) {
     return fallback;
   }
+
+  const freeGroupes = groupes.filter(g => g.isFree);
+  const payableGroupes = groupes.filter(g => !g.isFree);
 
   return (
     <>
@@ -229,9 +226,8 @@ export default function Lessons() {
             )}
             <div className={classes.program}>
               <div className={classes.programTitle}>Доступно сейчас и бесплатно</div>
-              {filteredLessons.length ? (
                 <div className={classesList.wrapper}>
-                    {groupes.map((group, index) => {
+                    {freeGroupes.map((group, index) => {
                       const totalDurationMinutes = group.lessons.reduce((acc, l) => acc + durationToMinutes(l.duration), 0);
                       return (
                         <div className={classesList.itemWrapper} onClick={() => setOpenedTopic(group.topic)}>
@@ -257,9 +253,36 @@ export default function Lessons() {
                       );
                     })}
                 </div>
-              ) : (
-                <div>{t(`courseNotStartedYet.${courseState.course.type}`, { minStartDate: formatDate(courseState.course.startDate, { timeZone: 'Europe/Moscow' }) })}</div>
-              )}
+            </div>
+            <div className={classes.program}>
+              <div className={classes.programTitle}>Будет доступно после оплаты</div>
+                <div className={classesList.wrapper}>
+                    {payableGroupes.map((group, index) => {
+                      const totalDurationMinutes = group.lessons.reduce((acc, l) => acc + durationToMinutes(l.duration), 0);
+                      return (
+                        <div className={classesList.itemWrapper} onClick={() => setOpenedTopic(group.topic)}>
+                          <div key={index} className={classesList.item}>
+                            <div className={classesList.imageWrapper}/>
+                            <div className={classesList.itemBody}>
+                              <div className={classesList.itemBodyContainer}>
+                                <div className={classesList.titleContainer}>
+                                  <h2 className={classesList.title + ' s-text-24'}>
+                                    {group.topic}
+                                  </h2>
+                                </div>
+                              </div>
+                              <div className={classesList.info}>
+                                <div className={classesList.infoMain}>
+                                  <span className={classesList.infoItem + ' s-text-16'}>{`${group.lessons.length} урока`}</span>
+                                  <span className={classesList.infoItem + ' s-text-16'}>{`≈ ${Math.round(totalDurationMinutes / 6) / 10} ч  `}</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                </div>
             </div>
           </div>
         </div>

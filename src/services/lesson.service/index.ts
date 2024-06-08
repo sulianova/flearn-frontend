@@ -2,8 +2,10 @@ import { BehaviorSubject, CompletionObserver, ErrorObserver, NextObserver, Subje
 
 import { dataService } from 'services/data.service';
 
+import { allLessons, getData } from './data';
 import { ECommonErrorTypes } from 'types';
 import type { IFetchLessonsProps, TActionBS, TActionS, TLessonError } from './types';
+import { localFilesServise } from 'services/localFiles.service';
 
 export type { ILessonData, TActionS, ILessonDataDB, TLessonState, IFetchLessonsProps } from './types';
 
@@ -59,6 +61,25 @@ class LessonService {
     }
   }
 
+  public async upload(props: { courseId: string, lessonId: string }) {
+    try {
+      const lessonLocalDB = getData(props.courseId, props.lessonId);
+      if (!lessonLocalDB) {
+        throw new Error('No local lesson data');
+      }
+      const lessonLocal = await localFilesServise.Lesson.localToFR(lessonLocalDB);
+      await dataService.lesson.set(lessonLocal.courseId, lessonLocal.id, lessonLocal);
+    } catch (error) {
+      // tslint:disable-next-line
+      console.log(`Failed to upload lesson`, { props, error });
+      throw error;
+    }
+  }
+
+  public _uploadAll() {
+    Promise.all(allLessons.map(l => this.upload({ courseId: l.courseId, lessonId: l.id })));
+  }
+
   private errorToType(error: Error): TLessonError {
     const errorIsUnknown = !([ECommonErrorTypes.DataIsCorrupted, ECommonErrorTypes.FailedToFindData, ECommonErrorTypes.Other] as string[]).includes(error.message);
     const errorType = errorIsUnknown ? ECommonErrorTypes.Other : error.message as TLessonError;
@@ -68,6 +89,15 @@ class LessonService {
 
   private async _fetch(props: IFetchLessonsProps) {
     try {
+      if (props.source === 'local' && props.filter.lessonId) {
+        const lessonLocalDB = getData(props.filter.courseId, props.filter.lessonId);
+        if (lessonLocalDB) {
+          const lessonLocal = await localFilesServise.Lesson.localToFR(lessonLocalDB);
+          if (lessonLocal) {
+            return [lessonLocal];
+          }
+        }
+      }
       return await dataService.lesson.getAll(props.filter);
     } catch (error) {
       // tslint:disable-next-line
@@ -81,3 +111,5 @@ class LessonService {
 
 export const lessonService = new LessonService;
 export default LessonService;
+
+(window as any).lessonService = lessonService;

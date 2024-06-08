@@ -5,7 +5,8 @@ export interface IFetchLessonsProps {
     courseId: string
     lessonId?: string
     topic?: string
-  }
+  },
+  source?: 'remote' | 'local'
 }
 
 export interface ILessonBlock {
@@ -90,6 +91,7 @@ export interface ILessonData {
     unit: 'minutes' | 'hours'
     value: number
   }
+  isFree: boolean
   content: ILessonContent
 }
 
@@ -105,6 +107,7 @@ export interface ILessonDataDB {
     unit: 'minutes' | 'hours'
     value: number
   }
+  isFree: boolean
   content: ILessonContentDB
 }
 

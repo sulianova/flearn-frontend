@@ -2,17 +2,17 @@ import { Fragment, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { Subscription } from 'rxjs';
 
+import { ILessonData } from 'services/lesson.service';
 import { IUserData, userService } from 'services/user.service';
 import { formatI18nT } from 'shared';
+import { URLSections } from 'types';
+
+import Link from 'ui/Link/Link';
 
 import useCanShowResults from '../useCanShowResults';
 import useFilter from '../useFilter';
 
-import Link from 'ui/Link/Link';
-
 import classes from './LessonHeader.module.scss';
-
-import { type ILessonData, URLSections } from 'types';
 
 export default LessonHeader;
 

@@ -2,8 +2,6 @@ export * from './article';
 export * from './backend';
 export * from './course';
 export * from './homerwork';
-export * from './lessons';
-export * from './lesson';
 export * from './object';
 export * from './order';
 export * from './route';

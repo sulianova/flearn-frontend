@@ -1,21 +1,20 @@
 import { Fragment } from 'react';
 import { useNavigate } from "react-router-dom";
 
+import { dataService } from 'services/data.service';
+import { homeworkService } from 'services/homework.service';
+import type { ILessonContent, ILessonData } from 'services/lesson.service/types';
+import { IUserData } from 'services/user.service';
 import { formatI18nT } from 'shared';
+import { URLSections } from 'types';
+import type { IHomeworkDataWPopulate } from 'types';
 
 import Edit from 'assets/images/Svg/Edit';
-import TheoryFooter from '../TheoryFooter/TheoryFooter';
 import Article from 'ui/Article/Article';
 import Link from 'ui/Link/Link';
 
+import TheoryFooter from '../TheoryFooter/TheoryFooter';
 import classes from './LessonContent.module.scss';
-
-import { URLSections } from 'types';
-import type { IHomeworkDataWPopulate, ILessonContent, ILessonData } from 'types';
-import { homeworkService } from 'services';
-import { formatDate } from 'utils';
-import userCourseProgress from 'services/data.service/UserCourseProgress';
-import { IUserData } from 'services/user.service';
 
 export default LessonContent;
 
@@ -53,7 +52,7 @@ function LessonContent(props: IProps) {
           if (!user || !nextLessonId) {
             return;
           }
-          userCourseProgress
+          dataService.userCourseProgress
             .markLessonAsRead(props.courseId, user.email, props.data.id)
             .then(() => navigate(URLSections.Course.Lesson.to({ courseId, lessonId: nextLessonId })))
         }}

@@ -1,10 +1,9 @@
 import { TWhereProps, authService, firebaseService } from 'services';
-import type { TAccessData } from 'services/data.service/Access';
+import type { ILessonData, ILessonDataDB } from 'services/lesson.service';
 
 import { lessonConverter } from './lessonConverter';
 
 import { ECollections, ECommonErrorTypes } from 'types';
-import type { ILessonData, ILessonDataDB } from 'types';
 import { isDefined } from 'utils';
 
 interface ILessonsFilter {

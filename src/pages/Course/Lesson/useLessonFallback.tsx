@@ -1,17 +1,16 @@
 import Fallback from 'ui/Fallback';
 
-import { ECommonErrorTypes, type ILessonState } from 'types';
-import { i18n } from 'shared';
-import { formatDate } from 'utils';
+import { ECommonErrorTypes } from 'types';
 import { IUserData } from 'services/user.service';
+import { ILessonData, TLessonState } from 'services/lesson.service';
 
 interface IProps {
-  lessonState: ILessonState
+  lessonState: { state: TLessonState, lesson: ILessonData | null }
   authedUser: IUserData | null
 }
 
 export default function useLessonFallback(props: Readonly<IProps>) {
-  const { lessonState, authedUser } = props;
+  const { lessonState } = props;
 
   if (lessonState.state) {
     if (lessonState.state.type === 'pending') {
@@ -34,7 +33,7 @@ export default function useLessonFallback(props: Readonly<IProps>) {
     }
   }
 
-  if (!lessonState.data) {
+  if (!lessonState.lesson) {
     return <Fallback.Error/>;
   }
 

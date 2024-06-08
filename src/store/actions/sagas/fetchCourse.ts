@@ -64,7 +64,7 @@ export const fetchCourse = createAction<'saga', IFetchCoursePayload>(
         },
       };
 
-      yield put(updateState({ stateName: 'lesson', payload: state }));
+      yield put(updateState({ stateName: 'course', payload: state }));
 
       // tslint:disable-next-line
       console.log(`Failed to fetch course: ${action.payload.courseId}`, { action, state });

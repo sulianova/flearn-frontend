@@ -1,13 +1,13 @@
-import { removeImageSrc } from '../shared';
-
 import type {
-  ILessonContent,
-  ILessonContentDB,
   ILessonData,
   ILessonDataDB,
+  ILessonContent,
+  ILessonContentDB,
   ILessonImageBlock,
   ILessonImageBlockDB
-} from 'types';
+} from 'services/lesson.service/types';
+
+import { removeImageSrc } from '../shared';
 
 export function lessonDataFR2DB(lesson: ILessonData): ILessonDataDB {
   return {
