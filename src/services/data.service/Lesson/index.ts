@@ -6,11 +6,9 @@ import { lessonConverter } from './lessonConverter';
 import { ECollections, ECommonErrorTypes } from 'types';
 import { isDefined } from 'utils';
 
-interface ILessonsFilter {
-  courseId: string
-  lessonId?: string
-  topic?: string
-}
+export interface ILessonFilter extends
+  Pick<ILessonData, 'courseId'>,
+  Partial<Pick<ILessonData, 'id' | 'topic' | 'topicOrder' | 'orderInTopic'>> {}
 
 class Lesson {
   public async get(courseId: string, lessonId: string) {
@@ -30,7 +28,7 @@ class Lesson {
     return lessonData;
   }
 
-  public async getAll(filter: ILessonsFilter) {
+  public async getAll(filter: ILessonFilter) {
     // TODO add filter for other than course
     const userHasAccess = await this._getUserCourseAccess(filter.courseId);
 
@@ -39,9 +37,11 @@ class Lesson {
     }
 
     const queryConstraints: (TWhereProps[number] | undefined)[] = [
-      { param: 'courseId', value: filter.courseId },
-      filter.lessonId ? { param: 'lessonId', value: filter.lessonId } : undefined,
+      filter.courseId ? { param: 'courseId', value: filter.courseId } : undefined,
+      filter.id ? { param: 'id', value: filter.id } : undefined,
       filter.topic ? { param: 'topic', value: filter.topic } : undefined,
+      filter.topicOrder ? { param: 'topicOrder', value: filter.topicOrder } : undefined,
+      filter.orderInTopic ? { param: 'orderInTopic', value: filter.orderInTopic } : undefined,
     ];
     const lessonsDataDB =
       (await firebaseService.getDocs(ECollections.Lesson, queryConstraints.filter(isDefined)))

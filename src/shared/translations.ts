@@ -5,7 +5,6 @@ import ru from 'assets/translations/ru.json';
 i18next.init({
   lng: 'ru',
   fallbackLng: 'ru',
-  debug: true,
   resources: {
     ru: {
       translation: ru,
@@ -42,7 +41,6 @@ i18next.init({
 //   return [key];
 // });
 
-const s = i18next.t;
 type Ttargs = Parameters<TFunction>;
 const formatI18nT = (keyStart: string) => (...args: Ttargs) => {
   const keyEnd = args[0] as string | string[];

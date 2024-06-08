@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
 import { dataService } from 'services/data.service';
@@ -15,6 +15,7 @@ import Link from 'ui/Link/Link';
 
 import TheoryFooter from '../TheoryFooter/TheoryFooter';
 import classes from './LessonContent.module.scss';
+import { lessonService } from 'services/lesson.service';
 
 export default LessonContent;
 
@@ -29,12 +30,18 @@ interface IProps {
   scrollToUpload: () => void
   canShowResults: boolean
   user: IUserData | null
-  nextLessonId: string | undefined
 }
 
 function LessonContent(props: IProps) {
-  const { courseId, user, nextLessonId } = props;
+  const { courseId, user } = props;
   const navigate = useNavigate();
+  const [nextLesson, setNextLesson] = useState<ILessonData | null | undefined>(undefined);
+
+  useEffect(() => {
+    lessonService
+      .fetchNextLesson(props.data)
+      .then(l => setNextLesson(l));
+  }, [props.data]);
 
   return (
     <div className={classes._}>
@@ -49,12 +56,23 @@ function LessonContent(props: IProps) {
       <Article blocks={props.blocks}/>
       <TheoryFooter
         onNext={() => {
-          if (!user || !nextLessonId) {
+          if (!user || nextLesson === undefined) {
             return;
           }
           dataService.userCourseProgress
             .markLessonAsRead(props.courseId, user.email, props.data.id)
-            .then(() => navigate(URLSections.Course.Lesson.to({ courseId, lessonId: nextLessonId })))
+            .then(() => {
+              if (nextLesson === null) {
+                //course has ended
+                navigate(URLSections.Course.Lessons.to({ courseId }));
+              } else if (!nextLesson!.isFree) {
+                // next lesson is not free
+                // TODO show pay screen
+                navigate(URLSections.Course.Lessons.to({ courseId }));
+              } else {
+                navigate(URLSections.Course.Lesson.to({ courseId, lessonId: nextLesson!.id }));
+              }
+            });
         }}
       />
     </div>

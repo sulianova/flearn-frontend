@@ -1,17 +1,17 @@
 import { ILessonDataDB } from "./types";
 
-export function getData(courseId: string, lessonId: string) {
-  return allLessons.find(l => l.courseId === courseId && l.id === lessonId);
+export function getData(lessonId: string) {
+  return allLessons.find(l => l.id === lessonId);
 }
 
 const lessonData10: ILessonDataDB = {
-  orderInTopic: 1,
   id: 'Checklist_hUpx7v',
   courseId: 'how-to-draw',
   title: 'Чек-лист продуктивного обучения',
   type: 'Theory',
   topic: 'Чек-лист продуктивного обучения',
-  topicOrder: 0,
+  topicOrder: 1,
+  orderInTopic: 1,
   duration: {
     unit: 'hours',
     value: 1
@@ -86,13 +86,13 @@ const lessonData10: ILessonDataDB = {
 }
 
 const lessonData11: ILessonDataDB = {
-  orderInTopic: 1,
   id: 'DrawingExercises_h3dx7k',
   courseId: 'how-to-draw',
-  title: '1.1 Упражнения, чтобы разрисоваться',
+  title: 'Упражнения, чтобы разрисоваться',
   type: 'Theory',
   topic: 'Линия',
-  topicOrder: 1,
+  topicOrder: 2,
+  orderInTopic: 1,
   duration: {
     unit: 'hours',
     value: 1
@@ -489,13 +489,13 @@ const lessonData11: ILessonDataDB = {
 };
 
 const lessonData12: ILessonDataDB = {
-  orderInTopic: 2,
   id: 'LineIntroduction_gBpaFa',
   courseId: 'how-to-draw',
-  title: '1.2 Линия: знакомство',
+  title: 'Линия: знакомство',
   type: 'Theory',
   topic: 'Линия',
-  topicOrder: 1,
+  topicOrder: 2,
+  orderInTopic: 2,
   duration: {
     unit: 'hours',
     value: 1
@@ -1101,13 +1101,13 @@ const lessonData12: ILessonDataDB = {
 }
 
 const lessonData13: ILessonDataDB = {
-  orderInTopic: 3,
   id: 'LineShape_RY7PQ3',
   courseId: 'how-to-draw',
-  title: '1.3 Линия: как рисовать объемно',
+  title: 'Линия: как рисовать объемно',
   type: 'Theory',
   topic: 'Линия',
-  topicOrder: 1,
+  topicOrder: 2,
+  orderInTopic: 3,
   duration: {
     unit: 'hours',
     value: 1
@@ -1318,13 +1318,13 @@ const lessonData13: ILessonDataDB = {
 }
 
 const lessonData14: ILessonDataDB = {
-  orderInTopic: 4,
   id: 'HowToDrawSimilarPicture_bah4tw',
   courseId: 'how-to-draw',
-  title: '1.4. Как рисовать похоже',
+  title: 'Как рисовать похоже',
   type: 'Theory',
   topic: 'Линия',
-  topicOrder: 1,
+  topicOrder: 2,
+  orderInTopic: 4,
   duration: {
     unit: 'hours',
     value: 1
@@ -1648,13 +1648,13 @@ const lessonData14: ILessonDataDB = {
 };
 
 const lessonData15: ILessonDataDB = {
-  orderInTopic: 5,
   id: 'HowToDrawSimilarPictureLine_t6qrnq',
   courseId: 'how-to-draw',
-  title: '1.5. Как рисовать похоже. Линия',
+  title: 'Как рисовать похоже. Линия',
   type: 'Theory',
   topic: 'Линия',
-  topicOrder: 1,
+  topicOrder: 2,
+  orderInTopic: 5,
   duration: {
     unit: 'hours',
     value: 1
@@ -1892,18 +1892,18 @@ const lessonData15: ILessonDataDB = {
 };
 
 const lessonData16: ILessonDataDB = {
-  orderInTopic: 6,
   id: 'HowToDrawSimilarPictureLine_t6qrnq_Practice_iqln35',
   courseId: 'how-to-draw',
-  title: '1.6 Практика первой недели',
+  title: 'Практика первой недели',
   type: 'Practice',
-  topic: 'Практика первой недели',
-  topicOrder: 1,
+  topic: 'Линия',
+  topicOrder: 2,
+  orderInTopic: 6,
   duration: {
     unit: 'hours',
     value: 1
   },
-  isFree: false,
+  isFree: true,
   content: [
     {
       type: 'text',
@@ -2265,13 +2265,13 @@ const lessonData16: ILessonDataDB = {
 }
 
 const lessonData21: ILessonDataDB = {
-  orderInTopic: 1,
   id: 'DifferencesLineSpot_W4baHU',
   courseId: 'how-to-draw',
-  title: '2.1 Про разницу между линией и пятном',
+  title: 'Про разницу между линией и пятном',
   type: 'Theory',
   topic: 'Пятно',
-  topicOrder: 2,
+  topicOrder: 3,
+  orderInTopic: 1,
   duration: {
     unit: 'hours',
     value: 1
@@ -2401,13 +2401,13 @@ const lessonData21: ILessonDataDB = {
 }
 
 const lessonData22: ILessonDataDB = {
-  orderInTopic: 2,
   id: 'SpotIntroduction_R4vzDr',
   courseId: 'how-to-draw',
-  title: '2.2 Пятно: знакомство',
+  title: 'Пятно: знакомство',
   type: 'Theory',
   topic: 'Пятно',
-  topicOrder: 2,
+  topicOrder: 3,
+  orderInTopic: 2,
   duration: {
     unit: 'hours',
     value: 1
@@ -3172,13 +3172,13 @@ const lessonData22: ILessonDataDB = {
 }
 
 const lessonData23: ILessonDataDB = {
-  orderInTopic: 3,
   id: 'HowToDrawSimilarPictureSpot_p6hXtt',
   courseId: 'how-to-draw',
-  title: '2.3 Как рисовать похоже. Пятно',
+  title: 'Как рисовать похоже. Пятно',
   type: 'Theory',
   topic: 'Пятно',
-  topicOrder: 2,
+  topicOrder: 3,
+  orderInTopic: 3,
   duration: {
     unit: 'hours',
     value: 1
@@ -3329,13 +3329,13 @@ const lessonData23: ILessonDataDB = {
 }
 
 const lessonData24: ILessonDataDB = {
-  orderInTopic: 4,
   id: 'SpotShape_dftUrH',
   courseId: 'how-to-draw',
-  title: '2.4 Как рисовать объемно. Пятно',
+  title: 'Как рисовать объемно. Пятно',
   type: 'Theory',
   topic: 'Пятно',
-  topicOrder: 2,
+  topicOrder: 3,
+  orderInTopic: 4,
   duration: {
     unit: 'hours',
     value: 1
@@ -3429,13 +3429,13 @@ const lessonData24: ILessonDataDB = {
 }
 
 const lessonData25: ILessonDataDB = {
-  orderInTopic: 5,
   id: 'SpotPractice_kfKAEY',
   courseId: 'how-to-draw',
   title: 'Практика второй недели',
   type: 'Practice',
-  topic: 'Практика второй недели',
-  topicOrder: 2,
+  topic: 'Пятно',
+  topicOrder: 3,
+  orderInTopic: 5,
   duration: {
     unit: 'hours',
     value: 1
@@ -3806,13 +3806,13 @@ const lessonData25: ILessonDataDB = {
 }
 
 const lessonData31: ILessonDataDB = {
-  orderInTopic: 1,
   id: 'LineAndSpot_jr2WYu',
   courseId: 'how-to-draw',
-  title: '3.1 Линия и пятно: как совмещать',
+  title: 'Линия и пятно: как совмещать',
   type: 'Theory',
   topic: 'Линия и пятно',
-  topicOrder: 3,
+  topicOrder: 4,
+  orderInTopic: 1,
   duration: {
     unit: 'hours',
     value: 1
@@ -4411,13 +4411,13 @@ const lessonData31: ILessonDataDB = {
 }
 
 const lessonData32: ILessonDataDB = {
-  orderInTopic: 2,
   id: 'ContrastNuance_9rP6Yl',
   courseId: 'how-to-draw',
-  title: '3.2 Как выделить главное: контраст, нюанс',
+  title: 'Как выделить главное: контраст, нюанс',
   type: 'Theory',
   topic: 'Линия и пятно',
-  topicOrder: 3,
+  topicOrder: 4,
+  orderInTopic: 2,
   duration: {
     unit: 'hours',
     value: 1
@@ -4600,13 +4600,13 @@ const lessonData32: ILessonDataDB = {
 }
 
 const lessonData33: ILessonDataDB = {
-  orderInTopic: 3,
   id: 'LineSpotPractice_L8A8Jk',
   courseId: 'how-to-draw',
   title: 'Практика третьей недели',
   type: 'Practice',
-  topic: 'рактика третьей недели',
-  topicOrder: 3,
+  topic: 'Линия и пятно',
+  topicOrder: 4,
+  orderInTopic: 3,
   duration: {
     unit: 'hours',
     value: 1

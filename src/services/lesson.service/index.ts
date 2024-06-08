@@ -4,7 +4,7 @@ import { dataService } from 'services/data.service';
 
 import { allLessons, getData } from './data';
 import { ECommonErrorTypes } from 'types';
-import type { IFetchLessonsProps, TActionBS, TActionS, TLessonError } from './types';
+import type { IFetchLessonsProps, ILessonData, TActionBS, TActionS, TLessonError } from './types';
 import { localFilesServise } from 'services/localFiles.service';
 
 export type { ILessonData, TActionS, ILessonDataDB, TLessonState, IFetchLessonsProps } from './types';
@@ -61,9 +61,9 @@ class LessonService {
     }
   }
 
-  public async upload(props: { courseId: string, lessonId: string }) {
+  public async upload(id: string) {
     try {
-      const lessonLocalDB = getData(props.courseId, props.lessonId);
+      const lessonLocalDB = getData(id);
       if (!lessonLocalDB) {
         throw new Error('No local lesson data');
       }
@@ -71,13 +71,30 @@ class LessonService {
       await dataService.lesson.set(lessonLocal.courseId, lessonLocal.id, lessonLocal);
     } catch (error) {
       // tslint:disable-next-line
-      console.log(`Failed to upload lesson`, { props, error });
+      console.log(`Failed to upload lesson`, { id, error });
       throw error;
     }
   }
 
   public _uploadAll() {
-    Promise.all(allLessons.map(l => this.upload({ courseId: l.courseId, lessonId: l.id })));
+    Promise.all(allLessons.map(l => this.upload(l.id)));
+  }
+
+  public async fetchNextLesson(lesson: ILessonData) {
+    try {
+      const nextInTopickLesson = (await this._fetch({ filter: { courseId: lesson.courseId, topicOrder: lesson.topicOrder, orderInTopic: lesson.orderInTopic + 1 }}))[0] as ILessonData | undefined;
+      if (nextInTopickLesson) {
+        return nextInTopickLesson;
+      }
+      const firstInNextTopickLesson = (await this._fetch({ filter: { courseId: lesson.courseId, topicOrder: lesson.topicOrder + 1, orderInTopic: 1 }}))[0] as ILessonData | undefined;
+      if (firstInNextTopickLesson) {
+        return firstInNextTopickLesson;
+      }
+      return null;
+    } catch (err) {
+      console.log('Failed to get next lesson', { err, lesson });
+      throw err;
+    }
   }
 
   private errorToType(error: Error): TLessonError {
@@ -89,8 +106,8 @@ class LessonService {
 
   private async _fetch(props: IFetchLessonsProps) {
     try {
-      if (props.source === 'local' && props.filter.lessonId) {
-        const lessonLocalDB = getData(props.filter.courseId, props.filter.lessonId);
+      if (props.source === 'local' && props.filter.id) {
+        const lessonLocalDB = getData(props.filter.id);
         if (lessonLocalDB) {
           const lessonLocal = await localFilesServise.Lesson.localToFR(lessonLocalDB);
           if (lessonLocal) {

@@ -1,11 +1,8 @@
+import { ILessonFilter } from 'services/data.service/Lesson';
 import { ECommonErrorTypes, TStateState, TText } from 'types';
 
 export interface IFetchLessonsProps {
-  filter: {
-    courseId: string
-    lessonId?: string
-    topic?: string
-  },
+  filter: ILessonFilter
   source?: 'remote' | 'local'
 }
 

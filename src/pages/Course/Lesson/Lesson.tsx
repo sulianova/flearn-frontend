@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 
 import { userService } from 'services/user.service';
@@ -69,13 +69,13 @@ export default function Lesson({ section }: IProps) {
 
 
   useEffect(() => {
-    if (!courseId) {
+    if (!courseId || !lessonId) {
       return;
     }
 
     let cancelled = false;
     const s = lessonService
-      .getLessonBS({ filter: { courseId }})
+      .getLessonBS({ filter: { courseId, id: lessonId }})
       .subscribe(o => {
         if (!o || cancelled) {
           return;
@@ -96,20 +96,7 @@ export default function Lesson({ section }: IProps) {
       cancelled = true;
       s.unsubscribe();
     };
-  }, [courseId]);
-
-  const nextLessonId = useMemo(() => {
-    const sortedA = lessonsState.lessons
-      .sort((a, b) => {
-        const key = a.topicOrder != b.topicOrder ? 'topicOrder' : 'orderInTopic';
-        return a[key] - b[key];
-      });
-    const currentLessonIndex = sortedA.findIndex(l => l.id === lessonState.lesson?.id);
-    if (currentLessonIndex === -1 || currentLessonIndex + 1 === sortedA.length) {
-      return undefined
-    }
-    return sortedA[currentLessonIndex + 1].id;
-  }, [lessonsState.lessons, lessonState.lesson]);
+  }, [courseId, lessonId]);
 
   if (!lessonState.lesson) {
     return fallback;
@@ -128,7 +115,13 @@ export default function Lesson({ section }: IProps) {
   }
 
   return (
-    <Page variant={EPageVariant.LMS} header footer={false} style={{ backgroundColor: 'var(--color-background-default)'}}>
+    <Page
+      variant={EPageVariant.LMS}
+      header 
+      footer={false}
+      style={{ backgroundColor: 'var(--color-background-default)'}}
+      scrollToTopDependencie={lessonId}
+    >
       <div className={classes.__}>
         <LessonHeader
           lesson={lessonState.lesson}
@@ -144,7 +137,6 @@ export default function Lesson({ section }: IProps) {
             scrollToUpload={() => setScrollToUpload(true)}
             canShowResults={canShowResults}
             user={authedUser}
-            nextLessonId={nextLessonId}
           />)
         }
         {section === 'task' && homework?.homework?.state === 'DRAFT' &&

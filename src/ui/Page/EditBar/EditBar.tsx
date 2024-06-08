@@ -67,7 +67,7 @@ function handleUpload(props: TProps) {
       console.log('TODO: upload course');
       break;
     case 'Lesson':
-      lessonService.upload(props);
+      lessonService.upload(props.lessonId);
       break;
     default:
       // @ts-ignore

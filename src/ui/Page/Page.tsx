@@ -30,9 +30,10 @@ interface IProps {
   header?: boolean
   footer?: boolean | EFooter
   style?: React.CSSProperties
+  scrollToTopDependencie?: any
 }
 
-function Page({ children, variant, header = false, footer, style }: IProps) {
+function Page({ children, variant, header = false, footer, style, scrollToTopDependencie }: IProps) {
   const [source, setSource] = useState<TSource>('remote');
   const contextValue = useMemo(() => ({ source, setSource }), [source]);
   const ref = useHeightToCss();
@@ -41,8 +42,8 @@ function Page({ children, variant, header = false, footer, style }: IProps) {
   const [headerVisible, setHeaderVisible] = useState(true);
 
   useEffect(() => {
-    window.scrollTo({ top: 0 });
-  }, []);
+    pageRef?.current?.scrollTo({ top: 0 });
+  }, [scrollToTopDependencie]);
 
   const handleScroll = useCallback(() => {
     const scrollTop = Math.max(pageRef?.current?.scrollTop ?? 0, 0);
