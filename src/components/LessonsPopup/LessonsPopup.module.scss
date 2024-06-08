@@ -20,6 +20,7 @@
     min-height: 100vh;
     min-height: -webkit-fill-available;
     min-height: fill-available;
+    padding: 0;
 
     width: 100%;
   }
@@ -42,11 +43,18 @@
   transition-property: background-color, border-color, box-shadow, color, transform;
   transition-duration: 0.15s;
   transition-timing-function: ease-out;
+
   
   svg {
     width: set-calc(24);
     height: set-calc(24);
     fill: none;
+  }
+
+  @include set-media(md) {
+    right: set-calc(16);
+    border-radius: 50%;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.06), 0 1px 17px rgba(0, 0, 0, 0.06);
   }
 }
 
@@ -79,6 +87,10 @@
 .header {
   margin: 0 set-calc(28);
   max-width: set-calc(700);
+
+  @include set-media(md) {
+    margin: 0 set-calc(16) 0 set-calc(24);
+  }
 }
 
 .title {
@@ -109,6 +121,10 @@
     font-size: inherit;
     line-height: inherit;
   }
+
+  @include set-media(md) {
+    padding: set-calc(8) set-calc(28)   set-calc(8) set-calc(16);
+  }
 }
 
 .navigationItemIndex {
@@ -117,6 +133,12 @@
   min-width: set-calc(38);
   padding-right: set-calc(16);
   justify-content: flex-end;
+
+  @include set-media(md) {
+    min-width: set-calc(30);
+    padding: 0;
+    justify-content: flex-start;
+  }
 }
 
 .navigationItemInfo {

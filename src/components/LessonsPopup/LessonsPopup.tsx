@@ -16,6 +16,7 @@ import Tick from 'assets/images/Svg/Tick';
 import Lock from 'assets/images/Svg/Lock';
 
 import classnames from 'classnames/bind';
+import { IUserData, userService } from 'services/user.service';
 const cx = classnames.bind(classes);
 
 type TProps = {
@@ -23,7 +24,7 @@ type TProps = {
   onClose: () => void
 } & (
   {
-    lessons: (ILessonData & { canBeAccessed?: boolean })[]
+    lessons: (ILessonData & { solved: boolean, canBeAccessed: boolean })[]
   } | {
     lessonIdOfLessonsWithSameTopic: string
   }
@@ -31,21 +32,23 @@ type TProps = {
 
 export default function LessonsPopup(props: TProps) {
   const { courseId, onClose } = props;
-  const [lessons, setLessons] = useState<(ILessonData & { canBeAccessed?: boolean })[] | null>('lessons' in props ? props.lessons : null);
+  const authedUser = userService.useAuthedUser();
+  const [lessons, setLessons] = useState<(ILessonData & { solved: boolean, canBeAccessed: boolean })[] | null>('lessons' in props ? props.lessons : null);
 
   const lessonIdOfLessonsWithSameTopic = 'lessonIdOfLessonsWithSameTopic' in props ? props.lessonIdOfLessonsWithSameTopic : null;
   useEffect(() => {
-    if (lessonIdOfLessonsWithSameTopic === null) {
+    if (lessonIdOfLessonsWithSameTopic === null || !authedUser) {
       return;
     }
-
-
 
     let cancelled = false;
     let subscription: Subscription;
 
-    dataService.lesson.get(courseId, lessonIdOfLessonsWithSameTopic)
-      .then(lesson => {
+    Promise.all([
+      dataService.userCourseProgress.get(courseId, authedUser.email),
+      dataService.lesson.get(courseId, lessonIdOfLessonsWithSameTopic)
+    ])
+      .then(([progress, lesson]) => {
         subscription = lessonService
           .getLessonBS({ filter: { courseId, topic: lesson.topic } })
           .subscribe(o => {
@@ -53,7 +56,21 @@ export default function LessonsPopup(props: TProps) {
               return;
             }
     
-            setLessons(o.lessons);
+            const firstNotLearnedLesson = o.lessons
+              .sort((a, b) => {
+                const key = a.topicOrder != b.topicOrder ? 'topicOrder' : 'orderInTopic';
+                return a[key] - b[key];
+              })
+              .find(l => !progress[l.id]);
+            
+            setLessons(o.lessons.map(lesson => {
+              const solved = progress?.[lesson.id] ?? false;
+              const canBeAccessed = !firstNotLearnedLesson ? false
+                : firstNotLearnedLesson.topicOrder === lesson.topicOrder
+                  ? firstNotLearnedLesson.orderInTopic >= lesson.orderInTopic
+                  : firstNotLearnedLesson.topicOrder > lesson.topicOrder;
+              return { ...lesson, canBeAccessed, solved };
+            }));
           })
       })
       .catch(err => { console.log(err) /* do nothing */ })
@@ -62,7 +79,7 @@ export default function LessonsPopup(props: TProps) {
       cancelled = false;
       subscription.unsubscribe();
     };
-  }, [courseId, lessonIdOfLessonsWithSameTopic]);
+  }, [courseId, authedUser, lessonIdOfLessonsWithSameTopic]);
 
   return (
     <Popup>
@@ -72,39 +89,32 @@ export default function LessonsPopup(props: TProps) {
         </div>
         <div className={classes.body}>
           <div className={classes.header}>
-            <div className={classes.title + ' s-text-36'}>Название темы</div>
+            <div className={classes.title + ' s-text-36'}>{lessons?.[0]?.topic ?? ''}</div>
           </div>
           {lessons ?
             lessons.map(lesson => (
-              lesson.canBeAccessed ? (
-                <div className={classes.navigationItem}>
-                  <Link
-                    key={lesson.id}
-                    to={URLSections.Course.Lesson.to({ courseId, lessonId: lesson.id })}
-                    onClick={onClose}
-                    className={classes.navigationItemTitle + ' s-text-18'}
-                  >
-                     <span className={classes.navigationItemIndex}>1.</span>
-                    {lesson.title}
-                  </Link>
-                </div>
-              ) : (
-                <div className={cx({ navigationItem: true, solved: false, disabled: true })}>
+              <div className={cx({ navigationItem: true, solved: lesson.solved, disabled: !lesson.canBeAccessed })}>
                   <div className={classes.navigationItemTitle + ' s-text-18'}>
-                    <span className={classes.navigationItemIndex}>1.</span>
-                    {lesson.title}
+                    <Link
+                      key={lesson.id}
+                      to={lesson.canBeAccessed ? URLSections.Course.Lesson.to({ courseId, lessonId: lesson.id }) : undefined}
+                      onClick={onClose}
+                    >
+                      <span className={classes.navigationItemIndex}>{lesson.orderInTopic}.</span>
+                      {lesson.title}
+                    </Link>
                   </div>
                   <div className={classes.navigationItemInfo}>
                     <div className={classes.infoItem}>
-                      <div className={cx({ infoIcon: true, itemStatus: true})}>
-                        <Lock/>
-                        {/* <Tick/> */}
+                      <div className={cx({ infoIcon: true, itemStatus: true })}>
+                        {!lesson.canBeAccessed && <Lock/>}
+                        {lesson.solved && <Tick/>}
                       </div>
                     </div>
                   </div>
                 </div>
               )
-            )) : (
+            ) : (
               <Spinner variant='local'/>
             )
           }

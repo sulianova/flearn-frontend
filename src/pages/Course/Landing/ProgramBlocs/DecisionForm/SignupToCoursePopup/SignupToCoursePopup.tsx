@@ -46,7 +46,6 @@ export default function SignupToCoursePopup(props: Readonly<IProps>) {
           ) : (
             <Form
               onOrderCreated={({ email }) => setOrderEmail(email)}
-              courseIsFree={courseIsFree}
             />
           )}
         </div>

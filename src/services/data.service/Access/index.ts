@@ -16,10 +16,10 @@ class Access {
     }
   }
 
-  public async add(courseId: string, email: string, accessValue: boolean = true) {
+  public async add(courseId: string, email: string, accessValue: TAccess) {
     try {
       const access = await firebaseService.getDocOrThrow<TAccessData>(ECollections.Access, courseId);
-      await firebaseService.setDoc(ECollections.Access, courseId, { ...access, [email]: accessValue });
+      await firebaseService.setDoc<TAccessData>(ECollections.Access, courseId, { ...access, [email]: accessValue });
     } catch (err) {
       const error = err as Error;
       // tslint:disable-next-line

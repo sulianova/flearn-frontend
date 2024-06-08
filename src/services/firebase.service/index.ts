@@ -40,13 +40,13 @@ export class FirebaseService {
     }
   }
 
-  public async getDoc(collectionName: ECollections, id: string, converter: FirestoreDataConverter<DocumentData, DocumentData> | null = null, subCollection?: { collection: string, id: string }) {
+  public async getDoc<T extends object = DocumentData>(collectionName: ECollections, id: string, converter: FirestoreDataConverter<DocumentData, DocumentData> | null = null, subCollection?: { collection: string, id: string }) {
     try {
       const subcollectionPathSegments = subCollection ? [subCollection.collection, subCollection.id] : [];
       const pathSegments = [collectionName, id, ...subcollectionPathSegments] as const;
       const docRef = converter ? getDocRef(this._db, ...pathSegments).withConverter(converter) : getDocRef(this._db, ...pathSegments);
       const doc = await getDoc(docRef);
-      return doc.data();
+      return doc.data() as T | undefined;
     } catch(e) {
       // tslint:disable-next-line
       console.error(e);
@@ -72,7 +72,7 @@ export class FirebaseService {
     }
   }
 
-  public async setDoc(collectionName: ECollections, id: string, data: IObject, converter: FirestoreDataConverter<DocumentData, DocumentData> | null = null, subCollection?: { collection: string, id: string }) {
+  public async setDoc<T extends object = IObject>(collectionName: ECollections, id: string, data: T, converter: FirestoreDataConverter<DocumentData, DocumentData> | null = null, subCollection?: { collection: string, id: string }) {
     try {
       const subcollectionPathSegments = subCollection ? [subCollection.collection, subCollection.id] : [];
       const pathSegments = [collectionName, id, ...subcollectionPathSegments] as const;
@@ -192,7 +192,7 @@ export const firebaseService = new FirebaseService(getFirebaseConfig());
 
 type TLessonId = string;
 
-function filterData(data: IObject<unknown>) {
+function filterData(data: IObject<any>) {
   const filteredData = {} as IObject;
   Object.keys(data).forEach(key => {
     if (data[key] !== undefined) {

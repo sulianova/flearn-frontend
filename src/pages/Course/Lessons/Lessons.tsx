@@ -17,7 +17,7 @@ import Page, { EPageVariant } from 'ui/Page/Page';
 import classesList from './LessonsList.module.scss';
 import classes from './Lessons.module.scss';
 
-import { type ICourseState, type ILessonsState, type IRootState, type ILessonsData, ECommonErrorTypes } from 'types';
+import { type ICourseState, type ILessonsState, type IRootState, type ILessonsData, ECommonErrorTypes, URLSections } from 'types';
 import LessonsPopup from 'components/LessonsPopup/LessonsPopup';
 import { ILessonData, TLessonState, lessonService } from 'services/lesson.service';
 import { ICourseData, TCourseState, courseService } from 'services/course.service';
@@ -25,13 +25,14 @@ import { TCourseError } from 'services/course.service/types';
 import { TAccess, TAccessData } from 'services/data.service/Access';
 import { TUserCourseProgress } from 'services/data.service/UserCourseProgress';
 import { dataService } from 'services';
+import Link from 'ui/Link/Link';
 
 
 interface IGroup {
   topic: string
   topicOrder: number
   isFree: boolean
-  lessons: (ILessonData & { canBeAccessed: boolean })[]
+  lessons: (ILessonData & { solved: boolean, canBeAccessed: boolean })[]
 }
 
 const t = formatI18nT('courseLessons');
@@ -131,8 +132,6 @@ export default function Lessons() {
     };
   }, [courseId, authedUser?.email]);
 
-  console.log({ access, userCourseProgress })
-
   const lessons = lessonsState?.lessons;
   const filteredLessons = useMemo(() => {
     if (!lessons) {
@@ -151,53 +150,36 @@ export default function Lessons() {
       return undefined;
     }
 
-    const sortedA = lessons
+    return lessons
       .sort((a, b) => {
         const key = a.topicOrder != b.topicOrder ? 'topicOrder' : 'orderInTopic';
         return a[key] - b[key];
       })
-    const one = sortedA.find(l => !userCourseProgress[l.id]);
-    // console.log({ sortedA, one });
-    return one;
+      .find(l => !userCourseProgress[l.id]);
   }, [userCourseProgress, lessons]);
 
-  // console.log({ firstNotLearnedLesson })
 
   const groupes: IGroup[] = useMemo(() => {
     const getKey = (topic: string, topicOrder: number) => `${topic}-${topicOrder}`;
     return [...filteredLessons
       .reduce((acc, lessonData) => {
         const key = getKey(lessonData.topic, lessonData.topicOrder);
+        const solved = userCourseProgress?.[lessonData.id] ?? false;
         const canBeAccessed = !firstNotLearnedLesson ? false
           : firstNotLearnedLesson.topicOrder === lessonData.topicOrder
             ? firstNotLearnedLesson.orderInTopic >= lessonData.orderInTopic
             : firstNotLearnedLesson.topicOrder > lessonData.topicOrder;
 
-        // console.log({
-        //   canBeAccessed,
-        //   firstNotLearnedLesson: {
-        //     topic: firstNotLearnedLesson?.topic,
-        //     title: firstNotLearnedLesson?.title,
-        //     topicOrder: firstNotLearnedLesson?.topicOrder,
-        //     orderInTopic: firstNotLearnedLesson?.orderInTopic,
-        //   },
-        //   lesson: {
-        //     topic: lessonData.topic,
-        //     title: lessonData.title,
-        //     topicOrder: lessonData?.topicOrder,
-        //     orderInTopic: lessonData?.orderInTopic,
-        //   }
-        // })
         if (!acc.has(key)) {
           acc.set(key, {
             topic: lessonData.topic,
             topicOrder: lessonData.topicOrder,
             isFree: true,
-            lessons: [{ ...lessonData, canBeAccessed }],
+            lessons: [{ ...lessonData, canBeAccessed, solved }],
           })
         } else {
           const group = acc.get(key)!;
-          group.lessons.push({ ...lessonData, canBeAccessed });
+          group.lessons.push({ ...lessonData, canBeAccessed, solved });
           group.lessons.sort((a, b) => a.orderInTopic - b.orderInTopic);
         }
 
@@ -206,9 +188,7 @@ export default function Lessons() {
       .values()]
       .sort((a, b) => a.topicOrder - b.topicOrder);
 
-  }, [filteredLessons, firstNotLearnedLesson]);
-
-  console.log({ groupes });
+  }, [filteredLessons, firstNotLearnedLesson, userCourseProgress]);
 
   const fallback = useFallback({ courseState, lessonsState });
   if (!courseState.course || !lessonsState.lessons || !lessonsState.lessons.length) {
@@ -219,26 +199,36 @@ export default function Lessons() {
     <>
       <Page variant={EPageVariant.LMS} header footer>
         <div className={classes.profilePage}>
-          <div className={classes.title + ' s-text-28'}>{courseState.course.title}</div>
+          <div className={classes.title}>{courseState.course.title}</div>
           <div className={classes.profilePageContent}>
-            <div className={classes.currentLesson}>
-              <div className={classes.currentLessonWrapper}>
-                <div className={classes.currentLessonReminder}>
-                  <div className={classes.currentLessonSubtitle + ' s-text-16'}>
-                    Чек-лист продуктивного обучения
-                  </div>
-                  <div className={classes.currentLessonTitle + ' s-text-24'}>
-                    Введение
-                  </div>
-                  <div className={classes.currentLessonDetails}></div>
-                  <div>
-                    <div className={classes.currentLessonButton + ' s-text-18'}>Учиться</div>
+            {firstNotLearnedLesson ? (
+              <div className={classes.currentLesson}>
+                <div className={classes.currentLessonWrapper}>
+                  <div className={classes.currentLessonReminder}>
+                    <div className={classes.currentLessonSubtitle + ' s-text-16'}>
+                      <div className={classes.currentLessonSubtitleIndex}>{firstNotLearnedLesson.orderInTopic}.</div>
+                      <span>{firstNotLearnedLesson.title}</span>
+                    </div>
+                    <div className={classes.currentLessonTitle + ' s-text-24'}>
+                      {firstNotLearnedLesson.topic}
+                    </div>
+                    <div className={classes.currentLessonDetails}></div>
+                    <div>
+                      <Link
+                        className={classes.currentLessonButton + ' s-text-18'}
+                        to={URLSections.Course.Lesson.to({ courseId: courseState.course.id, lessonId: firstNotLearnedLesson.id })}
+                      >
+                        Учиться
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            ) : (
+              <div>Реклама</div>
+            )}
             <div className={classes.program}>
-              <div className={classes.programTitle + ' s-text-28'}>Доступно сейчас и бесплатно</div>
+              <div className={classes.programTitle}>Доступно сейчас и бесплатно</div>
               {filteredLessons.length ? (
                 <div className={classesList.wrapper}>
                     {groupes.map((group, index) => {
@@ -274,7 +264,7 @@ export default function Lessons() {
           </div>
         </div>
       </Page>
-      {openedTopic && courseId && (
+      {openedTopic && courseId && authedUser && (
         <LessonsPopup
           courseId={courseId}
           lessons={groupes.find(g => g.topic === openedTopic)!.lessons}

@@ -31,6 +31,18 @@ class UserCourseProgress {
       throw new Error(`Failed to set user course progress: ${error.message}`);
     }
   }
+
+  public async init(courseId: string, userEmail: string) {
+    try {
+      const userProgress = (await firebaseService.getDoc<TUserCourseProgress>(ECollections.UserCourseProgress, courseId, null, { collection: 'users', id: userEmail })) ?? {};
+      await firebaseService.setDoc(ECollections.UserCourseProgress, courseId, userProgress, null, { collection: 'users', id: userEmail });
+    } catch (err) {
+      const error = err as Error;
+      // tslint:disable-next-line
+      console.error(error);
+      throw new Error(`Failed to init user course progress: ${error.message}`);
+    }
+  }
 }
 
 const userCourseProgress = new UserCourseProgress();

@@ -41,8 +41,8 @@ async function submitFreeOrderAndGrandAccess(props: { userData: IUserData, cours
     }
 
     // TEMP
-    const accessValue = courseData.id !== 'finding-your-style';
-    await dataService.access.add(courseData.id, userData.email, accessValue);
+    await dataService.access.add(courseData.id, userData.email, 'FREE');
+    await dataService.userCourseProgress.init(courseData.id, userData.email);
   } catch (e) {
     const error = e as Error;
     // tslint:disable-next-line: no-console

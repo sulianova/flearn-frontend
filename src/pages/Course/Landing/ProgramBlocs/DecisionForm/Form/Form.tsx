@@ -28,13 +28,12 @@ const initialFormData: IFormData = { email: '', state: { type: 'Idle' } };
 
 interface IProps {
   onOrderCreated: (props: { email: string }) => void
-  courseIsFree: boolean
 }
 
-export default function Form({ onOrderCreated, courseIsFree }: IProps) {
+export default function Form({ onOrderCreated }: IProps) {
   const [formData, setFormData] = useState<IFormData>(() => authService.user ? ({ ...initialFormData, email: authService.user.email! }) : initialFormData);
   const [orderIsCreated, setOrderIsCreated] = useState(false);
-  const handleSubmit = useCallback((formData: IFormData) => submit({ formData, setFormData, courseIsFree }), [courseIsFree]);
+  const handleSubmit = useCallback((formData: IFormData) => submit({ formData, setFormData }), []);
 
   useEffect(() => {
     if (formData.state.type === 'Success') {
@@ -100,8 +99,8 @@ function isValid(formData: IFormData) {
   return email && state.type !== 'Pending';
 }
 
-async function submit(props: { formData: IFormData, setFormData: React.Dispatch<React.SetStateAction<IFormData>>, courseIsFree: boolean }) {
-  const { formData, setFormData, courseIsFree } = props;
+async function submit(props: { formData: IFormData, setFormData: React.Dispatch<React.SetStateAction<IFormData>> }) {
+  const { formData, setFormData } = props;
   setFormData(d => ({ ...d, state: { type: 'Pending' } }));
   try {
     const state = store.getState() as IRootState;
@@ -111,10 +110,9 @@ async function submit(props: { formData: IFormData, setFormData: React.Dispatch<
       throw new Error('Failed to get course from store');
     }
     const { id: orderId } = await dataService.order.create({ userFromForm: formData, courseData, userData });
-    if (courseIsFree) {
-      const accessValue = courseData.id !== 'finding-your-style';
-      await dataService.access.add(courseData.id, formData.email, accessValue);
-    }
+
+    await dataService.access.add(courseData.id, formData.email, 'FREE');
+    await dataService.userCourseProgress.init(courseData.id, formData.email);
     await emailService.sendEmail({
       type: emailService.EEmail.PaymentMethods,
       to: { email: formData.email },

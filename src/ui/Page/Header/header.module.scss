@@ -51,7 +51,7 @@
     right: 0;
     
     width: max-content;
-    padding: set-calc(8) set-calc($padding-x-mob-page) set-calc(8);
+    padding: set-calc(8) set-calc($padding-xs-mob-page) set-calc(8);
     background-color: transparent;
 
     .logo {
@@ -72,7 +72,7 @@
   padding: set-calc(10) set-calc($padding-x-mob-page) set-calc(16);
 
   @include set-media(md) {
-    padding: set-calc(8) set-calc($padding-x-mob-page) set-calc(8);
+    padding: set-calc(8) set-calc($padding-xs-mob-page) set-calc(8);
   }
 }
 

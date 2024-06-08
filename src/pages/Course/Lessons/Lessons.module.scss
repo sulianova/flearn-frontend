@@ -7,10 +7,20 @@
   width: 100%;
   max-width: set-calc(988);
   margin: 0 auto;
+
+  @include set-media(md) {
+    left: set-calc(-$padding-xs-mob-page);
+    width: set-calc(2 * $padding-xs-mob-page, true, 100%);
+  }
 }
 
 .title {
   margin: set-calc(32) set-calc(16) 0;
+  @include set-typography(24, 28, 500);
+
+  @include set-media(md) {
+    margin: set-calc(50) set-calc(8) 0;
+  }
 }
 
 .profilePageContent {
@@ -19,6 +29,10 @@
   width: 100%;
   margin: set-calc(24) set-calc(16) 0;
   gap: set-calc(40);
+
+  @include set-media(md) {
+    margin: set-calc(16) 0 0;
+  }
 }
 
 .program {
@@ -26,14 +40,23 @@
 }
 
 .programTitle {
-    margin: 0 0 set-calc(24);
-    color: $color-content-primary;
+  margin: 0 0 set-calc(24);
+  color: $color-content-primary;
+  @include set-typography(24, 28, 500);
+
+  @include set-media(md) {
+    margin: 0 0 set-calc(24) set-calc(8);
+  }
 }
 
 .currentLesson {
   width: 100%;
   color: $color-content-primary;
   max-width: 60%;
+
+  @include set-media(md) {
+    max-width: 100%;
+  }
 }
 
 .currentLessonWrapper {
@@ -56,7 +79,23 @@
 }
 
 .currentLessonSubtitle {
+  display: inline-flex;
   margin-bottom: set-calc(16);
+
+  span {
+    font-size: inherit;
+    line-height: inherit;
+  }
+}
+
+.currentLessonSubtitleIndex {
+  display: inline-flex;
+  box-sizing: border-box;
+  padding-right: set-calc(4);
+  justify-content: flex-end;
+
+  font-size: inherit;
+  line-height: inherit;
 }
 
 .currentLessonTitle {
