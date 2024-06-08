@@ -42,7 +42,6 @@
 .programTitle {
   margin: 0 0 set-calc(24);
   color: $color-content-primary;
-  @include set-typography(24, 28, 500);
 
   @include set-media(md) {
     margin: 0 0 set-calc(24) set-calc(8);

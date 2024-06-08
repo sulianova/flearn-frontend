@@ -93,7 +93,7 @@ export default function LessonsPopup(props: TProps) {
           </div>
           {lessons ?
             lessons.map(lesson => (
-              <div className={cx({ navigationItem: true, solved: lesson.solved, disabled: !lesson.canBeAccessed })}>
+              <div className={cx({ navigationItem: true, solved: lesson.solved, disabled: !lesson.canBeAccessed, active: false })}>
                   <div className={classes.navigationItemTitle + ' s-text-18'}>
                     <Link
                       key={lesson.id}

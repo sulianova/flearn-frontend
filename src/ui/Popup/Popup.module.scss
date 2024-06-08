@@ -15,10 +15,20 @@
   overflow: hidden;
   transition: background-color $d-fade ease-in-out;
   background-color: transparent;
+
+  @include set-media(md) {
+    left: 0;
+    transform: translateX(-100%);
+  }
 }
 
 .modal_Animation {
   background-color: $color-background-overlay;
+
+  @include set-media(md) {
+    transition: transform 0.65s cubic-bezier(0.2, 1, 0.3, 1);
+    transform: none;
+  }
 }
 
 .modalContentWrapper {

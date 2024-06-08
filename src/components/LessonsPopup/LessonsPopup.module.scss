@@ -54,7 +54,7 @@
   @include set-media(md) {
     right: set-calc(16);
     border-radius: 50%;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.06), 0 1px 17px rgba(0, 0, 0, 0.06);
+    box-shadow: $shadow-popup-cross;
   }
 }
 
@@ -71,8 +71,8 @@
   background-color: $color-background-glassy-b;
 
   @include set-media(md) {
-    background-color: transparent;
     transform: none;
+    background-color: transparent;
   }
 }
 
@@ -89,12 +89,16 @@
   max-width: set-calc(700);
 
   @include set-media(md) {
-    margin: 0 set-calc(16) 0 set-calc(24);
+    margin: 0 set-calc(64) 0 set-calc(16);
   }
 }
 
 .title {
   margin: set-calc(50) 0 set-calc(20);
+
+  @include set-media(md) {
+    margin: set-calc(80) 0 set-calc(14);
+  }
 }
 
 .navigationItem {
@@ -111,6 +115,14 @@
   background-color: $color-background-glassy-a;
 }
 
+.active {
+  background-color: $color-background-glassy-a;
+
+  &:hover {
+    cursor: default;
+  }
+}
+
 .navigationItemTitle {
   display: inline-flex;
   margin: 0;
@@ -123,7 +135,7 @@
   }
 
   @include set-media(md) {
-    padding: set-calc(8) set-calc(28)   set-calc(8) set-calc(16);
+    padding: set-calc(8) set-calc(28)   set-calc(8) set-calc(24);
   }
 }
 
@@ -135,7 +147,7 @@
   justify-content: flex-end;
 
   @include set-media(md) {
-    min-width: set-calc(30);
+    min-width: set-calc(24);
     padding: 0;
     justify-content: flex-start;
   }

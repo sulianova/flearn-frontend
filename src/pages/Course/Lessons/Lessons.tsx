@@ -196,17 +196,17 @@ export default function Lessons() {
     <>
       <Page variant={EPageVariant.LMS} header footer>
         <div className={classes.profilePage}>
-          <div className={classes.title}>{courseState.course.title}</div>
+          <div className={classes.title + ' s-text-28'}>{courseState.course.title}</div>
           <div className={classes.profilePageContent}>
             {firstNotLearnedLesson ? (
               <div className={classes.currentLesson}>
                 <div className={classes.currentLessonWrapper}>
                   <div className={classes.currentLessonReminder}>
-                    <div className={classes.currentLessonSubtitle + ' s-text-16'}>
+                    <div className={classes.currentLessonSubtitle + ' s-text-18'}>
                       <div className={classes.currentLessonSubtitleIndex}>{firstNotLearnedLesson.orderInTopic}.</div>
                       <span>{firstNotLearnedLesson.title}</span>
                     </div>
-                    <div className={classes.currentLessonTitle + ' s-text-24'}>
+                    <div className={classes.currentLessonTitle + ' s-text-28'}>
                       {firstNotLearnedLesson.topic}
                     </div>
                     <div className={classes.currentLessonDetails}></div>
@@ -225,7 +225,7 @@ export default function Lessons() {
               <div>Реклама</div>
             )}
             <div className={classes.program}>
-              <div className={classes.programTitle}>Доступно сейчас и бесплатно</div>
+              <div className={classes.programTitle + ' s-text-28'}>Доступно сейчас и бесплатно</div>
                 <div className={classesList.wrapper}>
                     {freeGroupes.map((group, index) => {
                       const totalDurationMinutes = group.lessons.reduce((acc, l) => acc + durationToMinutes(l.duration), 0);
@@ -236,7 +236,7 @@ export default function Lessons() {
                             <div className={classesList.itemBody}>
                               <div className={classesList.itemBodyContainer}>
                                 <div className={classesList.titleContainer}>
-                                  <h2 className={classesList.title + ' s-text-24'}>
+                                  <h2 className={classesList.title + ' s-text-28'}>
                                     {group.topic}
                                   </h2>
                                 </div>
@@ -255,7 +255,7 @@ export default function Lessons() {
                 </div>
             </div>
             <div className={classes.program}>
-              <div className={classes.programTitle}>Будет доступно после оплаты</div>
+              <div className={classes.programTitle + ' s-text-28'}>Будет доступно после оплаты</div>
                 <div className={classesList.wrapper}>
                     {payableGroupes.map((group, index) => {
                       const totalDurationMinutes = group.lessons.reduce((acc, l) => acc + durationToMinutes(l.duration), 0);
@@ -266,7 +266,7 @@ export default function Lessons() {
                             <div className={classesList.itemBody}>
                               <div className={classesList.itemBodyContainer}>
                                 <div className={classesList.titleContainer}>
-                                  <h2 className={classesList.title + ' s-text-24'}>
+                                  <h2 className={classesList.title + ' s-text-28'}>
                                     {group.topic}
                                   </h2>
                                 </div>
