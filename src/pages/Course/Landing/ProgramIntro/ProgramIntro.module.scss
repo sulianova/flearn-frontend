@@ -146,7 +146,7 @@
 
   border-radius: set-calc($border-radius-medium);
   transition: opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
-  background: $color-background-default;
+  background: $matt-white;
   color: $color-content-primary;
 
   padding: set-calc(20) set-calc(80);
@@ -164,6 +164,7 @@
   &:hover {
     cursor: pointer;
     box-shadow: $shadow-medium-hovered;
+    background-color: $matt-white-hover;
   }
 }
 
@@ -202,4 +203,5 @@
   width: 100%;
   object-fit: cover;
   border-radius: set-calc($border-radius-medium);
+  background: $primary-color;
 }

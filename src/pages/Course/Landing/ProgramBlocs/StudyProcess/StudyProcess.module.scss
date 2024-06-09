@@ -48,9 +48,13 @@
 .caption {
   width: max-content;
   background-color: $color-background-alternate;
-  padding: set-calc(4) set-calc(8);
-  border-radius: set-calc($border-radius-small);
+  padding: set-calc(10) set-calc(16);
+  border-radius: set-calc($border-radius-large);
   margin-bottom: set-calc(8);
+
+  @include set-media(md) {
+    padding: set-calc(8) set-calc(12);
+  }
 }
 
 .title {

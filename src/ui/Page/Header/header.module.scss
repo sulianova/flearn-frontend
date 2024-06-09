@@ -62,7 +62,7 @@
 }
 
 .deskPaddingWEB {
-  padding: set-calc(10) set-calc($padding-x-desk-page) set-calc(16);
+  padding: set-calc(10) set-calc(2 * $padding-x-desk-page) set-calc(16);
 
   @include set-media(md) {
     padding: set-calc(8) set-calc($padding-xs-mob-page) set-calc(8);
@@ -95,7 +95,7 @@
   background-color: $color-content-background-primary;
   max-width: fit-content;
   color: $color-content-inverted-primary;
-  padding: set-calc(4) set-calc(16);
+  padding: set-calc(4) set-calc(24);
   border-radius: set-calc($border-radius-large);
   height: set-calc(40);
 
@@ -135,7 +135,7 @@
   position: relative;
   background-color: $color-content-background-primary;
   color: $color-content-inverted-primary;
-  padding: set-calc(4) set-calc(16);
+  padding: set-calc(4) set-calc(24);
   border-radius: set-calc($border-radius-large);
   width: max-content;
   height: set-calc(40);
@@ -160,7 +160,7 @@
   position: relative;
   background:  $color-content-inverted-secondary;
   border: set-calc(0.5) solid $color-background-default;
-  padding: set-calc(4) set-calc(16);
+  padding: set-calc(4) set-calc(24);
   border-radius: set-calc($border-radius-large);
   width: max-content;
   height: set-calc(40);

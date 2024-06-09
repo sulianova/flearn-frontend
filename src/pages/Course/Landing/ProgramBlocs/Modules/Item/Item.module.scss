@@ -172,13 +172,13 @@
 }
 
 .tag {
-  padding: set-calc(8) set-calc(12);
-  border-radius: set-calc($border-radius-8);
+  padding: set-calc(10) set-calc(16);
+  border-radius: set-calc($border-radius-large);
   background-color: $color-background-glassy-a;
   list-style-type: none;
 
   @include set-media(md) {
-    border-radius: set-calc(4);
+    padding: set-calc(8) set-calc(12);
   }
 }
 
