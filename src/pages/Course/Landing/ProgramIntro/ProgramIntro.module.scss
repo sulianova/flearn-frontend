@@ -5,7 +5,6 @@
   flex-direction: column;
   overflow: visible;
   border-radius: set-calc($border-radius-medium);
-  border: set-calc(1) solid $color-background-default;
 
   @include set-media(md) {
     position: relative;
@@ -20,12 +19,12 @@
   padding: set-calc(32);
   border-radius: set-calc($border-radius-medium);
   @include is-grid-4;
-  background: $gradient-background-profession;
   color: $matt-white;
 
   @include set-media(md) {
-    padding: set-calc(8) set-calc(8) 0;
+    padding: set-calc(8) 0 0;
     min-height: 80vh;
+    color: $color-content-primary;
   }
 }
 
@@ -87,7 +86,7 @@
   border-radius: set-calc($border-radius-large);
 
   @include set-media(md) {
-    border: set-calc(1) solid $matt-white;
+    border: set-calc(1) solid $color-content-primary;
     padding: set-calc(4) set-calc(16);
   }
 }
@@ -148,7 +147,7 @@
   border-radius: set-calc($border-radius-medium);
   transition: opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
   background: $color-background-default;
-  color: $primary-color;
+  color: $color-content-primary;
 
   padding: set-calc(20) set-calc(80);
 
@@ -184,6 +183,7 @@
     position: absolute;
     inset: 0;
     z-index: 200;
+    background: $color-palette-black-100-a;
 
     @include set-media(md) {
       background: transparent;
@@ -202,9 +202,4 @@
   width: 100%;
   object-fit: cover;
   border-radius: set-calc($border-radius-medium);
-  background: $gradient-background-profession;
-
-  @include set-media(md) {
-    background-color: $color-palette-black-200;
-  }
 }

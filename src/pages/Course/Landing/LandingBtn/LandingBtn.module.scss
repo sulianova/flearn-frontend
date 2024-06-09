@@ -25,7 +25,7 @@
   overflow: hidden;
 
   padding: set-calc(10) set-calc(48);
-  height: set-calc(48);
+  height: set-calc(60);
 
   display: flex;
   align-items: center;
@@ -34,7 +34,7 @@
   background-color: $color-content-primary;
   color: $color-palette-white-1000;
 
-  border-radius: set-calc(10);
+  border-radius: set-calc($border-radius-large);
   cursor: pointer;
 
 }

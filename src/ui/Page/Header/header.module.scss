@@ -228,15 +228,12 @@
     display: inline-flex;
     justify-content: center;
 
-    background: $color-palette-white-800-a;
-    border: set-calc(0.8) solid $color-background-default;
-    -webkit-backdrop-filter: blur(set-calc($backdrop-filter));
-    backdrop-filter: blur(set-calc($backdrop-filter));
-    color: $color-content-primary;
-    border-radius: set-calc($border-radius-small);
+    background: $color-content-background-primary;
+    color: $color-content-inverted-primary;
+    border-radius: 50%;
     transition: transform 0.15s ease-in;
 
-    padding: set-calc(8);
+    padding: set-calc(10);
     opacity: 1;
 
     svg {
