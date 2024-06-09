@@ -1,10 +1,11 @@
 import { Fragment, useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
-import { dataService } from 'services/data.service';
 import { homeworkService } from 'services/homework.service';
 import type { ILessonContent, ILessonData } from 'services/lesson.service/types';
 import { IUserData } from 'services/user.service';
+import { lessonService } from 'services/lesson.service';
+import { userCourseProgressService } from 'services/userCourseProgress.service';
 import { formatI18nT } from 'shared';
 import { URLSections } from 'types';
 import type { IHomeworkDataWPopulate } from 'types';
@@ -15,7 +16,6 @@ import Link from 'ui/Link/Link';
 
 import TheoryFooter from '../TheoryFooter/TheoryFooter';
 import classes from './LessonContent.module.scss';
-import { lessonService } from 'services/lesson.service';
 
 export default LessonContent;
 
@@ -59,7 +59,7 @@ function LessonContent(props: IProps) {
           if (!user || nextLesson === undefined) {
             return;
           }
-          dataService.userCourseProgress
+          userCourseProgressService
             .markLessonAsRead(props.courseId, user.email, props.data.id)
             .then(() => {
               if (nextLesson === null) {

@@ -87,16 +87,16 @@ export class FirebaseService {
     }
   }
 
-  public async getDocs(collectionName: ECollections, whereProps: TWhereProps ) {
+  public async getDocs<T extends {}>(collectionName: ECollections, whereProps: TWhereProps ) {
     try {
       const queryConstraints = whereProps
         .filter(({ value, operator }) => operator !== 'in' || (Array.isArray(value) && value.length))
         .map(({ param, value, operator }) => where(new FieldPath(...typeof param === 'string' ? [param] : param), operator ?? '==', value));
       const q = query(collection(this._db, collectionName), ...queryConstraints);
       const querySnapshot = await getDocs(q);
-      const data = [] as { id: string, data: DocumentData }[];
+      const data = [] as { id: string, data: T }[];
       querySnapshot.forEach((doc) => {
-        data.push({ id: doc.id, data: doc.data() });
+        data.push({ id: doc.id, data: doc.data() as T });
       });
 
       return data;

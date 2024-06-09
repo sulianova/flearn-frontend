@@ -13,9 +13,9 @@ import { dataService } from 'services';
 import { getFirebaseConfig } from '../firebase.service/firebase.config';
 
 import type { FirebaseApp, FirebaseOptions } from 'firebase/app';
-import type { Auth, User as FirebaseUser } from 'firebase/auth';
+import type { Auth, User as FirebaseUserRaw } from 'firebase/auth';
 
-export type { User as FirebaseUser } from 'firebase/auth';
+type FirebaseUser = Omit<FirebaseUserRaw, 'email'> & { email: string };
 
 class AuthService {
   public firebaseUserBS = new BehaviorSubject<FirebaseUser | null>(null);
@@ -38,11 +38,10 @@ class AuthService {
     setPersistence(this._auth, browserLocalPersistence)
       .then(async () => {
         const user = this._auth.currentUser;
-        if (user) {
+        if (user && isUser(user)) {
           await this._afterAuth(user);
+          this.firebaseUserBS.next(user);
         }
-        // save persisted user
-        this.firebaseUserBS.next(user!);
       })
       .finally(() => {
         resolvePersistedAuthPromise();
@@ -69,11 +68,14 @@ class AuthService {
   
       this._authenticationInProgress = false;
       if (!result.user) {
-        throw new Error('failed auth');
+        throw new Error('No user');
+      }
+
+      if (!isUser(result.user)) {
+        throw new Error('Cannot authenticate user without email');
       }
 
       await this._afterAuth(result.user);
-  
       this.firebaseUserBS.next(result.user);
     } catch (err) {
       console.log('Failed to authenticate', { err });
@@ -82,7 +84,7 @@ class AuthService {
 
   public async logout() {
     await signOut(this._auth);
-    this.firebaseUserBS.next(this._auth.currentUser);
+    this.firebaseUserBS.next(null);
   }
 
   public get isAuthenticated() {
@@ -114,3 +116,7 @@ class AuthService {
 
 export const authService = new AuthService(getFirebaseConfig());
 export default AuthService;
+
+function isUser(user: FirebaseUser | FirebaseUserRaw): user is FirebaseUser {
+  return user.email !== null;
+}

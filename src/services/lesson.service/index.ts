@@ -17,7 +17,7 @@ class LessonService {
       const fetchUsers = async () => {
         try {
           mainSubject.next(null);
-          const lessons = await this._fetch(props);
+          const lessons = await this.fetch(props);
           mainSubject.next({ lessons });
         } catch (err) {
           err = err as Error;
@@ -82,11 +82,11 @@ class LessonService {
 
   public async fetchNextLesson(lesson: ILessonData) {
     try {
-      const nextInTopickLesson = (await this._fetch({ filter: { courseId: lesson.courseId, topicOrder: lesson.topicOrder, orderInTopic: lesson.orderInTopic + 1 }}))[0] as ILessonData | undefined;
+      const nextInTopickLesson = (await this.fetch({ filter: { courseId: lesson.courseId, topicOrder: lesson.topicOrder, orderInTopic: lesson.orderInTopic + 1 }}))[0] as ILessonData | undefined;
       if (nextInTopickLesson) {
         return nextInTopickLesson;
       }
-      const firstInNextTopickLesson = (await this._fetch({ filter: { courseId: lesson.courseId, topicOrder: lesson.topicOrder + 1, orderInTopic: 1 }}))[0] as ILessonData | undefined;
+      const firstInNextTopickLesson = (await this.fetch({ filter: { courseId: lesson.courseId, topicOrder: lesson.topicOrder + 1, orderInTopic: 1 }}))[0] as ILessonData | undefined;
       if (firstInNextTopickLesson) {
         return firstInNextTopickLesson;
       }
@@ -97,14 +97,7 @@ class LessonService {
     }
   }
 
-  private errorToType(error: Error): TLessonError {
-    const errorIsUnknown = !([ECommonErrorTypes.DataIsCorrupted, ECommonErrorTypes.FailedToFindData, ECommonErrorTypes.Other] as string[]).includes(error.message);
-    const errorType = errorIsUnknown ? ECommonErrorTypes.Other : error.message as TLessonError;
-
-    return errorType;
-  }
-
-  private async _fetch(props: IFetchLessonsProps) {
+  public async fetch(props: IFetchLessonsProps) {
     try {
       if (props.source === 'local' && props.filter.id) {
         const lessonLocalDB = getData(props.filter.id);
@@ -121,6 +114,13 @@ class LessonService {
       console.log(`Failed to fetch lessons`, { props, error });
       throw error;
     }
+  }
+
+  private errorToType(error: Error): TLessonError {
+    const errorIsUnknown = !([ECommonErrorTypes.DataIsCorrupted, ECommonErrorTypes.FailedToFindData, ECommonErrorTypes.Other] as string[]).includes(error.message);
+    const errorType = errorIsUnknown ? ECommonErrorTypes.Other : error.message as TLessonError;
+
+    return errorType;
   }
 
   private _lessonS = new Subject<TActionS>();

@@ -15,6 +15,7 @@ import { EPageVariant } from '../Page';
 import classes from './header.module.scss';
 import Dropdown from 'ui/Dropdown/Dropdown';
 import CoursesDropdownContent from './CoursesDropdownContent/CoursesDropdownContent';
+import { userCourseProgressService } from 'services/userCourseProgress.service';
 
 const cx = classnames.bind(classes);
 const t = formatI18nT('header');
@@ -29,6 +30,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
   const [isOpened, setIsOpened] = useState<boolean>(false);
   const [userCourses, setUserCourses] = useState<ICourseData[]>();
   const currentCloseCourseDropdown = useRef<() => void>();
+  const lastSolvedLesson = userCourseProgressService.useLastSolvedLesson();
 
   const userId = user?.id;
   useEffect(() => {
@@ -100,7 +102,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
           )}
           <div className={cx({ navLogin: true, navItem: true })}>
             {user ?
-              (<Link to={URLSections.My.Profile.index}>{t('login.profile')}</Link>)
+              (<Link to={lastSolvedLesson ? URLSections.Course.Lessons.to({ courseId: lastSolvedLesson.courseId }) : undefined}>{t('login.profile')}</Link>)
               : (<div onClick={() => authService.authenticate()}>{t('login.signIn')}</div>)
             }
           </div>

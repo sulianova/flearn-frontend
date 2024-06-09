@@ -9,7 +9,7 @@ import { ILessonData, TLessonState, lessonService } from 'services/lesson.servic
 import { ICourseData, TCourseState, courseService } from 'services/course.service';
 import { TCourseError } from 'services/course.service/types';
 import { TAccess } from 'services/data.service/Access';
-import { TUserCourseProgress } from 'services/data.service/UserCourseProgress';
+import { TUserCourseProgress } from 'services/userCourseProgress.service';
 import { dataService } from 'services';
 
 import LessonsPopup from 'components/LessonsPopup/LessonsPopup';
@@ -157,7 +157,7 @@ export default function Lessons() {
     return [...filteredLessons
       .reduce((acc, lessonData) => {
         const key = getKey(lessonData.topic, lessonData.topicOrder);
-        const solved = userCourseProgress?.[lessonData.id] ?? false;
+        const solved = userCourseProgress?.[lessonData.id]?.solved ?? false;
         const canBeAccessed = !firstNotLearnedLesson ? false
           : firstNotLearnedLesson.topicOrder === lessonData.topicOrder
             ? firstNotLearnedLesson.orderInTopic >= lessonData.orderInTopic

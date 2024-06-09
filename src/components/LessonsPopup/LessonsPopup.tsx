@@ -65,7 +65,7 @@ export default function LessonsPopup(props: TProps) {
             const firstNotLearnedLesson = sortedA.find(l => !progress[l.id]);
 
             setLessons(o.lessons.map(lesson => {
-              const solved = progress?.[lesson.id] ?? false;
+              const solved = progress?.[lesson.id]?.solved ?? false;
               const canBeAccessed = !firstNotLearnedLesson ? true
                 : firstNotLearnedLesson.topicOrder === lesson.topicOrder
                   ? firstNotLearnedLesson.orderInTopic >= lesson.orderInTopic
