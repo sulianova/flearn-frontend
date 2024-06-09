@@ -7,6 +7,7 @@
   width: 100%;
   z-index: 1000;
   transition: transform .5s;
+  
 
   @include s-text-16;
 
@@ -100,6 +101,7 @@
   height: set-calc(32);
 
   transition: background-color $d-hover ease;
+  box-shadow: $shadow-menu;
   
   &:hover {
     cursor: pointer;
@@ -141,6 +143,7 @@
   height: set-calc(32);
 
   transition: background-color $d-hover ease;
+  box-shadow: $shadow-menu;
   
   &:hover {
     cursor: pointer;
@@ -157,7 +160,7 @@
   display: flex;
   align-items: center;
   position: relative;
-  background: $color-content-inverted-secondary;
+  background:  $color-content-inverted-secondary;
   border: set-calc(0.5) solid $color-background-default;
   padding: set-calc(4) set-calc(16);
   border-radius: set-calc($border-radius-small);
@@ -167,14 +170,16 @@
   gap: set-calc(4);
 
   transition: background-color $d-hover ease;
+  backdrop-filter: blur(set-calc($backdrop-filter));
+  box-shadow: $shadow-menu;
   
   &:hover {
     cursor: default;
-    background-color: $color-background-glassy-a;
+    background-color:$matt-white;
   }
 
   &:active {
-    background-color: $color-background-active;
+    background-color:$matt-white-hover;
     transform: scale(0.98);
   }
 
@@ -227,13 +232,13 @@
 
     background: $color-palette-white-800-a;
     border: set-calc(0.8) solid $color-background-default;
-    -webkit-backdrop-filter: blur($backdrop-filter);
-    backdrop-filter: blur($backdrop-filter);
+    -webkit-backdrop-filter: blur(set-calc($backdrop-filter));
+    backdrop-filter: blur(set-calc($backdrop-filter));
     color: $color-content-primary;
     border-radius: set-calc($border-radius-small);
     transition: transform 0.15s ease-in;
 
-    padding: set-calc(6);
+    padding: set-calc(8);
     opacity: 1;
 
     svg {

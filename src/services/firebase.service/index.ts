@@ -91,7 +91,7 @@ export class FirebaseService {
     try {
       const queryConstraints = whereProps
         .filter(({ value, operator }) => operator !== 'in' || (Array.isArray(value) && value.length))
-        .map(({ param, value, operator }) => where(typeof param === 'string' ? param : new FieldPath(...param), operator ?? '==', value));
+        .map(({ param, value, operator }) => where(new FieldPath(...typeof param === 'string' ? [param] : param), operator ?? '==', value));
       const q = query(collection(this._db, collectionName), ...queryConstraints);
       const querySnapshot = await getDocs(q);
       const data = [] as { id: string, data: DocumentData }[];

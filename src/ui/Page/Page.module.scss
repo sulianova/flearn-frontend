@@ -25,6 +25,7 @@
   align-items: center;
   width: 100%;
   height: 100vh;
+  background-color: $color-background-alternate;
 
   overflow: auto;
   flex: 1 1 100%;
@@ -45,7 +46,7 @@
 }
 
 .LMSWrapper {
-  padding: 0 set-calc($padding-x-mob-page);
+  padding: 0 set-calc($padding-x-desk-page);
 
   @include set-media(md) {
     padding: 0 set-calc($padding-x-mob-page);
@@ -57,6 +58,7 @@
   flex-direction: column;
   align-items: center;
   gap: set-calc(16);
+  background-color: transparent;
 
   padding: 0 set-calc($padding-x-desk-page);
 

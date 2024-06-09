@@ -85,7 +85,7 @@ function Sidebar() {
         <LessonsPopup
           onClose={() => setLessonsPopupVisible(false)}
           courseId={courseId}
-          lessonIdOfLessonsWithSameTopic={lessonId}
+          openedLessonId={lessonId}
         />
       )}
     </>

@@ -24,7 +24,7 @@ class Course {
       if (!user) {
         throw new Error(ECommonErrorTypes.FailedToFindData);
       }
-      const filteredAccess = await firebaseService.getDocs(ECollections.Access, [{ param: ['users', user.email], value: true }]);
+      const filteredAccess = await firebaseService.getDocs(ECollections.Access, [{ param: user.email, value: ['FREE', 'BASE', 'OPTIMAL', 'EXTENDED'], operator: 'in' }]);
       usersCoursesIds = filteredAccess.map(a => a.id);
       if (usersCoursesIds.length === 0) {
         return [];

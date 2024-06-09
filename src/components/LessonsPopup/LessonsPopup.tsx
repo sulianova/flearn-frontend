@@ -26,7 +26,7 @@ type TProps = {
   {
     lessons: (ILessonData & { solved: boolean, canBeAccessed: boolean })[]
   } | {
-    lessonIdOfLessonsWithSameTopic: string
+    openedLessonId: string
   }
 )
 
@@ -35,9 +35,9 @@ export default function LessonsPopup(props: TProps) {
   const authedUser = userService.useAuthedUser();
   const [lessons, setLessons] = useState<(ILessonData & { solved: boolean, canBeAccessed: boolean })[] | null>('lessons' in props ? props.lessons : null);
 
-  const lessonIdOfLessonsWithSameTopic = 'lessonIdOfLessonsWithSameTopic' in props ? props.lessonIdOfLessonsWithSameTopic : null;
+  const openedLessonId = 'openedLessonId' in props ? props.openedLessonId : null;
   useEffect(() => {
-    if (lessonIdOfLessonsWithSameTopic === null || !authedUser) {
+    if (openedLessonId === null || !authedUser) {
       return;
     }
 
@@ -46,7 +46,7 @@ export default function LessonsPopup(props: TProps) {
 
     Promise.all([
       dataService.userCourseProgress.get(courseId, authedUser.email),
-      dataService.lesson.get(courseId, lessonIdOfLessonsWithSameTopic)
+      dataService.lesson.get(courseId, openedLessonId)
     ])
       .then(([progress, lesson]) => {
         subscription = lessonService
@@ -55,31 +55,32 @@ export default function LessonsPopup(props: TProps) {
             if (!o || o instanceof Error || cancelled) {
               return;
             }
-    
-            const firstNotLearnedLesson = o.lessons
+
+            const sortedA = o.lessons.slice()
               .sort((a, b) => {
                 const key = a.topicOrder != b.topicOrder ? 'topicOrder' : 'orderInTopic';
                 return a[key] - b[key];
-              })
-              .find(l => !progress[l.id]);
-            
+              });
+
+            const firstNotLearnedLesson = sortedA.find(l => !progress[l.id]);
+
             setLessons(o.lessons.map(lesson => {
               const solved = progress?.[lesson.id] ?? false;
-              const canBeAccessed = !firstNotLearnedLesson ? false
+              const canBeAccessed = !firstNotLearnedLesson ? true
                 : firstNotLearnedLesson.topicOrder === lesson.topicOrder
                   ? firstNotLearnedLesson.orderInTopic >= lesson.orderInTopic
                   : firstNotLearnedLesson.topicOrder > lesson.topicOrder;
               return { ...lesson, canBeAccessed, solved };
-            }));
+            }).sort((a, b) => a.orderInTopic - b.orderInTopic));
           })
       })
       .catch(err => { console.log(err) /* do nothing */ })
 
     return () => {
       cancelled = false;
-      subscription.unsubscribe();
+      subscription?.unsubscribe();
     };
-  }, [courseId, authedUser, lessonIdOfLessonsWithSameTopic]);
+  }, [courseId, authedUser, openedLessonId]);
 
   return (
     <Popup>
@@ -93,28 +94,26 @@ export default function LessonsPopup(props: TProps) {
           </div>
           {lessons ?
             lessons.map(lesson => (
-              <div className={cx({ navigationItem: true, solved: lesson.solved, disabled: !lesson.canBeAccessed, active: false })}>
-                  <div className={classes.navigationItemTitle + ' s-text-18'}>
-                    <Link
-                      key={lesson.id}
-                      to={lesson.canBeAccessed ? URLSections.Course.Lesson.to({ courseId, lessonId: lesson.id }) : undefined}
-                      onClick={onClose}
-                    >
-                      <span className={classes.navigationItemIndex}>{lesson.orderInTopic}.</span>
-                      {lesson.title}
-                    </Link>
-                  </div>
-                  <div className={classes.navigationItemInfo}>
-                    <div className={classes.infoItem}>
-                      <div className={cx({ infoIcon: true, itemStatus: true })}>
-                        {!lesson.canBeAccessed && <Lock/>}
-                        {lesson.solved && <Tick/>}
-                      </div>
+              <Link
+                key={lesson.id}
+                to={lesson.canBeAccessed ? URLSections.Course.Lesson.to({ courseId, lessonId: lesson.id }) : undefined}
+                onClick={onClose}
+                className={cx({ navigationItem: true, solved: lesson.solved, disabled: !lesson.canBeAccessed, active: lesson.id === openedLessonId })}
+              >
+                <div className={classes.navigationItemTitle + ' s-text-18'}>
+                    <span className={classes.navigationItemIndex}>{lesson.orderInTopic}.</span>
+                    {lesson.title}
+                </div>
+                <div className={classes.navigationItemInfo}>
+                  <div className={classes.infoItem}>
+                    <div className={cx({ infoIcon: true, itemStatus: true })}>
+                      {!lesson.canBeAccessed && <Lock/>}
+                      {lesson.solved && <Tick/>}
                     </div>
                   </div>
                 </div>
-              )
-            ) : (
+              </Link>
+            )) : (
               <Spinner variant='local'/>
             )
           }
