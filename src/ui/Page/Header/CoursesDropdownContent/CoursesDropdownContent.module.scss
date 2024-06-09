@@ -72,11 +72,11 @@
 
 .listOption {
   display: block;
-  padding: set-calc(6) set-calc(8);
+  padding: set-calc(6) set-calc(16);
   color: $color-content-primary;
   font-feature-settings: 'pnum' on, 'lnum' on;
   text-decoration: none;
-  border-radius: set-calc(4);
+  border-radius: set-calc($border-radius-medium);
   cursor: pointer;
 
   &:hover {
