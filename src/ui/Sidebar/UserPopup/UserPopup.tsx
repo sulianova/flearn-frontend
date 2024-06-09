@@ -1,8 +1,13 @@
 import classnames from 'classnames/bind';
-import classes from './UserPopup.module.scss';
-import Portfolio from 'assets/images/Svg/Portfolio';
+import { useNavigate } from 'react-router';
+
+import { authService } from 'services/auth.service';
 import { IUserData } from 'services/user.service';
-import { authService } from 'services';
+import { URLSections } from 'types';
+
+import Portfolio from 'assets/images/Svg/Portfolio';
+
+import classes from './UserPopup.module.scss';
 
 const cx = classnames.bind(classes);
 
@@ -12,6 +17,7 @@ interface IProps {
 }
 
 export default function UserPopup({ user, close }: IProps) {
+  const navigate = useNavigate();
   return (
     <>
       <div className={classes.overlay} onClick={close}></div>
@@ -32,7 +38,12 @@ export default function UserPopup({ user, close }: IProps) {
             </div>
           </div>
           <div className={cx({ item: true, itemHoverable: true }) + ' s-text-16'}>
-            <div className={classes.itemTitle} onClick={() => authService.logout()}>Выйти из профиля</div>
+            <div
+              className={classes.itemTitle}
+              onClick={() => authService.logout().then(() => navigate(URLSections.Home.index))}
+            >
+              Выйти из профиля
+            </div>
           </div>
         </div>
       </div>
