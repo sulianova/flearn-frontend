@@ -263,4 +263,41 @@ export default function Lessons() {
                         <div className={classesList.itemWrapper} onClick={() => setOpenedTopic(group.topic)}>
                           <div key={index} className={classesList.item}>
                             <div className={classesList.imageWrapper}/>
-                 
+                            <div className={classesList.itemBody}>
+                              <div className={classesList.itemBodyContainer}>
+                                <div className={classesList.titleContainer}>
+                                  <h2 className={classesList.title + ' s-text-28'}>
+                                    {group.topic}
+                                  </h2>
+                                </div>
+                              </div>
+                              <div className={classesList.info}>
+                                <div className={classesList.infoMain}>
+                                  <span className={classesList.infoItem + ' s-text-16'}>{`${group.lessons.length} урока`}</span>
+                                  <span className={classesList.infoItem + ' s-text-16'}>{`≈ ${Math.round(totalDurationMinutes / 6) / 10} ч  `}</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                </div>
+            </div>
+          </div>
+        </div>
+      </Page>
+      {openedTopic && courseId && authedUser && (
+        <LessonsPopup
+          courseId={courseId}
+          lessons={groupes.find(g => g.topic === openedTopic)!.lessons}
+          onClose={() => setOpenedTopic(null)}
+        />
+      )}
+    </>
+  );
+}
+
+function durationToMinutes(duration: { unit: 'minutes' | 'hours', value: number }) {
+  return (duration.unit === 'hours' ? 60 : 1) * duration.value;
+}
