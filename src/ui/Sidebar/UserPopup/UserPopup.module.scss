@@ -27,12 +27,11 @@
   transition-timing-function: cubic-bezier(0.25, 1.15, 0.5, 1.1);
 
   width: set-calc(300);
-  padding: set-calc(8);
+  padding: set-calc(8) set-calc(16);
 
   color: $color-content-primary;
-  border-radius: set-calc(12);
+  border-radius: set-calc($border-radius-large);
   background-color: $color-background-default;
-  border: set-calc(1) solid $color-background-stroke;
   box-shadow: $shadow-medium-default;
 
   @include set-media(md) {

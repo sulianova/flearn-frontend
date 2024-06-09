@@ -11,6 +11,7 @@ import { URLSections } from 'types';
 import type { IHomeworkDataWPopulate } from 'types';
 
 import Edit from 'assets/images/Svg/Edit';
+import BuyPopup from 'components/BuyPopup/BuyPopup';
 import Article from 'ui/Article/Article';
 import Link from 'ui/Link/Link';
 
@@ -36,6 +37,7 @@ function LessonContent(props: IProps) {
   const { courseId, user } = props;
   const navigate = useNavigate();
   const [nextLesson, setNextLesson] = useState<ILessonData | null | undefined>(undefined);
+  const [buyPopupIsOpened, setBuyPopupIsOpened] = useState(false);
 
   useEffect(() => {
     lessonService
@@ -44,38 +46,41 @@ function LessonContent(props: IProps) {
   }, [props.data]);
 
   return (
-    <div className={classes._}>
-      {props.data.type === 'Practice' &&
-        <Uppload
-          courseId={props.courseId}
-          lessonId={props.lessonId}
-          homework={props.homework}
-          scrollToUpload={props.scrollToUpload}
-          canShowResults={props.canShowResults}
-        />}
-      <Article blocks={props.blocks}/>
-      <TheoryFooter
-        onNext={() => {
-          if (!user || nextLesson === undefined) {
-            return;
-          }
-          userCourseProgressService
-            .markLessonAsRead(props.courseId, user.email, props.data.id)
-            .then(() => {
-              if (nextLesson === null) {
-                //course has ended
-                navigate(URLSections.Course.Lessons.to({ courseId }));
-              } else if (!nextLesson!.isFree) {
-                // next lesson is not free
-                // TODO show pay screen
-                navigate(URLSections.Course.Lessons.to({ courseId }));
-              } else {
-                navigate(URLSections.Course.Lesson.to({ courseId, lessonId: nextLesson!.id }));
-              }
-            });
-        }}
-      />
-    </div>
+    <>
+      {buyPopupIsOpened && <BuyPopup close={() => setBuyPopupIsOpened(false)}/>}
+      <div className={classes._}>
+        {props.data.type === 'Practice' &&
+          <Uppload
+            courseId={props.courseId}
+            lessonId={props.lessonId}
+            homework={props.homework}
+            scrollToUpload={props.scrollToUpload}
+            canShowResults={props.canShowResults}
+          />}
+        <Article blocks={props.blocks}/>
+        <TheoryFooter
+          onNext={() => {
+            if (!user || nextLesson === undefined) {
+              return;
+            }
+            userCourseProgressService
+              .markLessonAsRead(props.courseId, user.email, props.data.id)
+              .then(() => {
+                if (nextLesson === null) {
+                  //course has ended
+                  navigate(URLSections.Course.Lessons.to({ courseId }));
+                } else if (!nextLesson!.isFree) {
+                  // next lesson is not free
+                  // TODO show pay screen
+                  setBuyPopupIsOpened(true);
+                } else {
+                  navigate(URLSections.Course.Lesson.to({ courseId, lessonId: nextLesson!.id }));
+                }
+              });
+          }}
+        />
+      </div>
+    </>
   );
 }
 

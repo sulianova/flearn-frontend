@@ -154,6 +154,56 @@
   }
 }
 
+.navBuy {
+  display: block;
+  position: relative;
+}
+
+.buyBtn {
+  display: flex;
+  align-items: center;
+  position: relative;
+  background-color: $color-content-background-primary;
+  color: $color-content-inverted-primary;
+  padding: set-calc(4) set-calc(24);
+  border-radius: set-calc($border-radius-large);
+  width: max-content;
+  height: set-calc(40);
+
+  transition: background-color $d-hover ease;
+  box-shadow: $shadow-menu;
+  
+  &:hover {
+    cursor: pointer;
+    background-color: $color-content-background-secondary;
+    color: $color-content-inverted-primary;
+  }
+
+  @include set-media(md) {
+    display: none;
+  }
+}
+
+.buyBadge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: set-calc(-4);
+  right: set-calc(-6);
+
+  padding: 0 set-calc(6);
+
+  height: set-calc(20);
+  border-radius: set-calc(10);
+  transform: rotate(10deg);
+  position: absolute;
+
+  pointer-events: none;
+
+  background-color: $primary-color;
+  color: $color-palette-white-1000;
+}
+
 .navContent {
   display: flex;
   align-items: center;
