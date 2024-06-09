@@ -9,15 +9,15 @@
   "inputEmail": {
     "placeholder": "Email"
   },
-  "logo": "Freedom to Learn",
-  "logoLong": "Freedom to Learn",
+  "logo": "freedom to learn",
+  "logoLong": "freedom to learn",
   "header": {
-    "my": "Moe обучение",
-    "freeZone": "Бесплатно",
-    "catalogue": "Онлайн-курсы",
+    "my": "мoe обучение",
+    "freeZone": "бесплатно",
+    "catalogue": "онлайн-курсы",
     "login": {
-      "signIn": "Войти",
-      "profile": "Профиль"
+      "signIn": "войти",
+      "profile": "профиль"
     }
   },
   "footer": {

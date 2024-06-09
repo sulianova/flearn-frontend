@@ -91,7 +91,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
                 currentCloseCourseDropdown.current = close;
                 return (
                   <div className={cx({ navContent: true, navItem: true, selectToggleIsOpened: opened })} onClick={opened ? close : open}>
-                    <span className={classes.selectToggleContent}>Мои курсы</span>
+                    <span className={classes.selectToggleContent}>мои курсы</span>
                     <span className={classes.selectToggleIcon}><SelectToggleIcon/></span>
                   </div>
                 );

@@ -59,7 +59,7 @@ function ProgramIntro(props: IProps) {
               </div>
             </div>
         </div>
-        {/* <div className={classes.cover}><Image src={props.data.introImage.imageSrc} alt={props.data.introImage.imageAlt}/></div> */}
+        <div className={classes.cover}><Image src={props.data.introImage.imageSrc} alt={props.data.introImage.imageAlt}/></div>
       </div>
     </div>
   );

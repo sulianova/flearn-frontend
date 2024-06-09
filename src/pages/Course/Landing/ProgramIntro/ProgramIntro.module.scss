@@ -21,6 +21,7 @@
   border-radius: set-calc($border-radius-medium);
   @include is-grid-4;
   background: $gradient-background-profession;
+  color: $matt-white;
 
   @include set-media(md) {
     padding: set-calc(8) set-calc(8) 0;
@@ -82,11 +83,11 @@
 .categoriesItem {
   margin-bottom: set-calc(8);
   padding: set-calc(6) set-calc(24);
-  border: set-calc(2) solid $color-content-primary;
+  border: set-calc(2) solid $matt-white;
   border-radius: set-calc($border-radius-large);
 
   @include set-media(md) {
-    border: set-calc(1) solid $color-content-primary;
+    border: set-calc(1) solid $matt-white;
     padding: set-calc(4) set-calc(16);
   }
 }
