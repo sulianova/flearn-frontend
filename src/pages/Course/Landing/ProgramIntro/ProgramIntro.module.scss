@@ -184,7 +184,7 @@
     position: absolute;
     inset: 0;
     z-index: 200;
-    background: $color-palette-black-100-a;
+    // background: $color-palette-black-100-a;
 
     @include set-media(md) {
       background: transparent;

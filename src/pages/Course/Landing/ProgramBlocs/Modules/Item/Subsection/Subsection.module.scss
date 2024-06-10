@@ -81,10 +81,10 @@
 
   @include set-media(md) {
     display: block;
+    margin-inline-start: set-calc(8);
 
     svg {
       flex-shrink: 0;
-      margin-inline-start: set-calc(8);
       display: inline-block;
       text-align: center;
       background: 50% no-repeat;

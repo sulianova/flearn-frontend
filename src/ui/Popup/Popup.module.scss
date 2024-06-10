@@ -54,6 +54,12 @@
   background-color: $color-background-default;
   border-radius: set-calc($border-radius-medium);
   box-shadow: $shadow-popup;
+  opacity: 0;
+
+  transform: translateY(50px) scale(0.98);
+  transition-property: transform;
+  transition-timing-function: ease;
+  transition-duration: $d-zoom;
 
   @include set-media(md) {
     box-sizing: border-box;
@@ -64,33 +70,11 @@
     border-radius: 0;
     -webkit-overflow-scrolling: touch;
     overflow: scroll;
+    transform: none;
   }
-
 }
 
 .modalContent_Animation {
-}
-
-.modalClose {
-  z-index: 1;
-  position: absolute;
-  top: set-calc(36);
-  right: set-calc(36);
-  display: inline-block;
-  text-align: center;
-  background: 50% no-repeat;
-  background-size: contain;
-  cursor: pointer;
-  opacity: .7;
-  color: $color-palette-white-1000;
-  
-  svg {
-    width: set-calc(33);
-    height: set-calc(33);
-    fill: none;
-  }
-}
-
-.modalClose:hover {
+  transform: translateY(0) scale(1, 1);
   opacity: 1;
 }

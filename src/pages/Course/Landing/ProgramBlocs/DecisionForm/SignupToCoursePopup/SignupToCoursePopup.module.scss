@@ -26,14 +26,15 @@
     min-height: fill-available;
 
     width: 100%;
+    padding: set-calc(24);
   }
 }
 
 .close {
   z-index: 1;
   position: absolute;
-  top: set-calc(12);
-  right: set-calc(12);
+  top: set-calc(16);
+  right: set-calc(16);
 
   border-radius: set-calc($border-radius-small);
   background-color: transparent;
@@ -52,6 +53,11 @@
     width: set-calc(24);
     height: set-calc(24);
     fill: none;
+  }
+
+  @include set-media(md) {
+    top: set-calc(12);
+    right: set-calc(12);
   }
 }
 
@@ -80,15 +86,17 @@
 
 .title {
   margin-bottom: set-calc(24);
-  margin-right: set-calc(32);
-  @include set-typography(36, 36, 500);
+  margin-right: set-calc(40);
+  @include set-typography(28, 32, 500);
   font-family: $font-family-compact;
 
   @include set-media(md) {
-    @include set-typography(36, 36, 500);
+    @include set-typography(24, 28, 500);
+    margin-bottom: set-calc(16);
   }
 }
 
 .caption {
   margin-right: set-calc(24);
+  color: $color-content-secondary;
 }

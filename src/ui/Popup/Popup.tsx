@@ -28,12 +28,14 @@ function Popup({ children }: Readonly<IProps>) {
     setTimeout(onClose, MODAL_ANIMATION_DURATION);
   }, []);
 
+  const openCloseAnimation = state != null && state != 'CLOSING';
+
   return createPortal(
     (
       <div className={cx({ modal: true, modal_Animation: state === 'OPENING' || state === 'OPENED' })}>
         {(state === null || state === 'OPENING' || state === 'OPENED') && (
           <div className={classes.modalContentWrapper}>
-            <div className={cx({ modalContent: true })}>
+            <div className={cx({ modalContent: true, modalContent_Animation: openCloseAnimation })}>
               {typeof children === 'function' ? children(close) : children}
             </div>
           </div>

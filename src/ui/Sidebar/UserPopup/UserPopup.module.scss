@@ -88,7 +88,7 @@
   user-select: none;
 
   margin-right: set-calc(36);
-  padding: set-calc(8);
+  padding: set-calc(8) set-calc(10);
 }
 
 .withIcon {
@@ -131,7 +131,7 @@
 
 .itemHoverable {
   transition: background-color 0.2s;
-  border-radius: set-calc(8);
+  border-radius: set-calc($border-radius-large);
   background-color: transparent;
   cursor: pointer;
 }

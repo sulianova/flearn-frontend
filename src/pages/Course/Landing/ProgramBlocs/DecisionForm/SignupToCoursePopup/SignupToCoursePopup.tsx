@@ -1,6 +1,6 @@
 import Popup from 'ui/Popup/Popup';
 
-import ModalCross from 'assets/images/Svg/ModalCross';
+import Cross from 'assets/images/Svg/Cross';
 
 import classes from './SignupToCoursePopup.module.scss';
 import classNames from 'classnames/bind';
@@ -35,7 +35,7 @@ export default function SignupToCoursePopup(props: Readonly<IProps>) {
       children={close => (
         <div className={classes.__}>
           <div className={classes.close} onClick={() => close(onClose)}>
-            <ModalCross/>
+            <Cross/>
           </div>
           <div className={classes.header}>
             <div className={classes.title}>{t(orderEmail ? 'subtitle2' : 'subtitle', { email: orderEmail })}</div>
