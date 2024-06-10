@@ -1,5 +1,5 @@
 import { type ICourseData } from 'services/course.service';
-import { URLSections } from 'types';
+import { URLSections } from 'router';
 import Link from 'ui/Link/Link';
 
 import Spinner from 'ui/Spinner/Spinner';

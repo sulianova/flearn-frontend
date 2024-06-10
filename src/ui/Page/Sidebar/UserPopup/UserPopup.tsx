@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router';
 
 import { authService } from 'services/auth.service';
 import { IUserData } from 'services/user.service';
-import { URLSections } from 'types';
+import { URLSections } from 'router';
 
 import Portfolio from 'assets/images/Svg/Portfolio';
 

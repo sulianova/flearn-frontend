@@ -4,14 +4,14 @@ import Home from 'pages/Home/Home';
 import Course from 'pages/Course/Landing/Course';
 import Lesson from 'pages/Course/Lesson/Lesson';
 import Lessons from 'pages/Course/Lessons/Lessons';
-import My from 'pages/My/My';
 
 import Oferta from 'pages/Static/Oferta';
 import Policy from 'pages/Static/Policy';
 
-import { URLSections } from 'types';
-
 import ProtectedRoute from './ProtectedRoute';
+import { URLSections } from './utils';
+
+export { URLSections, type TRouteConfig } from './utils';
 
 export default function MyRouter() {
   return (
@@ -24,8 +24,6 @@ export default function MyRouter() {
           <Route path={URLSections.Course.Lesson.index} element={<Lesson section='task'/>} />
           <Route path={URLSections.Course.Lesson.MyWork.index} element={<Lesson section='my-work'/>} />
           <Route path={URLSections.Course.Lesson.Results.index} element={<Lesson section='results'/>} />
-          <Route path={URLSections.My.Profile.index} element={<My mode='Profile'/>} />
-          <Route path={URLSections.My.Settings.index} element={<My mode='Settings'/>} />
         </Route>
         <Route path={URLSections.Static.Oferta.index} element={<Oferta />}/>
         <Route path={URLSections.Static.Policy.index} element={<Policy />}/>

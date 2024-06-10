@@ -5,7 +5,7 @@ import { formatI18nT, i18n } from 'shared';
 import { authService } from 'services/auth.service';
 import { ICourseData, courseService } from 'services/course.service';
 import { userService } from 'services/user.service';
-import { URLSections } from 'types';
+import { URLSections } from 'router';
 
 import SelectToggleIcon from 'assets/images/Svg/SelectToggleIcon';
 import Link from 'ui/Link/Link';
@@ -140,7 +140,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
             {user ? (
               <Link
                 className={classes.loginBtn + ' s-text-24'}
-                to={URLSections.My.Profile.index}
+                to={lastSolvedLesson ? URLSections.Course.Lessons.to({ courseId: lastSolvedLesson.courseId }) : undefined}
                 onClick={() => setIsOpened(false)}
               >
                 {t('login.profile')}

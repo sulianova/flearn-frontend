@@ -11,7 +11,7 @@ import Link from 'ui/Link/Link';
 
 import UserPopup from './UserPopup/UserPopup';
 import classes from './Sidebar.module.scss';
-import { URLSections } from 'types';
+import { URLSections } from 'router';
 
 const cx = classnames.bind(classes);
 

@@ -1,16 +1,18 @@
 import classNames from 'classnames/bind';
+import { useMemo } from 'react';
 import { useParams } from 'react-router';
 
+import { URLSections } from 'router';
+import { isImage } from 'utils';
+
 import UserImage from 'assets/images/Svg/UserImage';
+import Pattern from 'assets/images/Svg/Pattern';
 import Img from 'ui/Img/Img';
 import Link from 'ui/Link/Link';
-import Pattern from 'assets/images/Svg/Pattern';
+
+import type { IHomeworkDataWPopulate, IHomeworkImageData } from 'types';
 
 import classes from './WorkCard.module.scss';
-
-import { URLSections, type IHomeworkDataWPopulate, IHomeworkImageData } from 'types';
-import { useMemo } from 'react';
-import { isImage } from 'utils';
 
 const cx = classNames.bind(classes);
 

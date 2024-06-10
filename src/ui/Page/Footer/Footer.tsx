@@ -1,4 +1,4 @@
-import { URLSections } from 'types';
+import { URLSections } from 'router';
 import Link from 'ui/Link/Link';
 
 import Instagram from 'assets/images/Svg/Instagram';

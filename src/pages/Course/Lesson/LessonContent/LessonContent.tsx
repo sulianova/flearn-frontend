@@ -7,7 +7,7 @@ import { IUserData } from 'services/user.service';
 import { lessonService } from 'services/lesson.service';
 import { userCourseProgressService } from 'services/userCourseProgress.service';
 import { formatI18nT } from 'shared';
-import { URLSections } from 'types';
+import { URLSections } from 'router';
 import type { IHomeworkDataWPopulate } from 'types';
 
 import Edit from 'assets/images/Svg/Edit';

@@ -1,6 +1,6 @@
 import type { ICourseData } from 'services/course.service';
 import { i18n } from 'shared';
-import { URLSections } from 'types';
+import { URLSections } from 'router';
 import { formatDate } from 'utils';
 
 import Img from 'ui/Img/Img';

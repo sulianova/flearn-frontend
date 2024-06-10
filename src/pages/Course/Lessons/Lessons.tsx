@@ -2,7 +2,8 @@ import { useEffect, useMemo, useState } from 'react';
 import { useParams } from 'react-router';
 
 import { formatI18nT } from 'shared';
-import { ECommonErrorTypes, URLSections } from 'types';
+import { ECommonErrorTypes } from 'types';
+import { URLSections } from 'router';
 
 import { userService } from 'services/user.service';
 import { ILessonData, TLessonState, lessonService } from 'services/lesson.service';

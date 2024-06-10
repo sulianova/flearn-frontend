@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs';
 import { dataService } from 'services/data.service';
 import { type ILessonData, lessonService } from 'services/lesson.service';
 import { userService } from 'services/user.service';
-import { URLSections } from 'types';
+import { URLSections } from 'router';
 
 import Tick from 'assets/images/Svg/Tick';
 import Lock from 'assets/images/Svg/Lock';

@@ -5,7 +5,7 @@ import { dataService } from 'services';
 import type { ICourseData } from 'services/course.service';
 import type { IUserData } from 'services/user.service';
 
-import { URLSections } from 'types';
+import { URLSections } from 'router';
 
 import classes from './FreeForm.module.scss';
 
@@ -26,7 +26,7 @@ function FreeForm(props: { userData: IUserData, courseData: ICourseData }) {
 async function handleSubmit(props: { userData: IUserData, courseData: ICourseData, navigate: NavigateFunction, onError: (error: string) => void }) {
   try {
     await submitFreeOrderAndGrandAccess(props);
-    props.navigate(URLSections.My.Profile.index);
+    props.navigate(URLSections.Course.Lessons.to({ courseId: props.courseData.id }));
   } catch (e) {
     const error = e as Error;
     props.onError(error.message);

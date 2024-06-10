@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs';
 import { ILessonData } from 'services/lesson.service';
 import { IUserData, userService } from 'services/user.service';
 import { formatI18nT } from 'shared';
-import { URLSections } from 'types';
+import { URLSections } from 'router';
 
 import Link from 'ui/Link/Link';
 
