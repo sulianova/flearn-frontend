@@ -1,5 +1,12 @@
 import { ECommonErrorTypes, TStateState, TText } from 'types';
 
+export type TSource = 'remote' | 'local';
+
+export interface IFetchCourseProps {
+  ids?: string[]
+  userId?: string
+}
+
 export interface ICourseData {
   id: string
   type: 'course' | 'intensive' | 'webinar'

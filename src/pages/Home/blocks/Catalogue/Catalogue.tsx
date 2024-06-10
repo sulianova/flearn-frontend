@@ -10,7 +10,7 @@ export default function Catalogue() {
   const [courses, setCourses] = useState<ICourseData[] | null>(null);
   useEffect(() => {
     let cancelled = false;
-    const s = courseService.getCourseBS()
+    const s = courseService.getCourseBS({})
       .subscribe(o => {
         if (!o || o instanceof Error || cancelled) {
           return;

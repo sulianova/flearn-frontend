@@ -1,20 +1,23 @@
-import { BehaviorSubject, CompletionObserver, ErrorObserver, NextObserver, Subject } from 'rxjs';
+import { BehaviorSubject, CompletionObserver, ErrorObserver, NextObserver, Subject, merge } from 'rxjs';
 
 import { dataService } from 'services/data.service';
-
-import type { TActionBS, TActionS, TCourseError, TCourseState } from './types';
+import { localFilesServise } from 'services/localFiles.service';
 import { ECommonErrorTypes } from 'types';
+
+import { getData } from './data';
+import useCourses from './useCourses';
+import type { IFetchCourseProps, TSource, TActionBS, TActionS, TCourseError, ICourseData } from './types';
 
 export { type ICourseData, type ICourseDataDB, type TCourseState } from './types';
 
 class CourseService {
-  public getCourseBS(props?: {
-    filter?: { id?: string, ids?: string[], userId?: string }
-  }) {
+  public useCourses = useCourses;
+  public sourceBS = new BehaviorSubject<TSource>('remote');
+  public getCourseBS(props: IFetchCourseProps) {
     try {
       const mainSubject = new BehaviorSubject<TActionBS>(null);
 
-      const fetchUsers = async () => {
+      const fetch = async () => {
         try {
           mainSubject.next(null);
           const courses = await this._fetch(props);
@@ -35,22 +38,19 @@ class CourseService {
             | CompletionObserver<TActionBS>
             | undefined
         ) => {
-          fetchUsers();
+          fetch();
 
-          const usersUpdatedSubscription = this._courseS.subscribe(async e => {
-            try {
-              fetchUsers();
-            } catch (err) {
-              /* error already handled */
-            }
-          });
+          const dependenciesSubscription = merge(
+            this._courseS,
+            this.sourceBS,
+          ).subscribe(fetch);
 
           const mainSubjectSubscription = mainSubject.subscribe(observer);
           return {
             ...mainSubjectSubscription,
             unsubscribe: () => {
               mainSubjectSubscription?.unsubscribe();
-              usersUpdatedSubscription?.unsubscribe();
+              dependenciesSubscription?.unsubscribe();
             },
           };
         },
@@ -61,6 +61,24 @@ class CourseService {
     }
   }
 
+  public changeSource(source: TSource) {
+    this.sourceBS.next(source);
+  }
+
+  public async upload(id: string) {
+    try {
+      const courseLocalDB = getData([id]).at(0);
+      if (!courseLocalDB) {
+        throw new Error('No local course data');
+      }
+      const courseLocal = await localFilesServise.Course.localToFR(courseLocalDB);
+      await dataService.course.set(courseLocal.id, courseLocal);
+    } catch (error) {
+      console.log('Failed to upload course');
+      throw error;
+    }
+  }
+
   private errorToType(error: Error): TCourseError {
     const errorIsUnknown = !([ECommonErrorTypes.DataIsCorrupted, ECommonErrorTypes.FailedToFindData, ECommonErrorTypes.Other] as string[]).includes(error.message);
     const errorType = errorIsUnknown ? ECommonErrorTypes.Other : error.message as TCourseError;
@@ -68,14 +86,14 @@ class CourseService {
     return errorType;
   }
 
-  private async _fetch(props?: {
-    filter?: { id?: string, ids?: string[], userId?: string },
-  }) {
+  private async _fetch(props: IFetchCourseProps) {
     try {
-      if (props?.filter?.id) {
-        return [await dataService.course.get(props.filter.id)];
+      const source = this.sourceBS.getValue();
+      if (source === 'local' && props.ids) {
+        const courseLocalDBs = getData(props.ids);
+        return Promise.all(courseLocalDBs.map(courseLocalDB => localFilesServise.Course.localToFR(courseLocalDB)));
       }
-      return await dataService.course.getAll({ ids: props?.filter?.ids, userId: props?.filter?.userId });
+      return await dataService.course.getAll({ ids: props.ids, userId: props.userId });
     } catch (error) {
       // tslint:disable-next-line
       console.log(`Failed to fetch courses`, { props, error });
@@ -87,3 +105,4 @@ class CourseService {
 }
 
 export const courseService = new CourseService;
+export default CourseService;

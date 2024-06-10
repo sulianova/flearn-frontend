@@ -3,6 +3,60 @@ import { ECommonErrorTypes, TStateState, TText } from 'types';
 
 export interface IFetchLessonsProps extends ILessonFilter {}
 
+export type TSource = 'remote' | 'local';
+export interface ILessonData {
+  id: string
+  courseId: string
+  title: string
+  type: 'Theory' | 'Practice'
+  topic: string
+  topicOrder: number
+  orderInTopic: number
+  duration: {
+    unit: 'minutes' | 'hours'
+    value: number
+  }
+  isFree: boolean
+  content: ILessonContent
+}
+
+export interface ILessonDataDB {
+  id: string
+  courseId: string
+  title: string
+  type: 'Theory' | 'Practice'
+  topic: string
+  topicOrder: number
+  orderInTopic: number
+  duration: {
+    unit: 'minutes' | 'hours'
+    value: number
+  }
+  isFree: boolean
+  content: ILessonContentDB
+}
+
+export type TActionS =
+  | { type: 'updated', payload: { id: string } };
+
+export type TLessonError =
+  | ECommonErrorTypes.Restricted
+  | ECommonErrorTypes.Unauthorized
+  | ECommonErrorTypes.DataIsCorrupted
+  | ECommonErrorTypes.FailedToFindData
+  | ECommonErrorTypes.Other;
+
+export type TLessonState = TStateState<TLessonError>;
+
+interface MyError extends Error {
+  ErrorType: TLessonError
+}
+
+export type TActionBS =
+  | null
+  | { lessons: ILessonData[] }
+  | MyError;
+
 export interface ILessonBlock {
   factoid?: TText | TText[]
 }
@@ -72,58 +126,3 @@ export interface ILessonImageBlock extends ILessonBlock {
 
 export type ILessonContentDB = Array<ILessonTextBlock | ILessonFactoidBlock | ILessonQouteBlock | ILessonTextImportantBlock | ILessonTitleBlock  | ILessonVideoBlock | ILessonImageBlockDB | ILessonGalleryBlockDB>;
 export type ILessonContent = Array<ILessonTextBlock | ILessonFactoidBlock | ILessonQouteBlock | ILessonTextImportantBlock | ILessonTitleBlock  | ILessonVideoBlock | ILessonImageBlock | ILessonGalleryBlock>;
-
-export interface ILessonData {
-  id: string
-  courseId: string
-  title: string
-  type: 'Theory' | 'Practice'
-  topic: string
-  topicOrder: number
-  orderInTopic: number
-  duration: {
-    unit: 'minutes' | 'hours'
-    value: number
-  }
-  isFree: boolean
-  content: ILessonContent
-}
-
-export interface ILessonDataDB {
-  id: string
-  courseId: string
-  title: string
-  type: 'Theory' | 'Practice'
-  topic: string
-  topicOrder: number
-  orderInTopic: number
-  duration: {
-    unit: 'minutes' | 'hours'
-    value: number
-  }
-  isFree: boolean
-  content: ILessonContentDB
-}
-
-export type TActionS =
-  | { type: 'updated', payload: { id: string } };
-
-export type TLessonError =
-  | ECommonErrorTypes.Restricted
-  | ECommonErrorTypes.Unauthorized
-  | ECommonErrorTypes.DataIsCorrupted
-  | ECommonErrorTypes.FailedToFindData
-  | ECommonErrorTypes.Other;
-
-export type TLessonState = TStateState<TLessonError>;
-
-interface MyError extends Error {
-  ErrorType: TLessonError
-}
-
-export type TActionBS =
-  | null
-  | { lessons: ILessonData[] }
-  | MyError;
-
-export type TSource = 'remote' | 'local';

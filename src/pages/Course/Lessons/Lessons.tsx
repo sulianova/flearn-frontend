@@ -49,7 +49,7 @@ export default function Lessons() {
 
     let cancelled = false;
     const s = courseService
-      .getCourseBS({ filter: { id: courseId }})
+      .getCourseBS({ ids: [courseId] })
       .subscribe(o => {
         if (!o || cancelled) {
           return;

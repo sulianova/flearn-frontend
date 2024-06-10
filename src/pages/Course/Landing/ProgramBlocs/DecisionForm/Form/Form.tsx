@@ -1,19 +1,19 @@
 import classNames from 'classnames/bind';
 import { useCallback, useEffect, useState } from 'react';
-import Link from 'ui/Link/Link';
 
-import { authService, dataService } from 'services';
+import { authService } from 'services/auth.service';
+import { ICourseData } from 'services/course.service';
+import { dataService } from 'services/data.service';
 import { emailService } from 'services/email.service';
+import { userService } from 'services/user.service';
 import { formatI18nT } from 'shared';
-import store from 'store';
 
 import InputField from 'ui/Form/Input/InputField';
+import Link from 'ui/Link/Link';
 import Spinner from 'ui/Spinner/Spinner';
 
 import classes from './Form.module.scss';
 import classesInputField from './InputField.module.scss';
-import { IRootState } from 'types';
-import { userService } from 'services/user.service';
 
 const cx = classNames.bind(classes);
 const cx2 = classNames.bind(classesInputField);
@@ -28,12 +28,13 @@ const initialFormData: IFormData = { email: '', state: { type: 'Idle' } };
 
 interface IProps {
   onOrderCreated: (props: { email: string }) => void
+  course: ICourseData
 }
 
-export default function Form({ onOrderCreated }: IProps) {
+export default function Form({ onOrderCreated, course }: IProps) {
   const [formData, setFormData] = useState<IFormData>(() => authService.user ? ({ ...initialFormData, email: authService.user.email! }) : initialFormData);
   const [orderIsCreated, setOrderIsCreated] = useState(false);
-  const handleSubmit = useCallback((formData: IFormData) => submit({ formData, setFormData }), []);
+  const handleSubmit = useCallback((formData: IFormData) => submit({ formData, setFormData, course }), [course]);
 
   useEffect(() => {
     if (formData.state.type === 'Success') {
@@ -99,16 +100,15 @@ function isValid(formData: IFormData) {
   return email && state.type !== 'Pending';
 }
 
-async function submit(props: { formData: IFormData, setFormData: React.Dispatch<React.SetStateAction<IFormData>> }) {
-  const { formData, setFormData } = props;
+async function submit(props: {
+  formData: IFormData,
+  setFormData: React.Dispatch<React.SetStateAction<IFormData>>,
+  course: ICourseData,
+}) {
+  const { formData, setFormData, course: courseData } = props;
   setFormData(d => ({ ...d, state: { type: 'Pending' } }));
   try {
-    const state = store.getState() as IRootState;
-    const courseData = state.course.data;
     const userData = await userService.getAuthenticatedUser() ?? undefined;
-    if (!courseData) {
-      throw new Error('Failed to get course from store');
-    }
     const { id: orderId } = await dataService.order.create({ userFromForm: formData, courseData, userData });
 
     await dataService.access.add(courseData.id, formData.email, 'FREE');

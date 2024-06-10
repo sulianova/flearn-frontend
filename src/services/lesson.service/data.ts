@@ -1,4 +1,4 @@
-import { ILessonDataDB } from "./types";
+import { ILessonDataDB } from './types';
 
 export function getData(lessonId: string) {
   return allLessons.find(l => l.id === lessonId);

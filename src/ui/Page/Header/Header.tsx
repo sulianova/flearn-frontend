@@ -42,7 +42,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
   
     let cancelled = false;
     const s = courseService
-      .getCourseBS({ filter: { userId }})
+      .getCourseBS({ userId })
       .subscribe(action => {
         if (!action || (action instanceof Error) || cancelled) {
           return;
