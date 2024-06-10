@@ -5,10 +5,7 @@
   flex-direction: column;
   width: set-calc(700);
 
-  margin-bottom: set-calc(56);
-
   @include set-media(md) {
-    margin: set-calc(36) 0 set-calc(20);
     width: 100%;
   }
 }

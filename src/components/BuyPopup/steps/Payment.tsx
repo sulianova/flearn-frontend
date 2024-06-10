@@ -29,7 +29,6 @@ export default function Payment(props: IProps) {
               <label className={cx({groupToggleLabel: true, checked: option === 'PAYPAL' })  + ' s-text-16'}>PayPal</label>
             </div>
           </div>
-        <div className={classes.optionDescription + ' s-text-18'}>
           {option === 'CARD_RU' && (
             <div className={classes.optionDescription + ' s-text-18'}>
               На карту Тинькофф по номеру телефона +79162380397 Ульянова С.
@@ -40,7 +39,6 @@ export default function Payment(props: IProps) {
               Через Paypal на аккаунт <a href="http://paypal.me/sofiulyanova">paypal.me/sofiulyanova</a> (Ulianova Sofiia)
             </div>
           )}
-        </div>
         </div>
           <div className={classes.credit}>
             <div className={classes.creditWasWrapper}><s className={classes.creditWas}>3000 &#8381;</s></div>

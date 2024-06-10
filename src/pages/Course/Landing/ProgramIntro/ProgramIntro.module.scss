@@ -22,7 +22,7 @@
   color: $matt-white;
 
   @include set-media(md) {
-    padding: set-calc(8) 0 0;
+    padding: 0;
     min-height: 80vh;
     color: $color-content-primary;
   }
@@ -184,7 +184,6 @@
     position: absolute;
     inset: 0;
     z-index: 200;
-    // background: $color-palette-black-100-a;
 
     @include set-media(md) {
       background: transparent;

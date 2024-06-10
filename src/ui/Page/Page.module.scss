@@ -42,7 +42,7 @@
   padding: 0 set-calc($padding-x-desk-page);
 
   @include set-media(md) {
-    padding: set-calc($padding-xs-mob-page) set-calc($padding-xs-mob-page);
+    padding: 0 set-calc($padding-xs-mob-page);
   }
 }
 
@@ -50,7 +50,7 @@
   padding: 0 set-calc($padding-x-desk-page);
 
   @include set-media(md) {
-    padding: 0 set-calc($padding-x-mob-page);
+    padding: set-calc(16) set-calc($padding-x-mob-page);
   }
 }
 

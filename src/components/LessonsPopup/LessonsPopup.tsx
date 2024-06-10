@@ -9,7 +9,7 @@ import { URLSections } from 'router';
 
 import Tick from 'assets/images/Svg/Tick';
 import Lock from 'assets/images/Svg/Lock';
-import ModalCross from 'assets/images/Svg/ModalCross';
+import Cross from 'assets/images/Svg/Cross';
 import Popup from 'ui/Popup/Popup';
 import Link from 'ui/Link/Link';
 import Spinner from 'ui/Spinner/Spinner';
@@ -86,7 +86,7 @@ export default function LessonsPopup(props: TProps) {
     <Popup>
       <div className={classes.__}>
         <div className={classes.close} onClick={onClose}>
-          <ModalCross/>
+          <Cross/>
         </div>
         <div className={classes.body}>
           <div className={classes.header}>

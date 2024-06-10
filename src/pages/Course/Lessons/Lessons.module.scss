@@ -19,7 +19,7 @@
   @include set-typography(24, 28, 500);
 
   @include set-media(md) {
-    margin: set-calc(50) set-calc(8) 0;
+    margin: 0 set-calc(8) 0;
   }
 }
 

@@ -226,7 +226,6 @@
 }
 
 .commonFlowRow {
-
   @include set-media(md) {
     position: relative;
     padding: 0 set-calc(16) set-calc(16);
@@ -278,6 +277,10 @@
     padding: set-calc(16);
     height: set-calc(500);
   }
+}
+
+.blockDetails {
+  background-color: $color-palette-blue-50-a;
 }
 
 .titleWrapper{
@@ -473,7 +476,7 @@
   @include set-media(md) {
     border-radius: set-calc($border-radius-medium);
     padding: set-calc(16);
-    height: set-calc(500);
+    height: unset;
     grid-column: span 4;
     width: 100%;
     margin: 0 set-calc(8);
@@ -623,6 +626,10 @@
   
   .creditWasWrapper {
     margin-bottom: set-calc(6);
+
+    @include set-media(md) {
+      margin-bottom: set-calc(2);
+    }
   }
 
   .creditWas {
@@ -632,7 +639,7 @@
     @include set-typography(32, 32, 500);
 
     @include set-media(md) {
-      @include set-typography(40, 48, 500);
+      @include set-typography(24, 24, 500);
     }
   }
   
@@ -649,10 +656,6 @@
       @include set-typography(48, 48, 500);
     }
   }
-  
-  @include set-media(md) {
-    margin-bottom: set-calc(80);
-  }
 }
 
 .optionDescription {
@@ -661,10 +664,18 @@
   a {
     color: $primary-color;
   }
+
+  @include set-media(md) {
+    padding: set-calc(16) 0;
+  }
 }
 
 .paymentOptions {
   margin-bottom: set-calc(24);
+
+  @include set-media(md) {
+    margin-bottom: set-calc(32);
+  }
 }
 
 .groupToggleOptions {

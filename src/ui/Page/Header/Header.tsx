@@ -12,6 +12,7 @@ import SelectToggleIcon from 'assets/images/Svg/SelectToggleIcon';
 import Link from 'ui/Link/Link';
 import List from 'assets/images/Svg/List';
 import Popup from 'ui/Popup/Popup';
+import Portfolio from 'assets/images/Svg/Portfolio';
 
 import { EPageVariant } from '../Page';
 import classes from './header.module.scss';
@@ -130,6 +131,9 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
             </div>
           )}
           <div className={classes.nav}>
+            <div className={classes.userSettings}>
+              <Portfolio/>
+            </div>
             {user && (
               <Dropdown
                 content={({ close }) => (
@@ -153,7 +157,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
               variant === EPageVariant.LMS ? (
                 <div className={cx({ navBuy: true, navItem: true })} onClick={() => setBuyPopupIsOpened(true)}>
                   <div className={cx({ buyBtn: true})}>купить полный курс</div>
-                  <div className={classes.buyBadge + ' s-text-14'}>-5%</div>
+                  <div className={classes.buyBadge}>-5%</div>
                 </div>
               ) : (
                 <div className={cx({ navLogin: true, navItem: true })}>

@@ -114,6 +114,10 @@
   display: flex;
   flex: 1;
   flex-wrap: wrap;
+
+  @include set-media(md) {
+    display: none;
+  }
 }
 
 .infoItem {

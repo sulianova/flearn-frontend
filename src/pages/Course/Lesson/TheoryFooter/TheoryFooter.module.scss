@@ -6,6 +6,11 @@
   width: set-calc(-44, true, -44);
   padding-top: set-calc(40);
   padding-bottom: set-calc(120);
+
+  @include set-media(md) {
+    padding-top: set-calc(24);
+    padding-bottom: set-calc(40);
+  }
 }
 
 .buttons {

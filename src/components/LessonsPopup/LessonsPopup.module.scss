@@ -52,9 +52,11 @@
   }
 
   @include set-media(md) {
-    right: set-calc(16);
+    top: set-calc(12);
+    right: set-calc(12);
     border-radius: 50%;
-    box-shadow: $shadow-popup-cross;
+    padding: set-calc(3);
+    box-shadow: none;
   }
 }
 

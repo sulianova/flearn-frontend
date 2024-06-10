@@ -12,10 +12,6 @@
   @include s-text-16;
 
   @include set-media(md) {
-    position: absolute;
-    top: 0;
-    left: 0;
-
     transition: top 0.5s, transform 0.5s;
 
     min-height: 100vh;
@@ -23,22 +19,17 @@
     min-height: -webkit-fill-available;
     min-height: fill-available;
 
-    width: 0;
-
-    &[data-is-mobile-menu-opened="true"] {
-      width: 100%;
-    }
-
     @include set-typography(20, 28, 500);
   }
 }
 
 .desk {
-  width: 100%;
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: set-calc(58);
+
+  width: 100%;
   padding: set-calc(10) set-calc(2 * $padding-x-desk-page) set-calc(16);
   background-color: transparent;
   transition: transform 0.15s ease-in;
@@ -47,11 +38,11 @@
   gap: 0;
 
   @include set-media(md) {
-    position: fixed;
-    top: 0;
-    right: 0;
-    
-    width: max-content;
+    flex-direction: row;
+    display: flex;
+
+    height: set-calc(52);
+    grid-gap: set-calc(16);
     padding: set-calc(8) set-calc($padding-xs-mob-page) set-calc(8);
     background-color: transparent;
 
@@ -65,7 +56,12 @@
   padding: set-calc(10) set-calc(2 * $padding-x-desk-page) set-calc(16);
 
   @include set-media(md) {
-    padding: set-calc(8) set-calc($padding-xs-mob-page) set-calc(8);
+    padding: 0 set-calc($padding-xs-mob-page) 0;
+
+    .humburger {
+      background-color: $color-palette-white-200-a;
+      backdrop-filter: blur(set-calc($backdrop-filter));
+    }
   }
 }
 
@@ -73,7 +69,12 @@
   padding: set-calc(10) set-calc($padding-x-mob-page) set-calc(16);
 
   @include set-media(md) {
-    padding: set-calc(8) set-calc($padding-xs-mob-page) set-calc(8);
+    padding: set-calc(14) set-calc($padding-x-mob-page) set-calc(8);
+
+    .humburger {
+      background-color: $color-palette-white-200-a;
+      backdrop-filter: blur(set-calc($backdrop-filter));
+    }
   }
 }
 
@@ -119,14 +120,27 @@
   display: flex;
   align-items: center;
   justify-content: end;
-
-  @include set-media(md) {
-    display: none;
-  }
 }
 
 .navItem:not(:first-child) {
   margin-left: set-calc(8);
+
+  @include set-media(md) {
+    margin-left: set-calc(16);
+  }
+}
+
+.userSettings {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: set-calc(24);
+    height: set-calc(24);
+
+    color: $color-content-primary;
+  }
 }
 
 .navLogin {
@@ -163,7 +177,7 @@
   display: flex;
   align-items: center;
   position: relative;
-  background-color: $color-content-background-primary;
+  background-color: $color-content-background-secondary;
   color: $color-content-inverted-primary;
   padding: set-calc(4) set-calc(24);
   border-radius: set-calc($border-radius-large);
@@ -175,12 +189,15 @@
   
   &:hover {
     cursor: pointer;
-    background-color: $color-content-background-secondary;
+    background-color: $color-content-background-primary;
     color: $color-content-inverted-primary;
   }
 
   @include set-media(md) {
-    display: none;
+    @include s-text-16;
+    height: set-calc(30);
+    border-radius: set-calc($border-radius-small);
+    padding: set-calc(4) set-calc(16);
   }
 }
 
@@ -202,6 +219,24 @@
 
   background-color: $primary-color;
   color: $color-palette-white-1000;
+
+  @include set-typography(14, 16, 500);
+
+  @include set-media(md) {
+    position: absolute;
+    top: set-calc(-6);
+    right: set-calc(-6);
+
+    padding: 0 set-calc(3.5);
+    height: set-calc(16);
+
+    border-radius: set-calc(2);
+    transform: rotate(10.5deg);
+
+    pointer-events: none;
+
+    @include set-typography(12, 14, 500);
+  }
 }
 
 .navContent {
@@ -274,17 +309,20 @@
   display: none;
 
   @include set-media(md) {
-    position: relative;
+    position: absolute;
+    top: set-calc(8);
+    right: set-calc(8);
+    z-index: 1;
+
     display: inline-flex;
     justify-content: center;
 
-    background: $color-content-background-primary;
-    color: $color-content-inverted-primary;
-    border-radius: 50%;
-    transition: transform 0.15s ease-in;
-
     padding: set-calc(10);
+    transition: transform 0.15s ease-in;
     opacity: 1;
+
+    color: $color-content-primary;
+    border-radius: set-calc($border-radius-small);
 
     svg {
       display: inline-block;
