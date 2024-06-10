@@ -71,15 +71,20 @@
   align-items: center;
   justify-content: center;
   
-  border-radius: set-calc($border-radius-medium);
+  border-radius: set-calc($border-radius-large);
   transition: opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
   background: $gradient-button;
   color: $color-content-inverted-primary;
   white-space: nowrap;
   max-width: fit-content;
-  padding: set-calc(20) set-calc(80);
+  padding:0 set-calc(32);
+  height: set-calc(52);
 
   opacity: 1;
+
+  @include set-media(md) {
+    width: 100%;
+  }
 }
 
 .button:hover {

@@ -1,5 +1,5 @@
 {
-  "signUp": "Начать учиться бесплатно",
+  "signUp": "начать учиться бесплатно",
   "inputName": {
     "placeholder": "Имя"
   },
@@ -14,7 +14,7 @@
   "header": {
     "my": "мoe обучение",
     "freeZone": "бесплатно",
-    "catalogue": "онлайн-курсы",
+    "catalogue": "все курсы",
     "login": {
       "signIn": "войти",
       "profile": "профиль"

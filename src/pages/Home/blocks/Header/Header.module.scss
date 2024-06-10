@@ -9,7 +9,7 @@
 
   @include set-media(md) {
     position: relative;
-    margin: set-calc(60) set-calc(16) set-calc(48);
+    margin: set-calc(44) set-calc(16) set-calc(48);
   }
 }
 
@@ -81,6 +81,7 @@
 
   @include set-media(md) {
     flex-direction: row-reverse;
+    width: 100%;
   }
 
 }
@@ -92,21 +93,22 @@
   justify-content: center;
 
   border-radius: set-calc($border-radius-small);
-  transition: background-color $d-hover ease, box-shadow $d-hover ease;
-  background: $color-content-background-primary;
-  color: $color-palette-white-1000;
-  border: set-calc(1) solid $color-background-default;
-
+  transition: background-color $d-hover ease, color $d-hover ease, box-shadow $d-hover ease;
+  background-color: $color-content-background-secondary;
+  color: $color-content-inverted-primary;
   height: set-calc(52);
 
-  padding: 0 set-calc(20);
+  padding: 0 set-calc(32);
   width: 100%;
 
   @include set-media(md) {
-    height: set-calc(48);
+    height: set-calc(52);
     margin: 0 0 set-calc(4) 0;
     padding: set-calc(0) set-calc(18);
-    flex: 1 1 max-content;
+    width: max-content;
+    border-radius: set-calc($border-radius-small);
+    background-color: $color-content-background-primary;
+    color: $color-content-inverted-primary;
   }
 
   .text {
@@ -116,6 +118,7 @@
   &:hover {
     cursor: pointer;
     box-shadow: $shadow-medium-hovered;
-    background-color: $color-content-background-secondary;
+    background-color: $color-content-background-primary;
+    color: $color-content-inverted-primary;
   }
 }

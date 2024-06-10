@@ -1,6 +1,7 @@
 import classnames from 'classnames/bind';
 import { useEffect, useRef, useState } from 'react';
 
+import { useIsMobile } from 'hooks';
 import { formatI18nT, i18n } from 'shared';
 import { authService } from 'services/auth.service';
 import { ICourseData, courseService } from 'services/course.service';
@@ -10,9 +11,11 @@ import { URLSections } from 'router';
 import SelectToggleIcon from 'assets/images/Svg/SelectToggleIcon';
 import Link from 'ui/Link/Link';
 import List from 'assets/images/Svg/List';
+import Popup from 'ui/Popup/Popup';
 
 import { EPageVariant } from '../Page';
 import classes from './header.module.scss';
+import Cross from 'assets/images/Svg/Cross';
 import Dropdown from 'ui/Dropdown/Dropdown';
 import CoursesDropdownContent from './CoursesDropdownContent/CoursesDropdownContent';
 import { userCourseProgressService } from 'services/userCourseProgress.service';
@@ -27,11 +30,12 @@ interface IProps {
 }
 
 export default function Header({ variant, visible }: Readonly<IProps>) {
+  const isMobile = useIsMobile();
   const user = userService.useAuthedUser();
-  const [isOpened, setIsOpened] = useState<boolean>(false);
+  const lastSolvedLesson = userCourseProgressService.useLastSolvedLesson();
   const [userCourses, setUserCourses] = useState<ICourseData[]>();
   const currentCloseCourseDropdown = useRef<() => void>();
-  const lastSolvedLesson = userCourseProgressService.useLastSolvedLesson();
+  const [mobMenuIsOpened, setMobMenuIsOpened] = useState(false);
   const [buyPopupIsOpened, setBuyPopupIsOpened] = useState(false);
 
   const userId = user?.id;
@@ -57,14 +61,14 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
   }, [userId]);
 
   useEffect(() => {
-    if (isOpened) {
+    if (mobMenuIsOpened) {
       document.body.style.overflowY = 'hidden';
 
       return () => {
         document.body.style.overflowY = '';
       };
     }
-  }, [isOpened]);
+  }, [mobMenuIsOpened]);
 
   useEffect(() => {
     if (!visible) {
@@ -72,12 +76,51 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
     }
   }, [visible]);
 
-  const headerClass = cx({ __: true, __Hidden: !visible, IsMobileMenuOpened: isOpened, [variant]: true });
+  const headerClass = cx({ __: true, __Hidden: !visible, IsMobileMenuOpened: mobMenuIsOpened, [variant]: true });
+
+  const mobMenuPopup = (
+    <Popup>
+      <div className={classes.mob + ' isMobile'}>
+        <div className={classes.close} onClick={() => setMobMenuIsOpened(false)}>
+          <Cross/>
+        </div>
+        <div className={classes.mobMenuMain}>
+            <div className={classes.mobItem}>
+              <Link
+                to={URLSections.Home.index}
+                onClick={() => setMobMenuIsOpened(false)}
+              >
+                <span className='inline-text'>{t('catalogue')}</span>
+              </Link>
+            </div>
+          </div>
+          <div className={classes.mobMenuControls}>
+            {user ? (
+              <Link
+                className={classes.loginBtn}
+                to={lastSolvedLesson ? URLSections.Course.Lessons.to({ courseId: lastSolvedLesson.courseId }) : undefined}
+                onClick={() => setMobMenuIsOpened(false)}
+              >
+                {t('login.profile')}
+              </Link>
+            ) : (
+              <div
+                className={classes.loginBtn}
+                onClick={() => authService.authenticate()}
+              >
+                {t('login.signIn')}
+              </div>
+            )}
+          </div>
+      </div>
+    </Popup>
+  );
 
   return (
     <>
+      {isMobile && mobMenuIsOpened && mobMenuPopup}
       {buyPopupIsOpened && <BuyPopup close={() => setBuyPopupIsOpened(false)}/>}
-      <div className={headerClass} data-is-mobile-menu-opened={isOpened}>
+      <div className={headerClass} data-is-mobile-menu-opened={mobMenuIsOpened}>
         <div className={cx({ desk: true, [`deskPadding${variant}`]: true })}>
           {variant !== EPageVariant.LMS && (
             <div className={classes.logo}>
@@ -122,40 +165,12 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
               )
             }
           </div>
-          <div className={classes.humburger} onClick={() => setIsOpened(o => !o)}><List/></div>
+          <div className={cx({ humburger: true})} onClick={() => setMobMenuIsOpened(o => !o)}>
+            <List/>
           </div>
-        <div className={classes.mob}>
-          <div className={classes.mobMenuMain}>
-            <div className={classes.mobItem}>
-              <Link
-                className='inline-link s-text-36'
-                to={URLSections.Home.index}
-                onClick={() => setIsOpened(false)}
-              >
-                <span className='inline-text'>{t('catalogue')}</span>
-              </Link>
-            </div>
           </div>
-          <div className={classes.mobMenuControls}>
-            {user ? (
-              <Link
-                className={classes.loginBtn + ' s-text-24'}
-                to={lastSolvedLesson ? URLSections.Course.Lessons.to({ courseId: lastSolvedLesson.courseId }) : undefined}
-                onClick={() => setIsOpened(false)}
-              >
-                {t('login.profile')}
-              </Link>
-            ) : (
-              <div
-                className={classes.loginBtn + ' s-text-24'}
-                onClick={() => authService.authenticate()}
-              >
-                {t('login.signIn')}
-              </div>
-            )}
-          </div>
-        </div>
       </div>
+      
     </>
   );
 }
