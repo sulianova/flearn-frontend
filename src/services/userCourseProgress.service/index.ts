@@ -48,10 +48,10 @@ class UserCourseProgressService {
         ) => {
           fetch();
 
-          const dependenciesSubscription = merge([
+          const dependenciesSubscription = merge(
               this.userCourseProgresS,
               authService.firebaseUserBS,
-            ])
+            )
             .subscribe(fetch);
 
           const mainSubjectSubscription = mainSubject.subscribe(observer);
@@ -90,7 +90,7 @@ class UserCourseProgressService {
         return null;
       }
       const { courseId, lessonId } = lastSolvedLessonProgress;
-      const lastSolvedLesson = (await lessonService.fetch({ filter: { courseId, id: lessonId }})).at(0);
+      const lastSolvedLesson = (await lessonService.fetch({ courseId, id: lessonId })).at(0);
       if (!lastSolvedLesson) {
         return null;
       }

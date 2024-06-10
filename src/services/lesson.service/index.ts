@@ -1,20 +1,21 @@
-import { BehaviorSubject, CompletionObserver, ErrorObserver, NextObserver, Subject } from 'rxjs';
+import { BehaviorSubject, CompletionObserver, ErrorObserver, NextObserver, Subject, merge } from 'rxjs';
 
 import { dataService } from 'services/data.service';
 
 import { allLessons, getData } from './data';
 import { ECommonErrorTypes } from 'types';
-import type { IFetchLessonsProps, ILessonData, TActionBS, TActionS, TLessonError } from './types';
+import { TSource, type IFetchLessonsProps, type ILessonData, type TActionBS, type TActionS, type TLessonError } from './types';
 import { localFilesServise } from 'services/localFiles.service';
 
 export type { ILessonData, TActionS, ILessonDataDB, TLessonState, IFetchLessonsProps } from './types';
 
 class LessonService {
+  public sourceBS = new BehaviorSubject<TSource>('remote');
   public getLessonBS(props: IFetchLessonsProps) {
     try {
       const mainSubject = new BehaviorSubject<TActionBS>(null);
 
-      const fetchUsers = async () => {
+      const fetch = async () => {
         try {
           mainSubject.next(null);
           const lessons = await this.fetch(props);
@@ -35,22 +36,19 @@ class LessonService {
             | CompletionObserver<TActionBS>
             | undefined
         ) => {
-          fetchUsers();
+          fetch();
 
-          const usersUpdatedSubscription = this._lessonS.subscribe(async e => {
-            try {
-              fetchUsers();
-            } catch (err) {
-              /* error already handled */
-            }
-          });
+          const dependenciesSubscription = merge(
+            this._lessonS,
+            this.sourceBS,
+          ).subscribe(fetch);
 
           const mainSubjectSubscription = mainSubject.subscribe(observer);
           return {
             ...mainSubjectSubscription,
             unsubscribe: () => {
               mainSubjectSubscription?.unsubscribe();
-              usersUpdatedSubscription?.unsubscribe();
+              dependenciesSubscription?.unsubscribe();
             },
           };
         },
@@ -82,11 +80,11 @@ class LessonService {
 
   public async fetchNextLesson(lesson: ILessonData) {
     try {
-      const nextInTopickLesson = (await this.fetch({ filter: { courseId: lesson.courseId, topicOrder: lesson.topicOrder, orderInTopic: lesson.orderInTopic + 1 }}))[0] as ILessonData | undefined;
+      const nextInTopickLesson = (await this.fetch({ courseId: lesson.courseId, topicOrder: lesson.topicOrder, orderInTopic: lesson.orderInTopic + 1 }))[0] as ILessonData | undefined;
       if (nextInTopickLesson) {
         return nextInTopickLesson;
       }
-      const firstInNextTopickLesson = (await this.fetch({ filter: { courseId: lesson.courseId, topicOrder: lesson.topicOrder + 1, orderInTopic: 1 }}))[0] as ILessonData | undefined;
+      const firstInNextTopickLesson = (await this.fetch({ courseId: lesson.courseId, topicOrder: lesson.topicOrder + 1, orderInTopic: 1 }))[0] as ILessonData | undefined;
       if (firstInNextTopickLesson) {
         return firstInNextTopickLesson;
       }
@@ -97,10 +95,11 @@ class LessonService {
     }
   }
 
-  public async fetch(props: IFetchLessonsProps) {
+  public async fetch(filter: IFetchLessonsProps) {
     try {
-      if (props.source === 'local' && props.filter.id) {
-        const lessonLocalDB = getData(props.filter.id);
+      const source = this.sourceBS.getValue();
+      if (source === 'local' && filter.id) {
+        const lessonLocalDB = getData(filter.id);
         if (lessonLocalDB) {
           const lessonLocal = await localFilesServise.Lesson.localToFR(lessonLocalDB);
           if (lessonLocal) {
@@ -108,12 +107,16 @@ class LessonService {
           }
         }
       }
-      return await dataService.lesson.getAll(props.filter);
+      return await dataService.lesson.getAll(filter);
     } catch (error) {
       // tslint:disable-next-line
-      console.log(`Failed to fetch lessons`, { props, error });
+      console.log(`Failed to fetch lessons`, { filter, error });
       throw error;
     }
+  }
+
+  public changeSource(source: TSource) {
+    this.sourceBS.next(source);
   }
 
   private errorToType(error: Error): TLessonError {

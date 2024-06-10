@@ -47,7 +47,7 @@ export default function Lesson({ section }: IProps) {
 
     let cancelled = false;
     const s = lessonService
-      .getLessonBS({ filter: { courseId }})
+      .getLessonBS({ courseId })
       .subscribe(o => {
         if (!o || cancelled) {
           return;
@@ -67,7 +67,6 @@ export default function Lesson({ section }: IProps) {
     };
   }, [courseId]);
 
-
   useEffect(() => {
     if (!courseId || !lessonId) {
       return;
@@ -75,7 +74,7 @@ export default function Lesson({ section }: IProps) {
 
     let cancelled = false;
     const s = lessonService
-      .getLessonBS({ filter: { courseId, id: lessonId }})
+      .getLessonBS({ courseId, id: lessonId })
       .subscribe(o => {
         if (!o || cancelled) {
           return;

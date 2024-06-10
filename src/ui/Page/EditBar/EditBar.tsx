@@ -1,18 +1,15 @@
-import { useContext } from 'react';
 import { useParams } from 'react-router';
 
-import { useURLSection } from 'hooks';
+import { useBehaviourSubjectValue, useURLSection } from 'hooks';
 import { envService } from 'services/env.service';
 import { lessonService } from 'services/lesson.service';
-
-import { PageSourceContext } from '../Page';
 
 import classes from './EditBar.module.scss';
 
 export default function EditBar() {
   const { courseId, lessonId } = useParams();
   const variant = useURLSection();
-  const pageSourceContext = useContext(PageSourceContext);
+  const lessonSource = useBehaviourSubjectValue(lessonService.sourceBS);
 
   if (
     variant === 'Other'
@@ -23,6 +20,11 @@ export default function EditBar() {
   ) {
     return null;
   }
+
+  const [source, setSource] = ({
+    'Lesson': [lessonSource, lessonService.changeSource.bind(lessonService)],
+    'Course': ['remote', (newSource: 'remote' | 'local') => {}],
+  } as const)[variant];
 
   return (
     <section className={classes._}>
@@ -36,9 +38,9 @@ export default function EditBar() {
           </div>
           <div
             className={classes.stickyBtn + ' s-text-24'}
-            onClick={() => pageSourceContext.setSource(pageSourceContext.source === 'local' ? 'remote' : 'local')}
+            onClick={() => setSource(source === 'local' ? 'remote' : 'local')}
           >
-            {pageSourceContext.source === 'local' ? 'use remote' : 'use local'}
+            {source === 'local' ? 'use remote' : 'use local'}
           </div>
         </div>
       </div>

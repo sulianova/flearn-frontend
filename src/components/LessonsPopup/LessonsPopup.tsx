@@ -50,7 +50,7 @@ export default function LessonsPopup(props: TProps) {
     ])
       .then(([progress, lesson]) => {
         subscription = lessonService
-          .getLessonBS({ filter: { courseId, topic: lesson.topic } })
+          .getLessonBS({ courseId, topic: lesson.topic })
           .subscribe(o => {
             if (!o || o instanceof Error || cancelled) {
               return;

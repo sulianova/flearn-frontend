@@ -1,10 +1,7 @@
 import { ILessonFilter } from 'services/data.service/Lesson';
 import { ECommonErrorTypes, TStateState, TText } from 'types';
 
-export interface IFetchLessonsProps {
-  filter: ILessonFilter
-  source?: 'remote' | 'local'
-}
+export interface IFetchLessonsProps extends ILessonFilter {}
 
 export interface ILessonBlock {
   factoid?: TText | TText[]
@@ -128,3 +125,5 @@ export type TActionBS =
   | null
   | { lessons: ILessonData[] }
   | MyError;
+
+export type TSource = 'remote' | 'local';

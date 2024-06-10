@@ -76,7 +76,7 @@ export default function Lessons() {
 
     let cancelled = false;
     const s = lessonService
-      .getLessonBS({ filter: { courseId }})
+      .getLessonBS({ courseId })
       .subscribe(o => {
         if (!o || cancelled) {
           return;
