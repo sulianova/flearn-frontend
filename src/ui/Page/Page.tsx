@@ -1,8 +1,9 @@
 import React, { createContext, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+
 import EditBar from './EditBar/EditBar';
 import Footer, { EFooter } from './Footer/Footer';
 import Header from './Header/Header';
-import Sidebar from 'ui/Sidebar/Sidebar';
+import Sidebar from './Sidebar/Sidebar';
 
 import useHeightToCss from './useHeightToCss';
 
