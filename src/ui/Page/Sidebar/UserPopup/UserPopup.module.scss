@@ -13,7 +13,7 @@
   position: absolute;
   top: unset;
   bottom: 0;
-  left: set-calc(54);
+  left: set-calc(16, true, 100%);
   right: unset;
 
   visibility: visible;
@@ -30,19 +30,22 @@
   padding: set-calc(8) set-calc(16);
 
   color: $color-content-primary;
-  border-radius: set-calc($border-radius-large);
+  border-radius: set-calc($border-radius-medium);
+  border: set-calc(1) solid $color-palette-white-1000;
   background-color: $color-background-default;
   box-shadow: $shadow-medium-default;
 
   @include set-media(md) {
-    display: flex;
-    flex-direction: column;
+    top: set-calc(8, true, 100%);
+    right: unset;
+    left: 0;
+    bottom: unset;
 
-    min-height: 100vh;
-    min-height: -webkit-fill-available;
-    min-height: fill-available;
+    padding: set-calc(8) set-calc(8);
+    border-radius: set-calc(10);
+    border: set-calc(0.8) solid $color-palette-white-1000;
 
-    width: 100%;
+    width: set-calc(300);
   }
 }
 
@@ -73,7 +76,7 @@
   margin-top: set-calc(16);
 }
 
-.itemsGroupfirst-child {
+.itemsGroup:first-child {
   margin-top: 0;
 }
 
@@ -89,6 +92,11 @@
 
   margin-right: set-calc(36);
   padding: set-calc(8) set-calc(10);
+
+  @include set-media(md) {
+    padding: set-calc(10) set-calc(12);
+    margin-right: 0;
+  }
 }
 
 .withIcon {
@@ -122,6 +130,7 @@
   align-items: center;
   gap: set-calc(8);
   height: auto;
+  @include set-typography(16, 18, 500);
 }
 
 .itemSubtitle {
@@ -131,15 +140,23 @@
 
 .itemHoverable {
   transition: background-color 0.2s;
-  border-radius: set-calc($border-radius-large);
+  border-radius: set-calc($border-radius-8);
   background-color: transparent;
   cursor: pointer;
 }
 
 .itemHoverable:hover {
   background-color: $color-background-glassy-a;
+
+  @include set-media(md) {
+    background-color: transparent;
+  }
 }
 
 .itemHoverable:active {
   background-color: $color-background-active;
+
+  @include set-media(md) {
+    background-color: transparent;
+  }
 }

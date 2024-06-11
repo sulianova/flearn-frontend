@@ -22,6 +22,8 @@ import CoursesDropdownContent from './CoursesDropdownContent/CoursesDropdownCont
 import { userCourseProgressService } from 'services/userCourseProgress.service';
 import BuyPopup from 'components/BuyPopup/BuyPopup';
 
+import UserPopup from '../Sidebar/UserPopup/UserPopup';
+
 const cx = classnames.bind(classes);
 const t = formatI18nT('header');
 
@@ -38,6 +40,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
   const currentCloseCourseDropdown = useRef<() => void>();
   const [mobMenuIsOpened, setMobMenuIsOpened] = useState(false);
   const [buyPopupIsOpened, setBuyPopupIsOpened] = useState(false);
+  const [userPopupVisible, setUserPopupVisible] = useState(false);
 
   const userId = user?.id;
   useEffect(() => {
@@ -131,8 +134,19 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
             </div>
           )}
           <div className={classes.nav}>
-            <div className={classes.userSettings}>
-              <Portfolio/>
+            <div className={cx({ userSettinsWrapper: true, open: userPopupVisible })}>
+              {user && userPopupVisible && (
+                  <UserPopup
+                    user={user}
+                    close={() => setUserPopupVisible(false)}
+                  />
+                )}
+              <div 
+                className={classes.userSettings}
+                onClick={() => setUserPopupVisible(!userPopupVisible)}
+              >
+                <Portfolio/>
+              </div>
             </div>
             {user && (
               <Dropdown

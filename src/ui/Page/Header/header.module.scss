@@ -130,16 +130,41 @@
   }
 }
 
+.userSettingsWrapper {
+  display: none;
+
+  @include set-media(md) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    svg {
+      width: set-calc(24);
+      height: set-calc(24);
+  
+      color: $color-content-primary;
+    }
+  }
+}
+
+.open {
+  z-index: 10000;
+}
+
 .userSettings {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: none;
 
-  svg {
-    width: set-calc(24);
-    height: set-calc(24);
-
-    color: $color-content-primary;
+  @include set-media(md) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    svg {
+      width: set-calc(24);
+      height: set-calc(24);
+  
+      color: $color-content-primary;
+    }
   }
 }
 
