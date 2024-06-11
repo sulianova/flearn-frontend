@@ -229,7 +229,7 @@
   },
   "courseLesson": {
     "navTabsPractice": "Задание",
-    "navTabsResults": "Итоги",
+    "navTabsResults": "Ревью",
     "navToLessons": "Все уроки",
     "uploadDeadline": "Дедлайн: {{date}}\u00A0по\u00A0Мск",
     "resultsDeadline": "Публикация итогов: {{date}}",

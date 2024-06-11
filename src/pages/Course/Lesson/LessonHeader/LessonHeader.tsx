@@ -69,57 +69,26 @@ function LessonHeader(props: IProps) {
     </Link>
   );
 
-  const resultTab = props.lesson.type === 'Practice' && section === 'results' && user && (
-    <span
-      className={classes.type + ' nav-link s-text-18 isActive'}
-    >
-      {user.displayName ?? user.email ?? user.id}
-    </span>
-  );
-
-  const myWorkTab = props.lesson.type === 'Practice' && section === 'my-work' && (
-    <span
-      className={classes.type + ' nav-link s-text-18 isActive'}
-    >
-      {authedUser?.displayName ?? authedUser?.email}
-    </span>
-  );
-
   const tabs = [
     taskTab,
     resultsTab,
-    resultTab,
-    myWorkTab,
   ].filter(Boolean);
-
-  const fakeTab = props.lesson.type === 'Practice' && !tabs.length && (
-    <span className={classes.type + ' s-text-18'}>
-      {t('navTabsPractice')}
-    </span>
-  );
 
   return (
     <div className={classes._}>
-      {/* <Link
-        className={classes.nav + ' nav-link s-text-18'} to={URLSections.Course.Lessons.to({ courseId })}
+      <div className={classes.navTubs}>
+        {tabs.map((tab, i) => (
+          <Fragment key={i}>
+            {tab}
+          </Fragment>
+        ))}
+      </div>
+      <Link
+        className={classes.type + ' nav-link s-text-18' + (section === 'results' && !user ? ' isActive' : '')}
+        to={URLSections.Course.Lesson.Results.to({ courseId, lessonId, params: { limit: 4 } })}
       >
-        <span className='nav-link-text'>{(t('navToLessons'))}</span>
-        <span className='nav-link-arrow'>&rarr;</span>
-      </Link> */}
-      {tabs.length > 1 && (
-        <div className={classes.navTubs}>
-          {tabs.map((tab, i) => (
-            <Fragment key={i}>
-              {tab}
-            </Fragment>
-          ))}
-        </div>
-      )}
-      {fakeTab && (
-        <div className={classes.navTubs}>
-          {fakeTab}
-        </div>
-      )}
+        {t('navTabsResults')}
+      </Link>
       <h1 className={classes.title + ' s-text-56'}>{lesson.title}</h1>
     </div>
   );
