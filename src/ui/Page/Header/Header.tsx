@@ -13,6 +13,7 @@ import Link from 'ui/Link/Link';
 import List from 'assets/images/Svg/List';
 import Popup from 'ui/Popup/Popup';
 import Portfolio from 'assets/images/Svg/Portfolio';
+import Logo from 'assets/images/Svg/Logo';
 
 import { EPageVariant } from '../Page';
 import classes from './header.module.scss';
@@ -129,7 +130,8 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
           {variant !== EPageVariant.LMS && (
             <div className={classes.logo}>
               <div className={classes.logoWrapper}>
-                <Link to={URLSections.Home.index}>{i18n.t('logo')}</Link>
+                <Link to={URLSections.Home.index}><Logo/></Link>
+                {/* <Link to={URLSections.Home.index}>{i18n.t('logo')}</Link> */}
               </div>
             </div>
           )}

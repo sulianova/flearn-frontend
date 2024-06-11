@@ -2,13 +2,53 @@
 
 ._ {
   display: flex;
-  flex-direction: column;
   width: set-calc(700);
+  margin-bottom: set-calc(30);
 
   @include set-media(md) {
     width: 100%;
   }
 }
 
-.title {
+.tabItem {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 1 auto;
+  box-sizing: border-box;
+  color: $color-content-secondary;
+
+  width: 50%;
+  height: set-calc(70);
+  margin-right: set-calc(2);
+  padding-bottom: set-calc(8);
+}
+
+.active {
+  cursor: default;
+  color: $color-content-primary;
+  border-bottom: set-calc(2) solid $color-content-primary;
+}
+
+.tabItem:not(.active)::after {
+  position: absolute;
+  bottom: 0;
+  display: block;
+  width: 100%;
+  height: set-calc(2);
+  content: "";
+  transition: transform .2s 0s ease-in-out;
+  transform: scaleX(0);
+  background-color:  $color-content-primary;
+}
+
+.tabItem:hover {
+  transition: color .3s;
+  color: $color-content-primary;
+}
+
+.tabItem:not(.active):hover::after {
+  transform: scaleX(1);
 }

@@ -77,14 +77,14 @@ function LessonUppload({ homeworkWPopulate, scroll, onScrollEnd }: IProps) {
       <div className={classes.wrapper}>
         <div className={classes.title + ' s-text-18'}>{t('fieldsTitle')}</div>
         {/* <div className={classes.title + ' s-text-18'}>Ccылка на ваше задание</div> */}
-        {/* <Link 
+        <Link 
           to={'https://www.behance.net/sofiulianova'}
           target='_blank'
           className={classes.link + ' s-text-18 key-link'}
         >
           https://www.behance.net/sofiulianova
-        </Link> */}
-        <div className={classes.linkForm}>
+        </Link>
+        {/* <div className={classes.linkForm}>
           <Input
               value={state.externalHomeworkLink}
               onChange={externalHomeworkLink => {
@@ -96,7 +96,7 @@ function LessonUppload({ homeworkWPopulate, scroll, onScrollEnd }: IProps) {
           <div className={classes.submit}>
             <button
               onClick={() => handleSubmit(state)}
-              className={cx({submitBtn: true, isDisabled: isDisabled(state) })+ ' s-text-16-18'}
+              className={cx({submitBtn: true, isDisabled: isDisabled(state) })+ ' s-text-18'}
               disabled={isDisabled(state)}
             >
               {
@@ -106,7 +106,7 @@ function LessonUppload({ homeworkWPopulate, scroll, onScrollEnd }: IProps) {
               }
             </button>
           </div>
-        </div>
+        </div> */}
         <div className={classes.statusProgress}>
           <div className={cx({ statusProgressStep: true, active: true })}>
             <div className={classes.statusProgressStepLine}></div>

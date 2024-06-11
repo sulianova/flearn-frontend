@@ -6,6 +6,7 @@ import { ILessonData } from 'services/lesson.service';
 import { IUserData, userService } from 'services/user.service';
 import { formatI18nT } from 'shared';
 import { URLSections } from 'router';
+import classNames from 'classnames/bind';
 
 import Link from 'ui/Link/Link';
 
@@ -17,6 +18,7 @@ import classes from './LessonHeader.module.scss';
 export default LessonHeader;
 
 const t = formatI18nT('courseLesson');
+const cx = classNames.bind(classes);
 
 interface IProps {
   lesson: ILessonData
@@ -53,7 +55,7 @@ function LessonHeader(props: IProps) {
 
   const taskTab = props.lesson.type === 'Practice' && (canShowResults || section !== 'task') &&(
     <Link
-      className={classes.type + ' nav-link s-text-18' + (section === 'task' ? ' isActive' : '')}
+    className={cx({ tabItem: true, active: true })+ ' s-text-20'}
       to={URLSections.Course.Lesson.to({ courseId, lessonId })}
     >
       {t('navTabsPractice')}
@@ -62,7 +64,7 @@ function LessonHeader(props: IProps) {
 
   const resultsTab = props.lesson.type === 'Practice' && (canShowResults || section === 'results') && (
     <Link
-      className={classes.type + ' nav-link s-text-18' + (section === 'results' && !user ? ' isActive' : '')}
+    className={cx({ tabItem: true, active: true })+ ' s-text-20'}
       to={URLSections.Course.Lesson.Results.to({ courseId, lessonId, params: { limit: 4 } })}
     >
       {t('navTabsResults')}
@@ -84,12 +86,17 @@ function LessonHeader(props: IProps) {
         ))}
       </div>
       <Link
-        className={classes.type + ' nav-link s-text-18' + (section === 'results' && !user ? ' isActive' : '')}
+        className={cx({ tabItem: true, active: true })+ ' s-text-20'}
+        to={URLSections.Course.Lesson.to({ courseId, lessonId })}
+      >
+        {t('navTabsPractice')}
+      </Link>
+      <Link
+        className={cx({ tabItem: true, active: false })+ ' s-text-20'}
         to={URLSections.Course.Lesson.Results.to({ courseId, lessonId, params: { limit: 4 } })}
       >
         {t('navTabsResults')}
       </Link>
-      <h1 className={classes.title + ' s-text-56'}>{lesson.title}</h1>
     </div>
   );
 }

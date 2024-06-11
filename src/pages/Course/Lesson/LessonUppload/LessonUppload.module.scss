@@ -28,6 +28,7 @@
   @include set-media(md) {
     width: set-calc(398);
     left: set-calc(-16);
+    padding: set-calc(24) set-calc(16);
   }
 }
 
@@ -35,6 +36,10 @@
   margin-bottom: set-calc(16);
   width: 100%;
   text-align: center;
+
+  @include set-media(md) {
+    order: 2;
+  }
 }
 
 .link {
@@ -42,6 +47,10 @@
   width: 100%;
   text-align: center;
   color: $primary-color;
+
+  @include set-media(md) {
+    order: 3;
+  }
 }
 
 .linkForm {
@@ -50,6 +59,7 @@
   display: flex;
 
   @include set-media(md) {
+    order: 3;
     flex-direction: column;
   }
 }
@@ -93,20 +103,22 @@
   transition-property: transform, background-color, border-color, color;
   border: none;
   outline: none;
-  
-  padding: 0 set-calc(16);
   height: set-calc(50);
+  padding: set-calc(16);
+
 
   color: $color-content-inverted-primary;
 
   background: $color-accent-neutral;
-  border-radius: set-calc($border-radius-small);
+  border-radius: set-calc($border-radius-8);
   cursor: pointer;
 
   transition: background-color $d-hover ease-in-out, color ease-in-out $d-hover;
 
   @include set-media(md) {
-    width: fit-content;
+    width: 100%;
+    height: unset;
+    padding: set-calc(20) set-calc(24);
   }
 }
 
@@ -121,29 +133,35 @@
   pointer-events: none;
 }
 
-.submitDescription {
-  margin-top: set-calc(8);
-  color: $color-content-secondary;
-
-  @include set-media(md) {
-    width: 100%;
-    text-align: center;
-  }
-}
-
 .statusProgress {
   display: flex;
   width: 100%;
   margin-top: set-calc(28);
+
+  @include set-media(md) {
+    order: 1;
+    justify-content: center;
+    gap: set-calc(6);
+    margin-top: 0;
+    margin-bottom: set-calc(24);
+  }
 }
 
 .statusProgress > * {
   flex: 1 0 auto;
+
+  @include set-media(md) {
+    flex: 0 0 0;
+  }
 }
 
 .statusProgress > * + * {
   margin-top: 0;
   margin-left: set-calc(4);
+
+  @include set-media(md) {
+    margin-left: 0;
+  }
 }
 
 .statusProgressStep {
@@ -151,6 +169,10 @@
   display: flex;
   align-items: center;
   height: set-calc(32);
+
+  @include set-media(md) {
+    height: max-content;
+  }
 }
 
 .statusProgressStepLine {
@@ -166,6 +188,10 @@
   margin-left: 0;
   border-radius: set-calc(2) 0 0 set-calc(2);
   background-color: $color-palette-black-200;
+
+  @include set-media(md) {
+    display: none;
+  }
 }
 
 .statusProgressStepContent {
@@ -178,6 +204,14 @@
   margin-left: 0;
   padding-right: set-calc(10);
   transform: translate(-50%, -50%);
+
+  @include set-media(md) {
+    position: relative;
+    padding-right: 0;
+    transform: none;
+    top: 0;
+    left: 0;
+  }
 }
 
 .statusProgressStepContentLabel {
@@ -187,9 +221,20 @@
   border-radius: set-calc(100);
   background-color: $color-palette-black-200;
   color: $color-content-primary;
+  white-space: nowrap;
 
   @include set-typography(16, 18, 500);
-  white-space: nowrap;
+
+  @include set-media(md) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    padding: 0 0;
+    width: set-calc(32);
+    height: set-calc(32);
+    border-radius: 50%;
+  }
 }
 
 .progressStepArrow {
@@ -198,6 +243,10 @@
   svg {
     width: set-calc(10);
     height: set-calc(12);
+  }
+
+  @include set-media(md) {
+    display: none;
   }
 }
 

@@ -8,6 +8,7 @@ import { userService } from 'services/user.service';
 import Portfolio from 'assets/images/Svg/Portfolio';
 import LessonsPopup from 'components/LessonsPopup/LessonsPopup';
 import Link from 'ui/Link/Link';
+import Logo from 'assets/images/Svg/Logo';
 
 import UserPopup from './UserPopup/UserPopup';
 import classes from './Sidebar.module.scss';
@@ -36,7 +37,7 @@ function Sidebar() {
                     className={classes.icon}
                     to={urlSection === 'Lesson' && courseId ? URLSections.Course.Lessons.to({ courseId }) : URLSections.Home.index}
                   >
-                    <Portfolio/>
+                    <Logo/>
                   </Link>
                 )}
               </span>
