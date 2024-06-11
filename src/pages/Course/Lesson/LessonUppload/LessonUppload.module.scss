@@ -256,7 +256,17 @@
 }
 
 .finishIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  padding: 0 0;
+  width: set-calc(32);
+  height: set-calc(32);
+  border-radius: 50%;
+
   color: $color-palette-black-200;
+  background-color:  $color-palette-black-200-a;
 
   svg {
     width: set-calc(32);

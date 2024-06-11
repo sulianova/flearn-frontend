@@ -9,6 +9,8 @@ import Portfolio from 'assets/images/Svg/Portfolio';
 import LessonsPopup from 'components/LessonsPopup/LessonsPopup';
 import Link from 'ui/Link/Link';
 import Logo from 'assets/images/Svg/Logo';
+import Home from 'assets/images/Svg/Home';
+import Lessons from 'assets/images/Svg/Lessons';
 
 import UserPopup from './UserPopup/UserPopup';
 import classes from './Sidebar.module.scss';
@@ -47,7 +49,7 @@ function Sidebar() {
                 <Link
                   className={classes.icon}
                 >
-                  <Portfolio/>
+                  <Home/>
                 </Link>
               </span>
             </li>
@@ -56,7 +58,7 @@ function Sidebar() {
                 <Link
                   className={classes.icon}
                 >
-                  <Portfolio/>
+                  <Lessons/>
                 </Link>
               </span>
             </li>
