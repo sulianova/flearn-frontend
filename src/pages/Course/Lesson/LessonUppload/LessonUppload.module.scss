@@ -31,20 +31,26 @@
   }
 }
 
-.nav {
-  position: sticky;
-  top: 0;
-  background-color: transparent;
-  margin-top: set-calc(16);
-
-  display: flex;
-  justify-content: end;
+.title {
+  margin-bottom: set-calc(16);
   width: 100%;
+  text-align: center;
+}
+
+.link {
+  margin-bottom: set-calc(16);
+  width: 100%;
+  text-align: center;
+  color: $primary-color;
+}
+
+.linkForm {
+  position: relative;
+  width: 100%;
+  display: flex;
 
   @include set-media(md) {
-    margin-top: 0;
     flex-direction: column;
-    justify-content: center;
   }
 }
 
@@ -64,8 +70,6 @@
 }
 
 .submit {
-  margin-bottom: set-calc(16);
-  margin-top: set-calc(16);
   display: flex;
   flex: 0 1 auto;
   flex-direction: column;
@@ -127,134 +131,105 @@
   }
 }
 
-.inner {
+.statusProgress {
+  display: flex;
+  width: 100%;
+  margin-top: set-calc(28);
+}
+
+.statusProgress > * {
+  flex: 1 0 auto;
+}
+
+.statusProgress > * + * {
+  margin-top: 0;
+  margin-left: set-calc(4);
+}
+
+.statusProgressStep {
   position: relative;
-  width: 100%;
-  display: flex;
-
-  @include set-media(md) {
-    flex-direction: column;
-  }
-}
-
-.fields {
-  display: flex;
-  flex-flow: column;
-  width: 100%;
-}
-
-.fieldsTitle {
-
-}
-
-.fieldsInner {
-  display: flex;
-  width: 100%;
-  flex-direction: row;
-}
-
-.files {
-  display: flex;
-  flex-flow: column;
-  flex: 1;
-  overflow: hidden;
-
-  @include set-media(md) {
-    flex-direction: column;
-    width: 100%;
-    padding: 0;
-  }
-}
-
-.filesHeader {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: set-calc(56);
-
-  @include set-media(md) {
-    flex-direction: column;
-    width: 100%;
-    margin-bottom: 0;
-  }
-}
-
-.filesTitle {
-  @include set-media(md) {
-    padding-bottom: set-calc(32);
-  }
-}
-
-.filesBtn {
   display: flex;
   align-items: center;
-  justify-content: center;
-  min-height: set-calc(48);
-  padding: set-calc(4) set-calc(40);
-
-  color: $color-content-background-primary;
-  text-align: center;
-
-  border: set-calc(2) solid $color-content-background-primary;
-  border-radius: set-calc(20);
-
-  cursor: pointer;
-  transition: opacity, color;
-  transition-duration: $d-hover;
+  height: set-calc(32);
 }
 
-.filesBtn:hover {
-  opacity: 0.5;
-}
-
-.filesContent {
-  display: flex;
-  flex-wrap: wrap;
-  overflow: auto;
-}
-
-.file {
+.statusProgressStepLine {
   position: relative;
-  width: set-calc(-20, true, 50%);
-  margin: 0 set-calc(20) set-calc(20) 0;
+  top: auto;
+  left: 0;
 
-  @include set-media(md) {
-    width: 100%;
-    margin-right: 0;
-  }
-}
-
-.filesEmpty {
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  justify-content: center;
-  height: set-calc(200);
-  margin: 0 auto;
+  display: block;
+  align-self: center;
+  flex: 1 1 auto;
   width: 100%;
-  margin-bottom: set-calc(20);
-  border-radius: set-calc(20);
-
-  background-color: $color-content-tertiary;
-
-  color: $color-content-secondary;
-  text-align: center;
-
-  transition: background-color $d-hover ease-in-out, color ease-in-out $d-hover;
+  height: set-calc(4);
+  margin-left: 0;
+  border-radius: set-calc(2) 0 0 set-calc(2);
+  background-color: $color-palette-black-200;
 }
 
-.filesEmpty:hover {
-  background-color: $color-content-tertiary;
-  color: $color-content-secondary;
-  cursor: pointer;
+.statusProgressStepContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  gap: set-calc(2);
+  margin-left: 0;
+  padding-right: set-calc(10);
+  transform: translate(-50%, -50%);
 }
 
-.filesEmpty svg {
-  width: set-calc(64);
-  height: set-calc(64);
-  margin-bottom: set-calc(8);
+.statusProgressStepContentLabel {
+  display: inline-block;
+  padding: set-calc(4) set-calc(12);
 
-  path {
-    stroke: $color-content-secondary;
-    stroke-width: 3;
+  border-radius: set-calc(100);
+  background-color: $color-palette-black-200;
+  color: $color-content-primary;
+
+  @include set-typography(16, 18, 500);
+  white-space: nowrap;
+}
+
+.progressStepArrow {
+  color: $color-palette-black-200;
+
+  svg {
+    width: set-calc(10);
+    height: set-calc(12);
   }
 }
+
+.finishIconWrapper {
+  display: block;
+  flex: 0 1 auto;
+}
+
+.finishIcon {
+  color: $color-palette-black-200;
+
+  svg {
+    width: set-calc(32);
+    height: set-calc(32);
+  }
+}
+
+.active {
+  .statusProgressStepLine {
+    background-color: $primary-color;
+  }
+
+  .statusProgressStepContentLabel {
+    background-color: $primary-color;
+    color: $color-palette-white-1000;
+  }
+
+  .progressStepArrow {
+    color: $primary-color;
+  }
+
+  .finishIcon {
+    color: $primary-color;
+  }
+ }

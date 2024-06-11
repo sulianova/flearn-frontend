@@ -5,6 +5,7 @@
   flex-direction: column;
   overflow: visible;
   border-radius: set-calc($border-radius-medium);
+  background-color: $color-background-glassy-c;
 
   @include set-media(md) {
     position: relative;
@@ -202,5 +203,4 @@
   width: 100%;
   object-fit: cover;
   border-radius: set-calc($border-radius-medium);
-  background: $primary-color;
 }
