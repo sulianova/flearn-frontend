@@ -112,6 +112,14 @@
   border-radius: set-calc(8);
 }
 
+.navigationItem:not(:last-child) {
+  margin-bottom: set-calc(4);
+
+  @include set-media(md) {
+    margin-bottom: 0;
+  }
+}
+
 .navigationItem:hover {
   cursor: pointer;
   background-color: $color-background-glassy-a;

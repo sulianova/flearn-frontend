@@ -9,7 +9,7 @@
   transition: transform .5s;
   
 
-  @include set-typography(16, 16, 500);
+  @include set-typography(18, 18, 500);
 
   @include set-media(md) {
     transition: top 0.5s, transform 0.5s;
@@ -273,7 +273,7 @@
   background-color:  transparent;
   padding: set-calc(4) set-calc(24);
   border-radius: set-calc(100);
-  border: set-calc(2) solid $color-content-primary;
+  border: set-calc(2.5) solid $color-content-primary;
   width: max-content;
   height: set-calc(40);
 

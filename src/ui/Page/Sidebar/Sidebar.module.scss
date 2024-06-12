@@ -14,7 +14,7 @@
 }
 
 .container {
-  padding: set-calc(16) set-calc(14);
+  padding: set-calc(10) set-calc(16);
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -42,7 +42,7 @@
 
 .item {
   position: relative;
-  margin-bottom: set-calc(16);
+  margin-bottom: set-calc(6);
 }
 
 .iconWrapper {
@@ -61,6 +61,7 @@
   flex-direction: column;
   justify-content: center;
   height: 100%;
+  width: 100%;
 
   &:hover {
     background-color: $color-background-glassy-a;
@@ -77,8 +78,8 @@
     text-align: center;
     background: 50% no-repeat;
     background-size: contain;
-    width: set-calc(28);
-    height: set-calc(28);
+    width: set-calc(36);
+    height: set-calc(36);
 
     path {
       fill: $color-content-background-secondary;

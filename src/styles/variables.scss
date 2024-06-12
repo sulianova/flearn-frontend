@@ -33,6 +33,8 @@ $color-palette-black-500-a: rgba(0, 0, 0, 0.5);
 $color-palette-black-800-a: rgba(0, 0, 0, 0.85);
 
 //color-palette-white
+$color-palette-white-50-a: rgba(255, 255, 255, 0.03);
+$color-palette-white-100-a: rgba(255, 255, 255, 0.06);
 $color-palette-white-200-a: rgba(255, 255, 255, 0.12);
 $color-palette-white-300-a: rgba(255, 255, 255, 0.25);
 $color-palette-white-500-a: rgba(255, 255, 255, 0.5);
@@ -81,8 +83,8 @@ $gradient-background-profession: linear-gradient(-45deg, #ece2fc, #e3ebff 28%, r
 $gradient-button: linear-gradient(98.34deg, #4a71d6 6.94%, #5282ff 80.88%);
 
 //colors
-$orange: #ff2800;
-$orange-darken: #e61e00;
+$red: #f7235b;
+$red-darken: #bb1441;
 $green: #3ab935;
 $green-darken: #379a34;
 
@@ -95,9 +97,14 @@ $color-accent-neutral-hover: $black;
 $color-accent-neutral: $color-palette-black-700;
 $color-background-alternate: $color-palette-black-50;
 $color-background-default: $color-palette-white-1000;
-$color-background-glassy-a: $color-palette-black-100-a;
-$color-background-glassy-b: $color-palette-black-200-a;
-$color-background-glassy-c: $color-palette-black-300-a;
+$color-background-glassy-a: $color-palette-black-50-a;
+$color-background-glassy-b: $color-palette-black-100-a;
+$color-background-glassy-c: $color-palette-black-200-a;
+$color-background-glassy-d: $color-palette-black-300-a;
+$color-background-glassy-inverted-a: $color-palette-white-50-a;
+$color-background-glassy-inverted-b: $color-palette-white-100-a;
+$color-background-glassy-inverted-c: $color-palette-white-200-a;
+$color-background-glassy-inverted-d: $color-palette-white-300-a;
 $color-background-highlighted: #edf1f8;
 $color-background-overlay: $color-palette-black-500-a;
 $color-background-active: rgba(0, 0, 0, 0.03);
@@ -112,16 +119,18 @@ $color-content-background-primary: $color-palette-black-900;
 $color-content-background-secondary: $color-palette-black-700;
 
 //theme-dark
-// $color-accent-neutral: $color-palette-white-1000;
-// $color-accent-neutral-hover: $color-palette-black-300;
+// $color-accent-error: #f22a2a;
 // $color-accent-notice: #e67046;
 // $color-accent-success: #1c9c75;
 // $color-accent-warning: #ffb72c;
+// $color-accent-neutral: $color-palette-white-1000;
+// $color-accent-neutral-hover: $color-palette-black-300;
 // $color-background-default: $color-palette-black-700;
 // $color-background-alternate: $color-palette-black-800;
-// $color-background-glassy-a: rgba(255, 255, 255, 0.06);
-// $color-background-glassy-b: rgba(255, 255, 255, 0.12);
-// $color-background-glassy-c: rgba(255, 255, 255, 0.25);
+// $color-background-glassy-a: rgba(255, 255, 255, 0.03);
+// $color-background-glassy-b: rgba(255, 255, 255, 0.06);
+// $color-background-glassy-c: rgba(255, 255, 255, 0.12);
+// $color-background-glassy-d: rgba(255, 255, 255, 0.25);
 // $color-background-highlighted: #404959;
 // $color-background-overlay: $color-palette-black-300-a;
 // $color-background-stroke: rgba(255, 255, 255, 0.2);
@@ -176,6 +185,7 @@ $backdrop-filter: 15;
 //border
 $border-radius-large: 30;
 $border-radius-medium: 20;
+$border-radius-10: 10;
 $border-radius-8: 8;
 $border-radius-small: 6;
 

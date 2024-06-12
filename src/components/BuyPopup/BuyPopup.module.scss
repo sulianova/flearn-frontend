@@ -40,7 +40,7 @@
 
   display: flex;
   color: $color-content-primary;
-  background-color: $color-palette-black-50-a;
+  background-color:  $color-background-glassy-a;
 
   cursor: pointer;
 
@@ -70,7 +70,7 @@
 }
 
 .close:hover {
-  background-color: $color-background-glassy-a;
+  background-color: $color-background-glassy-b;
 
   @include set-media(md) {
     background-color: transparent;
@@ -97,7 +97,7 @@
 
   display: flex;
   color: $color-content-primary;
-  background-color: $color-palette-black-50-a;
+  background-color:  $color-background-glassy-a;
 
   cursor: pointer;
 
@@ -128,7 +128,7 @@
 }
 
 .back:hover {
-  background-color: $color-background-glassy-a;
+  background-color:  $color-background-glassy-b;
 
   @include set-media(md) {
     background-color: transparent;
