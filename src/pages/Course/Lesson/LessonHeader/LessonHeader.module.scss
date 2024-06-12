@@ -29,7 +29,7 @@
 .active {
   cursor: default;
   color: $color-content-primary;
-  border-bottom: set-calc(2) solid $color-content-primary;
+  border-bottom: set-calc(2.5) solid $color-content-primary;
 }
 
 .tabItem:not(.active)::after {
@@ -37,7 +37,7 @@
   bottom: 0;
   display: block;
   width: 100%;
-  height: set-calc(2);
+  height: set-calc(2.5);
   content: "";
   transition: transform .2s 0s ease-in-out;
   transform: scaleX(0);
