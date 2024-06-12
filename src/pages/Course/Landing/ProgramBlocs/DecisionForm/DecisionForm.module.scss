@@ -129,7 +129,7 @@
 
   s:after {
     margin-top: 0;
-    border-bottom: set-calc(1.5) solid $color-content-background-primary;
+    border-bottom: set-calc(1.5) solid $color-content-background-secondary;
     content: "";
     left: set-calc(-2);
     position: absolute;
@@ -137,13 +137,14 @@
     top: 50%;
 
     @include set-media(md) {
-      border-bottom: set-calc(1) solid $color-content-background-primary;
+      border-bottom: set-calc(1) solid $color-content-background-secondary;
     }
   }
 }
 
 .creditWas {
   @include font-24-normal-header;
+  color: $color-content-background-secondary;
   letter-spacing: -0.05rem;
 
   margin-bottom: set-calc(4);

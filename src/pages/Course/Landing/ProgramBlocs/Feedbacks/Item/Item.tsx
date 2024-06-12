@@ -22,7 +22,7 @@ export default function Item(props: IProps) {
     <Animated.Scroll>
       {(id, className) => (
         <div className={cx({ _: true }, className)} id={id}>
-          <div className={classes.feedbackAuthor + ' s-text-18'}>
+          <div className={classes.feedbackAuthor}>
             {props.author.description ? (
               <>
                 <strong>{props.author.name},</strong>
@@ -35,7 +35,7 @@ export default function Item(props: IProps) {
             <Text text={props.quote}/>
           </div>
           {props.excerpt && (
-            <div className={classes.feedbackExcerpt + ' s-text-28'}>
+            <div className={classes.feedbackExcerpt}>
               <Text text={props.excerpt}/>
             </div>
           )}

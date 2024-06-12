@@ -30,10 +30,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-feature-settings: 'pnum' on, 'lnum' on;
+  
+  @include font-28-normal-header;
 }
 
 .subsectionDescription {
+  @include font-18-normal-paragraph;
+  color: $color-content-background-secondary;
+
   @include set-media(md) {
     color: $color-content-secondary;
   }

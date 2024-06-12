@@ -5,6 +5,7 @@
 }
 
 .title {
+  @include font-70-normal-header;
   padding-bottom: set-calc(32);
   padding-left: set-calc(16);
 

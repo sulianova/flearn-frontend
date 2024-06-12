@@ -22,7 +22,9 @@
 }
 
 .headerTitle {
+  @include font-70-normal-header;
   padding-left: set-calc(16);
+
   @include set-media(md) {
     padding-left: set-calc(8);
   }
@@ -51,6 +53,7 @@
 
 .pointsCardTitle {
   margin-bottom: set-calc(16);
+  @include font-36-normal-header;
 
   @include set-media(md) {
     margin-bottom: set-calc(8);
@@ -58,6 +61,9 @@
 }
 
 .pointsCardText {
+  @include font-21-normal-paragraph;
+  color: $color-content-background-secondary;
+
   @include set-media(md) {
     color: $color-content-secondary;
   }

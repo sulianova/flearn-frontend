@@ -12,7 +12,9 @@
 .title {
   padding-left: set-calc(8);
   margin-bottom: set-calc(10);
-  color: $color-palette-white-500-a;
+
+  @include font-18-normal-paragraph;
+  color: $color-background-glassy-inverted-d;
 
   @include set-media(md) {
     padding-left: set-calc(8);

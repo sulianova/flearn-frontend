@@ -16,7 +16,7 @@ function Subsection(props: {}) {
 
   return (
     <div className={classes.subsection}>
-      <h3 className={classes.subsectionTitle + ' s-text-28'}>
+      <h3 className={classes.subsectionTitle}>
         Упражнения, чтобы разрисоваться
         <button
           className={classes.hiddenButton}
@@ -28,7 +28,7 @@ function Subsection(props: {}) {
         </div>
       </h3>
       <div className={cx({ subsectionSlideDown: true, subsectionClosed: !opened && isMobile })}>
-        <div className={classes.subsectionDescription + ' s-text-18'}>Познакомимся с упражнениями, которые помогают чувствовать себя увереннее в рисовании. Их можно делать для разминки перед рисованием или целенаправленно тренировать то, что плохо получается.</div>
+        <div className={classes.subsectionDescription}>Познакомимся с упражнениями, которые помогают чувствовать себя увереннее в рисовании. Их можно делать для разминки перед рисованием или целенаправленно тренировать то, что плохо получается.</div>
       </div>
     </div>
   );

@@ -10,11 +10,11 @@
 
 .header {
   position: relative;
-  padding-left: set-calc(16);
 
   @include is-grid-12;
-
   grid-row-gap: 0;
+
+  padding-left: set-calc(16);
   margin-bottom: set-calc(32);
 
   @include set-media(md) {
@@ -30,6 +30,9 @@
   grid-column: 1 / 7;
   margin-bottom: set-calc(24);
 
+
+  @include font-70-normal-header;
+
   @include set-media(md) {
     margin-bottom: set-calc(16);
   }
@@ -37,6 +40,8 @@
 
 .headerDesc {
   grid-column: 1/6;
+
+  @include font-21-normal-paragraph;
 }
 
 .list {

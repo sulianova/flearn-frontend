@@ -142,19 +142,23 @@
 .meta {
   display: flex;
   justify-content: space-between;
+
+  @include font-16-normal-ui;
 }
 
 .title {
-  margin: set-calc(12) 0 set-calc(8);
-  font-feature-settings: 'pnum' on, 'lnum' on;
+  margin: set-calc(16) 0 set-calc(8);
+  @include font-36-normal-header;
 }
 
 .description {
   margin-right: set-calc(56);
-  font-feature-settings: 'pnum' on, 'lnum' on;
+  @include font-21-normal-paragraph;
+  color: $color-content-background-secondary;
 
   @include set-media(md) {
     margin-right: 0;
+    color: $color-content-secondary;
   }
 }
 
@@ -162,6 +166,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: set-calc($s-gap);
+
   margin-top: set-calc(40);
   margin-bottom: 0;
   padding: 0;
@@ -173,6 +178,8 @@
 
 .tag {
   padding: set-calc(10) set-calc(16);
+  @include font-16-normal-ui;
+
   border-radius: set-calc($border-radius-large);
   background-color: $color-background-glassy-a;
   list-style-type: none;
@@ -222,7 +229,8 @@
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  font-feature-settings: 'pnum' on, 'lnum' on;
+  
+  @include font-28-normal-header;
 }
 
 .subsections {

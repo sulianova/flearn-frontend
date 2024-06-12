@@ -27,12 +27,12 @@ function Explain({ explainMedia }: IProps) {
     <div className={classes.wrapper}>
       <div className={classes.cards}>
         <div className={classes.introCard}>
-            <div className={classes.introCardQuote + ' s-text-70'}>{t('introCardQuote0')}</div>
-            <div className={classes.introCardQuote + ' s-text-70 color-content-inverted-secondary'}>{t('introCardQuote')}</div>
+            <div className={classes.introCardQuote}>{t('introCardQuote0')}</div>
+            <div className={classes.introCardQuote + ' color-content-inverted-secondary'}>{t('introCardQuote')}</div>
         </div>
         <div className={classes.videoCard}>
           <div className={classes.videoCardContainer}>
-            <div className={classes.buble + ' s-text-21'}>
+            <div className={classes.buble}>
               <div>иллюстратор, преподаватель</div>
             </div>
             {explainMedia.type === 'image' ? (
@@ -48,7 +48,7 @@ function Explain({ explainMedia }: IProps) {
             )}
           </div>
           <div className={classes.videoCardDesc}>
-            <div className={classes.videoCardText + ' s-text-16'}>{t('videoCardText')}</div>
+            <div className={classes.videoCardText}>{t('videoCardText')}</div>
           </div>
         </div>
       </div>

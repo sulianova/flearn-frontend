@@ -35,7 +35,7 @@ function Item({ faq: { question, answer } }: Readonly<IProps>) {
           className={cx({ item: true }, className)}
           onClick={() => setIsExpanded(!isExpanded)}
         >
-          <div className={classes.itemQuestion + ' s-text-21'}>
+          <div className={classes.itemQuestion}>
             <div className={classes.itemQuestionText}>
               <Text text={question}/>
             </div>
@@ -46,7 +46,7 @@ function Item({ faq: { question, answer } }: Readonly<IProps>) {
           <div
             ref={ref}
             style={{ height }}
-            className={cx({ itemAnswer: true, itemAnswerExpanded: isExpanded }, ' s-text-21')}
+            className={cx({ itemAnswer: true, itemAnswerExpanded: isExpanded })}
           >
             <div className={classes.itemAnswerText}><Text text={answer}/></div>
           </div>

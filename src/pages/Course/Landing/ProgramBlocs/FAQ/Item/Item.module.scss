@@ -15,7 +15,7 @@
   flex-direction: column;
 
   @include set-media(md) {
-    border-radius: set-calc($border-radius-small);
+    border-radius: set-calc($border-radius-10);
     position: relative;
     padding: set-calc(8);
 
@@ -37,6 +37,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   padding-bottom: set-calc(20);
   cursor: pointer;
 
@@ -46,13 +47,12 @@
 }
 
 .itemQuestionText {
-  font-size: inherit;
-  line-height: inherit;
+  @include font-21-normal-paragraph;
   max-width: 80%;
 }
 
 .itemQuestionPlus {
-  display: inline-block;
+  display: flex;
   width: set-calc(24);
   height: set-calc(24);
   min-width: set-calc(24);
@@ -66,7 +66,6 @@
   @include set-media(md) {
     width: set-calc(12);
     height: set-calc(12);
-    min-width: set-calc(12);
 
     svg {
       stroke-width: set-calc(2.5);
@@ -87,6 +86,8 @@
 
 .itemAnswerText {
   margin-right: set-calc(48);
+  @include font-21-normal-paragraph;
+  color: $color-content-secondary;
 
   @include set-media(md) {
     margin: set-calc(20) 0 set-calc(20) 0;

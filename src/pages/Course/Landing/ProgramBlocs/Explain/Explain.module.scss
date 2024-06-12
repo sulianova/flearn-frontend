@@ -4,20 +4,6 @@
   padding: 0;
 }
 
-.header {
-padding-bottom: set-calc(32);
-
-@include set-media(md) {
-  padding-bottom: set-calc(16);
-  padding-right: set-calc(8);
-  padding-left: set-calc(8);
-}
-}
-
-.headerDesc {
-  max-width: set-calc(600);
-}
-
 .cards {
   display: grid;
   grid-gap: set-calc(8);
@@ -48,6 +34,8 @@ padding-bottom: set-calc(32);
 .introCardQuote {
   position: relative;
   z-index: 2;
+
+  @include font-70-normal-header;
   white-space: pre-line;
   text-align: center;
 }
@@ -79,14 +67,18 @@ padding-bottom: set-calc(32);
 
 .buble {
   position: absolute;
-  display: flex;
+  right: set-calc(20);
+  top: set-calc(-30);
   transform: rotate(4deg);
-  padding: set-calc(12) set-calc(18);
+
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
   z-index: 9;
-  right: set-calc(20);
-  top: set-calc(-30);
+
+  @include font-21-normal-ui;
+
+  padding: set-calc(12) set-calc(18);
   border-radius: set-calc($border-radius-large);
   background: $color-content-primary;
   color: $color-palette-white-1000;
@@ -125,4 +117,5 @@ padding-bottom: set-calc(32);
 
  .videoCardText {
   color: $color-content-secondary;
+  @include font-16-normal-paragraph;
  }
