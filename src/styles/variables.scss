@@ -25,6 +25,7 @@ $color-palette-black-700: #262626;
 $color-palette-black-800: #1c1c1c;
 $color-palette-black-900: #161616;
 $color-palette-black-1000: #000000;
+$color-palette-black-50-a: rgba(0, 0, 0, 0.03);
 $color-palette-black-100-a: rgba(0, 0, 0, 0.06);
 $color-palette-black-200-a: rgba(0, 0, 0, 0.12);
 $color-palette-black-300-a: rgba(0, 0, 0, 0.25);
@@ -165,7 +166,7 @@ $shadow-medium-pressed: 0px 1px 8px rgba(36, 36, 36, 0.07);
 $shadow-huge-default: 4px 15px 24px -8px rgba(36, 36, 36, .02);
 $shadow-icon: 0 2px 4px rgba(0, 0, 0, .12);
 $shadow-popup: 0 2px 10px 0 rgba(0, 0, 0, .3);
-$shadow-popup-cross: 0 1px 17px rgba(0, 0, 0, 0.1);
+$shadow-popup-cross: 0 1px 17px rgba(0, 0, 0, 0.08);
 $shadow-menu: 0 1px 17px rgba(0, 0, 0, 0.04);
 
 //filter

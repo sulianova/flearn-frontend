@@ -9,7 +9,7 @@
   transition: transform .5s;
   
 
-  @include s-text-16;
+  @include set-typography(16, 16, 500);
 
   @include set-media(md) {
     transition: top 0.5s, transform 0.5s;
@@ -176,7 +176,7 @@
   display: flex;
   align-items: center;
   position: relative;
-  background-color: $color-content-background-primary;
+  background-color: $color-content-background-secondary;
   color: $color-content-inverted-primary;
   padding: set-calc(4) set-calc(24);
   border-radius: set-calc($border-radius-large);
@@ -184,11 +184,10 @@
   height: set-calc(40);
 
   transition: background-color $d-hover ease;
-  box-shadow: $shadow-menu;
   
   &:hover {
     cursor: pointer;
-    background-color: $color-content-background-secondary;
+    background-color: $color-content-background-primary;
     color: $color-content-inverted-primary;
   }
 
@@ -214,7 +213,6 @@
   height: set-calc(40);
 
   transition: background-color $d-hover ease;
-  box-shadow: $shadow-menu;
   
   &:hover {
     cursor: pointer;
@@ -272,10 +270,10 @@
   display: flex;
   align-items: center;
   position: relative;
-  background:  $color-content-inverted-secondary;
-  border: set-calc(0.5) solid $color-background-default;
+  background-color:  transparent;
   padding: set-calc(4) set-calc(24);
-  border-radius: set-calc($border-radius-large);
+  border-radius: set-calc(100);
+  border: set-calc(2) solid $color-content-primary;
   width: max-content;
   height: set-calc(40);
 
@@ -283,17 +281,11 @@
 
   transition: background-color $d-hover ease;
   backdrop-filter: blur(set-calc($backdrop-filter));
-  box-shadow: $shadow-menu;
   
   &:hover {
-    cursor: default;
-    background-color:$matt-white;
+    cursor: pointer;
   }
 
-  &:active {
-    background-color:$matt-white-hover;
-    transform: scale(0.98);
-  }
 
   @include set-media(md) {
     display: none;
