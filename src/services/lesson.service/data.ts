@@ -1897,8 +1897,8 @@ const lessonData16: ILessonDataDB = {
   title: 'Практика первой недели',
   type: 'Practice',
   topic: 'Линия',
-  topicOrder: 2,
-  orderInTopic: 6,
+  topicOrder: 3,
+  orderInTopic: 1,
   duration: {
     unit: 'hours',
     value: 1
@@ -2270,7 +2270,7 @@ const lessonData21: ILessonDataDB = {
   title: 'Про разницу между линией и пятном',
   type: 'Theory',
   topic: 'Пятно',
-  topicOrder: 3,
+  topicOrder: 4,
   orderInTopic: 1,
   duration: {
     unit: 'hours',
@@ -2406,7 +2406,7 @@ const lessonData22: ILessonDataDB = {
   title: 'Пятно: знакомство',
   type: 'Theory',
   topic: 'Пятно',
-  topicOrder: 3,
+  topicOrder: 4,
   orderInTopic: 2,
   duration: {
     unit: 'hours',
@@ -3177,7 +3177,7 @@ const lessonData23: ILessonDataDB = {
   title: 'Как рисовать похоже. Пятно',
   type: 'Theory',
   topic: 'Пятно',
-  topicOrder: 3,
+  topicOrder: 4,
   orderInTopic: 3,
   duration: {
     unit: 'hours',
@@ -3334,7 +3334,7 @@ const lessonData24: ILessonDataDB = {
   title: 'Как рисовать объемно. Пятно',
   type: 'Theory',
   topic: 'Пятно',
-  topicOrder: 3,
+  topicOrder: 4,
   orderInTopic: 4,
   duration: {
     unit: 'hours',
@@ -3434,8 +3434,8 @@ const lessonData25: ILessonDataDB = {
   title: 'Практика второй недели',
   type: 'Practice',
   topic: 'Пятно',
-  topicOrder: 3,
-  orderInTopic: 5,
+  topicOrder: 5,
+  orderInTopic: 1,
   duration: {
     unit: 'hours',
     value: 1
@@ -3811,7 +3811,7 @@ const lessonData31: ILessonDataDB = {
   title: 'Линия и пятно: как совмещать',
   type: 'Theory',
   topic: 'Линия и пятно',
-  topicOrder: 4,
+  topicOrder: 6,
   orderInTopic: 1,
   duration: {
     unit: 'hours',
@@ -4416,7 +4416,7 @@ const lessonData32: ILessonDataDB = {
   title: 'Как выделить главное: контраст, нюанс',
   type: 'Theory',
   topic: 'Линия и пятно',
-  topicOrder: 4,
+  topicOrder: 6,
   orderInTopic: 2,
   duration: {
     unit: 'hours',
@@ -4605,8 +4605,8 @@ const lessonData33: ILessonDataDB = {
   title: 'Практика третьей недели',
   type: 'Practice',
   topic: 'Линия и пятно',
-  topicOrder: 4,
-  orderInTopic: 3,
+  topicOrder: 7,
+  orderInTopic: 1,
   duration: {
     unit: 'hours',
     value: 1
