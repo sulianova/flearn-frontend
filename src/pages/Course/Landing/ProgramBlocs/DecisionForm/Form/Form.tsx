@@ -45,7 +45,7 @@ export default function Form({ onOrderCreated, course }: IProps) {
 
   if (orderIsCreated) {
     return (
-      <button className={classes.btn + ' s-text-21'}>Начать учиться</button>
+      <button className={classes.btn}>Начать учиться</button>
     );
   }
 
@@ -58,13 +58,13 @@ export default function Form({ onOrderCreated, course }: IProps) {
         {formData.state.type === 'Error' && <span className={classes.Error}>{formData.state.error.message}</span>}
         <div className={classes.inputWrap}>
           <InputField
-            className={cx2({ input: true, light: true, isError: formData.state.type === 'Error' }) + ' s-text-24'}
+            className={cx2({ input: true, light: true, isError: formData.state.type === 'Error' })}
             variant='Email'
             value={formData.email}
             onChange={v => setFormData(d => ({ ...d, email: v }))}
           />
           <button
-            className={cx({ submitButton: true, isDisabled: !isValid(formData), [`is${formData.state.type}`]: true }) + ' s-text-56'}
+            className={cx({ submitButton: true, isDisabled: !isValid(formData), [`is${formData.state.type}`]: true })}
             type="submit"
             disabled={!isValid(formData)}
             onClick={() => handleSubmit(formData)}
@@ -85,7 +85,7 @@ export default function Form({ onOrderCreated, course }: IProps) {
                       // to={URLSections.Static.Oferta.index}
                       target='_blank'
                     >
-                      <span className={classes.agreementText + ' s-text-16'}>
+                      <span className={classes.agreementText}>
                         {t('agreement')}
                       </span>
                     </Link>

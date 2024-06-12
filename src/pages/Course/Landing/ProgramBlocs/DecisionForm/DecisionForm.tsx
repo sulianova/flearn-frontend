@@ -25,53 +25,39 @@ export default function DecisionForm({ course }: IProps) {
   return (
     <>
       <div className={classes.header}>
-        <h2 className={' s-text-70'}>Попробуйте любой формат курса бесплатно — выбрать один-единственный можно позже</h2>
+        <h2 className={classes.headerTitle}>Попробуйте любой формат курса бесплатно — выбрать один-единственный можно позже</h2>
       </div>
       <div className={classes.commonFlowRow}>
         <div className={classes.wrapper} id='decision-form'>
           <div className={classes.block}>
             <div className={classes.titleWrapper}>
-              <h2 className={classes.courseName + ' s-text-16'}>самостоятельно</h2>
-              <h1 className={classes.title + ' s-text-24'}>{t(`title1.${type}`)}</h1>
+              <h2 className={classes.courseName}>самостоятельно</h2>
+              <h1 className={classes.title}>{t(`title1.${type}`)}</h1>
             </div>
             <div className={classes.credit}>
-              <s className={classes.creditWas + ' s-text-24'}>{formatCredit(course.creditWas)} &#8381;</s>
+              <s className={classes.creditWas}>{formatCredit(course.creditWas)} &#8381;</s>
               <div className={classes.creditPrice}>
                 {formatCredit(course.creditPrice)} &#8381;
-                <span className={classes.discount + ' s-text-18'}>{formatCourseDiscount(course.discontAmount)}</span>
+                <span className={classes.discount}>{formatCourseDiscount(course.discontAmount)}</span>
               </div>
             </div>
-            <button onClick={() => setPopupOpen(true)} className={classes.btn + ' s-text-21'}>Начать учиться</button>
+            <button onClick={() => setPopupOpen(true)} className={classes.btn}>Начать учиться</button>
           </div>
           <div className={cx({ block: true, blockDetails: true })}>
-            <div className={classes.buble + ' s-text-21'}>самый популярный</div>
+            <div className={classes.buble}>самый популярный</div>
             <div className={classes.titleWrapper}>
-              <h2 className={classes.courseName + ' s-text-16'}>с обратной связью</h2>
-              <h1 className={classes.title + ' s-text-24'}>{t(`title2.${type}`)}</h1>
+              <h2 className={classes.courseName}>с обратной связью</h2>
+              <h1 className={classes.title}>{t(`title2.${type}`)}</h1>
             </div>
             <div className={classes.credit}>
-              <s className={classes.creditWas + ' s-text-24'}>{formatCredit(course.creditWas)} &#8381;</s>
+              <s className={classes.creditWas}>{formatCredit(course.creditWas)} &#8381;</s>
               <div className={classes.creditPrice}>
                 {formatCredit(course.creditPrice)} &#8381;
-                <span className={classes.discount + ' s-text-18'}>{formatCourseDiscount(course.discontAmount)}</span>
+                <span className={classes.discount}>{formatCourseDiscount(course.discontAmount)}</span>
               </div>
             </div>
-            <button onClick={() => setPopupOpen(true)} className={classes.btn + ' s-text-21'}>Начать учиться</button>
+            <button onClick={() => setPopupOpen(true)} className={classes.btn}>Начать учиться</button>
           </div>
-          {/* <div className={classes.block}>
-            <div className={classes.titleWrapper}>
-              <h2 className={classes.courseName + ' s-text-16'}>расширенный</h2>
-              <h1 className={classes.title + ' s-text-24'}>{t(`title3.${type}`)}</h1>
-            </div>
-            <div className={classes.credit}>
-              <s className={classes.creditWas + ' s-text-24'}>{formatCredit(course.creditWas)} &#8381;</s>
-              <div className={classes.creditPrice}>
-                {formatCredit(course.creditPrice)} &#8381;
-                <span className={classes.discount + ' s-text-18'}>{formatCourseDiscount(course.discontAmount)}</span>
-              </div>
-            </div>
-            <button onClick={() => setPopupOpen(true)} className={classes.btn + ' s-text-21'}>Начать учиться</button>
-          </div> */}
         </div>
       </div>
       {popupOpen && (

@@ -91,16 +91,17 @@
 .title {
   margin-bottom: set-calc(24);
   margin-right: set-calc(40);
-  @include set-typography(28, 32, 500);
-  font-family: $font-family-compact;
+
+  @include font-32-normal-header;
 
   @include set-media(md) {
-    @include set-typography(24, 28, 500);
     margin-bottom: set-calc(16);
   }
 }
 
 .caption {
   margin-right: set-calc(24);
+
   color: $color-content-secondary;
+  @include font-18-normal-paragraph;
 }

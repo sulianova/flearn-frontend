@@ -20,6 +20,8 @@
 }
 
 .title {
+  @include font-20-normal-paragraph;
+
   @include set-media(md) {
     padding-bottom: set-calc(8);
   }
@@ -31,10 +33,10 @@
   color: $black;
   white-space: pre-line;
 
-  @include set-media(md) {
-  }
+  @include font-20-normal-paragraph;
 }
 
 .count {
+  @include font-20-normal-paragraph;
   color: $blue;
 }

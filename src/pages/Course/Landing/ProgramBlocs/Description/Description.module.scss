@@ -21,6 +21,10 @@
   }
 }
 
+.headerTitle {
+  @include font-70-normal-header;
+}
+
 .list {
   @include is-grid-3;
   gap: set-calc(8);

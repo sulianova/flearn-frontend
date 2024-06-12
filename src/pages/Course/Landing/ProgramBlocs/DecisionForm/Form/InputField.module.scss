@@ -14,19 +14,21 @@
   box-shadow: none;
   outline: none;
 
+  @include font-24-normal-ui;
+
   &::placeholder {
-    color:  $color-palette-black-300;
+    color:  $color-background-glassy-d;
     opacity: 1;
     font-family: $font-family!important;
   }
   
   &:-ms-input-placeholder {
-    color:  $color-palette-black-300;
+    color:  $color-background-glassy-d;
     font-family: $font-family!important;
   }
   
   &::-ms-input-placeholder {
-    color:  $color-palette-black-300;
+    color:  $color-background-glassy-d;
     font-family: $font-family!important;
   }
 
@@ -44,12 +46,6 @@
   }
 }
 
-.dark {
-  color: $color-palette-white-1000;
-  background: hsla(0,0%,100%,.05);
-  border: set-calc(1) solid hsla(0,0%,100%,.1);
-}
-
 .isReset {
-  border: set-calc(2) solid $color-accent-warning;
+  border: set-calc(2) solid $color-accent-error;
 }

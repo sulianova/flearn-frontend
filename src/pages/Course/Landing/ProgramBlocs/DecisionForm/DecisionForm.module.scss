@@ -12,6 +12,10 @@
   }
 }
 
+.headerTitle {
+  @include font-70-normal-header;
+}
+
 .commonFlowRow {
 
   @include set-media(md) {
@@ -25,9 +29,6 @@
   grid-template-columns: repeat(12, minmax(0, 1fr));
 
   @include set-media(md) {
-    // position: relative;
-    // display: block;
-
     position: relative;
     display: flex;
     flex-flow: row nowrap;
@@ -67,10 +68,6 @@
   }
 }
 
-.blockDetails {
-  // background-color: $color-promo-highlight-neon;
-}
-
 .titleWrapper{
   display: flex;
   flex-direction: column;
@@ -84,27 +81,34 @@
 
 .courseName {
   margin-bottom: set-calc(8);
+
+  @include font-16-normal-paragraph;
   color: $color-content-tertiary;
 }
 
 .title {
   max-width: set-calc(560);
   word-break: break-word;
+  @include font-24-normal-header;
 }
 
 .buble {
   position: absolute;
-  display: flex;
+  right: set-calc(20);
+  top: set-calc(-30);
   transform: rotate(2deg);
-  padding: set-calc(10) set-calc(15);
+
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
   z-index: 9;
-  right: set-calc(20);
-  top: set-calc(-30);
+
   border-radius: set-calc($border-radius-large);
+  padding: set-calc(10) set-calc(15);
   border: set-calc(2.5) solid $color-content-background-secondary;
   backdrop-filter: blur(set-calc($backdrop-filter));
+
+  @include font-21-normal-ui;
 
   @include set-media(md) {
     padding: set-calc(8) set-calc(12);
@@ -139,9 +143,11 @@
 }
 
 .creditWas {
-  width: max-content;
+  @include font-24-normal-header;
   letter-spacing: -0.05rem;
+
   margin-bottom: set-calc(4);
+  width: max-content;
 }
 
 .creditPrice {
@@ -166,10 +172,12 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: set-calc(8) set-calc(16);
+
+  @include font-18-normal-ui;
   letter-spacing: 0;
 
   background: $color-background-glassy-b;
+  padding: set-calc(8) set-calc(16);
   border-radius: set-calc($border-radius-large);
   -webkit-text-stroke: 0;
 
@@ -201,13 +209,14 @@
   justify-content: center;
   align-items: center;
 
-  color: $color-content-inverted-primary;
-
-  border-radius: set-calc($border-radius-10);
-  background-color: $color-content-background-secondary;
   height: set-calc(60);
   width: 100%;
 
+  color: $color-content-inverted-primary;
+  @include font-21-normal-ui;
+
+  border-radius: set-calc($border-radius-10);
+  background-color: $color-content-background-secondary;
   transition: opacity $d-hover ease, box-shadow $d-hover ease, background-color $d-hover ease;
   cursor: pointer;
 

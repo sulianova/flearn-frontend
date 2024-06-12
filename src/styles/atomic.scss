@@ -2,10 +2,6 @@
   @include set-typography(14, 16, 500);
 } 
 
-@mixin s-text-14 {
-  @include set-typography(14, 16, 500);
-}
-
 @mixin font-16-normal-paragraph {
   @include set-typography(16, 18, 500);
 
@@ -83,6 +79,15 @@
   }
 }
 
+@mixin font-32-normal-header  {
+  @include set-typography(32, 32, 500);
+  font-family: $font-family-compact;
+
+  @include set-media(md) {
+    @include set-typography(28, 28, 500);
+  }
+}
+
 @mixin font-36-normal-header  {
   @include set-typography(36, 36, 500);
   font-family: $font-family-compact;
@@ -111,6 +116,16 @@
   }
 }
 
+@mixin font-56-normal-ui {
+  @include set-typography(56, 60, 500);
+  font-family: $font-family-compact;
+  letter-spacing: set-calc(-1);
+
+  @include set-media(md) {
+    @include set-typography(48, 48, 500);
+  }
+}
+
 @mixin font-70-normal-header  {
   @include set-typography(70, 66, 500);
   font-family: $font-family-compact;
@@ -131,9 +146,9 @@
 }
 
 
-// .color-content-inverted-secondary {
-//   color: $color-background-glassy-c;
-// }
+.color-content-inverted-secondary {
+  color: $color-background-glassy-c;
+}
 
 .color-content-tertiary {
   color: $color-palette-black-200-a;

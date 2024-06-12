@@ -90,7 +90,7 @@ export default function LessonsPopup(props: TProps) {
         </div>
         <div className={classes.body}>
           <div className={classes.header}>
-            <div className={classes.title + ' s-text-36'}>{lessons?.[0]?.topic ?? ''}</div>
+            <div className={classes.title}>{lessons?.[0]?.topic ?? ''}</div>
           </div>
           {lessons ?
             lessons.map(lesson => (
@@ -100,7 +100,7 @@ export default function LessonsPopup(props: TProps) {
                 onClick={onClose}
                 className={cx({ navigationItem: true, solved: lesson.solved, disabled: !lesson.canBeAccessed, active: lesson.id === openedLessonId })}
               >
-                <div className={classes.navigationItemTitle + ' s-text-18'}>
+                <div className={classes.navigationItemTitle}>
                     <span className={classes.navigationItemIndex}>{lesson.orderInTopic}.</span>
                     {lesson.title}
                 </div>

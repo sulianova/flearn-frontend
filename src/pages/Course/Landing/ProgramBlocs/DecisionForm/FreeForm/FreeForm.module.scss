@@ -2,7 +2,6 @@
 
 .btnWrapper {
   position: relative;
-
   display: flex;
 }
 
@@ -13,23 +12,19 @@
   align-items: center;
 
   color: $color-content-inverted-primary;
+  @include font-21-normal-ui;
 
   border-radius: set-calc($border-radius-medium);
-  background: $gradient-button;
+  background-color: $color-content-background-secondary;
   padding: set-calc(22) set-calc(60);
-  margin-bottom: set-calc(16);
-  width: max-content;
+  width: 100%;
 
-  transition: opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
+  transition: background-color $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
   cursor: pointer;
-
-  @include set-media(md) {
-    width: 100%;
-  }
 
   &:hover {
     cursor: pointer;
     box-shadow: $shadow-medium-hovered;
-    opacity: 0.85;
+    background-color: $color-content-background-primary;
   }
 }

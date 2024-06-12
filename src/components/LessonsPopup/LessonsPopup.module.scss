@@ -97,6 +97,7 @@
 
 .title {
   margin: set-calc(50) 0 set-calc(20);
+  @include font-36-normal-header;
 
   @include set-media(md) {
     margin: set-calc(80) 0 set-calc(14);
@@ -139,6 +140,8 @@
   padding: set-calc(8) set-calc(28);
   color: $color-content-primary;
 
+  @include font-18-normal-ui;
+
   span {
     font-size: inherit;
     line-height: inherit;
@@ -174,8 +177,6 @@
 .infoItem {
   white-space: nowrap;
   color: $color-content-primary;
-  font-size: set-calc(14);
-  line-height: set-calc(16);
 }
 
 .infoIcon {

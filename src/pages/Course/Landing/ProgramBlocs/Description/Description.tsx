@@ -22,7 +22,7 @@ function Description({ type, description }: IProps) {
   return (
     <div className={classes.wrapper}>
       <div className={classes.header}>
-        <h2 className={' s-text-70'}>{t(`title.${type}`)}</h2>
+        <h2 className={classes.headerTitle}>{t(`title.${type}`)}</h2>
       </div>
       <div className={classes.list}>
         {description.map((d, index) => (

@@ -17,7 +17,7 @@ function FreeForm(props: { userData: IUserData, courseData: ICourseData }) {
   const [errorTxt, setErrorTxt] = useState('');
   return (
     <div className={classes.btnWrapper}>
-      <button className={classes.btn + ' s-text-24'} onClick={() => handleSubmit({ userData, courseData, navigate, onError: setErrorTxt })}>Начать учиться бесплатно</button>
+      <button className={classes.btn} onClick={() => handleSubmit({ userData, courseData, navigate, onError: setErrorTxt })}>Начать учиться бесплатно</button>
       {errorTxt && <div>{errorTxt}</div>}
     </div>
   );

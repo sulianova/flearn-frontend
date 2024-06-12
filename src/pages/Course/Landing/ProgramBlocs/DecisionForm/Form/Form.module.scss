@@ -24,6 +24,7 @@
   max-width: set-calc(58);
 
   color: $color-content-inverted-primary;
+  @include font-24-normal-ui;
 
   background-color: $color-content-background-secondary;
   border: set-calc(1) solid $color-background-stroke;
@@ -37,7 +38,6 @@
 
   &:hover {
     background-color: $color-content-background-primary;
-    color: $color-content-inverted-primary;
   }
 
   @include set-media(md) {
@@ -49,18 +49,17 @@
 
 .isSuccess {
   pointer-events: none;
-  color: $color-content-background-primary;
+  color: $color-content-background-secondary;
 }
 
 .isPending {
-  color: $color-content-background-primary;
-  opacity: 0.7;
+  color: $color-content-tertiary;
   pointer-events: none;
 }
 
 .isError {
   color: $color-content-inverted-primary;
-  background-color: $color-content-background-primary;
+  background-color: $color-accent-warning;
   opacity: 1;
   transition: opacity $d-hover ease-in-out, color ease-in-out $d-hover;
 
@@ -70,14 +69,9 @@
 }
 
 .isDisabled {
-  color: $color-palette-black-300;
-  background-color: transparent;
+  background-color: $color-background-glassy-a;
+  color: $color-content-tertiary;
   pointer-events: none;
-
-  @include set-media(md) {
-    color: $color-palette-black-300;
-    -webkit-text-stroke: 0;
-  }
 }
 
 .Error {
@@ -88,6 +82,8 @@
 .agreement {
   margin-top: set-calc(18);
   margin-left: set-calc(4);
+
+  @include font-16-normal-paragraph;
 
   @include set-media(md) {
     margin-top: set-calc(8);
@@ -102,18 +98,19 @@
   align-items: center;
 
   color: $color-content-inverted-primary;
+  @include font-21-normal-ui;
 
   border-radius: set-calc($border-radius-medium);
-  background: $gradient-button;
+  background-color: $color-content-background-secondary;
   padding: set-calc(22) set-calc(60);
   width: 100%;
 
-  transition: opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
+  transition: background-color $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
   cursor: pointer;
 
   &:hover {
     cursor: pointer;
     box-shadow: $shadow-medium-hovered;
-    opacity: 0.85;
+    background-color: $color-content-background-primary;
   }
 }
