@@ -5,7 +5,7 @@ import { useParams } from 'react-router';
 import { useURLSection } from 'hooks';
 import { userService } from 'services/user.service';
 
-import Portfolio from 'assets/images/Svg/Portfolio';
+import User from 'assets/images/Svg/User';
 import LessonsPopup from 'components/LessonsPopup/LessonsPopup';
 import Link from 'ui/Link/Link';
 import Logo from 'assets/images/Svg/Logo';
@@ -86,7 +86,7 @@ function Sidebar() {
                   className={classes.icon}
                   onClick={() => setUserPopupVisible(!userPopupVisible)}
                 >
-                  <Portfolio/>
+                  <User/>
                 </div>
               </span>
             </li>

@@ -12,7 +12,7 @@ import SelectToggleIcon from 'assets/images/Svg/SelectToggleIcon';
 import Link from 'ui/Link/Link';
 import List from 'assets/images/Svg/List';
 import Popup from 'ui/Popup/Popup';
-import Portfolio from 'assets/images/Svg/Portfolio';
+import User from 'assets/images/Svg/User';
 import Logo from 'assets/images/Svg/Logo';
 
 import { EPageVariant } from '../Page';
@@ -147,7 +147,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
                 className={classes.userSettings}
                 onClick={() => setUserPopupVisible(!userPopupVisible)}
               >
-                <Portfolio/>
+                <User/>
               </div>
             </div>
             {user && (

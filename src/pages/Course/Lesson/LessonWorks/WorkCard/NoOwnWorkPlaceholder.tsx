@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 
-import UserImage from 'assets/images/Svg/UserImage';
+import User from 'assets/images/Svg/User';
 import Image from 'assets/images/Svg/Image';
 import { formatI18nT } from 'shared';
 
@@ -27,7 +27,7 @@ function NoOwnWorkPlaceholder(props: IProps) {
         <div className={classes.overlay}/>
       <div className={classes.user}>
         <div className={classes.userImage}>
-          <UserImage/>
+          <User/>
         </div>
         <div className={classes.userName + ' s-text-16'}>{props.authedUser?.displayName}</div>
       </div>

@@ -5,7 +5,7 @@ import { useParams } from 'react-router';
 import { URLSections } from 'router';
 import { isImage } from 'utils';
 
-import UserImage from 'assets/images/Svg/UserImage';
+import User from 'assets/images/Svg/User';
 import Pattern from 'assets/images/Svg/Pattern';
 import Img from 'ui/Img/Img';
 import Link from 'ui/Link/Link';
@@ -49,7 +49,7 @@ function WorkCard({ homework }: IProps) {
         </Link>
         <div className={classes.user}>
           <div className={classes.userImage}>
-            <UserImage/>
+            <User/>
           </div>
           <div className={classes.userName + ' s-text-16'}>{user?.displayName}</div>
         </div>
