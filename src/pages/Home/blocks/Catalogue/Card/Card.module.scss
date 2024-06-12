@@ -124,7 +124,8 @@
   background: $gradient-background-profession;
   border: set-calc(1) solid $color-background-default;
   border-radius: set-calc($border-radius-medium);
-  background-color: $color-palette-blue-100;
+  backdrop-filter: blur(set-calc($backdrop-filter));
+  // background-color: $color-content-tertiary;
 
   @include set-media(md) {
     border: set-calc(1) solid $color-background-default;
