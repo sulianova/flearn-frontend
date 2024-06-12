@@ -18,7 +18,7 @@
 @mixin set-typography(
   $font-size,
   $line-height: $font-size,
-  $font-weight: 400,
+  $font-weight: 500,
   $text-transform: inherit
 ) {
   font-weight: $font-weight;

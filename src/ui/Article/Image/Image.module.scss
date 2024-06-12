@@ -44,11 +44,11 @@
 }
 
 .imageCaption {
-  @include s-text-16;
+  @include font-16-normal-paragraph;
 
   margin-top: set-calc(16);
 }
 
 .imageCaption > * {
-  @include s-text-16;
+  @include font-16-normal-paragraph;
 }

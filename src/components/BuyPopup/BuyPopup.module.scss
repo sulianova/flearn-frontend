@@ -159,8 +159,22 @@
   @include set-media(md) {
     padding: set-calc(12) set-calc(12) set-calc(12);
   }
-
 }
+
+.headerTitle {
+  position: relative;
+  padding-left: set-calc(16);
+  padding-bottom: set-calc(18);
+
+  @include font-36-normal-header;
+
+  @include set-media(md) {
+    position: relative;
+    padding-bottom: 0;
+    padding-top: set-calc(16);
+  }
+}
+
 
 .stepWidget {
   display: flex;
@@ -184,6 +198,8 @@
   background-color: $color-background-glassy-a;
   color: $color-content-tertiary;
   height: set-calc(30);
+
+  @include font-16-normal-ui;
 
   @include set-media(md) {
     padding: 0 0;
@@ -211,18 +227,6 @@
   background-color: $color-content-background-primary;
   color: $color-content-inverted-primary;
   border: none;
-}
-
-.headerTitle {
-  position: relative;
-  padding-left: set-calc(16);
-  padding-bottom: set-calc(18);
-
-  @include set-media(md) {
-    position: relative;
-    padding-bottom: 0;
-    padding-top: set-calc(16);
-  }
 }
 
 .commonFlowRow {
@@ -279,10 +283,6 @@
   }
 }
 
-.blockDetails {
-  // background-color: $color-palette-blue-50-a;
-}
-
 .titleWrapper{
   display: flex;
   flex-direction: column;
@@ -297,27 +297,36 @@
 .courseName {
   margin-bottom: set-calc(8);
   color: $color-content-tertiary;
+
+  @include font-16-normal-paragraph;
 }
 
 .title {
   max-width: set-calc(560);
   word-break: break-word;
   margin-bottom: set-calc(16);
+
+  @include font-24-normal-header;
 }
 
 .buble {
   position: absolute;
+  right: set-calc(20);
+  top: set-calc(-30);
+
   display: flex;
-  transform: rotate(2deg);
-  padding: set-calc(10) set-calc(15);
   flex-direction: column;
   align-items: flex-start;
   z-index: 9;
-  right: set-calc(20);
-  top: set-calc(-30);
+
+  transform: rotate(2deg);
+  padding: set-calc(10) set-calc(15);
+
   border-radius: set-calc($border-radius-large);
   border: set-calc(2.5) solid $color-content-background-secondary;
   backdrop-filter: blur(set-calc($backdrop-filter));
+
+  @include font-21-normal-ui;
 
   @include set-media(md) {
     padding: set-calc(8) set-calc(12);
@@ -352,9 +361,11 @@
 
 .creditWas {
   width: max-content;
-  letter-spacing: -0.05rem;
   margin-bottom: set-calc(4);
   color: $color-content-tertiary;
+
+  @include font-24-normal-header;
+  letter-spacing: -0.05rem;
 }
 
 .creditPrice {
@@ -372,11 +383,15 @@
 .discount {
   position: absolute;
   top: set-calc(-28);
+  right: unset;
 
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   padding: set-calc(8) set-calc(16);
+
+  @include font-18-normal-ui;
   letter-spacing: 0;
 
   background: $color-background-glassy-b;
@@ -412,6 +427,7 @@
   align-items: center;
 
   color: $color-content-inverted-primary;
+  @include font-21-normal-ui;
 
   border-radius: set-calc($border-radius-10);
   background-color: $color-content-background-secondary;

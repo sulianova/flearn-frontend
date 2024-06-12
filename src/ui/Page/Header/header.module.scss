@@ -19,7 +19,7 @@
     min-height: -webkit-fill-available;
     min-height: fill-available;
 
-    @include set-typography(20, 28, 500);
+    @include font-16-normal-ui;
   }
 }
 
@@ -221,7 +221,7 @@
   }
 
   @include set-media(md) {
-    @include s-text-16;
+
     height: set-calc(30);
     border-radius: set-calc($border-radius-small);
     padding: set-calc(4) set-calc(16);

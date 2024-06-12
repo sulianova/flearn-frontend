@@ -45,8 +45,12 @@
   overflow: hidden;
   grid-column: 3 / 9;
 
+  @include font-21-normal-paragraph;
+
   p {
-    @include s-text-21;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
   }
 
   p:not(:last-child) {

@@ -1,3 +1,162 @@
+@mixin font-14-normal-ui {
+  @include set-typography(14, 16, 500);
+} 
+
+@mixin s-text-14 {
+  @include set-typography(14, 16, 500);
+}
+
+@mixin font-16-normal-paragraph {
+  @include set-typography(16, 18, 500);
+
+  @include set-media(md) {
+    @include set-typography(14, 16, 500)
+  }
+}
+
+@mixin font-16-normal-ui {
+  @include set-typography(16, 16, 500);
+
+  @include set-media(md) {
+    @include set-typography(14, 16, 500)
+  }
+}
+
+@mixin font-18-normal-paragraph {
+  @include set-typography(18, 24, 500);
+
+  @include set-media(md) {
+    @include set-typography(16, 20, 500)
+  }
+}
+
+@mixin font-18-normal-ui {
+  @include set-typography(18, 20, 500);
+
+  @include set-media(md) {
+    @include set-typography(16, 18, 500)
+  }
+}
+
+@mixin font-20-normal-paragraph {
+  @include set-typography(20, 28, 500);
+}
+
+@mixin font-21-normal-paragraph  {
+  @include set-typography(21, 25, 500);
+
+  @include set-media(md) {
+    @include set-typography(16, 20, 500);
+  }
+}
+
+@mixin font-21-normal-ui {
+  @include set-typography(21, 21, 500);
+
+  @include set-media(md) {
+    @include set-typography(16, 18, 500);
+  }
+}
+
+@mixin font-24-normal-header {
+  @include set-typography(24, 28, 500);
+
+  @include set-media(md) {
+    @include set-typography(20, 24, 500);
+  }
+}
+
+@mixin font-24-normal-ui {
+  @include set-typography(24, 24, 500);
+
+  @include set-media(md) {
+    @include set-typography(20, 20, 500);
+  }
+}
+
+@mixin font-28-normal-header {
+  @include set-typography(28, 32, 500);
+  font-family: $font-family-compact;
+
+  @include set-media(md) {
+    @include set-typography(20, 20, 500);
+  }
+}
+
+@mixin font-36-normal-header  {
+  @include set-typography(36, 36, 500);
+  font-family: $font-family-compact;
+
+  @include set-media(md) {
+    @include set-typography(28, 28, 500);
+  }
+}
+
+@mixin font-40-normal-header {
+  @include set-typography(40, 42, 500);
+  font-family: $font-family-compact;
+
+  @include set-media(md) {
+    @include set-typography(28, 28, 500);
+  }
+}
+
+@mixin font-56-normal-header  {
+  @include set-typography(56, 48, 500);
+  font-family: $font-family-compact;
+  letter-spacing: set-calc(-1);
+
+  @include set-media(md) {
+    @include set-typography(36, 36, 500);
+  }
+}
+
+@mixin font-70-normal-header  {
+  @include set-typography(70, 66, 500);
+  font-family: $font-family-compact;
+  letter-spacing: set-calc(-1);
+
+  @include set-media(md) {
+    @include set-typography(36, 36, 500);
+  }
+}
+
+@mixin font-88-normal-header  {
+  @include set-typography(88, 80, 500);
+  font-family: $font-family-compact;
+
+  @include set-media(md) {
+    @include set-typography(48, 52, 500);
+  }
+}
+
+
+// .color-content-inverted-secondary {
+//   color: $color-background-glassy-c;
+// }
+
+.color-content-tertiary {
+  color: $color-palette-black-200-a;
+}
+
+.blue {
+  color: $primary-color;
+}
+
+// .primary-lighten {
+//   color: $primary-lighten;
+// }
+
+// .green {
+//   color: $color-accent-success;
+// }
+
+// .b-black-new {
+//   background-color: $color-content-background-secondary !important;
+//   color: $color-content-inverted-primary!important;
+//   border-radius: set-calc($border-radius-small);
+// }
+
 .s-text-14 {
   @include set-typography(14, 16, 500);
 } 
@@ -22,22 +181,6 @@
   }
 }
 
-@mixin s-text-16 {
-  @include set-typography(16, 18, 500);
-
-  @include set-media(md) {
-    @include set-typography(14, 16, 500)
-  }
-}
-
-@mixin s-text-18 {
-  @include set-typography(18, 24, 500);
-
-  @include set-media(md) {
-    @include set-typography(16, 20, 500)
-  }
-}
-
 .s-text-18 {
   @include set-typography(18, 24, 500);
 
@@ -57,24 +200,11 @@
   }
 }
 
-//article
 .s-text-20 {
   @include set-typography(20, 28, 500);
 }
 
-@mixin s-text-20 {
-  @include set-typography(20, 28, 500);
-}
-
 .s-text-21  {
-  @include set-typography(21, 25, 500);
-
-  @include set-media(md) {
-    @include set-typography(16, 20, 500);
-  }
-}
-
-@mixin s-text-21  {
   @include set-typography(21, 25, 500);
 
   @include set-media(md) {
@@ -92,28 +222,11 @@
   }
 }
 
-@mixin s-text-24 {
-  @include set-typography(24, 28, 500);
-
-  @include set-media(md) {
-    @include set-typography(20, 24, 500);
-  }
-}
-
 .s-text-24 {
   @include set-typography(24, 28, 500);
 
   @include set-media(md) {
     @include set-typography(20, 24, 500);
-  }
-}
-
-@mixin s-text-28 {
-  @include set-typography(28, 32, 500);
-  font-family: $font-family-compact;
-
-  @include set-media(md) {
-    @include set-typography(20, 20, 500);
   }
 }
 
@@ -144,26 +257,7 @@
   }
 }
 
-@mixin s-text-36 {
-  @include set-typography(36, 36, 500);
-  font-family: $font-family-compact;
-
-  @include set-media(md) {
-    @include set-typography(28, 28, 500);
-  }
-}
-
 .s-text-56 {
-  @include set-typography(56, 48, 500);
-  font-family: $font-family-compact;
-  letter-spacing: set-calc(-1);
-
-  @include set-media(md) {
-    @include set-typography(36, 36, 500);
-  }
-}
-
-@mixin s-text-56 {
   @include set-typography(56, 48, 500);
   font-family: $font-family-compact;
   letter-spacing: set-calc(-1);
@@ -183,25 +277,6 @@
   }
 }
 
-@mixin s-text-70 {
-  @include set-typography(70, 66, 500);
-  font-family: $font-family-compact;
-  letter-spacing: set-calc(-1);
-
-  @include set-media(md) {
-    @include set-typography(36, 36, 500);
-  }
-}
-
-@mixin s-text-88 {
-  @include set-typography(88, 96, 500);
-  font-family: $font-family-compact;
-
-  @include set-media(md) {
-    @include set-typography(48, 52, 500);
-  }
-}
-
 .s-text-88 {
   @include set-typography(88, 96, 500);
   font-family: $font-family-compact;
@@ -209,30 +284,4 @@
   @include set-media(md) {
     @include set-typography(48, 52, 500);
   }
-}
-
-.color-content-inverted-secondary {
-  color: $color-background-glassy-c;
-}
-
-.color-content-tertiary {
-  color: $color-palette-black-200-a;
-}
-
-.blue {
-  color: $primary-color;
-}
-
-.primary-lighten {
-  color: $primary-lighten;
-}
-
-.green {
-  color: $color-accent-success;
-}
-
-.b-black-new {
-  background-color: $color-content-background-secondary !important;
-  color: $color-content-inverted-primary!important;
-  border-radius: set-calc($border-radius-small);
 }

@@ -98,11 +98,11 @@
   max-width: set-calc(1100);
   text-align: center;
 
-  @include set-typography(88, 80, 500);
+  @include font-88-normal-header;
 
   @include set-media(md) {
 
-    @include s-text-56;
+    @include font-56-normal-header;
     padding-bottom: set-calc(16);
     padding-right: set-calc(8);
     padding-left: set-calc(8);

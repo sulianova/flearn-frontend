@@ -45,12 +45,12 @@ export default function BuyPopup({ close }: IProps) {
         <div className={classes.body}>
           <div className={classes.header}>
             <div className={classes.stepWidget}>
-              <div className={cx({ stepWidgetItem: true, stepWidgetItemDesk: true, active: step === 'DECISION' })  + ' s-text-16'}>о курсе</div>
-              <div className={cx({ stepWidgetItem: true, stepWidgetItemDesk: true, active: step === 'PAYMENT' })  + ' s-text-16'}>способы оплаты</div>
-              <div className={cx({ stepWidgetItem: true, stepWidgetItemDesk: true, active: step === 'ORDER_INFO' })  + ' s-text-16'}>подтверждение</div>
-              <div className={cx({ stepWidgetItem: true, stepWidgetItemMob: true, active: step === 'DECISION' })  + ' s-text-16'}>1</div>
-              <div className={cx({ stepWidgetItem: true, stepWidgetItemMob: true, active: step === 'PAYMENT' })  + ' s-text-16'}>2</div>
-              <div className={cx({ stepWidgetItem: true, stepWidgetItemMob: true, active: step === 'ORDER_INFO' })  + ' s-text-16'}>3</div>
+              <div className={cx({ stepWidgetItem: true, stepWidgetItemDesk: true, active: step === 'DECISION' })}>о курсе</div>
+              <div className={cx({ stepWidgetItem: true, stepWidgetItemDesk: true, active: step === 'PAYMENT' })}>способы оплаты</div>
+              <div className={cx({ stepWidgetItem: true, stepWidgetItemDesk: true, active: step === 'ORDER_INFO' })}>подтверждение</div>
+              <div className={cx({ stepWidgetItem: true, stepWidgetItemMob: true, active: step === 'DECISION' })}>1</div>
+              <div className={cx({ stepWidgetItem: true, stepWidgetItemMob: true, active: step === 'PAYMENT' })}>2</div>
+              <div className={cx({ stepWidgetItem: true, stepWidgetItemMob: true, active: step === 'ORDER_INFO' })}>3</div>
             </div>
           </div>
           {step === 'DECISION' && <Decision next={() => setStep('PAYMENT')} />}

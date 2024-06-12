@@ -181,13 +181,38 @@ $shadow-menu: 0 1px 17px rgba(0, 0, 0, 0.04);
 //filter
 $backdrop-filter: 15;
 
-
 //border
-$border-radius-large: 30;
-$border-radius-medium: 20;
-$border-radius-10: 10;
-$border-radius-8: 8;
 $border-radius-small: 6;
+$border-radius-medium: 20;
+$border-radius-large: 30;
+
+$border-radius-4: 4;
+$border-radius-5: 5;
+$border-radius-6: 6;
+$border-radius-8: 8;
+$border-radius-10: 10;
+$order-radius-12: 12;
+$border-radius-14: 14;
+$border-radius-16: 16;
+$border-radius-20: 20;
+$border-radius-30: 30;
+
+//opacity
+$opacity-100: 0.06;
+$opacity-200: 0.15;
+$opacity-300: 0.3;
+$opacity-400: 0.6;
+$opacity-500: 0.8;
+$opacity-600: 0.85;
+$opacity-700: 0.9;
+$opacity-800: 0.95;
+
+//z-index
+$z-index-100: 100;
+$z-index-200: 200;
+$z-index-300: 300;
+$z-index-400: 400;
+$z-index-500: 500;
 
 // CSS
 :root {

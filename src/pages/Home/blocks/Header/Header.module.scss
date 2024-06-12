@@ -65,11 +65,7 @@
   position: relative;
   color: $color-content-tertiary;
 
-  @include s-text-21;
-
-  @include set-media(md) {
-    @include set-typography(16, 20, 500);
-  }
+  @include font-21-normal-paragraph;
 }
 
 .actions {
