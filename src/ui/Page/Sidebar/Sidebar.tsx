@@ -32,37 +32,42 @@ function Sidebar() {
       <div className={classes.__}>
         <aside className={classes.container}>
           <ul className={classes.items}>
-            <li className={classes.item}>
-              <span className={classes.iconWrapper}>
-                {(urlSection === 'Lessons' || urlSection === 'Lesson') && (
+            {urlSection === 'Lessons' && (
+              <li className={classes.item}>
+                <span className={classes.iconWrapper}>
                   <Link
                     className={classes.icon}
-                    to={urlSection === 'Lesson' && courseId ? URLSections.Course.Lessons.to({ courseId }) : URLSections.Home.index}
+                    to={URLSections.Home.index}
                   >
                     <Logo/>
                   </Link>
-                )}
-              </span>
-            </li>
-            <li className={classes.item}>
-              <span className={classes.iconWrapper}>
-                <Link
-                  className={classes.icon}
-                >
-                  <Home/>
-                </Link>
-              </span>
-            </li>
-            <li className={classes.item}>
-              <span className={classes.iconWrapper}>
-               <div
-                  className={classes.icon}
-                  onClick={() => setLessonsPopupVisible(v => !v)}
-                >
-                  <Lessons/>
-                </div>
-              </span>
-            </li>
+                </span>
+              </li>
+            )}
+            {urlSection === 'Lesson' && (
+              <li className={classes.item}>
+                <span className={classes.iconWrapper}>
+                  <Link
+                    className={classes.icon}
+                    to={URLSections.Course.Lessons.to({ courseId: courseId! })}
+                  >
+                    <Home/>
+                  </Link>
+                </span>
+              </li>
+            )}
+            {urlSection === 'Lesson' && (
+              <li className={classes.item}>
+                <span className={classes.iconWrapper}>
+                <div
+                    className={classes.icon}
+                    onClick={() => setLessonsPopupVisible(v => !v)}
+                  >
+                    <Lessons/>
+                  </div>
+                </span>
+              </li>
+            )}
           </ul>
           <ul className={classes.items}>
             {/* <li className={classes.item}>

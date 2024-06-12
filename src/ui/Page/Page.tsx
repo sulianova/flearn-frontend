@@ -44,10 +44,10 @@ function Page({ children, variant, header = false, footer, style, scrollToTopDep
   }, []);
 
   return (
-    <div className={classes.trainerContent}>
+    <div className={classes.trainerContent} style={style}>
       {variant === EPageVariant.LMS && <Sidebar/>}
       <div className={classes.theoryPage} onScroll={handleScroll} ref={pageRef}>
-        <div className={classes._} ref={ref} style={style}>
+        <div className={classes._} ref={ref}>
           {header && <Header variant={variant} visible={headerVisible}/>}
           <div className={classes.content}>
               <section className={classes[`${variant}Wrapper`]}>

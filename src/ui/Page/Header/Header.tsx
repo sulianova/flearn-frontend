@@ -1,7 +1,7 @@
 import classnames from 'classnames/bind';
 import { useEffect, useRef, useState } from 'react';
 
-import { useIsMobile } from 'hooks';
+import { useIsMobile, useURLSection } from 'hooks';
 import { formatI18nT, i18n } from 'shared';
 import { authService } from 'services/auth.service';
 import { ICourseData, courseService } from 'services/course.service';
@@ -34,6 +34,7 @@ interface IProps {
 }
 
 export default function Header({ variant, visible }: Readonly<IProps>) {
+  const urlSection = useURLSection();
   const isMobile = useIsMobile();
   const user = userService.useAuthedUser();
   const lastSolvedLesson = userCourseProgressService.useLastSolvedLesson();
@@ -136,20 +137,22 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
             </div>
           )}
           <div className={classes.nav}>
-            <div className={cx({ userSettinsWrapper: true, open: userPopupVisible })}>
-              {user && userPopupVisible && (
-                  <UserPopup
-                    user={user}
-                    close={() => setUserPopupVisible(false)}
-                  />
-                )}
-              <div 
-                className={classes.userSettings}
-                onClick={() => setUserPopupVisible(!userPopupVisible)}
-              >
-                <User/>
+            {urlSection === 'Lessons' && (
+              <div className={cx({ userSettinsWrapper: true, open: userPopupVisible })}>
+                {user && userPopupVisible && (
+                    <UserPopup
+                      user={user}
+                      close={() => setUserPopupVisible(false)}
+                    />
+                  )}
+                <div 
+                  className={classes.userSettings}
+                  onClick={() => setUserPopupVisible(!userPopupVisible)}
+                >
+                  <User/>
+                </div>
               </div>
-            </div>
+            )}
             {user && (
               <Dropdown
                 content={({ close }) => (

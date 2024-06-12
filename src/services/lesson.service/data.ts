@@ -4912,7 +4912,7 @@ const lessonDataFYS0: ILessonDataDB = {
     unit: 'hours',
     value: 1
   },
-  isFree: false,
+  isFree: true,
   content: [
     {
       type: 'title',
