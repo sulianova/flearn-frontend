@@ -62,7 +62,7 @@
   box-shadow: $shadow-medium-default;
 
   @include set-media(md) {
-    border-radius: set-calc($border-radius-medium);
+    border-radius: set-calc($border-radius-10);
     padding: set-calc(16);
   }
 }

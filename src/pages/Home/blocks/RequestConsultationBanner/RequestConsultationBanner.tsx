@@ -12,7 +12,7 @@ export default function RequestConsultationBanner() {
         <div className={classes.contentDescription + ' s-text-21'}>Подберем подходящий курс или спланируем индивидуальные занятия</div>
         <div className={classes.buttons}>
           <Link 
-            className={classes.button + ' s-text-18'}
+            className={classes.button + ' s-text-21'}
             to={t('creatorLink')}  target='_blank'
             >
             написать в Telegram

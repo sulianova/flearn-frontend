@@ -102,7 +102,7 @@
   width: 100%;
 
   @include set-media(md) {
-    height: set-calc(52);
+    height: set-calc(48);
     margin: 0 0 set-calc(4) 0;
     padding: set-calc(0) set-calc(18);
     width: max-content;
@@ -119,6 +119,5 @@
     cursor: pointer;
     box-shadow: $shadow-medium-hovered;
     background-color: $color-content-background-primary;
-    color: $color-content-inverted-primary;
   }
 }

@@ -71,22 +71,24 @@
   align-items: center;
   justify-content: center;
   
-  border-radius: set-calc($border-radius-large);
-  transition: opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
-  background: $gradient-button;
+  border-radius: set-calc($border-radius-10);
+  transition: opacity $d-hover ease, box-shadow $d-hover ease, background-color $d-hover ease;
+  background-color: $color-content-background-secondary;
   color: $color-content-inverted-primary;
   white-space: nowrap;
-  max-width: fit-content;
-  padding:0 set-calc(32);
+  padding: set-calc(0) set-calc(48);
+  width: max-content;
   height: set-calc(52);
 
   opacity: 1;
 
   @include set-media(md) {
-    width: 100%;
+    height: set-calc(48);
   }
 }
 
 .button:hover {
-  opacity: .85;
+  cursor: pointer;
+  box-shadow: $shadow-medium-hovered;
+  background-color: $color-content-background-primary;
 }
