@@ -82,8 +82,10 @@
 }
 
 .categoriesItem {
+  @include font-18-normal-ui;
   margin-bottom: set-calc(8);
   padding: set-calc(6) set-calc(24);
+
   border: set-calc(2) solid $matt-white;
   border-radius: set-calc($border-radius-large);
 
@@ -115,6 +117,7 @@
   max-width: set-calc(550);
   padding-bottom: set-calc(16);
   text-align: center;
+  @include font-21-normal-paragraph;
 
   white-space: pre-line;
 
@@ -149,8 +152,9 @@
   border-radius: set-calc($border-radius-medium);
   transition: opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
   background: $matt-white;
-  color: $color-content-primary;
 
+  @include font-21-normal-ui;
+  color: $color-palette-black-700;
   padding: set-calc(20) set-calc(80);
 
   @include set-media(md) {

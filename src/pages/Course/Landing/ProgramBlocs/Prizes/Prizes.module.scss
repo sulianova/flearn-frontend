@@ -7,6 +7,7 @@
 
 .title {
   padding-bottom: set-calc(32);
+  @include font-70-normal-header;
 
   @include set-media(md) {
     padding-bottom: set-calc(24);
@@ -51,45 +52,14 @@
 
 .listItemTitle {
   margin-bottom: set-calc(32);
+  @include font-36-normal-header;
 }
 
 .listItemContent {
-  font-size: inherit;
-  line-height: inherit;
+  @include font-21-normal-paragraph;
   margin-top: set-calc(80);
 
   @include set-media(md) {
     margin-top: set-calc(32);
-  }
-}
-
-.listItemMedia {
-  position: relative;
-  margin: set-calc(-32);
-  overflow: hidden;
-
-  display: block;
-  border-radius: set-calc(20);
-
-  @include set-media(md) {
-    margin: set-calc(-16);
-  }
-}
-
-.listItemMedia img {
-  position: relative;
-
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.listItemMediaDesc {
-  margin: set-calc(52) 0 0;
-
-  @include set-media(md) {
-    margin: set-calc(24) 0 0;
-    padding: set-calc(8) set-calc($padding-x-mob-page) set-calc(16);
   }
 }

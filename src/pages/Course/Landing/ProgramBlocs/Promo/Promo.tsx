@@ -22,7 +22,7 @@ function Promo({ promoVideo }: IProps) {
       <div className={classes.cards}>
         <div className={classes.card}>
           <Animated.Scroll>
-            {(id, className) => (<h2 className={cx({ cardTitle: true }, className)  + ' s-text-70'} id={id}>{t('cardTitle')}</h2>)}
+            {(id, className) => (<h2 className={cx({ cardTitle: true }, className)} id={id}>{t('cardTitle')}</h2>)}
           </Animated.Scroll>
         </div>
         <div className={cx({ card: true, videoCard: true })}>

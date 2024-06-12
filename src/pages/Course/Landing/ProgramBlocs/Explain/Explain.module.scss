@@ -81,7 +81,7 @@
   padding: set-calc(12) set-calc(18);
   border-radius: set-calc($border-radius-large);
   background: $color-content-primary;
-  color: $color-palette-white-1000;
+  color: $color-content-inverted-primary;
 
   @include set-media(md) {
     padding: set-calc(8) set-calc(12);

@@ -28,6 +28,7 @@
 .desc {
   padding-right: set-calc(32);
   @include font-21-normal-paragraph;
+  color: $color-content-background-secondary;
   
   @include set-media(md) {
     color: $color-content-secondary;
