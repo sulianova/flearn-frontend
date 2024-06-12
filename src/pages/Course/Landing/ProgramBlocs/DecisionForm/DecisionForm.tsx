@@ -58,7 +58,7 @@ export default function DecisionForm({ course }: IProps) {
             </div>
             <button onClick={() => setPopupOpen(true)} className={classes.btn + ' s-text-21'}>Начать учиться</button>
           </div>
-          <div className={classes.block}>
+          {/* <div className={classes.block}>
             <div className={classes.titleWrapper}>
               <h2 className={classes.courseName + ' s-text-16'}>расширенный</h2>
               <h1 className={classes.title + ' s-text-24'}>{t(`title3.${type}`)}</h1>
@@ -71,7 +71,7 @@ export default function DecisionForm({ course }: IProps) {
               </div>
             </div>
             <button onClick={() => setPopupOpen(true)} className={classes.btn + ' s-text-21'}>Начать учиться</button>
-          </div>
+          </div> */}
         </div>
       </div>
       {popupOpen && (

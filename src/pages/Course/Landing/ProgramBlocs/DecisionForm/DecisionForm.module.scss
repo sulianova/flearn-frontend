@@ -52,7 +52,7 @@
   flex-direction: column;
   justify-content: space-between;
 
-  grid-column: span 4;
+  grid-column: span 6;
   width: 100%;
   min-width: min(380px, 80vw);
   padding: set-calc(24);
@@ -68,14 +68,14 @@
 }
 
 .blockDetails {
-  background-color: $color-palette-blue-50-a;
+  // background-color: $color-promo-highlight-neon;
 }
 
 .titleWrapper{
   display: flex;
   flex-direction: column;
 
-  margin-bottom: set-calc(150);
+  margin-bottom: set-calc(16);
 
   @include set-media(md) {
     margin-bottom: set-calc(80);
@@ -103,11 +103,12 @@
   right: set-calc(20);
   top: set-calc(-30);
   border-radius: set-calc($border-radius-large);
-  background: $primary-color;
-  color: $color-palette-white-1000;
+  border: set-calc(2.5) solid $color-content-background-secondary;
+  backdrop-filter: blur(set-calc($backdrop-filter));
 
   @include set-media(md) {
     padding: set-calc(8) set-calc(12);
+    border: set-calc(2) solid $color-content-background-secondary;
   }
 }
 
@@ -149,7 +150,6 @@
 
   display: inline-block;
   letter-spacing: -0.2rem;
-  color: $primary-color;
   // -webkit-text-stroke: set-calc(1.5) $color-content-background-primary;
 
   @include set-media(md) {
@@ -169,14 +169,13 @@
   padding: set-calc(8) set-calc(16);
   letter-spacing: 0;
 
-  color: $color-content-inverted-primary;
-  background: $primary-color;
+  background: $color-background-glassy-b;
   border-radius: set-calc($border-radius-large);
   -webkit-text-stroke: 0;
 
 
   @include set-media(md) {
-    right: 0;
+    right: set-calc(80);
     top: set-calc(-34);
   }
 }
@@ -204,22 +203,22 @@
 
   color: $color-content-inverted-primary;
 
-  border-radius: set-calc($border-radius-medium);
-  background: $gradient-button;
-  height: set-calc(52);
+  border-radius: set-calc($border-radius-10);
+  background-color: $color-content-background-secondary;
+  height: set-calc(60);
   width: 100%;
 
-  transition: opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
+  transition: opacity $d-hover ease, box-shadow $d-hover ease, background-color $d-hover ease;
   cursor: pointer;
 
   &:hover {
     cursor: pointer;
     box-shadow: $shadow-medium-hovered;
-    opacity: 0.85;
+    background-color: $color-content-background-primary;
   }
 
   @include set-media(md) {
-    height: set-calc(48);
-    border-radius: set-calc(10);
+    height: set-calc(52);
+    border-radius: set-calc($border-radius-10);
   }
 }

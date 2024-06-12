@@ -46,20 +46,6 @@ export default function Decision(props: IProps) {
             </div>
             <button className={classes.btn + ' s-text-21'} onClick={props.next}>Перейти к оплате</button>
           </div>
-          <div className={classes.block}>
-            <div className={classes.titleWrapper}>
-              <h2 className={classes.courseName + ' s-text-16'}>расширенный</h2>
-              <h1 className={classes.title + ' s-text-24'}>{t(`title3.course`)}</h1>
-            </div>
-            <div className={classes.credit}>
-              <s className={classes.creditWas + ' s-text-24'}>3000 &#8381;</s>
-              <div className={classes.creditPrice}>
-                1000 &#8381;
-                <span className={classes.discount + ' s-text-18'}>-30%</span>
-              </div>
-            </div>
-            <button  className={classes.btn + ' s-text-21'} onClick={props.next}>Перейти к оплате</button>
-          </div>
         </div>
       </div>
     </>
