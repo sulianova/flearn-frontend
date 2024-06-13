@@ -205,23 +205,25 @@
   display: flex;
   align-items: center;
   position: relative;
-  background-color: $color-content-background-secondary;
-  color: $color-content-inverted-primary;
-  padding: set-calc(4) set-calc(24);
-  border-radius: set-calc($border-radius-large);
+
   width: max-content;
   height: set-calc(40);
 
+
+
+  color: $color-content-inverted-primary;
+
+  padding: set-calc(4) set-calc(24);
+  border-radius: set-calc($border-radius-large);
+  background-color: $color-content-primary;
   transition: background-color $d-hover ease;
   
   &:hover {
     cursor: pointer;
-    background-color: $color-content-background-primary;
-    color: $color-content-inverted-primary;
+    background-color:  $color-content-secondary;
   }
 
   @include set-media(md) {
-
     height: set-calc(30);
     border-radius: set-calc($border-radius-small);
     padding: set-calc(4) set-calc(16);
@@ -244,7 +246,7 @@
 
   pointer-events: none;
 
-  background-color: $primary-color;
+  background-color: $color-accent-promo;
   color: $color-palette-white-1000;
 
   @include set-typography(14, 16, 500);

@@ -41,7 +41,7 @@ export default function DecisionForm({ course }: IProps) {
                 <span className={classes.discount}>{formatCourseDiscount(course.discontAmount)}</span>
               </div>
             </div>
-            <button onClick={() => setPopupOpen(true)} className={classes.btn}>Начать учиться</button>
+            <button onClick={() => setPopupOpen(true)} className={classes.btn}>начать учиться</button>
           </div>
           <div className={cx({ block: true, blockDetails: true })}>
             <div className={classes.buble}>самый популярный</div>
@@ -56,7 +56,7 @@ export default function DecisionForm({ course }: IProps) {
                 <span className={classes.discount}>{formatCourseDiscount(course.discontAmount)}</span>
               </div>
             </div>
-            <button onClick={() => setPopupOpen(true)} className={classes.btn}>Начать учиться</button>
+            <button onClick={() => setPopupOpen(true)} className={classes.btn}>начать учиться</button>
           </div>
         </div>
       </div>

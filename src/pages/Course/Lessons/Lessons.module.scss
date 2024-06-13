@@ -135,11 +135,11 @@
   text-decoration: none;
 
   border-radius: set-calc(6);
-  background-color: $color-accent-neutral;
+  background-color: $color-content-primary;
   border: none;
 }
 
 .currentLessonButton:hover {
-  background-color: $color-accent-neutral-hover;
+  background-color: $color-content-secondary;
   cursor: pointer;
 }

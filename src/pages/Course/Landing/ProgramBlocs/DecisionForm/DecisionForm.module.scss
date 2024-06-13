@@ -213,18 +213,18 @@
   height: set-calc(60);
   width: 100%;
 
-  color: $color-content-inverted-primary;
+  color: $color-palette-white-1000;
   @include font-21-normal-ui;
 
   border-radius: set-calc($border-radius-10);
-  background-color: $color-content-background-secondary;
+  background-color: $color-background-btn;
   transition: opacity $d-hover ease, box-shadow $d-hover ease, background-color $d-hover ease;
   cursor: pointer;
 
   &:hover {
     cursor: pointer;
     box-shadow: $shadow-medium-hovered;
-    background-color: $color-content-background-primary;
+    background-color: $color-background-btn-hover;
   }
 
   @include set-media(md) {

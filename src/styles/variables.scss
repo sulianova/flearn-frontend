@@ -68,7 +68,6 @@ $color-palette-blue-550: #5282ff;
 $color-palette-blue-600: #4a71d6;
 $color-palette-blue-800: #3f5799;
 
-$primary-lighten: #CDD9FF;
 $primary-color: #5282ff;
 $primary-color-hover: #4a71d6;
 
@@ -82,19 +81,15 @@ $color-profession-darken: rgba(97, 127, 229, 1);
 $gradient-background-profession: linear-gradient(-45deg, #ece2fc, #e3ebff 28%, rgba(82,130,255,0.5) 100%, #e3ebff 67%, #ccf0d2);
 $gradient-button: linear-gradient(98.34deg, #4a71d6 6.94%, #5282ff 80.88%);
 
-//colors
-$red: #f7235b;
-$red-darken: #bb1441;
-$green: #3ab935;
-$green-darken: #379a34;
-
 //theme-light
 $color-accent-error: #f22a2a;
 $color-accent-notice: #e67046;
 $color-accent-success: #1c9c75;
 $color-accent-warning: #ffb72c;
-$color-accent-neutral-hover: $black;
+$color-accent-promo: #f7235b;
+$color-accent-promo-hover: #bb1441;
 $color-accent-neutral: $color-palette-black-700;
+$color-accent-neutral-hover: $black;
 $color-background-alternate: $color-palette-black-50;
 $color-background-default: $color-palette-white-1000;
 $color-background-glassy-a: $color-palette-black-50-a;
@@ -119,12 +114,16 @@ $color-content-background-primary: $color-palette-black-900;
 $color-content-background-secondary: $color-palette-black-700;
 $color-content-paragraph-primary: $color-palette-black-700;
 $color-content-paragraph-secondary: $color-palette-black-800-a;
+$color-background-btn: $color-palette-black-700;
+$color-background-btn-hover: $color-palette-black-900;
 
 //theme-dark
 // $color-accent-error: #f22a2a;
 // $color-accent-notice: #e67046;
 // $color-accent-success: #1c9c75;
 // $color-accent-warning: #ffb72c;
+// $color-accent-promo: #f7235b;
+// $color-accent-promo-hover: #bb1441;
 // $color-accent-neutral: $color-palette-white-1000;
 // $color-accent-neutral-hover: $color-palette-black-300;
 // $color-background-default: $color-palette-black-700;
@@ -145,6 +144,8 @@ $color-content-paragraph-secondary: $color-palette-black-800-a;
 // $color-content-background-secondary: $color-palette-black-500;
 // $color-content-paragraph-primary: $color-palette-black-500;
 // $color-content-paragraph-secondary: $color-palette-white-500-a;
+// $color-background-btn: $color-palette-blue-600;
+// $color-background-btn-hover: $color-palette-blue-550;
 
 //links
 $link: $color-content-primary;
