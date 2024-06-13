@@ -55,7 +55,7 @@ function LessonHeader(props: IProps) {
 
   const taskTab = props.lesson.type === 'Practice' && (canShowResults || section !== 'task') &&(
     <Link
-    className={cx({ tabItem: true, active: true })+ ' s-text-20'}
+    className={cx({ tabItem: true, active: true })}
       to={URLSections.Course.Lesson.to({ courseId, lessonId })}
     >
       {t('navTabsPractice')}
@@ -64,7 +64,7 @@ function LessonHeader(props: IProps) {
 
   const resultsTab = props.lesson.type === 'Practice' && (canShowResults || section === 'results') && (
     <Link
-    className={cx({ tabItem: true, active: true })+ ' s-text-20'}
+    className={cx({ tabItem: true, active: true })}
       to={URLSections.Course.Lesson.Results.to({ courseId, lessonId, params: { limit: 4 } })}
     >
       {t('navTabsResults')}
@@ -86,13 +86,13 @@ function LessonHeader(props: IProps) {
         ))}
       </div>
       <Link
-        className={cx({ tabItem: true, active: true })+ ' s-text-20'}
+        className={cx({ tabItem: true, active: true })}
         to={URLSections.Course.Lesson.to({ courseId, lessonId })}
       >
         {t('navTabsPractice')}
       </Link>
       <Link
-        className={cx({ tabItem: true, active: false })+ ' s-text-20'}
+        className={cx({ tabItem: true, active: false })}
         to={URLSections.Course.Lesson.Results.to({ courseId, lessonId, params: { limit: 4 } })}
       >
         {t('navTabsResults')}

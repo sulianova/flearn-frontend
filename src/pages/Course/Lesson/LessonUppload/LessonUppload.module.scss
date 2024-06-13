@@ -35,6 +35,8 @@
 .title {
   margin-bottom: set-calc(16);
   width: 100%;
+
+  @include font-18-normal-paragraph;
   text-align: center;
 
   @include set-media(md) {
@@ -45,6 +47,8 @@
 .link {
   margin-bottom: set-calc(16);
   width: 100%;
+
+  @include font-18-normal-paragraph;
   text-align: center;
   color: $primary-color;
 
@@ -223,7 +227,7 @@
   color: $color-content-primary;
   white-space: nowrap;
 
-  @include set-typography(16, 18, 500);
+  @include font-16-normal-ui;
 
   @include set-media(md) {
     display: flex;

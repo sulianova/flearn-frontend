@@ -43,6 +43,7 @@
 
 .videoCaption {
   @include font-18-normal-paragraph;
+  color: $color-content-paragraph-primary;
 
   padding-top: set-calc(4);
 }

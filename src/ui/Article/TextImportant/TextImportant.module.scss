@@ -42,5 +42,6 @@
 
 .textImportantWrapper > * {
   @include font-20-normal-paragraph;
+  color: $color-content-paragraph-primary;
 
 }

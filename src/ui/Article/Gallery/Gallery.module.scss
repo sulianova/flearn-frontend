@@ -89,5 +89,6 @@
 
 .itemCaption {
   @include s-text-14;
+  color: $color-content-paragraph-primary;
   text-transform: uppercase;
 }

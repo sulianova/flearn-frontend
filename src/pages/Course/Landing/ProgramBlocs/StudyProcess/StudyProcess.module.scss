@@ -72,10 +72,10 @@
 .desc {
   padding-right: set-calc(32);
   @include font-21-normal-paragraph;
-  color: $color-content-background-secondary;
+  color: $color-content-paragraph-primary;
 
   @include set-media(md) {
-    color: $color-content-secondary;
+    color: $color-content-paragraph-secondary;
   }
 
   p {

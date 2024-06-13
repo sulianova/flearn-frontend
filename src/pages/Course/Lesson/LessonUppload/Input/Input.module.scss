@@ -20,6 +20,8 @@
   width: 100%;
   display: inline-block;
   order: 2;
+  @include font-18-normal-paragraph;
+
   border: set-calc(1.3) solid $color-background-stroke;
   border-radius: set-calc($border-radius-small);
 

@@ -11,6 +11,7 @@
 
 .title {
   margin-bottom: set-calc(40);
+  @include  font-56-normal-header;
 
   @include set-media(md) {
     margin-bottom: set-calc(20);

@@ -47,7 +47,7 @@
   box-shadow: $shadow-huge-default;
 
   @include font-21-normal-paragraph;
-  color: $color-content-background-secondary;
+  color: $color-content-paragraph-primary;
   padding: set-calc(24);
 
   overflow: hidden;

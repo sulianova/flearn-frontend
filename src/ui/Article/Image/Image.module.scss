@@ -45,6 +45,7 @@
 
 .imageCaption {
   @include font-16-normal-paragraph;
+  color: $color-content-paragraph-primary;
 
   margin-top: set-calc(16);
 }

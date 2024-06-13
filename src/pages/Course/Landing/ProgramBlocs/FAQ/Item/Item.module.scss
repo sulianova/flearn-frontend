@@ -87,9 +87,10 @@
 .itemAnswerText {
   margin-right: set-calc(48);
   @include font-21-normal-paragraph;
-  color: $color-content-secondary;
+  color: $color-content-paragraph-primary;
 
   @include set-media(md) {
     margin: set-calc(20) 0 set-calc(20) 0;
+    color: $color-content-paragraph-secondary;
   }
 }

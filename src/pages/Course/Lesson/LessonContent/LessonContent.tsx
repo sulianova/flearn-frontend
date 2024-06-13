@@ -49,15 +49,15 @@ function LessonContent(props: IProps) {
     <>
       {buyPopupIsOpened && <BuyPopup close={() => setBuyPopupIsOpened(false)}/>}
       <div className={classes._}>
-        {props.data.type === 'Practice' &&
+        {/* {props.data.type === 'Practice' &&
           <Uppload
             courseId={props.courseId}
             lessonId={props.lessonId}
             homework={props.homework}
             scrollToUpload={props.scrollToUpload}
             canShowResults={props.canShowResults}
-          />}
-        <h1 className={classes.title + ' s-text-56'}>lesson.title</h1>
+          />} */}
+        <h1 className={classes.title}>lesson.title</h1>
         <Article blocks={props.blocks}/>
         <TheoryFooter
           onNext={() => {
@@ -85,44 +85,44 @@ function LessonContent(props: IProps) {
   );
 }
 
-interface IUpploadProps {
-  courseId: string
-  lessonId: string
-  homework?: IHomeworkDataWPopulate
-  scrollToUpload: () => void
-  canShowResults: boolean
-}
+// interface IUpploadProps {
+//   courseId: string
+//   lessonId: string
+//   homework?: IHomeworkDataWPopulate
+//   scrollToUpload: () => void
+//   canShowResults: boolean
+// }
 
-function Uppload(props: IUpploadProps) {
-  const { courseId, lessonId, homework } = props;
-  return (
-    <Fragment>
-      {homework && homework.homework.state !== 'DRAFT' && (!props.canShowResults || homework.populate?.user?.role === 'support') && (
-        <div className={classes.myWorkLinkWrapper}>
-          <h3 className={classes.myWorkLinkTitle + ' s-text-28'}>{t('myWorkLinkTitle')}</h3>
-          <div className={classes.myWorkLinkGroup}>
-            <Link
-              className={classes.myWorkLink + ' s-text-18 key-link'}
-              to={URLSections.Course.Lesson.MyWork.to({ courseId, lessonId })}
-            >
-              {homework.populate?.user?.displayName}
-            </Link>
-            {(
-              <button
-                className={classes.edit}
-                onClick={() =>
-                  homeworkService.patchHomework(homework.homework.id, { state: 'DRAFT' })
-                    .then(() => props.scrollToUpload())
-                }
-              >
-                <div className={classes.editImg}>
-                  <Edit/>
-                </div>
-              </button>
-            )}
-          </div>
-        </div>
-      )}
-    </Fragment>
-  );
-}
+// function Uppload(props: IUpploadProps) {
+//   const { courseId, lessonId, homework } = props;
+//   return (
+//     <Fragment>
+//       {homework && homework.homework.state !== 'DRAFT' && (!props.canShowResults || homework.populate?.user?.role === 'support') && (
+//         <div className={classes.myWorkLinkWrapper}>
+//           <h3 className={classes.myWorkLinkTitle}>{t('myWorkLinkTitle')}</h3>
+//           <div className={classes.myWorkLinkGroup}>
+//             <Link
+//               className={classes.myWorkLink}
+//               to={URLSections.Course.Lesson.MyWork.to({ courseId, lessonId })}
+//             >
+//               {homework.populate?.user?.displayName}
+//             </Link>
+//             {(
+//               <button
+//                 className={classes.edit}
+//                 onClick={() =>
+//                   homeworkService.patchHomework(homework.homework.id, { state: 'DRAFT' })
+//                     .then(() => props.scrollToUpload())
+//                 }
+//               >
+//                 <div className={classes.editImg}>
+//                   <Edit/>
+//                 </div>
+//               </button>
+//             )}
+//           </div>
+//         </div>
+//       )}
+//     </Fragment>
+//   );
+// }

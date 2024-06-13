@@ -117,6 +117,8 @@ $color-content-secondary: $color-palette-black-500-a;
 $color-content-tertiary: $color-palette-black-300-a;
 $color-content-background-primary: $color-palette-black-900;
 $color-content-background-secondary: $color-palette-black-700;
+$color-content-paragraph-primary: $color-palette-black-700;
+$color-content-paragraph-secondary: $color-palette-black-800-a;
 
 //theme-dark
 // $color-accent-error: #f22a2a;
@@ -141,12 +143,12 @@ $color-content-background-secondary: $color-palette-black-700;
 // $color-content-tertiary: $color-palette-white-300-a;
 // $color-content-background-primary: $color-palette-black-300;
 // $color-content-background-secondary: $color-palette-black-500;
+// $color-content-paragraph-primary: $color-palette-black-500;
+// $color-content-paragraph-secondary: $color-palette-white-500-a;
 
 //links
-$link: rgba(0, 0, 0, 0.75);
-$link-underline: rgba(0, 0, 0, 0.09);
-$link-visited: rgba(0, 0, 0, 0.75);
-$link-visited-underline: rgba(0, 0, 0, 0.09);
+$link: $color-content-primary;
+$link-visited: $color-content-secondary;
 
 $breakpoints: (
   xxs: 319.98px,

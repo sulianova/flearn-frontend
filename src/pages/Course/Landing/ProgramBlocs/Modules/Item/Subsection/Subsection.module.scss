@@ -36,10 +36,10 @@
 
 .subsectionDescription {
   @include font-18-normal-paragraph;
-  color: $color-content-background-secondary;
+  color: $color-content-paragraph-primary;
 
   @include set-media(md) {
-    color: $color-content-secondary;
+    color: $color-content-paragraph-secondary;
   }
 }
 
@@ -56,7 +56,6 @@
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  font-feature-settings: 'pnum' on, 'lnum' on;
 }
 
 .hiddenButton {

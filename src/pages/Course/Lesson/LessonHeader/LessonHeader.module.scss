@@ -18,6 +18,8 @@
   justify-content: center;
   flex: 0 1 auto;
   box-sizing: border-box;
+
+  @include font-20-normal-paragraph;
   color: $color-content-secondary;
 
   width: 50%;
