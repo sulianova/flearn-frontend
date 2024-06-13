@@ -56,13 +56,13 @@ function File(props: IProps) {
         {fileType === 'pdf' && (
           <div className={classes.defaultPreview}>
             <Image/>
-            <div className={classes.errorDescription + ' s-text-14'}>PDF</div>
+            <div className={classes.errorDescription}>PDF</div>
           </div>
         )}
         {fileType === 'unknown' && (
           <div className={classes.defaultPreview}>
             <Image/>
-            <div className={classes.errorDescription + ' s-text-14'}>Неверный тип файла</div>
+            <div className={classes.errorDescription}>Неверный тип файла</div>
           </div>
         )}
         <div className={classes.overlay}/>

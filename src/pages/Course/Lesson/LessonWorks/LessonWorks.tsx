@@ -4,14 +4,13 @@ import type { Subscription } from 'rxjs';
 
 import { homeworkService } from 'services';
 import { userService } from 'services/user.service';
+import useFetchHomework from '../useFetchHomework';
 import { formatI18nT } from 'shared';
 
 import EditBar from 'ui/EditBar/EditBar';
 
-import LessonReview from './LessonReview/LessonReview';
-import LessonWork from './LessonWork/LessonWork';
+import LessonUppload from '../LessonUppload/LessonUppload';
 import WorkCard from './WorkCard/WorkCard';
-import NoOwnWorkPlaceholder from './WorkCard/NoOwnWorkPlaceholder';
 
 import useFilter from '../useFilter';
 
@@ -35,6 +34,7 @@ function LessonWorks() {
   const [homeworksState, setHomeworksState] = useState<THomeworkStateState>({ type: 'idle' });
   const authedUserHomework = useMemo(() => homeworks?.find(h => h.homework.userId === authedUserId), [authedUserId, homeworks]);
   const otherStudentsHomeworks = useMemo(() => homeworks?.filter(h => h.homework.userId !== authedUserId), [authedUserId, homeworks]);
+  const { homework, homeworkState } = useFetchHomework({ courseId, lessonId, userId: authedUserId });
 
   const filteredOtherStudentsHomeworks = useMemo(() => {
     if (!otherStudentsHomeworks) {
@@ -98,21 +98,19 @@ function LessonWorks() {
       {authedUser?.role === 'support' && (
         <>
           <button
-            className={classes.backBtn + ' s-text-21-uppercase inline-link'}
+            className={classes.backBtn + ' inline-link'}
             onClick={() => homeworkService.patchHomework(selectedHomework.homework.id, { state: 'REVIEWED' })}
           >
             MAKE REVIEWED
           </button>
           <button
-            className={classes.backBtn + ' s-text-21-uppercase inline-link'}
+            className={classes.backBtn + ' inline-link'}
             onClick={() => homeworkService.patchHomework(selectedHomework.homework.id, { state: 'SENT_FOR_REVIEW' })}
           >
             MAKE SENT_FOR_REVIEW
           </button>
         </>
       )}
-      <LessonWork homework={selectedHomework}/>
-      <LessonReview homework={selectedHomework}/>
       {authedUser?.role === 'support' && (
         <EditBar
           source={source}
@@ -129,7 +127,7 @@ function LessonWorks() {
     showMore = (
       <div className={classes.showMoreLess}>
         <button
-          className={classes.showMoreLessBtn + ' s-text-21-uppercase inline-link'}
+          className={classes.showMoreLessBtn + ' inline-link'}
           onClick={() => patchFilter({ limit: null })}
         >
           <span className='inline-link-text'>{t('showMoreBtn')}</span>
@@ -161,41 +159,27 @@ function LessonWorks() {
       {authedUser?.role === 'support' && (
         <>
           <button
-            className={classes.backBtn + ' s-text-21-uppercase inline-link'}
+            className={classes.backBtn + 'inline-link'}
             onClick={() => patchFilter({ homeworkState: 'SENT_FOR_REVIEW' })}
           >
             SENT_FOR_REVIEW
           </button>
           <button
-            className={classes.backBtn + ' s-text-21-uppercase inline-link'}
+            className={classes.backBtn + 'inline-link'}
             onClick={() => patchFilter({ homeworkState: 'REVIEWED' })}
           >
             REVIEWED
           </button>
         </>
       )}
-      <div className={classes.wrapper}>
-        <div className={classes.own}>
-          <div className={classes.ownTitle + ' s-text-36'}>{t('ownTitle')}</div>
-            <div className={classes.ownWork}>
-              {
-                authedUserHomework && authedUserHomework.homework.state === 'REVIEWED'
-                  ? <WorkCard homework={authedUserHomework}/>
-                  : <NoOwnWorkPlaceholder authedUser={authedUser}/>
-              }
-            </div>
-          </div>
-          <div className={classes.list}>
-            <div className={classes.listTitle + ' s-text-36'}>
-              {t(`listTitle.noWorks.${noWorks}`)}
-            </div>
-            <div className={classes.listInner}>
-              {renderWorkCards(filteredOtherStudentsHomeworks!)}
-            </div>
-            {showMore}
-            {showLess}
-          </div>
-      </div>
+      {/* <div className={classes.wrapper}>
+          <LessonUppload
+            homeworkWPopulate={homework}
+          />
+      </div> */}
+      {renderWorkCards(filteredOtherStudentsHomeworks!)}
+      {showMore}
+      {showLess}
     </div>
   );
 }

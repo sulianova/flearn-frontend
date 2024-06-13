@@ -28,7 +28,7 @@ function Explain({ explainMedia }: IProps) {
       <div className={classes.cards}>
         <div className={classes.introCard}>
             <div className={classes.introCardQuote}>{t('introCardQuote0')}</div>
-            <div className={classes.introCardQuote + ' color-content-inverted-secondary'}>{t('introCardQuote')}</div>
+            <div className={classes.introCardQuote + ' color-background-glassy-c'}>{t('introCardQuote')}</div>
         </div>
         <div className={classes.videoCard}>
           <div className={classes.videoCardContainer}>

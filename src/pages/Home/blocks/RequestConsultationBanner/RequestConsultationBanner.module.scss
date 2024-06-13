@@ -31,6 +31,7 @@
   color: $color-content-primary;
   margin-bottom: set-calc(16);
 
+  @include font-56-normal-header;
   text-align: center;
 
   @include set-media(md) {
@@ -39,7 +40,8 @@
 }
 
 .contentDescription {
-  color: $color-content-tertiary;
+  @include font-21-normal-paragraph;
+  color: $color-content-paragraph-primary;
   text-align: center;
 
   @include set-media(md) {
@@ -66,21 +68,22 @@
 .button {
   position: relative;
 
-  cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  
-  border-radius: set-calc($border-radius-10);
-  transition: opacity $d-hover ease, box-shadow $d-hover ease, background-color $d-hover ease;
-  background-color: $color-content-background-secondary;
-  color: $color-content-inverted-primary;
-  white-space: nowrap;
-  padding: set-calc(0) set-calc(48);
+
   width: max-content;
   height: set-calc(52);
+  
+  padding: set-calc(0) set-calc(48);
+  border-radius: set-calc($border-radius-10);
+  background-color: $color-content-background-secondary;
+  transition: opacity $d-hover ease, box-shadow $d-hover ease, background-color $d-hover ease;
+  cursor: pointer;
 
-  opacity: 1;
+  @include font-21-normal-ui;
+  color: $color-content-inverted-primary;
+  white-space: nowrap;
 
   @include set-media(md) {
     height: set-calc(48);

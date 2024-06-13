@@ -16,7 +16,7 @@ export default function Header() {
         </div>
           <div className={classes.actions}>
               <a
-                className={classes.actionsBtn + ' s-text-21'}
+                className={classes.actionsBtn}
                 href='#decision-form'
                 // onClick={() => analyticsService.logEvent({
                 //     type: EAnalyticsEvent.ButtonClicked,

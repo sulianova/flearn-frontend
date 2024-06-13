@@ -20,7 +20,7 @@ function Textarea(props: Readonly<IProps>) {
     <div className={classes._}>
       <div className={classes.content}>
         <label className='s-text-18'>{t('contentTextareaLabel')}</label>
-        <div className={classes.contentInner + ' s-text-18'}>
+        <div className={classes.contentInner}>
           <UITextarea
               value={props.value}
               onChange={e => props.onChange(e.target.value)}

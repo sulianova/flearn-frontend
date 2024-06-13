@@ -30,9 +30,9 @@ export default function Catalogue() {
   return (
     <>
       {/* <div className={classes.promo}>
-        <div className={classes.title + ' s-text-40'}>Как это — быть иллюстратором. Бесплатный курс, чтобы попробовать</div>
+        <div className={classes.title}>Как это — быть иллюстратором. Бесплатный курс, чтобы попробовать</div>
         <div className={classes.btnWrapper}>
-          <div className={classes.btn + ' s-text-18'}>Сделать первый шаг</div>
+          <div className={classes.btn}>Сделать первый шаг</div>
         </div>
       </div> */}
       <div className={classes.wrapper}>

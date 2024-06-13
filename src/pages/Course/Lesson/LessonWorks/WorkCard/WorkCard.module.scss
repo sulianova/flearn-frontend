@@ -28,6 +28,7 @@
 
 .emptyPreviewDescription {
   padding-top: set-calc(16);
+  @include font-14-normal-ui;
   text-align: center;
   color: $color-content-secondary;
 }
@@ -91,6 +92,7 @@
 .userName {
   overflow: hidden;
 
+  @include font-16-normal-paragraph;
   white-space: nowrap;
   text-overflow: ellipsis;
 }

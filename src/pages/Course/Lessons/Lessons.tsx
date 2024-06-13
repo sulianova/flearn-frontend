@@ -197,23 +197,23 @@ export default function Lessons() {
     <>
       <Page variant={EPageVariant.LMS} header footer>
         <div className={classes.profilePage}>
-          <div className={classes.title + ' s-text-28'}>{courseState.course.title}</div>
+          <div className={classes.title}>{courseState.course.title}</div>
           <div className={classes.profilePageContent}>
             {firstNotLearnedLesson ? (
               <div className={classes.currentLesson}>
                 <div className={classes.currentLessonWrapper}>
                   <div className={classes.currentLessonReminder}>
-                    <div className={classes.currentLessonSubtitle + ' s-text-18'}>
+                    <div className={classes.currentLessonSubtitle}>
                       <div className={classes.currentLessonSubtitleIndex}>{firstNotLearnedLesson.orderInTopic}.</div>
                       <span>{firstNotLearnedLesson.title}</span>
                     </div>
-                    <div className={classes.currentLessonTitle + ' s-text-28'}>
+                    <div className={classes.currentLessonTitle}>
                       {firstNotLearnedLesson.topic}
                     </div>
                     <div className={classes.currentLessonDetails}></div>
                     <div>
                       <Link
-                        className={classes.currentLessonButton + ' s-text-18'}
+                        className={classes.currentLessonButton}
                         to={URLSections.Course.Lesson.to({ courseId: courseState.course.id, lessonId: firstNotLearnedLesson.id })}
                       >
                         Учиться
@@ -226,7 +226,7 @@ export default function Lessons() {
               <div>Реклама</div>
             )}
             <div className={classes.program}>
-              <div className={classes.programTitle + ' s-text-28'}>Доступно сейчас и бесплатно</div>
+              <div className={classes.programTitle}>Доступно сейчас и бесплатно</div>
                 <div className={classesList.wrapper}>
                     {freeGroupes.map((group, index) => {
                       const totalDurationMinutes = group.lessons.reduce((acc, l) => acc + durationToMinutes(l.duration), 0);
@@ -237,15 +237,15 @@ export default function Lessons() {
                             <div className={classesList.itemBody}>
                               <div className={classesList.itemBodyContainer}>
                                 <div className={classesList.titleContainer}>
-                                  <h2 className={classesList.title + ' s-text-28'}>
+                                  <h2 className={classesList.title}>
                                     {group.topic}
                                   </h2>
                                 </div>
                               </div>
                               <div className={classesList.info}>
                                 <div className={classesList.infoMain}>
-                                  <span className={classesList.infoItem + ' s-text-16'}>{`${group.lessons.length} урока`}</span>
-                                  <span className={classesList.infoItem + ' s-text-16'}>{`≈ ${Math.round(totalDurationMinutes / 6) / 10} ч  `}</span>
+                                  <span className={classesList.infoItem}>{`${group.lessons.length} урока`}</span>
+                                  <span className={classesList.infoItem}>{`≈ ${Math.round(totalDurationMinutes / 6) / 10} ч  `}</span>
                                 </div>
                               </div>
                             </div>
@@ -256,7 +256,7 @@ export default function Lessons() {
                 </div>
             </div>
             <div className={classes.program}>
-              <div className={classes.programTitle + ' s-text-28'}>Будет доступно после оплаты</div>
+              <div className={classes.programTitle}>Будет доступно после оплаты</div>
                 <div className={classesList.wrapper}>
                     {payableGroupes.map((group, index) => {
                       const totalDurationMinutes = group.lessons.reduce((acc, l) => acc + durationToMinutes(l.duration), 0);
@@ -267,15 +267,15 @@ export default function Lessons() {
                             <div className={classesList.itemBody}>
                               <div className={classesList.itemBodyContainer}>
                                 <div className={classesList.titleContainer}>
-                                  <h2 className={classesList.title + ' s-text-28'}>
+                                  <h2 className={classesList.title}>
                                     {group.topic}
                                   </h2>
                                 </div>
                               </div>
                               <div className={classesList.info}>
                                 <div className={classesList.infoMain}>
-                                  <span className={classesList.infoItem + ' s-text-16'}>{`${group.lessons.length} урока`}</span>
-                                  <span className={classesList.infoItem + ' s-text-16'}>{`≈ ${Math.round(totalDurationMinutes / 6) / 10} ч  `}</span>
+                                  <span className={classesList.infoItem}>{`${group.lessons.length} урока`}</span>
+                                  <span className={classesList.infoItem}>{`≈ ${Math.round(totalDurationMinutes / 6) / 10} ч  `}</span>
                                 </div>
                               </div>
                             </div>

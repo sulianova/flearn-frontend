@@ -8,11 +8,5 @@
   }
 }
 .title {
-  @include set-typography(70, 70, 500);
-  font-family: $font-family-compact;
-  letter-spacing: set-calc(-1);
-
-  @include set-media(md) {
-    @include set-typography(36, 36, 500);
-  }
+  @include font-70-normal-header;
 }

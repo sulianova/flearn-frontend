@@ -39,6 +39,8 @@
   gap: set-calc(8);
   border-radius: set-calc(8);
   background-color: $color-accent-neutral;
+
+  @include font-18-normal-ui;
   color: $color-content-inverted-primary;
 
   transition-property: background-color, border-color, box-shadow, color, transform;

@@ -16,7 +16,7 @@
 
 .title {
   margin: 0 set-calc(16);
-  @include set-typography(24, 28, 500);
+  @include font-28-normal-header;
 
   @include set-media(md) {
     margin: 0 set-calc(8);
@@ -41,6 +41,8 @@
 
 .programTitle {
   margin: 0 0 set-calc(24);
+
+  @include font-28-normal-header;
   color: $color-content-primary;
 
   @include set-media(md) {
@@ -81,6 +83,9 @@
   display: inline-flex;
   margin-bottom: set-calc(16);
 
+  @include font-18-normal-ui;
+  color: $color-content-paragraph-primary;
+
   span {
     font-size: inherit;
     line-height: inherit;
@@ -99,6 +104,8 @@
 
 .currentLessonTitle {
   margin-bottom: set-calc(16);
+
+  @include font-28-normal-header;
 }
 
 .currentLessonDetails {
@@ -108,24 +115,28 @@
 }
 
 .currentLessonButton {
-  padding-block: set-calc(15);
-  padding-inline: set-calc(24);
-  border-radius: set-calc(6);
-  gap: set-calc(8);
-  min-width: set-calc(180);
-
-  border: none;
   position: relative;
-  transition-property: background-color, border-color, box-shadow, color, transform;
-  transition-duration: 0.15s;
-  transition-timing-function: ease-out;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: set-calc(8);
+  min-width: set-calc(180);
+
+  padding-block: set-calc(15);
+  padding-inline: set-calc(24);
+
+  transition-property: background-color, border-color, box-shadow, color, transform;
+  transition-duration: 0.15s;
+  transition-timing-function: ease-out;
+
+  @include font-18-normal-ui;
+  color: $color-content-inverted-primary;
   text-decoration: none;
 
+  border-radius: set-calc(6);
   background-color: $color-accent-neutral;
-  color: $color-content-inverted-primary;
+  border: none;
 }
 
 .currentLessonButton:hover {

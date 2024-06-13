@@ -32,22 +32,16 @@ function Footer({ type =  EFooter.Default }: IProps) {
         type === EFooter.Big && (
           <div className={cx({ row: true, card: true })}>
             <div className={cx({ logo: true, col: true })}>
-                <div className={classes.logoLong + ' s-text-18'}>{i18n.t('logoLong')}</div>
-            </div>
-            <div className={cx({ nav: true, col: true })}>
-                {/* <Link to={URLSections.Catalogue.index} className={classes.colItem + ' s-text-18 link'} target='_blank'>{t('referencesCatalogue')}</Link>
-                <Link to={URLSections.FreeZone.index} className={classes.colItem + ' s-text-18 link'} target='_blank'>{t('referencesBooks')}</Link>
-                <Link to={URLSections.FreeZone.index} className={classes.colItem + ' s-text-18 link'} target='_blank'>{t('referencesFreeZone')}</Link>
-                <Link to={URLSections.FreeZone.index} className={classes.colItem + ' s-text-18 link'} target='_blank'>{t('referencesReviews')}</Link> */}
+                <div className={classes.logoLong}>{i18n.t('logoLong')}</div>
             </div>
             <div className={cx({ creator: true, col: true })}>
               <Link to={t('creatorDesign.link')}  target='_blank'>
-                <span className='s-text-16'>{t('creatorDesign.title')}</span>
-                <span className={classes.creatorName + ' s-text-18-uppercase inline-link'}>{t('creatorDesign.name')}</span>
+                <span className={classes.creatorTitle}>{t('creatorDesign.title')}</span>
+                <span className={classes.creatorName + ' inline-link'}>{t('creatorDesign.name')}</span>
               </Link>
               <Link to={t('creatorFrontend.link')} target='_blank'>
-                <span className='s-text-16'>{t('creatorFrontend.title')}</span>
-                <span className={classes.creatorName + ' s-text-18-uppercase inline-link'}>{t('creatorFrontend.name')}</span>
+                <span className={classes.creatorTitle}>{t('creatorFrontend.title')}</span>
+                <span className={classes.creatorName + ' inline-link'}>{t('creatorFrontend.name')}</span>
               </Link>
             </div>
         </div>
@@ -55,20 +49,20 @@ function Footer({ type =  EFooter.Default }: IProps) {
       }
       <div className={cx({ row: true, card: false })}>
         <div className={cx({ copyright: true, col: true })}>
-          <p className={classes.colItem + ' s-text-16'}>{t('copyright')}</p>
+          <p className={classes.colItem}>{t('copyright')}</p>
         </div>
         <div className={cx({ contacts: true, col: true })}>
-          <Link to={t('emailTo')} className={'s-text-16 key-link'} target='_blank'>{t('email')}</Link>
-          <p className={'s-text-16'}>{t('emailComment')}</p>
+          <Link to={t('emailTo')} className={classes.colItem + ' key-link'} target='_blank'>{t('email')}</Link>
+          <p className={classes.colItem}>{t('emailComment')}</p>
         </div>
         <div className={cx({ documents: true, col: true })}>
-          <Link to={URLSections.Static.Policy.index} className={'s-text-16 nav-link'} target='_blank'>{t('documentsPrivacyPolicy.title')}</Link>
-          <Link to={URLSections.Static.Oferta.index} className={'s-text-16 nav-link'} target='_blank'>{t('documentsTermsOfUse.title')}</Link>
+          <Link to={URLSections.Static.Policy.index} className={classes.colItem + ' nav-link'} target='_blank'>{t('documentsPrivacyPolicy.title')}</Link>
+          <Link to={URLSections.Static.Oferta.index} className={classes.colItem + ' nav-link'} target='_blank'>{t('documentsTermsOfUse.title')}</Link>
         </div>
         <div className={cx({ social: true, col: false })}>
-          {/* <div className={classes.socialLink}>
+          <div className={classes.socialLink}>
             <Link to={t('socialInstagram.link')} target='_blank'>{<Instagram/>}</Link>
-          </div> */}
+          </div>
           <div className={classes.socialLink}>
             <Link to={t('socialTiktok.link')} target='_blank'>{<Tiktok/>}</Link>
           </div>

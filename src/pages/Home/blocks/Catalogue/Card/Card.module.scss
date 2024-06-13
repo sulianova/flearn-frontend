@@ -85,10 +85,14 @@
   padding: set-calc(2) set-calc($padding-x-mob-page);
   width: fit-content;
   z-index: 1;
-  color: $color-content-inverted-primary;
 
   border-radius: set-calc($border-radius-large);
   background-color: $color-palette-white-300-a;
+}
+
+.infoDate {
+  @include font-18-normal-ui;
+  color: $color-content-inverted-primary;
 }
 
 .title {
@@ -100,10 +104,11 @@
   }
 }
 
-
 .description {
   padding-right: set-calc(16);
   z-index: 1;
+
+  @include font-18-normal-paragraph;
 
   @include set-media(md) {
     margin-bottom: set-calc(32);

@@ -51,7 +51,7 @@ function WorkCard({ homework }: IProps) {
           <div className={classes.userImage}>
             <User/>
           </div>
-          <div className={classes.userName + ' s-text-16'}>{user?.displayName}</div>
+          <div className={classes.userName}>{user?.displayName}</div>
         </div>
       </div>
   );

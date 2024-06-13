@@ -112,8 +112,9 @@
 
 
   color: $color-content-inverted-primary;
+  @include font-16-normal-ui;
 
-  background: $color-accent-neutral;
+  background: $color-content-background-secondary;
   border-radius: set-calc($border-radius-8);
   cursor: pointer;
 
@@ -127,7 +128,7 @@
 }
 
 .submitBtn:hover {
-  background-color: $color-accent-neutral-hover;
+  background-color: $color-content-background-primary;
 }
 
 .isDisabled {
@@ -224,7 +225,7 @@
 
   border-radius: set-calc(100);
   background-color: $color-palette-black-200;
-  color: $color-content-primary;
+  color: $color-palette-black-900;
   white-space: nowrap;
 
   @include font-16-normal-ui;
@@ -269,8 +270,8 @@
   height: set-calc(32);
   border-radius: 50%;
 
-  color: $color-palette-black-200;
-  background-color:  $color-palette-black-200-a;
+  color: $color-palette-black-900;
+  background-color:  $color-palette-black-200;
 
   svg {
     width: set-calc(32);
@@ -293,6 +294,7 @@
   }
 
   .finishIcon {
-    color: $primary-color;
+    color: $color-palette-white-1000;
+    background-color: $primary-color;
   }
  }

@@ -20,7 +20,7 @@ export default function Card({ course }: Readonly<IProps>) {
       <div className={classes.content}>
       <div className={classes.contentWrapper}>
         <div className={classes.info}>
-          <div className={classes.infoDate + ' s-text-18'}>
+          <div className={classes.infoDate}>
             {i18n.t('catalogue.card.info', {
             startDate: formatDate(course.startDate, { timeZone: 'Europe/Moscow' }),
             endDate: formatDate(course.endDate, { timeZone: 'Europe/Moscow' }),
@@ -29,16 +29,8 @@ export default function Card({ course }: Readonly<IProps>) {
           </div>
         </div>
         <h3 className={classes.title + ' s-text-40'}>{course.title}</h3>
-        {/* <div className={classes.description + ' s-text-18'}>{course.introDescription}</div> */}
+        {/* <div className={classes.description}>{course.introDescription}</div> */}
       </div>
-      {/* <div className={classes.actions}>
-        <Link
-          className={classes.actionsBtn + ' s-text-21'}
-          to={URLSections.Course.to({ courseId: course.id })}
-        >
-          {i18n.t('signUp')}
-        </Link>
-      </div> */}
       </div>
       <div className={classes.background}></div>
       {/* <div className={classes.preview}>

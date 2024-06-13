@@ -22,7 +22,6 @@ export default function MyRouter() {
         <Route element={<ProtectedRoute />}>
           <Route path={URLSections.Course.Lessons.index} element={<Lessons />} />
           <Route path={URLSections.Course.Lesson.index} element={<Lesson section='task'/>} />
-          <Route path={URLSections.Course.Lesson.MyWork.index} element={<Lesson section='my-work'/>} />
           <Route path={URLSections.Course.Lesson.Results.index} element={<Lesson section='results'/>} />
         </Route>
         <Route path={URLSections.Static.Oferta.index} element={<Oferta />}/>

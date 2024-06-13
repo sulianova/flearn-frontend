@@ -28,11 +28,9 @@ const MAX_IMAGE_SIZE_B = 3 * 1_000_000;
 
 interface IProps {
   homeworkWPopulate: IHomeworkDataWPopulate
-  scroll: boolean
-  onScrollEnd: () => void
 }
 
-function LessonUppload({ homeworkWPopulate, scroll, onScrollEnd }: IProps) {
+function LessonUppload({ homeworkWPopulate }: IProps) {
   const { courseId, lessonId } = useParams() as { courseId: string, lessonId: string };
   const [state, dispatch] = useReducer(reducer, homeworkWPopulate.homework, initState);
   const [fileInputKey, resetFileInput] = useReducer((key: number) => key + 1, 0);
@@ -40,13 +38,13 @@ function LessonUppload({ homeworkWPopulate, scroll, onScrollEnd }: IProps) {
   const ref = useRef<HTMLDivElement>(null);
   const authedUser = userService.useAuthedUser();
 
-  const formIsShown = authedUser && homeworkWPopulate.homework.state === 'DRAFT';
-  useEffect(() => {
-    if (formIsShown && ref.current && scroll) {
-        ref.current.scrollIntoView({ behavior: 'smooth' });
-        onScrollEnd();
-    }
-  }, [scroll, onScrollEnd, formIsShown]);
+  // const formIsShown = authedUser && homeworkWPopulate.homework.state === 'DRAFT';
+  // useEffect(() => {
+  //   if (formIsShown && ref.current && scroll) {
+  //       ref.current.scrollIntoView({ behavior: 'smooth' });
+  //       onScrollEnd();
+  //   }
+  // }, [scroll, onScrollEnd, formIsShown]);
 
   const onCaptionError = useCallback((imageData: IHomeworkImageData, error: Error) => {
     errorService.addError(String(error));
@@ -77,13 +75,36 @@ function LessonUppload({ homeworkWPopulate, scroll, onScrollEnd }: IProps) {
       <div className={classes.wrapper}>
         <div className={classes.title}>{t('fieldsTitle')}</div>
         {/* <div className={classes.title}>Ccылка на ваше задание</div> */}
-        <Link 
+        {/* <Link 
           to={'https://www.behance.net/sofiulianova'}
           target='_blank'
           className={classes.link + ' key-link'}
         >
           https://www.behance.net/sofiulianova
-        </Link>
+        </Link> */}
+        <div className={classes.linkForm}>
+          <Input
+            value={state.externalHomeworkLink}
+            onChange={externalHomeworkLink => {
+              dispatch({ type: 'PATCH_STATE', payload: { externalHomeworkLink } });
+              handleSaveDescriptionAndLink({ id: state.id, description: state.description, externalHomeworkLink });
+            }}
+          />
+          {errors.map(error => (<div className={classes.error} key={error.id}>{error.error}</div>))}
+          <div className={classes.submit}>
+            <button
+              onClick={() => handleSubmit(state)}
+              className={cx({submitBtn: true, isDisabled: isDisabled(state) })}
+              disabled={isDisabled(state)}
+            >
+              {
+                state.formState.type === 'pending' ? <Spinner/>
+                : state.formState.type === 'success' ? 'Отправлено'
+                : t('submitBtn')
+              }
+            </button>
+          </div>
+        </div>
         <div className={classes.statusProgress}>
           <div className={cx({ statusProgressStep: true, active: true })}>
             <div className={classes.statusProgressStepLine}></div>

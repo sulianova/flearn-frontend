@@ -84,17 +84,20 @@
 
 .actionsBtn {
   position: relative;
+  
   display: flex;
   align-items: center;
   justify-content: center;
 
+  padding: 0 set-calc(32);
   border-radius: set-calc($border-radius-small);
   transition: background-color $d-hover ease, color $d-hover ease, box-shadow $d-hover ease;
   background-color: $color-content-background-secondary;
-  color: $color-content-inverted-primary;
-  height: set-calc(52);
 
-  padding: 0 set-calc(32);
+  @include font-21-normal-ui;
+  color: $color-content-inverted-primary;
+
+  height: set-calc(52);
   width: 100%;
 
   @include set-media(md) {

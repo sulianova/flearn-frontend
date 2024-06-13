@@ -17,11 +17,10 @@ import useInitHomework from './useInitHomework';
 import useLessonFallback from './useLessonFallback';
 
 import { ECommonErrorTypes } from 'types';
-import MyWork from './MyWork/MyWork';
 import { ILessonData, TLessonState, lessonService } from 'services/lesson.service';
 
 interface IProps {
-  section: 'task' | 'results' | 'my-work'
+  section: 'task' | 'results'
 }
 
 export default function Lesson({ section }: IProps) {
@@ -109,10 +108,6 @@ export default function Lesson({ section }: IProps) {
     return resultsFallback;
   }
 
-  if (section === 'my-work' && !homework) {
-    return homeworkFallback;
-  }
-
   return (
     <Page
       variant={EPageVariant.LMS}
@@ -141,12 +136,9 @@ export default function Lesson({ section }: IProps) {
         {section === 'task' && homework?.homework?.state === 'DRAFT' &&
           <LessonUppload
             homeworkWPopulate={homework}
-            scroll={scrollToUpload}
-            onScrollEnd={() => setScrollToUpload(false)}
           />
         }
         {section === 'results' && canShowResults && <LessonWorks/>}
-        {section === 'my-work' && <MyWork homework={homework!}/>}
       </div>
     </Page>
   );

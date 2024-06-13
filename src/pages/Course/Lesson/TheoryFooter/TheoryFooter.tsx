@@ -11,7 +11,7 @@ function TheoryFooter(props: IProps) {
     <div className={classes.__}>
       <div className={classes.buttons}>
         <div className={classes.nextLesson}>
-          <button className={classes.button + ' s-text-18'} onClick={props.onNext}>К следующему уроку</button>
+          <button className={classes.button} onClick={props.onNext}>К следующему уроку</button>
         </div>
       </div>
     </div>
