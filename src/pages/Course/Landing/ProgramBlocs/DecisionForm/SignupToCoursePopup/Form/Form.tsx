@@ -14,6 +14,8 @@ import Spinner from 'ui/Spinner/Spinner';
 
 import classes from './Form.module.scss';
 import classesInputField from './InputField.module.scss';
+import { useNavigate } from 'react-router';
+import { URLSections } from 'router';
 
 const cx = classNames.bind(classes);
 const cx2 = classNames.bind(classesInputField);
@@ -33,6 +35,7 @@ interface IProps {
 }
 
 export default function Form({ onOrderCreated, course, option }: IProps) {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState<IFormData>(() => authService.user ? ({ ...initialFormData, email: authService.user.email! }) : initialFormData);
   const [orderIsCreated, setOrderIsCreated] = useState(false);
   const handleSubmit = useCallback((formData: IFormData) => submit({ formData, setFormData, course, option }), [course]);
@@ -46,7 +49,14 @@ export default function Form({ onOrderCreated, course, option }: IProps) {
 
   if (orderIsCreated) {
     return (
-      <button className={classes.btn}>Начать учиться</button>
+      <button
+        className={classes.btn}
+        onClick={() => authService.authenticate()
+          .then(() => navigate(URLSections.Course.Lessons.to({ courseId: course.id })))
+        }
+      >
+        Начать учиться
+      </button>
     );
   }
 
