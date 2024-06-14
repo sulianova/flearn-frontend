@@ -52,6 +52,7 @@ $color-promo-highlight-copper: #ffe6c4;
 $color-promo-highlight-mint: #ccf0d2;
 $color-promo-highlight-sky: #d6e9fd;
 $color-promo-highlight-neon: #ece2fc;
+$color-promo-highlight-green: #21d49e;
 
 //color-palette-blue-a
 $color-palette-blue-50-a: rgba(82,130,255,0.1);
@@ -68,8 +69,10 @@ $color-palette-blue-550: #5282ff;
 $color-palette-blue-600: #4a71d6;
 $color-palette-blue-800: #3f5799;
 
-$primary-color: #5282ff;
-$primary-color-hover: #4a71d6;
+//primary-color
+$primary-color-lighten: $color-palette-blue-100;
+$primary-color: $color-palette-blue-550;
+$primary-color-hover: $color-palette-blue-600;
 
 //LMS
 $color-profession-lighten: #CDD9FF;

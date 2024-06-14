@@ -220,7 +220,7 @@
   
   &:hover {
     cursor: pointer;
-    background-color:  $color-content-secondary;
+    background-color:  $color-content-background-secondary;
   }
 
   @include set-media(md) {

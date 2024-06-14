@@ -1,14 +1,12 @@
 import classNames from 'classnames/bind';
-import { Fragment, useState } from 'react';
+import { useState } from 'react';
 
 import type { ICourseData } from 'services/course.service';
 import { formatI18nT } from 'shared';
 
 import Animated from 'ui/Animated';
-import Image from 'ui/Img/Img';
 import Text from 'ui/Text/Text';
-import Plus from 'assets/images/Svg/Plus';
-import SubsectionArrow from 'assets/images/Svg/SubsectionArrow';
+import Lightning from 'assets/images/Svg/Lightning';
 
 import classes from './Item.module.scss';
 import { useIsMobile } from 'hooks';
@@ -38,7 +36,13 @@ function Item(props: NonNullable<ICourseData['modules']>[number]) {
         {(id, className) => (
           <div className={cx({ itemCard: true }, className)} id={id}>
             <div className={classes.bullet}>2</div>
-            <div className={classes.meta}><Text text={props.meta}/></div>
+            <div className={classes.meta}>
+              <Text text={props.meta}/>
+              <div className={classes.badge}>
+                <Lightning/>
+                Бесплатно
+              </div>
+            </div>
             <div className={classes.title}>
               <Text text={props.title}/>
               <button

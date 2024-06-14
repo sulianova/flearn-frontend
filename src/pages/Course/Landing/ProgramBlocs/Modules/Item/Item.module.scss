@@ -52,9 +52,10 @@
   border-radius: set-calc($border-radius-medium);
   background-color: $color-content-inverted-secondary;
   border: set-calc(1) solid $color-background-default;
+  box-shadow: $shadow-huge-default;
   overflow: hidden;
-  color: $color-content-background-primary;
 
+  color: $color-content-background-primary;
   text-align: left;
 
   @include set-media(md) {
@@ -257,5 +258,41 @@
     right: 0;
     z-index: 1;
     cursor: pointer;
+  }
+}
+
+
+.item:first-child {
+  .itemCard {
+    background-color: $color-promo-highlight-asphalt;
+    border: set-calc(1) solid $color-background-default;
+  }
+
+  .bullet {display: none;}
+}
+
+.badge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: set-calc(4);
+
+  color: $color-accent-promo;
+  @include font-21-normal-ui;
+
+  svg {
+    display: inline-block;
+    text-align: center;
+    background: 50% no-repeat;
+    background-size: contain;
+
+    width: set-calc(24);
+    height: set-calc(24);
+  }
+}
+
+.item:not(:first-child) {
+  .badge  {
+    display: none;
   }
 }
