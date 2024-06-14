@@ -151,14 +151,14 @@
   svg {
     display: block;
     fill: $color-content-background-secondary;
-    height: set-calc(32);
+    height: set-calc(24);
 
     &:hover {
       fill: $primary-color;
     }
 
     @include set-media(md) {
-      height: set-calc(32);
+      height: set-calc(24);
     }
   }
 

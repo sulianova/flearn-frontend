@@ -60,24 +60,24 @@ function Footer({ type =  EFooter.Default }: IProps) {
           <Link to={URLSections.Static.Oferta.index} className={classes.colItem + ' nav-link'} target='_blank'>{t('documentsTermsOfUse.title')}</Link>
         </div>
         <div className={cx({ social: true, col: false })}>
-          <div className={classes.socialLink}>
+          {/* <div className={classes.socialLink}>
             <Link to={t('socialInstagram.link')} target='_blank'>{<Instagram/>}</Link>
+          </div> */}
+          <div className={classes.socialLink}>
+            <Link to={t('socialTelegram.link')} target='_blank'>{<Telegram/>}</Link>
           </div>
           <div className={classes.socialLink}>
             <Link to={t('socialTiktok.link')} target='_blank'>{<Tiktok/>}</Link>
           </div>
           <div className={classes.socialLink}>
-            <Link to={t('socialTelegram.link')} target='_blank'>{<Telegram/>}</Link>
-          </div>
-          <div className={classes.socialLink}>
             <Link to={t('socialVk.link')} target='_blank'>{<Vk/>}</Link>
           </div>
-          <div className={classes.socialLink}>
+          {/* <div className={classes.socialLink}>
             <Link to={t('socialYoutube.link')} target='_blank'>{<Youtube/>}</Link>
           </div>
           <div className={classes.socialLink}>
             <Link to={t('socialDzen.link')} target='_blank'>{<YandexZen/>}</Link>
-          </div>
+          </div> */}
       </div>
       </div>
     </div>
