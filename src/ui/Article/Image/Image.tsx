@@ -7,7 +7,6 @@ import classnames from 'classnames/bind';
 import { useEffect, useState } from 'react';
 import ImageModal, { IImage } from 'ui/ImageModal/ImageModal';
 import { useGuid } from 'hooks';
-import { firebaseService } from 'services';
 const cx = classnames.bind(classes);
 
 export default Image;

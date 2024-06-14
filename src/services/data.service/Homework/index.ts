@@ -1,6 +1,6 @@
 import { v4 } from 'uuid';
 
-import { dataService, firebaseService } from 'services';
+import { firebaseService } from 'services/firebase.service';
 
 import { ECollections, IHomeworkDataDB, type IHomeworkData, ECommonErrorTypes } from 'types';
 import { homeworkConverter } from './homeworkConverter';

@@ -1,4 +1,4 @@
-import { firebaseService, TWhereProps } from 'services';
+import { firebaseService, TWhereProps } from 'services/firebase.service';
 
 import { userConverter } from './userConverter';
 

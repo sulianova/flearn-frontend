@@ -1,11 +1,11 @@
-import { TWhereProps, authService, firebaseService } from 'services';
+import { authService } from 'services/auth.service';
+import { TWhereProps, firebaseService } from 'services/firebase.service';
 import type { ILessonData, ILessonDataDB } from 'services/lesson.service';
 
 import { lessonConverter } from './lessonConverter';
 
 import { ECollections, ECommonErrorTypes } from 'types';
 import { isDefined } from 'utils';
-
 export interface ILessonFilter extends
   Pick<ILessonData, 'courseId'>,
   Partial<Pick<ILessonData, 'id' | 'topic' | 'topicOrder' | 'orderInTopic'>> {}
