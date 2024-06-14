@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 
-import type { ICourseData } from 'services/course.service';
+import type { TCourseStudyProcessItem } from 'services/course.service';
 import { formatI18nT } from 'shared';
 
 import Img from 'ui/Img/Img';
@@ -14,7 +14,7 @@ const cx = classNames.bind(classes);
 const t = formatI18nT('courseLanding.studyProcess');
 
 interface IProps {
-  studyProcess: NonNullable<ICourseData['studyProcess']>
+  studyProcess: TCourseStudyProcessItem[]
 }
 
 function StudyProcess({ studyProcess }: IProps) {

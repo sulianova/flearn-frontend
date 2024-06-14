@@ -14,12 +14,9 @@ type TNativeProps =
     & React.RefAttributes<SVGSVGElement>
     & React.SVGAttributes<SVGSVGElement>;
 
-type TIcon =
-    | keyof typeof icons
-    | React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
-
+export type TIcon = keyof typeof icons;
 interface IPropsWithoutRef extends TNativeProps {
-    icon: TIcon
+    icon: TIcon | React.FunctionComponent<React.SVGProps<SVGSVGElement>>
     rotate?: number
     transition?: ['Flip', boolean]
     sizeVariant?: 'Sm' | 'Md' | 'Lg'

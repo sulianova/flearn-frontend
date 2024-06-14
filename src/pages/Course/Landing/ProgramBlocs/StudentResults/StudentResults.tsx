@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 
-import type { ICourseData } from 'services/course.service';
+import type { ICourseData, TCourseStudentResult } from 'services/course.service';
 import { formatI18nT } from 'shared';
 
 import Image from 'ui/Img/Img';
@@ -14,7 +14,7 @@ const t = formatI18nT('courseLanding.studentsResults');
 const cx = classNames.bind(classes);
 
 interface IProps {
-  studentResults: NonNullable<ICourseData['studentResults']>
+  studentResults: TCourseStudentResult
 }
 
 function StudentResults({ studentResults }: IProps) {

@@ -1,6 +1,6 @@
 import { dateFR2DB } from '../shared';
 
-import type { ICourseData, ICourseDataDB } from 'services/course.service';
+import type { ICourseData, ICourseDataContent, ICourseDataContentDB, ICourseDataDB, ICourseProductOption, ICourseProductOptionDB } from 'services/course.service';
 
 export function courseDataFR2DB(course: ICourseData): ICourseDataDB {
   return {
@@ -10,38 +10,71 @@ export function courseDataFR2DB(course: ICourseData): ICourseDataDB {
     startDate: dateFR2DB(course.startDate),
     endDate: dateFR2DB(course.endDate),
     accessDeadline: dateFR2DB(course.accessDeadline),
-    discontDeadline: course.discontDeadline ? dateFR2DB(course.discontDeadline) : null,
-    modules: courseModulesFR2DB(course.modules),
-    explainMedia: courseExplainMediaFR2DB(course.explainMedia),
-    teacherGallery: courseTeacherGallerysFR2DB(course.teacherGallery),
-    studentResults: studentResultsFR2DB(course.studentResults),
-    studentsWorks: courseStudentsWorksFR2DB(course.studentsWorks),
-    studyProcess: courseStudyProcessFR2DB(course.studyProcess),
+    discount: courseDiscountFR2DB(course.discount),
+    productOptions: courseProductOptionsFR2DB(course.productOptions),
+    content: {
+      ...course.content,
+      explainMedia: courseExplainMediaFR2DB(course.content.explainMedia),
+      teacherGallery: courseTeacherGallerysFR2DB(course.content.teacherGallery),
+      studentResults: courseStudentResultsFR2DB(course.content.studentResults),
+      studentsWorks: courseStudentsWorksFR2DB(course.content.studentsWorks),
+      studyProcess: courseStudyProcessFR2DB(course.content.studyProcess),
+    },
   };
 };
 
-// intro image
 function courseIntoImageFR2DB(introImage: ICourseData['introImage']): ICourseDataDB['introImage'] {
   const { imageSrc, ...restIntroImage } = introImage;
   return restIntroImage;
 }
 
-
-// modules
-function courseModulesFR2DB(modules: ICourseData['modules']): ICourseDataDB['modules'] {
-  if (!modules) {
-    return modules;
+function cardImageFR2DB(cardImage: ICourseData['cardImage']): ICourseDataDB['cardImage'] {
+  if (cardImage && 'imageSrc' in cardImage) {
+    const { imageSrc, ...restStudyProcessItem } = cardImage;
+    return restStudyProcessItem;
   }
 
-  return modules.map(m => courseModuleFR2DB(m));
+  return cardImage;
 }
 
-function courseModuleFR2DB(module: NonNullable<ICourseData['modules']>[number]): NonNullable<ICourseDataDB['modules']>[number] {
-  const { imageSrc, ...restModule } = module;
-  return restModule;
+function courseDiscountFR2DB(discount: ICourseData['discount']): ICourseDataDB['discount'] {
+  if (!discount) {
+    return discount;
+  }
+  const { amountPrc, deadline } = discount;
+  return {
+    amountPrc,
+    ...deadline && { deadline: dateFR2DB(deadline) },
+  }
 }
 
-function courseExplainMediaFR2DB(explainMedia: ICourseData['explainMedia']): ICourseDataDB['explainMedia'] {
+function courseProductOptionsFR2DB(productOptions: ICourseData['productOptions']): ICourseDataDB['productOptions'] {
+  return {
+    BASE: courseProductOptionFR2DB(productOptions.BASE),
+    OPTIMAL: courseProductOptionFR2DB(productOptions.OPTIMAL),
+    ...productOptions.EXTENDED && { EXTENDED: courseProductOptionFR2DB(productOptions.EXTENDED) },
+  };
+
+  function courseProductOptionFR2DB(productOption: ICourseProductOption): ICourseProductOptionDB {
+    const { price, description, discount } = productOption;
+    if (!discount) {
+      return { price, description };
+    }
+
+    const { amountPrc, deadline } = discount;
+    return {
+      price,
+      description,
+      discount: {
+        amountPrc,
+        ...deadline && { deadline: dateFR2DB(deadline) },
+      },
+    };
+  }
+}
+
+// content
+function courseExplainMediaFR2DB(explainMedia: ICourseDataContent['explainMedia']): ICourseDataContentDB['explainMedia'] {
   if (!explainMedia) {
     return explainMedia;
   }
@@ -55,21 +88,16 @@ function courseExplainMediaFR2DB(explainMedia: ICourseData['explainMedia']): ICo
 }
 
 // teacherGallery
-function courseTeacherGallerysFR2DB(teacherGallerys: ICourseData['teacherGallery']): ICourseDataDB['teacherGallery'] {
+function courseTeacherGallerysFR2DB(teacherGallerys: ICourseDataContent['teacherGallery']): ICourseDataContentDB['teacherGallery'] {
   if (!teacherGallerys) {
     return teacherGallerys;
   }
 
-  return teacherGallerys.map(tg => courseTeacherGalleryFR2DB(tg));
-}
-
-function courseTeacherGalleryFR2DB(teacherGallery: NonNullable<ICourseData['teacherGallery']>[number]): NonNullable<ICourseDataDB['teacherGallery']>[number] {
-  const { imageSrc, ...restTeacherGallery } = teacherGallery;
-  return restTeacherGallery;
+  return teacherGallerys.map(({ imageSrc, ...rest }) => rest);
 }
 
 // studentResults
-function studentResultsFR2DB(studentResults: ICourseData['studentResults']): ICourseDataDB['studentResults'] {
+function courseStudentResultsFR2DB(studentResults: ICourseDataContent['studentResults']): ICourseDataContentDB['studentResults'] {
   if (!studentResults) {
     return studentResults;
   }
@@ -79,41 +107,27 @@ function studentResultsFR2DB(studentResults: ICourseData['studentResults']): ICo
 }
 
 // studentsWorks
-function courseStudentsWorksFR2DB(studentsWorks: ICourseData['studentsWorks']): ICourseDataDB['studentsWorks'] {
+function courseStudentsWorksFR2DB(studentsWorks: ICourseDataContent['studentsWorks']): ICourseDataContentDB['studentsWorks'] {
   if (!studentsWorks) {
     return studentsWorks;
   }
 
-  return studentsWorks.map(courseStudentsWorkFR2DB);
-}
-
-function courseStudentsWorkFR2DB(studentsWork: NonNullable<ICourseData['studentsWorks']>[number]): NonNullable<ICourseDataDB['studentsWorks']>[number] {
-  const { imageSrc, ...restStudentWork } = studentsWork;
-  return restStudentWork;
+  return studentsWorks.map(({ imageSrc, ...rest }) => rest);
 }
 
 // studyProcess
-function courseStudyProcessFR2DB(studyProcess: ICourseData['studyProcess']): ICourseDataDB['studyProcess'] {
+function courseStudyProcessFR2DB(studyProcess: ICourseDataContent['studyProcess']): ICourseDataContentDB['studyProcess'] {
   if (!studyProcess) {
     return studyProcess;
   }
-  return studyProcess.map(courseStudyProcessItemFR2DB);
-}
+  return studyProcess.map(itemFR2DB);
 
-function courseStudyProcessItemFR2DB(studyProcessItem: NonNullable<ICourseData['studyProcess']>[number]): NonNullable<ICourseDataDB['studyProcess']>[number] {
-  if ('imageSrc' in studyProcessItem) {
-    const { imageSrc, ...restStudyProcessItem } = studyProcessItem;
-    return restStudyProcessItem;
+  function itemFR2DB(studyProcessItem: NonNullable<ICourseDataContent['studyProcess']>[number]): NonNullable<ICourseDataContentDB['studyProcess']>[number] {
+    if ('imageSrc' in studyProcessItem) {
+      const { imageSrc, ...restStudyProcessItem } = studyProcessItem;
+      return restStudyProcessItem;
+    }
+  
+    return studyProcessItem;
   }
-
-  return studyProcessItem;
-}
-
-function cardImageFR2DB(cardImage: ICourseData['cardImage']): ICourseDataDB['cardImage'] {
-  if (cardImage && 'imageSrc' in cardImage) {
-    const { imageSrc, ...restStudyProcessItem } = cardImage;
-    return restStudyProcessItem;
-  }
-
-  return cardImage;
 }

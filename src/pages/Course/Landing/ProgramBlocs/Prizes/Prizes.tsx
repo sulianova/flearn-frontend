@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import { formatI18nT } from 'shared';
 
-import type { ICourseData } from 'services/course.service';
+import type { ICourseData, ICoursePrize } from 'services/course.service';
 
 import Text from 'ui/Text/Text';
 
@@ -14,7 +14,7 @@ const cx = classNames.bind(classes);
 
 interface IProps {
   type: ICourseData['type']
-  prizes: NonNullable<ICourseData['prizes']>
+  prizes: ICoursePrize[]
 }
 
 function Prizes({ type, prizes }: IProps) {

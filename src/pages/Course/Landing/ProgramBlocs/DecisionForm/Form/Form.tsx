@@ -29,12 +29,13 @@ const initialFormData: IFormData = { email: '', state: { type: 'Idle' } };
 interface IProps {
   onOrderCreated: (props: { email: string }) => void
   course: ICourseData
+  option: keyof ICourseData['productOptions']
 }
 
-export default function Form({ onOrderCreated, course }: IProps) {
+export default function Form({ onOrderCreated, course, option }: IProps) {
   const [formData, setFormData] = useState<IFormData>(() => authService.user ? ({ ...initialFormData, email: authService.user.email! }) : initialFormData);
   const [orderIsCreated, setOrderIsCreated] = useState(false);
-  const handleSubmit = useCallback((formData: IFormData) => submit({ formData, setFormData, course }), [course]);
+  const handleSubmit = useCallback((formData: IFormData) => submit({ formData, setFormData, course, option }), [course]);
 
   useEffect(() => {
     if (formData.state.type === 'Success') {
@@ -104,20 +105,26 @@ async function submit(props: {
   formData: IFormData,
   setFormData: React.Dispatch<React.SetStateAction<IFormData>>,
   course: ICourseData,
+  option: keyof ICourseData['productOptions'],
 }) {
-  const { formData, setFormData, course: courseData } = props;
+  const { formData, setFormData, course, option } = props;
   setFormData(d => ({ ...d, state: { type: 'Pending' } }));
   try {
-    const userData = await userService.getAuthenticatedUser() ?? undefined;
-    const { id: orderId } = await dataService.order.create({ userFromForm: formData, courseData, userData });
+    const { id: orderId } = await dataService.order.create({
+      userFromForm: { email: formData.email },
+      courseData: course,
+      userData: undefined,
+      chosenProductOptionType: option,
+    });
 
-    await dataService.access.add(courseData.id, formData.email, 'FREE');
-    await dataService.userCourseProgress.init(courseData.id, formData.email);
+    await dataService.access.add(course.id, formData.email, 'FREE');
+    await dataService.userCourseProgress.init(course.id, formData.email);
     await emailService.sendEmail({
       type: emailService.EEmail.PaymentMethods,
       to: { email: formData.email },
       orderId,
-      course: courseData,
+      course,
+      chosenProductOption: option,
     });
     setFormData(d => ({ ...d, state: { type: 'Success' } }));
   } catch (e) {

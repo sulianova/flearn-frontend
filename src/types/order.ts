@@ -1,3 +1,4 @@
+import type { ICourseData, ICourseDataDB, ICourseProductOption, ICourseProductOptionDB } from 'services/course.service';
 import type { IUserData, IUserDataDB } from 'services/user.service';
 
 export interface IOrderData {
@@ -5,15 +6,14 @@ export interface IOrderData {
     userFromForm: {
         email: string
     }
+    chosenProductOption: {
+        type: keyof ICourseData['productOptions']
+        option: ICourseProductOption
+    }
     currentAuthedUser: IUserData | null
     course: {
         id: string
-        dataSnapshot: {
-            discontAmount: number
-            discontDeadline: Date | null
-            creditWas: number
-            creditPrice: number
-        }
+        options: ICourseData['productOptions']
     }
     meta: {
         createdAt: Date
@@ -25,15 +25,14 @@ export interface IOrderDataDB {
     userFromForm: {
         email: string
     }
+    chosenProductOption: {
+        type: keyof ICourseDataDB['productOptions']
+        option: ICourseProductOptionDB
+    }
     currentAuthedUser: IUserDataDB | null
     course: {
         id: string
-        dataSnapshot: {
-            discontAmount: number
-            discontDeadline: string | null
-            creditWas: number
-            creditPrice: number
-        }
+        options: ICourseDataDB['productOptions']
     }
     meta: {
         createdAt: string

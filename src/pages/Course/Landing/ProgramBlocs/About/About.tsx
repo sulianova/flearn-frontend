@@ -1,8 +1,4 @@
-import classNames from 'classnames/bind';
-import { Fragment } from 'react';
-
-import type { ICourseData } from 'services/course.service';
-import { formatI18nT } from 'shared';
+import type { ICourseAbout, ICourseData } from 'services/course.service';
 
 import Text from 'ui/Text/Text';
 import Icon from 'ui/Icon/Icon';
@@ -11,31 +7,20 @@ import classes from './About.module.scss';
 
 export default About;
 
-const t = formatI18nT('courseLanding.About');
-const cx = classNames.bind(classes);
-
 interface IProps {
   type: ICourseData['type']
-  about: NonNullable<ICourseData['about']>
+  about: ICourseAbout[]
 }
 
-function About({ type, about }: IProps) {
+function About({ about }: IProps) {
   return (
-    <Fragment>
-      <ul className={classes.__}>
-        <li className={classes.item}>
-          <div className={classes.itemSvg}><Icon icon='Start'/></div>
-          <div className={classes.itemText}>Получите базовые навыки, чтобы начать карьеру</div>
+    <ul className={classes.__}>
+      {about.map(({ icon, text }, index) => (
+        <li className={classes.item} key={index}>
+          <div className={classes.itemSvg}><Icon icon={icon}/></div>
+          <div className={classes.itemText}><Text text={text}/></div>
         </li>
-        <li className={classes.item}>
-          <div className={classes.itemSvg}><Icon icon='Feature'/></div>
-          <div className={classes.itemText}>Погрузитесь в востребованные направления: веб-иллюстрация, книжная иллюстрация и брендинг</div>
-        </li>
-        <li className={classes.item}>
-          <div className={classes.itemSvg}><Icon icon='Portfolio'/></div>
-          <div className={classes.itemText}>Научитесь применять навыки на практике и сделаете 8+ проектов для портфолио</div>
-        </li>
-      </ul>
-    </Fragment>
+      ))}
+    </ul>
   );
 }

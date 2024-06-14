@@ -8,7 +8,7 @@ import { URLSections } from 'router';
 import { userService } from 'services/user.service';
 import { ILessonData, TLessonState, lessonService } from 'services/lesson.service';
 import { ICourseData, TCourseState, courseService } from 'services/course.service';
-import { TCourseError } from 'services/course.service/types';
+import { TCourseError } from 'services/course.service';
 import { TAccess } from 'services/data.service/Access';
 import { TUserCourseProgress } from 'services/userCourseProgress.service';
 import { dataService } from 'services';

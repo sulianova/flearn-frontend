@@ -21,30 +21,35 @@ interface IProps {
 }
 
 export default function ProgramBlocks({ course }: IProps) {
+  const {
+    about,
+    description,
+    prizes,
+    modules,
+    explainMedia,
+    promoVideo,
+    teacherGallery,
+    studentResults,
+    studentsWorks,
+    faq,
+    feedbacks,
+    studyProcess,
+  } = course.content;
   const blocks: JSX.Element[] = [
-    course.about && <About key='about' type={course.type} about={course.about}/>,
-    course.description && <Description key='description' type={course.type} description={course.description}/>,
-    course.prizes && course.prizes.length && <Prizes key='prizes' type={course.type} prizes={course.prizes}/>,
-    course.modules && course.modulesDescription && (
-      <Modules
-        key='modules'
-        modules={course.modules}
-        modulesDescription={course.modulesDescription}
-        videosNumber={course.videosNumber}
-        homeworksNumber={course.homeworksNumber}
-        duration={course.duration}
-      />
-    ),
-    course.studentResults && <StudentResults key='studentResults' studentResults={course.studentResults}/>,
-    <Feedback key='feedback'></Feedback>,
-    course.studentsWorks && course.studentsWorks.length && <StudentsWorks key='studentsWorks' studentsWorks={course.studentsWorks}/>,
-    course.studyProcess && course.studyProcess.length && <StudyProcess key='studyProcess' studyProcess={course.studyProcess}/>,
-    course.explainMedia && <Explain key='explain' explainMedia={course.explainMedia}/>,
-    course.teacherGallery && <Gallery key='gallery' teacherGallery={course.teacherGallery}/>,
-    course.promoVideo && <Promo key='promo' promoVideo={course.promoVideo}/>,
-    course.feedbacks && course.feedbacks.length && <Feedbacks key='feedbacks' feedbacks={course.feedbacks}/>,
+    about && about.length && <About key='about' type={course.type} about={about}/>,
+    description && <Description key='description' type={course.type} description={description}/>,
+    prizes && prizes.length && <Prizes key='prizes' type={course.type} prizes={prizes}/>,
+    modules && <Modules key='modules' modules={modules}/>,
+    studentResults && <StudentResults key='studentResults' studentResults={studentResults}/>,
+    <Feedback key='feedback'/>,
+    studentsWorks && studentsWorks.length && <StudentsWorks key='studentsWorks' studentsWorks={studentsWorks}/>,
+    studyProcess && studyProcess.length && <StudyProcess key='studyProcess' studyProcess={studyProcess}/>,
+    explainMedia && <Explain key='explain' explainMedia={explainMedia}/>,
+    teacherGallery && <Gallery key='gallery' teacherGallery={teacherGallery}/>,
+    promoVideo && <Promo key='promo' promoVideo={promoVideo}/>,
+    feedbacks && feedbacks.length && <Feedbacks key='feedbacks' feedbacks={feedbacks}/>,
     <DecisionForm key='decisionForm' course={course}/>,
-    course.faq && course.faq.length && <FAQ key='faq' faq={course.faq}/>,
+    faq && faq.length && <FAQ key='faq' faq={faq}/>,
   ].filter(Boolean) as JSX.Element[];
 
   return (

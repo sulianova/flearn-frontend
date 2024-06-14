@@ -1,5 +1,7 @@
+import type { ICourseFeedback } from 'services/course.service';
+
 import Animated from 'ui/Animated';
-import Text, { type TText } from 'ui/Text/Text';
+import Text from 'ui/Text/Text';
 
 import classNames from 'classnames/bind';
 import classes from './Item.module.scss';
@@ -7,34 +9,29 @@ import classes from './Item.module.scss';
 const cx = classNames.bind(classes);
 
 interface IProps {
-  author: {
-    name: string
-    description?: string
-  }
-  quote: TText
-  excerpt?: TText
+  feedback: ICourseFeedback
 }
 
-export default function Item(props: IProps) {
+export default function Item({ feedback }: IProps) {
   return (
     <Animated.Scroll>
       {(id, className) => (
         <div className={cx({ _: true }, className)} id={id}>
           <div className={classes.feedbackAuthor}>
-            {props.author.description ? (
+            {feedback.author.description ? (
               <>
-                <strong>{props.author.name},</strong>
-                {props.author.description}
+                <strong>{feedback.author.name},</strong>
+                {feedback.author.description}
               </>
-              ) : <strong>{props.author.name}</strong>
+              ) : <strong>{feedback.author.name}</strong>
             }
           </div>
           <div className={classes.feedbackQuote}>
-            <Text text={props.quote}/>
+            <Text text={feedback.quote}/>
           </div>
-          {props.excerpt && (
+          {feedback.excerpt && (
             <div className={classes.feedbackExcerpt}>
-              <Text text={props.excerpt}/>
+              <Text text={feedback.excerpt}/>
             </div>
           )}
         </div>

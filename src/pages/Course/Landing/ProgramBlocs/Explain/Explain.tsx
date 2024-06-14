@@ -1,9 +1,6 @@
-import classNames from 'classnames/bind';
-
-import { ICourseData } from 'services/course.service';
+import { TCourseExplainMedia } from 'services/course.service';
 import { formatI18nT } from 'shared';
 
-import Animated from 'ui/Animated';
 import Img from 'ui/Img/Img';
 import Video from 'ui/Video/Video';
 
@@ -12,11 +9,10 @@ import classes from './Explain.module.scss';
 export default Explain;
 
 interface IProps {
-  explainMedia: NonNullable<ICourseData['explainMedia']>
+  explainMedia: TCourseExplainMedia
 }
 
 const t = formatI18nT('courseLanding.explain');
-const cx = classNames.bind(classes);
 
 function Explain({ explainMedia }: IProps) {
   if (!explainMedia) {

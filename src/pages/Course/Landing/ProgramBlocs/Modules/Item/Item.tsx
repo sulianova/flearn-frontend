@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import { useState } from 'react';
 
-import type { ICourseData } from 'services/course.service';
+import type { ICourseModule } from 'services/course.service';
 import { formatI18nT } from 'shared';
 
 import Animated from 'ui/Animated';
@@ -17,16 +17,19 @@ export default Item;
 const t = formatI18nT('courseLanding.modules');
 const cx = classNames.bind(classes);
 
-function Item(props: NonNullable<ICourseData['modules']>[number]) {
+interface IProps {
+  index: number
+  module: ICourseModule
+}
+
+function Item(props: Readonly<IProps>) {
+  const { index, module } = props;
   const isMobile = useIsMobile();
   const [opened, setOpened] = useState(false);
 
-  const tagsListNode = (
+  const tagsListNode = module.tags && module.tags.length && (
     <ul className={classes.tags}>
-      <li className={classes.tag}>Линия</li>
-      <li className={classes.tag}>Быстрые наброски</li>
-      <li className={classes.tag}>Контраст</li>
-      <li className={classes.tag }>Выделение главного</li>
+      {module.tags.map(tag => <li className={classes.tag}>{tag}</li>)}
     </ul>
   );
 
@@ -35,16 +38,18 @@ function Item(props: NonNullable<ICourseData['modules']>[number]) {
       <Animated.Scroll>
         {(id, className) => (
           <div className={cx({ itemCard: true }, className)} id={id}>
-            <div className={classes.bullet}>2</div>
+            <div className={classes.bullet}>{index}</div>
             <div className={classes.meta}>
-              <Text text={props.meta}/>
-              <div className={classes.badge}>
-                <Icon icon='Lightning'/>
-                Бесплатно
-              </div>
+              <Text text={module.meta}/>
+              {index === 0 && (
+                <div className={classes.badge}>
+                  <Icon icon='Lightning'/>
+                  Бесплатно
+                </div>
+              )}
             </div>
             <div className={classes.title}>
-              <Text text={props.title}/>
+              <Text text={module.title}/>
               <button
                 className={classes.hiddenButton}
                 type="button"
@@ -56,13 +61,16 @@ function Item(props: NonNullable<ICourseData['modules']>[number]) {
             <div className={cx({ slideDown: true, slideDownClosed: !opened })}>
               {isMobile && tagsListNode}
               <div className={classes.additionalInfo}>
-                <div className={classes.subsections}>
-                  <Subsection/>
-                  <Subsection/>
-                </div>
-                <div className={classes.projects}>
-                  <div className={classes.projectsDescription}>Сделаете 5-6 стикеров для Telegram.</div>
-                </div>
+                {module.subsection && module.subsection.length && (
+                  <div className={classes.subsections}>
+                    {module.subsection.map(subsection => <Subsection subsection={subsection}/>)}
+                  </div>
+                )}
+                {module.subsectionDescription && (
+                  <div className={classes.projects}>
+                    <div className={classes.projectsDescription}>{module.subsectionDescription}</div>
+                  </div>
+                )}
               </div>
             </div>
             {/* {props.content && Boolean(!Array.isArray(props.content) || props.content.length) && <div className={classes.listItemContent + ' s-text-21'}><Text text={props.content}/></div>} */}

@@ -1,23 +1,30 @@
 import classNames from 'classnames/bind';
 import { useState } from 'react';
 
+import { useIsMobile } from 'hooks';
+import { ICourseModule } from 'services/course.service';
+
 import Icon from 'ui/Icon/Icon';
+import Text from 'ui/Text/Text';
 
 import classes from './Subsection.module.scss';
-import { useIsMobile } from 'hooks';
 
 export default Subsection;
 
 const cx = classNames.bind(classes);
 
-function Subsection(props: {}) {
+interface IProps {
+ subsection: NonNullable<ICourseModule['subsection']>[number]
+}
+
+function Subsection({ subsection: { subsectionTitle, subsectionText} }: IProps) {
   const isMobile = useIsMobile();
   const [opened, setOpened] = useState(false);
 
   return (
     <div className={classes.subsection}>
       <h3 className={classes.subsectionTitle}>
-        Упражнения, чтобы разрисоваться
+        {subsectionTitle}
         <button
           className={classes.hiddenButton}
           type="button"
@@ -28,7 +35,7 @@ function Subsection(props: {}) {
         </div>
       </h3>
       <div className={cx({ subsectionSlideDown: true, subsectionClosed: !opened && isMobile })}>
-        <div className={classes.subsectionDescription}>Познакомимся с упражнениями, которые помогают чувствовать себя увереннее в рисовании. Их можно делать для разминки перед рисованием или целенаправленно тренировать то, что плохо получается.</div>
+        <div className={classes.subsectionDescription}>{subsectionText && <Text text={subsectionText}/>}</div>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 
-import type { ICourseData } from 'services/course.service';
+import type { ICoursePromoVideo } from 'services/course.service';
 import { formatI18nT } from 'shared';
 
 import Animated from 'ui/Animated';
@@ -10,7 +10,7 @@ import classes from './Promo.module.scss';
 
 export default Promo;
 interface IProps {
-  promoVideo: NonNullable<ICourseData['promoVideo']>
+  promoVideo: ICoursePromoVideo
 }
 
 const cx = classNames.bind(classes);

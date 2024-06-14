@@ -1,10 +1,10 @@
 import classNames from 'classnames/bind';
 import { useState } from 'react';
 
-import type { ICourseData } from 'services/course.service';
+import type { ICourseData, ICourseProductOption } from 'services/course.service';
 import { userService, type IUserData } from 'services/user.service';
 import { formatI18nT, i18n } from 'shared';
-import { formatDate } from 'utils';
+import { formatDate, safeObjectKeys } from 'utils';
 
 import classes from './DecisionForm.module.scss';
 
@@ -18,9 +18,33 @@ interface IProps {
 const t = formatI18nT('courseLanding.form');
 
 export default function DecisionForm({ course }: IProps) {
-  const { type, duration, creditWas, creditPrice, discontDeadline } = course;
-  const [popupOpen, setPopupOpen] = useState(false);
+  const { type, productOptions } = course;
+  const [popupOption, setPopupOption] = useState<keyof ICourseData['productOptions'] | null>(null);
   const user = userService.useAuthedUser();
+
+  const optionTypes = safeObjectKeys(productOptions);
+  const optionsNodes = optionTypes.map(type => {
+    const option = productOptions[type]!;
+    return (
+      <div className={cx({ block: true, blockDetails: type === 'OPTIMAL' })}>
+        {type === 'OPTIMAL' && (
+          <div className={classes.buble}>самый популярный</div>
+        )}
+        <div className={classes.titleWrapper}>
+          <h2 className={classes.courseName}>{t(`options.${type}.caption`)}</h2>
+          <h1 className={classes.title}>{t(`options.${type}.title`)}</h1>
+        </div>
+        <div className={classes.credit}>
+          <s className={classes.creditWas}>{formatCredit(option.price)} &#8381;</s>
+          <div className={classes.creditPrice}>
+            {formatCredit(option.price)} &#8381;
+            <span className={classes.discount}>{formatCourseDiscount(0)}</span>
+          </div>
+        </div>
+        <button onClick={() => setPopupOption(type)} className={classes.btn}>начать учиться</button>
+      </div>
+    );
+  })
 
   return (
     <>
@@ -29,42 +53,15 @@ export default function DecisionForm({ course }: IProps) {
       </div>
       <div className={classes.commonFlowRow}>
         <div className={classes.wrapper} id='decision-form'>
-          <div className={classes.block}>
-            <div className={classes.titleWrapper}>
-              <h2 className={classes.courseName}>самостоятельно</h2>
-              <h1 className={classes.title}>{t(`title1.${type}`)}</h1>
-            </div>
-            <div className={classes.credit}>
-              <s className={classes.creditWas}>{formatCredit(course.creditWas)} &#8381;</s>
-              <div className={classes.creditPrice}>
-                {formatCredit(course.creditPrice)} &#8381;
-                <span className={classes.discount}>{formatCourseDiscount(course.discontAmount)}</span>
-              </div>
-            </div>
-            <button onClick={() => setPopupOpen(true)} className={classes.btn}>начать учиться</button>
-          </div>
-          <div className={cx({ block: true, blockDetails: true })}>
-            <div className={classes.buble}>самый популярный</div>
-            <div className={classes.titleWrapper}>
-              <h2 className={classes.courseName}>с обратной связью</h2>
-              <h1 className={classes.title}>{t(`title2.${type}`)}</h1>
-            </div>
-            <div className={classes.credit}>
-              <s className={classes.creditWas}>{formatCredit(course.creditWas)} &#8381;</s>
-              <div className={classes.creditPrice}>
-                {formatCredit(course.creditPrice)} &#8381;
-                <span className={classes.discount}>{formatCourseDiscount(course.discontAmount)}</span>
-              </div>
-            </div>
-            <button onClick={() => setPopupOpen(true)} className={classes.btn}>начать учиться</button>
-          </div>
+          {optionsNodes}
         </div>
       </div>
-      {popupOpen && (
+      {popupOption && (
         <SignupToCoursePopup
           course={course}
+          option={popupOption}
           user={user}
-          onClose={() => setPopupOpen(false)}
+          onClose={() => setPopupOption(null)}
         />
       )}
     </>

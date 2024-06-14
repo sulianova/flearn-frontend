@@ -1,4 +1,4 @@
-import type { ICourseData } from 'services/course.service';
+import type { ICourseData, ICourseFaqItem } from 'services/course.service';
 import { formatI18nT } from 'shared';
 
 import Link from 'ui/Link/Link';
@@ -11,7 +11,7 @@ export default FAQ;
 const t = formatI18nT('courseLanding.faq');
 
 interface IProps {
-  faq: NonNullable<ICourseData['faq']>
+  faq: ICourseFaqItem[]
 }
 
 function FAQ({ faq }: IProps) {

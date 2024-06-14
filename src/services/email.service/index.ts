@@ -10,7 +10,7 @@ export { EEmail } from './types';
 
 type TProps = { to: TContact } & (
   | { type: EEmail.OrderCreated, orderId: string }
-  | { type: EEmail.PaymentMethods, orderId: string, course: ICourseData }
+  | { type: EEmail.PaymentMethods, orderId: string, course: ICourseData, chosenProductOption: keyof ICourseData['productOptions'] }
   | { type: EEmail.FindingYourStyleCourseIsStartingTomorrow, startDate: Date }
 );
 
@@ -65,10 +65,11 @@ class EmailService {
     };  
   }
 
-  private getPaymentMethodsEmail(props: { to: TContact, course: ICourseData }): TEmail {
-    const { to, course } = props;
+  private getPaymentMethodsEmail(props: { to: TContact, course: ICourseData, chosenProductOption: keyof ICourseData['productOptions'] }): TEmail {
+    const { to, course, chosenProductOption } = props;
+    const option = course.productOptions[chosenProductOption]!;
     const startDate = formatDate(course.startDate, { timeZone: 'Europe/Moscow' });
-    const price = (course.discontDeadline === null || new Date() < course.discontDeadline) ? course.creditPrice : course.creditWas;
+    const price = (!option.discount || (option.discount.deadline && new Date() < option.discount.deadline)) ? option.price : (option.price * (1 - option.discount.amountPrc / 100));
     const courseTypeStr = i18n.t(`courseType.${course.type}`);
     return {
       to: [to],

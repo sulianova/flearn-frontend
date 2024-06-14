@@ -1,10 +1,8 @@
 import classNames from 'classnames/bind';
-import { Fragment } from 'react';
 
-import type { ICourseData } from 'services/course.service';
+import type { TImageData } from 'services/course.service';
 import { formatI18nT } from 'shared';
 
-import Animated from 'ui/Animated';
 import Image from 'ui/Img/Img';
 
 import classes from './Gallery.module.scss';
@@ -15,7 +13,7 @@ const cx = classNames.bind(classes);
 const t = formatI18nT('courseLanding.teacherGallery');
 
 interface IProps {
-  teacherGallery: NonNullable<ICourseData['teacherGallery']>
+  teacherGallery: TImageData[]
 }
 
 function Gallery({ teacherGallery }: IProps) {

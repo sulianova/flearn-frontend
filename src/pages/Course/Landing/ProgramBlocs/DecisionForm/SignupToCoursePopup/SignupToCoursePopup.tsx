@@ -1,33 +1,28 @@
-import Popup from 'ui/Popup/Popup';
-
-import classes from './SignupToCoursePopup.module.scss';
-import classNames from 'classnames/bind';
 import { useState } from 'react';
 
 import type { ICourseData } from 'services/course.service';
 import { type IUserData } from 'services/user.service';
-import { formatI18nT, i18n } from 'shared';
+import { formatI18nT } from 'shared';
 
 import Icon from 'ui/Icon/Icon';
-import Link from 'ui/Link/Link';
+import Popup from 'ui/Popup/Popup';
+
 import Form from '../Form/Form';
 import FreeForm from '../FreeForm/FreeForm';
+import classes from './SignupToCoursePopup.module.scss';
 
-
-const cx = classNames.bind(classes);
 const t = formatI18nT('courseLanding.form');
 
 interface IProps {
   course: ICourseData
+  option: keyof ICourseData['productOptions']
   user: IUserData | null
   onClose: () => void
 }
 
 export default function SignupToCoursePopup(props: Readonly<IProps>) {
-  const { course, user, onClose } = props;
-  const { type, duration, creditWas, creditPrice, discontDeadline } = course;
+  const { course, option, user, onClose } = props;
   const [orderEmail, setOrderEmail] = useState<string | null>(null);
-  const courseIsFree = Boolean(creditWas === 0 || (creditPrice === 0 && (discontDeadline === null || new Date() < discontDeadline)));
 
   return (
     <Popup
@@ -41,10 +36,15 @@ export default function SignupToCoursePopup(props: Readonly<IProps>) {
             <div className={classes.caption}>{t(orderEmail ? 'emailCaption2' : 'emailCaption')}</div>
           </div>
           {user ? (
-            <FreeForm userData={user} courseData={course} />
+            <FreeForm
+              user={user}
+              course={course}
+              option={option}
+            />
           ) : (
             <Form
               course={course}
+              option={option}
               onOrderCreated={({ email }) => setOrderEmail(email)}
             />
           )}

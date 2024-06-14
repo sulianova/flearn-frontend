@@ -4,11 +4,11 @@ import { dataService } from 'services/data.service';
 import { localFilesServise } from 'services/localFiles.service';
 import { ECommonErrorTypes } from 'types';
 
-import { getData } from './data';
+import { allCourses, getData } from './data';
 import useCourses from './useCourses';
-import type { IFetchCourseProps, TSource, TActionBS, TActionS, TCourseError, ICourseData } from './types';
+import type { IFetchCourseProps, TSource, TActionBS, TActionS, TCourseError } from './types/index';
 
-export { type ICourseData, type ICourseDataDB, type TCourseState } from './types';
+export * from './types/index';
 
 class CourseService {
   public useCourses = useCourses;
@@ -79,6 +79,10 @@ class CourseService {
     }
   }
 
+  public _uploadAll() {
+    Promise.all(allCourses.map(c => this.upload(c.id)));
+  }
+
   private errorToType(error: Error): TCourseError {
     const errorIsUnknown = !([ECommonErrorTypes.DataIsCorrupted, ECommonErrorTypes.FailedToFindData, ECommonErrorTypes.Other] as string[]).includes(error.message);
     const errorType = errorIsUnknown ? ECommonErrorTypes.Other : error.message as TCourseError;
@@ -106,3 +110,4 @@ class CourseService {
 
 export const courseService = new CourseService;
 export default CourseService;
+(window as any).courseService = courseService;

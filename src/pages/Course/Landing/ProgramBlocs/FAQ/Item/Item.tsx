@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import { useEffect, useRef, useState } from 'react';
 
-import type { ICourseData } from 'services/course.service';
+import type { ICourseFaqItem } from 'services/course.service';
 
 import Icon from 'ui/Icon/Icon';
 import Animated from 'ui/Animated';
@@ -14,7 +14,7 @@ const cx = classNames.bind(classes);
 export default Item;
 
 interface IProps {
-  faq: NonNullable<ICourseData['faq']>[number]
+  faq: ICourseFaqItem
 }
 
 function Item({ faq: { question, answer } }: Readonly<IProps>) {

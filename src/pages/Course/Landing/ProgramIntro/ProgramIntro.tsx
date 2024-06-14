@@ -17,7 +17,7 @@ interface IProps {
 }
 
 function ProgramIntro(props: IProps) {
-  const { startDate, duration, creditPrice, discontDeadline } = props.data;
+  const { startDate, duration } = props.data;
 
   const labels = [
     t('datesInfoLabel', { 
@@ -25,7 +25,6 @@ function ProgramIntro(props: IProps) {
       durationInUnits: duration.value,
       unit: duration.unit,
     }),
-    !creditPrice && !discontDeadline && t('free'),
   ].filter(Boolean);
 
   return (

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { useMemoize } from 'hooks';
 
-import type { ICourseData, IFetchCourseProps } from './types';
+import type { ICourseData, IFetchCourseProps } from './types/index';
 import type CourseService from '.';
 
 export default function useCourses(this: CourseService, fetchProps: IFetchCourseProps) {
