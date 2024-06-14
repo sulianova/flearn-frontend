@@ -1,8 +1,11 @@
-import { TText } from 'types';
 import Link from 'ui/Link/Link';
 
+import type { TText } from './types';
+
+export type { TText } from './types';
+
 interface IProps {
-  text: TText | TText[]
+  text: TText
 }
 
 export default function Text({ text }: IProps) {

@@ -1,10 +1,10 @@
 import type { HTMLAttributes } from 'react';
 import type { IProps as ILinkProps } from 'ui/Link/Link';
 
-export type TText = string | IText;
+export type TText = string | TTextNode | Array<string | TTextNode>;
 
-export type IText = {
-  content: TText | IText[]
+type TTextNode = {
+  content: TText | TTextNode[]
 } & (
   {
     tag: 'p'
@@ -23,10 +23,3 @@ export type IText = {
 | {
   tag: 'br'
 };
-
-export interface ICourseInfo {
-  startDate: Date
-  endDate: Date
-  durationWeeks: number
-  title: string
-}

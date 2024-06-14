@@ -1,5 +1,4 @@
 import type { IArticleContent, IArticleContentDB } from './article';
-import type { TText } from './course';
 import { ECommonErrorTypes, TStateState } from './store';
 import type { IUserData } from 'services/user.service';
 

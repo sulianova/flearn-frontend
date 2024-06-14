@@ -1,5 +1,6 @@
 import { ILessonFilter } from 'services/data.service/Lesson';
-import { ECommonErrorTypes, TStateState, TText } from 'types';
+import { ECommonErrorTypes, TStateState } from 'types';
+import type { TText } from 'ui/Text/Text';
 
 export interface IFetchLessonsProps extends ILessonFilter {}
 
@@ -58,7 +59,7 @@ export type TActionBS =
   | MyError;
 
 export interface ILessonBlock {
-  factoid?: TText | TText[]
+  factoid?: TText
 }
 
 export interface ILessonTitleBlock extends ILessonBlock {
@@ -78,17 +79,17 @@ export interface ILessonGalleryBlock extends ILessonBlock {
 
 export interface ILessonFactoidBlock extends ILessonBlock {
   type: 'factoid'
-  factoid: TText | TText[]
+  factoid: TText
 }
 
 export interface ILessonTextBlock extends ILessonBlock {
   type: 'text'
-  text: TText | TText[]
+  text: TText
 }
 
 export interface ILessonQouteBlock extends ILessonBlock {
   type: 'qoute'
-  qoute: TText | TText[]
+  qoute: TText
 }
 
 export interface ILessonTextImportantBlock extends ILessonBlock {
@@ -101,7 +102,7 @@ export interface ILessonVideoBlock extends ILessonBlock {
   videoData: {
     src: string
     title: string
-    caption?: TText | TText[]
+    caption?: TText
   }
 }
 
@@ -110,7 +111,7 @@ export interface ILessonImageBlockDB extends ILessonBlock {
   imageData: {
     id: string
     alt: string
-    caption?: TText | TText[]
+    caption?: TText
   }
 }
 
@@ -120,7 +121,7 @@ export interface ILessonImageBlock extends ILessonBlock {
     id: string
     src: string
     alt: string
-    caption?: TText | TText[]
+    caption?: TText
   }
 }
 

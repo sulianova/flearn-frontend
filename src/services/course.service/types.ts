@@ -1,4 +1,5 @@
-import { ECommonErrorTypes, TStateState, TText } from 'types';
+import { ECommonErrorTypes, TStateState } from 'types';
+import type { TText } from 'ui/Text/Text';
 
 export type TSource = 'remote' | 'local';
 
@@ -30,19 +31,19 @@ export interface ICourseData {
   creditWas: number
   creditPrice: number
   telegramLink: string
-  about?: TText | TText[]
+  about?: TText
   description?: Array<{ question: string, answer: string }>
-  prizes?: Array<{ title: TText | TText[], content?: TText | TText[] }>
-  modulesDescription?: TText | TText[]
-  modules?: Array<{ meta: TText | TText[], title: TText | TText[], content: TText | TText[], activities?: TText | TText[], imageDesc?: TText | TText[] } & Partial<TImageData>>
+  prizes?: Array<{ title: TText, content?: TText }>
+  modulesDescription?: TText
+  modules?: Array<{ meta: TText, title: TText, content: TText, activities?: TText, imageDesc?: TText } & Partial<TImageData>>
   explainMedia?: { type: 'image', imageId: string, imageSrc: string, imageAlt: string } | { type: 'video', title: string, src: string },
   promoVideo?: { title: string, src: string }
   teacherGallery?: Array<{imageId: string, imageSrc: string, imageAlt: string}>
-  studentResults?: { content: TText | TText[] } & TImageData
+  studentResults?: { content: TText } & TImageData
   studentsWorks?: Array<{imageId: string, imageSrc: string, imageAlt: string}>
-  faq?: Array<{ question: TText | TText[], answer: TText | TText[] }>
-  feedbacks?: Array<{ author: { name: string, description?: string }, quote: TText | TText[], excerpt?: string }>
-  studyProcess?: Array<AddOptionalObject<{ caption?: TText | TText[], title: TText | TText[], description: TText | TText[] }, TImageData>>
+  faq?: Array<{ question: TText, answer: TText }>
+  feedbacks?: Array<{ author: { name: string, description?: string }, quote: TText, excerpt?: string }>
+  studyProcess?: Array<AddOptionalObject<{ caption?: TText, title: TText, description: TText }, TImageData>>
 }
 
 export interface ICourseDataDB {
@@ -68,19 +69,19 @@ export interface ICourseDataDB {
   creditWas: number
   creditPrice: number
   telegramLink: string
-  about?: TText | TText[]
+  about?: TText
   description?: Array<{ question: string, answer: string }>
-  prizes?: Array<{ title: TText | TText[], content?: TText | TText[] }>
-  modulesDescription?: TText | TText[]
-  modules?: Array<{ meta: TText | TText[], title: TText | TText[], content: TText | TText[], activities?: TText | TText[], imageDesc?: TText | TText[] } & Partial<TImageDataDB>>
+  prizes?: Array<{ title: TText, content?: TText }>
+  modulesDescription?: TText
+  modules?: Array<{ meta: TText, title: TText, content: TText, activities?: TText, imageDesc?: TText } & Partial<TImageDataDB>>
   explainMedia?: { type: 'image', imageId: string, imageAlt: string } | { type: 'video', title: string, src: string },
   promoVideo?: { title: string, src: string }
   teacherGallery?: Array<{imageId: string, imageAlt: string}>
-  studentResults?: { content: TText | TText[] } & TImageDataDB
+  studentResults?: { content: TText } & TImageDataDB
   studentsWorks?: Array<{imageId: string, imageAlt: string}>
-  faq?: Array<{ question: TText | TText[], answer: TText | TText[] }>
-  feedbacks?: Array<{ author: { name: string, description?: string }, quote: TText | TText[], excerpt?: string }>
-  studyProcess?: Array<AddOptionalObject<{ caption?: TText | TText[], title: TText | TText[], description: TText | TText[] }, TImageDataDB>>
+  faq?: Array<{ question: TText, answer: TText }>
+  feedbacks?: Array<{ author: { name: string, description?: string }, quote: TText, excerpt?: string }>
+  studyProcess?: Array<AddOptionalObject<{ caption?: TText, title: TText, description: TText }, TImageDataDB>>
 }
 
 type TImageData  = (

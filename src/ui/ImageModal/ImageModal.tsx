@@ -2,12 +2,10 @@ import classnames from 'classnames/bind';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { createPortal } from 'react-dom';
 
-import type { TText } from 'types';
-
 import ModalCross from 'assets/images/Svg/ModalCross';
 import ArrowButton from 'assets/images/Svg/ArrowButton';
 import Img from 'ui/Img/Img';
-import Text from 'ui/Text/Text';
+import Text, { type TText } from 'ui/Text/Text';
 
 import classes from './ImageModal.module.scss';
 
@@ -24,7 +22,7 @@ export interface IImage {
   data: {
     src: string
     alt: string
-    caption?: TText | TText[]
+    caption?: TText
   }
   originalSize: {
     height: number

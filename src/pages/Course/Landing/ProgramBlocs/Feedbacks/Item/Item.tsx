@@ -1,10 +1,8 @@
 import Animated from 'ui/Animated';
-import Text from 'ui/Text/Text';
+import Text, { type TText } from 'ui/Text/Text';
 
 import classNames from 'classnames/bind';
 import classes from './Item.module.scss';
-
-import type { TText } from 'types';
 
 const cx = classNames.bind(classes);
 
@@ -13,8 +11,8 @@ interface IProps {
     name: string
     description?: string
   }
-  quote: TText | TText[]
-  excerpt?: TText | TText[]
+  quote: TText
+  excerpt?: TText
 }
 
 export default function Item(props: IProps) {
