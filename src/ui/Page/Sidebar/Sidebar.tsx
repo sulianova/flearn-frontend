@@ -4,17 +4,14 @@ import { useParams } from 'react-router';
 
 import { useURLSection } from 'hooks';
 import { userService } from 'services/user.service';
+import { URLSections } from 'router';
 
-import User from 'assets/images/Svg/User';
 import LessonsPopup from 'components/LessonsPopup/LessonsPopup';
+import Icon from 'ui/Icon/Icon';
 import Link from 'ui/Link/Link';
-import Logo from 'assets/images/Svg/Logo';
-import Home from 'assets/images/Svg/Home';
-import Lessons from 'assets/images/Svg/Lessons';
 
 import UserPopup from './UserPopup/UserPopup';
 import classes from './Sidebar.module.scss';
-import { URLSections } from 'router';
 
 const cx = classnames.bind(classes);
 
@@ -39,7 +36,7 @@ function Sidebar() {
                     className={classes.icon}
                     to={URLSections.Home.index}
                   >
-                    <Logo/>
+                    <Icon icon='Logo' />
                   </Link>
                 </span>
               </li>
@@ -51,7 +48,7 @@ function Sidebar() {
                     className={classes.icon}
                     to={URLSections.Course.Lessons.to({ courseId: courseId! })}
                   >
-                    <Home/>
+                    <Icon icon='Home' />
                   </Link>
                 </span>
               </li>
@@ -63,7 +60,7 @@ function Sidebar() {
                     className={classes.icon}
                     onClick={() => setLessonsPopupVisible(v => !v)}
                   >
-                    <Lessons/>
+                    <Icon icon='Lessons' />
                   </div>
                 </span>
               </li>
@@ -91,7 +88,7 @@ function Sidebar() {
                   className={classes.icon}
                   onClick={() => setUserPopupVisible(!userPopupVisible)}
                 >
-                  <User/>
+                  <Icon icon='User' />
                 </div>
               </span>
             </li>

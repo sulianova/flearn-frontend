@@ -6,7 +6,7 @@ import { formatI18nT } from 'shared';
 
 import Animated from 'ui/Animated';
 import Text from 'ui/Text/Text';
-import Lightning from 'assets/images/Svg/Lightning';
+import Icon from 'ui/Icon/Icon';
 
 import classes from './Item.module.scss';
 import { useIsMobile } from 'hooks';
@@ -39,7 +39,7 @@ function Item(props: NonNullable<ICourseData['modules']>[number]) {
             <div className={classes.meta}>
               <Text text={props.meta}/>
               <div className={classes.badge}>
-                <Lightning/>
+                <Icon icon='Lightning'/>
                 Бесплатно
               </div>
             </div>

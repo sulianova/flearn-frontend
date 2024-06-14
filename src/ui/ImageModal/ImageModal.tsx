@@ -2,8 +2,7 @@ import classnames from 'classnames/bind';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { createPortal } from 'react-dom';
 
-import ModalCross from 'assets/images/Svg/ModalCross';
-import ArrowButton from 'assets/images/Svg/ArrowButton';
+import Icon from 'ui/Icon/Icon';
 import Img from 'ui/Img/Img';
 import Text, { type TText } from 'ui/Text/Text';
 
@@ -101,7 +100,7 @@ function ImageModal({ variant, image, onClose, onNext, onPrev }: Readonly<IProps
   const content = variant === 'IMAGE' ? (
     <>
       {<Img src={image.data.src} alt={image.data.alt} lazy={false}/>}
-      {image.data.caption && <div className={classes.modalCaptionWrapper}><div className={classes.modalCaption + ' s-text-14'}><Text text={image.data.caption}/></div></div>}
+      {image.data.caption && <div className={classes.modalCaptionWrapper}><div className={classes.modalCaption}><Text text={image.data.caption}/></div></div>}
     </>
   ) : (
       <div className={classes.imageGallery__modalContentWrapper}>
@@ -123,7 +122,7 @@ function ImageModal({ variant, image, onClose, onNext, onPrev }: Readonly<IProps
                   }, 250);
                 }}
               >
-                <ArrowButton/>
+                <Icon icon='ArrowButton'/>
               </div>
             )}
               <Img className={cx({ imageGallery__mainImage: true, fade: state === 'SWITCHING_FROM' })} src={image.data.src} alt={image.data.alt}/>
@@ -142,11 +141,11 @@ function ImageModal({ variant, image, onClose, onNext, onPrev }: Readonly<IProps
                   }, 250);
                 }}
               >
-                <ArrowButton/>
+                <Icon icon='ArrowButton'/>
               </div>
             )}
           </div>
-            {image.data.caption && <div className={classes.modalCaptionWrapper}><div className={classes.modalCaption + ' s-text-16'}><Text text={image.data.caption}/></div></div>}
+            {image.data.caption && <div className={classes.modalCaptionWrapper}><div className={classes.modalCaption}><Text text={image.data.caption}/></div></div>}
           </div>
         </div>
       </div>
@@ -162,7 +161,7 @@ function ImageModal({ variant, image, onClose, onNext, onPrev }: Readonly<IProps
         style={style}
       >
         <div className={classes.modalClose} onClick={close}>
-          <ModalCross/>
+          <Icon icon='ModalCross'/>
         </div>
         <div className={classes.modalContentWrapper}>
           <div className={cx({ modalContent: true, modalContent_Animation: openCloseAnimation })}>

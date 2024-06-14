@@ -1,3 +1,4 @@
+import * as icons from 'assets/images/Svg';
 import { ECommonErrorTypes, TStateState } from 'types';
 import type { TText } from 'ui/Text/Text';
 
@@ -31,7 +32,7 @@ export interface ICourseData {
   creditWas: number
   creditPrice: number
   telegramLink: string
-  about?: TText
+  about?: TText //Array<{  text: TText, icon: keyof typeof icons }>
   description?: Array<{ question: string, answer: string }>
   prizes?: Array<{ title: TText, content?: TText }>
   modulesDescription?: TText

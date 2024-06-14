@@ -4,11 +4,8 @@ import { Fragment } from 'react';
 import type { ICourseData } from 'services/course.service';
 import { formatI18nT } from 'shared';
 
-import Animated from 'ui/Animated';
-import Image from 'ui/Img/Img';
 import Text from 'ui/Text/Text';
-import Plus from 'assets/images/Svg/Plus';
-import SubsectionArrow from 'assets/images/Svg/SubsectionArrow';
+
 
 import classes from './Modules.module.scss';
 import Item from './Item/Item';

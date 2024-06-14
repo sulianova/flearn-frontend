@@ -1,6 +1,4 @@
-export default Lightning;
-
-function Lightning() {
+export function Lightning() {
   return (
     <svg viewBox="0 0 24 32" fill="none">
       <rect width="24" height="32" fill="none"/>

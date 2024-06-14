@@ -1,7 +1,7 @@
 import classnames from 'classnames/bind';
 import React from 'react';
 
-import * as icons from 'assets/images/SvgSvg';
+import * as icons from 'assets/images/Svg';
 
 import classes from './Icon.module.scss';
 

@@ -1,10 +1,10 @@
 import { memo } from 'react';
 
-import Sticker from 'assets/images/Svg/Sticker';
+
 import { formatI18nT, i18n } from 'shared';
 import { formatDate } from 'utils';
-
 import useCountDown from './useCountDown';
+
 import classes from './DiscountBanner.module.scss';
 
 const t = formatI18nT('courseLanding.discountBanner');

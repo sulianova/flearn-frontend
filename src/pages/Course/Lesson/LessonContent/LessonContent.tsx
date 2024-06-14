@@ -10,7 +10,6 @@ import { formatI18nT } from 'shared';
 import { URLSections } from 'router';
 import type { IHomeworkDataWPopulate } from 'types';
 
-import Edit from 'assets/images/Svg/Edit';
 import BuyPopup from 'components/BuyPopup/BuyPopup';
 import Article from 'ui/Article/Article';
 import Link from 'ui/Link/Link';

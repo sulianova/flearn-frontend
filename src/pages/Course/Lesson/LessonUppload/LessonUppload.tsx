@@ -5,15 +5,15 @@ import { useParams } from 'react-router';
 
 import { dataService, homeworkService } from 'services';
 import { userService } from 'services/user.service';
+import { errorService } from './error.service';
 import { formatI18nT } from 'shared';
-import Link from 'ui/Link/Link';
 
+import Icon from 'ui/Icon/Icon';
+import Link from 'ui/Link/Link';
 import Input from './Input/Input';
 import Spinner from 'ui/Spinner/Spinner';
-import ProgressStepArrow from 'assets/images/Svg/ProgressStepArrow';
-import Finish from 'assets/images/Svg/Finish';
 
-import { errorService } from './error.service';
+
 import classes from './LessonUppload.module.scss';
 
 import type { TAction, TImageDataWState, TState } from './types';
@@ -112,7 +112,7 @@ function LessonUppload({ homeworkWPopulate }: IProps) {
               <div className={classes.statusProgressStepContentLabel}>Отправка задания</div>
             </div>
             <div className={classes.progressStepArrow}>
-              <ProgressStepArrow/>
+              <Icon icon='ProgressStepArrow'/>
             </div>
           </div>
           <div className={cx({ statusProgressStep: true, active: false })}>
@@ -121,12 +121,12 @@ function LessonUppload({ homeworkWPopulate }: IProps) {
               <div className={classes.statusProgressStepContentLabel}>Проверка</div>
             </div>
             <div className={classes.progressStepArrow}>
-              <ProgressStepArrow/>
+              <Icon icon='ProgressStepArrow'/>
             </div>
           </div>
           <div className={cx({ finishIconWrapper: true, active: false })}>
             <div className={classes.finishIcon}>
-              <Finish/>
+              <Icon icon='Finish'/>
             </div>
           </div>
         </div>

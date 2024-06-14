@@ -5,7 +5,7 @@ import { authService } from 'services/auth.service';
 import { IUserData } from 'services/user.service';
 import { URLSections } from 'router';
 
-import Portfolio from 'assets/images/Svg/Portfolio';
+import Icon from 'ui/Icon/Icon';
 
 import classes from './UserPopup.module.scss';
 
@@ -32,7 +32,7 @@ export default function UserPopup({ user, close }: IProps) {
           <div className={cx({ item: true, itemHoverable: true })}>
             <div className={classes.itemTitle}>
               <div className={classes.withIcon}>
-                <Portfolio/>
+                <Icon icon='Portfolio' />
                 <span>Анкета</span>
               </div>
             </div>

@@ -2,12 +2,11 @@ import classNames from 'classnames/bind';
 import debounce from 'lodash/debounce';
 import { useCallback, useState } from 'react';
 
-import Trash from 'assets/images/Svg/Trash';
-import Image from 'assets/images/Svg/Image';
 
 import { dataService } from 'services';
 import { getFileExtension, isImage } from 'utils';
 
+import Icon from 'ui/Icon/Icon';
 import Spinner from 'ui/Spinner/Spinner';
 import Img from 'ui/Img/Img';
 
@@ -47,7 +46,7 @@ function File(props: IProps) {
             className={classes.deleteSvg}
             onClick={() => props.handleDeleteImage({ imageId: imageData.id })}
           >
-            <Trash/>
+            <Icon icon='Trash'/>
           </button>
         </div>
       </div>
@@ -55,13 +54,13 @@ function File(props: IProps) {
         {fileType === 'image' && <Img className={classes.preview} src={imageData.src} alt={imageData.alt} />}
         {fileType === 'pdf' && (
           <div className={classes.defaultPreview}>
-            <Image/>
+            <Icon icon='Image'/>
             <div className={classes.errorDescription}>PDF</div>
           </div>
         )}
         {fileType === 'unknown' && (
           <div className={classes.defaultPreview}>
-            <Image/>
+            <Icon icon='Image'/>
             <div className={classes.errorDescription}>Неверный тип файла</div>
           </div>
         )}

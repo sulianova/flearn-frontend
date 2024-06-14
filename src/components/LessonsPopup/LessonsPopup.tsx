@@ -7,9 +7,7 @@ import { type ILessonData, lessonService } from 'services/lesson.service';
 import { userService } from 'services/user.service';
 import { URLSections } from 'router';
 
-import Tick from 'assets/images/Svg/Tick';
-import Lock from 'assets/images/Svg/Lock';
-import Cross from 'assets/images/Svg/Cross';
+import Icon from 'ui/Icon/Icon';
 import Popup from 'ui/Popup/Popup';
 import Link from 'ui/Link/Link';
 import Spinner from 'ui/Spinner/Spinner';
@@ -86,7 +84,7 @@ export default function LessonsPopup(props: TProps) {
     <Popup>
       <div className={classes.__}>
         <div className={classes.close} onClick={onClose}>
-          <Cross/>
+          <Icon icon='Cross'/>
         </div>
         <div className={classes.body}>
           <div className={classes.header}>
@@ -107,8 +105,8 @@ export default function LessonsPopup(props: TProps) {
                 <div className={classes.navigationItemInfo}>
                   <div className={classes.infoItem}>
                     <div className={cx({ infoIcon: true, itemStatus: true })}>
-                      {!lesson.canBeAccessed && <Lock/>}
-                      {lesson.solved && <Tick/>}
+                      {!lesson.canBeAccessed && <Icon icon='Lock'/>}
+                      {lesson.solved && <Icon icon='Tick'/>}
                     </div>
                   </div>
                 </div>

@@ -5,8 +5,7 @@ import { useParams } from 'react-router';
 import { URLSections } from 'router';
 import { isImage } from 'utils';
 
-import User from 'assets/images/Svg/User';
-import Pattern from 'assets/images/Svg/Pattern';
+import Icon from 'ui/Icon/Icon';
 import Img from 'ui/Img/Img';
 import Link from 'ui/Link/Link';
 
@@ -36,20 +35,11 @@ function WorkCard({ homework }: IProps) {
           className={classes.preview}
           to={URLSections.Course.Lesson.Results.to({ courseId, lessonId, params: { userId: user?.id }})}
         >
-          {coverImage ? (
-            <Img
-              src={coverImage.src}
-              alt={coverImage.alt}
-              placeholder={<Pattern/>}
-            />
-          ) : (
-            <Pattern/>
-          )}
           <div className={classes.overlay}/>
         </Link>
         <div className={classes.user}>
           <div className={classes.userImage}>
-            <User/>
+            <Icon icon='User'/>
           </div>
           <div className={classes.userName}>{user?.displayName}</div>
         </div>

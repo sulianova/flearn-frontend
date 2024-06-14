@@ -1,7 +1,6 @@
 import type { IArticleImageBlock } from 'types';
 import UIImage from 'ui/Img/Img';
 import UIText from 'ui/Text/Text';
-import ModalCross from 'assets/images/Svg/ModalCross';
 
 import classes from './Image.module.scss';
 import classnames from 'classnames/bind';

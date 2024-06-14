@@ -2,28 +2,24 @@ import classnames from 'classnames/bind';
 import { useEffect, useRef, useState } from 'react';
 
 import { useIsMobile, useURLSection } from 'hooks';
-import { formatI18nT, i18n } from 'shared';
+import { formatI18nT } from 'shared';
 import { authService } from 'services/auth.service';
 import { ICourseData, courseService } from 'services/course.service';
 import { userService } from 'services/user.service';
+import { userCourseProgressService } from 'services/userCourseProgress.service';
 import { URLSections } from 'router';
 
-import SelectToggleIcon from 'assets/images/Svg/SelectToggleIcon';
-import Link from 'ui/Link/Link';
-import List from 'assets/images/Svg/List';
-import Popup from 'ui/Popup/Popup';
-import User from 'assets/images/Svg/User';
-import Logo from 'assets/images/Svg/Logo';
-
-import { EPageVariant } from '../Page';
-import classes from './header.module.scss';
-import Cross from 'assets/images/Svg/Cross';
-import Dropdown from 'ui/Dropdown/Dropdown';
-import CoursesDropdownContent from './CoursesDropdownContent/CoursesDropdownContent';
-import { userCourseProgressService } from 'services/userCourseProgress.service';
 import BuyPopup from 'components/BuyPopup/BuyPopup';
+import Dropdown from 'ui/Dropdown/Dropdown';
+import Icon from 'ui/Icon/Icon';
+import Link from 'ui/Link/Link';
+import Popup from 'ui/Popup/Popup';
 
+import CoursesDropdownContent from './CoursesDropdownContent/CoursesDropdownContent';
+import { EPageVariant } from '../Page';
 import UserPopup from '../Sidebar/UserPopup/UserPopup';
+
+import classes from './header.module.scss';
 
 const cx = classnames.bind(classes);
 const t = formatI18nT('header');
@@ -88,7 +84,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
     <Popup>
       <div className={classes.mob + ' isMobile'}>
         <div className={classes.close} onClick={() => setMobMenuIsOpened(false)}>
-          <Cross/>
+          <Icon icon='Cross' />
         </div>
         <div className={classes.mobMenuMain}>
             <div className={classes.mobItem}>
@@ -131,7 +127,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
           {variant !== EPageVariant.LMS && (
             <div className={classes.logo}>
               <div className={classes.logoWrapper}>
-                <Link to={URLSections.Home.index}><Logo/></Link>
+                <Link to={URLSections.Home.index}><Icon icon='Logo'/></Link>
                 {/* <Link to={URLSections.Home.index}>{i18n.t('logo')}</Link> */}
               </div>
             </div>
@@ -149,7 +145,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
                   className={classes.userSettings}
                   onClick={() => setUserPopupVisible(!userPopupVisible)}
                 >
-                  <User/>
+                  <Icon icon='User'/>
                 </div>
               </div>
             )}
@@ -166,7 +162,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
                   return (
                     <div className={cx({ navContent: true, navItem: true, selectToggleIsOpened: opened })} onClick={opened ? close : open}>
                       <span className={classes.selectToggleContent}>мои курсы</span>
-                      <span className={classes.selectToggleIcon}><SelectToggleIcon/></span>
+                      <span className={classes.selectToggleIcon}><Icon icon='SelectToggleIcon'/></span>
                     </div>
                   );
                 }}
@@ -189,7 +185,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
             }
           </div>
           <div className={cx({ humburger: true})} onClick={() => setMobMenuIsOpened(o => !o)}>
-            <List/>
+            <Icon icon='List'/>
           </div>
           </div>
       </div>

@@ -1,7 +1,5 @@
 import Popup from 'ui/Popup/Popup';
 
-import Cross from 'assets/images/Svg/Cross';
-
 import classes from './SignupToCoursePopup.module.scss';
 import classNames from 'classnames/bind';
 import { useState } from 'react';
@@ -10,6 +8,7 @@ import type { ICourseData } from 'services/course.service';
 import { type IUserData } from 'services/user.service';
 import { formatI18nT, i18n } from 'shared';
 
+import Icon from 'ui/Icon/Icon';
 import Link from 'ui/Link/Link';
 import Form from '../Form/Form';
 import FreeForm from '../FreeForm/FreeForm';
@@ -35,7 +34,7 @@ export default function SignupToCoursePopup(props: Readonly<IProps>) {
       children={close => (
         <div className={classes.__}>
           <div className={classes.close} onClick={() => close(onClose)}>
-            <Cross/>
+            <Icon icon='Cross'/>
           </div>
           <div className={classes.header}>
             <div className={classes.title}>{t(orderEmail ? 'subtitle2' : 'subtitle', { email: orderEmail })}</div>

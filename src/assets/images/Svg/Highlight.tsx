@@ -1,6 +1,4 @@
-export default Highlight;
-
-function Highlight() {
+export function Highlight() {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 32">
       <rect width="27" height="32" fill="none"/>

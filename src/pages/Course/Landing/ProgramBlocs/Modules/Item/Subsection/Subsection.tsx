@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import { useState } from 'react';
 
-import SubsectionArrow from 'assets/images/Svg/SubsectionArrow';
+import Icon from 'ui/Icon/Icon';
 
 import classes from './Subsection.module.scss';
 import { useIsMobile } from 'hooks';
@@ -24,7 +24,7 @@ function Subsection(props: {}) {
           onClick={() => setOpened(o => !o)}
         />
         <div className={cx({ subsectionArrow: true, subsectionArrowOpened: opened })}>
-          <SubsectionArrow/>
+          <Icon icon='SubsectionArrow'/>
         </div>
       </h3>
       <div className={cx({ subsectionSlideDown: true, subsectionClosed: !opened && isMobile })}>

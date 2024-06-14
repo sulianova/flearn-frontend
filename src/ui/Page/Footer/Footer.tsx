@@ -1,14 +1,11 @@
-import { URLSections } from 'router';
-import Link from 'ui/Link/Link';
-
-import Instagram from 'assets/images/Svg/Instagram';
-import Telegram from 'assets/images/Svg/Telegram';
-import Tiktok from 'assets/images/Svg/Tiktok';
-import Vk from 'assets/images/Svg/Vk';
-import YandexZen from 'assets/images/Svg/YandexZen';
-import Youtube from 'assets/images/Svg/Youtube';
 import classNames from 'classnames/bind';
+
+import { URLSections } from 'router';
 import { formatI18nT, i18n } from 'shared';
+
+import Link from 'ui/Link/Link';
+import Icon from 'ui/Icon/Icon';
+
 import classes from './Footer.module.scss';
 
 const t = formatI18nT('footer');
@@ -61,22 +58,22 @@ function Footer({ type =  EFooter.Default }: IProps) {
         </div>
         <div className={cx({ social: true, col: false })}>
           {/* <div className={classes.socialLink}>
-            <Link to={t('socialInstagram.link')} target='_blank'>{<Instagram/>}</Link>
+            <Link to={t('socialInstagram.link')} target='_blank'>{<Icon icon='Instagram'/>}</Link>
           </div> */}
           <div className={classes.socialLink}>
-            <Link to={t('socialTelegram.link')} target='_blank'>{<Telegram/>}</Link>
+            <Link to={t('socialTelegram.link')} target='_blank'><Icon icon='Telegram'/></Link>
           </div>
           <div className={classes.socialLink}>
-            <Link to={t('socialTiktok.link')} target='_blank'>{<Tiktok/>}</Link>
+            <Link to={t('socialTiktok.link')} target='_blank'><Icon icon='Tiktok'/></Link>
           </div>
           <div className={classes.socialLink}>
-            <Link to={t('socialVk.link')} target='_blank'>{<Vk/>}</Link>
+            <Link to={t('socialVk.link')} target='_blank'>{<Icon icon='Vk'/>}</Link>
           </div>
           {/* <div className={classes.socialLink}>
-            <Link to={t('socialYoutube.link')} target='_blank'>{<Youtube/>}</Link>
+            <Link to={t('socialYoutube.link')} target='_blank'>{<Icon icon='Youtube'/>}</Link>
           </div>
           <div className={classes.socialLink}>
-            <Link to={t('socialDzen.link')} target='_blank'>{<YandexZen/>}</Link>
+            <Link to={t('socialDzen.link')} target='_blank'>{<Icon icon='YandexZen'/>}</Link>
           </div> */}
       </div>
       </div>

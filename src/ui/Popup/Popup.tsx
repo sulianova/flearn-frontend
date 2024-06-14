@@ -2,8 +2,6 @@ import classnames from 'classnames/bind';
 import { ReactNode, useCallback, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 
-import ModalCross from 'assets/images/Svg/ModalCross';
-
 import classes from './Popup.module.scss';
 
 const cx = classnames.bind(classes);

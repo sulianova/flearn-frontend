@@ -1,13 +1,12 @@
 import classnames from 'classnames/bind';
 import { useState } from 'react';
 
-import Cross from 'assets/images/Svg/Cross';
-import ArrowButton from 'assets/images/Svg/ArrowButton';
-import Popup from 'ui/Popup/Popup';
-
 import Decision from './steps/Decision';
 import OrderInfo from './steps/OrderInfo';
 import Payment from './steps/Payment';
+
+import Popup from 'ui/Popup/Popup';
+import Icon from 'ui/Icon/Icon';
 
 import classes from './BuyPopup.module.scss';
 
@@ -29,7 +28,7 @@ export default function BuyPopup({ close }: IProps) {
     <Popup>
       <div className={classes.__}>
         <div className={classes.close} onClick={close}>
-          <Cross/>
+          <Icon icon='Cross'/>
         </div>
         {step !== 'DECISION' && (
           <div
@@ -39,7 +38,7 @@ export default function BuyPopup({ close }: IProps) {
               'ORDER_INFO': 'PAYMENT',
             } as const)[step])}
           >
-            <ArrowButton/>
+            <Icon icon='ArrowButton'/>
           </div>
         )}
         <div className={classes.body}>

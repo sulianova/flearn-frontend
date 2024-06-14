@@ -3,8 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 
 import type { ICourseData } from 'services/course.service';
 
-import Minus from 'assets/images/Svg/Minus';
-import PlusOpen from 'assets/images/Svg/PlusOpen';
+import Icon from 'ui/Icon/Icon';
 import Animated from 'ui/Animated';
 import Text from 'ui/Text/Text';
 
@@ -40,7 +39,7 @@ function Item({ faq: { question, answer } }: Readonly<IProps>) {
               <Text text={question}/>
             </div>
             <div className={classes.itemQuestionPlus}>
-              {isExpanded ? <Minus/> : <PlusOpen/>}
+              {isExpanded ? <Icon icon='Minus'/> : <Icon icon='PlusOpen'/>}
             </div>
           </div>
           <div

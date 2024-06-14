@@ -1,6 +1,4 @@
-export default ProgressStepArrow;
-
-function ProgressStepArrow() {
+export function ProgressStepArrow() {
   return (
     <svg viewBox="0 0 10 12">
       <path fill="currentColor" clip-rule="evenodd" d="M0.735758 0.73099C1.6926 -0.221505 3.26981 -0.246413 4.25855 0.675357L9.20923 5.26664C9.63597 5.66239 9.6359 6.33753 9.20909 6.73321L4.3154 11.2699C3.35804 12.2219 1.78082 12.246 0.792578 11.3238C-0.0992624 10.4914 0.00358847 9.6 0.0036338 6C0.00367914 2.4 -0.0828927 1.54591 0.735758 0.73099Z"></path>

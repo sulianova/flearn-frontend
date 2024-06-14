@@ -1,6 +1,4 @@
-export default Check;
-
-function Check() {
+export function Check() {
   return (
     <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect width="15" height="15" rx="4"></rect>
