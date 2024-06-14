@@ -1,6 +1,6 @@
 import { put, select } from 'redux-saga/effects';
 
-import { dataService } from 'services/data.service';
+import { dataService } from 'services';
 import { createAction } from 'store/utils';
 import { updateState } from 'store/actions/redux';
 

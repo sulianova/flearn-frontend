@@ -97,7 +97,7 @@ const lessonData11: ILessonDataDB = {
     unit: 'hours',
     value: 1
   },
-  isFree: true,
+  isFree: false,
   content: [
     {
       type: 'text',
@@ -500,7 +500,7 @@ const lessonData12: ILessonDataDB = {
     unit: 'hours',
     value: 1
   },
-  isFree: true,
+  isFree: false,
   content: [
     {
       type: 'text',
@@ -1112,7 +1112,7 @@ const lessonData13: ILessonDataDB = {
     unit: 'hours',
     value: 1
   },
-  isFree: true,
+  isFree: false,
   content: [
     {
       type: 'text',
@@ -1329,7 +1329,7 @@ const lessonData14: ILessonDataDB = {
     unit: 'hours',
     value: 1
   },
-  isFree: true,
+  isFree: false,
   content: [
     {
       type: 'title',
@@ -1659,7 +1659,7 @@ const lessonData15: ILessonDataDB = {
     unit: 'hours',
     value: 1
   },
-  isFree: true,
+  isFree: false,
   content: [
     {
       type: 'text',
@@ -1896,14 +1896,14 @@ const lessonData16: ILessonDataDB = {
   courseId: 'how-to-draw',
   title: 'Практика первой недели',
   type: 'Practice',
-  topic: 'Линия',
+  topic: 'Линия: Практика',
   topicOrder: 3,
   orderInTopic: 1,
   duration: {
     unit: 'hours',
     value: 1
   },
-  isFree: true,
+  isFree: false,
   content: [
     {
       type: 'text',
@@ -3433,7 +3433,7 @@ const lessonData25: ILessonDataDB = {
   courseId: 'how-to-draw',
   title: 'Практика второй недели',
   type: 'Practice',
-  topic: 'Пятно',
+  topic: 'Пятно: Практика',
   topicOrder: 5,
   orderInTopic: 1,
   duration: {
@@ -4604,7 +4604,7 @@ const lessonData33: ILessonDataDB = {
   courseId: 'how-to-draw',
   title: 'Практика третьей недели',
   type: 'Practice',
-  topic: 'Линия и пятно',
+  topic: 'Линия и пятно: Практика',
   topicOrder: 7,
   orderInTopic: 1,
   duration: {
