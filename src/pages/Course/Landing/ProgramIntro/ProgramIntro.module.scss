@@ -5,7 +5,7 @@
   flex-direction: column;
   overflow: hidden;
   border-radius: set-calc($border-radius-medium);
-  background-color: $color-content-background-primary;
+  background-color: $color-palette-black-900;
 
   @include set-media(md) {
     position: relative;

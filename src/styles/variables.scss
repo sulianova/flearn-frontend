@@ -30,6 +30,8 @@ $color-palette-black-100-a: rgba(0, 0, 0, 0.06);
 $color-palette-black-200-a: rgba(0, 0, 0, 0.12);
 $color-palette-black-300-a: rgba(0, 0, 0, 0.25);
 $color-palette-black-500-a: rgba(0, 0, 0, 0.5);
+$color-palette-black-600-a: rgba(0, 0, 0, 0.6);
+$color-palette-black-700-a: rgba(0, 0, 0, 0.7);
 $color-palette-black-800-a: rgba(0, 0, 0, 0.85);
 
 //color-palette-white
@@ -116,7 +118,7 @@ $color-content-tertiary: $color-palette-black-300-a;
 $color-content-background-primary: $color-palette-black-900;
 $color-content-background-secondary: $color-palette-black-700;
 $color-content-paragraph-primary: $color-palette-black-700;
-$color-content-paragraph-secondary: $color-palette-black-800-a;
+$color-content-paragraph-secondary: $color-palette-black-600-a;
 $color-background-btn: $color-palette-black-700;
 $color-background-btn-hover: $color-palette-black-900;
 
