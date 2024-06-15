@@ -65,7 +65,7 @@
   }
 }
 
-.itemCard:hover {
+.itemCardHoverable:hover {
   box-shadow: $shadow-medium-hovered;
 
   .slideDownClosed {
@@ -277,7 +277,7 @@
   align-items: center;
   gap: set-calc(4);
 
-  color: $color-accent-promo;
+  color: $color-promo-highlight-green;
   @include font-21-normal-ui;
 
   svg {
