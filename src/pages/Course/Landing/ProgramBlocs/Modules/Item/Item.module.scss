@@ -168,6 +168,8 @@
 
 .description {
   margin-right: set-calc(56);
+  max-width: set-calc(800);
+
   @include font-21-normal-paragraph;
   color: $color-content-background-secondary;
 
@@ -223,6 +225,7 @@
   gap: set-calc(36);
   position: relative;
   margin-top: set-calc(48);
+  margin-bottom: set-calc(24);
 
   @include set-media(md) {
     flex-direction: column;
@@ -244,8 +247,13 @@
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  
+  width: set-calc(320);
+
   @include font-28-normal-header;
+
+  @include set-media(md) {
+    width: 100%;
+  }
 }
 
 .subsections {

@@ -4,7 +4,6 @@ import { useState } from 'react';
 import type { ICourseModule } from 'services/course.service';
 import { formatI18nT } from 'shared';
 
-import Animated from 'ui/Animated';
 import Text from 'ui/Text/Text';
 import Icon from 'ui/Icon/Icon';
 
@@ -59,9 +58,9 @@ function Item(props: Readonly<IProps>) {
             type="button"
             onClick={() => setOpened(o => !o)}
           />
-        {!isMobile && tagsListNode}
         </div>
-        {/* <div className={classes.description}>Познакомимся с упражнениями, которые помогают чувствовать себя увереннее в рисовании. Их можно делать для разминки перед рисованием или целенаправленно тренировать то, что плохо получается.</div> */}
+        <div className={classes.description}>{module.description && <Text text={module.description}/>}</div>
+        {!isMobile && tagsListNode}
         <div className={cx({ slideDown: true, slideDownClosed: alwaysOpened ? !alwaysOpened : !opened })}>
           {isMobile && tagsListNode}
           {module.subsectionDescription && module.subsection && module.subsection.length && (

@@ -43,27 +43,6 @@
   }
 }
 
-.projects {
-  display: flex;
-  flex-direction: column;
-  gap: set-calc(16);
-  min-width: set-calc(320);
-  position: relative;
-}
-
-.projectsDescription {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-
-  width: set-calc(320);
-
-  @include set-media(md) {
-    width: 100%;
-  }
-}
-
 .hiddenButton {
   padding: 0;
   border: none;

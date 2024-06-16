@@ -83,7 +83,7 @@ const courseDB1: ICourseDataDB = {
             tag: 'span',
           }
         ],
-        title: 'Линия',
+        title: 'Этапы работы над иллюстрацией',
         lessonsNumber: 5,
         homeworksNumber: 1,
         description: '1 модуль — бесплатно, чтобы понять, хочется ли развиваться в направлении иллюстрации. А после бесплатной части выберете подходящий формат курса: самостоятельный или с обратной связью.',
@@ -92,7 +92,7 @@ const courseDB1: ICourseDataDB = {
           unit: 'hour',
           value: 5,
         },
-        subsectionDescription: 'На примере плаката пройдете ключевые этапы работы над иллюстрацией',
+        subsectionDescription: 'На примере постера пройдете ключевые этапы работы над иллюстрацией',
         subsection: [
           { subsectionTitle: 'Как придумать идею для проекта', subsectionText: 'Портрет аудитории. Мудборд и референсы.' },
           { subsectionTitle: 'Знакомство с Photoshop', subsectionText: 'Что умеет Photoshop. Основные функции Photoshop.'},
