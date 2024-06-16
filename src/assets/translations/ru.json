@@ -89,7 +89,7 @@
   "courseLanding": {
       "programIntro" : {
         "free": "Бесплатно",
-        "datesInfoLabel": "{{durationInUnits}} $t({{unit}}.p, {\"count\": {{durationInUnits}} })  \u2022 с опытом"
+        "datesInfoLabel": "{{durationInUnits}} $t({{unit}}.p, {\"count\": {{durationInUnits}} })  \u2022 с нуля"
       },
       "form": {
           "subtitle": "Выберите почту, с которой будете учиться",

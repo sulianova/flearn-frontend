@@ -17,7 +17,7 @@
   position: relative;
 
   @include is-grid-4;
-  gap: set-calc(0);
+  gap: set-calc(8);
 
   overflow: hidden;
   height: 75vh;
@@ -52,7 +52,7 @@
 .topContent {
   display: flex;
   flex-direction: column;
-  gap: set-calc(16);
+  gap: set-calc(24);
 
   @include set-media(md) {
     justify-content: center;

@@ -38,12 +38,12 @@ export default function ProgramBlocks({ course }: IProps) {
   const blocks: JSX.Element[] = [
     about && about.length && <About key='about' type={course.type} about={about}/>,
     description && <Description key='description' type={course.type} description={description}/>,
+    studyProcess && studyProcess.length && <StudyProcess key='studyProcess' studyProcess={studyProcess}/>,
     prizes && prizes.length && <Prizes key='prizes' type={course.type} prizes={prizes}/>,
     modules && <Modules key='modules' modules={modules}/>,
     studentResults && <StudentResults key='studentResults' studentResults={studentResults}/>,
     <Feedback key='feedback'/>,
     studentsWorks && studentsWorks.length && <StudentsWorks key='studentsWorks' studentsWorks={studentsWorks}/>,
-    studyProcess && studyProcess.length && <StudyProcess key='studyProcess' studyProcess={studyProcess}/>,
     explainMedia && <Explain key='explain' explainMedia={explainMedia}/>,
     teacherGallery && <Gallery key='gallery' teacherGallery={teacherGallery}/>,
     promoVideo && <Promo key='promo' promoVideo={promoVideo}/>,

@@ -4,7 +4,7 @@
   @include is-grid-3;
   grid-gap: set-calc($s-gap);
 
-  padding: set-calc(12);
+  padding: set-calc(24);
   margin: set-calc(8) auto 0;
 
   background-color: $color-content-inverted-secondary;
@@ -57,7 +57,7 @@
 }
 
 .itemText {
-  @include font-16-normal-paragraph;
+  @include font-18-normal-ui;
   color: $color-content-paragraph-primary;
   max-width: set-calc(350);
 }
