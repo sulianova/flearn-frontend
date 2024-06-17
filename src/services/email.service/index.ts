@@ -269,11 +269,18 @@ class EmailService {
                                 <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                   <tbody>
                                     <tr>
-                                      <td style="font-family:Helvetica,Arial,sans-serif;font-size:12px;line-height:16px;color:#808080" align="left">
+                                      <td style="padding:30px 20px 50px;font-family:Helvetica,Arial,sans-serif;font-size:12px;line-height:16px;color:#808080" align="left">
                                         <span>
-                                          ©&nbsp;flearn, Ульянова&nbsp;София&nbsp;Р.
+                                          ©&nbsp;flearn
                                           <br>
-                                          Вы получили это письмо, потому что регистрировались на сайте flearn. Чтобы отписаться от рассылки, перейдите по этой ссылке.
+                                          <br>
+                                          Вы получили это письмо, потому что регистрировались на сайте flearn. Чтобы отписаться, перейдите по
+                                          <a href="#" style="font-family:Helvetica,Arial,sans-serif;font-size:12px;line-height:16px;font-weight:normal;white-space:nowrap;text-decoration:underline;color:#808080" target="_blank">
+                                            <span style="color:#808080;text-decoration:none" color=#808080">
+                                              <span style="color:#808080">этой ссылке</span>
+                                            </span>
+                                          </a>
+                                          .
                                         </span>
                                       </td>
                                     </tr>
