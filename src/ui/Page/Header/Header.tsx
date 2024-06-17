@@ -20,6 +20,8 @@ import { EPageVariant } from '../Page';
 import UserPopup from '../Sidebar/UserPopup/UserPopup';
 
 import classes from './header.module.scss';
+import { useParams } from 'react-router';
+import { formatCourseDiscount, getCourseBaseDiscountAmountPrc } from 'utils';
 
 const cx = classnames.bind(classes);
 const t = formatI18nT('header');
@@ -30,10 +32,12 @@ interface IProps {
 }
 
 export default function Header({ variant, visible }: Readonly<IProps>) {
+  const { courseId } = useParams();
   const urlSection = useURLSection();
   const isMobile = useIsMobile();
   const user = userService.useAuthedUser();
   const lastSolvedLesson = userCourseProgressService.useLastSolvedLesson();
+  const [currentCourse, setCurrentCourse] = useState<ICourseData | undefined>(undefined);
   const [userCourses, setUserCourses] = useState<ICourseData[]>();
   const currentCloseCourseDropdown = useRef<() => void>();
   const [mobMenuIsOpened, setMobMenuIsOpened] = useState(false);
@@ -61,6 +65,27 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
       cancelled = true;
     };
   }, [userId]);
+
+  useEffect(() => {
+    if (!courseId) {
+      return;
+    }
+  
+    let cancelled = false;
+    const s = courseService
+      .getCourseBS({ ids: [courseId] })
+      .subscribe(action => {
+        if (!action || (action instanceof Error) || cancelled || !action.courses.at(0)) {
+          return;
+        }
+
+        setCurrentCourse(action.courses.at(0));
+      });
+    return () => {
+      s.unsubscribe();
+      cancelled = true;
+    };
+  }, [courseId]);
 
   useEffect(() => {
     if (mobMenuIsOpened) {
@@ -121,7 +146,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
   return (
     <>
       {isMobile && mobMenuIsOpened && mobMenuPopup}
-      {buyPopupIsOpened && <BuyPopup close={() => setBuyPopupIsOpened(false)}/>}
+      {buyPopupIsOpened && currentCourse && <BuyPopup course={currentCourse} close={() => setBuyPopupIsOpened(false)}/>}
       <div className={headerClass} data-is-mobile-menu-opened={mobMenuIsOpened}>
         <div className={cx({ desk: true, [`deskPadding${variant}`]: true })}>
           {variant !== EPageVariant.LMS && (
@@ -172,7 +197,9 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
               variant === EPageVariant.LMS ? (
                 <div className={cx({ navBuy: true, navItem: true })} onClick={() => setBuyPopupIsOpened(true)}>
                   <div className={cx({ buyBtn: true})}>купить полный курс</div>
-                  <div className={classes.buyBadge}>-5%</div>
+                  {getCourseBaseDiscountAmountPrc(currentCourse?.discount) && (
+                    <div className={classes.buyBadge}>{formatCourseDiscount(getCourseBaseDiscountAmountPrc(currentCourse?.discount)!)}</div>
+                  )}
                 </div>
               ) : (
                 <div className={cx({ navLogin: true, navItem: true })}>

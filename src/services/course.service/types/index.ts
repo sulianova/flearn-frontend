@@ -48,6 +48,8 @@ export interface ICourseProductOptionDB {
   }
 }
 
+export type TCourseProductOptionTypes = keyof ICourseData['productOptions'];
+
 export interface ICourseData extends ICourseDataCommon {
   startDate: Date
   endDate: Date
