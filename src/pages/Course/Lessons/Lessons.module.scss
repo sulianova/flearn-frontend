@@ -1,0 +1,145 @@
+@import 'styles/index';
+
+.profilePage {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 100%;
+  max-width: set-calc(988);
+  margin: 0 auto;
+
+  @include set-media(md) {
+    left: set-calc(-$padding-xs-mob-page);
+    width: set-calc(2 * $padding-xs-mob-page, true, 100%);
+  }
+}
+
+.title {
+  margin: 0 set-calc(16);
+  @include font-28-normal-header;
+
+  @include set-media(md) {
+    margin: 0 set-calc(8);
+  }
+}
+
+.profilePageContent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: set-calc(24) set-calc(16) 0;
+  gap: set-calc(40);
+
+  @include set-media(md) {
+    margin: set-calc(16) 0 0;
+  }
+}
+
+.program {
+  position: relative;
+}
+
+.programTitle {
+  margin: 0 0 set-calc(24);
+
+  @include font-28-normal-header;
+  color: $color-content-primary;
+
+  @include set-media(md) {
+    margin: 0 0 set-calc(24) set-calc(8);
+  }
+}
+
+.currentLesson {
+  width: 100%;
+  color: $color-content-primary;
+  max-width: 60%;
+
+  @include set-media(md) {
+    max-width: 100%;
+  }
+}
+
+.currentLessonWrapper {
+  display: flex;
+  gap: set-calc(16);
+  width: 100%;
+}
+
+.currentLessonReminder {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  min-height: 100%;
+  padding: set-calc(16);
+  border-radius: set-calc($border-radius-medium);
+  background: $color-content-inverted-secondary;
+  border: set-calc(1) solid $color-background-default;
+  box-shadow: $shadow-huge-default;
+}
+
+.currentLessonSubtitle {
+  display: inline-flex;
+  margin-bottom: set-calc(16);
+
+  @include font-18-normal-ui;
+  color: $color-content-paragraph-primary;
+
+  span {
+    font-size: inherit;
+    line-height: inherit;
+  }
+}
+
+.currentLessonSubtitleIndex {
+  display: inline-flex;
+  box-sizing: border-box;
+  padding-right: set-calc(4);
+  justify-content: flex-end;
+
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.currentLessonTitle {
+  margin-bottom: set-calc(16);
+
+  @include font-28-normal-header;
+}
+
+.currentLessonDetails {
+  flex: 1 1;
+  min-height: set-calc(100);
+  margin: 0 0 set-calc(16);
+}
+
+.currentLessonButton {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: set-calc(8);
+  min-width: set-calc(180);
+
+  padding-block: set-calc(15);
+  padding-inline: set-calc(24);
+
+  transition-property: background-color, border-color, box-shadow, color, transform;
+  transition-duration: 0.15s;
+  transition-timing-function: ease-out;
+
+  @include font-18-normal-ui;
+  color: $color-content-inverted-primary;
+  text-decoration: none;
+
+  border-radius: set-calc(6);
+  background-color: $color-content-primary;
+  border: none;
+}
+
+.currentLessonButton:hover {
+  background-color: $color-content-background-secondary;
+  cursor: pointer;
+}

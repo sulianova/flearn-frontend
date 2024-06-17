@@ -8,32 +8,30 @@ import { orderConverter } from './orderConverter';
 class Order {
   public async create(props: {
     userFromForm: IOrderData['userFromForm'],
+    chosenProductOptionType: keyof ICourseData['productOptions']
     courseData: ICourseData,
     userData: IUserData | undefined,
   }) {
     try {
-      const { userFromForm, courseData, userData } = props;
+      const { userFromForm, chosenProductOptionType, courseData, userData } = props;
       const id = this.getId(courseData.id, userFromForm.email);
 
       const orderAlreadyExists = await firebaseService.docExists(ECollections.Order, id);
       if (orderAlreadyExists) {
         throw new Error('Cannot create duplicated order');
       }
-
-      const { discontAmount, discontDeadline, creditPrice, creditWas } = courseData;
   
       const data: IOrderData = {
         status: 'created',
         userFromForm,
+        chosenProductOption: {
+          type: chosenProductOptionType,
+          option: courseData.productOptions[chosenProductOptionType]!,
+        },
         currentAuthedUser: userData ?? null,
         course: {
           id: courseData.id,
-          dataSnapshot: {
-            discontAmount,
-            discontDeadline,
-            creditPrice,
-            creditWas,
-          },
+          options: courseData.productOptions,
         },
         meta: {
           createdAt: new Date(),

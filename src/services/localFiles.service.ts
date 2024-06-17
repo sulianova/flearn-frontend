@@ -1,14 +1,11 @@
 import type { ICourseData, ICourseDataDB } from 'services/course.service';
+import type { ILessonDataDB } from './lesson.service';
 
 import { courseDataDB2FR } from './utils/course';
 import { lessonDataDB2FR } from './utils/lesson';
 
 
-import type {
-  ILessonData,
-  ILessonDataDB,
-  IObject
-} from 'types';
+import type { IObject } from 'types';
 
 class LocalFilesService {
   public Course = ({
@@ -39,11 +36,12 @@ class LocalFilesService {
   });
 
   public Lesson = ({
-    async localToFR(lessonDB: ILessonDataDB, courseId: string): Promise<ILessonData | undefined> {
+    async localToFR(lessonDB: ILessonDataDB) {
       try {
         return await lessonDataDB2FR(lessonDB);
-      } catch(e) {
-        return undefined;
+      } catch(err) {
+        console.log('Failed to translate lesson DB data to FR data', { err });
+        throw err;
       }
     },
     test(dataLocal: IObject | undefined) {

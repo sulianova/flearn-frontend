@@ -10,7 +10,7 @@ function LandingBtn() {
   return (
   <div className={classes.__}>
     <a
-      className={classes.btnLink + ' s-text-21'}
+      className={classes.btnLink}
       href='#decision-form'
       onClick={() => analyticsService.logEvent({
           type: EAnalyticsEvent.ButtonClicked,
@@ -20,7 +20,7 @@ function LandingBtn() {
         })
       }
     >
-      Начать учиться</a>
+      начать учиться</a>
   </div>
   );
 }

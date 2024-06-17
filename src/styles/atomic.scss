@@ -1,20 +1,8 @@
-.s-text-14 {
+@mixin font-14-normal-ui {
   @include set-typography(14, 16, 500);
 } 
 
-@mixin s-text-14 {
-  @include set-typography(14, 16, 500);
-}
-
-.s-text-16-18 {
-  @include set-typography(16, 22, 500);
-
-  @include set-media(md) {
-    @include set-typography(18, 24, 500);
-  }
-}
-
-.s-text-16 {
+@mixin font-16-normal-paragraph {
   @include set-typography(16, 18, 500);
 
   @include set-media(md) {
@@ -22,15 +10,15 @@
   }
 }
 
-@mixin s-text-16 {
-  @include set-typography(16, 18, 500);
+@mixin font-16-normal-ui {
+  @include set-typography(16, 16, 500);
 
   @include set-media(md) {
     @include set-typography(14, 16, 500)
   }
 }
 
-@mixin s-text-18 {
+@mixin font-18-normal-paragraph {
   @include set-typography(18, 24, 500);
 
   @include set-media(md) {
@@ -38,35 +26,19 @@
   }
 }
 
-.s-text-18 {
-  @include set-typography(18, 24, 500);
+@mixin font-18-normal-ui {
+  @include set-typography(18, 20, 500);
 
   @include set-media(md) {
-    @include set-typography(16, 20, 500)
+    @include set-typography(16, 18, 500)
   }
 }
 
-.s-text-18-uppercase {
-  @include set-typography(18, 24, 500);
-  text-transform: uppercase;
-  letter-spacing: set-calc(-0.5);
-
-  @include set-media(md) {
-    @include set-typography(16, 22, 500);
-    text-transform: uppercase;
-  }
-}
-
-//article
-.s-text-20 {
+@mixin font-20-normal-paragraph {
   @include set-typography(20, 28, 500);
 }
 
-@mixin s-text-20 {
-  @include set-typography(20, 28, 500);
-}
-
-.s-text-21  {
+@mixin font-21-normal-paragraph  {
   @include set-typography(21, 25, 500);
 
   @include set-media(md) {
@@ -74,25 +46,15 @@
   }
 }
 
-@mixin s-text-21  {
-  @include set-typography(21, 25, 500);
+@mixin font-21-normal-ui {
+  @include set-typography(21, 21, 500);
 
   @include set-media(md) {
-    @include set-typography(16, 20, 500);
+    @include set-typography(16, 18, 500);
   }
 }
 
-.s-text-21-uppercase  {
-  @include set-typography(21, 28, 500);
-  text-transform: uppercase;
-
-  @include set-media(md) {
-    @include set-typography(18, 24, 500);
-    text-transform: uppercase;
-  }
-}
-
-@mixin s-text-24 {
+@mixin font-24-normal-header {
   @include set-typography(24, 28, 500);
 
   @include set-media(md) {
@@ -100,15 +62,15 @@
   }
 }
 
-.s-text-24 {
-  @include set-typography(24, 28, 500);
+@mixin font-24-normal-ui {
+  @include set-typography(24, 24, 500);
 
   @include set-media(md) {
-    @include set-typography(20, 24, 500);
+    @include set-typography(20, 20, 500);
   }
 }
 
-@mixin s-text-28 {
+@mixin font-28-normal-header {
   @include set-typography(28, 32, 500);
   font-family: $font-family-compact;
 
@@ -117,16 +79,16 @@
   }
 }
 
-.s-text-28 {
-  @include set-typography(28, 32, 500);
+@mixin font-32-normal-header  {
+  @include set-typography(32, 32, 500);
   font-family: $font-family-compact;
 
   @include set-media(md) {
-    @include set-typography(20, 20, 500);
+    @include set-typography(28, 28, 500);
   }
 }
 
-.s-text-36 {
+@mixin font-36-normal-header  {
   @include set-typography(36, 36, 500);
   font-family: $font-family-compact;
 
@@ -135,8 +97,8 @@
   }
 }
 
-@mixin s-text-36 {
-  @include set-typography(36, 36, 500);
+@mixin font-40-normal-header {
+  @include set-typography(40, 42, 500);
   font-family: $font-family-compact;
 
   @include set-media(md) {
@@ -144,7 +106,7 @@
   }
 }
 
-.s-text-56 {
+@mixin font-56-normal-header  {
   @include set-typography(56, 48, 500);
   font-family: $font-family-compact;
   letter-spacing: set-calc(-1);
@@ -154,17 +116,17 @@
   }
 }
 
-@mixin s-text-56 {
-  @include set-typography(56, 48, 500);
+@mixin font-56-normal-ui {
+  @include set-typography(56, 60, 500);
   font-family: $font-family-compact;
   letter-spacing: set-calc(-1);
 
   @include set-media(md) {
-    @include set-typography(36, 36, 500);
+    @include set-typography(48, 48, 500);
   }
 }
 
-.s-text-70 {
+@mixin font-70-normal-header  {
   @include set-typography(70, 66, 500);
   font-family: $font-family-compact;
   letter-spacing: set-calc(-1);
@@ -174,52 +136,164 @@
   }
 }
 
-@mixin s-text-70 {
-  @include set-typography(70, 66, 500);
+@mixin font-88-normal-header  {
+  @include set-typography(88, 70, 500);
   font-family: $font-family-compact;
   letter-spacing: set-calc(-1);
 
   @include set-media(md) {
-    @include set-typography(36, 36, 500);
-  }
-}
-
-@mixin s-text-88 {
-  @include set-typography(88, 96, 500);
-  font-family: $font-family-compact;
-
-  @include set-media(md) {
     @include set-typography(48, 52, 500);
   }
 }
 
-.s-text-88 {
-  @include set-typography(88, 96, 500);
-  font-family: $font-family-compact;
 
-  @include set-media(md) {
-    @include set-typography(48, 52, 500);
-  }
-}
-
-.warmGreen {
-  color: $warmGreen;
-}
-
-.color-content-inverted-secondary {
+.color-background-glassy-c {
   color: $color-background-glassy-c;
 }
 
 .blue {
-  color: $blue;
+  color: $primary-color;
 }
 
-.green {
-  color: $green;
-}
+// .primary-lighten {
+//   color: $primary-lighten;
+// }
 
-.b-black-new {
-  background-color: $color-content-background-secondary !important;
-  color: $color-content-inverted-primary!important;
-  border-radius: set-calc($border-radius-small);
-}
+// .green {
+//   color: $color-accent-success;
+// }
+
+// .b-black-new {
+//   background-color: $color-content-background-secondary !important;
+//   color: $color-content-inverted-primary!important;
+//   border-radius: set-calc($border-radius-small);
+// }
+
+// .s-text-14 {
+//   @include set-typography(14, 16, 500);
+// } 
+
+// @mixin s-text-14 {
+//   @include set-typography(14, 16, 500);
+// }
+
+// .s-text-16-18 {
+//   @include set-typography(16, 22, 500);
+
+//   @include set-media(md) {
+//     @include set-typography(18, 24, 500);
+//   }
+// }
+
+// .s-text-16 {
+//   @include set-typography(16, 18, 500);
+
+//   @include set-media(md) {
+//     @include set-typography(14, 16, 500)
+//   }
+// }
+
+// .s-text-18 {
+//   @include set-typography(18, 24, 500);
+
+//   @include set-media(md) {
+//     @include set-typography(16, 20, 500)
+//   }
+// }
+
+// .s-text-18-uppercase {
+//   @include set-typography(18, 24, 500);
+//   text-transform: uppercase;
+//   letter-spacing: set-calc(-0.5);
+
+//   @include set-media(md) {
+//     @include set-typography(16, 22, 500);
+//     text-transform: uppercase;
+//   }
+// }
+
+// .s-text-20 {
+//   @include set-typography(20, 28, 500);
+// }
+
+// .s-text-21  {
+//   @include set-typography(21, 25, 500);
+
+//   @include set-media(md) {
+//     @include set-typography(16, 20, 500);
+//   }
+// }
+
+// .s-text-21-uppercase  {
+//   @include set-typography(21, 28, 500);
+//   text-transform: uppercase;
+
+//   @include set-media(md) {
+//     @include set-typography(18, 24, 500);
+//     text-transform: uppercase;
+//   }
+// }
+
+// .s-text-24 {
+//   @include set-typography(24, 28, 500);
+
+//   @include set-media(md) {
+//     @include set-typography(20, 24, 500);
+//   }
+// }
+
+// .s-text-28 {
+//   @include set-typography(28, 32, 500);
+//   font-family: $font-family-compact;
+
+//   @include set-media(md) {
+//     @include set-typography(20, 20, 500);
+//   }
+// }
+
+// .s-text-36 {
+//   @include set-typography(36, 36, 500);
+//   font-family: $font-family-compact;
+
+//   @include set-media(md) {
+//     @include set-typography(28, 28, 500);
+//   }
+// }
+
+// .s-text-40 {
+//   @include set-typography(40, 42, 500);
+//   font-family: $font-family-compact;
+
+//   @include set-media(md) {
+//     @include set-typography(28, 28, 500);
+//   }
+// }
+
+// .s-text-56 {
+//   @include set-typography(56, 48, 500);
+//   font-family: $font-family-compact;
+//   letter-spacing: set-calc(-1);
+
+//   @include set-media(md) {
+//     @include set-typography(36, 36, 500);
+//   }
+// }
+
+// .s-text-70 {
+//   @include set-typography(70, 66, 500);
+//   font-family: $font-family-compact;
+//   letter-spacing: set-calc(-1);
+
+//   @include set-media(md) {
+//     @include set-typography(36, 36, 500);
+//   }
+// }
+
+// .s-text-88 {
+//   @include set-typography(88, 96, 500);
+//   font-family: $font-family-compact;
+
+//   @include set-media(md) {
+//     @include set-typography(48, 52, 500);
+//   }
+// }

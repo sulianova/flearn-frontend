@@ -16,8 +16,8 @@ export default function Item(props: IProps) {
       {(id, className) => (
         <div className={cx({ _: true }, className)} id={id}>
           <div className={classes.content}>
-            <div className={classes.title + ' s-text-36'}>{props.question}</div>
-            <div className={classes.desc + ' s-text-21'}>{props.answer}</div>
+            <div className={classes.title}>{props.question}</div>
+            <div className={classes.desc}>{props.answer}</div>
           </div>
         </div>
       )}

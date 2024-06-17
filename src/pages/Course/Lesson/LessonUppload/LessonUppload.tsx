@@ -5,16 +5,15 @@ import { useParams } from 'react-router';
 
 import { dataService, homeworkService } from 'services';
 import { userService } from 'services/user.service';
+import { errorService } from './error.service';
 import { formatI18nT } from 'shared';
 
-import File from './File/File';
+import Icon from 'ui/Icon/Icon';
+import Link from 'ui/Link/Link';
 import Input from './Input/Input';
-import Textarea from './Textarea/Textarea';
 import Spinner from 'ui/Spinner/Spinner';
 
-import Upload from 'assets/images/Svg/Upload';
 
-import { errorService } from './error.service';
 import classes from './LessonUppload.module.scss';
 
 import type { TAction, TImageDataWState, TState } from './types';
@@ -29,11 +28,9 @@ const MAX_IMAGE_SIZE_B = 3 * 1_000_000;
 
 interface IProps {
   homeworkWPopulate: IHomeworkDataWPopulate
-  scroll: boolean
-  onScrollEnd: () => void
 }
 
-function LessonUppload({ homeworkWPopulate, scroll, onScrollEnd }: IProps) {
+function LessonUppload({ homeworkWPopulate }: IProps) {
   const { courseId, lessonId } = useParams() as { courseId: string, lessonId: string };
   const [state, dispatch] = useReducer(reducer, homeworkWPopulate.homework, initState);
   const [fileInputKey, resetFileInput] = useReducer((key: number) => key + 1, 0);
@@ -41,13 +38,13 @@ function LessonUppload({ homeworkWPopulate, scroll, onScrollEnd }: IProps) {
   const ref = useRef<HTMLDivElement>(null);
   const authedUser = userService.useAuthedUser();
 
-  const formIsShown = authedUser && homeworkWPopulate.homework.state === 'DRAFT';
-  useEffect(() => {
-    if (formIsShown && ref.current && scroll) {
-        ref.current.scrollIntoView({ behavior: 'smooth' });
-        onScrollEnd();
-    }
-  }, [scroll, onScrollEnd, formIsShown]);
+  // const formIsShown = authedUser && homeworkWPopulate.homework.state === 'DRAFT';
+  // useEffect(() => {
+  //   if (formIsShown && ref.current && scroll) {
+  //       ref.current.scrollIntoView({ behavior: 'smooth' });
+  //       onScrollEnd();
+  //   }
+  // }, [scroll, onScrollEnd, formIsShown]);
 
   const onCaptionError = useCallback((imageData: IHomeworkImageData, error: Error) => {
     errorService.addError(String(error));
@@ -74,83 +71,67 @@ function LessonUppload({ homeworkWPopulate, scroll, onScrollEnd }: IProps) {
   }
 
   return (
-      <div className={classes._} ref={ref}>
-        <div className={classes.wrapper}>
-        <div className={classes.fieldsTitle + ' s-text-18'}>{t('fieldsTitle')}</div>
-        <div className={classes.inner}>
-          <div className={classes.fields}>
-            <div className={classes.fieldsInner}>
-              {/* <Textarea
-                value={state.description}
-                onChange={description => {
-                  dispatch({ type: 'PATCH_STATE', payload: { description } });
-                  handleSaveDescriptionAndLink({ id: state.id, description, externalHomeworkLink: state.externalHomeworkLink });
-                }}
-              /> */}
-              <Input
-                  value={state.externalHomeworkLink}
-                  onChange={externalHomeworkLink => {
-                    dispatch({ type: 'PATCH_STATE', payload: { externalHomeworkLink } });
-                    handleSaveDescriptionAndLink({ id: state.id, description: state.description, externalHomeworkLink });
-                  }}
-              />
-              {errors.map(error => (<div className={classes.error} key={error.id}>{error.error}</div>))}
-              <div className={classes.submit}>
-                <button
-                  onClick={() => handleSubmit(state)}
-                  className={cx({submitBtn: true, isDisabled: isDisabled(state) })+ ' s-text-16-18'}
-                  disabled={isDisabled(state)}
-                >
-                  {
-                    state.formState.type === 'pending' ? <Spinner/>
-                    : state.formState.type === 'success' ? 'Отправлено'
-                    : t('submitBtn')
-                  }
-                </button>
-              </div>
+    <div className={classes._} ref={ref}>
+      <div className={classes.wrapper}>
+        <div className={classes.title}>{t('fieldsTitle')}</div>
+        {/* <div className={classes.title}>Ccылка на ваше задание</div> */}
+        {/* <Link 
+          to={'https://www.behance.net/sofiulianova'}
+          target='_blank'
+          className={classes.link + ' key-link'}
+        >
+          https://www.behance.net/sofiulianova
+        </Link> */}
+        <div className={classes.linkForm}>
+          <Input
+            value={state.externalHomeworkLink}
+            onChange={externalHomeworkLink => {
+              dispatch({ type: 'PATCH_STATE', payload: { externalHomeworkLink } });
+              handleSaveDescriptionAndLink({ id: state.id, description: state.description, externalHomeworkLink });
+            }}
+          />
+          {errors.map(error => (<div className={classes.error} key={error.id}>{error.error}</div>))}
+          <div className={classes.submit}>
+            <button
+              onClick={() => handleSubmit(state)}
+              className={cx({submitBtn: true, isDisabled: isDisabled(state) })}
+              disabled={isDisabled(state)}
+            >
+              {
+                state.formState.type === 'pending' ? <Spinner/>
+                : state.formState.type === 'success' ? 'Отправлено'
+                : t('submitBtn')
+              }
+            </button>
+          </div>
+        </div>
+        <div className={classes.statusProgress}>
+          <div className={cx({ statusProgressStep: true, active: true })}>
+            <div className={classes.statusProgressStepLine}></div>
+            <div className={classes.statusProgressStepContent}>
+              <div className={classes.statusProgressStepContentLabel}>Отправка задания</div>
+            </div>
+            <div className={classes.progressStepArrow}>
+              <Icon icon='ProgressStepArrow'/>
             </div>
           </div>
-          {/* <div className={classes.files}>
-            <div className={classes.filesHeader}>
-              <div className={classes.filesTitle + ' s-text-36'}>{t('filesTitle')}</div>
+          <div className={cx({ statusProgressStep: true, active: false })}>
+            <div className={classes.statusProgressStepLine}></div>
+            <div className={classes.statusProgressStepContent}>
+              <div className={classes.statusProgressStepContentLabel}>Проверка</div>
             </div>
-            <div className={classes.filesContent}>
-              <input
-                key={fileInputKey}
-                onChange={(e) => {
-                  handleAddImages(e);
-                  resetFileInput();
-                }}
-                id='added-files'
-                type='file'
-                multiple
-                hidden
-              />
-              <label className={classes.filesEmpty} htmlFor='added-files'>
-                <Upload/>
-                <div className='s-text18'>{t('filesEmpty1')}</div>
-                <div className='s-text-14'>{t('filesEmpty2')}</div>
-              </label>
-              {state.images.map(imageDataWState => (
-                <div
-                  key={imageDataWState.imageData.id}
-                  className={classes.file}
-                >
-                  <File
-                    courseId={state.courseId}
-                    lessonId={state.lessonId}
-                    userId={state.userId}
-                    imageDataWState={imageDataWState}
-                    onCaptionError={onCaptionError}
-                    handleDeleteImage={handleDeleteImage}
-                  />
-                </div>
-              ))}
+            <div className={classes.progressStepArrow}>
+              <Icon icon='ProgressStepArrow'/>
             </div>
-          </div> */}
-        </div>
+          </div>
+          <div className={cx({ finishIconWrapper: true, active: false })}>
+            <div className={classes.finishIcon}>
+              <Icon icon='Finish'/>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
   );
 
   async function handleAddImages(e: React.ChangeEvent<HTMLInputElement>) {
@@ -266,9 +247,9 @@ function LessonUppload({ homeworkWPopulate, scroll, onScrollEnd }: IProps) {
 
     try {
       const lesson = await dataService.lesson.get(state.courseId, state.lessonId);
-      if (lesson.endDate < new Date()) {
+      // if (lesson.endDate < new Date()) {
         throw new Error('Cannot sent homework past deadline');
-      }
+      // }
       dispatch({ type: 'PATCH_STATE', payload: { formState: { type: 'pending' }}});
       await homeworkService.patchHomework(state.id, { state: 'SENT_FOR_REVIEW' });
       dispatch({ type: 'PATCH_STATE', payload: { formState: { type: 'success' }}});

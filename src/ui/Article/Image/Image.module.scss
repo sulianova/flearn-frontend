@@ -10,6 +10,8 @@
   width: set-calc(764);
   left: set-calc(-32);
   overflow: hidden;
+  opacity: 1;
+  transition: opacity $d-hover ease-in-out;
 
   margin: set-calc(40) 0 set-calc(20);
 
@@ -20,13 +22,14 @@
   }
 }
 
+.opacityZero {
+  opacity: 0;
+}
+
 .image {
   position: relative;
 
   border-radius: set-calc($border-radius-medium);
-  background-color: $color-background-alternate;
-
-
   overflow: hidden;
 }
 
@@ -41,105 +44,12 @@
 }
 
 .imageCaption {
-  @include s-text-16;
+  @include font-16-normal-paragraph;
+  color: $color-content-paragraph-primary;
 
   margin-top: set-calc(16);
 }
 
 .imageCaption > * {
-  @include s-text-16;
-}
-
-.modalCaptionWrapper {
-  margin: set-calc(8) set-calc(64);
-}
-
-.modalCaption {
-  color: $color-background-stroke;
-  margin: 0;
-  text-align: center;
-  white-space: normal;
-}
-
-.modalCaption > * {
-  font-size: inherit;
-  line-height: inherit;
-}
-
-.modal {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  visibility: hidden;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  transition: $modal-animation-duration;
-  background-color: transparent;
-}
-
-.modalClose {
-  position: absolute;
-  top: set-calc(-48);
-  right: set-calc(-48);
-  cursor: pointer;
-  opacity: .7;
-  color: $color-background-default;
-
-  svg {
-    width: set-calc(33);
-    height: set-calc(33);
-  }
-}
-
-.modalClose:hover {
-  opacity: 1;
-}
-
-.modalVisible {
-  z-index: 10001;
-  top: 0;
-  left: 0;
-  visibility: visible;
-  background-color: $color-background-overlay;
-}
-
-.modalContentWrapper {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.modalContent_AnimationEnterDone {
-  transform: translate(0, 0) scale(1, 1);
-}
-
-.modalContent_AnimationExitDone {
-  transform: translate($modal-origin-x-offset, $modal-origin-y-offset) scale($modal-origin-x-scale, $modal-origin-y-scale);
-}
-
-.modalContent {
-  transition: $modal-animation-duration;
-  transition-timing-function: ease-in-out;
-  transform: translate(0, 0) scale(1, 1);
-  transform-origin: left top;
-
-  background: transparent;
-  box-shadow: none;
-
-  position: relative;
-  margin: set-calc(10);
-  color: $color-content-primary;
-
-  img {
-    position: relative;
-    max-width: calc(100vw - 150px);
-    max-height: calc(100vh - 150px);
-    touch-action: none;
-    pointer-events: none;
-    will-change: transform;
-    cursor: default;
-  }
+  @include font-16-normal-paragraph;
 }

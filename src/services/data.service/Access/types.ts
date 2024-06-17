@@ -1,5 +1,4 @@
 type TEmail = string;
+export type TAccess = 'FREE' | 'BASE' | 'OPTIMAL' | 'EXTENDED';
 
-export interface IAccessData {
-  users: Record<TEmail, boolean>
-}
+export type TAccessData = Record<TEmail, TAccess | undefined>

@@ -1,0 +1,724 @@
+@import 'styles/index';
+
+.__ {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+
+  color: $color-content-primary;
+  background-color: $color-background-alternate;
+  border-radius: set-calc($border-radius-medium);
+
+  padding: set-calc(16);
+  min-height: 90vh;
+  min-width: 90vw;
+
+  @include set-media(md) {
+    display: flex;
+    flex-direction: column;
+
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    min-height: fill-available;
+    padding: 0;
+    border-radius: 0;
+
+    width: 100%;
+  }
+}
+
+.close {
+  z-index: 1;
+  position: absolute;
+  top: set-calc(16);
+  right: set-calc(16);
+
+  border-radius: set-calc($border-radius-small);
+  padding: set-calc(13);
+
+  display: flex;
+  color: $color-content-primary;
+  background-color:  $color-background-glassy-a;
+
+  cursor: pointer;
+
+  transition-property: background-color, border-color, box-shadow, color, transform;
+  transition-duration: 0.15s;
+  transition-timing-function: ease-out;
+
+  
+  svg {
+    width: set-calc(24);
+    height: set-calc(24);
+
+    display: inline-block;
+    text-align: center;
+    background: 50% no-repeat;
+    background-size: contain;
+  }
+
+  @include set-media(md) {
+    top: set-calc(12);
+    right: set-calc(12);
+    border-radius: 50%;
+    padding: set-calc(3);
+    box-shadow: none;
+    background-color: transparent;
+  }
+}
+
+.close:hover {
+  background-color: $color-background-glassy-b;
+
+  @include set-media(md) {
+    background-color: transparent;
+  }
+}
+
+.close:active {
+  transform: scale(0.94);
+
+  @include set-media(md) {
+    transform: none;
+    background-color: transparent;
+  }
+}
+
+.back {
+  z-index: 1;
+  position: absolute;
+  top: set-calc(16);
+  left: set-calc(16);
+
+  border-radius: set-calc($border-radius-small);
+  padding: set-calc(13);
+
+  display: flex;
+  color: $color-content-primary;
+  background-color:  $color-background-glassy-a;
+
+  cursor: pointer;
+
+  transition-property: background-color, border-color, box-shadow, color, transform;
+  transition-duration: 0.15s;
+  transition-timing-function: ease-out;
+
+  
+  svg {
+    width: set-calc(24);
+    height: set-calc(24);
+
+    display: inline-block;
+    text-align: center;
+    background: 50% no-repeat;
+    background-size: contain;
+    transform: rotate(0deg);
+  }
+
+  @include set-media(md) {
+    top: set-calc(12);
+    left: set-calc(12);
+    border-radius: 50%;
+    padding: set-calc(3);
+    box-shadow: none;
+    background-color: transparent;
+  }
+}
+
+.back:hover {
+  background-color:  $color-background-glassy-b;
+
+  @include set-media(md) {
+    background-color: transparent;
+  }
+}
+
+.back:active {
+  transform: scale(0.94);
+
+  @include set-media(md) {
+    transform: none;
+    background-color: transparent;
+  }
+}
+
+.body {
+  flex-grow: 1;
+  flex-shrink: 0;
+  width: 100%;
+  height: -moz-max-content;
+  height: max-content;
+}
+
+.header {
+  padding: set-calc(16) set-calc(16) set-calc(40);
+  display: flex;
+
+  @include set-media(md) {
+    padding: set-calc(12) set-calc(12) set-calc(12);
+  }
+}
+
+.headerTitle {
+  position: relative;
+  padding-left: set-calc(16);
+  padding-bottom: set-calc(18);
+
+  @include font-36-normal-header;
+
+  @include set-media(md) {
+    position: relative;
+    padding-bottom: 0;
+    padding-top: set-calc(16);
+  }
+}
+
+
+.stepWidget {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  column-gap: set-calc(8);
+  justify-content: center;
+
+  @include set-media(md) {
+    column-gap: set-calc(4);
+  }
+}
+
+.stepWidgetItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 set-calc(16);
+  border-radius: set-calc($border-radius-large);
+  background-color: $color-background-glassy-a;
+  color: $color-content-tertiary;
+  height: set-calc(30);
+
+  @include font-16-normal-ui;
+
+  @include set-media(md) {
+    padding: 0 0;
+    height: set-calc(30);
+    width: set-calc(30);
+    border-radius: 50%;
+  }
+
+  &Mob {
+    display: none;
+    @include set-media(md) {
+      display: flex;
+    }
+  }
+
+  &Desk {
+    display: flex;
+    @include set-media(md) {
+      display: none;
+    }
+  }
+}
+
+.active {
+  background-color: $color-content-background-primary;
+  color: $color-content-inverted-primary;
+  border: none;
+}
+
+.commonFlowRow {
+  @include set-media(md) {
+    position: relative;
+    padding: 0 set-calc(16) set-calc(16);
+  }
+}
+
+.wrapper {
+  display: grid;
+  grid-gap: set-calc($s-gap);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  padding: set-calc(24) 0 0;
+
+  @include set-media(md) {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+
+    width: set-calc(16, true, 100%);
+    left: set-calc(-8);
+    padding: set-calc(48) set-calc(8) set-calc(16);
+
+    scrollbar-width: none;
+    overflow-y: hidden;
+    overflow-x: scroll;
+
+    scroll-behavior: smooth;
+    scroll-snap-type: block;
+  }
+}
+
+.block {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  grid-column: span 6;
+  width: 100%;
+  min-width: min(380px, 80vw);
+  padding: set-calc(24);
+  border-radius: set-calc($border-radius-large);
+  background-color: $color-content-inverted-secondary;
+  border: set-calc(1) solid $color-background-default;
+  box-shadow: $shadow-medium-default;
+
+  @include set-media(md) {
+    border-radius: set-calc($border-radius-10);
+    padding: set-calc(16);
+    height: set-calc(500);
+  }
+}
+
+.titleWrapper{
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: set-calc(16);
+
+  @include set-media(md) {
+    margin-bottom: set-calc(80);
+  }
+}
+
+.courseName {
+  margin-bottom: set-calc(8);
+  color: $color-content-tertiary;
+
+  @include font-16-normal-paragraph;
+}
+
+.title {
+  max-width: set-calc(560);
+  word-break: break-word;
+  margin-bottom: set-calc(16);
+
+  @include font-24-normal-header;
+}
+
+.buble {
+  position: absolute;
+  right: set-calc(20);
+  top: set-calc(-30);
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 9;
+
+  transform: rotate(2deg);
+  padding: set-calc(10) set-calc(15);
+
+  border-radius: set-calc($border-radius-large);
+  border: set-calc(2.5) solid $color-content-background-secondary;
+  backdrop-filter: blur(set-calc($backdrop-filter));
+
+  @include font-21-normal-ui;
+
+  @include set-media(md) {
+    padding: set-calc(8) set-calc(12);
+  }
+}
+
+.credit {
+  margin-top: auto;
+
+  padding-top: set-calc(32);
+  margin-bottom: set-calc(24);
+
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  s:after {
+    margin-top: 0;
+    border-bottom: set-calc(1.5) solid $color-content-tertiary;
+    content: "";
+    left: set-calc(-2);
+    position: absolute;
+    right: set-calc(-2);
+    top: 50%;
+
+    @include set-media(md) {
+      border-bottom: set-calc(1) solid $color-content-tertiary;
+    }
+  }
+}
+
+.creditWas {
+  width: max-content;
+  margin-bottom: set-calc(4);
+  color: $color-content-tertiary;
+
+  @include font-24-normal-header;
+  letter-spacing: -0.05rem;
+}
+
+.creditPrice {
+  position: relative;
+  @include set-typography(56, 60, 500);
+
+  display: inline-block;
+  letter-spacing: -0.2rem;
+
+  @include set-media(md) {
+    @include set-typography(48, 48, 500);
+  }
+}
+
+.discount {
+  position: absolute;
+  top: set-calc(-28);
+  right: unset;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: set-calc(8) set-calc(16);
+
+  @include font-18-normal-ui;
+  letter-spacing: 0;
+
+  background: $color-background-glassy-b;
+  border-radius: set-calc($border-radius-large);
+  -webkit-text-stroke: 0;
+
+
+  @include set-media(md) {
+    right: set-calc(100);
+    top: set-calc(-34);
+  }
+}
+
+.courseInfo {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  padding: 0 0 set-calc(5);
+
+  @include set-media(md) {
+    align-items: start;
+    padding-top:  0;
+    padding-bottom: set-calc(150);
+  }
+}
+
+.btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: $color-palette-white-1000;
+  @include font-21-normal-ui;
+
+  border-radius: set-calc($border-radius-10);
+  background-color: $color-background-btn;
+  height: set-calc(60);
+  width: 100%;
+
+  transition: opacity $d-hover ease, box-shadow $d-hover ease, background-color $d-hover ease;
+  cursor: pointer;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: $shadow-medium-hovered;
+    background-color: $color-background-btn;
+  }
+
+  @include set-media(md) {
+    height: set-calc(52);
+    border-radius: set-calc($border-radius-10);
+  }
+}
+
+.paymentWrapper {
+  display: flex;
+  gap: set-calc($s-gap);
+  padding: set-calc(24) 0 0;
+  justify-content: center;
+
+  @include set-media(md) {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+
+    width: set-calc(16, true, 100%);
+    left: set-calc(-8);
+    padding: set-calc(48) set-calc(8) set-calc(16);
+
+    scrollbar-width: none;
+    overflow-y: hidden;
+    overflow-x: scroll;
+
+    scroll-behavior: smooth;
+    scroll-snap-type: block;
+  }
+}
+
+.paymentBlock {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  grid-column: span 4;
+  width: 50%;
+  padding: set-calc(24);
+  border-radius: set-calc($border-radius-large);
+  background-color: $color-content-inverted-secondary;
+  border: set-calc(1) solid $color-background-default;
+  box-shadow: $shadow-medium-default;
+
+  @include set-media(md) {
+    border-radius: set-calc($border-radius-10);
+    padding: set-calc(16);
+    height: unset;
+    grid-column: span 4;
+    width: 100%;
+    margin: 0 set-calc(8);
+  }
+
+  .btn {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    color: $color-palette-white-1000;
+    @include font-21-normal-ui;
+  
+    border-radius: set-calc($border-radius-small);
+    background-color: $color-background-btn;
+    height: set-calc(60);
+    width: 100%;
+  
+    transition: background-color $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
+    cursor: pointer;
+  
+    &:hover {
+      cursor: pointer;
+      box-shadow: $shadow-medium-hovered;
+      background-color: $color-background-btn-hover;
+    }
+  
+    @include set-media(md) {
+      height: set-calc(48);
+      border-radius: set-calc(10);
+    }
+  }
+}
+
+.btn:disabled {
+  background-color: $color-background-glassy-a;
+  color: $color-content-tertiary;
+  pointer-events: none;
+}
+
+.paymentCheck {
+  position: relative;
+  display: block;
+  margin: 0 set-calc(8) set-calc(24);
+
+  input {
+    display: none;
+  }
+
+  label {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    cursor: pointer;
+    color: $color-content-secondary;
+
+    span {
+      @include set-typography(14, 16, 500);
+    }
+
+    svg {
+      position: relative;
+      display: block;
+      width: set-calc(16);
+      height: set-calc(16);
+      margin-right: set-calc(8);
+
+      path {
+        fill: none;
+      }
+
+      rect {
+        fill: $color-background-glassy-a;
+      }
+    }
+  }
+  
+  input:checked + label {
+    path {
+      fill: $color-content-primary;
+    }
+  }
+}
+
+
+.paymentHeaderWrapper{
+  display: flex;
+  flex-direction: column;
+
+  .title {
+    max-width: set-calc(560);
+
+    word-break: break-word;
+    @include font-18-normal-ui;
+    color: $color-content-secondary;
+  }
+
+  .credit {
+    padding-top: set-calc(32);
+    margin-bottom: set-calc(24);
+    flex-direction: row-reverse;
+    align-items: flex-end;
+  
+    display: flex;
+    flex: 1;
+
+    s {
+      position: relative;
+    }
+  
+    s:after {
+      margin-top: 0;
+      border-bottom: set-calc(1.5) solid $color-content-tertiary;
+      content: "";
+      left: set-calc(-2);
+      position: absolute;
+      right: set-calc(-2);
+      top: 50%;
+  
+      @include set-media(md) {
+        border-bottom: set-calc(1) solid $color-content-tertiary;
+      }
+    }
+  }
+
+  .discount {
+    position: absolute;
+    top: set-calc(-28);
+    right: set-calc(-50);
+  
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: set-calc(8) set-calc(16);
+
+    @include font-14-normal-ui;
+    letter-spacing: 0;
+  
+    background: $color-background-glassy-b;
+    border-radius: set-calc($border-radius-large);
+    -webkit-text-stroke: 0;
+  
+  
+    @include set-media(md) {
+      right: set-calc(-56);
+      top: set-calc(-34);
+    }
+  }
+  
+  .creditWasWrapper {
+    margin-bottom: set-calc(6);
+
+    @include set-media(md) {
+      margin-bottom: set-calc(2);
+    }
+  }
+
+  .creditWas {
+    width: max-content;
+    letter-spacing: -0.05rem;
+    color: $color-content-tertiary;
+    @include font-32-normal-header;
+
+    @include set-media(md) {
+      @include font-24-normal-ui;
+    }
+  }
+  
+  .creditPrice {
+    position: relative;
+    @include font-56-normal-ui;
+  
+    display: inline-block;
+    letter-spacing: -0.2rem;
+    margin-right: set-calc(16);
+    color: $color-content-primary;
+  }
+}
+
+.optionDescription {
+  padding: set-calc(24) set-calc(8);
+  @include font-18-normal-paragraph;
+
+  a {
+    color: $primary-color;
+  }
+
+  @include set-media(md) {
+    padding: set-calc(16) 0;
+  }
+}
+
+.paymentOptions {
+  margin-bottom: set-calc(24);
+
+  @include set-media(md) {
+    margin-bottom: set-calc(32);
+  }
+}
+
+.groupToggleOptions {
+  display: flex;
+  padding: set-calc(2);
+  border-radius: set-calc($border-radius-large);
+  background-color: $color-background-glassy-a;
+}
+
+.groupToggleOption {
+  width: 50%;
+}
+
+.groupToggleLabel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  @include font-16-normal-ui;
+  text-align: center;
+
+  cursor: pointer;
+  padding: set-calc(9) 0;
+  border-radius: set-calc($border-radius-large);
+}
+
+.checked {
+  background-color: $color-background-default;
+  cursor: default;
+}

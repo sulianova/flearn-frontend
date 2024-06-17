@@ -1,10 +1,9 @@
 import classNames from 'classnames/bind';
 import { useEffect, useRef, useState } from 'react';
 
-import type { ICourseData } from 'services/course.service';
+import type { ICourseFaqItem } from 'services/course.service';
 
-import Minus from 'assets/images/Svg/Minus';
-import PlusOpen from 'assets/images/Svg/PlusOpen';
+import Icon from 'ui/Icon/Icon';
 import Animated from 'ui/Animated';
 import Text from 'ui/Text/Text';
 
@@ -15,7 +14,7 @@ const cx = classNames.bind(classes);
 export default Item;
 
 interface IProps {
-  faq: NonNullable<ICourseData['faq']>[number]
+  faq: ICourseFaqItem
 }
 
 function Item({ faq: { question, answer } }: Readonly<IProps>) {
@@ -35,18 +34,18 @@ function Item({ faq: { question, answer } }: Readonly<IProps>) {
           className={cx({ item: true }, className)}
           onClick={() => setIsExpanded(!isExpanded)}
         >
-          <div className={classes.itemQuestion + ' s-text-21'}>
+          <div className={classes.itemQuestion}>
             <div className={classes.itemQuestionText}>
               <Text text={question}/>
             </div>
             <div className={classes.itemQuestionPlus}>
-              {isExpanded ? <Minus/> : <PlusOpen/>}
+              {isExpanded ? <Icon icon='Minus'/> : <Icon icon='PlusOpen'/>}
             </div>
           </div>
           <div
             ref={ref}
             style={{ height }}
-            className={cx({ itemAnswer: true, itemAnswerExpanded: isExpanded }, ' s-text-21')}
+            className={cx({ itemAnswer: true, itemAnswerExpanded: isExpanded })}
           >
             <div className={classes.itemAnswerText}><Text text={answer}/></div>
           </div>

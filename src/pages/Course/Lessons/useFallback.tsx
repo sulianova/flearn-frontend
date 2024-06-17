@@ -1,10 +1,12 @@
 import Fallback from 'ui/Fallback';
 
-import { ECommonErrorTypes, type ICourseState, type ILessonsState } from 'types';
+import { ECommonErrorTypes } from 'types';
+import type { ICourseData, TCourseState } from 'services/course.service';
+import type { ILessonData, TLessonState } from 'services/lesson.service';
 
 interface IProps {
-  courseState: ICourseState
-  lessonsState: ILessonsState
+  courseState: { state: TCourseState, course?: ICourseData }
+  lessonsState: { state: TLessonState, lessons: ILessonData[] }
 }
 
 export default function useFallback(props: Readonly<IProps>) {
@@ -40,7 +42,7 @@ export default function useFallback(props: Readonly<IProps>) {
     return <Fallback.Pending text='loading lessons...'/>
   }
 
-  if (!courseState.data || !lessonsState.lessons) {
+  if (!courseState.course || !lessonsState.lessons) {
     return <Fallback.Error text='500 Server error'/>
   }
 

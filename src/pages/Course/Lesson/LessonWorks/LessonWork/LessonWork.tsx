@@ -1,12 +1,13 @@
 import { formatI18nT } from 'shared';
 
 import Article from 'ui/Article/Article';
+import type { TText } from 'ui/Text/Text';
 
 import classes from './LessonWork.module.scss';
 
-import type { IArticleTextBlock, IHomeworkDataWPopulate, TText, IHomeworkImageData } from 'types';
+import type { IHomeworkDataWPopulate } from 'types';
 import { useMemo } from 'react';
-import { getFileExtension, isImage } from 'utils';
+import { isImage } from 'utils';
 
 export default LessonWork;
 
@@ -23,7 +24,7 @@ function LessonWork(props: IProps) {
       return undefined;
     }
 
-    const text: TText[] = homework.description
+    const text: TText = homework.description
       .split('\n')
       .map(line => line.trim())
       .filter(Boolean)

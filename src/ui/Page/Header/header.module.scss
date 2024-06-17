@@ -1,20 +1,17 @@
 @import 'styles/index';
 
-._ {
+.__ {
   position: sticky;
   top: 0;
-  transition: transform 0.15s ease-in;
   z-index: 100;
   width: 100%;
   z-index: 1000;
+  transition: transform .5s;
+  
 
-  @include s-text-16;
+  @include set-typography(18, 18, 500);
 
   @include set-media(md) {
-    position: absolute;
-    top: 0;
-    left: 0;
-
     transition: top 0.5s, transform 0.5s;
 
     min-height: 100vh;
@@ -22,35 +19,31 @@
     min-height: -webkit-fill-available;
     min-height: fill-available;
 
-    width: 0;
-
-    &[data-is-mobile-menu-opened="true"] {
-      width: 100%;
-    }
-
-    @include set-typography(20, 28, 500);
+    @include font-16-normal-ui;
   }
 }
 
 .desk {
-  width: 100%;
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: set-calc(58);
-  padding: set-calc(10) set-calc($padding-x-mob-page) set-calc(16);
+
+  width: 100%;
+  padding: set-calc(10) set-calc(2 * $padding-x-desk-page) set-calc(16);
   background-color: transparent;
+  transition: transform 0.15s ease-in;
 
   @include is-grid-12;
   gap: 0;
 
   @include set-media(md) {
-    position: fixed;
-    top: 0;
-    right: 0;
-    
-    width: max-content;
-    padding: set-calc(8) set-calc($padding-x-mob-page) set-calc(8);
+    flex-direction: row;
+    display: flex;
+
+    height: set-calc(52);
+    grid-gap: set-calc(16);
+    padding: set-calc(8) set-calc($padding-xs-mob-page) set-calc(8);
     background-color: transparent;
 
     .logo {
@@ -60,10 +53,15 @@
 }
 
 .deskPaddingWEB {
-  padding: set-calc(10) set-calc($padding-x-desk-page) set-calc(16);
+  padding: set-calc(10) set-calc(2 * $padding-x-desk-page) set-calc(16);
 
   @include set-media(md) {
-    padding: set-calc(8) set-calc($padding-x-mob-page) set-calc(8);
+    padding: 0 set-calc($padding-xs-mob-page) 0;
+
+    .humburger {
+      background-color: $color-palette-white-200-a;
+      backdrop-filter: blur(set-calc($backdrop-filter));
+    }
   }
 }
 
@@ -71,7 +69,12 @@
   padding: set-calc(10) set-calc($padding-x-mob-page) set-calc(16);
 
   @include set-media(md) {
-    padding: set-calc(8) set-calc($padding-x-mob-page) set-calc(8);
+    padding: set-calc(14) set-calc($padding-x-mob-page) set-calc(8);
+
+    .humburger {
+      background-color: $color-palette-white-200-a;
+      backdrop-filter: blur(set-calc($backdrop-filter));
+    }
   }
 }
 
@@ -88,25 +91,30 @@
 .logoWrapper {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   position: relative;
-  background-color: $color-content-background-primary;
   max-width: fit-content;
-  color: $color-content-inverted-primary;
-  padding: set-calc(4) set-calc(16);
+  color: $color-content-primary;
   border-radius: set-calc($border-radius-small);
-  height: set-calc(32);
+  padding: 0;
+  height: set-calc(40);
+  overflow: hidden;
 
   transition: background-color $d-hover ease;
   
   &:hover {
     cursor: pointer;
-    background-color: $color-content-background-secondary;
-    color: $color-content-inverted-primary;
+    color: $primary-color;
   }
 
-  @include set-media(md) {
-    border: set-calc(1.3) solid $color-content-background-secondary;
+  svg {
+    margin-top: set-calc(4);
+    width: set-calc(56);
+    height: set-calc(56);
+
+    path {
+      fill: currentColor;
+    }
   }
 }
 
@@ -116,32 +124,70 @@
   display: flex;
   align-items: center;
   justify-content: end;
-
-  @include set-media(md) {
-    display: none;
-  }
 }
 
 .navItem:not(:first-child) {
   margin-left: set-calc(8);
+
+  @include set-media(md) {
+    margin-left: set-calc(16);
+  }
+}
+
+.userSettingsWrapper {
+  display: none;
+
+  @include set-media(md) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    svg {
+      width: set-calc(24);
+      height: set-calc(24);
+  
+      color: $color-content-primary;
+    }
+  }
+}
+
+.open {
+  z-index: 10000;
+}
+
+.userSettings {
+  display: none;
+
+  @include set-media(md) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    svg {
+      width: set-calc(30);
+      height: set-calc(30);
+  
+      color: $color-content-primary;
+    }
+  }
 }
 
 .navLogin {
   display: flex;
   align-items: center;
   position: relative;
-  background-color: $color-content-background-primary;
+  background-color: $color-content-background-secondary;
   color: $color-content-inverted-primary;
-  padding: set-calc(4) set-calc(16);
-  border-radius: set-calc($border-radius-small);
+  padding: set-calc(4) set-calc(24);
+  border-radius: set-calc($border-radius-large);
   width: max-content;
-  height: set-calc(32);
+  height: set-calc(40);
 
   transition: background-color $d-hover ease;
   
   &:hover {
     cursor: pointer;
-    background-color: $color-content-background-secondary;
+    background-color: $color-content-background-primary;
     color: $color-content-inverted-primary;
   }
 
@@ -150,29 +196,98 @@
   }
 }
 
+.navBuy {
+  display: block;
+  position: relative;
+}
+
+.buyBtn {
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  width: max-content;
+  height: set-calc(40);
+
+
+
+  color: $color-content-inverted-primary;
+
+  padding: set-calc(4) set-calc(24);
+  border-radius: set-calc($border-radius-large);
+  background-color: $color-content-primary;
+  transition: background-color $d-hover ease;
+  
+  &:hover {
+    cursor: pointer;
+    background-color:  $color-content-background-secondary;
+  }
+
+  @include set-media(md) {
+    height: set-calc(30);
+    border-radius: set-calc($border-radius-small);
+    padding: set-calc(4) set-calc(16);
+  }
+}
+
+.buyBadge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: set-calc(-4);
+  right: set-calc(-6);
+
+  padding: 0 set-calc(6);
+
+  height: set-calc(20);
+  border-radius: set-calc(10);
+  transform: rotate(10deg);
+  position: absolute;
+
+  pointer-events: none;
+
+  background-color: $color-accent-promo;
+  color: $color-palette-white-1000;
+
+  @include set-typography(14, 16, 500);
+
+  @include set-media(md) {
+    position: absolute;
+    top: set-calc(-6);
+    right: set-calc(-6);
+
+    padding: 0 set-calc(3.5);
+    height: set-calc(16);
+
+    border-radius: set-calc(2);
+    transform: rotate(10.5deg);
+
+    pointer-events: none;
+
+    @include set-typography(12, 14, 500);
+  }
+}
+
 .navContent {
   display: flex;
   align-items: center;
   position: relative;
-  background-color: $color-background-default;
-  padding: set-calc(4) set-calc(16);
-  border-radius: set-calc($border-radius-small);
+  background-color:  transparent;
+  padding: set-calc(4) set-calc(24);
+  border-radius: set-calc(100);
+  border: set-calc(2.5) solid $color-content-primary;
   width: max-content;
-  height: set-calc(32);
+  height: set-calc(40);
 
   gap: set-calc(4);
 
   transition: background-color $d-hover ease;
+  backdrop-filter: blur(set-calc($backdrop-filter));
   
   &:hover {
-    cursor: default;
-    background-color: $color-background-glassy-b;
+    cursor: pointer;
   }
 
-  &:active {
-    background-color: $color-background-glassy-c;
-    transform: scale(0.98);
-  }
 
   @include set-media(md) {
     display: none;
@@ -217,19 +332,20 @@
   display: none;
 
   @include set-media(md) {
-    position: relative;
+    position: absolute;
+    top: set-calc(8);
+    right: set-calc(8);
+    z-index: 1;
+
     display: inline-flex;
     justify-content: center;
 
-    background-color: $color-background-glassy-b;
-    -webkit-backdrop-filter: $backdrop-filter;
-    backdrop-filter: $backdrop-filter;
+    padding: set-calc(10);
+    transition: transform 0.15s ease-in;
+    opacity: 1;
+
     color: $color-content-primary;
     border-radius: set-calc($border-radius-small);
-    border: $border-backdrop-filter;
-
-    padding: set-calc(6);
-    opacity: 1;
 
     svg {
       display: inline-block;
@@ -242,25 +358,54 @@
   }
 }
 
+.__Hidden {
+  transform: translateY(-100%);
+
+    @include set-media(md) {
+      transform: none;
+
+      .desk {
+        transform: translateY(-100%);
+      }
+    }
+}
+
 .mob {
-  transition: $d-hover opacity;
-  padding: 0 set-calc($padding-x-mob-page) 0;
-  width: 100%;
-  display: none;
+  display: flex;
   flex-direction: column;
-  justify-content: end;
+
   min-height: 100vh;
-  min-height: -moz-available;
   min-height: -webkit-fill-available;
   min-height: fill-available;
-  background-color: $color-content-inverted-primary;
+  padding: 0;
+  border-radius: 0;
+
+  width: 100%;
 
   &MenuMain {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex-grow: 1;
+    flex-shrink: 0;
+    width: 100%;
+    height: -moz-max-content;
+    height: max-content;
+    padding: set-calc(16);
+
     .mobItem {
-      padding: set-calc(24) 0;
       display: flex;
-      justify-content: start;
-      border-bottom: set-calc(2) solid $color-content-background-primary;
+      justify-content: center;
+      align-items: center;
+      padding: 0 set-calc(24);
+      height: set-calc(60);
+
+      border-radius: set-calc($border-radius-10);
+      background: $color-background-alternate;
+      color: $color-content-primary;
+
+      @include set-typography(18, 24, 500);
+      touch-action: manipulation;
     }
   }
 
@@ -268,24 +413,58 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    padding: set-calc(16);
   }
 }
 
 .loginBtn {
-  position: relative;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  padding: 0 set-calc(24);
+  height: set-calc(60);
   width: 100%;
-  height: set-calc(68);
-  margin: set-calc(40) 0 set-calc(16);
-  border-radius: set-calc(16);
-  border: set-calc(2) solid $color-content-background-primary;
-  cursor: pointer;
-  transition: color 0.2s, background-color 0.2s, opacity 0.2s;
 
-  &:active {
-    opacity: 0.9;
+  border-radius: set-calc($border-radius-large);
+  background: $color-content-background-primary;
+  color: $color-content-inverted-primary;
+
+  @include set-typography(18, 24, 500);
+  touch-action: manipulation;
+}
+
+.close {
+  display: none;
+
+  @include set-media(md) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+
+    border-radius: 50%;
+    padding: set-calc(18);
+  
+    display: flex;
+    color: $color-content-primary;
+    box-shadow: none;
+
+    cursor: pointer;
+  
+    transition-property: background-color, border-color, box-shadow, color, transform;
+    transition-duration: 0.15s;
+    transition-timing-function: ease-out;
+
+    svg {
+      width: set-calc(24);
+      height: set-calc(24);
+  
+      display: inline-block;
+      text-align: center;
+      background: 50% no-repeat;
+      background-size: contain;
+    }
   }
 }
 
@@ -298,28 +477,8 @@
   .mob {
     display: flex;
   }
-
-  .desk {
-    background-color: $color-background-default;
-  }
-
-  .humburger {
-    display: block;
-    position: relative;
-    width: set-calc(44);
-    height: set-calc(44);
-
-    background: url("./menu-close.svg") no-repeat;
-    opacity: 1;
-    background-size: contain;
-    cursor: pointer;
-
-    svg {
-      display: none;
-    }
-  }
 }
 
 .isActive {
-  color: $blue !important;
+  color: $primary-color !important;
 }

@@ -16,7 +16,7 @@
 }
 
 .card {
-  background: $beige;
+  background: $color-content-tertiary;
   border-radius: set-calc($border-radius-medium);
   display: flex;
   flex-direction: column;
@@ -32,6 +32,7 @@
 
 .cardTitle {
   padding-bottom: set-calc(24);
+  @include font-70-normal-header;
 }
 
 .videoCard {

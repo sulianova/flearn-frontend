@@ -1,16 +1,17 @@
 import classNames from 'classnames/bind';
+import { useMemo } from 'react';
 import { useParams } from 'react-router';
 
-import UserImage from 'assets/images/Svg/UserImage';
+import { URLSections } from 'router';
+import { isImage } from 'utils';
+
+import Icon from 'ui/Icon/Icon';
 import Img from 'ui/Img/Img';
 import Link from 'ui/Link/Link';
-import Pattern from 'assets/images/Svg/Pattern';
+
+import type { IHomeworkDataWPopulate, IHomeworkImageData } from 'types';
 
 import classes from './WorkCard.module.scss';
-
-import { URLSections, type IHomeworkDataWPopulate, IHomeworkImageData } from 'types';
-import { useMemo } from 'react';
-import { isImage } from 'utils';
 
 const cx = classNames.bind(classes);
 
@@ -34,22 +35,13 @@ function WorkCard({ homework }: IProps) {
           className={classes.preview}
           to={URLSections.Course.Lesson.Results.to({ courseId, lessonId, params: { userId: user?.id }})}
         >
-          {coverImage ? (
-            <Img
-              src={coverImage.src}
-              alt={coverImage.alt}
-              placeholder={<Pattern/>}
-            />
-          ) : (
-            <Pattern/>
-          )}
           <div className={classes.overlay}/>
         </Link>
         <div className={classes.user}>
           <div className={classes.userImage}>
-            <UserImage/>
+            <Icon icon='User'/>
           </div>
-          <div className={classes.userName + ' s-text-16'}>{user?.displayName}</div>
+          <div className={classes.userName}>{user?.displayName}</div>
         </div>
       </div>
   );

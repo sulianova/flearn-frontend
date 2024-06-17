@@ -24,20 +24,16 @@
   width: 100%;
   overflow: hidden;
 
-  padding: set-calc(10) set-calc(48);
-
   display: flex;
   align-items: center;
   justify-content: center;
 
-  background-color: $blue;
-  -webkit-backdrop-filter: $backdrop-filter;
-  backdrop-filter: $backdrop-filter;
+  background-color: $color-content-primary;
+
+  @include font-24-normal-ui ;
   color: $color-palette-white-1000;
-  border-radius: set-calc($border-radius-small);
-  border: $border-backdrop-filter;
 
   border-radius: set-calc($border-radius-large);
-  cursor: pointer;
-
+  padding: set-calc(10) set-calc(48);
+  height: set-calc(60);
 }

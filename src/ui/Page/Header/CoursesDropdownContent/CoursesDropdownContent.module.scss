@@ -5,14 +5,17 @@
   right: 0;
   overflow: hidden;
   box-sizing: border-box;
-  min-width: set-calc(420);
+  min-width: set-calc(320);
   max-height: 80vh;
   padding: 0;
-  margin-block-start: set-calc(8);
-  border-radius: set-calc($border-radius-8);
-  border: set-calc(1) solid $color-background-glassy-a;
-  background-color: $color-background-default;
-  box-shadow: $shadow-medium-default;
+  margin-block-start: set-calc(10);
+  border-radius: set-calc($border-radius-10);
+  background:  $color-content-secondary;
+  border: set-calc(0.5) solid $color-content-tertiary;
+
+  transition: background-color $d-hover ease;
+  backdrop-filter: blur(set-calc($backdrop-filter));
+  box-shadow: $shadow-menu;
 }
 
 .scrollableDefault {
@@ -43,18 +46,15 @@
   box-sizing: content-box !important;
 
   scrollbar-width: set-calc(1);
-  overflow: scroll;
   min-width: 100%;
   max-width: inherit;
   min-height: 100%;
   max-height: inherit;
-  margin-bottom: set-calc(-16);
-  padding-right: set-calc(16);
 }
 
 .content {
   width: auto;
-  padding: set-calc(16);
+  padding: set-calc(8);
   flex-grow: 1;
   flex-shrink: 0;
   height: max-content;
@@ -63,24 +63,31 @@
 .listItems {
   display: flex;
   flex-direction: column;
+  gap: set-calc(4);
 }
 
 .listOptionTitle {
-  padding: set-calc(4) set-calc(8);
+  padding: set-calc(8) set-calc(8);
   font-feature-settings: 'pnum' on, 'lnum' on;
-  color: $color-content-secondary;
+  color: $color-content-inverted-secondary;
 }
 
 .listOption {
   display: block;
-  padding: set-calc(6) set-calc(8);
-  color: $color-content-primary;
-  font-feature-settings: 'pnum' on, 'lnum' on;
-  text-decoration: none;
-  border-radius: set-calc(4);
+  padding: set-calc(10) set-calc(10);
+  color: $color-content-inverted-primary;
+  border-radius: set-calc($border-radius-8);
+  transition: background-color 0.3s;
   cursor: pointer;
+  background-color: transparent;
+
+  @include set-typography(18, 20, 500);
 
   &:hover {
-    background-color: $color-background-glassy-a;
+    background-color: $color-background-glassy-inverted-c;
   }
+}
+
+.active {
+  background-color: $color-background-glassy-inverted-b;
 }

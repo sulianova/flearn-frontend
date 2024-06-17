@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import { formatI18nT } from 'shared';
 
-import type { ICourseData } from 'services/course.service';
+import type { ICourseData, ICoursePrize } from 'services/course.service';
 
 import Text from 'ui/Text/Text';
 
@@ -14,18 +14,18 @@ const cx = classNames.bind(classes);
 
 interface IProps {
   type: ICourseData['type']
-  prizes: NonNullable<ICourseData['prizes']>
+  prizes: ICoursePrize[]
 }
 
 function Prizes({ type, prizes }: IProps) {
   return (
     <div className={classes.wrapper}>
-      <h2 className={cx({ title: true }) + ' s-text-70'} >{t(`title.${type ?? 'course'}`)}</h2>
+      <h2 className={cx({ title: true })} >{t(`title.${type ?? 'course'}`)}</h2>
       <div className={classes.listItem}>
         {prizes.map((prize, i) => (
           <div className={cx({ listItemCard: true })} key={i}>
-            <div className={classes.listItemTitle + ' s-text-36'}><Text text={prize.title}/></div>
-            {prize.content && <div className={classes.listItemContent + ' s-text-21'}><Text text={prize.content}/></div>}
+            <div className={classes.listItemTitle}><Text text={prize.title}/></div>
+            {prize.content && <div className={classes.listItemContent}><Text text={prize.content}/></div>}
           </div>
         ))}
       </div>

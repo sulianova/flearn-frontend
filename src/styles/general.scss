@@ -14,12 +14,6 @@
   src: url("../assets/fonts/TTNormsPro-Normal.ttf");
 }
 
-@font-face {
-  font-weight: 500;
-  font-family: TTNormsProSerif-Medium;
-  src: url("../assets/fonts/TTNormsProSerif-Medium.ttf");
-}
-
 html {
   font-family: $font-family;
   font-size: set-calc(18);
@@ -31,7 +25,6 @@ html {
   -webkit-font-smoothing: antialiased;
 
   color: $color-content-primary;
-  background-color: $color-background-alternate;
 }
 
 body,
@@ -47,11 +40,6 @@ button {
 
 body {
   overflow-x: hidden;
-  font-variant-numeric: oldstyle-nums;
-}
-
-.ss01 {
-  font-feature-settings: "ss01" 1;
 }
 
 h1 {
@@ -128,15 +116,15 @@ s {
 }
 
 .inline-link {
-  transition: $d-hover color;
+  transition: color $d-hover ease-out 0s;
   cursor: pointer;
 
   &:hover {
-    color: $blue;
+    color: $primary-color;
   }
 
   &:active {
-    color: $blue;
+    color: $primary-color;
   }
 
   &-text {
@@ -170,74 +158,43 @@ s {
 
 .s-hoverable {
   cursor: pointer;
-  transition: opacity, color;
-  transition-duration: $d-hover;
+  transition: color $d-hover ease-out 0s;
 
   &:hover {
-    color: $blue;
+    color: $primary-color;
   }
 }
 
 .key-link {
-  background-image: linear-gradient(to bottom, $blue-underline 0, $blue-underline 100%);
-  background-position: 0 90%;
-  background-repeat: repeat-x;
-  background-size: set-calc(1) set-calc(1);
-  color: $blue;
+  color: $primary-color;
+  transition: color $d-hover ease-out 0s;
   width: fit-content;
 
   &:hover {
-    background-image: linear-gradient(to bottom, $blue 0, $blue 100%);
-    background-position: 0 90%;
-    background-repeat: repeat-x;
-    background-size: set-calc(1) set-calc(1);
+    color: $primary-color-hover;
   }
 }
 
 .link {
-  background-image: linear-gradient(to bottom, $link-underline 0, $link-underline 100%);
-  background-position: 0 90%;
-  background-repeat: repeat-x;
-  background-size: set-calc(1) set-calc(1);
   color: $link;
   width: fit-content;
+  transition: color $d-hover ease-out 0s;
 
   &:hover {
-    background-image: linear-gradient(to bottom, $blue 0, $blue 100%);
-    background-position: 0 90%;
-    background-repeat: repeat-x;
-    background-size: set-calc(1) set-calc(1);
-    color: $blue;
-  }
-
-  &:visited {
-    background-image: linear-gradient(to bottom, $link-visited-underline 0, $link-visited-underline 100%);
-    background-position: 0 90%;
-    background-repeat: repeat-x;
-    background-size: set-calc(1) set-calc(1);
-    color: $link-visited;
-    width: fit-content;
-  
-    &:hover {
-      background-image: linear-gradient(to bottom, $blue 0, $blue 100%);
-      background-position: 0 90%;
-      background-repeat: repeat-x;
-      background-size: set-calc(1) set-calc(1);
-      color: $blue;
-    }
+    color: $primary-color;
   }
 }
 
 .nav-link {
-  transition: $d-hover color;
+  transition: color $d-hover ease-out 0s;
   cursor: pointer;
 
   &:hover {
-    color: $blue;
+    color: $primary-color;
   }
 
   &:active {
-    color: $blue;
+    color: $primary-color;
   }
 
   &-text {
@@ -270,5 +227,5 @@ s {
 }
 
 .isActive {
-  color: $blue !important;
+  color: $primary-color !important;
 }

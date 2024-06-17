@@ -2,7 +2,9 @@
 
 .__ {
   min-height: set-calc(350);
-  background: $color-background-default;
+  background-color: $color-content-inverted-secondary;
+  border: set-calc(1) solid $color-background-default;
+  box-shadow: $shadow-huge-default;
   border-radius: set-calc($border-radius-medium);
 
   display: flex;
@@ -12,6 +14,8 @@
 
   @include set-media(md) {
     min-height: unset;
+    border: set-calc(1) solid $color-background-default;
+    border-radius: set-calc(10);
   }
 }
 
@@ -19,7 +23,7 @@
   padding: set-calc(24);
 
   @include set-media(md) {
-    padding: set-calc(24) set-calc(16);
+    padding: set-calc(16) set-calc(8);
   }
 }
 
@@ -27,6 +31,7 @@
   color: $color-content-primary;
   margin-bottom: set-calc(16);
 
+  @include font-56-normal-header;
   text-align: center;
 
   @include set-media(md) {
@@ -35,7 +40,8 @@
 }
 
 .contentDescription {
-  color: $color-content-secondary;
+  @include font-21-normal-paragraph;
+  color: $color-content-paragraph-primary;
   text-align: center;
 
   @include set-media(md) {
@@ -62,23 +68,30 @@
 .button {
   position: relative;
 
-  cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: set-calc(52);
-  padding: set-calc(16) set-calc(24);
-  
-  color: $color-palette-white-1000;
-  background-color: $blue;
-  border-radius: set-calc($border-radius-small);
-  white-space: nowrap;
-  max-width: fit-content;
 
-  opacity: 1;
-  transition: color $d-hover, opacity $d-hover;
+  width: max-content;
+  height: set-calc(52);
+  
+  padding: set-calc(0) set-calc(48);
+  border-radius: set-calc($border-radius-10);
+  background-color: $color-background-btn;
+  transition: opacity $d-hover ease, box-shadow $d-hover ease, background-color $d-hover ease;
+  cursor: pointer;
+
+  @include font-21-normal-ui;
+  color: $color-palette-white-1000;
+  white-space: nowrap;
+
+  @include set-media(md) {
+    height: set-calc(48);
+  }
 }
 
 .button:hover {
-  opacity: .8;
+  cursor: pointer;
+  box-shadow: $shadow-medium-hovered;
+  background-color: $color-background-btn-hover;
 }

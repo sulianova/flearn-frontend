@@ -1,10 +1,7 @@
-import { useState } from 'react';
-import { connect } from 'react-redux';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 
-import { useFetch } from 'hooks';
 import { userService } from 'services/user.service';
-import { IFetchLessonPayload, fetchLesson } from 'store/actions/sagas';
 
 import classes from './Lesson.module.scss';
 import Page, { EPageVariant } from 'ui/Page/Page';
@@ -19,55 +16,91 @@ import useHomeworkFallback from './useHomeworkFallback';
 import useInitHomework from './useInitHomework';
 import useLessonFallback from './useLessonFallback';
 
-import type { ILessonState, IRootState } from 'types';
-import MyWork from './MyWork/MyWork';
+import { ECommonErrorTypes } from 'types';
+import { ILessonData, TLessonState, lessonService } from 'services/lesson.service';
 
-export default connect(mapStateToProps)(Lesson);
-
-interface IConnectedProps {
-  lessonState: ILessonState
+interface IProps {
+  section: 'task' | 'results'
 }
 
-function mapStateToProps(state: IRootState): IConnectedProps {
-  return {
-    lessonState: state.lesson,
-  };
-}
-
-interface IProps extends IConnectedProps {
-  section: 'task' | 'results' | 'my-work'
-}
-
-function Lesson(props: IProps) {
-  const { lessonState, section } = props;
-  const now = new Date();
-
+export default function Lesson({ section }: IProps) {
   const { courseId, lessonId } = useParams();
   const [scrollToUpload, setScrollToUpload] = useState<boolean>(false);
 
   const authedUser = userService.useAuthedUser();
   const authedUserId = authedUser?.id;
+  const [lessonState, setLessonState] = useState<{ state: TLessonState, lesson: ILessonData | null }>({ state: { type: 'pending' }, lesson: null });
 
-  useFetch<IFetchLessonPayload>(({
-    actionCreator: fetchLesson,
-    payload: {
-      courseId: courseId!,
-      lessonId: lessonId!,
-    }
-  }));
-
-  useInitHomework({ courseId, lessonId, userId: authedUserId, lesson: lessonState.data });
+  useInitHomework({ courseId, lessonId, userId: authedUserId, lesson: lessonState.lesson });
   const { homework, homeworkState } = useFetchHomework({ courseId, lessonId, userId: authedUserId });
 
   const fallback = useLessonFallback({ lessonState, authedUser });
   const homeworkFallback = useHomeworkFallback(homeworkState);
-  const { canShowResults, fallBack: resultsFallback } = useCanShowResults({ courseId, lessonId, lesson: lessonState.data })
+  const { canShowResults, fallBack: resultsFallback } = useCanShowResults({ courseId, lessonId, lesson: lessonState.lesson });
+  const [lessonsState, setLessonsState] = useState<{ state: TLessonState, lessons: ILessonData[] }>({ state: { type: 'pending' }, lessons: [] });
 
-  if (!lessonState.data || (authedUser?.role !== 'support' && lessonState.data.startDate > now)) {
+  useEffect(() => {
+    if (!courseId) {
+      return;
+    }
+
+    let cancelled = false;
+    const s = lessonService
+      .getLessonBS({ courseId })
+      .subscribe(o => {
+        if (!o || cancelled) {
+          return;
+        }
+        if (o instanceof Error) {
+          const error = o;
+          const errorIsUnknown = !(Object.values(ECommonErrorTypes) as string[]).includes(error.message);
+          const errorType = errorIsUnknown ? ECommonErrorTypes.Other : error.message as ECommonErrorTypes;
+          setLessonsState({ state: { type: 'error', error, errorType }, lessons: [] });
+          return;
+        }
+        setLessonsState({ state: { type: 'idle' }, lessons: o.lessons });
+      });
+    return () => {
+      cancelled = true;
+      s.unsubscribe();
+    };
+  }, [courseId]);
+
+  useEffect(() => {
+    if (!courseId || !lessonId) {
+      return;
+    }
+
+    let cancelled = false;
+    const s = lessonService
+      .getLessonBS({ courseId, id: lessonId })
+      .subscribe(o => {
+        if (!o || cancelled) {
+          return;
+        }
+        if (o instanceof Error) {
+          const error = o;
+          const errorIsUnknown = !(Object.values(ECommonErrorTypes) as string[]).includes(error.message);
+          const errorType = errorIsUnknown ? ECommonErrorTypes.Other : error.message as ECommonErrorTypes;
+          setLessonState({ state: { type: 'error', error, errorType }, lesson: null });
+          return;
+        }
+        const lesson = o.lessons[0];
+        if (lesson) {
+          setLessonState({ state: { type: 'idle' }, lesson });
+        }
+      });
+    return () => {
+      cancelled = true;
+      s.unsubscribe();
+    };
+  }, [courseId, lessonId]);
+
+  if (!lessonState.lesson) {
     return fallback;
   }
 
-  if (lessonState.data.type === 'Practice' && !homework) {
+  if (lessonState.lesson.type === 'Practice' && !homework) {
     return homeworkFallback;
   }
 
@@ -75,37 +108,38 @@ function Lesson(props: IProps) {
     return resultsFallback;
   }
 
-  if (section === 'my-work' && !homework) {
-    return homeworkFallback;
-  }
-
   return (
-    <Page variant={EPageVariant.LMS} header footer={false} style={{ backgroundColor: 'var(--color-background-default)'}}>
+    <Page
+      variant={EPageVariant.LMS}
+      header 
+      footer={false}
+      style={{ backgroundColor: 'var(--color-background-default)'}}
+      scrollToTopDependencie={lessonId}
+    >
       <div className={classes.__}>
         <LessonHeader
-          lesson={lessonState.data}
+          lesson={lessonState.lesson}
           section={section}
         />
         {section === 'task' &&
           (<LessonContent
             courseId={courseId!}
             lessonId={lessonId!}
-            blocks={lessonState.data.content}
-            data={lessonState.data}
+            blocks={lessonState.lesson.content}
+            data={lessonState.lesson}
             homework={homework}
             scrollToUpload={() => setScrollToUpload(true)}
             canShowResults={canShowResults}
+            user={authedUser}
           />)
         }
-        {section === 'task' && lessonState.data.endDate > now && homework?.homework?.state === 'DRAFT' &&
+        {section === 'task' && homework?.homework?.state === 'DRAFT' &&
           <LessonUppload
             homeworkWPopulate={homework}
-            scroll={scrollToUpload}
-            onScrollEnd={() => setScrollToUpload(false)}
           />
         }
         {section === 'results' && canShowResults && <LessonWorks/>}
-        {section === 'my-work' && <MyWork homework={homework!}/>}
       </div>
-    </Page>);
+    </Page>
+  );
 }

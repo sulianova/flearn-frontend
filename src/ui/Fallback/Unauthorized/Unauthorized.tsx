@@ -1,5 +1,6 @@
-import Store from 'store';
-import { login } from 'store/actions/sagas';
+
+
+import { authService } from 'services/auth.service';
 
 import Page, { EPageVariant } from 'ui/Page/Page';
 
@@ -7,11 +8,7 @@ export default function Unauthorized() {
   return (
     <Page variant={EPageVariant.Fallback} header footer>
       <p>You have to be authenticated to access this page</p>
-      <button onClick={handleLogin}>Login</button>
+      <button onClick={() => authService.authenticate()}>Login</button>
     </Page>
   );
-}
-
-function handleLogin() {
-  Store.dispatch(login({ payload: {}}));
 }

@@ -3,12 +3,14 @@
 ._ {
   grid-column: span 4;
   align-items: start;
+  padding-left: set-calc(16);
 
   @include is-grid-12;
 
   @include set-media(md) {
     align-items: start;
     flex-direction: column-reverse;
+    padding-left: set-calc(0);
   }
 }
 
@@ -26,6 +28,8 @@
   display: flex;
   flex-direction: column;
   grid-column: span 2;
+
+  @include font-18-normal-paragraph;
   padding-top: set-calc(8);
 
   @include set-media(md) {
@@ -35,14 +39,23 @@
 }
 
 .feedbackQuote {
-  padding: set-calc(24);
-  background-color: $color-background-default;
-  border-radius: set-calc($border-radius-medium);
-  overflow: hidden;
   grid-column: 3 / 9;
 
+  border: set-calc(1) solid $color-background-default;
+  border-radius: set-calc($border-radius-medium);
+  background-color: $color-content-inverted-secondary;
+  box-shadow: $shadow-huge-default;
+
+  @include font-21-normal-paragraph;
+  color: $color-content-paragraph-primary;
+  padding: set-calc(24);
+
+  overflow: hidden;
+
   p {
-    @include s-text-21;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
   }
 
   p:not(:last-child) {
@@ -56,6 +69,8 @@
 
 .feedbackExcerpt {
   grid-column: 10 / -1;
+
+  @include font-28-normal-header;
   padding-right: set-calc(24);
   padding-top: set-calc(8);
 

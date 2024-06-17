@@ -11,8 +11,8 @@ export default Home;
 
 function Home() {
   const blocks = [
-    <Career key='catalogue'/>,
     <Catalogue key='catalogue'/>,
+    <Career key='catalogue'/>,
     <RequestConsultationBanner key='requestConsultationBanner'/>,
   ];
 

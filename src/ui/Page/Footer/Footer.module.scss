@@ -26,16 +26,18 @@
 .card {
   position: relative;
   padding: set-calc(24);
-  background-color: $color-background-default;
+  background-color: $color-content-inverted-secondary;
+  border: set-calc(1) solid $color-background-default;
+  box-shadow: $shadow-huge-default;
   border-radius: set-calc($border-radius-medium);
 
   @include set-media(md) {
     left: set-calc(-$padding-xs-mob-page);
     width: set-calc($padding-xs-mob-page * 2, true, 100%);
-    background-color: $color-background-glassy-a;
-    padding: set-calc(16);
-    border: none;
-    border-radius: set-calc($border-radius-small);
+    background-color: $color-content-inverted-secondary;
+    border: set-calc(1) solid $color-background-default;
+    padding: set-calc(8);
+    border-radius: set-calc(10);
 
   }
 }
@@ -43,13 +45,21 @@
 .col {
   display: flex;
   flex-direction: column;
+}
 
-  &Item {
+.colItem {
+  @include font-16-normal-ui;
 
+  &:not(:last-child) {
+    margin-bottom: set-calc(6);
+  }
+
+  @include set-media(md) {
     &:not(:last-child) {
-      margin-bottom: set-calc(8);
+      margin-bottom: set-calc(2);
     }
   }
+
 }
 
 .logo {
@@ -59,6 +69,10 @@
   @include set-media(md) {
     display: none;
   }
+}
+
+.logoLong {
+  @include font-16-normal-ui;
 }
 
 .nav {
@@ -74,10 +88,6 @@
   grid-column: 4 / 5;
   text-align: end;
 
-  &Name {
-    margin-left: set-calc(8);
-  }
-
   @include set-media(md) {
     text-align: left;
 
@@ -85,6 +95,16 @@
       line-height: set-calc(24);
     }
   }
+}
+
+.creatorTitle {
+  @include font-16-normal-ui;
+}
+
+.creatorName {
+  @include font-18-normal-ui;
+  text-transform: uppercase;
+  margin-left: set-calc(8);
 }
 
 .copyright {
@@ -131,14 +151,14 @@
   svg {
     display: block;
     fill: $color-content-background-secondary;
-    height: set-calc(32);
+    height: set-calc(24);
 
     &:hover {
-      fill: $blue;
+      fill: $primary-color;
     }
 
     @include set-media(md) {
-      height: set-calc(32);
+      height: set-calc(24);
     }
   }
 

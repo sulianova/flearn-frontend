@@ -1,0 +1,80 @@
+@import 'styles/index';
+
+.modal {
+  z-index: 1001;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  visibility: visible;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: background-color $d-fade ease-in-out;
+  background-color: transparent;
+
+  @include set-media(md) {
+    left: 0;
+    transform: translateX(-100%);
+  }
+}
+
+.modal_Animation {
+  background-color: $color-background-overlay;
+
+  @include set-media(md) {
+    transition: transform 0.65s cubic-bezier(0.2, 1, 0.3, 1);
+    transform: none;
+  }
+}
+
+.modalContentWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  @include set-media(md) {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    transform: none;
+  }
+}
+
+.modalContent {
+  position: relative;
+  margin: set-calc(10);
+
+  color: $color-content-primary;
+  background-color: $color-background-default;
+  border-radius: set-calc($border-radius-medium);
+  box-shadow: $shadow-popup;
+  opacity: 0;
+
+  transform: translateY(50px) scale(0.98);
+  transition-property: transform;
+  transition-timing-function: ease;
+  transition-duration: $d-zoom;
+
+  @include set-media(md) {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    box-shadow: none;
+    border-radius: 0;
+    -webkit-overflow-scrolling: touch;
+    overflow: scroll;
+    transform: none;
+  }
+}
+
+.modalContent_Animation {
+  transform: translateY(0) scale(1, 1);
+  opacity: 1;
+}

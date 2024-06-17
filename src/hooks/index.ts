@@ -3,6 +3,7 @@ export * from './const';
 export * from './fetch';
 export * from './getId';
 export * from './guid';
+export * from './isMobile';
 export * from './isMounted';
 export * from './memoize';
 export * from './URLSection';

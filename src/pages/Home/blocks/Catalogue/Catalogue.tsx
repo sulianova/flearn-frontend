@@ -10,7 +10,7 @@ export default function Catalogue() {
   const [courses, setCourses] = useState<ICourseData[] | null>(null);
   useEffect(() => {
     let cancelled = false;
-    const s = courseService.getCourseBS()
+    const s = courseService.getCourseBS({})
       .subscribe(o => {
         if (!o || o instanceof Error || cancelled) {
           return;
@@ -29,9 +29,11 @@ export default function Catalogue() {
 
   return (
     <>
-      {/* <div className={classes.header}>
-        <div className={classes.headerTitle + ' s-text-70'}>Курсы по иллюстрации</div>
-        <div className={classes.description + ' s-text-21'}> Познакомимся с иллюстрацией, потренируемся в цифровом и обычном рисовании. Отберем лучшие работы и оформим их в проекты на Behance.</div>
+      {/* <div className={classes.promo}>
+        <div className={classes.title}>Как это — быть иллюстратором. Бесплатный курс, чтобы попробовать</div>
+        <div className={classes.btnWrapper}>
+          <div className={classes.btn}>Сделать первый шаг</div>
+        </div>
       </div> */}
       <div className={classes.wrapper}>
         {courses.map(course => <Card key={course.id} course={course}/>)}

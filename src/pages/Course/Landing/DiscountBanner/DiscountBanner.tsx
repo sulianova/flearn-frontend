@@ -1,10 +1,10 @@
 import { memo } from 'react';
 
-import Sticker from 'assets/images/Svg/Sticker';
+
 import { formatI18nT, i18n } from 'shared';
 import { formatDate } from 'utils';
-
 import useCountDown from './useCountDown';
+
 import classes from './DiscountBanner.module.scss';
 
 const t = formatI18nT('courseLanding.discountBanner');
@@ -23,14 +23,14 @@ function DiscountBanner(props: IProps) {
   return (
     <div className={classes._}>
         <div className={classes.discountWrapper} /*href='#decision-form'*/>
-          <h2 className={classes.title + ' s-text-20'}>Запишитесь заранее и сэкономьте</h2>
-          <div className={classes.descriptionWrapper + ' s-text-20'}>
+          <h2 className={classes.title}>Запишитесь заранее и сэкономьте</h2>
+          <div className={classes.descriptionWrapper}>
             {t('description1')}
-            <span className={classes.count + ' s-text-20'}>
+            <span className={classes.count}>
               {`${props.discontAmount}%`}
             </span>
             {t('description2')}
-            <span className={classes.count + ' s-text-20'}>
+            <span className={classes.count}>
               {t('description3', {
                 day: i18n.t('day.p', { count: days }),
                 days,
@@ -40,10 +40,10 @@ function DiscountBanner(props: IProps) {
               })}
             </span>
             {/* {t('description', { discountAmount: props.discontAmount }) }
-            <span className={classes.count + ' s-text-20'}>{` ${numeric(days)} день `}</span>
-            <span className={classes.count + ' s-text-20'}>{`${numeric(hours)}:`}</span>
-            <span className={classes.count + ' s-text-20'}>{`${numeric(minutes)}:`}</span>
-            <span className={classes.count + ' s-text-20'}>{numeric(seconds)}</span> */}
+            <span className={classes.count}>{` ${numeric(days)} день `}</span>
+            <span className={classes.count}>{`${numeric(hours)}:`}</span>
+            <span className={classes.count}>{`${numeric(minutes)}:`}</span>
+            <span className={classes.count}>{numeric(seconds)}</span> */}
           </div>
         </div>
     </div>

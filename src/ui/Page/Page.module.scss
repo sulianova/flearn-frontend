@@ -1,11 +1,36 @@
 @import 'styles/index';
 
+.trainerContent {
+  position: relative;
+  display: flex;
+  min-height: set-calc(400);
+  min-width: 0;
+
+  background-color: $color-background-alternate;
+}
+
 ._ {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  flex-grow: 1;
+  flex-shrink: 0;
+  width: 100%;
+  height: -moz-max-content;
+  height: max-content;
   min-height: 100vh;
-  max-width: 100vw;
+  justify-content: space-between;
+}
+
+.theoryPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+
+  overflow: auto;
+  flex: 1 1 100%;
+  min-width: 0;
 }
 
 .content {
@@ -22,10 +47,10 @@
 }
 
 .LMSWrapper {
-  padding: 0 set-calc($padding-x-mob-page);
+  padding: 0 set-calc($padding-x-desk-page);
 
   @include set-media(md) {
-    padding: 0 set-calc($padding-x-mob-page);
+    padding: set-calc(16) set-calc($padding-x-mob-page);
   }
 }
 
@@ -34,10 +59,12 @@
   flex-direction: column;
   align-items: center;
   gap: set-calc(16);
+  background-color: transparent;
 
   padding: 0 set-calc($padding-x-desk-page);
 
   @include set-media(md) {
     padding: 0 set-calc($padding-x-mob-page);
   }
+
 }

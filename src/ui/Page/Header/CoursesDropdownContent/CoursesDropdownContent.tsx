@@ -1,9 +1,12 @@
 import { type ICourseData } from 'services/course.service';
-import { URLSections } from 'types';
+import { URLSections } from 'router';
 import Link from 'ui/Link/Link';
 
 import Spinner from 'ui/Spinner/Spinner';
 import classes from './CoursesDropdownContent.module.scss';
+import classnames from 'classnames/bind';
+
+const cx = classnames.bind(classes);
 
 interface IProps {
   courses: ICourseData[] | undefined
@@ -18,7 +21,7 @@ export default function CoursesDropdownContent({ courses, close }: Readonly<IPro
           <div className={classes.contentContainer}>
             <div className={classes.content}>
               <div className={classes.listItems}>
-                <div className={classes.listOptionTitle + ' s-text-14'}>
+                <div className={classes.listOptionTitle + ' s-text-16'}>
                   Проходите бесплатную часть
                 </div>
                 {
@@ -27,7 +30,7 @@ export default function CoursesDropdownContent({ courses, close }: Readonly<IPro
                   : courses.map(course => (
                     <Link
                       to={URLSections.Course.Lessons.to({ courseId: course.id })}
-                      className={classes.listOption + ' s-text-16'}
+                      className={cx({ listOption: true, active: true })}
                     >
                       {course.title}
                     </Link>

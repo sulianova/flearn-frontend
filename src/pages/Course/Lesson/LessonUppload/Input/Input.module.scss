@@ -8,6 +8,11 @@
   flex: 1 1 auto;
   margin: 0 set-calc(8) 0 0;
   color: currentColor;
+
+  @include set-media(md) {
+    width: 100%;
+    margin-bottom: set-calc(16);
+  }
 }
 
 .content {
@@ -15,6 +20,8 @@
   width: 100%;
   display: inline-block;
   order: 2;
+  @include font-18-normal-paragraph;
+
   border: set-calc(1.3) solid $color-background-stroke;
   border-radius: set-calc($border-radius-small);
 
@@ -26,7 +33,7 @@
     width: set-calc(210);
     margin-right: set-calc(4);
 
-    color: $grey-inactive;
+    color: $color-content-secondary;
 
     @include set-media(md) {
       display: none;

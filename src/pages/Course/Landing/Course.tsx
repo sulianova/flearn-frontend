@@ -1,9 +1,8 @@
-import { connect } from 'react-redux';
+import { useEffect } from 'react';
 import { useParams } from 'react-router';
 
-import { useFetch } from 'hooks';
-import type { ICourseData } from 'services/course.service';
-import { fetchCourse, type IFetchCoursePayload } from 'store/actions/sagas';
+import { analyticsService, EAnalyticsEvent } from 'services/analytics.service';
+import { courseService, ICourseData } from 'services/course.service';
 
 import Page, { EFooter, EPageVariant } from 'ui/Page/Page';
 
@@ -12,30 +11,12 @@ import ProgramBlocks from './ProgramBlocs/ProgramBlocks';
 import ProgramIntro from './ProgramIntro/ProgramIntro';
 import LandingBtn from './LandingBtn/LandingBtn';
 
-import type { IRootState } from 'types';
-import { useEffect } from 'react';
-import { analyticsService, EAnalyticsEvent } from 'services/analytics.service';
-import { envService } from 'services';
+import Fallback from 'ui/Fallback';
 
-export default connect(mapStateToProps)(Course);
-
-interface IConnectedProps {
-  course?: ICourseData
-}
-
-function mapStateToProps(state: IRootState): IConnectedProps {
-  return {
-    course: state.course?.data,
-  };
-}
-
-function Course({ course }: IConnectedProps) {
+export default function Course() {
   const { courseId } = useParams();
 
-  useFetch<IFetchCoursePayload>(({
-    actionCreator: fetchCourse,
-    payload: { courseId: courseId! },
-  }));
+  const [course] = courseService.useCourses({ ids: [courseId!] }) as Array<ICourseData | undefined>;
 
   useEffect(() => {
     analyticsService.logEvent({
@@ -48,11 +29,7 @@ function Course({ course }: IConnectedProps) {
   }, []);
 
   if (!course) {
-    return (
-      <Page variant={EPageVariant.WEB} header footer={EFooter.Big}>
-        <p>loading course</p>
-      </Page>
-    );
+    return <Fallback.Pending text={'loading course'}/>;
   }
 
   return (

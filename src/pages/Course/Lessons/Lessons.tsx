@@ -1,95 +1,130 @@
-import { Fragment, useEffect, useMemo } from 'react';
-import { connect } from 'react-redux';
+import { useEffect, useMemo, useState } from 'react';
 import { useParams } from 'react-router';
 
-import { useFetch, useGuid } from 'hooks';
 import { formatI18nT } from 'shared';
-import { formatDate } from 'utils';
+import { ECommonErrorTypes } from 'types';
+import { URLSections } from 'router';
 
 import { userService } from 'services/user.service';
-import store from 'store';
-import { updateState } from 'store/actions/redux';
-import { IFetchCoursePayload, IFetchLessonsPayload, fetchCourse, fetchLessons } from 'store/actions/sagas';
+import { ILessonData, TLessonState, lessonService } from 'services/lesson.service';
+import { ICourseData, TCourseState, courseService } from 'services/course.service';
+import { TCourseError } from 'services/course.service';
+import { TAccess } from 'services/data.service/Access';
+import { TUserCourseProgress } from 'services/userCourseProgress.service';
+import { dataService } from 'services';
+
+import LessonsPopup from 'components/LessonsPopup/LessonsPopup';
+import Link from 'ui/Link/Link';
+import Page, { EPageVariant } from 'ui/Page/Page';
 
 import useFallback from './useFallback';
 
-import Link from 'ui/Link/Link';
-import Page, { EPageVariant } from 'ui/Page/Page';
-import classesHeader from './LessonsHeader.module.scss';
 import classesList from './LessonsList.module.scss';
+import classes from './Lessons.module.scss';
 
-import { URLSections } from 'types';
-import type { ICourseState, ILessonsState, IRootState, ILessonsData } from 'types';
-
-export default connect(mapStateToProps)(Lessons);
-
-interface IConnectedProps {
-  courseState: ICourseState
-  lessonsState: ILessonsState
-}
-
-function mapStateToProps(state: IRootState): IConnectedProps {
-  return {
-    courseState: state.course,
-    lessonsState: state.lessons,
-  };
+interface IGroup {
+  topic: string
+  topicOrder: number
+  isFree: boolean
+  lessons: (ILessonData & { solved: boolean, canBeAccessed: boolean })[]
 }
 
 const t = formatI18nT('courseLessons');
 
-function Lessons({ courseState, lessonsState }: IConnectedProps) {
+export default function Lessons() {
   const { courseId } = useParams();
-  const [guid, refetch] = useGuid();
 
   const authedUser = userService.useAuthedUser();
-  const authedUserId = authedUser?.id;
-  const minStartDate = (lessonsState.lessons ?? [])
-    .reduce(
-      ( minDate, l) => minDate < l.lesson.startDate ? minDate : l.lesson.startDate
-      , lessonsState.lessons?.[0]?.lesson?.startDate
-    );
+  const [courseState, setCourseState] = useState<{ state: TCourseState, course?: ICourseData }>({ state: { type: 'pending' }, course: undefined });
+  const [lessonsState, setLessonsState] = useState<{ state: TLessonState, lessons: ILessonData[] }>({ state: { type: 'pending' }, lessons: [] });
+  const [access, setAccess] = useState<TAccess | null>(null);
+  const [userCourseProgress, setUserCourseProgress] = useState<TUserCourseProgress | null>(null);
+
+  const [openedTopic, setOpenedTopic] = useState<string | null>(null);
 
   useEffect(() => {
-    refetch();
-  }, [authedUserId]);
-
-  useFetch<IFetchCoursePayload>(({
-    actionCreator: fetchCourse,
-    payload: {
-      courseId: courseId ?? '',
+    if (!courseId) {
+      return;
     }
-  }));
 
-  useFetch<IFetchLessonsPayload & { guid: string }>(({
-    actionCreator: fetchLessons,
-    payload: {
-      filter: { courseId: courseId ?? '' },
-      guid,
-    }
-  }));
-
-  useEffect(() => {
-    // temp fix
-    // TODO: fetch Lesson through service and not via Store
-    store.dispatch(updateState({ stateName: 'lesson', payload: {
-      courseId: undefined,
-      lessonId: undefined,
-      source: undefined,
-      data: undefined,
-      state: undefined,
-    } }))
-  }, []);
-
-  useEffect(() => {
-    // temp fix
-    // TODO: fetch Lessons through service and not via Store
+    let cancelled = false;
+    const s = courseService
+      .getCourseBS({ ids: [courseId] })
+      .subscribe(o => {
+        if (!o || cancelled) {
+          return;
+        }
+        if (o instanceof Error) {
+          const error = o;
+          const errorIsUnknown = !(Object.values(ECommonErrorTypes) as string[]).includes(error.message);
+          const errorType = errorIsUnknown ? ECommonErrorTypes.Other : error.message as TCourseError;
+          setCourseState({ state: { type: 'error', error, errorType }, course: undefined });
+          return;
+        }
+        setCourseState({ state: { type: 'idle' }, course: o.courses[0]})
+      });
     return () => {
-      store.dispatch(updateState({ stateName: 'lessons', payload: {
-        lessons: [],
-        state: undefined,
-      } }));
+      cancelled = true;
+      s.unsubscribe();
+    };
+  }, [courseId]);
+
+  useEffect(() => {
+    if (!courseId) {
+      return;
     }
-  }, []);
+
+    let cancelled = false;
+    const s = lessonService
+      .getLessonBS({ courseId })
+      .subscribe(o => {
+        if (!o || cancelled) {
+          return;
+        }
+        if (o instanceof Error) {
+          const error = o;
+          const errorIsUnknown = !(Object.values(ECommonErrorTypes) as string[]).includes(error.message);
+          const errorType = errorIsUnknown ? ECommonErrorTypes.Other : error.message as ECommonErrorTypes;
+          setLessonsState({ state: { type: 'error', error, errorType }, lessons: [] });
+          return;
+        }
+        setLessonsState({ state: { type: 'idle' }, lessons: o.lessons });
+      });
+    return () => {
+      cancelled = true;
+      s.unsubscribe();
+    };
+  }, [courseId]);
+
+  useEffect(() => {
+    if (!courseId || !authedUser?.email) {
+      return;
+    }
+
+    let cancelled = false;
+    dataService.access
+      .get(courseId, authedUser?.email)
+      .then(a => {
+        if (cancelled || !a) {
+          return;
+        }
+
+        setAccess(a);
+      });
+
+    dataService.userCourseProgress
+      .get(courseId, authedUser?.email)
+      .then(a => {
+        if (cancelled || !a) {
+          return;
+        }
+
+        setUserCourseProgress(a);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [courseId, authedUser?.email]);
 
   const lessons = lessonsState?.lessons;
   const filteredLessons = useMemo(() => {
@@ -101,102 +136,169 @@ function Lessons({ courseState, lessonsState }: IConnectedProps) {
       return lessons;
     }
 
-    return lessons.filter(l => l.lesson.startDate < new Date());
+    return lessons;
   }, [lessons, authedUser]);
 
+  const firstNotLearnedLesson = useMemo(() => {
+    if (!userCourseProgress) {
+      return undefined;
+    }
+
+    return lessons
+      .sort((a, b) => {
+        const key = a.topicOrder != b.topicOrder ? 'topicOrder' : 'orderInTopic';
+        return a[key] - b[key];
+      })
+      .find(l => !userCourseProgress[l.id]);
+  }, [userCourseProgress, lessons]);
+
+
   const groupes: IGroup[] = useMemo(() => {
+    const getKey = (topic: string, topicOrder: number) => `${topic}-${topicOrder}`;
     return [...filteredLessons
       .reduce((acc, lessonData) => {
-        if (!acc.has(lessonData.lesson.week)) {
-          acc.set(lessonData.lesson.week, {
-            week: lessonData.lesson.week,
-            startDate: lessonData.lesson.startDate,
-            endDate: lessonData.lesson.endDate,
-            lessons: [lessonData],
+        const key = getKey(lessonData.topic, lessonData.topicOrder);
+        const solved = userCourseProgress?.[lessonData.id]?.solved ?? false;
+        const canBeAccessed = !firstNotLearnedLesson ? false
+          : firstNotLearnedLesson.topicOrder === lessonData.topicOrder
+            ? firstNotLearnedLesson.orderInTopic >= lessonData.orderInTopic
+            : firstNotLearnedLesson.topicOrder > lessonData.topicOrder;
+
+        if (!acc.has(key)) {
+          acc.set(key, {
+            topic: lessonData.topic,
+            topicOrder: lessonData.topicOrder,
+            isFree: lessonData.isFree,
+            lessons: [{ ...lessonData, canBeAccessed, solved }],
           })
         } else {
-          const group = acc.get(lessonData.lesson.week)!;
-          group.lessons.push(lessonData);
-          group.lessons.sort((a, b) => a.lesson.orderInWeek - b.lesson.orderInWeek);
+          const group = acc.get(key)!;
+          group.isFree = group.isFree && lessonData.isFree;
+          group.lessons.push({ ...lessonData, canBeAccessed, solved });
+          group.lessons.sort((a, b) => a.orderInTopic - b.orderInTopic);
         }
 
         return acc;
-      }, new Map() as Map<number, { lessons: ILessonsState['lessons'], week: number, startDate: Date, endDate: Date }>)
+      }, new Map() as Map<string, IGroup>)
       .values()]
-      .sort((a, b) => a.week - b.week);
+      .sort((a, b) => a.topicOrder - b.topicOrder);
 
-  }, [filteredLessons]);
+  }, [filteredLessons, firstNotLearnedLesson, userCourseProgress]);
 
   const fallback = useFallback({ courseState, lessonsState });
-  if (!courseState.data || !lessonsState.lessons || !lessonsState.lessons.length) {
+  if (!courseState.course || !lessonsState.lessons || !lessonsState.lessons.length) {
     return fallback;
   }
 
-  return (
-  <Page variant={EPageVariant.LMS} header footer>
-    <div className={classesHeader.title + ' s-text-28'}>{courseState.data.title}</div>
-    {filteredLessons.length ? (
-      <div className={classesList.wrapper}>
-        {renderGroups(groupes)}
-      </div>
-    ) : (
-      <div>{t(`courseNotStartedYet.${courseState.data.type}`, { minStartDate: formatDate(minStartDate, { timeZone: 'Europe/Moscow' }) })}</div>
-    )}
-  </Page>);
-}
+  const freeGroupes = groupes.filter(g => g.isFree);
+  const payableGroupes = groupes.filter(g => !g.isFree);
 
-interface IGroup {
-  lessons: ILessonsData[]
-  week: number
-  startDate: Date
-  endDate: Date
-}
-
-function renderGroups(groups: IGroup[]) {
-  return groups.map(g => (<Fragment key={g.week}>{renderGroup(g)}</Fragment>));
-}
-
-function renderGroup(props: IGroup) {
   return (
     <>
-      {renderItems(props.lessons)}
+      <Page variant={EPageVariant.LMS} header footer>
+        <div className={classes.profilePage}>
+          <div className={classes.title}>{courseState.course.title}</div>
+          <div className={classes.profilePageContent}>
+            {firstNotLearnedLesson ? (
+              <div className={classes.currentLesson}>
+                <div className={classes.currentLessonWrapper}>
+                  <div className={classes.currentLessonReminder}>
+                    <div className={classes.currentLessonSubtitle}>
+                      <div className={classes.currentLessonSubtitleIndex}>{firstNotLearnedLesson.orderInTopic}.</div>
+                      <span>{firstNotLearnedLesson.title}</span>
+                    </div>
+                    <div className={classes.currentLessonTitle}>
+                      {firstNotLearnedLesson.topic}
+                    </div>
+                    <div className={classes.currentLessonDetails}></div>
+                    <div>
+                      <Link
+                        className={classes.currentLessonButton}
+                        to={URLSections.Course.Lesson.to({ courseId: courseState.course.id, lessonId: firstNotLearnedLesson.id })}
+                      >
+                        Учиться
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div>Реклама</div>
+            )}
+            <div className={classes.program}>
+              <div className={classes.programTitle}>Доступно сейчас и бесплатно</div>
+                <div className={classesList.wrapper}>
+                    {freeGroupes.map((group, index) => {
+                      const totalDurationMinutes = group.lessons.reduce((acc, l) => acc + durationToMinutes(l.duration), 0);
+                      return (
+                        <div className={classesList.itemWrapper} onClick={() => setOpenedTopic(group.topic)}>
+                          <div key={index} className={classesList.item}>
+                            <div className={classesList.imageWrapper}/>
+                            <div className={classesList.itemBody}>
+                              <div className={classesList.itemBodyContainer}>
+                                <div className={classesList.titleContainer}>
+                                  <h2 className={classesList.title}>
+                                    {group.topic}
+                                  </h2>
+                                </div>
+                              </div>
+                              <div className={classesList.info}>
+                                <div className={classesList.infoMain}>
+                                  <span className={classesList.infoItem}>{`${group.lessons.length} урока`}</span>
+                                  <span className={classesList.infoItem}>{`≈ ${Math.round(totalDurationMinutes / 6) / 10} ч  `}</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                </div>
+            </div>
+            <div className={classes.program}>
+              <div className={classes.programTitle}>Будет доступно после оплаты</div>
+                <div className={classesList.wrapper}>
+                    {payableGroupes.map((group, index) => {
+                      const totalDurationMinutes = group.lessons.reduce((acc, l) => acc + durationToMinutes(l.duration), 0);
+                      return (
+                        <div className={classesList.itemWrapper} onClick={() => setOpenedTopic(group.topic)}>
+                          <div key={index} className={classesList.item}>
+                            <div className={classesList.imageWrapper}/>
+                            <div className={classesList.itemBody}>
+                              <div className={classesList.itemBodyContainer}>
+                                <div className={classesList.titleContainer}>
+                                  <h2 className={classesList.title}>
+                                    {group.topic}
+                                  </h2>
+                                </div>
+                              </div>
+                              <div className={classesList.info}>
+                                <div className={classesList.infoMain}>
+                                  <span className={classesList.infoItem}>{`${group.lessons.length} урока`}</span>
+                                  <span className={classesList.infoItem}>{`≈ ${Math.round(totalDurationMinutes / 6) / 10} ч  `}</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                </div>
+            </div>
+          </div>
+        </div>
+      </Page>
+      {openedTopic && courseId && authedUser && (
+        <LessonsPopup
+          courseId={courseId}
+          lessons={groupes.find(g => g.topic === openedTopic)!.lessons}
+          onClose={() => setOpenedTopic(null)}
+        />
+      )}
     </>
   );
 }
 
-function renderItems(props: ILessonsData[]) {
-  return props.map(l => (<div className={classesList.itemWrapper} key={l.lesson.id}>{renderItem(l)}</div>));
-}
-
-function renderItem(lesson: ILessonsData) {
-    return (
-      <Link 
-        className={classesList.item}
-        to={URLSections.Course.Lesson.to({ courseId: lesson.lesson.courseId, lessonId: lesson.lesson.id })}
-      >
-        <div className={classesList.imageWrapper}></div>
-        <div className={classesList.itemBody}>
-          <div className={classesList.itemBodyContainer}>
-            <div className={classesList.titleContainer}>
-              <h2 className={classesList.title + ' s-text-21'}>
-                {lesson.lesson.title}
-              </h2>
-            </div>
-          </div>
-          <div className={classesList.info}>
-            <div className={classesList.infoMain}>
-              <span className={classesList.infoItem + ' s-text-18'}>4 темы</span>
-              <span className={classesList.infoItem + ' s-text-18'}>≈ 2 ч  </span>
-            </div>
-          </div>
-        </div>
-      </Link>
-    );
-}
-
-function formatWeekDate(startDate: Date, endDate: Date) {
-  const startDateStr = formatDate(startDate, { timeZone: 'Europe/Moscow' });
-  const endDateStr = formatDate(endDate, { timeZone: 'Europe/Moscow' });
-
-  return `${startDateStr} – ${endDateStr}`;
+function durationToMinutes(duration: { unit: 'minutes' | 'hours', value: number }) {
+  return (duration.unit === 'hours' ? 60 : 1) * duration.value;
 }

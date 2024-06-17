@@ -11,7 +11,7 @@
   justify-content: center;
   align-items: center;
 
-  background: $beige;
+  background: $color-content-tertiary;
   border-radius: set-calc(8);
   height: set-calc(320);
 
@@ -22,14 +22,15 @@
   svg {
     width: set-calc(46);
     height: set-calc(58);
-    fill: $text-grey;
+    fill: $color-content-secondary;
   }
 }
 
 .emptyPreviewDescription {
   padding-top: set-calc(16);
+  @include font-14-normal-ui;
   text-align: center;
-  color: $text-grey;
+  color: $color-content-secondary;
 }
 
 .preview {
@@ -41,7 +42,7 @@
   margin-bottom: set-calc(10);
   overflow: hidden;
 
-  background: $beige;
+  background: $color-content-tertiary;
   border-radius: set-calc(8);
 
 
@@ -81,7 +82,7 @@
   margin-right: set-calc(8);
   overflow: hidden;
 
-  background: $beige;
+  background: $color-content-tertiary;
   border-radius: 50%;
 
   fill: $color-content-background-secondary;
@@ -91,6 +92,7 @@
 .userName {
   overflow: hidden;
 
+  @include font-16-normal-paragraph;
   white-space: nowrap;
   text-overflow: ellipsis;
 }

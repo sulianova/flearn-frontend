@@ -6,10 +6,10 @@
   flex: 1 1 100%;
   align-items: center;
   width: 100%;
-  background-color: $color-background-default;
   margin: set-calc(24) 0 set-calc(52);
 
   @include set-media(md) {
     padding: 0 set-calc(8);
+    margin: set-calc(8) 0 set-calc(24);
   }
 }

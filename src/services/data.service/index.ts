@@ -4,6 +4,7 @@ import homework from './Homework';
 import lesson from './Lesson';
 import order from './Order';
 import user from './User';
+import userCourseProgress from './UserCourseProgress';
 
 export const dataService = {
   access: access,
@@ -12,4 +13,5 @@ export const dataService = {
   lesson: lesson,
   order: order,
   user: user,
+  userCourseProgress,
 };

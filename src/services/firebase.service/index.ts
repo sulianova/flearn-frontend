@@ -1,7 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getAnalytics, type Analytics, logEvent, type AnalyticsCallOptions } from "firebase/analytics";
-import { collection, doc as getDocRef, getDoc, getDocs, getFirestore, setDoc, query, where, FieldPath } from 'firebase/firestore';
-import { deleteObject, getStorage, ref as getStorageRef, getDownloadURL, uploadBytes } from 'firebase/storage';
+import { collection, doc as getDocRef, getDoc, getDocs, getFirestore, setDoc, query, where, FieldPath, DocumentSnapshot } from 'firebase/firestore';
+import { deleteObject, getStorage, ref as getStorageRef, getDownloadURL, getBytes, getBlob, uploadBytes } from 'firebase/storage';
 import { getFirebaseConfig } from './firebase.config';
 
 import { ECollections } from 'types';
@@ -40,11 +40,13 @@ export class FirebaseService {
     }
   }
 
-  public async getDoc(collectionName: ECollections, id: string, converter: FirestoreDataConverter<DocumentData, DocumentData> | null = null) {
+  public async getDoc<T extends object = DocumentData>(collectionName: ECollections, id: string, converter: FirestoreDataConverter<DocumentData, DocumentData> | null = null, subCollection?: { collection: string, id: string }) {
     try {
-      const docRef = converter ? getDocRef(this._db, collectionName, id).withConverter(converter) : getDocRef(this._db, collectionName, id);
+      const subcollectionPathSegments = subCollection ? [subCollection.collection, subCollection.id] : [];
+      const pathSegments = [collectionName, id, ...subcollectionPathSegments] as const;
+      const docRef = converter ? getDocRef(this._db, ...pathSegments).withConverter(converter) : getDocRef(this._db, ...pathSegments);
       const doc = await getDoc(docRef);
-      return doc.data();
+      return doc.data() as T | undefined;
     } catch(e) {
       // tslint:disable-next-line
       console.error(e);
@@ -52,9 +54,11 @@ export class FirebaseService {
     }
   }
 
-  public async getDocOrThrow<T extends object = DocumentData>(collectionName: ECollections, id: string, converter: FirestoreDataConverter<DocumentData, DocumentData> | null = null) {
+  public async getDocOrThrow<T extends object = DocumentData>(collectionName: ECollections, id: string, converter: FirestoreDataConverter<DocumentData, DocumentData> | null = null, subCollection?: { collection: string, id: string }) {
     try {
-      const docRef = converter ? getDocRef(this._db, collectionName, id).withConverter(converter) : getDocRef(this._db, collectionName, id);
+      const subcollectionPathSegments = subCollection ? [subCollection.collection, subCollection.id] : [];
+      const pathSegments = [collectionName, id, ...subcollectionPathSegments] as const;
+      const docRef = converter ? getDocRef(this._db, ...pathSegments).withConverter(converter) : getDocRef(this._db, ...pathSegments);
       const doc = await getDoc(docRef);
       if (doc.exists()) {
         return doc.data() as T;
@@ -68,11 +72,13 @@ export class FirebaseService {
     }
   }
 
-  public async setDoc(collectionName: ECollections, id: string, data: IObject, converter: FirestoreDataConverter<DocumentData, DocumentData> | null = null) {
+  public async setDoc<T extends object = IObject>(collectionName: ECollections, id: string, data: T, converter: FirestoreDataConverter<DocumentData, DocumentData> | null = null, subCollection?: { collection: string, id: string }) {
     try {
-      const docRef = converter ? getDocRef(this._db, collectionName, id).withConverter(converter) : getDocRef(this._db, collectionName, id);
+      const subcollectionPathSegments = subCollection ? [subCollection.collection, subCollection.id] : [];
+      const pathSegments = [collectionName, id, ...subcollectionPathSegments] as const;
+      const docRef = converter ? getDocRef(this._db, ...pathSegments).withConverter(converter) : getDocRef(this._db, ...pathSegments);
       await setDoc(docRef, filterData(data));
-      const savedDoc = await this.getDoc(collectionName, id, converter);
+      const savedDoc = await this.getDoc(collectionName, id, converter, subCollection);
       return savedDoc;
     } catch(e) {
       // tslint:disable-next-line
@@ -81,16 +87,16 @@ export class FirebaseService {
     }
   }
 
-  public async getDocs(collectionName: ECollections, whereProps: TWhereProps ) {
+  public async getDocs<T extends {}>(collectionName: ECollections, whereProps: TWhereProps ) {
     try {
       const queryConstraints = whereProps
         .filter(({ value, operator }) => operator !== 'in' || (Array.isArray(value) && value.length))
-        .map(({ param, value, operator }) => where(typeof param === 'string' ? param : new FieldPath(...param), operator ?? '==', value));
+        .map(({ param, value, operator }) => where(new FieldPath(...typeof param === 'string' ? [param] : param), operator ?? '==', value));
       const q = query(collection(this._db, collectionName), ...queryConstraints);
       const querySnapshot = await getDocs(q);
-      const data = [] as { id: string, data: DocumentData }[];
+      const data = [] as { id: string, data: T }[];
       querySnapshot.forEach((doc) => {
-        data.push({ id: doc.id, data: doc.data() });
+        data.push({ id: doc.id, data: doc.data() as T });
       });
 
       return data;
@@ -111,7 +117,19 @@ export class FirebaseService {
       return url;
     } catch(e) {
         // tslint:disable-next-line
-        console.error('Failed to get image from storage', { props, e });
+        console.error('Failed to get image URL from storage', { props, e });
+    }
+  }
+
+  public async getImage(props: { path: string }) {
+    try {
+      const ref = getStorageRef(this._storage, props.path);
+      return await getBlob(ref);
+      // return new Blob([arrayBuffer]);
+    } catch(err) {
+        // tslint:disable-next-line
+        console.error('Failed to get image from storage', { props, err });
+        throw new Error('Failed to get image from storage');
     }
   }
 
@@ -121,8 +139,8 @@ export class FirebaseService {
       return await getDownloadURL(ref);;
     } catch(err) {
         // tslint:disable-next-line
-        console.error('Failed to get image from storage', { props, err });
-        throw new Error('Failed to get image from storage');
+        console.error('Failed to get image URL from storage', { props, err });
+        throw new Error('Failed to get image URL from storage');
     }
   }
 
@@ -174,7 +192,7 @@ export const firebaseService = new FirebaseService(getFirebaseConfig());
 
 type TLessonId = string;
 
-function filterData(data: IObject<unknown>) {
+function filterData(data: IObject<any>) {
   const filteredData = {} as IObject;
   Object.keys(data).forEach(key => {
     if (data[key] !== undefined) {

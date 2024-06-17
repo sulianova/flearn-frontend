@@ -1,7 +1,8 @@
-import { TText } from './course';
+import type { TText } from 'ui/Text/Text';
+
 
 export interface IArticleBlock {
-  factoid?: TText | TText[]
+  factoid?: TText
 }
 
 export interface IArticleTitleBlock extends IArticleBlock {
@@ -15,22 +16,22 @@ export interface IArticleTitleBlock extends IArticleBlock {
 
 export interface IArticleFactoidBlock extends IArticleBlock {
   type: 'factoid'
-  factoid: TText | TText[]
+  factoid: TText
 }
 
 export interface IArticleTextBlock extends IArticleBlock {
   type: 'text'
-  text: TText | TText[]
+  text: TText
 }
 
 export interface IArticleListBlock extends IArticleBlock {
   type: 'list'
-  text: TText | TText[]
+  text: TText
 }
 
 export interface IArticleQouteBlock extends IArticleBlock {
   type: 'qoute'
-  qoute: TText | TText[]
+  qoute: TText
 }
 
 export interface IArticleTextImportantBlock extends IArticleBlock {
@@ -43,7 +44,7 @@ export interface IArticleVideoBlock extends IArticleBlock {
   videoData: {
     src: string
     title: string
-    caption?: TText | TText[]
+    caption?: TText
   }
 }
 
@@ -53,7 +54,7 @@ export interface IArticleImageBlock extends IArticleBlock {
     id: string
     src: string
     alt: string
-    caption?: TText | TText[]
+    caption?: TText
   }
 }
 
@@ -62,7 +63,7 @@ export interface IArticleImageBlockDB extends IArticleBlock {
   imageData: {
     id: string
     alt: string
-    caption?: TText | TText[]
+    caption?: TText
   }
 }
 

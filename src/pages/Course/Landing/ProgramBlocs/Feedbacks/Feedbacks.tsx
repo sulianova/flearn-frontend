@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 
-import type { ICourseData } from 'services/course.service';
+import type { ICourseFeedback } from 'services/course.service';
 import { formatI18nT } from 'shared';
 
 import Animated from 'ui/Animated';
@@ -14,7 +14,7 @@ const t = formatI18nT('courseLanding.feedback');
 const cx = classNames.bind(classes);
 
 interface IProps {
-  feedbacks: NonNullable<ICourseData['feedbacks']>
+  feedbacks: ICourseFeedback[]
 }
 
 function Feedbacks({ feedbacks }: IProps) {
@@ -22,14 +22,14 @@ function Feedbacks({ feedbacks }: IProps) {
     <div className={classes.wrapper}>
       <Animated.Scroll>
         {(id, className) => (
-          <h2 className={cx({ title: true }, className) + ' s-text-70'} id={id}>
+          <h2 className={cx({ title: true }, className)} id={id}>
             {t(`title`)}
           </h2>
         )}
       </Animated.Scroll>
       <div className={classes.list}>
-        {feedbacks.map((d, index) =>
-          <Item key={index} {...d}/>
+        {feedbacks.map((feedback, index) =>
+          <Item key={index} feedback={feedback}/>
         )}
       </div>
     </div>

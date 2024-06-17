@@ -1,8 +1,8 @@
 @import 'styles/index';
 
 .text {
-  @include s-text-20;
-  color: $color-content-primary;
+  @include font-20-normal-paragraph;
+  color: $color-content-paragraph-primary;
   margin: set-calc(20) 0 set-calc(16);
   
   @include set-media(md) {
@@ -10,11 +10,15 @@
   }
 
   p {
-    @include s-text-20;
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: inherit;
   }
 
   span {
-    @include s-text-20;
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: inherit;
   }
 
   p {

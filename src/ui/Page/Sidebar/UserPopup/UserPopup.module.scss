@@ -1,0 +1,166 @@
+@import 'styles/index';
+
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.popup{
+  position: absolute;
+  top: unset;
+  bottom: 0;
+  left: set-calc(16, true, 100%);
+  right: unset;
+
+  visibility: visible;
+  transform: none;
+  opacity: 1;
+  z-index: -1;
+  visibility: hidden;
+  opacity: 0;
+
+  transition: visibility 0.3s, opacity 0.3s, transform 0.3s;
+  transition-timing-function: cubic-bezier(0.25, 1.15, 0.5, 1.1);
+
+  width: set-calc(250);
+  padding: set-calc(8);
+
+  border-radius: set-calc($border-radius-10);
+  background:  $color-content-secondary;
+  border: set-calc(0.5) solid $color-content-tertiary;
+
+  backdrop-filter: blur(set-calc($backdrop-filter));
+  box-shadow: $shadow-menu;
+
+  @include set-media(md) {
+    top: set-calc(8, true, 100%);
+    right: unset;
+    left: 0;
+    bottom: unset;
+
+    border-radius: set-calc(10);
+    border: set-calc(0.8) solid $color-palette-white-1000;
+
+    width: set-calc(250);
+  }
+}
+
+.animated {
+  transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
+  transition-timing-function: cubic-bezier(0.25, 1.15, 0.5, 1.1);
+  transform: scale(0.5);
+  transform-origin: calc(100% - var(--right)) calc(var(--top) + var(--size) / 4);
+}
+
+.inverseAnimated {
+  transform-origin: calc(var(--right)) calc(100% - var(--top) + var(--size) / 4);
+}
+
+// --top: calc( var(--popup-offset-top) + var(--popup-padding) + (var(--item-height) + var(--popup-padding) * 2 - var(--size) - var(--spacing-16)) / 2 );
+// --right: calc(var(--popup-offset-right) + 2 * var(--popup-padding));
+// --size: 24;
+
+.open {
+  visibility: visible;
+  transform: none;
+  opacity: 1;
+}
+
+.itemsGroup {
+  display: flex;
+  flex-direction: column;
+  margin-top: set-calc(16);
+}
+
+.itemsGroup:first-child {
+  margin-top: 0;
+}
+
+.item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  align-content: space-between;
+  height: auto;
+  user-select: none;
+
+  padding: set-calc(10) set-calc(10);
+  border-radius: set-calc($border-radius-8);
+
+  @include set-media(md) {
+    padding: set-calc(10) set-calc(10);
+  }
+}
+
+.withIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: set-calc(8);
+
+  svg {
+    display: inline-block;
+    text-align: center;
+    background: 50% no-repeat;
+    background-size: contain;
+
+    width: set-calc(24);
+    height: set-calc(24);
+
+    path {
+      fill: $color-content-inverted-primary;
+    }
+  }
+
+  span {
+    font-size: inherit;
+    line-height: inherit;
+  }
+}
+
+.itemTitle {
+  display: flex;
+  align-items: center;
+  gap: set-calc(8);
+  height: auto;
+
+  color: $color-content-inverted-primary;
+  @include set-typography(18, 20, 500);
+
+  @include set-media(md) {
+    @include set-typography(16, 18, 500)
+  }
+}
+
+.itemSubtitle {
+  margin: set-calc(4) 0 0;
+  color: $color-content-inverted-secondary;
+}
+
+.itemHoverable {
+  transition: background-color 0.3s;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.itemHoverable:hover {
+  background-color: $color-background-glassy-inverted-c;;
+
+  @include set-media(md) {
+    background-color: transparent;
+  }
+}
+
+.itemHoverable:active {
+  background-color: $color-background-glassy-inverted-b;
+
+  @include set-media(md) {
+    background-color: transparent;
+  }
+}

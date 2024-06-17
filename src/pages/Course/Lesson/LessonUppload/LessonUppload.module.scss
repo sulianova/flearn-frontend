@@ -28,23 +28,43 @@
   @include set-media(md) {
     width: set-calc(398);
     left: set-calc(-16);
+    padding: set-calc(24) set-calc(16);
   }
 }
 
-.nav {
-  position: sticky;
-  top: 0;
-  background-color: transparent;
-  margin-top: set-calc(16);
-
-  display: flex;
-  justify-content: end;
+.title {
+  margin-bottom: set-calc(16);
   width: 100%;
 
+  @include font-18-normal-paragraph;
+  text-align: center;
+
   @include set-media(md) {
-    margin-top: 0;
+    order: 2;
+  }
+}
+
+.link {
+  margin-bottom: set-calc(16);
+  width: 100%;
+
+  @include font-18-normal-paragraph;
+  text-align: center;
+  color: $primary-color;
+
+  @include set-media(md) {
+    order: 3;
+  }
+}
+
+.linkForm {
+  position: relative;
+  width: 100%;
+  display: flex;
+
+  @include set-media(md) {
+    order: 3;
     flex-direction: column;
-    justify-content: center;
   }
 }
 
@@ -61,13 +81,9 @@
   color: $color-accent-error;
   white-space: pre-line;
   text-align: center;
-
-  background-color: $pastelPink;
 }
 
 .submit {
-  margin-bottom: set-calc(16);
-  margin-top: set-calc(16);
   display: flex;
   flex: 0 1 auto;
   flex-direction: column;
@@ -91,25 +107,28 @@
   transition-property: transform, background-color, border-color, color;
   border: none;
   outline: none;
-  
-  padding: 0 set-calc(16);
   height: set-calc(50);
+  padding: set-calc(16);
+
 
   color: $color-content-inverted-primary;
+  @include font-16-normal-ui;
 
-  background: $color-accent-neutral;
-  border-radius: set-calc($border-radius-small);
+  background: $color-content-background-secondary;
+  border-radius: set-calc($border-radius-8);
   cursor: pointer;
 
   transition: background-color $d-hover ease-in-out, color ease-in-out $d-hover;
 
   @include set-media(md) {
-    width: fit-content;
+    width: 100%;
+    height: unset;
+    padding: set-calc(20) set-calc(24);
   }
 }
 
 .submitBtn:hover {
-  background-color: $color-accent-neutral-hover;
+  background-color: $color-content-background-primary;
 }
 
 .isDisabled {
@@ -119,144 +138,163 @@
   pointer-events: none;
 }
 
-.submitDescription {
-  margin-top: set-calc(8);
-  color: $grey;
+.statusProgress {
+  display: flex;
+  width: 100%;
+  margin-top: set-calc(28);
 
   @include set-media(md) {
-    width: 100%;
-    text-align: center;
+    order: 1;
+    justify-content: center;
+    gap: set-calc(6);
+    margin-top: 0;
+    margin-bottom: set-calc(24);
   }
 }
 
-.inner {
+.statusProgress > * {
+  flex: 1 0 auto;
+
+  @include set-media(md) {
+    flex: 0 0 0;
+  }
+}
+
+.statusProgress > * + * {
+  margin-top: 0;
+  margin-left: set-calc(4);
+
+  @include set-media(md) {
+    margin-left: 0;
+  }
+}
+
+.statusProgressStep {
   position: relative;
-  width: 100%;
-  display: flex;
-
-  @include set-media(md) {
-    flex-direction: column;
-  }
-}
-
-.fields {
-  display: flex;
-  flex-flow: column;
-  width: 100%;
-}
-
-.fieldsTitle {
-
-}
-
-.fieldsInner {
-  display: flex;
-  width: 100%;
-  flex-direction: row;
-}
-
-.files {
-  display: flex;
-  flex-flow: column;
-  flex: 1;
-  overflow: hidden;
-
-  @include set-media(md) {
-    flex-direction: column;
-    width: 100%;
-    padding: 0;
-  }
-}
-
-.filesHeader {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: set-calc(56);
-
-  @include set-media(md) {
-    flex-direction: column;
-    width: 100%;
-    margin-bottom: 0;
-  }
-}
-
-.filesTitle {
-  @include set-media(md) {
-    padding-bottom: set-calc(32);
-  }
-}
-
-.filesBtn {
   display: flex;
   align-items: center;
-  justify-content: center;
-  min-height: set-calc(48);
-  padding: set-calc(4) set-calc(40);
-
-  color: $color-content-background-primary;
-  text-align: center;
-
-  border: set-calc(2) solid $color-content-background-primary;
-  border-radius: set-calc(20);
-
-  cursor: pointer;
-  transition: opacity, color;
-  transition-duration: $d-hover;
-}
-
-.filesBtn:hover {
-  opacity: 0.5;
-}
-
-.filesContent {
-  display: flex;
-  flex-wrap: wrap;
-  overflow: auto;
-}
-
-.file {
-  position: relative;
-  width: set-calc(-20, true, 50%);
-  margin: 0 set-calc(20) set-calc(20) 0;
+  height: set-calc(32);
 
   @include set-media(md) {
-    width: 100%;
-    margin-right: 0;
+    height: max-content;
   }
 }
 
-.filesEmpty {
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  justify-content: center;
-  height: set-calc(200);
-  margin: 0 auto;
+.statusProgressStepLine {
+  position: relative;
+  top: auto;
+  left: 0;
+
+  display: block;
+  align-self: center;
+  flex: 1 1 auto;
   width: 100%;
-  margin-bottom: set-calc(20);
-  border-radius: set-calc(20);
+  height: set-calc(4);
+  margin-left: 0;
+  border-radius: set-calc(2) 0 0 set-calc(2);
+  background-color: $color-palette-black-200;
 
-  background-color: $beige;
-
-  color: $grey;
-  text-align: center;
-
-  transition: background-color $d-hover ease-in-out, color ease-in-out $d-hover;
-}
-
-.filesEmpty:hover {
-  background-color: $beige-dark;
-  color: $grey-inactive;
-  cursor: pointer;
-}
-
-.filesEmpty svg {
-  width: set-calc(64);
-  height: set-calc(64);
-  margin-bottom: set-calc(8);
-
-  path {
-    stroke: $grey-inactive;
-    stroke-width: 3;
+  @include set-media(md) {
+    display: none;
   }
 }
+
+.statusProgressStepContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  gap: set-calc(2);
+  margin-left: 0;
+  padding-right: set-calc(10);
+  transform: translate(-50%, -50%);
+
+  @include set-media(md) {
+    position: relative;
+    padding-right: 0;
+    transform: none;
+    top: 0;
+    left: 0;
+  }
+}
+
+.statusProgressStepContentLabel {
+  display: inline-block;
+  padding: set-calc(4) set-calc(12);
+
+  border-radius: set-calc(100);
+  background-color: $color-palette-black-200;
+  color: $color-palette-black-900;
+  white-space: nowrap;
+
+  @include font-16-normal-ui;
+
+  @include set-media(md) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    padding: 0 0;
+    width: set-calc(32);
+    height: set-calc(32);
+    border-radius: 50%;
+  }
+}
+
+.progressStepArrow {
+  color: $color-palette-black-200;
+
+  svg {
+    width: set-calc(10);
+    height: set-calc(12);
+  }
+
+  @include set-media(md) {
+    display: none;
+  }
+}
+
+.finishIconWrapper {
+  display: block;
+  flex: 0 1 auto;
+}
+
+.finishIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  padding: 0 0;
+  width: set-calc(32);
+  height: set-calc(32);
+  border-radius: 50%;
+
+  color: $color-palette-black-900;
+  background-color:  $color-palette-black-200;
+
+  svg {
+    width: set-calc(32);
+    height: set-calc(32);
+  }
+}
+
+.active {
+  .statusProgressStepLine {
+    background-color: $primary-color;
+  }
+
+  .statusProgressStepContentLabel {
+    background-color: $primary-color;
+    color: $color-palette-white-1000;
+  }
+
+  .progressStepArrow {
+    color: $primary-color;
+  }
+
+  .finishIcon {
+    color: $color-palette-white-1000;
+    background-color: $primary-color;
+  }
+ }

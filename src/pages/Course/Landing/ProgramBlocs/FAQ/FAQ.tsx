@@ -1,4 +1,4 @@
-import type { ICourseData } from 'services/course.service';
+import type { ICourseData, ICourseFaqItem } from 'services/course.service';
 import { formatI18nT } from 'shared';
 
 import Link from 'ui/Link/Link';
@@ -11,15 +11,15 @@ export default FAQ;
 const t = formatI18nT('courseLanding.faq');
 
 interface IProps {
-  faq: NonNullable<ICourseData['faq']>
+  faq: ICourseFaqItem[]
 }
 
 function FAQ({ faq }: IProps) {
   return (
     <div className={classes.wrapper}>
       <div className={classes.header}>
-        <h2 className={classes.headerTitle + ' s-text-70'}>{t('headerTitle')}</h2>
-        <div className={classes.headerDesc + ' s-text-21'}>
+        <h2 className={classes.headerTitle}>{t('headerTitle')}</h2>
+        <div className={classes.headerDesc}>
           {t('headerDesc1')}
           <Link to={t('creatorLink')}  target='_blank'>
             <span className='key-link'>{t('headerDesc2')}</span>

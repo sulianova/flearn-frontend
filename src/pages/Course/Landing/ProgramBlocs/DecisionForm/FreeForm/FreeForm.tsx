@@ -5,44 +5,60 @@ import { dataService } from 'services';
 import type { ICourseData } from 'services/course.service';
 import type { IUserData } from 'services/user.service';
 
-import { URLSections } from 'types';
+import { URLSections } from 'router';
 
 import classes from './FreeForm.module.scss';
 
 export default FreeForm;
 
-function FreeForm(props: { userData: IUserData, courseData: ICourseData }) {
-  const { userData, courseData } = props;
+interface IProps {
+  user: IUserData
+  course: ICourseData
+  option: keyof ICourseData['productOptions']
+}
+
+function FreeForm(props: IProps) {
+  const { user, course, option } = props;
   const navigate = useNavigate();
   const [errorTxt, setErrorTxt] = useState('');
   return (
     <div className={classes.btnWrapper}>
-      <button className={classes.btn + ' s-text-24'} onClick={() => handleSubmit({ userData, courseData, navigate, onError: setErrorTxt })}>Начать учиться бесплатно</button>
+      <button
+        className={classes.btn}
+        onClick={() => handleSubmit({ user, course, option, navigate, onError: setErrorTxt })}
+      >
+        Начать учиться бесплатно
+      </button>
       {errorTxt && <div>{errorTxt}</div>}
     </div>
   );
 }
 
-async function handleSubmit(props: { userData: IUserData, courseData: ICourseData, navigate: NavigateFunction, onError: (error: string) => void }) {
+async function handleSubmit(props: IProps & { navigate: NavigateFunction, onError: (error: string) => void }) {
   try {
     await submitFreeOrderAndGrandAccess(props);
-    props.navigate(URLSections.My.Profile.index);
+    props.navigate(URLSections.Course.Lessons.to({ courseId: props.course.id }));
   } catch (e) {
     const error = e as Error;
     props.onError(error.message);
   }
 }
 
-async function submitFreeOrderAndGrandAccess(props: { userData: IUserData, courseData: ICourseData }) {
-  const { userData, courseData } = props;
+async function submitFreeOrderAndGrandAccess(props: IProps) {
+  const { user, course, option } = props;
   try {
-    if (!await dataService.order.exists(courseData.id, userData.email)) {
-      await dataService.order.create({ userFromForm: { email: userData.email }, courseData, userData });
+    if (!await dataService.order.exists(course.id, user.email)) {
+      await dataService.order.create({
+        userFromForm: { email: user.email },
+        courseData: course,
+        userData: user,
+        chosenProductOptionType: option,
+      });
     }
 
     // TEMP
-    const accessValue = courseData.id !== 'finding-your-style';
-    await dataService.access.add(courseData.id, userData.email, accessValue);
+    await dataService.access.add(course.id, user.email, 'FREE');
+    await dataService.userCourseProgress.init(course.id, user.email);
   } catch (e) {
     const error = e as Error;
     // tslint:disable-next-line: no-console

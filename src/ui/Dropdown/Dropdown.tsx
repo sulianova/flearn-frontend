@@ -100,7 +100,6 @@ function Dropdown(props: Readonly<IProps>, ref: ForwardedRef<HTMLDivElement>) {
                 onClickOutside={methods.close}
                 interactive
                 arrow={false}
-                // hideOnScroll={false}
                 theme='none'
                 maxWidth='none'
                 animation='none'

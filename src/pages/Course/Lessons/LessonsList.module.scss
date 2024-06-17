@@ -2,9 +2,12 @@
 
 .wrapper {
   @include is-grid-3;
-  max-width: set-calc(956);
-  margin: 0 auto;
+  width: 100%;
   gap: set-calc(16);
+}
+
+.wrapper:not(:last-child) {
+  margin-bottom: set-calc(40);
 }
 
 .itemWrapper {
@@ -31,15 +34,21 @@
   transition-property: transform, box-shadow;
   transition-timing-function: ease;
   transition-duration: 0.2s;
-  border-radius: set-calc(8);
+  border-radius: set-calc($border-radius-medium);
 
   box-sizing: border-box;
-  background: $color-background-default;
+  background: $color-content-inverted-secondary;
+  border: set-calc(1) solid $color-background-default;
   text-align: left;
+  box-shadow: $shadow-huge-default;
 
   @include set-media(md) {
     flex-direction: row;
     height: auto;
+    
+    .infoItem {
+      opacity: 1;
+    }
   }
 
   &:hover,
@@ -49,6 +58,11 @@
 
     .infoItem {
       opacity: 1;
+    }
+
+    @include set-media(md) {
+      box-shadow: none;
+      transform: none;
     }
   }
 }
@@ -87,6 +101,8 @@
 
 .title {
   margin: 0;
+
+  @include font-28-normal-header;
   color: $color-content-primary;
 }
 
@@ -100,15 +116,23 @@
   display: flex;
   flex: 1;
   flex-wrap: wrap;
+
+  @include set-media(md) {
+    display: none;
+  }
 }
 
 .infoItem {
   position: relative;
+
   display: flex;
   align-items: center;
   margin-right: set-calc(16);
+
   transition: opacity 0.3s;
   opacity: 0;
+
+  @include font-16-normal-ui;
   color: $color-content-tertiary;
 
   &:not(:first-child)::before {
@@ -141,7 +165,7 @@
   overflow: hidden;
   width: 100%;
   height: 100%;
-  color: $profession-color;
+  color: $color-profession;
   background: $color-palette-white-1000;
   border-radius: set-calc(8) set-calc(8) 0 0;
 

@@ -18,5 +18,6 @@
 }
 
 .factoid > * {
-  @include s-text-20;
+  @include font-20-normal-paragraph;
+  color: $color-content-paragraph-primary;
 }

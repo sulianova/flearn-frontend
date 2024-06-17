@@ -2,38 +2,29 @@
 
 .btnWrapper {
   position: relative;
-
   display: flex;
 }
 
 .btn {
   position: relative;
-
   display: flex;
-  align-items: center;
   justify-content: center;
-
-  padding: set-calc(20) set-calc(80);
-  margin-bottom: set-calc(24);
-  width: 100%;
+  align-items: center;
 
   color: $color-content-inverted-primary;
+  @include font-21-normal-ui;
 
-  background-color: $green;
-  border-radius: set-calc(20);
+  border-radius: set-calc($border-radius-medium);
+  background-color: $color-content-background-secondary;
+  padding: set-calc(22) set-calc(60);
+  width: 100%;
+
+  transition: background-color $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
   cursor: pointer;
-  pointer-events: all;
-
-  transition: background-color $d-hover ease-in-out, color ease-in-out $d-hover;
 
   &:hover {
-    background-color: $green-hover;
-  }
-
-  @include set-media(md) {
-    padding: set-calc(15) 0;
-    margin-bottom: set-calc(24);
-
-    border-radius: set-calc(15);
+    cursor: pointer;
+    box-shadow: $shadow-medium-hovered;
+    background-color: $color-content-background-primary;
   }
 }

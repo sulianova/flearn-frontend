@@ -1,6 +1,4 @@
-export default Edit;
-
-function Edit() {
+export function Edit() {
   return (
     <svg viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g clip-path="url(#clip0_2240_49)">

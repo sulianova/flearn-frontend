@@ -3,8 +3,8 @@ import classes from './Career.module.scss';
 export default function Career() {
   return (
     <div className={classes.__}>
-      <div className={classes.title}>Иллюстратор — профессия без границ. Иллюстрации нужны для веб-сайтов, книг, логотипов и стикеров. С иллюстратором сотрудничают издательства, рекламные агентства и владельцы бизнеса.</div>
-      <span className={classes.title + ' color-content-inverted-secondary'}>Освоить профессию можно без художественного образования</span>
+      <span className={classes.title}>Преподаем иллюстрацию как метод творческого мышления, а не как набор профессиональных навыков и приёмов. </span>
+      <span className={classes.title + ' color-background-glassy-c'}>Учим создавать рекламные образы, айдентику и иллюстрации для цифровых продуктов на языке современной графики</span>
     </div>
   );
 }

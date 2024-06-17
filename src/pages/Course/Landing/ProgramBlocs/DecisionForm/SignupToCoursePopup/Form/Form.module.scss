@@ -1,0 +1,116 @@
+
+@import 'styles/index';
+
+.form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.inputWrap {
+  display: flex;
+}
+
+.submitButton {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: set-calc(16) set-calc(16);
+  min-width: set-calc(58);
+  max-width: set-calc(58);
+
+  color: $color-content-inverted-primary;
+  @include font-24-normal-ui;
+
+  background-color: $color-content-background-secondary;
+  border: set-calc(1) solid $color-background-stroke;
+  border-left: 0;
+  border-radius: 0 set-calc(15) set-calc(15) 0;
+  cursor: pointer;
+  pointer-events: all;
+  height: set-calc(62);
+
+  transition: background-color $d-hover ease-in-out, color ease-in-out $d-hover;
+
+  &:hover {
+    background-color: $color-content-background-primary;
+  }
+
+  @include set-media(md) {
+    border: set-calc(0.5) solid $color-background-stroke;
+    border-left: 0;
+    height: set-calc(65);
+  }
+}
+
+.isSuccess {
+  pointer-events: none;
+  color: $color-content-background-secondary;
+}
+
+.isPending {
+  color: $color-content-tertiary;
+  pointer-events: none;
+}
+
+.isError {
+  color: $color-content-inverted-primary;
+  background-color: $color-accent-warning;
+  opacity: 1;
+  transition: opacity $d-hover ease-in-out, color ease-in-out $d-hover;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.isDisabled {
+  background-color: $color-background-glassy-a;
+  color: $color-content-tertiary;
+  pointer-events: none;
+}
+
+.Error {
+  color: $color-accent-error;
+}
+
+
+.agreement {
+  margin-top: set-calc(18);
+  margin-left: set-calc(4);
+
+  @include font-16-normal-paragraph;
+
+  @include set-media(md) {
+    margin-top: set-calc(8);
+    margin-left: set-calc(4);
+  }
+}
+
+.btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: $color-content-inverted-primary;
+  @include font-21-normal-ui;
+
+  border-radius: set-calc($border-radius-medium);
+  background-color: $color-content-background-secondary;
+  padding: set-calc(22) set-calc(60);
+  width: 100%;
+
+  transition: background-color $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
+  cursor: pointer;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: $shadow-medium-hovered;
+    background-color: $color-content-background-primary;
+  }
+}

@@ -1,5 +1,28 @@
 @import 'styles/index';
 
+.header {
+  position: relative;
+  padding-bottom: set-calc(48);
+  padding-left: set-calc(16);
+
+  @include set-media(md) {
+    position: relative;
+    padding-bottom: 0;
+    padding-left: set-calc(8);
+  }
+}
+
+.headerTitle {
+  @include font-70-normal-header;
+}
+
+.commonFlowRow {
+
+  @include set-media(md) {
+    position: relative;
+  }
+}
+
 .wrapper {
   display: grid;
   grid-gap: set-calc($s-gap);
@@ -7,78 +30,106 @@
 
   @include set-media(md) {
     position: relative;
-    display: block;
+    display: flex;
+    flex-flow: row nowrap;
+
+    width: set-calc(16, true, 100%);
+    left: set-calc(-8);
+    padding: set-calc(48) set-calc(8) set-calc(16);
+
+    scrollbar-width: none;
+    overflow-y: hidden;
+    overflow-x: scroll;
+
+    scroll-behavior: smooth;
+    scroll-snap-type: block;
   }
 }
 
 .block {
-  grid-column: span 6;
   position: relative;
-  padding: set-calc(32);
-  border-radius: set-calc($border-radius-medium);
-  background-color: $color-background-default;
 
-  @include set-media(md) {
-    margin-bottom: set-calc(8);
-    padding: set-calc(16);
-  }
-}
-
-.blockDetails {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  color: $color-content-background-primary;
+
+  grid-column: span 6;
+  width: 100%;
+  min-width: min(380px, 80vw);
+  padding: set-calc(24);
+  border-radius: set-calc($border-radius-large);
+  background-color: $color-content-inverted-secondary;
+  border: set-calc(1) solid $color-background-default;
+  box-shadow: $shadow-medium-default;
 
   @include set-media(md) {
-    padding-right: set-calc(16);
+    border-radius: set-calc($border-radius-10);
+    padding: set-calc(16);
   }
 }
 
 .titleWrapper{
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+
+  margin-bottom: set-calc(16);
 
   @include set-media(md) {
-    flex-direction: column;
+    margin-bottom: set-calc(80);
   }
+}
+
+.courseName {
+  margin-bottom: set-calc(8);
+
+  @include font-16-normal-paragraph;
+  color: $color-content-tertiary;
 }
 
 .title {
-  padding-bottom: set-calc(40);
-  @include s-text-36;
-  background-image: $gradient-background-red-rose;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  @include set-media(md) {
-    padding-bottom: set-calc(16);
-    @include s-text-56;
-  }
+  max-width: set-calc(560);
+  word-break: break-word;
+  @include font-24-normal-header;
 }
 
-.subtitle {
-  padding-bottom: set-calc(8);
+.buble {
+  position: absolute;
+  right: set-calc(20);
+  top: set-calc(-30);
+  transform: rotate(2deg);
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 9;
+
+  border-radius: set-calc($border-radius-large);
+  padding: set-calc(10) set-calc(15);
+  border: set-calc(2.5) solid $color-content-background-secondary;
+  backdrop-filter: blur(set-calc($backdrop-filter));
+
+  @include font-21-normal-ui;
 
   @include set-media(md) {
-    padding-bottom: set-calc(8);
+    padding: set-calc(8) set-calc(12);
+    border: set-calc(2) solid $color-content-background-secondary;
   }
 }
 
 .credit {
-  position: relative;
+  margin-top: auto;
+
+  padding-top: set-calc(32);
+  margin-bottom: set-calc(24);
 
   display: flex;
   flex: 1;
   flex-direction: column;
   justify-content: flex-end;
 
-  font-variant-numeric: normal;
-  font-family: $font-family-serif;
-
   s:after {
-    margin-top: set-calc(1);
-    border-bottom: set-calc(1.5) solid $color-content-background-primary;
+    margin-top: 0;
+    border-bottom: set-calc(1.5) solid $color-content-background-secondary;
     content: "";
     left: set-calc(-2);
     position: absolute;
@@ -86,29 +137,31 @@
     top: 50%;
 
     @include set-media(md) {
-      border-bottom: set-calc(1) solid $color-content-background-primary;
+      border-bottom: set-calc(1) solid $color-content-background-secondary;
     }
   }
 }
 
 .creditWas {
-  width: max-content;
+  @include font-24-normal-header;
+  color: $color-content-background-secondary;
   letter-spacing: -0.05rem;
+
+  margin-bottom: set-calc(4);
+  width: max-content;
 }
 
 .creditPrice {
   position: relative;
-  @include set-typography(88, 96, 500);
-  letter-spacing: -.01rem;
+  @include set-typography(56, 60, 500);
 
   display: inline-block;
-  letter-spacing: -0.05rem;
-  color: $color-content-inverted-primary;
-  -webkit-text-stroke: set-calc(1.5) $color-content-background-primary;
+  letter-spacing: -0.2rem;
+  // -webkit-text-stroke: set-calc(1.5) $color-content-background-primary;
 
   @include set-media(md) {
-    -webkit-text-stroke: set-calc(1) $color-content-background-primary;
-    @include set-typography(72, 78, 500);
+    // -webkit-text-stroke: set-calc(1) $color-content-background-primary;
+    @include set-typography(48, 48, 500);
   }
 
 }
@@ -120,17 +173,18 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: set-calc(8) set-calc(16);
+
+  @include font-18-normal-ui;
   letter-spacing: 0;
 
-  color: $color-content-inverted-primary;
-  background: $gradient-background-red-rose;
+  background: $color-background-glassy-b;
+  padding: set-calc(8) set-calc(16);
   border-radius: set-calc($border-radius-large);
   -webkit-text-stroke: 0;
 
 
   @include set-media(md) {
-    right: 0;
+    right: set-calc(80);
     top: set-calc(-34);
   }
 }
@@ -150,17 +204,31 @@
   }
 }
 
-.agreement {
-  padding: 0 set-calc(8) set-calc(32);
+.btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: set-calc(60);
+  width: 100%;
+
+  color: $color-palette-white-1000;
+  @include font-21-normal-ui;
+
+  border-radius: set-calc($border-radius-10);
+  background-color: $color-background-btn;
+  transition: opacity $d-hover ease, box-shadow $d-hover ease, background-color $d-hover ease;
+  cursor: pointer;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: $shadow-medium-hovered;
+    background-color: $color-background-btn-hover;
+  }
 
   @include set-media(md) {
-    padding-left: set-calc(2);
-    padding-bottom: 0;
+    height: set-calc(52);
+    border-radius: set-calc($border-radius-10);
   }
-}
-
-.agreementText {
-  padding-left: set-calc(4);
-  cursor: pointer;
-  white-space: nowrap;
 }

@@ -17,7 +17,7 @@ interface IProps {
 }
 
 function ProgramIntro(props: IProps) {
-  const { startDate, duration, creditPrice, discontDeadline } = props.data;
+  const { startDate, duration } = props.data;
 
   const labels = [
     t('datesInfoLabel', { 
@@ -25,7 +25,6 @@ function ProgramIntro(props: IProps) {
       durationInUnits: duration.value,
       unit: duration.unit,
     }),
-    !creditPrice && !discontDeadline && t('free'),
   ].filter(Boolean);
 
   return (
@@ -35,16 +34,16 @@ function ProgramIntro(props: IProps) {
             <div className={classes.topContent}>
               <div className={classes.categories}>
                 {labels.map((label, i) => (
-                  <div className={classes.categoriesItem + ' s-text-18'} key={i}>{label}</div>
+                  <div className={classes.categoriesItem} key={i}>{label}</div>
                 ))}
               </div>
               <h1 className={classes.title}>{props.data.title}</h1>
-              <div className={classes.block + ' s-text-21'}>{props.data.introDescription}</div>
+              <div className={classes.block}>{props.data.introDescription}</div>
                 </div>
             <div className={classes.bottomContent}>
               <div className={classes.actions}>
                 <a
-                  className={classes.actionsBtn + ' s-text-18'}
+                  className={classes.actionsBtn}
                   href='#decision-form'
                   onClick={() => analyticsService.logEvent({
                       type: EAnalyticsEvent.ButtonClicked,

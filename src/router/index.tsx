@@ -1,57 +1,33 @@
-import { createContext } from 'react';
-import { connect } from 'react-redux';
-import { IRootState, IUserState, URLSections } from 'types';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 import Home from 'pages/Home/Home';
 import Course from 'pages/Course/Landing/Course';
 import Lesson from 'pages/Course/Lesson/Lesson';
 import Lessons from 'pages/Course/Lessons/Lessons';
-import My from 'pages/My/My';
 
 import Oferta from 'pages/Static/Oferta';
 import Policy from 'pages/Static/Policy';
 
 import ProtectedRoute from './ProtectedRoute';
+import { URLSections } from './utils';
 
-export default connect(mapStateToProps)(MyRouter);
+export { URLSections, type TRouteConfig } from './utils';
 
-export const AuthContext = createContext<IUserState>({});
-
-interface IConnectedProps {
-  userState: IUserState
-}
-
-function mapStateToProps(state: IRootState): IConnectedProps {
-  return {
-    userState: state.user,
-  };
-}
-
-interface IProps extends IConnectedProps{
-  children?: React.ReactNode | React.ReactNode[]
-}
-
-function MyRouter({ userState }: IProps) {
+export default function MyRouter() {
   return (
-    <AuthContext.Provider value={userState}>
-      <BrowserRouter>
-        <Routes>
-          <Route index path={URLSections.Home.index} element={<Home />} />
-          <Route path={URLSections.Course.index} element={<Course />} />
+    <BrowserRouter>
+      <Routes>
+        <Route index path={URLSections.Home.index} element={<Home />} />
+        <Route path={URLSections.Course.index} element={<Course />} />
+        <Route element={<ProtectedRoute />}>
           <Route path={URLSections.Course.Lessons.index} element={<Lessons />} />
-          <Route element={<ProtectedRoute />}>
-            <Route path={URLSections.Course.Lesson.index} element={<Lesson section='task'/>} />
-            <Route path={URLSections.Course.Lesson.MyWork.index} element={<Lesson section='my-work'/>} />
-            <Route path={URLSections.Course.Lesson.Results.index} element={<Lesson section='results'/>} />
-            <Route path={URLSections.My.Profile.index} element={<My mode='Profile'/>} />
-            <Route path={URLSections.My.Settings.index} element={<My mode='Settings'/>} />
-          </Route>
-          <Route path={URLSections.Static.Oferta.index} element={<Oferta />}/>
-          <Route path={URLSections.Static.Policy.index} element={<Policy />}/>
-          <Route path={'*'} element={<Navigate to={URLSections.Home.index} />}/>
-        </Routes>
-      </BrowserRouter>
-    </AuthContext.Provider>
+          <Route path={URLSections.Course.Lesson.index} element={<Lesson section='task'/>} />
+          <Route path={URLSections.Course.Lesson.Results.index} element={<Lesson section='results'/>} />
+        </Route>
+        <Route path={URLSections.Static.Oferta.index} element={<Oferta />}/>
+        <Route path={URLSections.Static.Policy.index} element={<Policy />}/>
+        <Route path={'*'} element={<Navigate to={URLSections.Home.index} />}/>
+      </Routes>
+    </BrowserRouter>
   );
 }

@@ -10,10 +10,25 @@ export default function Header() {
       <div className={classes.inner}>
         <div className={classes.headerWrapper}>
           <h1 className={classes.headerTitle}>{i18n.t('catalogue.title')}</h1>
+          {/* <div className={classes.descriptionWrapper }>
+            <div className={classes.description}>{i18n.t('catalogue.description')}</div>
+          </div> */}
         </div>
-        <div className={classes.descriptionWrapper }>
-          <div className={classes.description + ' s-text-21'}>{i18n.t('catalogue.description')}</div>
-        </div>
+          <div className={classes.actions}>
+              <a
+                className={classes.actionsBtn}
+                href='#decision-form'
+                // onClick={() => analyticsService.logEvent({
+                //     type: EAnalyticsEvent.ButtonClicked,
+                //     data: {
+                //       type: 'scroll_to_decision_form_button_clicked',
+                //     },
+                //   })
+                // }
+              >
+                <div className={classes.text}>{i18n.t('signUp')}</div>
+              </a>
+            </div>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 
-import type { ICourseData } from 'services/course.service';
+import type { ICoursePromoVideo } from 'services/course.service';
 import { formatI18nT } from 'shared';
 
 import Animated from 'ui/Animated';
@@ -10,7 +10,7 @@ import classes from './Promo.module.scss';
 
 export default Promo;
 interface IProps {
-  promoVideo: NonNullable<ICourseData['promoVideo']>
+  promoVideo: ICoursePromoVideo
 }
 
 const cx = classNames.bind(classes);
@@ -22,7 +22,7 @@ function Promo({ promoVideo }: IProps) {
       <div className={classes.cards}>
         <div className={classes.card}>
           <Animated.Scroll>
-            {(id, className) => (<h2 className={cx({ cardTitle: true }, className)  + ' s-text-70'} id={id}>{t('cardTitle')}</h2>)}
+            {(id, className) => (<h2 className={cx({ cardTitle: true }, className)} id={id}>{t('cardTitle')}</h2>)}
           </Animated.Scroll>
         </div>
         <div className={cx({ card: true, videoCard: true })}>

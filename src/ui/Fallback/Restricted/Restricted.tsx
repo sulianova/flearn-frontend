@@ -1,6 +1,6 @@
 import { useParams } from 'react-router';
 
-import { URLSections } from 'types';
+import { URLSections } from 'router';
 
 import Link from 'ui/Link/Link';
 import Page, { EPageVariant } from 'ui/Page/Page';

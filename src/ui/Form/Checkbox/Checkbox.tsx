@@ -1,4 +1,5 @@
 import { v4 } from 'uuid';
+import Icon from 'ui/Icon/Icon';
 
 interface IProps {
   className?: string
@@ -20,7 +21,8 @@ export default function Checkbox(props: IProps) {
         onChange={e => props.onChange?.(e.target.checked)}
       />
       <label htmlFor={id}>
-        {props.children}
+        <Icon icon='Check'/>
+        <span>{props.children}</span>
       </label>
     </>
   );
