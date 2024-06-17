@@ -291,7 +291,7 @@
     "day": "{{count}} $t(day.p, {\"count\": {{count}} })"
   },
   "emails": {
-    "PaymentMethods": {
+    "WelcomeToCourse": {
       "subject": {
         "course": "Добро пожаловать на курс \"{{title}}\"",
         "intensive": "Добро пожаловать на интенсив \"{{title}}\"",

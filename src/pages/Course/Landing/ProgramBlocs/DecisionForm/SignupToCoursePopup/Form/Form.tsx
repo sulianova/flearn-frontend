@@ -130,11 +130,10 @@ async function submit(props: {
     await dataService.access.add(course.id, formData.email, 'FREE');
     await dataService.userCourseProgress.init(course.id, formData.email);
     await emailService.sendEmail({
-      type: emailService.EEmail.PaymentMethods,
+      type: emailService.EEmail.WelcomeToCourse,
       to: { email: formData.email },
       orderId,
       course,
-      chosenProductOption: option,
     });
     setFormData(d => ({ ...d, state: { type: 'Success' } }));
   } catch (e) {

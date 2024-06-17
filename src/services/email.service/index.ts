@@ -2,7 +2,7 @@ import { firebaseService } from 'services/firebase.service';
 import { ECollections } from 'types';
 import { v4 } from 'uuid';
 import { EEmail, type TEmail, type TContact } from './types';
-import { formatDate } from 'utils';
+import { formatDate, getDiscountedPrice } from 'utils';
 import { ICourseData } from 'services/course.service';
 import { i18n } from 'shared/translations'
 
@@ -10,7 +10,7 @@ export { EEmail } from './types';
 
 type TProps = { to: TContact } & (
   | { type: EEmail.OrderCreated, orderId: string }
-  | { type: EEmail.PaymentMethods, orderId: string, course: ICourseData, chosenProductOption: keyof ICourseData['productOptions'] }
+  | { type: EEmail.WelcomeToCourse, orderId: string, course: ICourseData }
   | { type: EEmail.FindingYourStyleCourseIsStartingTomorrow, startDate: Date }
 );
 
@@ -33,7 +33,7 @@ class EmailService {
     switch (props.type) {
       case EEmail.OrderCreated:
         return `${props.orderId}-${id}`;
-      case EEmail.PaymentMethods:
+      case EEmail.WelcomeToCourse:
         return `${props.orderId}-${id}`;
       case EEmail.FindingYourStyleCourseIsStartingTomorrow:
         return `finding-your-style-${props.to.email}-course-is-starting-tomorrow-${id}`;
@@ -46,8 +46,8 @@ class EmailService {
     switch (props.type) {
       case EEmail.OrderCreated:
         return this.getOrderEmail(props);
-      case EEmail.PaymentMethods:
-        return this.getPaymentMethodsEmail(props)
+      case EEmail.WelcomeToCourse:
+        return this.getWelcomeToCourseEmail(props)
       case EEmail.FindingYourStyleCourseIsStartingTomorrow:
         return this.getCourseIsStartingTomorrowEmail(props);
       default:
@@ -65,16 +65,13 @@ class EmailService {
     };  
   }
 
-  private getPaymentMethodsEmail(props: { to: TContact, course: ICourseData, chosenProductOption: keyof ICourseData['productOptions'] }): TEmail {
-    const { to, course, chosenProductOption } = props;
-    const option = course.productOptions[chosenProductOption]!;
-    const startDate = formatDate(course.startDate, { timeZone: 'Europe/Moscow' });
-    const price = (!option.discount || (option.discount.deadline && new Date() < option.discount.deadline)) ? option.price : (option.price * (1 - option.discount.amountPrc / 100));
+  private getWelcomeToCourseEmail(props: { to: TContact, course: ICourseData }): TEmail {
+    const { to, course } = props;
     const courseTypeStr = i18n.t(`courseType.${course.type}`);
     return {
       to: [to],
       from: this.senderContact,
-      subject: i18n.t(`emails.PaymentMethods.subject.${course.type}`, { startDate, title: course.title }),
+      subject: i18n.t(`emails.WelcomeToCourse.subject.${course.type}`, { title: course.title }),
       html: `
       <!DOCTYPE html>
         <html lang="ru">
@@ -279,7 +276,7 @@ class EmailService {
   };
 }
 
-  // private getPaymentMethodsEmail(props: { to: TContact, course: ICourseData, chosenProductOption: keyof ICourseData['productOptions'] }): TEmail {
+  // private getWelcomeToCourseEmail(props: { to: TContact, course: ICourseData, chosenProductOption: keyof ICourseData['productOptions'] }): TEmail {
   //   const { to, course, chosenProductOption } = props;
   //   const option = course.productOptions[chosenProductOption]!;
   //   const startDate = formatDate(course.startDate, { timeZone: 'Europe/Moscow' });
@@ -288,7 +285,7 @@ class EmailService {
   //   return {
   //     to: [to],
   //     from: this.senderContact,
-  //     subject: i18n.t(`emails.PaymentMethods.subject.${course.type}`, { startDate, title: course.title }),
+  //     subject: i18n.t(`emails.WelcomeToCourse.subject.${course.type}`, { startDate, title: course.title }),
   //     html: `
   //       <!DOCTYPE html>
   //       <html lang="ru">
