@@ -15,11 +15,12 @@ const cx = classNames.bind(classes);
 
 interface IProps {
  subsection: NonNullable<ICourseModule['subsection']>[number]
+ initiallyOpened: boolean
 }
 
-function Subsection({ subsection: { subsectionTitle, subsectionText} }: IProps) {
+function Subsection({ subsection: { subsectionTitle, subsectionText }, initiallyOpened }: IProps) {
   const isMobile = useIsMobile();
-  const [opened, setOpened] = useState(false);
+  const [opened, setOpened] = useState(initiallyOpened);
 
   return (
     <div className={classes.subsection}>
