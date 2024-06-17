@@ -264,6 +264,23 @@ class EmailService {
                                 </table>
                               </td>
                             </tr>
+                            <tr>
+                              <td>
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                  <tbody>
+                                    <tr>
+                                      <td style="font-family:Helvetica,Arial,sans-serif;font-size:12px;line-height:16px;color:#808080" align="left">
+                                        <span>
+                                          ©&nbsp;flearn, Ульянова&nbsp;София&nbsp;Р.
+                                          <br>
+                                          Вы получили это письмо, потому что регистрировались на сайте flearn. Чтобы отписаться от рассылки, перейдите по этой ссылке.
+                                        </span>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </td>
