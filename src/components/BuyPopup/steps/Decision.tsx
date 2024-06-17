@@ -4,11 +4,16 @@ import { formatI18nT } from 'shared';
 
 import classes from '../BuyPopup.module.scss';
 
-import type { IProps } from './types';
 import { formatCourseCredit, formatCourseDiscount, getDiscountedPrice, safeObjectKeys } from 'utils';
+import { ICourseData, TCourseProductOptionTypes } from 'services/course.service';
 
 const cx = classnames.bind(classes);
 const t = formatI18nT('courseLanding.form');
+
+interface IProps {
+  course: ICourseData
+  next: (productOptionType: TCourseProductOptionTypes) => void
+}
 
 export default function Decision({ course, next }: IProps) {
 
@@ -32,7 +37,7 @@ export default function Decision({ course, next }: IProps) {
             <span className={classes.discount}>{formatCourseDiscount(discount ?? 0)}</span>
           </div>
         </div>
-        <button className={classes.btn} onClick={next}>Перейти к оплате</button>
+        <button className={classes.btn} onClick={() => next(type)}>Перейти к оплате</button>
       </div>
     );
   });

@@ -8,7 +8,7 @@ import type { ICourseData} from 'services/course.service';
 import { userService, type IUserData } from 'services/user.service';
 import { formatI18nT } from 'shared';
 import { URLSections } from 'router';
-import { getDiscountedPrice, formatDate, safeObjectKeys } from 'utils';
+import { getDiscountedPrice, safeObjectKeys, formatCourseCredit, formatCourseDiscount } from 'utils';
 
 import classes from './DecisionForm.module.scss';
 
@@ -48,9 +48,9 @@ export default function DecisionForm({ course }: IProps) {
           <h1 className={classes.title}>{t(`options.${type}.title`)}</h1>
         </div>
         <div className={classes.credit}>
-          <s className={classes.creditWas}>{formatCredit(creditWas)} &#8381;</s>
+          <s className={classes.creditWas}>{formatCourseCredit(creditWas)} &#8381;</s>
           <div className={classes.creditPrice}>
-            {formatCredit(creditPrice)} &#8381;
+            {formatCourseCredit(creditPrice)} &#8381;
             <span className={classes.discount}>{formatCourseDiscount(discount ?? 0)}</span>
           </div>
         </div>
@@ -85,23 +85,6 @@ export default function DecisionForm({ course }: IProps) {
       )}
     </>
   );
-}
-
-function formatCredit(credit: number) {
-  const thousands = String(credit).slice(0, -3);
-  const theReast = String(credit).slice(-3);
-  return `${thousands} ${theReast}`;
-}
-
-function formatCourseDiscount(discontAmount: number) {
-  return `-${discontAmount}%`;
-}
-
-function formatCourseDate(startDate: Date, endDate: Date) {
-  const startDateStr = formatDate(startDate, { timeZone: 'Europe/Moscow' });
-  const endDateStr = formatDate(endDate, { timeZone: 'Europe/Moscow' });
-
-  return `${startDateStr} – ${endDateStr}`;
 }
 
 async function handleSubmit(props: {
