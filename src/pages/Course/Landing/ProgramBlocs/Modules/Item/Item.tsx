@@ -66,7 +66,7 @@ function Item(props: Readonly<IProps>) {
           {module.subsectionDescription && module.subsection && module.subsection.length && (
             <div className={classes.additionalInfo}>
               <div className={classes.subsections}>
-                {module.subsection.map((subsection, index) => <Subsection key={index} subsection={subsection}/>)}
+                {module.subsection.map((subsection, i) => <Subsection key={i} subsection={subsection} initiallyOpened={alwaysOpened && i === 0}/>)}
               </div>
               <div className={classes.projects}>
                 <div className={classes.projectsDescription}>{module.subsectionDescription}</div>
