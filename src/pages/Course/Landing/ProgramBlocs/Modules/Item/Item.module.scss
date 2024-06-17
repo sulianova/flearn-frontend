@@ -125,6 +125,10 @@
 
 .item:first-child {
   pointer-events: none;
+
+  @include set-media(md) {
+    pointer-events: unset;
+  }
 }
 
 .bullet {

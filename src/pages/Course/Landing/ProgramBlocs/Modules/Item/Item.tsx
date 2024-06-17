@@ -66,7 +66,7 @@ function Item(props: Readonly<IProps>) {
           {module.subsectionDescription && module.subsection && module.subsection.length && (
             <div className={classes.additionalInfo}>
               <div className={classes.subsections}>
-                {module.subsection.map((subsection, i) => <Subsection key={i} subsection={subsection} initiallyOpened={alwaysOpened && i === 0}/>)}
+                {module.subsection.map((subsection, i) => <Subsection key={i} subsection={subsection} initiallyOpened={i === 0}/>)}
               </div>
               <div className={classes.projects}>
                 <div className={classes.projectsDescription}>{module.subsectionDescription}</div>
@@ -74,7 +74,6 @@ function Item(props: Readonly<IProps>) {
             </div>
           )}
         </div>
-        {/* {props.content && Boolean(!Array.isArray(props.content) || props.content.length) && <div className={classes.listItemContent + ' s-text-21'}><Text text={props.content}/></div>} */}
       </div>
     </div>
   );
