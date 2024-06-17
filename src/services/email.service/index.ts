@@ -112,7 +112,7 @@ class EmailService {
                                                         <table style="width:260px;border-spacing:0px" width="260" border="0" cellspacing="0" cellpadding="0">
                                                           <tbody>
                                                             <tr>
-                                                              <td style="border:1.5px solid #5282ff;border-radius:100px;background-color:#262626" valign="middle" height="35" align="center" bgcolor="#262626">
+                                                              <td style="border-radius:100px;background-color:#262626" valign="middle" height="35" align="center" bgcolor="#262626">
                                                                 <a href="#" style="font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:35px;font-weight:normal;white-space:nowrap;text-decoration:none;display:block;text-transform:uppercase" target="_blank">
                                                                   <span style="color:#ffffffff;text-decoration:none">иллюстрация
                                                                   </span>
@@ -173,7 +173,7 @@ class EmailService {
                                   <tbody>
                                     <tr>
                                       <td align="left">
-                                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <table border="0" cellspacing="0" cellpadding="0">
                                           <tbody>
                                             <tr>
                                               <td style="border-radius:100px;background-color:#5282ff" valign="middle" height="60" bgcolor="#5282ff" align="center">
@@ -245,7 +245,7 @@ class EmailService {
                                   <tbody>
                                     <tr>
                                       <td align="left">
-                                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <table border="0" cellspacing="0" cellpadding="0">
                                           <tbody>
                                             <tr>
                                               <td style="border-radius:100px;background-color:#5282ff" valign="middle" height="60" bgcolor="#5282ff" align="center">
