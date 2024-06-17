@@ -293,9 +293,9 @@
   "emails": {
     "PaymentMethods": {
       "subject": {
-        "course": "Оплата курса \"{{title}}\" {{startDate}}",
-        "intensive": "Оплата интенсива \"{{title}}\" {{startDate}}",
-        "webinar": "Оплата вебинара \"{{title}}\" {{startDate}}"
+        "course": "Добро пожаловать на курс \"{{title}}\"",
+        "intensive": "Добро пожаловать на интенсив \"{{title}}\"",
+        "webinar": "Добро пожаловать на вебинар \"{{title}}\""
       }
     }
   },
