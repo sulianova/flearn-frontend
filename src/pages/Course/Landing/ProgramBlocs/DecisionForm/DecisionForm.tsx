@@ -8,7 +8,7 @@ import type { ICourseData} from 'services/course.service';
 import { userService, type IUserData } from 'services/user.service';
 import { formatI18nT } from 'shared';
 import { URLSections } from 'router';
-import { formatDate, safeObjectKeys } from 'utils';
+import { getDiscountedPrice, formatDate, safeObjectKeys } from 'utils';
 
 import classes from './DecisionForm.module.scss';
 
@@ -37,6 +37,7 @@ export default function DecisionForm({ course }: IProps) {
   const optionTypes = safeObjectKeys(productOptions);
   const optionsNodes = optionTypes.map(type => {
     const option = productOptions[type]!;
+    const { creditPrice, creditWas, discount } = getDiscountedPrice(course.discount, option);
     return (
       <div className={cx({ block: true, blockDetails: type === 'OPTIMAL' })}>
         {type === 'OPTIMAL' && (
@@ -47,10 +48,10 @@ export default function DecisionForm({ course }: IProps) {
           <h1 className={classes.title}>{t(`options.${type}.title`)}</h1>
         </div>
         <div className={classes.credit}>
-          <s className={classes.creditWas}>{formatCredit(option.price)} &#8381;</s>
+          <s className={classes.creditWas}>{formatCredit(creditWas)} &#8381;</s>
           <div className={classes.creditPrice}>
-            {formatCredit(option.price)} &#8381;
-            <span className={classes.discount}>{formatCourseDiscount(0)}</span>
+            {formatCredit(creditPrice)} &#8381;
+            <span className={classes.discount}>{formatCourseDiscount(discount ?? 0)}</span>
           </div>
         </div>
         <button
@@ -123,11 +124,10 @@ async function handleSubmit(props: {
     await dataService.access.add(course.id, user.email, 'FREE');
     await dataService.userCourseProgress.init(course.id, user.email);
     await emailService.sendEmail({
-      type: emailService.EEmail.PaymentMethods,
+      type: emailService.EEmail.WelcomeToCourse,
       to: { email: user.email },
       orderId,
       course,
-      chosenProductOption: productType,
     });
     navigate(URLSections.Course.Lessons.to({ courseId: course.id }));
   } catch (error) {

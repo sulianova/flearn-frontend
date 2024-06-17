@@ -16,6 +16,7 @@ import Link from 'ui/Link/Link';
 
 import TheoryFooter from '../TheoryFooter/TheoryFooter';
 import classes from './LessonContent.module.scss';
+import { ICourseData, courseService } from 'services/course.service';
 
 export default LessonContent;
 
@@ -36,6 +37,7 @@ function LessonContent(props: IProps) {
   const { courseId, user } = props;
   const navigate = useNavigate();
   const [nextLesson, setNextLesson] = useState<ILessonData | null | undefined>(undefined);
+  const [course, setCourse] = useState<ICourseData | undefined>(undefined);
   const [buyPopupIsOpened, setBuyPopupIsOpened] = useState(false);
 
   useEffect(() => {
@@ -44,9 +46,30 @@ function LessonContent(props: IProps) {
       .then(l => setNextLesson(l));
   }, [props.data]);
 
+  useEffect(() => {
+    if (!courseId) {
+      return;
+    }
+  
+    let cancelled = false;
+    const s = courseService
+      .getCourseBS({ ids: [courseId] })
+      .subscribe(action => {
+        if (!action || (action instanceof Error) || cancelled || !action.courses.at(0)) {
+          return;
+        }
+
+        setCourse(action.courses.at(0));
+      });
+    return () => {
+      s.unsubscribe();
+      cancelled = true;
+    };
+  }, [courseId]);
+
   return (
     <>
-      {buyPopupIsOpened && <BuyPopup close={() => setBuyPopupIsOpened(false)}/>}
+      {buyPopupIsOpened && course && <BuyPopup course={course} close={() => setBuyPopupIsOpened(false)}/>}
       <div className={classes._}>
         {/* {props.data.type === 'Practice' &&
           <Uppload
