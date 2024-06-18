@@ -30,11 +30,11 @@ class Lesson {
 
   public async getAll(filter: ILessonFilter) {
     // TODO add filter for other than course
-    const userHasAccess = await this._getUserCourseAccess(filter.courseId);
+    // const userHasAccess = await this._getUserCourseAccess(filter.courseId);
 
-    if (!userHasAccess) {
-      throw new Error(ECommonErrorTypes.Restricted);
-    }
+    // if (!userHasAccess) {
+    //   throw new Error(ECommonErrorTypes.Restricted);
+    // }
 
     const queryConstraints: (TWhereProps[number] | undefined)[] = [
       filter.courseId ? { param: 'courseId', value: filter.courseId } : undefined,

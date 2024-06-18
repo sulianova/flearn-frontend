@@ -1,16 +1,21 @@
-import { firebaseService } from 'services/firebase.service';
-import { ECollections } from 'types';
 import { v4 } from 'uuid';
-import { EEmail, type TEmail, type TContact } from './types';
-import { formatDate, getDiscountedPrice } from 'utils';
+
 import { ICourseData } from 'services/course.service';
-import { i18n } from 'shared/translations'
+import { firebaseService } from 'services/firebase.service';
+import { ILessonData } from 'services/lesson.service';
+
+import { i18n } from 'shared/translations';
+import { ECollections } from 'types';
+import { formatDate } from 'utils';
+
+import { EEmail, type TEmail, type TContact } from './types';
+import { URLSections } from 'router';
 
 export { EEmail } from './types';
 
 type TProps = { to: TContact } & (
   | { type: EEmail.OrderCreated, orderId: string }
-  | { type: EEmail.WelcomeToCourse, orderId: string, course: ICourseData }
+  | { type: EEmail.WelcomeToCourse, course: ICourseData, firstLesson: ILessonData | undefined }
   | { type: EEmail.FindingYourStyleCourseIsStartingTomorrow, startDate: Date }
 );
 
@@ -34,7 +39,7 @@ class EmailService {
       case EEmail.OrderCreated:
         return `${props.orderId}-${id}`;
       case EEmail.WelcomeToCourse:
-        return `${props.orderId}-${id}`;
+        return `${props.course.id}-${props.to.email}-${id}`;
       case EEmail.FindingYourStyleCourseIsStartingTomorrow:
         return `finding-your-style-${props.to.email}-course-is-starting-tomorrow-${id}`;
       default:
@@ -65,9 +70,13 @@ class EmailService {
     };  
   }
 
-  private getWelcomeToCourseEmail(props: { to: TContact, course: ICourseData }): TEmail {
-    const { to, course } = props;
+  private getWelcomeToCourseEmail(props: { to: TContact, course: ICourseData, firstLesson?: ILessonData }): TEmail {
+    const { to, course, firstLesson } = props;
     const courseTypeStr = i18n.t(`courseType.${course.type}`);
+    const startLink = firstLesson
+      ? URLSections.Course.Lesson.to({ courseId: course.id, lessonId: firstLesson.id, full: true })
+      : URLSections.Course.Lessons.to({ courseId: course.id, full: true });
+    console.log('getWelcomeToCourseEmail', { props, startLink });
     return {
       to: [to],
       from: this.senderContact,
@@ -183,7 +192,7 @@ class EmailService {
                                           <tbody>
                                             <tr>
                                               <td style="border-radius:6px;background-color:#5282ff" valign="middle" height="52" bgcolor="#5282ff" align="center">
-                                                <a href="#" style="font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:52px;font-weight:normal;white-space:nowrap;text-decoration:none;display:block;padding:0px 32px;color:#ffffff" target="_blank">
+                                                <a href="${startLink}" style="font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:52px;font-weight:normal;white-space:nowrap;text-decoration:none;display:block;padding:0px 32px;color:#ffffff" target="_blank">
                                                   <span style="color:#ffffffff;text-decoration:none" color="#ffffffff">
                                                     <span style="color:##ffffffff">Начать учиться</span>
                                                   </span>

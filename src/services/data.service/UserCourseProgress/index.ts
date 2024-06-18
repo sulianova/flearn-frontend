@@ -7,7 +7,10 @@ import { isDefined } from 'utils';
 class UserCourseProgress {
   public async get(courseId: string, userEmail: string) {
     try {
-      const userCourseProgressDB = await firebaseService.getDocOrThrow<TUserCourseProgressDB>(ECollections.UserCourseProgress, courseId, null, { collection: 'users', id: userEmail });
+      const userCourseProgressDB = await firebaseService.getDoc<TUserCourseProgressDB>(ECollections.UserCourseProgress, courseId, null, { collection: 'users', id: userEmail });
+      if (!userCourseProgressDB) {
+        return {};
+      }
       return userCourseProgressConverter.fromFirestore(userCourseProgressDB);
     } catch (err) {
       const error = err as Error;
@@ -35,8 +38,8 @@ class UserCourseProgress {
 
   public async markLessonAsRead(courseId: string, userEmail: string, lessonId: string) {
     try {
-      const userProgressDB = await firebaseService.getDocOrThrow<TUserCourseProgressDB>(ECollections.UserCourseProgress, courseId, null, { collection: 'users', id: userEmail });
-      const userProgress = userCourseProgressConverter.fromFirestore(userProgressDB);
+      const userProgressDB = await firebaseService.getDoc<TUserCourseProgressDB>(ECollections.UserCourseProgress, courseId, null, { collection: 'users', id: userEmail });
+      const userProgress = !userProgressDB ? {} : userCourseProgressConverter.fromFirestore(userProgressDB);
       const newUserProgress: TUserCourseProgress = {
         ...userProgress,
         [lessonId]: {
@@ -54,17 +57,17 @@ class UserCourseProgress {
     }
   }
 
-  public async init(courseId: string, userEmail: string) {
-    try {
-      const userProgressDB = (await firebaseService.getDoc<TUserCourseProgressDB>(ECollections.UserCourseProgress, courseId, null, { collection: 'users', id: userEmail })) ?? {};
-      await firebaseService.setDoc(ECollections.UserCourseProgress, courseId, userProgressDB, null, { collection: 'users', id: userEmail });
-    } catch (err) {
-      const error = err as Error;
-      // tslint:disable-next-line
-      console.error(error);
-      throw new Error(`Failed to init user course progress: ${error.message}`);
-    }
-  }
+  // public async init(courseId: string, userEmail: string) {
+  //   try {
+  //     const userProgressDB = (await firebaseService.getDoc<TUserCourseProgressDB>(ECollections.UserCourseProgress, courseId, null, { collection: 'users', id: userEmail })) ?? {};
+  //     await firebaseService.setDoc(ECollections.UserCourseProgress, courseId, userProgressDB, null, { collection: 'users', id: userEmail });
+  //   } catch (err) {
+  //     const error = err as Error;
+  //     // tslint:disable-next-line
+  //     console.error(error);
+  //     throw new Error(`Failed to init user course progress: ${error.message}`);
+  //   }
+  // }
 }
 
 const userCourseProgress = new UserCourseProgress();

@@ -15,6 +15,7 @@ import classes from './Form.module.scss';
 import classesInputField from './InputField.module.scss';
 import { useNavigate } from 'react-router';
 import { URLSections } from 'router';
+import { lessonService } from 'services/lesson.service';
 
 const cx = classNames.bind(classes);
 const cx2 = classNames.bind(classesInputField);
@@ -50,8 +51,18 @@ export default function Form({ onOrderCreated, course, option }: IProps) {
     return (
       <button
         className={classes.btn}
-        onClick={() => authService.authenticate()
-          .then(() => navigate(URLSections.Course.Lessons.to({ courseId: course.id })))
+        onClick={() =>
+          Promise.all([
+            lessonService.fetch({ courseId: course.id, topicOrder: 1, orderInTopic: 1 }).then(lessons => lessons.at(0)),
+            authService.authenticate(),
+          ])
+          .then(([firstLesson]) => {
+            if (firstLesson) {
+              navigate(URLSections.Course.Lesson.to({ courseId: course.id, lessonId: firstLesson.id }));
+            } else {
+              navigate(URLSections.Course.Lessons.to({ courseId: course.id }));
+            }
+          })
         }
       >
         Начать учиться
@@ -119,7 +130,7 @@ async function submit(props: {
   const { formData, setFormData, course, option } = props;
   setFormData(d => ({ ...d, state: { type: 'Pending' } }));
   try {
-    const { id: orderId } = await dataService.order.create({
+    await dataService.order.create({
       userFromForm: { email: formData.email },
       courseData: course,
       userData: undefined,
@@ -127,12 +138,12 @@ async function submit(props: {
     });
 
     await dataService.access.add(course.id, formData.email, 'FREE');
-    await dataService.userCourseProgress.init(course.id, formData.email);
+    const firstLesson = (await lessonService.fetch({ courseId: course.id, topicOrder: 1, orderInTopic: 1 })).at(0);
     await emailService.sendEmail({
       type: emailService.EEmail.WelcomeToCourse,
       to: { email: formData.email },
-      orderId,
       course,
+      firstLesson,
     });
     setFormData(d => ({ ...d, state: { type: 'Success' } }));
   } catch (e) {

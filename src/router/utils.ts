@@ -1,24 +1,36 @@
 import { RouteObject } from 'react-router-dom';
 
+import type { TGetObjectValues } from 'utils';
+
+interface IBaseProps {
+  params?: Record<string, any>
+  full?: boolean 
+}
+
 export const URLSections = {
   Home: { index: '/' },
   Course: {
     index: '/course/:courseId',
-    to: (props: { courseId: string, params?: Record<string, any> }) => `/course/${props.courseId}${getSearchQuery(props.params)}`,
+    to: (props: { courseId: string } & IBaseProps) =>
+      assemble({ ...props, path: `/course/${props.courseId}` }),
     Lessons: {
       index: '/course/:courseId/lessons',
-      to: (props: { courseId: string, params?: Record<string, any> }) => `/course/${props.courseId}/lessons${getSearchQuery(props.params)}`,
+      to: (props: { courseId: string } & IBaseProps) =>
+        assemble({ ...props, path: `/course/${props.courseId}/lessons` }),
     },
     Lesson: {
       index: '/course/:courseId/lesson/:lessonId',
-      to: (props: { courseId: string, lessonId: string, params?: Record<string, any> }) => `/course/${props.courseId}/lesson/${props.lessonId}${getSearchQuery(props.params)}`,
+      to: (props: { courseId: string, lessonId: string } & IBaseProps) =>
+        assemble({ ...props, path: `/course/${props.courseId}/lesson/${props.lessonId}` }),
       Results: {
         index: '/course/:courseId/lesson/:lessonId/results',
-        to: (props: { courseId: string, lessonId: string, params?: Record<string, any> }) => `/course/${props.courseId}/lesson/${props.lessonId}/results${getSearchQuery(props.params)}`,
+        to: (props: { courseId: string, lessonId: string } & IBaseProps) =>
+          assemble({ ...props, path: `/course/${props.courseId}/lesson/${props.lessonId}/results` }),
       },
       MyWork: {
         index: '/course/:courseId/lesson/:lessonId/my-work',
-        to: (props: { courseId: string, lessonId: string }) => `/course/${props.courseId}/lesson/${props.lessonId}/my-work`,
+        to: (props: { courseId: string, lessonId: string } & IBaseProps) =>
+          assemble({ ...props, path: `/course/${props.courseId}/lesson/${props.lessonId}/my-work` }),
       },
     },
   },
@@ -28,17 +40,20 @@ export const URLSections = {
   },
 } as const;
 
-type TGetObjectValues<T extends {}, Keys extends keyof T = keyof T> =
-  Keys extends Keys ?
-    T[Keys] extends string ?
-      T[Keys]
-    : T[Keys] extends {} ? TGetObjectValues<T[Keys]> : never
-  : never;
-
-type TURLs = TGetObjectValues<typeof URLSections>;
+function assemble(props: {
+  path: string,
+  params?: Record<string, any>,
+  full?: boolean,
+}) {
+  return [
+    props.full ? window.location.origin : '',
+    props.path,
+    getSearchQuery(props.params),
+  ].join('');
+}
 
 export type TRouteConfig = RouteObject & {
-  path: TURLs
+  path: TGetObjectValues<typeof URLSections>
   children?: TRouteConfig[]
 };
 

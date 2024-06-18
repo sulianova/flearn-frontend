@@ -90,7 +90,7 @@ class CourseService {
     return errorType;
   }
 
-  private async _fetch(props: IFetchCourseProps) {
+  public async _fetch(props: IFetchCourseProps) {
     try {
       const source = this.sourceBS.getValue();
       if (source === 'local' && props.ids) {

@@ -12,8 +12,9 @@ import { getDiscountedPrice, safeObjectKeys, formatCourseCredit, formatCourseDis
 
 import classes from './DecisionForm.module.scss';
 
-import SignupToCoursePopup from './SignupToCoursePopup/SignupToCoursePopup';
+import SignupToCoursePopup from '../../components/SignupToCoursePopup/SignupToCoursePopup';
 import Icon from 'ui/Icon/Icon';
+import { lessonService } from 'services/lesson.service';
 
 const cx = classNames.bind(classes);
 interface IProps {
@@ -97,7 +98,7 @@ async function handleSubmit(props: {
   const { course, user, productType, navigate, setState } = props;
   try {
     setState({ type: 'Pending' });
-    const { id: orderId } = await dataService.order.create({
+    await dataService.order.create({
       userFromForm: { email: user.email },
       courseData: course,
       userData: user,
@@ -105,14 +106,18 @@ async function handleSubmit(props: {
     });
 
     await dataService.access.add(course.id, user.email, 'FREE');
-    await dataService.userCourseProgress.init(course.id, user.email);
+    const firstLesson = (await lessonService.fetch({ courseId: course.id, topicOrder: 1, orderInTopic: 1 })).at(0);
     await emailService.sendEmail({
       type: emailService.EEmail.WelcomeToCourse,
       to: { email: user.email },
-      orderId,
       course,
+      firstLesson,
     });
-    navigate(URLSections.Course.Lessons.to({ courseId: course.id }));
+    if (firstLesson) {
+      navigate(URLSections.Course.Lesson.to({ courseId: course.id, lessonId: firstLesson.id }));
+    } else {
+      navigate(URLSections.Course.Lessons.to({ courseId: course.id }));
+    }
   } catch (error) {
     setState({ type: 'Error', error: String(error) });
     console.log('Failed to handle submit of the decision form', { error, props });

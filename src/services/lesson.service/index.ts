@@ -6,10 +6,12 @@ import { allLessons, getData } from './data';
 import { ECommonErrorTypes } from 'types';
 import { TSource, type IFetchLessonsProps, type ILessonData, type TActionBS, type TActionS, type TLessonError } from './types';
 import { localFilesServise } from 'services/localFiles.service';
+import useLessons from './useLessons';
 
 export type { ILessonData, TActionS, ILessonDataDB, TLessonState, IFetchLessonsProps } from './types';
 
 class LessonService {
+  public useLessons = useLessons;
   public sourceBS = new BehaviorSubject<TSource>('remote');
   public getLessonBS(props: IFetchLessonsProps) {
     try {
