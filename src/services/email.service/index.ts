@@ -74,8 +74,8 @@ class EmailService {
     const { to, course, firstLesson } = props;
     const courseTypeStr = i18n.t(`courseType.${course.type}`);
     const startLink = firstLesson
-      ? URLSections.Course.Lesson.to({ courseId: course.id, lessonId: firstLesson.id, full: true })
-      : URLSections.Course.Lessons.to({ courseId: course.id, full: true });
+      ? URLSections.Study.to({ courseId: course.id, lessonId: firstLesson.id, full: true })
+      : URLSections.Profile.to({ courseId: course.id, full: true });
     console.log('getWelcomeToCourseEmail', { props, startLink });
     return {
       to: [to],

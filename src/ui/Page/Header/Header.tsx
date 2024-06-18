@@ -1,5 +1,6 @@
 import classnames from 'classnames/bind';
 import { useEffect, useRef, useState } from 'react';
+import { useParams } from 'react-router';
 
 import { useIsMobile, useURLSection } from 'hooks';
 import { formatI18nT } from 'shared';
@@ -8,6 +9,7 @@ import { ICourseData, courseService } from 'services/course.service';
 import { userService } from 'services/user.service';
 import { userCourseProgressService } from 'services/userCourseProgress.service';
 import { URLSections } from 'router';
+import { formatCourseDiscount, getCourseBaseDiscountAmountPrc } from 'utils';
 
 import BuyPopup from 'components/BuyPopup/BuyPopup';
 import Dropdown from 'ui/Dropdown/Dropdown';
@@ -20,8 +22,6 @@ import { EPageVariant } from '../Page';
 import UserPopup from '../Sidebar/UserPopup/UserPopup';
 
 import classes from './header.module.scss';
-import { useParams } from 'react-router';
-import { formatCourseDiscount, getCourseBaseDiscountAmountPrc } from 'utils';
 
 const cx = classnames.bind(classes);
 const t = formatI18nT('header');
@@ -36,7 +36,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
   const urlSection = useURLSection();
   const isMobile = useIsMobile();
   const user = userService.useAuthedUser();
-  const lastSolvedLesson = userCourseProgressService.useLastSolvedLesson();
+  const firstNotSolvedLesson = userCourseProgressService.useFirstNotSolvedLesson();
   const [currentCourse, setCurrentCourse] = useState<ICourseData | undefined>(undefined);
   const [userCourses, setUserCourses] = useState<ICourseData[]>();
   const currentCloseCourseDropdown = useRef<() => void>();
@@ -125,7 +125,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
             {user ? (
               <Link
                 className={classes.loginBtn}
-                to={lastSolvedLesson ? URLSections.Course.Lessons.to({ courseId: lastSolvedLesson.courseId }) : undefined}
+                to={firstNotSolvedLesson ? URLSections.Profile.to({ courseId: firstNotSolvedLesson.courseId }) : URLSections.EmptyProfile.index}
                 onClick={() => setMobMenuIsOpened(false)}
               >
                 {t('login.profile')}
@@ -158,7 +158,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
             </div>
           )}
           <div className={classes.nav}>
-            {urlSection === 'Lessons' && (
+            {urlSection === 'Study' && (
               <div className={cx({ userSettinsWrapper: true, open: userPopupVisible })}>
                 {user && userPopupVisible && (
                     <UserPopup
@@ -194,6 +194,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
               />
             )}
             {
+              urlSection === 'EmptyProfile' ? null :
               variant === EPageVariant.LMS ? (
                 <div className={cx({ navBuy: true, navItem: true })} onClick={() => setBuyPopupIsOpened(true)}>
                   <div className={cx({ buyBtn: true})}>купить полный курс</div>
@@ -204,7 +205,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
               ) : (
                 <div className={cx({ navLogin: true, navItem: true })}>
                   {user ?
-                    (<Link to={lastSolvedLesson ? URLSections.Course.Lessons.to({ courseId: lastSolvedLesson.courseId }) : undefined}>{t('login.profile')}</Link>)
+                    (<Link to={firstNotSolvedLesson ? URLSections.Profile.to({ courseId: firstNotSolvedLesson.courseId }) : URLSections.EmptyProfile.index}>{t('login.profile')}</Link>)
                     : (<div onClick={() => authService.authenticate()}>{t('login.signIn')}</div>)
                   }
                 </div>

@@ -91,13 +91,13 @@ function LessonContent(props: IProps) {
               .then(() => {
                 if (nextLesson === null) {
                   //course has ended
-                  navigate(URLSections.Course.Lessons.to({ courseId }));
+                  navigate(URLSections.Profile.to({ courseId }));
                 } else if (!nextLesson!.isFree) {
                   // next lesson is not free
                   // TODO show pay screen
                   setBuyPopupIsOpened(true);
                 } else {
-                  navigate(URLSections.Course.Lesson.to({ courseId, lessonId: nextLesson!.id }));
+                  navigate(URLSections.Study.to({ courseId, lessonId: nextLesson!.id }));
                 }
               });
           }}
@@ -125,7 +125,7 @@ function LessonContent(props: IProps) {
 //           <div className={classes.myWorkLinkGroup}>
 //             <Link
 //               className={classes.myWorkLink}
-//               to={URLSections.Course.Lesson.MyWork.to({ courseId, lessonId })}
+//               to={URLSections.Study.MyWork.to({ courseId, lessonId })}
 //             >
 //               {homework.populate?.user?.displayName}
 //             </Link>

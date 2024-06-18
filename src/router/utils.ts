@@ -13,26 +13,49 @@ export const URLSections = {
     index: '/course/:courseId',
     to: (props: { courseId: string } & IBaseProps) =>
       assemble({ ...props, path: `/course/${props.courseId}` }),
-    Lessons: {
-      index: '/course/:courseId/lessons',
-      to: (props: { courseId: string } & IBaseProps) =>
-        assemble({ ...props, path: `/course/${props.courseId}/lessons` }),
-    },
-    Lesson: {
-      index: '/course/:courseId/lesson/:lessonId',
-      to: (props: { courseId: string, lessonId: string } & IBaseProps) =>
-        assemble({ ...props, path: `/course/${props.courseId}/lesson/${props.lessonId}` }),
+    // Lessons: {
+    //   index: '/course/:courseId/lessons',
+    //   to: (props: { courseId: string } & IBaseProps) =>
+    //     assemble({ ...props, path: `/course/${props.courseId}/lessons` }),
+    // },
+    // Lesson: {
+    //   index: '/course/:courseId/lesson/:lessonId',
+    //   to: (props: { courseId: string, lessonId: string } & IBaseProps) =>
+    //     assemble({ ...props, path: `/course/${props.courseId}/lesson/${props.lessonId}` }),
+    //   Results: {
+    //     index: '/course/:courseId/lesson/:lessonId/results',
+    //     to: (props: { courseId: string, lessonId: string } & IBaseProps) =>
+    //       assemble({ ...props, path: `/course/${props.courseId}/lesson/${props.lessonId}/results` }),
+    //   },
+    //   MyWork: {
+    //     index: '/course/:courseId/lesson/:lessonId/my-work',
+    //     to: (props: { courseId: string, lessonId: string } & IBaseProps) =>
+    //       assemble({ ...props, path: `/course/${props.courseId}/lesson/${props.lessonId}/my-work` }),
+    //   },
+    // },
+  },
+  Profile: {
+    index: '/profile/:courseId',
+    to: (props: { courseId: string } & IBaseProps) =>
+      assemble({ ...props, path: `/profile/${props.courseId}` }),
+  },
+  EmptyProfile: {
+    index: '/profile',
+  },
+  Study: {
+    index: '/study/:courseId/:lessonId',
+    to: (props: { courseId: string, lessonId: string } & IBaseProps) =>
+      assemble({ ...props, path: `/study/${props.courseId}/${props.lessonId}` }),
       Results: {
-        index: '/course/:courseId/lesson/:lessonId/results',
+        index: '/study/:courseId/:lessonId/results',
         to: (props: { courseId: string, lessonId: string } & IBaseProps) =>
-          assemble({ ...props, path: `/course/${props.courseId}/lesson/${props.lessonId}/results` }),
+          assemble({ ...props, path: `/study/${props.courseId}/${props.lessonId}/results` }),
       },
       MyWork: {
-        index: '/course/:courseId/lesson/:lessonId/my-work',
+        index: '/study/:courseId/:lessonId/my-work',
         to: (props: { courseId: string, lessonId: string } & IBaseProps) =>
-          assemble({ ...props, path: `/course/${props.courseId}/lesson/${props.lessonId}/my-work` }),
+          assemble({ ...props, path: `/study/${props.courseId}/${props.lessonId}/my-work` }),
       },
-    },
   },
   Static: {
     Policy: { index: '/policy' },

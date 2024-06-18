@@ -1,11 +1,12 @@
 import { useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 
-export type TURLSection = 'Course' | 'Lessons' | 'Lesson' | 'Other';
+export type TURLSection = 'Course' | 'EmptyProfile' | 'Profile' | 'Study' | 'Other';
 
 const courseRegex = /\/course\/[^\/]+$/;
-const lessonsRegex = /\/course\/[^\/]+\/lessons$/;
-const lessonRegex = /\/course\/[^\/]+\/lesson\/[^\/]+$/;
+const emptyProfileRegex = /\/profile$/;
+const profileRegex = /\/profile\/[^\/]+$/;
+const studyRegex = /\/study\/[^\/]+\/[^\/]+$/;
 
 export function useURLSection() {
   const location = useLocation();
@@ -13,10 +14,12 @@ export function useURLSection() {
   const variant: TURLSection = useMemo(() => {
     if (courseRegex.test(location.pathname)) {
       return 'Course';
-    } else if (lessonsRegex.test(location.pathname)) {
-      return 'Lessons';
-    } else if (lessonRegex.test(location.pathname)) {
-      return 'Lesson';
+    } else if (emptyProfileRegex.test(location.pathname)) {
+      return 'EmptyProfile';
+    } else if (profileRegex.test(location.pathname)) {
+      return 'Profile';
+    } else if (studyRegex.test(location.pathname)) {
+      return 'Study';
     } else {
       return 'Other';
     }

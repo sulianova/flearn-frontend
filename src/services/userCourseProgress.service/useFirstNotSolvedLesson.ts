@@ -2,19 +2,19 @@ import { useEffect, useState } from 'react';
 import { ILessonData } from 'services/lesson.service';
 import UserCourseProgressService from '.';
 
-export function useLastSolvedLesson(this: UserCourseProgressService) {
-  const [lastSolvedLesson, setLastSolvedLesson] = useState<ILessonData | null>(null);
+export default function useFirstNotSolvedLesson(this: UserCourseProgressService) {
+  const [firstNotSolvedLesson, setFirstNotSolvedLesson] = useState<ILessonData | null>(null);
 
   useEffect(() => {
     let calcelled = false;
     const s = this
-      .getLastSolvedLessonBS()
+      .getFirstNotSolvedLessonBS()
       .subscribe(o => {
         if (!o || o instanceof Error || calcelled) {
           return;
         }
 
-        setLastSolvedLesson(o);
+        setFirstNotSolvedLesson(o);
       });
     return () => {
       calcelled = true;
@@ -22,5 +22,5 @@ export function useLastSolvedLesson(this: UserCourseProgressService) {
     };
   }, []);
 
-  return lastSolvedLesson;
+  return firstNotSolvedLesson;
 }

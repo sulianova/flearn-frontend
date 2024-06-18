@@ -15,10 +15,11 @@ export default function EditBar() {
 
   if (
     variant === 'Other'
-    || variant === 'Lessons'
+    || variant === 'Profile'
+    || variant === 'EmptyProfile'
     || envService.dataMode !== 'EDIT'
     || (variant === 'Course' && !courseId)
-    || (variant === 'Lesson' && (!courseId || !lessonId))
+    || (variant === 'Study' && (!courseId || !lessonId))
   ) {
     return null;
   }
@@ -29,7 +30,7 @@ export default function EditBar() {
       () => courseService.changeSource(courseSource === 'local' ? 'remote' : 'local'),
       courseId ? () => courseService.upload(courseId) : undefined,
     ],
-    'Lesson': [
+    'Study': [
       lessonSource,
       () => lessonService.changeSource(lessonSource === 'local' ? 'remote' : 'local'),
       lessonId ? () => lessonService.upload(lessonId) : undefined,

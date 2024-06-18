@@ -5,6 +5,7 @@ import Link from 'ui/Link/Link';
 import Spinner from 'ui/Spinner/Spinner';
 import classes from './CoursesDropdownContent.module.scss';
 import classnames from 'classnames/bind';
+import { useParams } from 'react-router';
 
 const cx = classnames.bind(classes);
 
@@ -14,6 +15,7 @@ interface IProps {
 }
 
 export default function CoursesDropdownContent({ courses, close }: Readonly<IProps>) {
+  const { courseId } = useParams();
   return (
     <div className={classes.selectMenu} onClick={close}>
       <div className={classes.scrollableDefault}>
@@ -29,8 +31,8 @@ export default function CoursesDropdownContent({ courses, close }: Readonly<IPro
                   : !courses.length ? <div>У вас пока нет курсов, давайте выберем</div>
                   : courses.map(course => (
                     <Link
-                      to={URLSections.Course.Lessons.to({ courseId: course.id })}
-                      className={cx({ listOption: true, active: true })}
+                      to={URLSections.Profile.to({ courseId: course.id })}
+                      className={cx({ listOption: true, active: course.id === courseId })}
                     >
                       {course.title}
                     </Link>
