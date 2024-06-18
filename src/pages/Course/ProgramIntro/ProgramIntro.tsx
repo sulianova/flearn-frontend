@@ -60,7 +60,7 @@ function ProgramIntro({ course }: IProps) {
                   {authService.isAuthenticated && firstLesson ? (
                     <Link
                       className={classes.actionsBtn}
-                      to={URLSections.Course.Lesson.to({ courseId, lessonId: firstLesson.id })}
+                      to={URLSections.Study.to({ courseId, lessonId: firstLesson.id })}
                     >
                       <div className={classes.text}>{i18n.t('signUp')}</div>
                     </Link>

@@ -33,7 +33,7 @@ function WorkCard({ homework }: IProps) {
         <Link
           block
           className={classes.preview}
-          to={URLSections.Course.Lesson.Results.to({ courseId, lessonId, params: { userId: user?.id }})}
+          to={URLSections.Study.Results.to({ courseId, lessonId, params: { userId: user?.id }})}
         >
           <div className={classes.overlay}/>
         </Link>

@@ -125,7 +125,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
             {user ? (
               <Link
                 className={classes.loginBtn}
-                to={firstNotSolvedLesson ? URLSections.Course.Lessons.to({ courseId: firstNotSolvedLesson.courseId }) : undefined}
+                to={firstNotSolvedLesson ? URLSections.Profile.to({ courseId: firstNotSolvedLesson.courseId }) : URLSections.EmptyProfile.index}
                 onClick={() => setMobMenuIsOpened(false)}
               >
                 {t('login.profile')}
@@ -158,7 +158,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
             </div>
           )}
           <div className={classes.nav}>
-            {urlSection === 'Lessons' && (
+            {urlSection === 'Study' && (
               <div className={cx({ userSettinsWrapper: true, open: userPopupVisible })}>
                 {user && userPopupVisible && (
                     <UserPopup
@@ -194,6 +194,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
               />
             )}
             {
+              urlSection === 'EmptyProfile' ? null :
               variant === EPageVariant.LMS ? (
                 <div className={cx({ navBuy: true, navItem: true })} onClick={() => setBuyPopupIsOpened(true)}>
                   <div className={cx({ buyBtn: true})}>купить полный курс</div>
@@ -204,7 +205,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
               ) : (
                 <div className={cx({ navLogin: true, navItem: true })}>
                   {user ?
-                    (<Link to={firstNotSolvedLesson ? URLSections.Course.Lessons.to({ courseId: firstNotSolvedLesson.courseId }) : undefined}>{t('login.profile')}</Link>)
+                    (<Link to={firstNotSolvedLesson ? URLSections.Profile.to({ courseId: firstNotSolvedLesson.courseId }) : URLSections.EmptyProfile.index}>{t('login.profile')}</Link>)
                     : (<div onClick={() => authService.authenticate()}>{t('login.signIn')}</div>)
                   }
                 </div>

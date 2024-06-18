@@ -20,7 +20,7 @@ import Page, { EPageVariant } from 'ui/Page/Page';
 import useFallback from './useFallback';
 
 import classesList from './LessonsList.module.scss';
-import classes from './Lessons.module.scss';
+import classes from './Profile.module.scss';
 
 interface IGroup {
   topic: string
@@ -31,7 +31,7 @@ interface IGroup {
 
 const t = formatI18nT('courseLessons');
 
-export default function Lessons() {
+export default function Profile() {
   const { courseId } = useParams();
 
   const authedUser = userService.useAuthedUser();
@@ -214,7 +214,7 @@ export default function Lessons() {
                     <div>
                       <Link
                         className={classes.currentLessonButton}
-                        to={URLSections.Course.Lesson.to({ courseId: courseState.course.id, lessonId: firstNotLearnedLesson.id })}
+                        to={URLSections.Study.to({ courseId: courseState.course.id, lessonId: firstNotLearnedLesson.id })}
                       >
                         Учиться
                       </Link>

@@ -94,7 +94,7 @@ export default function LessonsPopup(props: TProps) {
             lessons.map(lesson => (
               <Link
                 key={lesson.id}
-                to={lesson.canBeAccessed ? URLSections.Course.Lesson.to({ courseId, lessonId: lesson.id }) : undefined}
+                to={lesson.canBeAccessed ? URLSections.Study.to({ courseId, lessonId: lesson.id }) : undefined}
                 onClick={onClose}
                 className={cx({ navigationItem: true, solved: lesson.solved, disabled: !lesson.canBeAccessed, active: lesson.id === openedLessonId })}
               >

@@ -1,9 +1,10 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 import Home from 'pages/Home/Home';
-import Course from 'pages/Course/Landing/Course';
-import Lesson from 'pages/Course/Lesson/Lesson';
-import Lessons from 'pages/Course/Lessons/Lessons';
+import Course from 'pages/Course/Course';
+import EmptyProfile from 'pages/EmptyProfile/EmptyProfile';
+import Profile from 'pages/Profile/Profile';
+import Study from 'pages/Study/Study';
 
 import Oferta from 'pages/Static/Oferta';
 import Policy from 'pages/Static/Policy';
@@ -20,9 +21,11 @@ export default function MyRouter() {
         <Route index path={URLSections.Home.index} element={<Home />} />
         <Route path={URLSections.Course.index} element={<Course />} />
         <Route element={<ProtectedRoute />}>
-          <Route path={URLSections.Course.Lessons.index} element={<Lessons />} />
-          <Route path={URLSections.Course.Lesson.index} element={<Lesson section='task'/>} />
-          <Route path={URLSections.Course.Lesson.Results.index} element={<Lesson section='results'/>} />
+          <Route path={URLSections.EmptyProfile.index} element={<EmptyProfile />} />
+          <Route path={URLSections.Profile.index} element={<Profile />} />
+          <Route path={URLSections.Study.index} element={<Study section='task'/>} />
+          <Route path={URLSections.Study.Results.index} element={<Study section='results'/>} />
+          <Route path={URLSections.Study.Results.index} element={<Study section='my-work'/>} />
         </Route>
         <Route path={URLSections.Static.Oferta.index} element={<Oferta />}/>
         <Route path={URLSections.Static.Policy.index} element={<Policy />}/>

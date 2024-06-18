@@ -3,7 +3,7 @@ import { useParams } from 'react-router';
 
 import { userService } from 'services/user.service';
 
-import classes from './Lesson.module.scss';
+import classes from './Study.module.scss';
 import Page, { EPageVariant } from 'ui/Page/Page';
 import LessonContent from './LessonContent/LessonContent';
 import LessonUppload from './LessonUppload/LessonUppload';
@@ -24,7 +24,7 @@ import { emailService } from 'services/email.service';
 import { courseService } from 'services/course.service';
 
 interface IProps {
-  section: 'task' | 'results'
+  section: 'task' | 'results' | 'my-work'
 }
 
 export default function LessonContainer(props: IProps) {

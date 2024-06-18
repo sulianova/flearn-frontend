@@ -114,9 +114,9 @@ async function handleSubmit(props: {
       firstLesson,
     });
     if (firstLesson) {
-      navigate(URLSections.Course.Lesson.to({ courseId: course.id, lessonId: firstLesson.id }));
+      navigate(URLSections.Study.to({ courseId: course.id, lessonId: firstLesson.id }));
     } else {
-      navigate(URLSections.Course.Lessons.to({ courseId: course.id }));
+      navigate(URLSections.Profile.to({ courseId: course.id }));
     }
   } catch (error) {
     setState({ type: 'Error', error: String(error) });

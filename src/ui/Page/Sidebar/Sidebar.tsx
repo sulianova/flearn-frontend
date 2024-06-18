@@ -29,7 +29,7 @@ function Sidebar() {
       <div className={classes.__}>
         <aside className={classes.container}>
           <ul className={classes.items}>
-            {urlSection === 'Lessons' && (
+            {(urlSection === 'Profile' || urlSection === 'EmptyProfile') && (
               <li className={classes.item}>
                 <span className={classes.iconWrapper}>
                   <Link
@@ -41,19 +41,19 @@ function Sidebar() {
                 </span>
               </li>
             )}
-            {urlSection === 'Lesson' && (
+            {urlSection === 'Study' && (
               <li className={classes.item}>
                 <span className={classes.iconWrapper}>
                   <Link
                     className={classes.icon}
-                    to={URLSections.Course.Lessons.to({ courseId: courseId! })}
+                    to={URLSections.Profile.to({ courseId: courseId! })}
                   >
                     <Icon icon='Home' />
                   </Link>
                 </span>
               </li>
             )}
-            {urlSection === 'Lesson' && (
+            {urlSection === 'Study' && (
               <li className={classes.item}>
                 <span className={classes.iconWrapper}>
                 <div
