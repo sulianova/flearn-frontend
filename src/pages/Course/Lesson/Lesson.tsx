@@ -18,12 +18,51 @@ import useLessonFallback from './useLessonFallback';
 
 import { ECommonErrorTypes } from 'types';
 import { ILessonData, TLessonState, lessonService } from 'services/lesson.service';
+import { authService, dataService } from 'services';
+import Fallback from 'ui/Fallback';
+import { emailService } from 'services/email.service';
+import { courseService } from 'services/course.service';
 
 interface IProps {
   section: 'task' | 'results'
 }
 
-export default function Lesson({ section }: IProps) {
+export default function LessonContainer(props: IProps) {
+  const { courseId, lessonId } = useParams();
+  const [grandAccessFinished, setGrandAccessFinished] = useState(false);
+
+  useEffect(() => {
+    const user = authService.user;
+    if (!user || !courseId || !lessonId) {
+      return;
+    }
+
+    (async () => {
+      const hasAccess = await dataService.access.get(courseId, user.email).catch(() => null).then(Boolean);
+      if (!hasAccess) {
+        await dataService.access.add(courseId, user.email, 'FREE');
+        const course = (await courseService._fetch({ ids: [courseId] })).at(0)!;
+        const firstLesson = (await lessonService.fetch({ courseId: courseId, topicOrder: 1, orderInTopic: 1 })).at(0);
+        await emailService.sendEmail({
+          type: emailService.EEmail.WelcomeToCourse,
+          to: { email: user.email },
+          course,
+          firstLesson,
+        });
+      }
+
+      setGrandAccessFinished(true);
+    })();
+  }, [courseId, lessonId]);
+
+  if (!grandAccessFinished) {
+    return <Fallback.Pending text='Loading lesson'/>;
+  }
+
+  return <Lesson {...props}/>
+}
+
+function Lesson({ section }: IProps) {
   const { courseId, lessonId } = useParams();
   const [scrollToUpload, setScrollToUpload] = useState<boolean>(false);
 

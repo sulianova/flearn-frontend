@@ -35,7 +35,7 @@ export default function Course() {
   return (
     <Page variant={EPageVariant.WEB} header footer={EFooter.Big}>
       <LandingBtn/>
-      <ProgramIntro data={course}/>
+      <ProgramIntro course={course}/>
       {/* {course.discontDeadline && (
         <DiscountBanner
           discontAmount={course.discontAmount}
