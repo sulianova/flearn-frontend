@@ -4,12 +4,12 @@ export function getData(lessonId: string) {
   return allLessons.find(l => l.id === lessonId);
 }
 
-const lessonData10: ILessonDataDB = {
+const lessonData00: ILessonDataDB = {
   id: 'Checklist_hUpx7v',
   courseId: 'how-to-draw',
   title: 'Чек-лист продуктивного обучения',
   type: 'Theory',
-  topic: 'Чек-лист продуктивного обучения',
+  topic: 'Как это — быть иллюстратором',
   topicOrder: 1,
   orderInTopic: 1,
   duration: {
@@ -81,6 +81,44 @@ const lessonData10: ILessonDataDB = {
           content: 'Мы лучше понимаем то, что можем сформулировать. Поэтому верно заданный вопрос — половина успеха. Сразу после того, как появилась мысль — “не получилось”. Задайте вопросы — что я делала? Чего я хотела? Как я планировала этого достичь? В какой момент рисунок перестал работать?',
         },
       ]
+    },
+  ]
+}
+
+const lessonData01: ILessonDataDB = {
+  id: 'CommercialIllustratorTasks_2Q1wTR',
+  courseId: 'how-to-draw',
+  title: 'Какие задачи решает коммерческий иллюстратор',
+  type: 'Theory',
+  topic: 'Как это — быть иллюстратором',
+  topicOrder: 1,
+  orderInTopic: 2,
+  duration: {
+    unit: 'hours',
+    value: 1
+  },
+  isFree: true,
+  content: [
+    {
+      type: 'textImportant',
+      text: 'В конце бесплатного модуля вы сможете сдать на проверку свой самостоятельный проект. Воспользуйтесь этой возможностью, чтобы получить обратную связь от ревьюера и увидеть, как работает команда сопровождения в flearn.',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Добро пожаловать на вводную часть курса «Композиция: как выделить главное». Совсем скоро вы погрузитесь в работу иллюстратора и с помощью онлайн-учебника пройдете этапы создания иллюстрации. Ну а в начале давайте разберемся, кто такой иллюстратор и чем он занимается.',
+        },
+        {
+          tag: 'p',
+          content: 'Иллюстратор помогает крупным брендам и индивидуальным предпринимателям выделиться среди конкурентов, передать настроение бренда, сделать текст нагляднее и проще. Ниже рассмотрим несколько примеров таких задач.',
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Иллюстрация в IT',
     },
   ]
 }
@@ -9521,7 +9559,8 @@ const lessonDataFYS4: ILessonDataDB = {
 // }
 
 export const allLessons = [
-  lessonData10,
+  lessonData00,
+  lessonData01,
   lessonData11,
   lessonData12,
   lessonData13,
