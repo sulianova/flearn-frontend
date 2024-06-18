@@ -6,12 +6,12 @@ import type { TActionBS, TActionS } from './types';
 import { authService } from 'services/auth.service';
 import { safeObjectKeys } from 'utils';
 import { lessonService } from 'services/lesson.service';
-import { useLastSolvedLesson } from './useLastSolvedLesson';
+import useFirstNotSolvedLesson from './useFirstNotSolvedLesson';
 
 export type { TProgress, TProgressDB, TUserCourseProgress, TUserCourseProgressDB } from './types';
 
 class UserCourseProgressService {
-  public useLastSolvedLesson = useLastSolvedLesson;
+  public useFirstNotSolvedLesson = useFirstNotSolvedLesson;
 
   public async markLessonAsRead(courseId: string, userEmail: string, lessonId: string) {
     try {
@@ -23,14 +23,14 @@ class UserCourseProgressService {
     }
   }
 
-  protected getLastSolvedLessonBS() {
+  protected getFirstNotSolvedLessonBS() {
     try {
       const mainSubject = new BehaviorSubject<TActionBS>(null);
 
       const fetch = async () => {
         try {
           mainSubject.next(null);
-          const lesson = await this.fetchLastSolvedLesson();
+          const lesson = await this.fetchFirstNotSolvedLesson();
           mainSubject.next(lesson);
         } catch (err) {
           mainSubject.next(err as Error);
@@ -65,17 +65,19 @@ class UserCourseProgressService {
         },
       } as BehaviorSubject<TActionBS>;
     } catch (err) {
-      console.error('Failed to subscribe for last solved lesson');
+      console.error('Failed to subscribe for first not solved lesson');
       throw err;
     }
   }
 
-  private async fetchLastSolvedLesson() {
+  private async fetchFirstNotSolvedLesson() {
     try {
       const authedUser = authService.user;
       if (!authedUser) {
         throw new Error('Not authenticated');
       }
+      const accessedCoursesIds = (await dataService.access.getAll({ email: authedUser.email })).map(({ id }) => id);
+      const randomAccessedCourseId = accessedCoursesIds.at(0);
       const userCourseProgreses = await dataService.userCourseProgress.getAll(authedUser.email);
       const lastSolvedLessonProgress = userCourseProgreses
         .map(p => {
@@ -87,16 +89,17 @@ class UserCourseProgressService {
         .sort((a, b) => +a.lastSolvedAt - +b.lastSolvedAt)
         .at(-1);
       if (!lastSolvedLessonProgress) {
-        return null;
+        if (!randomAccessedCourseId) {
+          return null;
+        }
+
+        return (await lessonService.fetch({ courseId: randomAccessedCourseId, topicOrder: 1, orderInTopic: 1 })).at(0) ?? null;
       }
       const { courseId, lessonId } = lastSolvedLessonProgress;
-      const lastSolvedLesson = (await lessonService.fetch({ courseId, id: lessonId })).at(0);
-      if (!lastSolvedLesson) {
-        return null;
-      }
-      return lastSolvedLesson;
+      const lastSolvedLesson = (await lessonService.fetch({ courseId, id: lessonId })).at(0)!;
+      return await lessonService.fetchNextLesson(lastSolvedLesson);
     } catch (error) {
-      console.log('Fetch last solved lesson', { error });
+      console.log('Fetch first not solved lesson', { error });
       throw error;
     }
   }

@@ -27,6 +27,15 @@ class Access {
       throw new Error(`Failed to add Access: ${error.message}`);
     }
   }
+
+  public async getAll(props: { email: string }) {
+    try {
+      return await firebaseService.getDocs<TAccessData>(ECollections.Access, [{ param: props.email, value: ['FREE', 'BASE', 'OPTIMAL', 'EXTENDED' ], operator: 'in' }]);
+    } catch (error) {
+      console.log('Failed to getAll accesses', { props, error });
+      throw error;
+    }
+  }
 }
 
 const access = new Access();
