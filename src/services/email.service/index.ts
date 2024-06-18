@@ -156,7 +156,16 @@ class EmailService {
                                           Перед тем, как приступить к&nbsp;основному курсу, мы&nbsp;предлагаем всем студентам пройти бесплатную вводную часть. 
                                           <br>
                                           <br>
-                                          За&nbsp;10&nbsp;часов пройдете ключевые этапы работы над иллюстрацией, познакомитесь с&nbsp;форматом обучения в&nbsp;flearn и нарисуете постер.
+                                          За&nbsp;10&nbsp;часов
+                                          <br>
+                                          <br>
+                                          → пройдете ключевые этапы работы над иллюстрацией
+                                          <br>
+                                          <br>
+                                          → познакомитесь с&nbsp;форматом обучения в&nbsp;flearn
+                                          <br>
+                                          <br>
+                                          → нарисуете постер
                                           </span>
                                       </td>
                                     </tr>
@@ -173,8 +182,8 @@ class EmailService {
                                         <table border="0" cellspacing="0" cellpadding="0">
                                           <tbody>
                                             <tr>
-                                              <td style="border-radius:100px;background-color:#5282ff" valign="middle" height="60" bgcolor="#5282ff" align="center">
-                                                <a href="#" style="font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:60px;font-weight:normal;white-space:nowrap;text-decoration:none;display:block;padding:0px 20px;color:#ffffff" target="_blank">
+                                              <td style="border-radius:6px;background-color:#5282ff" valign="middle" height="52" bgcolor="#5282ff" align="center">
+                                                <a href="#" style="font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:52px;font-weight:normal;white-space:nowrap;text-decoration:none;display:block;padding:0px 32px;color:#ffffff" target="_blank">
                                                   <span style="color:#ffffffff;text-decoration:none" color="#ffffffff">
                                                     <span style="color:##ffffffff">Начать учиться</span>
                                                   </span>
@@ -245,8 +254,8 @@ class EmailService {
                                         <table border="0" cellspacing="0" cellpadding="0">
                                           <tbody>
                                             <tr>
-                                              <td style="border-radius:100px;background-color:#5282ff" valign="middle" height="60" bgcolor="#5282ff" align="center">
-                                                <a href="https://t.me/sofiulyanova" style="font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:60px;font-weight:normal;white-space:nowrap;text-decoration:none;display:block;padding:0px 20px;color:#ffffff" target="_blank">
+                                              <td style="border-radius:6px;background-color:#262626" valign="middle" height="52" bgcolor="#262626" align="center">
+                                                <a href="https://t.me/sofiulyanova" style="font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:52px;font-weight:normal;white-space:nowrap;text-decoration:none;display:block;padding:0px 32px;color:#ffffff" target="_blank">
                                                   <span style="color:#ffffffff;text-decoration:none" color="#ffffffff">
                                                     <span style="color:#ffffffff">Присоединиться к телеграм-каналу</span>
                                                   </span>
@@ -271,13 +280,12 @@ class EmailService {
                                           ©&nbsp;flearn
                                           <br>
                                           <br>
-                                          Вы получили это письмо, потому что регистрировались на сайте flearn. Чтобы отписаться, перейдите по
+                                          Вы получили это письмо, потому что регистрировались на сайте flearn.net Чтобы отписаться, перейдите
                                           <a href="#" style="font-family:Helvetica,Arial,sans-serif;font-size:12px;line-height:16px;font-weight:normal;white-space:nowrap;text-decoration:underline;color:#808080" target="_blank">
                                             <span style="color:#808080;text-decoration:none" color=#808080">
-                                              <span style="color:#808080">этой ссылке</span>
+                                              <span style="color:#808080">поиэтой ссылке.</span>
                                             </span>
                                           </a>
-                                          .
                                         </span>
                                       </td>
                                     </tr>
