@@ -11,7 +11,7 @@ interface IProps {
 function Title(props: IProps) {
   return (
     <Fragment>
-      {props.data.title && <h2 className={classes.title + ' s-text-36'} data--title>{props.data.title}</h2>}
+      {props.data.title && <h2 className={classes.title} data--title>{props.data.title}</h2>}
     </Fragment>
   );
 }

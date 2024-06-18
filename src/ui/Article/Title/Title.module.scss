@@ -2,6 +2,7 @@
 
 .title {
   margin: set-calc(48) 0 set-calc(20);
+  @include font-36-normal-header;
   color: $color-content-primary;
 
   @include set-media(md) {
