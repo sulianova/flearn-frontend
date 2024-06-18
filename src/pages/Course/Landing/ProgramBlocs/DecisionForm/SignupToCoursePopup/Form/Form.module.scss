@@ -32,7 +32,7 @@
   border-radius: 0 set-calc(15) set-calc(15) 0;
   cursor: pointer;
   pointer-events: all;
-  height: set-calc(62);
+  height: set-calc(66.5);
 
   transition: background-color $d-hover ease-in-out, color ease-in-out $d-hover;
 
@@ -43,7 +43,14 @@
   @include set-media(md) {
     border: set-calc(0.5) solid $color-background-stroke;
     border-left: 0;
-    height: set-calc(65);
+    height: set-calc(66.5);
+  }
+}
+
+.btnSvg {
+  svg {
+    width: set-calc(24);
+    height: set-calc(24);
   }
 }
 
@@ -53,18 +60,17 @@
 }
 
 .isPending {
-  color: $color-content-tertiary;
+  background-color: $color-background-glassy-a;
   pointer-events: none;
 }
 
 .isError {
   color: $color-content-inverted-primary;
-  background-color: $color-accent-warning;
-  opacity: 1;
-  transition: opacity $d-hover ease-in-out, color ease-in-out $d-hover;
+  background-color: $color-content-background-secondary;
+  transition: background-color $d-hover ease-in-out, color ease-in-out $d-hover;
 
   &:hover {
-    opacity: 0.8;
+    background-color: $color-content-background-primary;
   }
 }
 
@@ -76,6 +82,10 @@
 
 .Error {
   color: $color-accent-error;
+  @include font-14-normal-ui;
+
+  margin-top: set-calc(6);
+  margin-left: set-calc(4);
 }
 
 

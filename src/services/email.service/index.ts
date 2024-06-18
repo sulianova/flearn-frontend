@@ -159,10 +159,10 @@ class EmailService {
                                           За&nbsp;10&nbsp;часов
                                           <br>
                                           <br>
-                                          → пройдете ключевые этапы работы над иллюстрацией
-                                          <br>
-                                          <br>
                                           → познакомитесь с&nbsp;форматом обучения в&nbsp;flearn
+                                          <br>
+                                          <br>
+                                          → пройдете ключевые этапы работы над иллюстрацией
                                           <br>
                                           <br>
                                           → нарисуете постер
@@ -280,10 +280,10 @@ class EmailService {
                                           ©&nbsp;flearn
                                           <br>
                                           <br>
-                                          Вы получили это письмо, потому что регистрировались на сайте flearn.net Чтобы отписаться, перейдите
+                                          Вы получили это письмо, потому что регистрировались на нашем сайте. Чтобы отписаться, перейдите
                                           <a href="#" style="font-family:Helvetica,Arial,sans-serif;font-size:12px;line-height:16px;font-weight:normal;white-space:nowrap;text-decoration:underline;color:#808080" target="_blank">
                                             <span style="color:#808080;text-decoration:none" color=#808080">
-                                              <span style="color:#808080">поиэтой ссылке.</span>
+                                              <span style="color:#808080">по этой ссылке.</span>
                                             </span>
                                           </a>
                                         </span>

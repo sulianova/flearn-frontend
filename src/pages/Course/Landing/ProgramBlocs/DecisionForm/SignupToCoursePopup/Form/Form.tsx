@@ -5,7 +5,6 @@ import { authService } from 'services/auth.service';
 import { ICourseData } from 'services/course.service';
 import { dataService } from 'services/data.service';
 import { emailService } from 'services/email.service';
-import { userService } from 'services/user.service';
 import { formatI18nT } from 'shared';
 
 import InputField from 'ui/Form/Input/InputField';
@@ -66,7 +65,6 @@ export default function Form({ onOrderCreated, course, option }: IProps) {
         className={classes.form}
         onSubmit={isValid(formData) ? () => handleSubmit(formData) : undefined}
       >
-        {formData.state.type === 'Error' && <span className={classes.Error}>{formData.state.error.message}</span>}
         <div className={classes.inputWrap}>
           <InputField
             className={cx2({ input: true, light: true, isError: formData.state.type === 'Error' })}
@@ -80,7 +78,7 @@ export default function Form({ onOrderCreated, course, option }: IProps) {
             disabled={!isValid(formData)}
             onClick={() => handleSubmit(formData)}
           >
-            <span>
+            <span className={classes.btnSvg}>
               {
                 formData.state.type === 'Idle' ? '→' :
                 formData.state.type === 'Pending' ? <Spinner/> :
@@ -90,6 +88,7 @@ export default function Form({ onOrderCreated, course, option }: IProps) {
             </span>
           </button>
         </div>
+        {formData.state.type === 'Error' && <span className={classes.Error}>{formData.state.error.message}</span>}
         <div className={classes.agreement}>
                     <Link
                       className='link'

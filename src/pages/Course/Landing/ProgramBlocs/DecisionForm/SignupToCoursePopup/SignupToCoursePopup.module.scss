@@ -13,13 +13,7 @@
   width: set-calc(560);
   min-height: set-calc(600);
 
-  @include font-18-normal-paragraph ;
-
-  span {
-    font-size: inherit;
-    line-height: inherit;
-    font-weight: inherit;
-  }
+  @include font-18-normal-paragraph;
 
   @include set-media(md) {
     display: flex;
