@@ -6,6 +6,7 @@ import type { IArticleGalleryBlock } from 'types';
 import { useGuid } from 'hooks';
 import ImageModal, { type IImage } from 'ui/ImageModal/ImageModal';
 import Img from 'ui/Img/Img';
+import Text from 'ui/Text/Text';
 
 import classes from './Gallery.module.scss';
 
@@ -57,7 +58,7 @@ function Gallery(props: IProps) {
           >
             <Img src={image.src} alt={image.alt}/>
             <div className={classes.overlay}></div>
-            {image.caption && <div className={cx({ itemCaption: true, overlayCaption: true })}>{image.caption}</div>}
+            {image.caption && <div className={cx({ itemCaption: true, overlayCaption: true })}><Text text={image.caption}/></div>}
           </div>
         ))}
       </div>
