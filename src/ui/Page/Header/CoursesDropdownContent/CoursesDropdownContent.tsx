@@ -23,7 +23,7 @@ export default function CoursesDropdownContent({ courses, close }: Readonly<IPro
           <div className={classes.contentContainer}>
             <div className={classes.content}>
               <div className={classes.listItems}>
-                <div className={classes.listOptionTitle + ' s-text-16'}>
+                <div className={classes.listOptionTitle}>
                   Проходите бесплатную часть
                 </div>
                 {

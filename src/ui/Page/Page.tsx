@@ -50,9 +50,9 @@ function Page({ children, variant, header = false, footer, style, scrollToTopDep
         <div className={classes._} ref={ref}>
           {header && <Header variant={variant} visible={headerVisible}/>}
           <div className={classes.content}>
-              <section className={classes[`${variant}Wrapper`]}>
-                {children}
-              </section>
+            <section className={classes[`${variant}Wrapper`]}>
+              {children}
+            </section>
             <EditBar/>
           </div>
           {footer !== false && <Footer type={footer === true ? EFooter.Default : footer}/>}

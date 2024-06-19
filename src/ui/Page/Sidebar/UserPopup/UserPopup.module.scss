@@ -30,8 +30,8 @@
   padding: set-calc(8);
 
   border-radius: set-calc($border-radius-10);
-  background:  $color-content-secondary;
-  border: set-calc(0.5) solid $color-content-tertiary;
+  background:  $color-palette-black-500-a;
+  border: set-calc(0.5) solid $color-palette-black-300-a;
 
   backdrop-filter: blur(set-calc($backdrop-filter));
   box-shadow: $shadow-menu;
@@ -43,7 +43,7 @@
     bottom: unset;
 
     border-radius: set-calc(10);
-    border: set-calc(0.8) solid $color-palette-white-1000;
+    border: set-calc(0.8) solid $color-palette-black-300-a;
 
     width: set-calc(250);
   }
@@ -114,7 +114,7 @@
     height: set-calc(24);
 
     path {
-      fill: $color-content-inverted-primary;
+      fill: $color-palette-white-1000;
     }
   }
 
@@ -130,7 +130,7 @@
   gap: set-calc(8);
   height: auto;
 
-  color: $color-content-inverted-primary;
+  color: $color-palette-white-1000;
   @include set-typography(18, 20, 500);
 
   @include set-media(md) {
@@ -140,7 +140,7 @@
 
 .itemSubtitle {
   margin: set-calc(4) 0 0;
-  color: $color-content-inverted-secondary;
+  color: $color-palette-white-500-a;
 }
 
 .itemHoverable {
@@ -150,7 +150,7 @@
 }
 
 .itemHoverable:hover {
-  background-color: $color-background-glassy-inverted-c;;
+  background-color: $color-palette-white-200-a;
 
   @include set-media(md) {
     background-color: transparent;
@@ -158,7 +158,7 @@
 }
 
 .itemHoverable:active {
-  background-color: $color-background-glassy-inverted-b;
+  background-color: $color-palette-white-100-a;
 
   @include set-media(md) {
     background-color: transparent;

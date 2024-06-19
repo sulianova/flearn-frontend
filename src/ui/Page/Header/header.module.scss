@@ -3,9 +3,8 @@
 .__ {
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 200;
   width: 100%;
-  z-index: 1000;
   transition: transform .5s;
   
 
@@ -94,7 +93,7 @@
   justify-content: center;
   position: relative;
   max-width: fit-content;
-  color: $color-content-primary;
+  color: $color-palette-black-900;
   border-radius: set-calc($border-radius-small);
   padding: 0;
   height: set-calc(40);
@@ -121,6 +120,7 @@
 .nav {
   grid-column: 4 / -1;
   position: relative;
+
   display: flex;
   align-items: center;
   justify-content: end;
@@ -162,6 +162,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    background-color: $color-background-glassy-inverted-d;
+    backdrop-filter: blur(set-calc($backdrop-filter));
+    padding: set-calc(7);
+    border-radius: 50%;
   
     svg {
       width: set-calc(30);
@@ -176,8 +181,9 @@
   display: flex;
   align-items: center;
   position: relative;
-  background-color: $color-content-background-secondary;
-  color: $color-content-inverted-primary;
+
+  background-color: $color-palette-black-900;
+  color: $color-palette-white-1000;
   padding: set-calc(4) set-calc(24);
   border-radius: set-calc($border-radius-large);
   width: max-content;
@@ -187,8 +193,8 @@
   
   &:hover {
     cursor: pointer;
-    background-color: $color-content-background-primary;
-    color: $color-content-inverted-primary;
+    background-color: $color-palette-black-800;
+    color: $color-palette-white-1000;
   }
 
   @include set-media(md) {
@@ -209,18 +215,17 @@
   width: max-content;
   height: set-calc(40);
 
-
-
-  color: $color-content-inverted-primary;
+  color: $color-palette-white-1000;
 
   padding: set-calc(4) set-calc(24);
   border-radius: set-calc($border-radius-large);
-  background-color: $color-content-primary;
+  background-color: $color-palette-black-900;
+
   transition: background-color $d-hover ease;
   
   &:hover {
     cursor: pointer;
-    background-color:  $color-content-background-secondary;
+    background-color: $color-palette-black-800;
   }
 
   @include set-media(md) {
@@ -231,18 +236,20 @@
 }
 
 .buyBadge {
+  position: absolute;
+  top: set-calc(-4);
+  right: set-calc(-6);
+
   display: flex;
   justify-content: center;
   align-items: center;
-  top: set-calc(-4);
-  right: set-calc(-6);
 
   padding: 0 set-calc(6);
 
   height: set-calc(20);
   border-radius: set-calc(10);
   transform: rotate(10deg);
-  position: absolute;
+
 
   pointer-events: none;
 
@@ -269,13 +276,18 @@
 }
 
 .navContent {
+  position: relative;
+
   display: flex;
   align-items: center;
-  position: relative;
-  background-color:  transparent;
+
+  color: $color-content-primary;
+
+  background-color: $color-background-glassy-inverted-d;
   padding: set-calc(4) set-calc(24);
   border-radius: set-calc(100);
-  border: set-calc(2.5) solid $color-content-primary;
+  border: set-calc(2.5) solid  $color-content-primary;
+
   width: max-content;
   height: set-calc(40);
 
@@ -335,7 +347,7 @@
     position: absolute;
     top: set-calc(8);
     right: set-calc(8);
-    z-index: 1;
+    z-index: 100;
 
     display: inline-flex;
     justify-content: center;
@@ -345,6 +357,7 @@
     opacity: 1;
 
     color: $color-content-primary;
+    background-color: $color-background-glassy-inverted-d;
     border-radius: set-calc($border-radius-small);
 
     svg {

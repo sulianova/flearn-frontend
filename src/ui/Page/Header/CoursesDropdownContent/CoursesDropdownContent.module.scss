@@ -10,8 +10,8 @@
   padding: 0;
   margin-block-start: set-calc(10);
   border-radius: set-calc($border-radius-10);
-  background:  $color-content-secondary;
-  border: set-calc(0.5) solid $color-content-tertiary;
+  background:  $color-palette-black-500-a;
+  border: set-calc(0.5) solid $color-palette-black-300-a;
 
   transition: background-color $d-hover ease;
   backdrop-filter: blur(set-calc($backdrop-filter));
@@ -68,26 +68,27 @@
 
 .listOptionTitle {
   padding: set-calc(8) set-calc(8);
-  font-feature-settings: 'pnum' on, 'lnum' on;
-  color: $color-content-inverted-secondary;
+
+  @include font-16-normal-ui;
+  color: $color-palette-white-500-a;
 }
 
 .listOption {
   display: block;
   padding: set-calc(10) set-calc(10);
-  color: $color-content-inverted-primary;
+  color: $color-palette-white-1000;
   border-radius: set-calc($border-radius-8);
   transition: background-color 0.3s;
   cursor: pointer;
   background-color: transparent;
 
-  @include set-typography(18, 20, 500);
+  @include font-18-normal-ui;
 
   &:hover {
-    background-color: $color-background-glassy-inverted-c;
+    background-color: $color-palette-white-300-a;
   }
 }
 
 .active {
-  background-color: $color-background-glassy-inverted-b;
+  background-color: $color-palette-white-200-a;
 }

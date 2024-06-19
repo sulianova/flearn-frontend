@@ -17,7 +17,7 @@
 }
 
 .modal_Animation {
-  background-color: $color-background-overlay;
+  background-color: $color-palette-black-700-a;
 }
 
 .modalContentWrapper {
@@ -63,8 +63,8 @@
 .modalClose {
   z-index: 1;
   position: absolute;
-  top: set-calc(36);
-  right: set-calc(36);
+  top: set-calc(40);
+  right: set-calc(50);
   display: inline-block;
   text-align: center;
   background: 50% no-repeat;
@@ -73,8 +73,8 @@
   opacity: .7;
   color: $color-palette-white-1000;
   svg {
-    width: set-calc(33);
-    height: set-calc(33);
+    width: set-calc(24);
+    height: set-calc(24);
     fill: none;
   }
 }
@@ -149,8 +149,8 @@
     transition: transform .1s ease-in, opacity .1s ease-in;
   
     border-radius: 50%;
-    color: $color-content-inverted-primary;
-    background-color: $color-accent-neutral;
+    color: $color-palette-white-1000;
+    background-color: $color-palette-black-1000;
     box-shadow: $shadow-icon;
 
     svg {
@@ -159,7 +159,7 @@
     }
   
     &:hover {
-      transform: translate(-120%, -50%) scale(1.15);
+      transform: translate(-120%, -50%) scale(1.05);
     }
 }
 
@@ -180,8 +180,8 @@
   transition: transform .1s ease-in, opacity .1s ease-in;
 
   border-radius: 50%;
-  color: $color-content-inverted-primary;
-  background-color: $color-accent-neutral;
+  color: $color-palette-white-1000;
+  background-color: $color-palette-black-1000;
   box-shadow: $shadow-icon;
 
   svg {
@@ -190,12 +190,12 @@
   }
 
   &:hover {
-    transform: translate(120%, -50%) rotate(180deg) scale(1.15);
+    transform: translate(120%, -50%) rotate(180deg) scale(1.05);
   }
 }
 
 .modalCaptionWrapper {
-  margin: set-calc(16) set-calc(64);
+  margin: set-calc(16) set-calc(64) set-calc(8);
 }
 
 .modalCaption {

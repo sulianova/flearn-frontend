@@ -1,30 +1,36 @@
 @import 'styles/index';
 
 .list {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: set-calc(16);
-  grid-auto-rows: auto;
-  grid-auto-flow: dense;
-
   position: relative;
-  width: set-calc(1488);
-  left: set-calc(-394);
-  margin: set-calc(30) 0 set-calc(20);
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: start;
+  justify-content: flex-start;
+
+  gap: set-calc(4);
+
+  width: set-calc(1568);
+  max-height: set-calc(1500);
+  left: set-calc(-434);
+  margin: set-calc(40) 0 set-calc(200);
+  overflow: hidden;
 
   @include set-media(md) {
     margin: set-calc(30) 0 set-calc(16);
     width: set-calc(398);
-    left: set-calc(-16);
-    gap: set-calc(16);
+    left: set-calc(-8);
+    max-height: max-content;
+
+    gap: set-calc(6);
   }
 }
 
 .item {
   position: relative;
-  height: set-calc(350);
+  height: 100%;
+  width: set-calc(-4, true, 33.3333333%);
   border-radius: set-calc($border-radius-10);
 
   @include set-media(md) {
@@ -64,7 +70,7 @@
   justify-content: center;
 
 
-  background-color: $color-background-glassy-c;
+  background-color: $color-background-overlay;
   border-radius: set-calc($border-radius-10);
   transition: opacity $d-hover ease;
   color: $color-background-default;
