@@ -177,6 +177,66 @@ const lessonData01: ILessonDataDB = {
       type: 'text',
       text: 'Иллюстрацию используют для особых случаев: запуска новых кампаний, праздников и коллабораций. Иллюстрации помогают привлечь новую аудиторию и вновь заинтересовать старую.',
     },
+    {
+      type: 'gallery',
+      images: [
+        {
+          id: 'AmandaLobos3.webp',
+          alt: 'AmandaLobos3',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Amanda Lobos',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
+            }
+          ]
+        },
+        {
+          id: 'IlyaMilstein5.webp',
+          alt: 'IlyaMilstein5',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Ilya Milstein',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.ilyamilstein.com/' },
+            }
+          ]
+        },
+        {
+          id: 'IlyaMilstein7.webp',
+          alt: 'IlyaMilstein7',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Ilya Milstein',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.ilyamilstein.com/' },
+            }
+          ]
+        },
+        {
+          id: 'sasha.ananas.sktch.webp',
+          alt: 'sasha.ananas.sktch',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Sasha Ananas',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/sasha.ananas.sktch/' },
+            }
+          ]
+        },
+        {
+          id: 'BarboraIdesova1.webp',
+          alt: 'BarboraIdesová1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Barbora Idesová',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/barboraidesova' },
+            }
+          ]
+        },
+      ]
+    },
   ]
 }
 

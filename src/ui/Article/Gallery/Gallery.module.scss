@@ -5,13 +5,13 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: set-calc(24);
+  gap: set-calc(16);
   grid-auto-rows: auto;
   grid-auto-flow: dense;
 
   position: relative;
-  width: set-calc(1200);
-  left: set-calc(-250);
+  width: set-calc(1488);
+  left: set-calc(-394);
   margin: set-calc(30) 0 set-calc(20);
 
   @include set-media(md) {
@@ -24,8 +24,8 @@
 
 .item {
   position: relative;
-  height: set-calc(300);
-  border-radius: set-calc($border-radius-large);
+  height: set-calc(350);
+  border-radius: set-calc($border-radius-10);
 
   @include set-media(md) {
     width: 100%;
@@ -42,7 +42,7 @@
 .item img {
   position: relative;
   box-shadow: $shadow-medium-default;
-  border-radius: set-calc($border-radius-large);
+  border-radius: set-calc($border-radius-10);
 
   vertical-align: middle;
   height: 100%;
@@ -65,7 +65,7 @@
 
 
   background-color: $color-background-glassy-c;
-  border-radius: set-calc($border-radius-large);
+  border-radius: set-calc($border-radius-10);
   transition: opacity $d-hover ease;
   color: $color-background-default;
 }

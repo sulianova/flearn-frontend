@@ -156,10 +156,10 @@ function Lesson({ section }: IProps) {
       scrollToTopDependencie={lessonId}
     >
       <div className={classes.__}>
-        <LessonHeader
+        {/* <LessonHeader
           lesson={lessonState.lesson}
           section={section}
-        />
+        /> */}
         {section === 'task' &&
           (<LessonContent
             courseId={courseId!}
