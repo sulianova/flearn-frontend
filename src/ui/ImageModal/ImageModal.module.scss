@@ -212,3 +212,10 @@
   font-size: inherit;
   line-height: inherit;
 }
+
+.modalCaption:hover {
+
+  a {
+    color: $color-palette-white-500-a;
+  }
+}

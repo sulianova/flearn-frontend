@@ -124,18 +124,59 @@ const lessonData01: ILessonDataDB = {
       type: 'gallery',
       images: [
         {
-          id: 'LauraDíez.webp',
+          id: 'LauraDiez.webp',
           alt: 'LauraDíez',
           caption: [
             {
               tag: 'a',
-              content: 'LauraDíez',
+              content: 'Laura Díez',
               props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/lauradieze' },
             }
           ]
         },
+        {
+          id: 'MinHeo1.webp',
+          alt: 'MinHeo1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Min Heo',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://minstudio.cargo.site/index' },
+            }
+          ]
+        },
+        {
+          id: 'IvanHaidutski.webp',
+          alt: 'IvanHaidutski',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Ivan Haidutski',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/ivanhaidutski' },
+            }
+          ]
+        },
+        {
+          id: 'bayduzha5.webp',
+          alt: 'bayduzha5',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Наташа Байдужа',
+              props: { className: 's-hoverable', target: "_blank", to: 'http://bayduzha.com/' },
+            }
+          ]
+        },
       ]
-    }
+    },
+    {
+      type: 'title',
+      title: 'Иллюстрации в рекламе',
+    },
+    {
+      type: 'text',
+      text: 'Иллюстрацию используют для особых случаев: запуска новых кампаний, праздников и коллабораций. Иллюстрации помогают привлечь новую аудиторию и вновь заинтересовать старую.',
+    },
   ]
 }
 

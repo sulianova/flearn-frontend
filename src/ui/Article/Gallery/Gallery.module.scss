@@ -5,19 +5,20 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: set-calc(50);
+  gap: set-calc(24);
   grid-auto-rows: auto;
   grid-auto-flow: dense;
 
   position: relative;
-  width: set-calc(700);
-  left: set-calc(-32);
-  margin: set-calc(40) 0 set-calc(20);
+  width: set-calc(1200);
+  left: set-calc(-250);
+  margin: set-calc(30) 0 set-calc(20);
 
   @include set-media(md) {
     margin: set-calc(30) 0 set-calc(16);
     width: set-calc(398);
     left: set-calc(-16);
+    gap: set-calc(16);
   }
 }
 
@@ -89,6 +90,13 @@
 
 .itemCaption {
   @include font-14-normal-ui;
-  color: $color-content-paragraph-primary;
+  color: $color-palette-white-1000;
   text-transform: uppercase;
+}
+
+.itemCaption:hover {
+
+  a {
+    pointer-events: none;
+  }
 }
