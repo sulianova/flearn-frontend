@@ -69,7 +69,7 @@ export interface ILessonTitleBlock extends ILessonBlock {
 
 export interface ILessonGalleryBlockDB extends ILessonBlock {
   type: 'gallery'
-  images: Array<{ id: string, alt: string }>
+  images: Array<{ id: string, alt: string, caption?: TText }>
 }
 
 export interface ILessonGalleryBlock extends ILessonBlock {
