@@ -25,16 +25,15 @@ const t = formatI18nT('courseLesson');
 interface IProps {
   courseId: string
   lessonId: string
-  blocks: ILessonContent
-  data: ILessonData
+  lesson: ILessonData
+  user: IUserData | null
   homework?: IHomeworkDataWPopulate
   scrollToUpload: () => void
   canShowResults: boolean
-  user: IUserData | null
 }
 
 function LessonContent(props: IProps) {
-  const { courseId, user } = props;
+  const { courseId, user, lesson } = props;
   const navigate = useNavigate();
   const [nextLesson, setNextLesson] = useState<ILessonData | null | undefined>(undefined);
   const [course, setCourse] = useState<ICourseData | undefined>(undefined);
@@ -42,9 +41,9 @@ function LessonContent(props: IProps) {
 
   useEffect(() => {
     lessonService
-      .fetchNextLesson(props.data)
+      .fetchNextLesson(lesson)
       .then(l => setNextLesson(l));
-  }, [props.data]);
+  }, [lesson]);
 
   useEffect(() => {
     if (!courseId) {
@@ -71,7 +70,7 @@ function LessonContent(props: IProps) {
     <>
       {buyPopupIsOpened && course && <BuyPopup course={course} close={() => setBuyPopupIsOpened(false)}/>}
       <div className={classes._}>
-        {/* {props.data.type === 'Practice' &&
+        {/* {lesson.type === 'Practice' &&
           <Uppload
             courseId={props.courseId}
             lessonId={props.lessonId}
@@ -79,15 +78,15 @@ function LessonContent(props: IProps) {
             scrollToUpload={props.scrollToUpload}
             canShowResults={props.canShowResults}
           />} */}
-        <h1 className={classes.title}>lesson.title</h1>
-        <Article blocks={props.blocks}/>
+        <h1 className={classes.title}>{lesson.title}</h1>
+        <Article blocks={lesson.content}/>
         <TheoryFooter
           onNext={() => {
             if (!user || nextLesson === undefined) {
               return;
             }
             userCourseProgressService
-              .markLessonAsRead(props.courseId, user.email, props.data.id)
+              .markLessonAsRead(courseId, user.email, lesson.id)
               .then(() => {
                 if (nextLesson === null) {
                   //course has ended

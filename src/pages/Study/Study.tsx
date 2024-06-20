@@ -164,12 +164,11 @@ function Lesson({ section }: IProps) {
           (<LessonContent
             courseId={courseId!}
             lessonId={lessonId!}
-            blocks={lessonState.lesson.content}
-            data={lessonState.lesson}
+            lesson={lessonState.lesson}
+            user={authedUser}
             homework={homework}
             scrollToUpload={() => setScrollToUpload(true)}
             canShowResults={canShowResults}
-            user={authedUser}
           />)
         }
         {section === 'task' && homework?.homework?.state === 'DRAFT' &&
