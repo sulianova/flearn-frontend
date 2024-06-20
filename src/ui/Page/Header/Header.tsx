@@ -158,7 +158,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
             </div>
           )}
           <div className={classes.nav}>
-            {urlSection === 'Study' && (
+            {variant === EPageVariant.LMS && (
               <div className={cx({ userSettinsWrapper: true, open: userPopupVisible })}>
                 {user && userPopupVisible && (
                     <UserPopup
@@ -166,7 +166,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
                       close={() => setUserPopupVisible(false)}
                     />
                   )}
-                <div 
+                <div
                   className={classes.userSettings}
                   onClick={() => setUserPopupVisible(!userPopupVisible)}
                 >
