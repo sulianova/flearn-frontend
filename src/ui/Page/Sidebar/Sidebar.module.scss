@@ -28,6 +28,8 @@
 }
 
 .items {
+  position: relative;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,7 +51,6 @@
 
   transition: background-color $d-hover ease-out;
   background-color: var(--color-background-glassy-inverted-d);
-  backdrop-filter: blur(set-calc($backdrop-filter));
   border-radius: 50%;
 
   &:hover {
@@ -82,6 +83,7 @@
 
   padding: set-calc(6);
   border-radius: 50%;
+  backdrop-filter: blur(set-calc($backdrop-filter));
 
   height: 100%;
   width: 100%;

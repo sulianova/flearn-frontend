@@ -23,8 +23,6 @@ html {
   -webkit-text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-
-  color: var(--color-content-primary);
 }
 
 body,
@@ -40,6 +38,7 @@ button {
 
 body {
   overflow-x: hidden;
+  color: var(--color-content-primary);
 }
 
 h1 {

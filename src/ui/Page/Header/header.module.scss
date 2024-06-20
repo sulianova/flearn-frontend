@@ -93,7 +93,7 @@
   justify-content: center;
   position: relative;
   max-width: fit-content;
-  color: $color-palette-black-900;
+  color: var(--color-content-primary);
   border-radius: set-calc($border-radius-small);
   padding: 0;
   height: set-calc(40);
@@ -172,7 +172,7 @@
       width: set-calc(30);
       height: set-calc(30);
   
-      color: var(--color-content-primary);
+      fill: var(--color-content-primary);
     }
   }
 }

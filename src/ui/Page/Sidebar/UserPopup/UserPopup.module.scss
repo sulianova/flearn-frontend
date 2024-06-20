@@ -16,9 +16,7 @@
   left: set-calc(16, true, 100%);
   right: unset;
 
-  visibility: visible;
   transform: none;
-  opacity: 1;
   z-index: -1;
   visibility: hidden;
   opacity: 0;
@@ -29,9 +27,10 @@
   width: set-calc(250);
   padding: set-calc(8);
 
-  backdrop-filter: blur(set-calc($backdrop-filter));
   border-radius: set-calc($border-radius-10);
   background:  $color-palette-black-500-a;
+  backdrop-filter: blur(set-calc($backdrop-filter));
+  
   border: set-calc(0.5) solid $color-palette-black-300-a;
   box-shadow: $shadow-menu;
 
@@ -139,11 +138,13 @@
 
 .itemSubtitle {
   margin: set-calc(4) 0 0;
+
+  @include font-16-normal-ui;
   color: $color-palette-white-500-a;
 }
 
 .itemHoverable {
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease-out;
   background-color: transparent;
   cursor: pointer;
 }

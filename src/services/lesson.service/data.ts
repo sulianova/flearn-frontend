@@ -88,7 +88,7 @@ const lessonData00: ILessonDataDB = {
 const lessonData01: ILessonDataDB = {
   id: 'CommercialIllustratorTasks_2Q1wTR',
   courseId: 'how-to-draw',
-  title: 'Какие задачи решает коммерческий иллюстратор',
+  title: 'Какие задачи решает иллюстратор',
   type: 'Theory',
   topic: 'Как это — быть иллюстратором',
   topicOrder: 1,
@@ -147,7 +147,8 @@ const lessonData01: ILessonDataDB = {
             props: { className: 'key-link', target: "_blank", to: 'https://minstudio.cargo.site/index' },
           }
         ]
-      }
+      },
+      size: 'LARGE',
     },
     {
       type: 'image',
@@ -161,7 +162,8 @@ const lessonData01: ILessonDataDB = {
             props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/ivanhaidutski' },
           }
         ]
-      }
+      },
+      size: 'LARGE',
     },
     {
       type: 'image',
@@ -175,7 +177,8 @@ const lessonData01: ILessonDataDB = {
             props: { className: 'key-link', target: "_blank", to: 'http://bayduzha.com/' },
           }
         ]
-      }
+      },
+      size: 'LARGE',
     },
     {
       type: 'title',
@@ -448,33 +451,703 @@ const lessonData01: ILessonDataDB = {
       title: 'Иллюстрации для айдентики',
     },
     {
-      type: 'image',
-      imageData: {
-        id: 'bayduzha1.webp',
-        alt: 'bayduzha1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Наташа Байдужа',
-            props: { className: 'key-link', target: "_blank", to: 'http://bayduzha.com/' },
-          }
-        ]
-      }
+      type: 'gallery',
+      maxHeightPx: 1_800,
+      images: [
+        {
+          id: 'bayduzha1.webp',
+          alt: 'bayduzha1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Наташа Байдужа',
+              props: { className: 'key-link', target: "_blank", to: 'http://bayduzha.com/' },
+            }
+          ]
+        },
+        {
+          id: 'bayduzha4.webp',
+          alt: 'bayduzha4',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Наташа Байдужа',
+              props: { className: 'key-link', target: "_blank", to: 'http://bayduzha.com/' },
+            }
+          ]
+        },
+        {
+          id: 'AmandaLobos4.webp',
+          alt: 'AmandaLobos4',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Amanda Lobos',
+              props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
+            }
+          ]
+        },
+        {
+          id: 'AmandaLobos5.webp',
+          alt: 'AmandaLobos5',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Amanda Lobos',
+              props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
+            }
+          ]
+        },
+        {
+          id: 'AmandaLobos6.webp',
+          alt: 'AmandaLobos6',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Amanda Lobos',
+              props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
+            }
+          ]
+        },
+        {
+          id: 'AmandaLobos7.webp',
+          alt: 'AmandaLobos7',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Amanda Lobos',
+              props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
+            }
+          ]
+        },
+        {
+          id: 'AmandaLobos8.webp',
+          alt: 'AmandaLobos8',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Amanda Lobos',
+              props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
+            }
+          ]
+        },
+        {
+          id: 'AmandaLobos9.webp',
+          alt: 'AmandaLobos9',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Amanda Lobos',
+              props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
+            }
+          ]
+        },
+        {
+          id: 'AmandaLobos10.webp',
+          alt: 'AmandaLobos10',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Amanda Lobos',
+              props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
+            }
+          ]
+        },
+        {
+          id: 'StudioZwupp1.webp',
+          alt: 'StudioZwupp1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Studio Zwupp',
+              props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/zwupp' },
+            }
+          ]
+        },
+        {
+          id: 'StudioZwupp2.webp',
+          alt: 'StudioZwupp2',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Studio Zwupp',
+              props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/zwupp' },
+            }
+          ]
+        },
+        {
+          id: 'StudioZwupp3.webp',
+          alt: 'StudioZwupp3',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Studio Zwupp',
+              props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/zwupp' },
+            }
+          ]
+        },
+        {
+          id: 'StudioZwupp4.webp',
+          alt: 'StudioZwupp4',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Studio Zwupp',
+              props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/zwupp' },
+            }
+          ]
+        },
+      ]
     },
     {
-      type: 'image',
-      imageData: {
-        id: 'bayduzha4.webp',
-        alt: 'bayduzha4',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Наташа Байдужа',
-            props: { className: 'key-link', target: "_blank", to: 'http://bayduzha.com/' },
-          }
-        ]
-      }
+      type: 'title',
+      title: 'Иллюстрации для упаковки',
     },
+    {
+      type: 'gallery',
+      maxHeightPx: 1_100,
+      images: [
+        {
+          id: 'NickLiefhebber2.webp',
+          alt: 'NickLiefhebber2',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Nick Liefhebber',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/Liefhebber' },
+            }
+          ]
+        },
+        {
+          id: 'NickLiefhebber8.webp',
+          alt: 'NickLiefhebber8',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Nick Liefhebber',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/Liefhebber' },
+            }
+          ]
+        },
+        {
+          id: 'NickLiefhebber6.webp',
+          alt: 'NickLiefhebber6',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Nick Liefhebber',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/Liefhebber' },
+            }
+          ]
+        },
+        {
+          id: 'NatashaBayduzha4.webp',
+          alt: 'NatashaBayduzha4',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Natasha Bayduzha',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/NataBayduzha' },
+            }
+          ]
+        },
+        {
+          id: 'NatashaBayduzha2.webp',
+          alt: 'NatashaBayduzha2',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Natasha Bayduzha',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/NataBayduzha' },
+            }
+          ]
+        },
+        {
+          id: 'AmandaLobos14.webp',
+          alt: 'AmandaLobos14',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Amanda Lobos',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
+            }
+          ]
+        },
+        {
+          id: 'AsahiNagata7.webp',
+          alt: 'AsahiNagata7',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Asahi Nagata',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/nagataae6d8' },
+            }
+          ]
+        },
+        {
+          id: 'IlyaMilstein1.webp',
+          alt: 'IlyaMilstein1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Ilya Milstein',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.ilyamilstein.com/' },
+            }
+          ]
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Иллюстрации для оформления пространств',
+    },
+    {
+      type: 'gallery',
+      maxHeightPx: 1_400,
+      images: [
+        {
+          id: 'NickLiefhebber4.webp',
+          alt: 'NickLiefhebber4',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Nick Liefhebber',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/Liefhebber' },
+            }
+          ]
+        },
+        {
+          id: 'NatashaBayduzha1.webp',
+          alt: 'NatashaBayduzha1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Natasha Bayduzha',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/NataBayduzha' },
+            }
+          ]
+        },
+        {
+          id: 'RohanDahotre2.webp',
+          alt: 'RohanDahotre2',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Rohan Dahotre',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/RohanSharadDahotre' },
+            }
+          ]
+        },
+        {
+          id: 'RohanDahotre1.webp',
+          alt: 'RohanDahotre1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Rohan Dahotre',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/RohanSharadDahotre' },
+            }
+          ]
+        },
+        {
+          id: 'StudioZwupp6.webp',
+          alt: 'StudioZwupp6',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Studio Zwupp',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zwupp' },
+            }
+          ]
+        },
+        {
+          id: 'StudioZwupp7.webp',
+          alt: 'StudioZwupp7',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Studio Zwupp',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zwupp' },
+            }
+          ]
+        },
+        {
+          id: 'okchizh6.webp',
+          alt: 'okchizh6',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Юля Чиж',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://okchizh.art/' },
+            }
+          ]
+        },
+        {
+          id: 'okchizh5.webp',
+          alt: 'okchizh5',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Юля Чиж',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://okchizh.art/' },
+            }
+          ]
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Иллюстрации для обложек альбомов или подкастов',
+    },
+    {
+      type: 'text',
+      text: 'Дизайн обложки — визуальный ключ к музыке. Это изображение создаёт первое впечатление об альбоме и сопровождает слушателей на каждом этапе пути. Обложка — это обещание эмоций, которые человек получит от музыки, и шанс мгновенно привлечь внимание.',
+    },
+    {
+      type: 'gallery',
+      maxHeightPx: 2_800,
+      images: [
+        {
+          id: 'Lx24.webp',
+          alt: 'Lx24',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Сингл “Роли”, Lx24',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://music.yandex.ru/album/10850856' },
+            }
+          ]
+        },
+        {
+          id: 'NIKER.webp',
+          alt: 'NIKER',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Сингл “Грузовик”, Niker',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://music.yandex.ru/album/21920804' },
+            }
+          ]
+        },
+        {
+          id: 'Vopross.webp',
+          alt: 'Vopross',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Сингл “Не люблю”, Vopross',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://music.yandex.ru/album/21957862/track/103009245' },
+            }
+          ]
+        },
+        {
+          id: 'слишкомлично.webp',
+          alt: 'слишкомлично',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Сингл “Норт-Дам”, Слишкомлично',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://music.yandex.ru/album/23268397/track/106625078' },
+            }
+          ]
+        },
+        {
+          id: 'хмыров.webp',
+          alt: 'хмыров',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Сингл “Ничего святого”, Хмыров',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://music.yandex.ru/album/23265803/' },
+            }
+          ]
+        },
+        {
+          id: 'MilkyChance.webp',
+          alt: 'MilkyChance',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Альбом “Trip Tape”, Milky Chance',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://music.yandex.ru/album/18601440' },
+            }
+          ]
+        },
+        {
+          id: 'plussize.webp',
+          alt: 'plussize',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Сингл “Батарейка”, Плюс Сайз',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://music.yandex.ru/album/21058503' },
+            }
+          ]
+        },
+        {
+          id: 'fenekot.webp',
+          alt: 'fenekot',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Сингл “Let Me Down Slowly”, fenekot',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://music.yandex.ru/album/18263863' },
+            }
+          ]
+        },
+        {
+          id: 'MIKAYA.webp',
+          alt: 'MIKAYA',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Сингл “Битлждус”, Mikaya',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://music.yandex.ru/album/16059358/track/84610206' },
+            }
+          ]
+        },
+        {
+          id: 'Zuwu.webp',
+          alt: 'Zuwu',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Сингл “Молодость”, zuwu',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://music.yandex.ru/album/14889733/track/80939520' },
+            }
+          ]
+        },
+        {
+          id: ' EllaMezule1.webp',
+          alt: ' EllaMezule1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Jazz music band \"Anders Bast & The Bast\'ards\" album',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://music.yandex.ru/album/14889733/track/80939520' },
+            }
+          ]
+        },
+        {
+          id: 'EllaMezule2.webp',
+          alt: 'EllaMezule2',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Swedish contemporary folk band\'s Trio Rop album',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://music.yandex.ru/album/14889733/track/80939520' },
+            }
+          ]
+        },
+        {
+          id: 'OlgaRodzik.webp',
+          alt: 'OlgaRodzik',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Сингл “Вимкни телефон”, Tvorchi',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/gallery/157088495/TVORCHI' },
+            }
+          ]
+        },
+        {
+          id: 'AdaZielinska1.webp',
+          alt: 'AdaZielińska1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Polish Jazz Bend Bled',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/gallery/136226431/BLED-Visual-Identity' },
+            }
+          ]
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Иллюстрации для книг',
+    },
+    {
+      type: 'gallery',
+      maxHeightPx: 1_500,
+      images: [
+        {
+          id: 'AmandaLobos13.webp',
+          alt: 'AmandaLobos13',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Amanda Lobos',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
+            }
+          ]
+        },
+        {
+          id: 'AmandaLobos12.webp',
+          alt: 'AmandaLobos12',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Amanda Lobos',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
+            }
+          ]
+        },
+        {
+          id: 'AsahiNagata1.webp',
+          alt: 'AsahiNagata1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Asahi Nagata',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/nagataae6d8' },
+            }
+          ]
+        },
+        {
+          id: 'bayduzha6.webp',
+          alt: 'bayduzha6',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Наташа Байдужа',
+              props: { className: 's-hoverable', target: "_blank", to: 'http://bayduzha.com/' },
+            }
+          ]
+        },
+        {
+          id: 'polyandria.no.age2.webp',
+          alt: 'polyandria.no.age2',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Polyandria NoAge',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://polyandria.ru/noage/?fbclid=PAZXh0bgNhZW0CMTEAAabAi9e6KyC7CAY-L2drZK5r471d00tMEufQpVFfQC-qVHTJY-cOJBfRyL4_aem_ZmFrZWR1bW15MTZieXRlcw' },
+            }
+          ]
+        },
+        {
+          id: 'IlyaMilstein2.webp',
+          alt: 'IlyaMilstein2',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Ilya Milstein',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.ilyamilstein.com/' },
+            }
+          ]
+        },
+        {
+          id: 'ta_boris.webp',
+          alt: 'ta_boris',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Таня Борисова',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/ta_boris/' },
+            }
+          ]
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Иллюстрации для медиа',
+    },
+    {
+      type: 'gallery',
+      maxHeightPx: 1_600,
+      images: [
+        {
+          id: 'AsahiNagata8.webp',
+          alt: 'AsahiNagata8',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Asahi Nagata',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/nagataae6d8' },
+            }
+          ]
+        },
+        {
+          id: 'StudioZwupp5.webp',
+          alt: 'StudioZwupp5',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Studio Zwupp',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zwupp' },
+            }
+          ]
+        },
+        {
+          id: 'IlyaMilstein10.webp',
+          alt: 'IlyaMilstein10',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Ilya Milstein',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.ilyamilstein.com/' },
+            }
+          ]
+        },
+        {
+          id: 'IlyaMilstein8.webp',
+          alt: 'IlyaMilstein8',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Ilya Milstein',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.ilyamilstein.com/' },
+            }
+          ]
+        },
+        {
+          id: 'IlyaMilstein4.webp',
+          alt: 'IlyaMilstein4',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Ilya Milstein',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.ilyamilstein.com/' },
+            }
+          ]
+        },
+        {
+          id: 'IlyaMilstein3.webp',
+          alt: 'IlyaMilstein3',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Ilya Milstein',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.ilyamilstein.com/' },
+            }
+          ]
+        },
+        {
+          id: 'IlyaMilstein6.webp',
+          alt: 'IlyaMilstein6',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Ilya Milstein',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.ilyamilstein.com/' },
+            }
+          ]
+        },
+        {
+          id: 'okchizh1.webp',
+          alt: 'okchizh1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Юля Чиж',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://okchizh.art/' },
+            }
+          ]
+        },
+      ]
+    }
   ]
 }
 

@@ -3,10 +3,13 @@
 .selectMenu {
   position: absolute;
   right: 0;
+  z-index: 1000;
+
   overflow: hidden;
   box-sizing: border-box;
   min-width: set-calc(320);
   max-height: 80vh;
+
   padding: 0;
   margin-block-start: set-calc(10);
   border-radius: set-calc($border-radius-10);
