@@ -132,7 +132,8 @@ const lessonData01: ILessonDataDB = {
             props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/lauradieze' },
           }
         ]
-      }
+      },
+      size: 'LARGE',
     },
     {
       type: 'image',

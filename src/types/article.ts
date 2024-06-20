@@ -56,6 +56,7 @@ export interface IArticleImageBlock extends IArticleBlock {
     alt: string
     caption?: TText
   }
+  size?: 'LARGE'
 }
 
 export interface IArticleImageBlockDB extends IArticleBlock {

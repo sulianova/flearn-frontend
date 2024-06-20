@@ -58,8 +58,8 @@ function renderBlock(block: IArticleContent[number]) {
     case 'video':
       return (<Video data={block}/>);
     case 'image':
-      return (<Image data={block}/>);
+      return (<Image {...block}/>);
     case 'gallery':
-      return (<Gallery data={block.images} maxHeightPx={block.maxHeightPx}/>);
+      return (<Gallery {...block}/>);
   }
 }

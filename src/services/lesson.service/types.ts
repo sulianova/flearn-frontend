@@ -115,6 +115,7 @@ export interface ILessonImageBlockDB extends ILessonBlock {
     alt: string
     caption?: TText
   }
+  size?: 'LARGE'
 }
 
 export interface ILessonImageBlock extends ILessonBlock {
@@ -125,6 +126,7 @@ export interface ILessonImageBlock extends ILessonBlock {
     alt: string
     caption?: TText
   }
+  size?: 'LARGE'
 }
 
 export type ILessonContentDB = Array<ILessonTextBlock | ILessonFactoidBlock | ILessonQouteBlock | ILessonTextImportantBlock | ILessonTitleBlock  | ILessonVideoBlock | ILessonImageBlockDB | ILessonGalleryBlockDB>;

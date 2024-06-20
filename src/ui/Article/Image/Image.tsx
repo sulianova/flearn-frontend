@@ -1,54 +1,24 @@
+import classnames from 'classnames/bind';
+import { useState } from 'react';
+
 import type { IArticleImageBlock } from 'types';
+
+import { useGuid } from 'hooks';
 import UIImage from 'ui/Img/Img';
+import ImageModal, { type IImage } from 'ui/ImageModal/ImageModal';
 import UIText from 'ui/Text/Text';
 
 import classes from './Image.module.scss';
-import classnames from 'classnames/bind';
-import { useEffect, useState } from 'react';
-import ImageModal, { IImage } from 'ui/ImageModal/ImageModal';
-import { useGuid } from 'hooks';
+
 const cx = classnames.bind(classes);
 
-export default Image;
-
-interface IProps {
-  data: IArticleImageBlock
-}
-
-function Image(props: IProps) {
-  const { imageData } = props.data;
+ export default function Image({ imageData, size }: Omit<IArticleImageBlock, 'type'>) {
   const [id] = useGuid();
   const [openedImage, setOpenedImage] = useState<IImage | null>(null);
-  // useEffect(() => {
-    // const xhr = new XMLHttpRequest();
-    // xhr.responseType = 'blob';
-    // xhr.onload = (event) => {
-    //   const blob = xhr.response;
-    //   console.log({ blob });
-    // };
-    // xhr.open('GET', imageData.src);
-    // xhr.send();
-    // const path = decodeURI(imageData.src.split('/o/')[1].split('?')[0]).replaceAll('%2F', '/');
-    // const urlPromise = firebaseService._getImageURL({ path });
-    // // const filePromise = firebaseService.getImage({ path });
-    // // console.log({ src: imageData.src, path });
 
-    // urlPromise
-    //   .then(url => {
-    //     console.log({ path, can1: true, url });
-    //     return firebaseService.getImage({ path });
-    //   })
-    //   .then(file => {
-    //     console.log({ path, can2: true, file });
-    //   })
-    //   .catch(err => {
-    //     console.log({ path, err });
-    //   })
-    // const imageData: await addImageSrc(imageBlockDB.imageData, { courseId, folder: lessonId, imageId: imageBlockDB.imageData.id }),
-  // }, [imageData.src]);
   return (
     <>
-      <div className={cx({ __: true, large: true })}>
+      <div className={cx({ __: true, large: size === 'LARGE' })}>
         <div
           id={id}
           className={classes.image}

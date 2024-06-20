@@ -12,24 +12,17 @@ import classes from './Gallery.module.scss';
 
 const cx = classnames.bind(classes);
 
-export default Gallery;
-
-interface IProps {
-  data: IArticleGalleryBlock['images']
-  maxHeightPx?: number
-}
-
-function Gallery(props: IProps) {
+export default function Gallery({ images, maxHeightPx }: Omit<IArticleGalleryBlock, 'type'>) {
   const [id] = useGuid();
   const [openedImage, setOpenedImage] = useState<{ image: IImage, index: number } | null>(null);
-  const style = props.maxHeightPx ?
-    { '--gallery-max-height': props.maxHeightPx } as React.CSSProperties
+  const style = maxHeightPx ?
+    { '--gallery-max-height': maxHeightPx } as React.CSSProperties
     : undefined;
 
   return (
     <>
       <div className={classes.list} style={style}>
-        {props.data.map((image, index) => (
+        {images.map((image, index) => (
           <div
             key={index}
             id={`${id}-${index}`}
@@ -68,22 +61,22 @@ function Gallery(props: IProps) {
           image={openedImage.image}
           onClose={() => setOpenedImage(null)}
           onNext={() => {
-            const nextIndex = openedImage.index + 1 < props.data.length ? openedImage.index + 1 : 0;
+            const nextIndex = openedImage.index + 1 < images.length ? openedImage.index + 1 : 0;
             setOpenedImage({
               index: nextIndex,
               image: {
                 ...openedImage.image,
-                data: props.data[nextIndex],
+                data: images[nextIndex],
               },
             });
           }}
           onPrev={() => {
-            const prevIndex = openedImage.index - 1 >= 0 ? openedImage.index - 1 : props.data.length - 1;
+            const prevIndex = openedImage.index - 1 >= 0 ? openedImage.index - 1 : images.length - 1;
             setOpenedImage({
               index: prevIndex,
               image: {
                 ...openedImage.image,
-                data: props.data[prevIndex],
+                data: images[prevIndex],
               },
             });
           }}
