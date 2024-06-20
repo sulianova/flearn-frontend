@@ -6,4 +6,5 @@ export * from './guid';
 export * from './isMobile';
 export * from './isMounted';
 export * from './memoize';
+export * from './theme';
 export * from './URLSection';

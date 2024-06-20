@@ -6,7 +6,6 @@ import Header from './Header/Header';
 import Sidebar from './Sidebar/Sidebar';
 
 import useHeightToCss from './useHeightToCss';
-import useTheme from './useTheme';
 
 import classes from './Page.module.scss';
 
@@ -29,7 +28,6 @@ interface IProps {
 }
 
 function Page({ children, variant, header = false, footer, backgroundColor = 'var(--color-background-alternate)', scrollToTopDependencie }: IProps) {
-  useTheme(backgroundColor);
   const ref = useHeightToCss();
   const pageRef = useRef<HTMLDivElement>(null);
   const lastScrollTop = useRef(0);
@@ -38,6 +36,10 @@ function Page({ children, variant, header = false, footer, backgroundColor = 'va
   useEffect(() => {
     pageRef?.current?.scrollTo({ top: 0 });
   }, [scrollToTopDependencie]);
+
+  useEffect(() => {
+    document.body.style.setProperty('background-color', backgroundColor);
+  }, [backgroundColor]);
 
   const handleScroll = useCallback(() => {
     const scrollTop = Math.max(pageRef?.current?.scrollTop ?? 0, 0);

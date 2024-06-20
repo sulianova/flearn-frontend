@@ -1,0 +1,74 @@
+
+body.light {
+  --color-accent-error: var(--color-accent-error-light);
+  --color-accent-notice: var(--color-accent-notice-light);
+  --color-accent-success: var(--color-accent-success-light);
+  --color-accent-warning: var(--color-accent-warning-light);
+  --color-accent-promo: var(--color-accent-promo-light);
+  --color-accent-promo-hover: var(--color-accent-promo-hover-light);
+  --color-accent-neutral: var(--color-accent-neutral-light);
+  --color-accent-neutral-hover: var(--color-accent-neutral-hover-light);
+  --color-background-alternate: var(--color-background-alternate-light);
+  --color-background-default: var(--color-background-default-light);
+  --color-background-glassy-a: var(--color-background-glassy-a-light);
+  --color-background-glassy-b: var(--color-background-glassy-b-light);
+  --color-background-glassy-c: var(--color-background-glassy-c-light);
+  --color-background-glassy-d: var(--color-background-glassy-d-light);
+  --color-background-glassy-inverted-a: var(--color-background-glassy-inverted-a-light);
+  --color-background-glassy-inverted-b: var(--color-background-glassy-inverted-b-light);
+  --color-background-glassy-inverted-c: var(--color-background-glassy-inverted-c-light);
+  --color-background-glassy-inverted-d: var(--color-background-glassy-inverted-d-light);
+  --color-background-highlighted: var(--color-background-highlighted-light);
+  --color-background-overlay: var(--color-background-overlay-light);
+  --color-background-active: var(--color-background-active-light);
+  --color-background-stroke: var(--color-background-stroke-light);
+  --border-color: var(--border-color-light);
+  --color-content-inverted-primary: var(--color-content-inverted-primary-light);
+  --color-content-inverted-secondary: var(--color-content-inverted-secondary-light);
+  --color-content-primary: var(--color-content-primary-light);
+  --color-content-secondary: var(--color-content-secondary-light);
+  --color-content-tertiary: var(--color-content-tertiary-light);
+  --color-content-background-primary: var(--color-content-background-primary-light);
+  --color-content-background-secondary: var(--color-content-background-secondary-light);
+  --color-content-paragraph-primary: var(--color-content-paragraph-primary-light);
+  --color-content-paragraph-secondary: var(--color-content-paragraph-secondary-light);
+  --color-background-btn: var(--color-background-btn-light);
+  --color-background-btn-hover: var(--color-background-btn-hover-light);
+}
+
+body.dark {
+  --color-accent-error: var(--color-accent-error-dark);
+  --color-accent-notice: var(--color-accent-notice-dark);
+  --color-accent-success: var(--color-accent-success-dark);
+  --color-accent-warning: var(--color-accent-warning-dark);
+  --color-accent-promo: var(--color-accent-promo-dark);
+  --color-accent-promo-hover: var(--color-accent-promo-hover-dark);
+  --color-accent-neutral: var(--color-accent-neutral-dark);
+  --color-accent-neutral-hover: var(--color-accent-neutral-hover-dark);
+  --color-background-alternate: var(--color-background-alternate-dark);
+  --color-background-default: var(--color-background-default-dark);
+  --color-background-glassy-a: var(--color-background-glassy-a-dark);
+  --color-background-glassy-b: var(--color-background-glassy-b-dark);
+  --color-background-glassy-c: var(--color-background-glassy-c-dark);
+  --color-background-glassy-d: var(--color-background-glassy-d-dark);
+  --color-background-glassy-inverted-a: var(--color-background-glassy-inverted-a-dark);
+  --color-background-glassy-inverted-b: var(--color-background-glassy-inverted-b-dark);
+  --color-background-glassy-inverted-c: var(--color-background-glassy-inverted-c-dark);
+  --color-background-glassy-inverted-d: var(--color-background-glassy-inverted-d-dark);
+  --color-background-highlighted: var(--color-background-highlighted-dark);
+  --color-background-overlay: var(--color-background-overlay-dark);
+  --color-background-active: var(--color-background-active-dark);
+  --color-background-stroke: var(--color-background-stroke-dark);
+  --border-color: var(--border-color-dark);
+  --color-content-inverted-primary: var(--color-content-inverted-primary-dark);
+  --color-content-inverted-secondary: var(--color-content-inverted-secondary-dark);
+  --color-content-primary: var(--color-content-primary-dark);
+  --color-content-secondary: var(--color-content-secondary-dark);
+  --color-content-tertiary: var(--color-content-tertiary-dark);
+  --color-content-background-primary: var(--color-content-background-primary-dark);
+  --color-content-background-secondary: var(--color-content-background-secondary-dark);
+  --color-content-paragraph-primary: var(--color-content-paragraph-primary-dark);
+  --color-content-paragraph-secondary: var(--color-content-paragraph-secondary-dark);
+  --color-background-btn: var(--color-background-btn-dark);
+  --color-background-btn-hover: var(--color-background-btn-hover-dark);
+}
