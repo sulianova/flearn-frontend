@@ -24,12 +24,12 @@ interface IProps {
   variant: EPageVariant
   header?: boolean
   footer?: boolean | EFooter
-  style?: React.CSSProperties
   scrollToTopDependencie?: any
+  backgroundColor?: string
 }
 
-function Page({ children, variant, header = false, footer, style, scrollToTopDependencie }: IProps) {
-  useTheme();
+function Page({ children, variant, header = false, footer, backgroundColor = 'var(--color-background-alternate)', scrollToTopDependencie }: IProps) {
+  useTheme(backgroundColor);
   const ref = useHeightToCss();
   const pageRef = useRef<HTMLDivElement>(null);
   const lastScrollTop = useRef(0);
@@ -46,7 +46,7 @@ function Page({ children, variant, header = false, footer, style, scrollToTopDep
   }, []);
 
   return (
-    <div className={classes.trainerContent} style={style}>
+    <div className={classes.trainerContent}>
       {variant === EPageVariant.LMS && <Sidebar/>}
       <div className={classes.theoryPage} onScroll={handleScroll} ref={pageRef}>
         <div className={classes._} ref={ref}>

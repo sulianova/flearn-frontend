@@ -152,7 +152,7 @@ function Lesson({ section }: IProps) {
       variant={EPageVariant.LMS}
       header 
       footer={false}
-      style={{ backgroundColor: 'var(--color-background-default)'}}
+      backgroundColor='var(--color-background-default)'
       scrollToTopDependencie={lessonId}
     >
       <div className={classes.__}>

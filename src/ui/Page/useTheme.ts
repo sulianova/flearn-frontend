@@ -40,11 +40,15 @@ const colors = [
   '--color-background-btn-hover',
 ];
 
-export default function useTheme() {
+export default function useTheme(backgroundColor: string) {
   const { theme } = frontendSettingsService.useFrontendSettings();
   useEffect(() => {
     colors.forEach(color =>
       document.body.style.setProperty(color, `var(${color}-${theme})`)
     );
   }, [theme]);
+
+  useEffect(() => {
+    document.body.style.setProperty('background-color', backgroundColor);
+  }, [backgroundColor]);
 }
