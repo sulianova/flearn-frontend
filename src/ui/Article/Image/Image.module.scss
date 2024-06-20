@@ -30,7 +30,7 @@
 
   box-shadow: $shadow-medium-default;
   border-radius: set-calc($border-radius-10);
-  background-color: $color-background-alternate;
+  background-color: var(--color-background-alternate);
   overflow: hidden;
 }
 
@@ -46,7 +46,7 @@
 
 .imageCaption {
   @include font-16-normal-paragraph;
-  color: $color-content-paragraph-primary;
+  color: var(--color-content-paragraph-primary);
 
   margin-top: set-calc(8);
 }

@@ -43,7 +43,7 @@
   margin: 0 0 set-calc(24);
 
   @include font-28-normal-header;
-  color: $color-content-primary;
+  color: var(--color-content-primary);
 
   @include set-media(md) {
     margin: 0 0 set-calc(24) set-calc(8);
@@ -52,7 +52,7 @@
 
 .currentLesson {
   width: 100%;
-  color: $color-content-primary;
+  color: var(--color-content-primary);
   max-width: 60%;
 
   @include set-media(md) {
@@ -74,8 +74,8 @@
   min-height: 100%;
   padding: set-calc(16);
   border-radius: set-calc($border-radius-medium);
-  background: $color-content-inverted-secondary;
-  border: set-calc(1) solid $color-background-default;
+  background: var(--color-content-inverted-secondary);
+  border: set-calc(1) solid var(--color-background-default);
   box-shadow: $shadow-huge-default;
 }
 
@@ -84,7 +84,7 @@
   margin-bottom: set-calc(16);
 
   @include font-18-normal-ui;
-  color: $color-content-paragraph-primary;
+  color: var(--color-content-paragraph-primary);
 
   span {
     font-size: inherit;
@@ -131,15 +131,15 @@
   transition-timing-function: ease-out;
 
   @include font-18-normal-ui;
-  color: $color-content-inverted-primary;
+  color: var(--color-content-inverted-primary);
   text-decoration: none;
 
   border-radius: set-calc(6);
-  background-color: $color-content-primary;
+  background-color: var(--color-content-primary);
   border: none;
 }
 
 .currentLessonButton:hover {
-  background-color: $color-content-background-secondary;
+  background-color: var(--color-content-background-secondary);
   cursor: pointer;
 }

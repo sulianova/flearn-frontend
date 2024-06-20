@@ -23,7 +23,7 @@
 }
 
 .modal_Animation {
-  background-color: $color-background-overlay;
+  background-color: var(--color-background-overlay);
 
   @include set-media(md) {
     transition: transform 0.65s cubic-bezier(0.2, 1, 0.3, 1);
@@ -50,8 +50,8 @@
   position: relative;
   margin: set-calc(10);
 
-  color: $color-content-primary;
-  background-color: $color-background-default;
+  color: var(--color-content-primary);
+  background-color: var(--color-background-default);
   border-radius: set-calc($border-radius-medium);
   box-shadow: $shadow-popup;
   opacity: 0;

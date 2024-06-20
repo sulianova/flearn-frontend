@@ -80,8 +80,8 @@
 
   padding: set-calc(12) set-calc(18);
   border-radius: set-calc($border-radius-large);
-  background: $color-content-primary;
-  color: $color-content-inverted-primary;
+  background: var(--color-content-primary);
+  color: var(--color-content-inverted-primary);
 
   @include set-media(md) {
     padding: set-calc(8) set-calc(12);
@@ -116,6 +116,6 @@
  }
 
  .videoCardText {
-  color: $color-content-secondary;
+  color: var(--color-content-secondary);
   @include font-16-normal-paragraph;
  }

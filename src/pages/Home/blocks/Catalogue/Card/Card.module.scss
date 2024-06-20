@@ -7,7 +7,7 @@
   flex-direction: column;
   justify-content: space-between;
   border-radius: set-calc($border-radius-medium);
-  color: $color-content-primary;
+  color: var(--color-content-primary);
   
   min-height: set-calc(400);
 
@@ -87,12 +87,12 @@
   z-index: 1;
 
   border-radius: set-calc($border-radius-large);
-  background-color: $color-background-glassy-c;
+  background-color: var(--color-background-glassy-c);
 }
 
 .infoDate {
   @include font-18-normal-ui;
-  color: $color-content-inverted-primary;
+  color: var(--color-content-inverted-primary);
 }
 
 .title {
@@ -100,7 +100,7 @@
   z-index: 1;
 
   @include font-40-normal-header;
-  color: $color-content-primary;
+  color: var(--color-content-primary);
 
   @include set-media(md) {
     margin-bottom: set-calc(4);
@@ -130,13 +130,13 @@
   transform-origin: center center;
 
   border-radius: set-calc($border-radius-medium);
-  background-color: $color-content-inverted-secondary;
-  border: set-calc(1) solid $color-background-default;
+  background-color: var(--color-content-inverted-secondary);
+  border: set-calc(1) solid var(--color-background-default);
   backdrop-filter: blur(set-calc($backdrop-filter));
   box-shadow: $shadow-huge-default;
 
   @include set-media(md) {
-    border: set-calc(1) solid $color-background-default;
+    border: set-calc(1) solid var(--color-background-default);
     border-radius: set-calc(10);
   }
 }

@@ -53,7 +53,7 @@
 
 @mixin is-beige {
   position: relative;
-  background-color: $color-content-tertiary;
+  background-color: var(--color-content-tertiary);
 
   left: set-calc(-$padding-x-desk-page);
   width: set-calc(2 * $padding-x-desk-page, true, 100%);

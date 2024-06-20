@@ -146,7 +146,7 @@
       width: set-calc(24);
       height: set-calc(24);
   
-      color: $color-content-primary;
+      color: var(--color-content-primary);
     }
   }
 }
@@ -163,7 +163,7 @@
     align-items: center;
     justify-content: center;
 
-    background-color: $color-background-glassy-inverted-d;
+    background-color: var(--color-background-glassy-inverted-d);
     backdrop-filter: blur(set-calc($backdrop-filter));
     padding: set-calc(7);
     border-radius: 50%;
@@ -172,7 +172,7 @@
       width: set-calc(30);
       height: set-calc(30);
   
-      color: $color-content-primary;
+      color: var(--color-content-primary);
     }
   }
 }
@@ -253,7 +253,7 @@
 
   pointer-events: none;
 
-  background-color: $color-accent-promo;
+  background-color: var(--color-accent-promo);
   color: $color-palette-white-1000;
 
   @include set-typography(14, 16, 500);
@@ -281,12 +281,12 @@
   display: flex;
   align-items: center;
 
-  color: $color-content-primary;
+  color: var(--color-content-primary);
 
-  background-color: $color-background-glassy-inverted-d;
+  background-color: var(--color-background-glassy-inverted-d);
   padding: set-calc(4) set-calc(24);
   border-radius: set-calc(100);
-  border: set-calc(2.5) solid  $color-content-primary;
+  border: set-calc(2.5) solid  var(--color-content-primary);
 
   width: max-content;
   height: set-calc(40);
@@ -326,7 +326,7 @@
     background: 50% no-repeat;
     background-size: contain;
 
-    fill: $color-content-primary;
+    fill: var(--color-content-primary);
     opacity: 0.85;
 
     transition: transform 200ms;
@@ -356,8 +356,8 @@
     transition: transform 0.15s ease-in;
     opacity: 1;
 
-    color: $color-content-primary;
-    background-color: $color-background-glassy-inverted-d;
+    color: var(--color-content-primary);
+    background-color: var(--color-background-glassy-inverted-d);
     border-radius: set-calc($border-radius-small);
 
     svg {
@@ -414,8 +414,8 @@
       height: set-calc(60);
 
       border-radius: set-calc($border-radius-10);
-      background: $color-background-alternate;
-      color: $color-content-primary;
+      background: var(--color-background-alternate);
+      color: var(--color-content-primary);
 
       @include set-typography(18, 24, 500);
       touch-action: manipulation;
@@ -440,8 +440,8 @@
   width: 100%;
 
   border-radius: set-calc($border-radius-large);
-  background: $color-content-background-primary;
-  color: $color-content-inverted-primary;
+  background: var(--color-content-background-primary);
+  color: var(--color-content-inverted-primary);
 
   @include set-typography(18, 24, 500);
   touch-action: manipulation;
@@ -460,7 +460,7 @@
     padding: set-calc(18);
   
     display: flex;
-    color: $color-content-primary;
+    color: var(--color-content-primary);
     box-shadow: none;
 
     cursor: pointer;

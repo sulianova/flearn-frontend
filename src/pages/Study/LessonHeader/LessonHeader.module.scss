@@ -20,7 +20,7 @@
   box-sizing: border-box;
 
   @include font-20-normal-paragraph;
-  color: $color-content-secondary;
+  color: var(--color-content-secondary);
 
   width: 50%;
   height: set-calc(70);
@@ -30,8 +30,8 @@
 
 .active {
   cursor: default;
-  color: $color-content-primary;
-  border-bottom: set-calc(2.5) solid $color-content-primary;
+  color: var(--color-content-primary);
+  border-bottom: set-calc(2.5) solid var(--color-content-primary);
 }
 
 .tabItem:not(.active)::after {
@@ -43,12 +43,12 @@
   content: "";
   transition: transform .2s 0s ease-in-out;
   transform: scaleX(0);
-  background-color:  $color-content-primary;
+  background-color:  var(--color-content-primary);
 }
 
 .tabItem:hover {
   transition: color .3s;
-  color: $color-content-primary;
+  color: var(--color-content-primary);
 }
 
 .tabItem:not(.active):hover::after {

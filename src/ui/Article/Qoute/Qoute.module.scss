@@ -2,7 +2,7 @@
 
 .__ {
   position: relative;
-  color: $color-content-primary;
+  color: var(--color-content-primary);
   margin: set-calc(20) 0 set-calc(40);
 
   width: set-calc(764);
@@ -16,7 +16,7 @@
 }
 .qouteWrapper {
   padding: set-calc(32);
-  border: set-calc(1.5) solid $border-color;
+  border: set-calc(1.5) solid var(--border-color);
   border-radius: set-calc($border-radius-medium);
 
   display: flex;
@@ -42,5 +42,5 @@
 
 .qouteWrapper > * {
   @include font-20-normal-paragraph;
-  color: $color-content-paragraph-primary;
+  color: var(--color-content-paragraph-primary);
 }

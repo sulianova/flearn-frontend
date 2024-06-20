@@ -54,7 +54,7 @@
   height: 100%;
   width: 100%;
   object-fit: contain;
-  background-color: $color-background-alternate;
+  background-color: var(--color-background-alternate);
 }
 
 .overlay {
@@ -70,10 +70,10 @@
   justify-content: center;
 
 
-  background-color: $color-background-overlay;
+  background-color: var(--color-background-overlay);
   border-radius: set-calc($border-radius-10);
   transition: opacity $d-hover ease;
-  color: $color-background-default;
+  color: var(--color-background-default);
 }
 
 .overlayCaption {
@@ -91,7 +91,7 @@
   justify-content: center;
 
   transition: opacity $d-hover ease;
-  color: $color-background-default;
+  color: var(--color-background-default);
 }
 
 .itemCaption {

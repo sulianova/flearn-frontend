@@ -36,7 +36,7 @@
   height: set-calc(48);
   padding: set-calc(8) set-calc(24);
   bottom: set-calc(8);
-  color: $color-content-inverted-primary;
+  color: var(--color-content-inverted-primary);
   border-radius: set-calc(8);
   cursor: pointer;
   display: inline-block;

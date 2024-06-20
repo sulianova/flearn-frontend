@@ -17,7 +17,7 @@
 
 
 .title {
-  color: $color-background-glassy-inverted-d;
+  color: var(--color-background-glassy-inverted-d);
   @include font-18-normal-paragraph;
   margin-bottom: set-calc(18);
 

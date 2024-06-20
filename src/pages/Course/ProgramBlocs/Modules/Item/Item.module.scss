@@ -50,12 +50,12 @@
 
   border: none;
   border-radius: set-calc($border-radius-medium);
-  background-color: $color-content-inverted-secondary;
-  border: set-calc(1) solid $color-background-default;
+  background-color: var(--color-content-inverted-secondary);
+  border: set-calc(1) solid var(--color-background-default);
   box-shadow: $shadow-huge-default;
   overflow: hidden;
 
-  color: $color-content-primary;
+  color: var(--color-content-primary);
   text-align: left;
 
   @include set-media(md) {
@@ -78,7 +78,7 @@
       z-index: 1;
       width: 100%;
       height: set-calc(56);
-      background: linear-gradient(180deg, transparent 0%, $color-content-inverted-secondary 100%);
+      background: linear-gradient(180deg, transparent 0%, var(--color-content-inverted-secondary) 100%);
       pointer-events: none;
     }
   
@@ -141,8 +141,8 @@
   width: set-calc(48);
   height: set-calc(48);
   border-radius: 50%;
-  background-color: $color-background-glassy-a;
-  color: $color-content-primary;
+  background-color: var(--color-background-glassy-a);
+  color: var(--color-content-primary);
   font-feature-settings: 'pnum' on, 'lnum' on;
 
   @include set-typography(24, 24, 500);
@@ -175,11 +175,11 @@
   max-width: set-calc(800);
 
   @include font-21-normal-paragraph;
-  color: $color-content-background-secondary;
+  color: var(--color-content-background-secondary);
 
   @include set-media(md) {
     margin-right: 0;
-    color: $color-content-secondary;
+    color: var(--color-content-secondary);
   }
 }
 
@@ -202,7 +202,7 @@
   @include font-16-normal-ui;
 
   border-radius: set-calc($border-radius-large);
-  background-color: $color-background-glassy-a;
+  background-color: var(--color-background-glassy-a);
   list-style-type: none;
 
   @include set-media(md) {
@@ -283,7 +283,7 @@
   align-items: center;
   gap: set-calc(4);
 
-  color: $color-accent-promo;
+  color: var(--color-accent-promo);
   @include font-21-normal-ui;
 
   svg {

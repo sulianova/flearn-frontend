@@ -17,18 +17,18 @@
   @include font-24-normal-ui;
 
   &::placeholder {
-    color:  $color-background-glassy-d;
+    color:  var(--color-background-glassy-d);
     opacity: 1;
     font-family: $font-family!important;
   }
   
   &:-ms-input-placeholder {
-    color:  $color-background-glassy-d;
+    color:  var(--color-background-glassy-d);
     font-family: $font-family!important;
   }
   
   &::-ms-input-placeholder {
-    color:  $color-background-glassy-d;
+    color:  var(--color-background-glassy-d);
     font-family: $font-family!important;
   }
 
@@ -38,20 +38,20 @@
 }
 
 .light {
-  background: $color-content-inverted-secondary;
-  border: set-calc(1) solid $color-background-stroke;
+  background: var(--color-content-inverted-secondary);
+  border: set-calc(1) solid var(--color-background-stroke);
 
   @include set-media(md) {
-    border: set-calc(0.5) solid $color-background-stroke;
+    border: set-calc(0.5) solid var(--color-background-stroke);
   }
 }
 
 .isError {
-  border: set-calc(1.5) solid $color-accent-error;
+  border: set-calc(1.5) solid var(--color-accent-error);
   border-right: none;
 
   @include set-media(md) {
-    border: set-calc(0.5) solid $color-accent-error;
+    border: set-calc(0.5) solid var(--color-accent-error);
     border-right: none;
   }
 }

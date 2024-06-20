@@ -6,6 +6,7 @@ import Header from './Header/Header';
 import Sidebar from './Sidebar/Sidebar';
 
 import useHeightToCss from './useHeightToCss';
+import useTheme from './useTheme';
 
 import classes from './Page.module.scss';
 
@@ -28,6 +29,7 @@ interface IProps {
 }
 
 function Page({ children, variant, header = false, footer, style, scrollToTopDependencie }: IProps) {
+  useTheme();
   const ref = useHeightToCss();
   const pageRef = useRef<HTMLDivElement>(null);
   const lastScrollTop = useRef(0);

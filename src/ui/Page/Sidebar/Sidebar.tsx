@@ -12,6 +12,7 @@ import Link from 'ui/Link/Link';
 
 import UserPopup from './UserPopup/UserPopup';
 import classes from './Sidebar.module.scss';
+import { frontendSettingsService } from 'services/frontendSettings.service';
 
 const cx = classnames.bind(classes);
 
@@ -21,6 +22,7 @@ function Sidebar() {
   const { courseId, lessonId } = useParams();
   const urlSection = useURLSection();
   const authedUser = userService.useAuthedUser();
+  const { theme } = frontendSettingsService.useFrontendSettings();
   const [lessonsPopupVisible, setLessonsPopupVisible] = useState(false);
   const [userPopupVisible, setUserPopupVisible] = useState(false);
 
@@ -67,15 +69,16 @@ function Sidebar() {
             )}
           </ul>
           <ul className={classes.items}>
-            {/* <li className={classes.item}>
+            <li className={classes.item}>
               <span className={classes.iconWrapper}>
-                <Link
+                <div
                   className={classes.icon}
+                  onClick={() => frontendSettingsService.update({ theme: theme === 'dark' ? 'light' : 'dark' })}
                 >
-                  <Portfolio/>
-                </Link>
+                  <Icon icon="Portfolio"/>
+                </div>
               </span>
-            </li> */}
+            </li>
             <li className={cx({ item: true, open: userPopupVisible })}>
               {authedUser && userPopupVisible && (
                 <UserPopup

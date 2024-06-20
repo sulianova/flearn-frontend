@@ -27,7 +27,7 @@
   margin: auto;
   overflow: hidden;
 
-  background: $color-content-background-secondary;
+  background: var(--color-content-background-secondary);
 }
 
 .video iframe {
@@ -43,7 +43,7 @@
 
 .videoCaption {
   @include font-18-normal-paragraph;
-  color: $color-content-paragraph-primary;
+  color: var(--color-content-paragraph-primary);
 
   padding-top: set-calc(4);
 }

@@ -6,8 +6,8 @@
 
   padding: set-calc(16);
   border-radius: set-calc($border-radius-medium);
-  background-color: $color-content-inverted-secondary;
-  border: set-calc(1) solid $color-background-default;
+  background-color: var(--color-content-inverted-secondary);
+  border: set-calc(1) solid var(--color-background-default);
   box-shadow: $shadow-huge-default;
   cursor: pointer;
 
@@ -60,7 +60,7 @@
 
   svg {
     stroke-width: set-calc(2);
-    stroke: $color-content-background-secondary;
+    stroke: var(--color-content-background-secondary);
   }
 
   @include set-media(md) {
@@ -69,7 +69,7 @@
 
     svg {
       stroke-width: set-calc(2.5);
-      stroke: $color-content-background-secondary;
+      stroke: var(--color-content-background-secondary);
     }
   }
 }
@@ -87,10 +87,10 @@
 .itemAnswerText {
   margin-right: set-calc(48);
   @include font-21-normal-paragraph;
-  color: $color-content-paragraph-primary;
+  color: var(--color-content-paragraph-primary);
 
   @include set-media(md) {
     margin: set-calc(20) 0 set-calc(20) 0;
-    color: $color-content-paragraph-secondary;
+    color: var(--color-content-paragraph-secondary);
   }
 }

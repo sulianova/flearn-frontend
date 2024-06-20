@@ -14,7 +14,7 @@
   margin-bottom: set-calc(10);
 
   @include font-18-normal-paragraph;
-  color: $color-background-glassy-inverted-d;
+  color: var(--color-background-glassy-inverted-d);
 
   @include set-media(md) {
     padding-left: set-calc(8);

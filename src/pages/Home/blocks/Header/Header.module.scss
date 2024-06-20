@@ -63,7 +63,7 @@
 
 .description {
   position: relative;
-  color: $color-content-tertiary;
+  color: var(--color-content-tertiary);
 
   @include font-21-normal-paragraph;
 }
@@ -92,7 +92,7 @@
   padding: 0 set-calc(32);
   border-radius: set-calc($border-radius-small);
   transition: background-color $d-hover ease, color $d-hover ease, box-shadow $d-hover ease;
-  background-color: $color-background-btn;
+  background-color: var(--color-background-btn);
 
   @include font-21-normal-ui;
   color: $color-palette-white-1000;
@@ -108,7 +108,7 @@
     width: max-content;
 
     border-radius: set-calc($border-radius-small);
-    background-color: $color-content-background-primary;
+    background-color: var(--color-content-background-primary);
   }
 
   .text {
@@ -118,6 +118,6 @@
   &:hover {
     cursor: pointer;
     box-shadow: $shadow-medium-hovered;
-    background-color: $color-background-btn-hover;
+    background-color: var(--color-background-btn-hover);
   }
 }

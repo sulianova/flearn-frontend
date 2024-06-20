@@ -17,7 +17,7 @@
 }
 .textImportantWrapper {
   padding: set-calc(32);
-  background-color: $color-background-alternate;
+  background-color: var(--color-background-alternate);
   border-radius: set-calc($border-radius-medium);
 
   display: flex;
@@ -43,6 +43,6 @@
 
 .textImportantWrapper {
   @include font-20-normal-paragraph;
-  color: $color-content-paragraph-primary;
+  color: var(--color-content-paragraph-primary);
 
 }

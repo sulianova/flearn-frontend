@@ -7,4 +7,5 @@ export enum ECollections {
   Order = 'order',
   Email = 'email',
   UserCourseProgress = 'user_course_progress',
+  FrontendSettings = 'frontend_settings',
 }

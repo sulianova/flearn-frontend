@@ -5,7 +5,7 @@
 
   margin: set-calc(20) 0 set-calc(16) set-calc(16);
   padding-left: set-calc(32);
-  color: $color-content-paragraph-primary;
+  color: var(--color-content-paragraph-primary);
 
   @include set-media(md) {
     margin: set-calc(16) 0 set-calc(8) set-calc(12);

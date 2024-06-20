@@ -7,7 +7,7 @@
   justify-content: space-between;
 
 
-  color: $color-content-primary;
+  color: var(--color-content-primary);
 
   padding: set-calc(32);
   width: set-calc(560);
@@ -39,7 +39,7 @@
   padding: set-calc(13);
 
   display: flex;
-  color: $color-content-primary;
+  color: var(--color-content-primary);
 
   cursor: pointer;
 
@@ -60,7 +60,7 @@
 }
 
 .close:hover {
-  background-color: $color-background-glassy-a;
+  background-color: var(--color-background-glassy-a);
 
   @include set-media(md) {
     background-color: transparent;
@@ -69,7 +69,7 @@
 
 .close:active {
   transform: scale(0.96);
-  background-color: $color-background-glassy-b;
+  background-color: var(--color-background-glassy-b);
 
   @include set-media(md) {
     background-color: transparent;
@@ -96,6 +96,6 @@
 .caption {
   margin-right: set-calc(24);
 
-  color: $color-content-paragraph-primary;
+  color: var(--color-content-paragraph-primary);
   @include font-18-normal-paragraph;
 }

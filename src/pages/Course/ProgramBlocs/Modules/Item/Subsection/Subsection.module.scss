@@ -7,7 +7,7 @@
 
   @include set-media(md) {
     padding-bottom: set-calc(12);
-    border-bottom: solid set-calc(1) $color-background-stroke;
+    border-bottom: solid set-calc(1) var(--color-background-stroke);
   }
 }
 
@@ -36,10 +36,10 @@
 
 .subsectionDescription {
   @include font-18-normal-paragraph;
-  color: $color-content-paragraph-primary;
+  color: var(--color-content-paragraph-primary);
 
   @include set-media(md) {
-    color: $color-content-paragraph-secondary;
+    color: var(--color-content-paragraph-secondary);
   }
 }
 

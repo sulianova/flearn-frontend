@@ -37,8 +37,8 @@
   border-radius: set-calc($border-radius-medium);
 
   box-sizing: border-box;
-  background: $color-content-inverted-secondary;
-  border: set-calc(1) solid $color-background-default;
+  background: var(--color-content-inverted-secondary);
+  border: set-calc(1) solid var(--color-background-default);
   text-align: left;
   box-shadow: $shadow-huge-default;
 
@@ -103,7 +103,7 @@
   margin: 0;
 
   @include font-28-normal-header;
-  color: $color-content-primary;
+  color: var(--color-content-primary);
 }
 
 .info {
@@ -133,7 +133,7 @@
   opacity: 0;
 
   @include font-16-normal-ui;
-  color: $color-content-tertiary;
+  color: var(--color-content-tertiary);
 
   &:not(:first-child)::before {
     position: absolute;
@@ -143,7 +143,7 @@
     height: set-calc(3);
     content: "";
     border-radius: 50%;
-    background: $color-content-tertiary;
+    background: var(--color-content-tertiary);
   }
 }
 

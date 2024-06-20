@@ -148,7 +148,7 @@
 
 
 .color-background-glassy-c {
-  color: $color-background-glassy-c;
+  color: var(--color-background-glassy-c);
 }
 
 .blue {
@@ -160,12 +160,12 @@
 // }
 
 // .green {
-//   color: $color-accent-success;
+//   color: var(--color-accent-success);
 // }
 
 // .b-black-new {
-//   background-color: $color-content-background-secondary !important;
-//   color: $color-content-inverted-primary!important;
+//   background-color: var(--color-content-background-secondary) !important;
+//   color: var(--color-content-inverted-primary)!important;
 //   border-radius: set-calc($border-radius-small);
 // }
 

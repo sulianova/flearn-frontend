@@ -38,17 +38,17 @@
   padding: set-calc(20) set-calc(24);
   gap: set-calc(8);
   border-radius: set-calc(8);
-  background-color: $color-accent-neutral;
+  background-color: var(--color-accent-neutral);
 
   @include font-18-normal-ui;
-  color: $color-content-inverted-primary;
+  color: var(--color-content-inverted-primary);
 
   transition-property: background-color, border-color, box-shadow, color, transform;
   transition-duration: 0.15s;
   transition-timing-function: ease-out;
 
   &:hover {
-    background-color: $color-accent-neutral-hover;
+    background-color: var(--color-accent-neutral-hover);
   }
 
   @include set-media(md) {

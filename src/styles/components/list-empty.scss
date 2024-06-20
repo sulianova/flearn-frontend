@@ -19,7 +19,7 @@
     width: set-calc(294);
     height: set-calc(48);
 
-    color: $color-content-inverted-primary;
+    color: var(--color-content-inverted-primary);
 
     background-color: $primary-color;
     border-radius: set-calc($border-radius-medium);

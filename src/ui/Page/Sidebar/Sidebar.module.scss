@@ -48,12 +48,12 @@
   margin-bottom: set-calc(6);
 
   transition: background-color $d-hover ease-out;
-  background-color: $color-background-glassy-inverted-d;
+  background-color: var(--color-background-glassy-inverted-d);
   backdrop-filter: blur(set-calc($backdrop-filter));
   border-radius: 50%;
 
   &:hover {
-    background-color: $color-content-inverted-primary;
+    background-color: var(--color-content-inverted-primary);
     cursor: pointer;
   }
 
@@ -95,7 +95,7 @@
     height: set-calc(40);
 
     path {
-      fill: $color-content-primary;
+      fill: var(--color-content-primary);
     }
   }
 

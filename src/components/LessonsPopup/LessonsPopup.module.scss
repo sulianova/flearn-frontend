@@ -7,7 +7,7 @@
   justify-content: space-between;
 
 
-  color: $color-content-primary;
+  color: var(--color-content-primary);
 
   padding: set-calc(32);
   width: set-calc(560);
@@ -36,7 +36,7 @@
   padding: set-calc(13);
 
   display: flex;
-  color: $color-content-primary;
+  color: var(--color-content-primary);
 
   cursor: pointer;
 
@@ -61,7 +61,7 @@
 }
 
 .close:hover {
-  background-color: $color-background-glassy-a;
+  background-color: var(--color-background-glassy-a);
 
   @include set-media(md) {
     background-color: transparent;
@@ -70,7 +70,7 @@
 
 .close:active {
   transform: scale(0.96);
-  background-color: $color-background-glassy-b;
+  background-color: var(--color-background-glassy-b);
 
   @include set-media(md) {
     transform: none;
@@ -109,7 +109,7 @@
   align-items: center;
   justify-content: space-between;
   min-height: set-calc(58);
-  color: $color-content-primary;
+  color: var(--color-content-primary);
   border-radius: set-calc(8);
 }
 
@@ -123,11 +123,11 @@
 
 .navigationItem:hover {
   cursor: pointer;
-  background-color: $color-background-glassy-a;
+  background-color: var(--color-background-glassy-a);
 }
 
 .active {
-  background-color: $color-background-glassy-a;
+  background-color: var(--color-background-glassy-a);
 
   &:hover {
     cursor: default;
@@ -138,7 +138,7 @@
   display: inline-flex;
   margin: 0;
   padding: set-calc(8) set-calc(28);
-  color: $color-content-primary;
+  color: var(--color-content-primary);
 
   @include font-18-normal-ui;
 
@@ -176,7 +176,7 @@
 
 .infoItem {
   white-space: nowrap;
-  color: $color-content-primary;
+  color: var(--color-content-primary);
 }
 
 .infoIcon {
@@ -184,7 +184,7 @@
   height: set-calc(24);
   transition: opacity 0.1s;
   opacity: 0;
-  color: $color-content-primary;
+  color: var(--color-content-primary);
 
   svg {
     display: inline-block;

@@ -11,7 +11,7 @@
   justify-content: center;
   align-items: center;
 
-  background: $color-content-tertiary;
+  background: var(--color-content-tertiary);
   border-radius: set-calc(8);
   height: set-calc(320);
 
@@ -22,7 +22,7 @@
   svg {
     width: set-calc(46);
     height: set-calc(58);
-    fill: $color-content-secondary;
+    fill: var(--color-content-secondary);
   }
 }
 
@@ -30,7 +30,7 @@
   padding-top: set-calc(16);
   @include font-14-normal-ui;
   text-align: center;
-  color: $color-content-secondary;
+  color: var(--color-content-secondary);
 }
 
 .preview {
@@ -42,7 +42,7 @@
   margin-bottom: set-calc(10);
   overflow: hidden;
 
-  background: $color-content-tertiary;
+  background: var(--color-content-tertiary);
   border-radius: set-calc(8);
 
 
@@ -65,7 +65,7 @@
 }
 
 .preview svg {
-  fill: $color-content-background-secondary;
+  fill: var(--color-content-background-secondary);
   height: 100%;
 }
 
@@ -82,10 +82,10 @@
   margin-right: set-calc(8);
   overflow: hidden;
 
-  background: $color-content-tertiary;
+  background: var(--color-content-tertiary);
   border-radius: 50%;
 
-  fill: $color-content-background-secondary;
+  fill: var(--color-content-background-secondary);
 }
 
 
