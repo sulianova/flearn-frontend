@@ -186,6 +186,7 @@ const lessonData01: ILessonDataDB = {
     },
     {
       type: 'gallery',
+      maxHeightPx: 3_000,
       images: [
         {
           id: 'AmandaLobos3.webp',
@@ -316,6 +317,7 @@ const lessonData01: ILessonDataDB = {
     },
     {
       type: 'gallery',
+      maxHeightPx: 2_000,
       images: [
         {
           id: 'NickLiefhebber3.webp',

@@ -53,7 +53,7 @@ function LessonWork(props: IProps) {
           }
         }
       />}
-      {Boolean(images.length) && <Article.Gallery data={images} galleryHeightPx={450}/>}
+      {Boolean(images.length) && <Article.Gallery data={images} maxHeightPx={450}/>}
       {Boolean(files.length) && (
         <Article.Factoid data={{
           type: 'factoid',

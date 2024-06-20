@@ -60,6 +60,6 @@ function renderBlock(block: IArticleContent[number]) {
     case 'image':
       return (<Image data={block}/>);
     case 'gallery':
-      return (<Gallery data={block.images}/>);
+      return (<Gallery data={block.images} maxHeightPx={block.maxHeightPx}/>);
   }
 }

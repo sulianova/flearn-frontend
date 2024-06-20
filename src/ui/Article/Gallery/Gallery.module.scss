@@ -11,7 +11,7 @@
 
   gap: set-calc(4);
 
-  max-height: set-calc(2000);
+  max-height: set-calc(var(--gallery-max-height, 2000));
 
   width: set-calc(1568);
   left: set-calc(-434);

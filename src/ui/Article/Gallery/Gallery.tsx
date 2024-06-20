@@ -16,14 +16,14 @@ export default Gallery;
 
 interface IProps {
   data: IArticleGalleryBlock['images']
-  galleryHeightPx?: number
+  maxHeightPx?: number
 }
 
 function Gallery(props: IProps) {
   const [id] = useGuid();
   const [openedImage, setOpenedImage] = useState<{ image: IImage, index: number } | null>(null);
-  const style = props.galleryHeightPx ?
-    { '--gallery-height': props.galleryHeightPx } as React.CSSProperties
+  const style = props.maxHeightPx ?
+    { '--gallery-max-height': props.maxHeightPx } as React.CSSProperties
     : undefined;
 
   return (

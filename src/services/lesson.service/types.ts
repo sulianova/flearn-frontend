@@ -70,11 +70,13 @@ export interface ILessonTitleBlock extends ILessonBlock {
 export interface ILessonGalleryBlockDB extends ILessonBlock {
   type: 'gallery'
   images: Array<{ id: string, alt: string, caption?: TText }>
+  maxHeightPx?: number
 }
 
 export interface ILessonGalleryBlock extends ILessonBlock {
   type: 'gallery'
   images: Array<{ id: string, src: string, alt: string, caption?: TText }>
+  maxHeightPx?: number
 }
 
 export interface ILessonFactoidBlock extends ILessonBlock {
