@@ -25,7 +25,7 @@ export default function UserPopup({ user, close }: IProps) {
         <div className={classes.itemsGroup}>
          <div className={classes.item}>
           <div className={classes.itemTitle}>{user.displayName}</div>
-          <div className={classes.itemSubtitle + ' s-text-16'}>{user.email}</div>
+          <div className={classes.itemSubtitle}>{user.email}</div>
           </div>
         </div>
         <div className={classes.itemsGroup}>
