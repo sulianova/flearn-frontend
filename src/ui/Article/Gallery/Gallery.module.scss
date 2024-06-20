@@ -11,10 +11,11 @@
 
   gap: set-calc(4);
 
+  max-height: set-calc(2000);
+
   width: set-calc(1568);
-  max-height: set-calc(1500);
   left: set-calc(-434);
-  margin: set-calc(40) 0 set-calc(40);
+  margin: set-calc(40) 0 set-calc(100);
 
   @include set-media(md) {
     margin: set-calc(30) 0 set-calc(16);

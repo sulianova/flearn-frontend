@@ -48,7 +48,7 @@
   @include font-16-normal-paragraph;
   color: $color-content-paragraph-primary;
 
-  margin-top: set-calc(16);
+  margin-top: set-calc(8);
 }
 
 .imageCaption > * {
@@ -59,8 +59,43 @@
   width: set-calc(1568);
   left: set-calc(-434);
 
+  align-items: end;
+
+  margin: set-calc(8) 0;
+
+  .imageCaption {
+    text-transform: uppercase;
+
+    position: absolute;
+    bottom: set-calc(16);
+    right: set-calc(16);
+
+    transition: background-color $d-hover ease-out;
+
+    margin-top: 0;
+    padding: set-calc(8) set-calc(12);
+    background-color: $color-palette-white-900-a;
+    border-radius: set-calc($border-radius-30);
+    backdrop-filter: blur(set-calc($backdrop-filter));
+
+    @include set-media(md) {
+      bottom: set-calc(4);
+      right: set-calc(4);
+    }
+
+    &:hover {
+      background-color: $color-palette-white-1000;
+      cursor: pointer;
+
+      a {
+        color: $primary-color;
+      }
+    }
+  }
+
   @include set-media(md) {
-    margin: set-calc(30) 0 set-calc(16);
+    position: relative;
+    margin: set-calc(6) 0;
     width: set-calc(398);
     left: set-calc(-8);
   }

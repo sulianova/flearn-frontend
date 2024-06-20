@@ -205,7 +205,13 @@
   white-space: normal;
   
   @include font-14-normal-ui;
-  color: $color-palette-white-1000;
+
+  a {
+    transition: opacity $d-hover ease-in;
+
+    color: $color-palette-white-1000;
+    opacity: .7;
+  }
 }
 
 .modalCaption > * {
@@ -216,6 +222,7 @@
 .modalCaption:hover {
 
   a {
-    color: $color-palette-white-500-a;
+    opacity: 1;
+    color: $color-palette-white-1000;
   }
 }

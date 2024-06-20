@@ -76,15 +76,6 @@ function Image(props: IProps) {
         {imageData.caption && <div className={classes.imageCaption}><UIText text={imageData.caption}/></div>}
       </div>
 
-      {/* <div className={cx({ modal: true, modalVisible: true})}>
-        <div className={classes.modalContentWrapper}>
-          <div className={cx({ modalContent: true, modalContent_Animation: true})}>
-            <div className={classes.modalClose}><ModalCross/></div>
-            {<UIImage src={imageData.src} alt={imageData.alt}/>}
-            {imageData.caption && <div className={classes.modalCaptionWrapper}><div className={classes.modalCaption + ' s-text-14'}><UIText text={imageData.caption}/></div></div>}
-          </div>
-        </div>
-      </div> */}
       {openedImage && (
         <ImageModal
           variant='IMAGE'

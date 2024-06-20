@@ -129,7 +129,7 @@ const lessonData01: ILessonDataDB = {
           {
             tag: 'a',
             content: 'Laura Díez',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/lauradieze' },
+            props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/lauradieze' },
           }
         ]
       }
@@ -143,7 +143,7 @@ const lessonData01: ILessonDataDB = {
           {
             tag: 'a',
             content: 'Min Heo',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://minstudio.cargo.site/index' },
+            props: { className: 'key-link', target: "_blank", to: 'https://minstudio.cargo.site/index' },
           }
         ]
       }
@@ -157,7 +157,7 @@ const lessonData01: ILessonDataDB = {
           {
             tag: 'a',
             content: 'Ivan Haidutski',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/ivanhaidutski' },
+            props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/ivanhaidutski' },
           }
         ]
       }
@@ -171,7 +171,7 @@ const lessonData01: ILessonDataDB = {
           {
             tag: 'a',
             content: 'Наташа Байдужа',
-            props: { className: 's-hoverable', target: "_blank", to: 'http://bayduzha.com/' },
+            props: { className: 'key-link', target: "_blank", to: 'http://bayduzha.com/' },
           }
         ]
       }
@@ -242,7 +242,235 @@ const lessonData01: ILessonDataDB = {
             }
           ]
         },
+        {
+          id: 'BarboraIdesova2.webp',
+          alt: 'BarboraIdesová2',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Barbora Idesová',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/barboraidesova' },
+            }
+          ]
+        },
+        {
+          id: 'BarboraIdesova3.webp',
+          alt: 'BarboraIdesová3',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Barbora Idesová',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/barboraidesova' },
+            }
+          ]
+        },
+        {
+          id: 'BarboraIdesova4.webp',
+          alt: 'BarboraIdesová4',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Barbora Idesová',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/barboraidesova' },
+            }
+          ]
+        },
+        {
+          id: 'BarboraIdesova5.webp',
+          alt: 'BarboraIdesová5',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Barbora Idesová',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/barboraidesova' },
+            }
+          ]
+        },
+        {
+          id: 'BarboraIdesova6.webp',
+          alt: 'BarboraIdesová6',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Barbora Idesová',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/barboraidesova' },
+            }
+          ]
+        },
+        {
+          id: 'BarboraIdesova7.webp',
+          alt: 'BarboraIdesová7',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Barbora Idesová',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/barboraidesova' },
+            }
+          ]
+        },
       ]
+    },
+    {
+      type: 'title',
+      title: 'Иллюстрации для продуктов',
+    },
+    {
+      type: 'gallery',
+      images: [
+        {
+          id: 'NickLiefhebber3.webp',
+          alt: 'NickLiefhebber3',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Nick Liefhebber',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/Liefhebber' },
+            }
+          ]
+        },
+        {
+          id: 'AmandaLobos1.webp',
+          alt: 'AmandaLobos1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Amanda Lobos',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
+            }
+          ]
+        },
+        {
+          id: 'AmandaLobos2.webp',
+          alt: 'AmandaLobos2',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Amanda Lobos',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
+            }
+          ]
+        },
+        {
+          id: 'AsahiNagata3.webp',
+          alt: 'AsahiNagata3',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Asahi Nagata',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/nagataae6d8' },
+            }
+          ]
+        },
+        {
+          id: 'AsahiNagata5.webp',
+          alt: 'AsahiNagata5',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Asahi Nagata',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/nagataae6d8' },
+            }
+          ]
+        },
+        {
+          id: 'MinHeo2.webp',
+          alt: 'MinHeo2',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Min Heo',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://minstudio.cargo.site/' },
+            }
+          ]
+        },
+        {
+          id: 'dyreborgstudio.webp',
+          alt: 'dyreborgstudio',
+          caption: [
+            {
+              tag: 'a',
+              content: 'INA DYREBORG',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.dyreborgstudio.com/' },
+            }
+          ]
+        },
+        {
+          id: 'okchizh3.webp',
+          alt: 'okchizh3',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Юля Чиж',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://okchizh.art/' },
+            }
+          ]
+        },
+        {
+          id: 'projectswatches1.webp',
+          alt: 'projectswatches1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Projects Watches',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/projectswatches/' },
+            }
+          ]
+        },
+        {
+          id: 'projectswatches2.webp',
+          alt: 'projectswatches2',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Projects Watches',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/projectswatches/' },
+            }
+          ]
+        },
+        {
+          id: 'projectswatches3.webp',
+          alt: 'projectswatches3',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Projects Watches',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/projectswatches/' },
+            }
+          ]
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Иллюстрации для айдентики',
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'bayduzha1.webp',
+        alt: 'bayduzha1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Наташа Байдужа',
+            props: { className: 'key-link', target: "_blank", to: 'http://bayduzha.com/' },
+          }
+        ]
+      }
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'bayduzha4.webp',
+        alt: 'bayduzha4',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Наташа Байдужа',
+            props: { className: 'key-link', target: "_blank", to: 'http://bayduzha.com/' },
+          }
+        ]
+      }
     },
   ]
 }

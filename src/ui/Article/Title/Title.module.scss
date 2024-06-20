@@ -8,7 +8,6 @@
   text-transform: uppercase;
 
   @include set-media(md) {
-    text-transform: unset;
     margin: set-calc(40) 0 set-calc(16);
   }
 }
