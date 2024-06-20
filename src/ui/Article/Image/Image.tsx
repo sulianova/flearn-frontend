@@ -48,7 +48,7 @@ function Image(props: IProps) {
   // }, [imageData.src]);
   return (
     <>
-      <div className={classes.__}>
+      <div className={cx({ __: true, large: true })}>
         <div
           id={id}
           className={classes.image}

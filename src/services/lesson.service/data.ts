@@ -121,53 +121,60 @@ const lessonData01: ILessonDataDB = {
       title: 'Иллюстрации в IT',
     },
     {
-      type: 'gallery',
-      images: [
-        {
-          id: 'LauraDiez.webp',
-          alt: 'LauraDíez',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Laura Díez',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/lauradieze' },
-            }
-          ]
-        },
-        {
-          id: 'MinHeo1.webp',
-          alt: 'MinHeo1',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Min Heo',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://minstudio.cargo.site/index' },
-            }
-          ]
-        },
-        {
-          id: 'IvanHaidutski.webp',
-          alt: 'IvanHaidutski',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Ivan Haidutski',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/ivanhaidutski' },
-            }
-          ]
-        },
-        {
-          id: 'bayduzha5.webp',
-          alt: 'bayduzha5',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Наташа Байдужа',
-              props: { className: 's-hoverable', target: "_blank", to: 'http://bayduzha.com/' },
-            }
-          ]
-        },
-      ]
+      type: 'image',
+      imageData: {
+        id: 'LauraDiez.webp',
+        alt: 'LauraDíez',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Laura Díez',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/lauradieze' },
+          }
+        ]
+      }
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'MinHeo1.webp',
+        alt: 'MinHeo1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Min Heo',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://minstudio.cargo.site/index' },
+          }
+        ]
+      }
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'IvanHaidutski.webp',
+        alt: 'IvanHaidutski',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Ivan Haidutski',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/ivanhaidutski' },
+          }
+        ]
+      }
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'bayduzha5.webp',
+        alt: 'bayduzha5',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Наташа Байдужа',
+            props: { className: 's-hoverable', target: "_blank", to: 'http://bayduzha.com/' },
+          }
+        ]
+      }
     },
     {
       type: 'title',

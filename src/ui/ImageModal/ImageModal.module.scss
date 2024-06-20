@@ -48,7 +48,7 @@
   img {
     position: relative;
     max-width: set-calc(calc(-2 * var(--image-image-min-padding-scaled)), true, 100vw);
-    max-height: set-calc(calc(-2 * var(--image-image-min-padding-scaled)), true, 100vh);
+    max-height: set-calc(calc(-3 * var(--image-image-min-padding-scaled)), true, 100vh);
     touch-action: none;
     pointer-events: none;
     will-change: transform;
@@ -63,7 +63,7 @@
 .modalClose {
   z-index: 1;
   position: absolute;
-  top: set-calc(40);
+  top: set-calc(16);
   right: set-calc(50);
   display: inline-block;
   text-align: center;

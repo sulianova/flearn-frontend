@@ -9,7 +9,6 @@
   justify-content: center;
   width: set-calc(764);
   left: set-calc(-32);
-  overflow: hidden;
   opacity: 1;
   transition: opacity $d-hover ease-in-out;
 
@@ -18,7 +17,7 @@
   @include set-media(md) {
     margin: set-calc(30) 0 set-calc(16);
     width: set-calc(398);
-    left: set-calc(-16);
+    left: set-calc(-8);
   }
 }
 
@@ -29,7 +28,9 @@
 .image {
   position: relative;
 
-  border-radius: set-calc($border-radius-medium);
+  box-shadow: $shadow-medium-default;
+  border-radius: set-calc($border-radius-10);
+  background-color: $color-background-alternate;
   overflow: hidden;
 }
 
@@ -52,4 +53,19 @@
 
 .imageCaption > * {
   @include font-16-normal-paragraph;
+}
+
+.large {
+  width: set-calc(1568);
+  left: set-calc(-434);
+
+  @include set-media(md) {
+    margin: set-calc(30) 0 set-calc(16);
+    width: set-calc(398);
+    left: set-calc(-8);
+  }
+
+  .image img {
+    max-height: unset;
+  }
 }

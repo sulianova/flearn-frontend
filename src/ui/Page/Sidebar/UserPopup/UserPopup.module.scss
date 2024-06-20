@@ -29,11 +29,10 @@
   width: set-calc(250);
   padding: set-calc(8);
 
+  backdrop-filter: blur(set-calc($backdrop-filter));
   border-radius: set-calc($border-radius-10);
   background:  $color-palette-black-500-a;
   border: set-calc(0.5) solid $color-palette-black-300-a;
-
-  backdrop-filter: blur(set-calc($backdrop-filter));
   box-shadow: $shadow-menu;
 
   @include set-media(md) {

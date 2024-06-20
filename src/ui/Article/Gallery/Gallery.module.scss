@@ -14,8 +14,7 @@
   width: set-calc(1568);
   max-height: set-calc(1500);
   left: set-calc(-434);
-  margin: set-calc(40) 0 set-calc(200);
-  overflow: hidden;
+  margin: set-calc(40) 0 set-calc(40);
 
   @include set-media(md) {
     margin: set-calc(30) 0 set-calc(16);
@@ -54,7 +53,7 @@
   height: 100%;
   width: 100%;
   object-fit: contain;
-  background-color: $color-palette-white-1000;
+  background-color: $color-background-alternate;
 }
 
 .overlay {

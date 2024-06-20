@@ -15,7 +15,7 @@ export default ImageModal;
 const MODAL_ANIMATION_DURATION = 200;
 const GALLERY_IMAGE_MAX_WIDTH_VW = 87;
 const GALLERY_IMAGE_MAX_HEIGHT_VH = 93;
-const IMAGE_IMAGE_MIN_PADDING_SCALED = 40;
+const IMAGE_IMAGE_MIN_PADDING_SCALED = 24;
 
 export interface IImage {
   data: {

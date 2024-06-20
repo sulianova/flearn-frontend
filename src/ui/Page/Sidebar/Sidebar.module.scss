@@ -47,9 +47,22 @@
   position: relative;
   margin-bottom: set-calc(6);
 
+  transition: background-color $d-hover ease-out;
   background-color: $color-background-glassy-inverted-d;
   backdrop-filter: blur(set-calc($backdrop-filter));
   border-radius: 50%;
+
+  &:hover {
+    background-color: $color-content-inverted-primary;
+    cursor: pointer;
+  }
+
+  &:active {
+
+    .icon {
+      transform: scale(0.96);
+    }
+  }
 }
 
 .iconWrapper {
@@ -62,23 +75,16 @@
 }
 
 .icon {
-  padding: set-calc(6);
-  border-radius: 50%;
   display: inline-flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
+
+  padding: set-calc(6);
+  border-radius: 50%;
+
   height: 100%;
   width: 100%;
-
-  &:hover {
-    background-color: $color-content-inverted-primary;
-    cursor: pointer;
-  }
-
-  &:active {
-    transform: scale(0.96);
-}
 
   svg {
     display: inline-block;
