@@ -119,11 +119,11 @@ s {
   cursor: pointer;
 
   &:hover {
-    color: $primary-color;
+    color: var(--primary-color);
   }
 
   &:active {
-    color: $primary-color;
+    color: var(--primary-color);
   }
 
   &-text {
@@ -160,17 +160,17 @@ s {
   transition: color $d-hover ease-out 0s;
 
   &:hover {
-    color: $primary-color;
+    color: var(--primary-color);
   }
 }
 
 .key-link {
-  color: $primary-color;
+  color: var(--primary-color);
   transition: color $d-hover ease-out 0s;
   width: fit-content;
 
   &:hover {
-    color: $primary-color-hover;
+    color: var(--primary-color-hover);
   }
 }
 
@@ -180,7 +180,7 @@ s {
   transition: color $d-hover ease-out 0s;
 
   &:hover {
-    color: $primary-color;
+    color: var(--primary-color);
   }
 }
 
@@ -189,11 +189,11 @@ s {
   cursor: pointer;
 
   &:hover {
-    color: $primary-color;
+    color: var(--primary-color);
   }
 
   &:active {
-    color: $primary-color;
+    color: var(--primary-color);
   }
 
   &-text {
@@ -226,5 +226,5 @@ s {
 }
 
 .isActive {
-  color: $primary-color !important;
+  color: var(--primary-color) !important;
 }

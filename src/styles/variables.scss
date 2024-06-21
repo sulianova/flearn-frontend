@@ -72,18 +72,13 @@ $color-palette-blue-600: #4a71d6;
 $color-palette-blue-800: #3f5799;
 
 //primary-color
-$primary-color-lighten: $color-palette-blue-100;
-$primary-color: $color-palette-blue-550;
-$primary-color-hover: $color-palette-blue-600;
+$primary-color-light: $color-palette-blue-550;
+$primary-color-hover-light: $color-palette-blue-600;
 
-//LMS
-$color-profession-lighten: #CDD9FF;
-$color-profession: #6c8eff;
-$color-profession-darken: rgba(97, 127, 229, 1);
-
+$primary-color-dark: #f7235b;
+$primary-color-hover-dark: #bb1441;
 
 //gradient
-$gradient-background-profession: linear-gradient(-45deg, #ece2fc, #e3ebff 28%, rgba(82,130,255,0.5) 100%, #e3ebff 67%, #ccf0d2);
 $gradient-button: linear-gradient(98.34deg, #4a71d6 6.94%, #5282ff 80.88%);
 
 //theme-light
@@ -153,8 +148,8 @@ $color-content-background-primary-dark: $color-palette-black-300;
 $color-content-background-secondary-dark: $color-palette-black-500;
 $color-content-paragraph-primary-dark: $color-palette-black-500;
 $color-content-paragraph-secondary-dark: $color-palette-white-500-a;
-$color-background-btn-dark: $color-palette-blue-600;
-$color-background-btn-hover-dark: $color-palette-blue-550;
+$color-background-btn-dark: $primary-color-dark;
+$color-background-btn-hover-dark: $primary-color-hover-dark;
 
 //links
 $link: var(--color-content-primary);
@@ -191,7 +186,7 @@ $shadow-popup-cross: 0 1px 17px rgba(0, 0, 0, 0.08);
 $shadow-menu: 0 1px 17px rgba(0, 0, 0, 0.04);
 
 //filter
-$backdrop-filter: 10;
+$backdrop-filter: 5;
 
 //border
 $border-radius-small: 6;
@@ -229,6 +224,8 @@ $z-index-500: 500;
 // CSS
 :root {
   // theme light
+  --primary-color-light: #{$primary-color-light};
+  --primary-color-hover-light: #{$primary-color-hover-light};
   --color-accent-error-light: #{$color-accent-error-light};
   --color-accent-notice-light: #{$color-accent-notice-light};
   --color-accent-success-light: #{$color-accent-success-light};
@@ -265,6 +262,8 @@ $z-index-500: 500;
   --color-background-btn-hover-light: #{$color-background-btn-hover-light};
 
   // theme dark
+  --primary-color-dark: #{$primary-color-dark};
+  --primary-color--hover-dark: #{$primary-color-hover-dark};
   --color-accent-error-dark: #{$color-accent-error-dark};
   --color-accent-notice-dark: #{$color-accent-notice-dark};
   --color-accent-success-dark: #{$color-accent-success-dark};

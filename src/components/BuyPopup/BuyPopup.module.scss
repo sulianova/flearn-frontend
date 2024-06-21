@@ -677,7 +677,7 @@
   @include font-18-normal-paragraph;
 
   a {
-    color: $primary-color;
+    color: var(--primary-color);
   }
 
   @include set-media(md) {

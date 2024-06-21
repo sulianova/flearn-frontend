@@ -103,7 +103,7 @@
   
   &:hover {
     cursor: pointer;
-    color: $primary-color;
+    color: var(--primary-color);
   }
 
   svg {
@@ -493,5 +493,5 @@
 }
 
 .isActive {
-  color: $primary-color !important;
+  color: var(--primary-color) !important;
 }

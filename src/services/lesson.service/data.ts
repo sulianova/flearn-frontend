@@ -89,7 +89,7 @@ const lessonData01: ILessonDataDB = {
   id: 'CommercialIllustratorTasks_2Q1wTR',
   courseId: 'how-to-draw',
   title: 'Какие задачи решает иллюстратор',
-  type: 'Theory',
+  type: 'Practice',
   topic: 'Как это — быть иллюстратором',
   topicOrder: 1,
   orderInTopic: 2,
