@@ -1,6 +1,6 @@
 
 
-import { authService } from 'services/auth.service';
+import { authService } from 'services';
 
 import Page, { EPageVariant } from 'ui/Page/Page';
 

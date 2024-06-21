@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import type { Subscription } from 'rxjs';
 
 import { useBehaviourSubjectValue } from 'hooks';
-import { authService } from 'services/auth.service';
+import { authService } from 'services';
 
 import type { default as UserService, IUserData } from '.';
 

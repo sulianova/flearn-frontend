@@ -3,7 +3,7 @@ import { BehaviorSubject, CompletionObserver, ErrorObserver, NextObserver, Subje
 import { dataService } from 'services/data.service';
 
 import type { TActionBS, TActionS } from './types';
-import { authService } from 'services/auth.service';
+import { authService } from 'services';
 import { safeObjectKeys } from 'utils';
 import { lessonService } from 'services/lesson.service';
 import useFirstNotSolvedLesson from './useFirstNotSolvedLesson';

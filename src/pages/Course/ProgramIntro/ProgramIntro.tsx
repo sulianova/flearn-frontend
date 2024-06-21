@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import { formatI18nT, i18n } from 'shared';
-import { authService } from 'services/auth.service';
+import { authService } from 'services';
 import type { ICourseData } from 'services/course.service';
 import { lessonService } from 'services/lesson.service';
 import { URLSections } from 'router';

@@ -4,7 +4,7 @@ import { useParams } from 'react-router';
 
 import { useIsMobile, useURLSection } from 'hooks';
 import { formatI18nT } from 'shared';
-import { authService } from 'services/auth.service';
+import { authService } from 'services';
 import { ICourseData, courseService } from 'services/course.service';
 import { userService } from 'services/user.service';
 import { userCourseProgressService } from 'services/userCourseProgress.service';

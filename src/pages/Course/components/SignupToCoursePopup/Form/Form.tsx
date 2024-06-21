@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import { useCallback, useEffect, useState } from 'react';
 
-import { authService } from 'services/auth.service';
+import { authService } from 'services';
 import { ICourseData } from 'services/course.service';
 import { dataService } from 'services/data.service';
 import { emailService } from 'services/email.service';

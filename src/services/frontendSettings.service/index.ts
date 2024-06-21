@@ -3,7 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 
 import { ECollections } from 'types';
 
-import { authService } from 'services/auth.service';
+import { authService } from 'services';
 import { firebaseService } from 'services/firebase.service';
 import { localStorageService } from 'services/localStorage.service';
 

@@ -1,7 +1,7 @@
 import classnames from 'classnames/bind';
 import { useNavigate } from 'react-router';
 
-import { authService } from 'services/auth.service';
+import { authService } from 'services';
 import { IUserData } from 'services/user.service';
 import { URLSections } from 'router';
 

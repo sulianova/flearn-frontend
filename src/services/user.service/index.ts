@@ -5,7 +5,7 @@ import { dataService } from 'services/data.service';
 import type { TActionBS, TActionS } from './types';
 
 import useAuthedUser from './useAuthUser';
-import { authService } from 'services/auth.service';
+import { authService } from 'services';
 
 export { type IUserData, type IUserDataDB } from './types';
 

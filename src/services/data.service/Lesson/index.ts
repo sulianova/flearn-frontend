@@ -1,4 +1,4 @@
-import { authService } from 'services/auth.service';
+import { authService } from 'services';
 import { TWhereProps, firebaseService } from 'services/firebase.service';
 import type { ILessonData, ILessonDataDB } from 'services/lesson.service';
 
