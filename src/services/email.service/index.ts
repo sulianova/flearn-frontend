@@ -101,54 +101,13 @@ class EmailService {
                         <table width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width:600px">
                           <tbody>
                             <tr>
-                              <td style="background-color:#f5f5f5;padding:26px 20px 26px" bgcolor="#f5f5f5"  align="center">
-                                <table style="max-width:540px;border-spacing:0px" width="100%" border="0" cellspacing="0" cellpadding="0">
-                                  <tbody>
-                                    <tr>
-                                      <td align="left">
-                                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                          <tbody>
-                                            <tr>
-                                              <td syle="font-size:0px;line-height:0px" valign="midle" align="left">
-                                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                                  <tbody>
-                                                    <tr>
-                                                      <td style="width:100%;max-width:280px"></td>
-                                                      <td style="font-size:14px;line-height:16px;width:260px" align="left">
-                                                        <table style="width:260px;border-spacing:0px" width="260" border="0" cellspacing="0" cellpadding="0">
-                                                          <tbody>
-                                                            <tr>
-                                                              <td style="border-radius:100px;background-color:#262626" valign="middle" height="35" align="center" bgcolor="#262626">
-                                                                <a href="#" style="font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:35px;font-weight:normal;white-space:nowrap;text-decoration:none;display:block;text-transform:uppercase" target="_blank">
-                                                                  <span style="color:#ffffffff;text-decoration:none">иллюстрация
-                                                                  </span>
-                                                                </a>
-                                                              </td>
-                                                            </tr>
-                                                          </tbody>
-                                                        </table>
-                                                      </td>
-                                                    </tr>
-                                                  </tbody>
-                                                </table>
-                                              </td>
-                                            </tr>
-                                          </tbody>
-                                        </table>
-                                      </td>
-                                    </tr>
-                                  </tbody>
-                                </table>
-                              </td>
-                            </tr>
-                            <tr>
                               <td style="background-color:#ffffffff;padding:30px 20px 20px;border-top-left-radius:25px;border-top-right-radius:25px" bgcolor="#ffffffff"  align="center">
                                 <table style="max-width:540px;border-spacing:0px" width="100%" border="0" cellspacing="0" cellpadding="0">
                                   <tbody>
                                     <tr>
                                       <td style="font-family:Helvetica,Arial,sans-serif;font-size:32px;line-height:38px;color:#000000" align="left">
                                         <span>Добро пожаловать на  ${courseTypeStr} </span>
-                                        <span style="color:#5282ff">«${course.title}»</span>
+                                        <span style="color:#262626">«${course.title}»</span>
                                       </td>
                                     </tr>
                                   </tbody>
@@ -174,7 +133,7 @@ class EmailService {
                                           → пройдете ключевые этапы работы над иллюстрацией
                                           <br>
                                           <br>
-                                          → нарисуете постер
+                                          → нарисуете обложку к любимой песне
                                           </span>
                                       </td>
                                     </tr>
@@ -188,10 +147,10 @@ class EmailService {
                                   <tbody>
                                     <tr>
                                       <td align="left">
-                                        <table border="0" cellspacing="0" cellpadding="0">
+                                        <table border="0" cellspacing="0" cellpadding="0" width="100%">
                                           <tbody>
                                             <tr>
-                                              <td style="border-radius:6px;background-color:#5282ff" valign="middle" height="52" bgcolor="#5282ff" align="center">
+                                              <td style="border-radius:100px;background-color:#262626" valign="middle" height="60" bgcolor="#262626" align="center" width="100%">
                                                 <a href="${startLink}" style="font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:52px;font-weight:normal;white-space:nowrap;text-decoration:none;display:block;padding:0px 32px;color:#ffffff" target="_blank">
                                                   <span style="color:#ffffffff;text-decoration:none" color="#ffffffff">
                                                     <span style="color:##ffffffff">Начать учиться</span>
@@ -225,7 +184,7 @@ class EmailService {
                                     <tr>
                                       <td style="font-family:Helvetica,Arial,sans-serif;font-size:32px;line-height:38px;color:#000000" align="left">
                                         <span>
-                                          Приглашаем в&nbsp;телеграм-канал flearn
+                                          Присоединяйтесь к нам в Telegram
                                         </span>
                                       </td>
                                     </tr>
@@ -240,13 +199,7 @@ class EmailService {
                                     <tr>
                                       <td style="font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:20px;color:#000000" valign="top" align="left">
                                         <span>
-                                          → Про опыт и личные проекты&nbsp;автора курсов. Часть матетериала мы публикуем только в&nbsp;телеграм-канале
-                                          <br>
-                                          <br>
-                                          → Анонсы и скидки на раннии запуски курсов в flearn
-                                          <br>
-                                          <br>
-                                          → Вдохновение и поддержка для начинающих иллюстраторов
+                                          Там мы рассказываем про анонсы и скидки на ранние запуски курсов в flearn. А также наш преподаватель, Соня Ульянова пишет про свои личные проекты и отвечает на вопросы студентов.
                                         </span>
                                       </td> 
                                     </tr>
@@ -260,10 +213,10 @@ class EmailService {
                                   <tbody>
                                     <tr>
                                       <td align="left">
-                                        <table border="0" cellspacing="0" cellpadding="0">
+                                        <table border="0" cellspacing="0" cellpadding="0" width="100%">
                                           <tbody>
                                             <tr>
-                                              <td style="border-radius:6px;background-color:#262626" valign="middle" height="52" bgcolor="#262626" align="center">
+                                              <td style="border-radius:100px;background-color:#262626" valign="middle" height="60" bgcolor="#262626" align="center">
                                                 <a href="https://t.me/sofiulyanova" style="font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:52px;font-weight:normal;white-space:nowrap;text-decoration:none;display:block;padding:0px 32px;color:#ffffff" target="_blank">
                                                   <span style="color:#ffffffff;text-decoration:none" color="#ffffffff">
                                                     <span style="color:#ffffffff">Присоединиться к телеграм-каналу</span>
@@ -384,3 +337,46 @@ class EmailService {
 export const emailService = new EmailService();
 
 // (window as any).emailService = emailService;
+
+
+// <tr>
+// <td style="background-color:#f5f5f5;padding:26px 20px 26px" bgcolor="#f5f5f5"  align="center">
+//   <table style="max-width:540px;border-spacing:0px" width="100%" border="0" cellspacing="0" cellpadding="0">
+//     <tbody>
+//       <tr>
+//         <td align="left">
+//           <table width="100%" border="0" cellspacing="0" cellpadding="0">
+//             <tbody>
+//               <tr>
+//                 <td syle="font-size:0px;line-height:0px" valign="midle" align="left">
+//                   <table width="100%" border="0" cellspacing="0" cellpadding="0">
+//                     <tbody>
+//                       <tr>
+//                         <td style="width:100%;max-width:280px"></td>
+//                         <td style="font-size:14px;line-height:16px;width:260px" align="left">
+//                           <table style="width:260px;border-spacing:0px" width="260" border="0" cellspacing="0" cellpadding="0">
+//                             <tbody>
+//                               <tr>
+//                                 <td style="border-radius:100px;background-color:#262626" valign="middle" height="35" align="center" bgcolor="#262626">
+//                                   <a href="#" style="font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:35px;font-weight:normal;white-space:nowrap;text-decoration:none;display:block;text-transform:uppercase" target="_blank">
+//                                     <span style="color:#ffffffff;text-decoration:none">иллюстрация
+//                                     </span>
+//                                   </a>
+//                                 </td>
+//                               </tr>
+//                             </tbody>
+//                           </table>
+//                         </td>
+//                       </tr>
+//                     </tbody>
+//                   </table>
+//                 </td>
+//               </tr>
+//             </tbody>
+//           </table>
+//         </td>
+//       </tr>
+//     </tbody>
+//   </table>
+// </td>
+// </tr>

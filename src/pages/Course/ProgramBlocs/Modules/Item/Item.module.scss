@@ -123,14 +123,6 @@
   }
 }
 
-.item:first-child {
-  pointer-events: none;
-
-  @include set-media(md) {
-    pointer-events: unset;
-  }
-}
-
 .bullet {
   display: flex;
   justify-content: center;
@@ -270,11 +262,37 @@
 }
 
 .item:first-child {
+    pointer-events: none;
+  
   .itemCard {
     background-color: $color-promo-highlight-silver;
   }
 
+  .meta {
+    color: $color-palette-black-900;
+  }
+
+  .title {
+    color: $color-palette-black-900;
+  }
+
+  .description {
+    color: $color-palette-black-700;
+  }
+
+  .additionalInfo {
+    color: $color-palette-black-900;
+
+    [data-subsection] {
+      color: $color-palette-black-700;
+    }
+  }
+
   .bullet {display: none;}
+
+  @include set-media(md) {
+    pointer-events: unset;
+  }
 }
 
 .badge {

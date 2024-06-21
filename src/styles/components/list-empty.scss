@@ -21,7 +21,7 @@
 
     color: var(--color-content-inverted-primary);
 
-    background-color: $primary-color;
+    background-color: var(--primary-color);
     border-radius: set-calc($border-radius-medium);
   }
 }

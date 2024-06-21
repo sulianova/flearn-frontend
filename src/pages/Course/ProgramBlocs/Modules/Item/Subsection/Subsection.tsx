@@ -36,7 +36,7 @@ function Subsection({ subsection: { subsectionTitle, subsectionText }, initially
         </div>
       </h3>
       <div className={cx({ subsectionSlideDown: true, subsectionClosed: !opened && isMobile })}>
-        <div className={classes.subsectionDescription}>{subsectionText && <Text text={subsectionText}/>}</div>
+        <div data-subsection className={classes.subsectionDescription}>{subsectionText && <Text text={subsectionText}/>}</div>
       </div>
     </div>
   );

@@ -154,7 +154,7 @@
     height: set-calc(24);
 
     &:hover {
-      fill: $primary-color;
+      fill: var(--primary-color);
     }
 
     @include set-media(md) {

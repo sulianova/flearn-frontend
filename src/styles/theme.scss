@@ -1,5 +1,7 @@
 
 body.light {
+  --primary-color: var(--primary-color-light);
+  --primary-color-hover: var(--primary-color-hover-light);
   --color-accent-error: var(--color-accent-error-light);
   --color-accent-notice: var(--color-accent-notice-light);
   --color-accent-success: var(--color-accent-success-light);
@@ -37,6 +39,8 @@ body.light {
 }
 
 body.dark {
+  --primary-color: var(--primary-color-dark);
+  --primary-color--hover: var(--primary-color-hover-dark);
   --color-accent-error: var(--color-accent-error-dark);
   --color-accent-notice: var(--color-accent-notice-dark);
   --color-accent-success: var(--color-accent-success-dark);
