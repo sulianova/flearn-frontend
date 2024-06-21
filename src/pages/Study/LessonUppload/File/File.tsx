@@ -4,6 +4,7 @@ import { useCallback, useState } from 'react';
 
 
 import { dataService } from 'services';
+import { IHomeworkImageData } from 'services/homework.service';
 import { getFileExtension, isImage } from 'utils';
 
 import Icon from 'ui/Icon/Icon';
@@ -13,7 +14,6 @@ import Img from 'ui/Img/Img';
 import classes from './File.module.scss';
 
 import type { TImageDataWState, TLoadingState } from '../types';
-import type { IHomeworkImageData } from 'types';
 
 export default File;
 

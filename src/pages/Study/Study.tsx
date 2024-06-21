@@ -1,30 +1,28 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 
-import { userService } from 'services/user.service';
 
-import classes from './Study.module.scss';
-import Page, { EPageVariant } from 'ui/Page/Page';
-import LessonContent from './LessonContent/LessonContent';
-import LessonUppload from './LessonUppload/LessonUppload';
-import LessonWorks from './LessonWorks/LessonWorks';
-import LessonHeader from './LessonHeader/LessonHeader';
-
-import useCanShowResults from './useCanShowResults';
-import useFetchHomework from './useFetchHomework';
-import useHomeworkFallback from './useHomeworkFallback';
-import useInitHomework from './useInitHomework';
-import useLessonFallback from './useLessonFallback';
-
-import { ECommonErrorTypes } from 'types';
 import { ILessonData, TLessonState, lessonService } from 'services/lesson.service';
 import { authService, dataService } from 'services';
-import Fallback from 'ui/Fallback';
+import { homeworkService } from 'services/homework.service';
+import { userService } from 'services/user.service';
 import { emailService } from 'services/email.service';
 import { courseService } from 'services/course.service';
 
+import Fallback from 'ui/Fallback';
+import Page, { EPageVariant } from 'ui/Page/Page';
+
+import { ECommonErrorTypes } from 'types';
+
+import classes from './Study.module.scss';
+import LessonContent from './LessonContent/LessonContent';
+import LessonUppload from './LessonUppload/LessonUppload';
+// import LessonWorks from './LessonWorks/LessonWorks';
+import LessonHeader from './LessonHeader/LessonHeader';
+import useLessonFallback from './useLessonFallback';
+
 interface IProps {
-  section: 'task' | 'results' | 'my-work'
+  section: 'task' | 'results'
 }
 
 export default function LessonContainer(props: IProps) {
@@ -64,18 +62,13 @@ export default function LessonContainer(props: IProps) {
 
 function Lesson({ section }: IProps) {
   const { courseId, lessonId } = useParams();
-  const [scrollToUpload, setScrollToUpload] = useState<boolean>(false);
 
   const authedUser = userService.useAuthedUser();
   const authedUserId = authedUser?.id;
+  const homework = homeworkService.useHomeworks({ filter: { courseId: courseId!, lessonId: lessonId, userId: authedUserId }}).at(0);
   const [lessonState, setLessonState] = useState<{ state: TLessonState, lesson: ILessonData | null }>({ state: { type: 'pending' }, lesson: null });
 
-  useInitHomework({ courseId, lessonId, userId: authedUserId, lesson: lessonState.lesson });
-  const { homework, homeworkState } = useFetchHomework({ courseId, lessonId, userId: authedUserId });
-
   const fallback = useLessonFallback({ lessonState, authedUser });
-  const homeworkFallback = useHomeworkFallback(homeworkState);
-  const { canShowResults, fallBack: resultsFallback } = useCanShowResults({ courseId, lessonId, lesson: lessonState.lesson });
   const [lessonsState, setLessonsState] = useState<{ state: TLessonState, lessons: ILessonData[] }>({ state: { type: 'pending' }, lessons: [] });
 
   useEffect(() => {
@@ -139,14 +132,6 @@ function Lesson({ section }: IProps) {
     return fallback;
   }
 
-  if (lessonState.lesson.type === 'Practice' && !homework) {
-    return homeworkFallback;
-  }
-
-  if (section === 'results' && !canShowResults) {
-    return resultsFallback;
-  }
-
   return (
     <Page
       variant={EPageVariant.LMS}
@@ -156,27 +141,26 @@ function Lesson({ section }: IProps) {
       scrollToTopDependencie={lessonId}
     >
       <div className={classes.__}>
-        {/* <LessonHeader
-          lesson={lessonState.lesson}
-          section={section}
-        /> */}
+        {lessonState.lesson.type === 'Practice' && (
+          <LessonHeader
+            section={section}
+          />
+        )}
         {section === 'task' &&
           (<LessonContent
             courseId={courseId!}
             lessonId={lessonId!}
             lesson={lessonState.lesson}
             user={authedUser}
-            homework={homework}
-            scrollToUpload={() => setScrollToUpload(true)}
-            canShowResults={canShowResults}
           />)
         }
-        {section === 'task' && homework?.homework?.state === 'DRAFT' &&
+        {section === 'results' &&
           <LessonUppload
-            homeworkWPopulate={homework}
+            homework={homework}
+            user={authedUser}
           />
         }
-        {section === 'results' && canShowResults && <LessonWorks/>}
+        {/* {section === 'results' && canShowResults && <LessonWorks/>} */}
       </div>
     </Page>
   );

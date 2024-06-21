@@ -1,11 +1,10 @@
 import { useCallback, useMemo } from 'react';
 import { NavigateFunction, useLocation, useNavigate } from 'react-router-dom';
-import { THomeworkState } from 'types';
 
 interface IFilter {
   userId: string | null
   limit: number | null
-  homeworkState: THomeworkState | null
+  homeworkState: string | null
 }
 
 export default function useFilter() {
@@ -26,7 +25,7 @@ function getFilterFromURL(search: string): IFilter {
   return {
     userId: params.get('userId'),
     limit: params.has('limit') ? +params.get('limit')! : null,
-    homeworkState: params.get('homeworkState') as THomeworkState | null,
+    homeworkState: params.get('homeworkState') as string | null,
   };
 }
 

@@ -2,8 +2,9 @@ import { v4 } from 'uuid';
 
 import { firebaseService } from 'services/firebase.service';
 
-import { ECollections, IHomeworkDataDB, type IHomeworkData, ECommonErrorTypes } from 'types';
+import { ECollections, ECommonErrorTypes } from 'types';
 import { homeworkConverter } from './homeworkConverter';
+import type { IHomeworkData, IHomeworkDataDB } from 'services/homework.service';
 
 interface IHomeworksFilter extends
   Partial<Pick<IHomeworkData, 'id'| 'lessonId' | 'userId' | 'state'>> {

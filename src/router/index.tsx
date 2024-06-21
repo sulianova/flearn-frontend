@@ -25,7 +25,6 @@ export default function MyRouter() {
           <Route path={URLSections.Profile.index} element={<Profile />} />
           <Route path={URLSections.Study.index} element={<Study section='task'/>} />
           <Route path={URLSections.Study.Results.index} element={<Study section='results'/>} />
-          <Route path={URLSections.Study.Results.index} element={<Study section='my-work'/>} />
         </Route>
         <Route path={URLSections.Static.Oferta.index} element={<Oferta />}/>
         <Route path={URLSections.Static.Policy.index} element={<Policy />}/>

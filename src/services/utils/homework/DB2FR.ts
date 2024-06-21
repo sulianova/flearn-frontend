@@ -1,5 +1,6 @@
 import { dataService } from 'services/data.service';
-import type { ArgumentTypes, IHomeworkData, IHomeworkDataDB, IHomeworkImageData, IHomeworkImageDataDB } from 'types';
+import type { IHomeworkData, IHomeworkDataDB } from 'services/homework.service';
+import type { ArgumentTypes } from 'types';
 
 export async function homeworkDataDB2FR(homeworkDB: IHomeworkDataDB): Promise<IHomeworkData> {
   const { courseId, lessonId, userId } = homeworkDB;

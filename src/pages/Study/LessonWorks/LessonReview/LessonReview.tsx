@@ -1,26 +1,27 @@
-import { formatI18nT } from 'shared';
+// import { formatI18nT } from 'shared';
 
-import Article from 'ui/Article/Article';
+// import Article from 'ui/Article/Article';
 
-import classes from './LessonReview.module.scss';
+// import classes from './LessonReview.module.scss';
+// import { IHomeworkDataWPopulate } from 'services/homework.service';
 
-import type { IHomeworkDataWPopulate } from 'types';
+// export default LessonReview;
 
-export default LessonReview;
+// interface IProps {
+//   homework: IHomeworkDataWPopulate
+// }
 
-interface IProps {
-  homework: IHomeworkDataWPopulate
-}
+// const t = formatI18nT('courseLesson.review');
 
-const t = formatI18nT('courseLesson.review');
+// function LessonReview(props: IProps) {
+//   const homework = props.homework.homework;
 
-function LessonReview(props: IProps) {
-  const homework = props.homework.homework;
+//   return (
+//     <div className={classes._}>
+//       <Article.Title data={{ type: 'title', title: t('title') }}/>
+//       {homework.review?.length && <Article blocks={homework.review}/>}
+//     </div>
+//   );
+// }
 
-  return (
-    <div className={classes._}>
-      <Article.Title data={{ type: 'title', title: t('title') }}/>
-      {homework.review?.length && <Article blocks={homework.review}/>}
-    </div>
-  );
-}
+export default () => null;

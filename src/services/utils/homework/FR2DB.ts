@@ -1,6 +1,6 @@
 import { removeImageSrc } from '../shared';
 
-import type { IHomeworkData, IHomeworkDataDB } from 'types';
+import type { IHomeworkData, IHomeworkDataDB } from 'services/homework.service';
 
 export function homeworkDataFR2DB(homeworkDB: IHomeworkData): IHomeworkDataDB {
   return {

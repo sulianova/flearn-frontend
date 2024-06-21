@@ -1,4 +1,4 @@
-import { IHomeworkImageData, THomeworkState } from 'types';
+import type { IHomeworkImageData, THomeworkState } from 'services/homework.service';
 
 export type TAction =
   | {
