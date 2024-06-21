@@ -1,8 +1,8 @@
 @import 'styles/index';
 
 ._ {
-  width: set-calc(700);
   position: relative;
+  width: set-calc(700);
 
   @include set-media(md) {
     width: 100%;
@@ -27,7 +27,7 @@
 
   @include set-media(md) {
     width: set-calc(398);
-    left: set-calc(-16);
+    left: set-calc(-8);
     padding: set-calc(24) set-calc(16);
   }
 }

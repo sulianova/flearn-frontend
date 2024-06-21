@@ -3,8 +3,8 @@
 .trainerContent {
   position: relative;
   display: flex;
-  min-height: set-calc(400);
   min-width: 0;
+  min-height: 100vh;
 }
 
 ._ {
@@ -16,7 +16,7 @@
   height: -moz-max-content;
   height: max-content;
   min-height: 100vh;
-  justify-content: space-between;
+  justify-content: start;
 }
 
 .theoryPage {
