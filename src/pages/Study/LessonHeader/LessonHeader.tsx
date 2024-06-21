@@ -36,7 +36,7 @@ function LessonHeader(props: IProps) {
       </Link>
       <Link
         className={cx({ tabItem: true, active: section === 'results' })}
-        to={URLSections.Study.Results.to({ courseId, lessonId, params: { limit: 4 } })}
+        to={URLSections.Study.Results.to({ courseId, lessonId })}
       >
         {t('navTabsResults')}
       </Link>

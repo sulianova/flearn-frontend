@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 
 import { type IHomeworkData, homeworkService } from 'services/homework.service';
@@ -7,10 +7,12 @@ import { type IUserData } from 'services/user.service';
 import { formatI18nT } from 'shared';
 
 import Icon from 'ui/Icon/Icon';
+import Link from 'ui/Link/Link';
 import Spinner from 'ui/Spinner/Spinner';
 
 import Input from './Input/Input';
 import classes from './LessonUppload.module.scss';
+import { isLink } from 'utils';
 
 export default LessonUppload;
 
@@ -27,41 +29,52 @@ function LessonUppload({ user, homework }: IProps) {
   const [isPending, setIsPending] = useState(false);
   const [externalHomeworkLink, setExternalHomeworkLink] = useState(homework?.externalHomeworkLink ?? '');
 
+  useEffect(() => {
+    setExternalHomeworkLink(homework?.externalHomeworkLink ?? '');
+  }, [homework?.externalHomeworkLink])
+
   return (
     <div className={classes._}>
       <div className={classes.wrapper}>
-        <div className={classes.title}>{t('fieldsTitle')}</div>
-        {/* <div className={classes.title}>Ccылка на ваше задание</div> */}
-        {/* <Link 
-          to={'https://www.behance.net/sofiulianova'}
-          target='_blank'
-          className={classes.link + ' key-link'}
-        >
-          https://www.behance.net/sofiulianova
-        </Link> */}
-        <div className={classes.linkForm}>
-          <Input
-            value={externalHomeworkLink}
-            onChange={setExternalHomeworkLink}
-          />
-          <div className={classes.submit}>
-            <button
-              onClick={() => {
-                setIsPending(true);
-                homeworkService.createHomework({
-                  userId: user!.id,
-                  courseId: courseId!,
-                  lessonId: lessonId!,
-                  externalHomeworkLink,
-                })
-                .finally(() => setIsPending(false))
-              }}
-              className={cx({ submitBtn: true, isDisabled: false })}
+        {(homework?.state === 'SENT_FOR_REVIEW' || homework?.state === 'REVIEWED') ? (
+          <>
+            <div className={classes.title}>Ccылка на ваше задание</div>
+            <Link 
+              to={homework.externalHomeworkLink}
+              target='_blank'
+              className={classes.link + ' key-link'}
             >
-              {isPending ? <Spinner/> : t('submitBtn')}
-            </button>
-          </div>
-        </div>
+              {homework.externalHomeworkLink}
+            </Link>
+          </>
+        ) : (
+          <>
+            <div className={classes.title}>{t('fieldsTitle')}</div>
+            <div className={classes.linkForm}>
+              <Input
+                value={externalHomeworkLink}
+                onChange={setExternalHomeworkLink}
+              />
+              <div className={classes.submit}>
+                <button
+                  onClick={() => {
+                    setIsPending(true);
+                    homeworkService.createHomework({
+                      userId: user!.id,
+                      courseId: courseId!,
+                      lessonId: lessonId!,
+                      externalHomeworkLink,
+                    })
+                    .finally(() => setIsPending(false))
+                  }}
+                  className={cx({ submitBtn: true, isDisabled: !isLink(externalHomeworkLink) })}
+                >
+                  {isPending ? <Spinner/> : t('submitBtn')}
+                </button>
+              </div>
+            </div>
+          </>
+        )}
         <div className={classes.statusProgress}>
           <div className={cx({ statusProgressStep: true, active: true })}>
             <div className={classes.statusProgressStepLine}></div>

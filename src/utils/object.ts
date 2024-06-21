@@ -47,3 +47,12 @@ export function isSamePayload(payload1: IPayload, payload2: IPayload): boolean {
 
   return false;
 }
+
+export function isLink(link: string) {
+  try {
+    new URL(link);
+    return true;
+  } catch (_e) {
+    return false;
+  }
+}
