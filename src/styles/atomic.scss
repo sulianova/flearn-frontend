@@ -154,3 +154,15 @@
 .blue {
   color: var(--primary-color);
 }
+
+.isMobile {
+  @include set-media-min(md) {
+    display: none;
+  }
+}
+
+.isDesktop {
+  @include set-media(md) {
+    display: none!important;
+  }
+}

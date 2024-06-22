@@ -33,6 +33,12 @@
   }
 }
 
+@mixin set-media-min($type) {
+  @media (min-width: map-get($breakpoints, $type)) {
+    @content;
+  }
+}
+
 @mixin add-scale {
   :root {
      --scale: 100vw/1600;

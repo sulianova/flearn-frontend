@@ -1,3 +1,5 @@
+import { ArgumentArray } from 'classnames';
+
 import classNames from 'classnames/bind';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
@@ -76,19 +78,25 @@ function LessonUppload({ user, homework }: IProps) {
           </>
         )}
         <div className={classes.statusProgress}>
-          <div className={cx({ statusProgressStep: true, active: true })}>
+          <div className={cx({ statusProgressStep: true, active: !homework || homework?.state === 'DRAFT' })}>
             <div className={classes.statusProgressStepLine}></div>
             <div className={classes.statusProgressStepContent}>
-              <div className={classes.statusProgressStepContentLabel}>Отправка задания</div>
+              <div className={classes.statusProgressStepContentLabel}>
+                <span className='isDesktop'>Отправка задания</span>
+                <span className='isMobile'>1</span>
+              </div>
             </div>
             <div className={classes.progressStepArrow}>
               <Icon icon='ProgressStepArrow'/>
             </div>
           </div>
-          <div className={cx({ statusProgressStep: true, active: homework?.state === 'SENT_FOR_REVIEW' || homework?.state === 'REVIEWED' })}>
+          <div className={cx({ statusProgressStep: true, active: homework?.state === 'SENT_FOR_REVIEW' })}>
             <div className={classes.statusProgressStepLine}></div>
             <div className={classes.statusProgressStepContent}>
-              <div className={classes.statusProgressStepContentLabel}>Проверка</div>
+              <div className={classes.statusProgressStepContentLabel}>
+                <span className='isDesktop'>Проверка</span>
+                <span className='isMobile'>2</span>
+              </div>
             </div>
             <div className={classes.progressStepArrow}>
               <Icon icon='ProgressStepArrow'/>
