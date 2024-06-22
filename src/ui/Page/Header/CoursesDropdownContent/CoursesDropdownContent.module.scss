@@ -88,10 +88,10 @@
   @include font-18-normal-ui;
 
   &:hover {
-    background-color: var(--color-background-glassy-b);
+    background-color: var(--color-background-glassy-c);
   }
 }
 
 .active {
-  background-color: var(--color-background-glassy-a);
+  background-color: var(--color-background-glassy-b);
 }

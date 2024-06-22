@@ -3,8 +3,10 @@
 .paymentWrapper {
   display: flex;
   gap: set-calc($s-gap);
-  padding: set-calc(24) 0 0;
   justify-content: center;
+  flex-grow: 1;
+
+  padding: set-calc(24) 0 0;
 
   @include set-media(md) {
     position: relative;
@@ -13,7 +15,7 @@
 
     width: set-calc(390);
     left: set-calc(12);
-    padding: set-calc(48) 0 set-calc(16);
+    padding: set-calc(32) 0 set-calc(16);
 
     scrollbar-width: none;
     overflow-y: hidden;
@@ -31,7 +33,7 @@
   flex-direction: column;
   justify-content: space-between;
 
-  width: 35%;
+  width: 40%;
   padding: set-calc(24);
   border-radius: set-calc($border-radius-large);
   background-color: var(--color-content-inverted-secondary);
@@ -41,7 +43,6 @@
   @include set-media(md) {
     border-radius: set-calc($border-radius-medium);
     padding: set-calc(16);
-    min-height: 85vh;
 
     width: 100%;
   }
@@ -143,33 +144,72 @@
 
   word-break: break-word;
   @include font-18-normal-ui;
-  color: var(--color-content-secondary);
+  color: var(--color-content-tertiary);
 
   @include set-media(md) {
     margin-bottom: set-calc(16);
   }
 }
 
-.credit {
-  padding-top: set-calc(32);
-  margin-bottom: set-calc(24);
-  flex-direction: row-reverse;
-  align-items: flex-end;
-  align-self: flex-start;
+.creditPrice {
+  position: relative;
+  @include font-36-normal-header;
 
-  display: flex;
-  flex: 1;
+  display: inline-block;
+  margin-right: set-calc(16);
+  color: var(--color-content-primary);
 
-  s {
-    position: relative;
+  @include set-media(md) {
+    @include font-56-normal-header;
   }
+}
+
+.paymentSummary {
+  display: flex;
+  gap: 0.25em 1em;
+
+  margin-top: set-calc(16);
+}
+
+.paymentSummary > :last-child {
+  margin: 0 0 0 auto;
+  text-align: end;
+}
+
+.paymentSummaryTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: set-calc(4);
+  margin-top: set-calc(4);
+}
+
+.paymentSummaryTag {
+  display: inline-block;
+  padding: set-calc(4);
+
+  background: var(--color-background-alternate);
+  border-radius: set-calc($border-radius-4);
+  color: var(--color-content-primary);
+
+  @include font-14-normal-ui;
+  text-align: start;
+}
+
+.paymentSummaryCreditWas {
+  display: block;
+  padding-block: set-calc(4);
+
+  color: var(--color-content-tertiary);
+  @include font-14-normal-ui;
+  margin-top: set-calc(4);
+  white-space: nowrap;
 
   s:after {
     margin-top: 0;
     border-bottom: set-calc(1.5) solid var(--color-content-tertiary);
     content: "";
-    left: set-calc(-2);
     position: absolute;
+    left: set-calc(-2);
     right: set-calc(-2);
     top: 50%;
 
@@ -179,73 +219,8 @@
   }
 }
 
-.discount {
-  position: absolute;
-  top: set-calc(-28);
-  right: set-calc(-50);
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: set-calc(8) set-calc(16);
-
-  @include font-14-normal-ui;
-  letter-spacing: 0;
-
-  background: var(--color-background-glassy-b);
-  border-radius: set-calc($border-radius-large);
-  -webkit-text-stroke: 0;
-
-
-  @include set-media(md) {
-    right: set-calc(-56);
-    top: set-calc(-34);
-  }
-}
-
-.creditWasWrapper {
-  margin-bottom: set-calc(6);
-
-  @include set-media(md) {
-    margin-bottom: set-calc(2);
-  }
-}
-
-.creditWas {
-  width: max-content;
-  letter-spacing: -0.05rem;
-  color: var(--color-content-tertiary);
-  @include font-32-normal-header;
-
-  @include set-media(md) {
-    @include font-24-normal-ui;
-  }
-}
-  
-  .creditPrice {
-    position: relative;
-    @include font-56-normal-ui;
-  
-    display: inline-block;
-    letter-spacing: -0.2rem;
-    margin-right: set-calc(16);
-    color: var(--color-content-primary);
-  }
-
-.optionDescription {
-  padding: set-calc(24) set-calc(8) set-calc(80);
-  @include font-18-normal-paragraph;
-
-  a {
-    color: var(--primary-color);
-  }
-
-  @include set-media(md) {
-    padding: set-calc(16) set-calc(8) set-calc(60);
-  }
-}
-
 .paymentOptions {
+  margin-top: set-calc(80);
   margin-bottom: set-calc(24);
 
   @include set-media(md) {
@@ -253,11 +228,24 @@
   }
 }
 
+.optionDescription {
+  padding: set-calc(8) set-calc(8) 0;
+  @include font-14-normal-ui;
+
+  a {
+    color: var(--primary-color);
+  }
+
+  @include set-media(md) {
+    padding: set-calc(16) set-calc(8) 0;
+  }
+}
+
 .groupToggleOptions {
   display: flex;
   padding: set-calc(4);
   border-radius: set-calc($border-radius-large);
-  background-color: var(--color-background-glassy-b);
+  background-color: var(--color-background-glassy-a);
   backdrop-filter: blur(set-calc($backdrop-filter));
 }
 
@@ -280,7 +268,7 @@
 }
 
 .checked {
-  background-color: var(--primary-color);
-  color: $color-palette-white-1000;
+  background-color: var(--color-content-inverted-primary);
+  color: var(--color-content-primary);
   cursor: default;
 }

@@ -15,7 +15,7 @@
   flex-direction: column;
 
   @include set-media(md) {
-    border-radius: set-calc($border-radius-10);
+    border-radius: set-calc($border-radius-medium);
     position: relative;
 
     display: flex;
@@ -52,23 +52,23 @@
 
 .itemQuestionPlus {
   display: flex;
-  width: set-calc(20);
-  height: set-calc(20);
-  min-width: set-calc(20);
 
+  padding: set-calc(8);
+  background-color: var(--color-background-glassy-c);
+  border-radius: 50%;
+
+  transition: background-color $d-hover ease-in;
 
   svg {
+    width: set-calc(20);
+    height: set-calc(20);
+
     stroke-width: set-calc(2);
-    stroke:  var(--color-content-paragraph-secondary);
-  }
+    stroke:  var(--color-content-inverted-primary);
 
-  @include set-media(md) {
-    width: set-calc(16);
-    height: set-calc(16);
-
-    svg {
-      stroke-width: set-calc(2.5);
-      stroke: var(--color-content-paragraph-secondary);
+    @include set-media(md) {
+      width: set-calc(16);
+      height: set-calc(16);
     }
   }
 }
@@ -85,7 +85,7 @@
 
 .itemAnswerText {
   margin-right: set-calc(48);
-  @include font-21-normal-paragraph;
+  @include font-18-normal-paragraph;
   color: var(--color-content-paragraph-secondary);
 
   @include set-media(md) {

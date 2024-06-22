@@ -87,7 +87,7 @@
 }
 
 .header {
-  margin: 0 set-calc(28);
+  margin: 0 set-calc(16);
   max-width: set-calc(700);
 
   @include set-media(md) {
@@ -96,11 +96,11 @@
 }
 
 .title {
-  margin: set-calc(50) 0 set-calc(20);
+  margin: 0 0 set-calc(20);
   @include font-36-normal-header;
 
   @include set-media(md) {
-    margin: set-calc(80) 0 set-calc(14);
+    margin: set-calc(16) 0 set-calc(16);
   }
 }
 
@@ -137,7 +137,7 @@
 .navigationItemTitle {
   display: inline-flex;
   margin: 0;
-  padding: set-calc(8) set-calc(28);
+  padding: set-calc(8) set-calc(16);
   color: var(--color-content-primary);
 
   @include font-18-normal-ui;

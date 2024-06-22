@@ -29,6 +29,29 @@ export default function Payment(props: IProps & { chosenProductOptionType: keyof
           <h1 
             className={classes.title}>Оплата курса «Композиция: как выделить главное»
           </h1>
+          <div className={classes.credit}>
+            {/* <div className={classes.creditWasWrapper}><s className={classes.creditWas}>{formatCourseCredit(creditWas, currencySign)}</s></div> */}
+            <div className={classes.creditPrice}>
+              {formatCourseCredit(creditPrice, currencySign)}
+              {/* <span className={classes.discount}>{formatCourseDiscount(discount ?? 0)}</span> */}
+            </div>
+          </div>
+          <dl className={classes.paymentSummary}>
+            <dt>
+              <span>За весь курс</span>
+              <div className={classes.paymentSummaryTags}>
+                <span className={classes.paymentSummaryTag}>−5% по промокоду</span>
+              </div>
+            </dt>
+            <dt>
+              {formatCourseCredit(creditPrice, currencySign)}
+              <div className={classes.paymentSummaryCreditWas}>
+                <s>{formatCourseCredit(creditWas)} &#8381;</s>
+              </div>
+            </dt>
+          </dl>
+        </div>
+        <div className={classes.bottom}>
           <div className={classes.paymentOptions}>
             <div className={classes.groupToggleOptions}>
               <div className={classes.groupToggleOption} onClick={() => setPaymentOption('CARD_RU')}>
@@ -48,15 +71,6 @@ export default function Payment(props: IProps & { chosenProductOptionType: keyof
                 Через Paypal на аккаунт <Link to={"http://paypal.me/sofiulyanova"} target='_blank'>paypal.me/sofiulyanova</Link> (Ulianova Sofiia)
               </div>
             )}
-          </div>
-        </div>
-        <div className={classes.bottom}>
-          <div className={classes.credit}>
-            <div className={classes.creditWasWrapper}><s className={classes.creditWas}>{formatCourseCredit(creditWas, currencySign)}</s></div>
-            <div className={classes.creditPrice}>
-              {formatCourseCredit(creditPrice, currencySign)}
-              <span className={classes.discount}>{formatCourseDiscount(discount ?? 0)}</span>
-            </div>
           </div>
           <div className={classes.paymentCheck}>
             <Checkbox value={isPayed} onChange={() => setIsPayed(!isPayed)}>Перевод отправил, готов учиться!</Checkbox>

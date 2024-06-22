@@ -265,7 +265,8 @@
     pointer-events: none;
   
   .itemCard {
-    background-color: $color-promo-highlight-silver;
+    background-color: $color-palette-blue-100;
+    border-color: $color-palette-blue-200;
   }
 
   .meta {
@@ -301,7 +302,7 @@
   align-items: center;
   gap: set-calc(4);
 
-  color: var(--color-accent-promo);
+  color: var(--primary-color);
   @include font-21-normal-ui;
 
   svg {
