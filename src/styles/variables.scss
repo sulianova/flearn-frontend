@@ -57,31 +57,29 @@ $color-promo-highlight-neon: #ece2fc;
 $color-promo-highlight-green: #21d49e;
 
 //color-palette-blue-a
-$color-palette-blue-50-a: rgba(82,130,255,0.1);
-$color-palette-blue-100-a: rgba(82,130,255,0.16);
-$color-palette-blue-300-a: rgba(82,130,255,0.5);
-$color-palette-blue-450-a: rgba(82,130,255,0.75);
-$color-palette-blue-500-a: rgba(82,130,255,0.9);
+$color-palette-blue-50-a: rgba(0, 87, 255,0.1);
+$color-palette-blue-100-a: rgba(0, 87, 255,0.16);
+$color-palette-blue-300-a: rgba(0, 87, 255,0.5);
+$color-palette-blue-450-a: rgba(0, 87, 255,0.75);
+$color-palette-blue-500-a: rgba(0, 87, 255,0.9);
 
 //color-palette-blue
-$color-palette-blue-50: #eef3ff;
-$color-palette-blue-100: #e3ebff;
-$color-palette-blue-450: #7da1ff;
-$color-palette-blue-550: #5282ff;
-$color-palette-blue-600: #4a71d6;
-$color-palette-blue-800: #3f5799;
-
-//primary-color
-$primary-color-light: $color-palette-blue-550;
-$primary-color-hover-light: $color-palette-blue-600;
-
-$primary-color-dark: #f7235b;
-$primary-color-hover-dark: #bb1441;
+$color-palette-blue-900: rgb(0, 47, 154);
+$color-palette-blue-800: rgb(0, 62, 203);
+$color-palette-blue-700: rgb(0, 87, 255);
+$color-palette-blue-600: rgb(13, 102, 208);
+$color-palette-blue-500: rgb(20, 115, 230);
+$color-palette-blue-400: rgb(98, 146, 255);
+$color-palette-blue-300: rgb(191, 210, 255);
+$color-palette-blue-200: rgb(222, 232, 255);
+$color-palette-blue-100: rgb(245, 248, 255);
 
 //gradient
 $gradient-button: linear-gradient(98.34deg, #4a71d6 6.94%, #5282ff 80.88%);
 
 //theme-light
+$primary-color-light: $color-palette-blue-700;
+$primary-color-hover-light: $color-palette-blue-800;
 $color-accent-error-light: #f22a2a;
 $color-accent-notice-light: #e67046;
 $color-accent-success-light: #1c9c75;
@@ -118,6 +116,9 @@ $color-background-btn-light: $color-palette-black-700;
 $color-background-btn-hover-light: $color-palette-black-900;
 
 //theme-dark
+$primary-color-dark: $color-palette-blue-500;
+$primary-color-hover-dark: $color-palette-blue-600;
+
 $color-accent-error-dark: #f22a2a;
 $color-accent-notice-dark: #e67046;
 $color-accent-success-dark: #1c9c75;
@@ -186,7 +187,7 @@ $shadow-popup-cross: 0 1px 17px rgba(0, 0, 0, 0.08);
 $shadow-menu: 0 1px 17px rgba(0, 0, 0, 0.04);
 
 //filter
-$backdrop-filter: 5;
+$backdrop-filter: 10;
 
 //border
 $border-radius-small: 6;
