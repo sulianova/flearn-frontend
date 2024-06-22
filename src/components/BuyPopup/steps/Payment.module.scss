@@ -11,9 +11,9 @@
     display: flex;
     flex-flow: row nowrap;
 
-    width: set-calc(16, true, 100%);
-    left: set-calc(-8);
-    padding: set-calc(48) set-calc(8) set-calc(16);
+    width: set-calc(390);
+    left: set-calc(12);
+    padding: set-calc(48) 0 set-calc(16);
 
     scrollbar-width: none;
     overflow-y: hidden;
@@ -44,7 +44,6 @@
     min-height: 85vh;
 
     width: 100%;
-    margin: 0 set-calc(8);
   }
 }
 

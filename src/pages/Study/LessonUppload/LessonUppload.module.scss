@@ -28,6 +28,8 @@
   @include set-media(md) {
     width: set-calc(398);
     left: set-calc(-8);
+
+    margin-top: 0;
     padding: set-calc(24) set-calc(16);
   }
 }
