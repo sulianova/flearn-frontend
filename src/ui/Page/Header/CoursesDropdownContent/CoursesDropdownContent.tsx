@@ -31,6 +31,7 @@ export default function CoursesDropdownContent({ courses, close }: Readonly<IPro
                   : !courses.length ? <div>У вас пока нет курсов, давайте выберем</div>
                   : courses.map(course => (
                     <Link
+                      key={course.id}
                       to={URLSections.Profile.to({ courseId: course.id })}
                       className={cx({ listOption: true, active: course.id === courseId })}
                     >

@@ -1,26 +1,51 @@
+import { useState } from 'react';
+
+import { authService } from 'services/auth.service';
+import { type ICourseData } from 'services/course.service';
+import { lessonService } from 'services/lesson.service';
+import { URLSections } from 'router';
+
+import Link from 'ui/Link/Link';
+
+import SignupToCoursePopup from '../components/SignupToCoursePopup/SignupToCoursePopup';
 import classes from './LandingBtn.module.scss';
 
-import { formatI18nT } from 'shared';
-import { EAnalyticsEvent, analyticsService } from 'services/analytics.service';
+interface IProps {
+  course: ICourseData
+}
 
-export default LandingBtn;
-
-function LandingBtn() {
+export default function LandingBtn({ course }: IProps) {
+  const { id: courseId } = course;
+  const firstLesson = lessonService.useLessons({ courseId, topicOrder: 1, orderInTopic: 1 }).at(0);
+  const [popupVisible, setPopupVisible] = useState(false);
 
   return (
-  <div className={classes.__}>
-    <a
-      className={classes.btnLink}
-      href='#decision-form'
-      onClick={() => analyticsService.logEvent({
-          type: EAnalyticsEvent.ButtonClicked,
-          data: {
-            type: 'scroll_to_decision_form_button_clicked',
-          },
-        })
+    <>
+      {popupVisible &&
+        <SignupToCoursePopup
+          course={course}
+          option={'OPTIMAL'}
+          onClose={() => setPopupVisible(false)}
+        />
       }
-    >
-      начать учиться</a>
-  </div>
+      <div className={classes.__}>
+      {authService.isAuthenticated && firstLesson
+        ? (
+          <Link
+            className={classes.btnLink}
+            to={URLSections.Study.to({ courseId, lessonId: firstLesson.id })}
+          >
+            <div className={classes.text}>начать учиться</div>
+          </Link>
+        ) : (
+          <div
+            className={classes.btnLink}
+            onClick={() => setPopupVisible(true)}
+          >
+            <div className={classes.text}>начать учиться</div>
+          </div>
+        )}
+      </div>
+    </>
   );
 }
