@@ -15,6 +15,7 @@ export default function EditBar() {
 
   if (
     variant === 'Other'
+    || variant === 'Home'
     || variant === 'Profile'
     || variant === 'EmptyProfile'
     || envService.dataMode !== 'EDIT'

@@ -6,6 +6,7 @@ import { useIsMobile, useURLSection } from 'hooks';
 import { formatI18nT } from 'shared';
 import { authService } from 'services';
 import { ICourseData, courseService } from 'services/course.service';
+import { lessonService, type ILessonData } from 'services/lesson.service';
 import { userService } from 'services/user.service';
 import { userCourseProgressService } from 'services/userCourseProgress.service';
 import { URLSections } from 'router';
@@ -15,9 +16,9 @@ import BuyPopup from 'components/BuyPopup/BuyPopup';
 import Dropdown from 'ui/Dropdown/Dropdown';
 import Icon from 'ui/Icon/Icon';
 import Link from 'ui/Link/Link';
-import Popup from 'ui/Popup/Popup';
 
 import CoursesDropdownContent from './CoursesDropdownContent/CoursesDropdownContent';
+import MobileMenuPopup from './MobileMenuPopup/MobileMenuPopup';
 import { EPageVariant } from '../Page';
 import UserPopup from '../Sidebar/UserPopup/UserPopup';
 
@@ -32,13 +33,15 @@ interface IProps {
 }
 
 export default function Header({ variant, visible }: Readonly<IProps>) {
-  const { courseId } = useParams();
+  const { courseId, lessonId } = useParams();
   const urlSection = useURLSection();
   const isMobile = useIsMobile();
   const user = userService.useAuthedUser();
   const firstNotSolvedLesson = userCourseProgressService.useFirstNotSolvedLesson();
-  const [currentCourse, setCurrentCourse] = useState<ICourseData | undefined>(undefined);
+  const [currentCourse, setCurrentCourse] = useState<ICourseData>();
   const [userCourses, setUserCourses] = useState<ICourseData[]>();
+  const currentLesson = lessonService.useLessons({ courseId, id: lessonId }).at(0);
+  const topicLessons = lessonService.useTopicLessons({ courseId, lessonId });
   const currentCloseCourseDropdown = useRef<() => void>();
   const [mobMenuIsOpened, setMobMenuIsOpened] = useState(false);
   const [buyPopupIsOpened, setBuyPopupIsOpened] = useState(false);
@@ -105,47 +108,18 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
 
   const headerClass = cx({ __: true, __Hidden: !visible, IsMobileMenuOpened: mobMenuIsOpened, [variant]: true });
 
-  const mobMenuPopup = (
-    <Popup>
-      <div className={classes.mob + ' isMobile'}>
-        <div className={classes.close} onClick={() => setMobMenuIsOpened(false)}>
-          <Icon icon='Cross' />
-        </div>
-        <div className={classes.mobMenuMain}>
-            <div className={classes.mobItem}>
-              <Link
-                to={URLSections.Home.index}
-                onClick={() => setMobMenuIsOpened(false)}
-              >
-                <span className='inline-text'>{t('catalogue')}</span>
-              </Link>
-            </div>
-          </div>
-          <div className={classes.mobMenuControls}>
-            {user ? (
-              <Link
-                className={classes.loginBtn}
-                to={firstNotSolvedLesson ? URLSections.Profile.to({ courseId: firstNotSolvedLesson.courseId }) : URLSections.EmptyProfile.index}
-                onClick={() => setMobMenuIsOpened(false)}
-              >
-                {t('login.profile')}
-              </Link>
-            ) : (
-              <div
-                className={classes.loginBtn}
-                onClick={() => authService.authenticate()}
-              >
-                {t('login.signIn')}
-              </div>
-            )}
-          </div>
-      </div>
-    </Popup>
-  );
-
   return (
     <>
-      {isMobile && mobMenuIsOpened && mobMenuPopup}
+      {isMobile && mobMenuIsOpened && (
+        <MobileMenuPopup
+          user={user}
+          userCourses={userCourses}
+          firstNotSolvedLesson={firstNotSolvedLesson}
+          currentLesson={currentLesson}
+          topicLessons={topicLessons}
+          close={() => setMobMenuIsOpened(false)}
+        />
+      )}
       {buyPopupIsOpened && currentCourse && <BuyPopup course={currentCourse} close={() => setBuyPopupIsOpened(false)}/>}
       <div className={headerClass} data-is-mobile-menu-opened={mobMenuIsOpened}>
         <div className={cx({ desk: true, [`deskPadding${variant}`]: true })}>

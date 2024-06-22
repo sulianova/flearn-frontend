@@ -1,10 +1,6 @@
 import classnames from 'classnames/bind';
-import { useEffect, useState } from 'react';
-import { Subscription } from 'rxjs';
 
-import { dataService } from 'services/data.service';
 import { type ILessonData, lessonService } from 'services/lesson.service';
-import { userService } from 'services/user.service';
 import { URLSections } from 'router';
 
 import Icon from 'ui/Icon/Icon';
@@ -30,55 +26,10 @@ type TProps = {
 
 export default function LessonsPopup(props: TProps) {
   const { courseId, onClose } = props;
-  const authedUser = userService.useAuthedUser();
-  const [lessons, setLessons] = useState<(ILessonData & { solved: boolean, canBeAccessed: boolean })[] | null>('lessons' in props ? props.lessons : null);
 
   const openedLessonId = 'openedLessonId' in props ? props.openedLessonId : null;
-  useEffect(() => {
-    if (openedLessonId === null || !authedUser) {
-      return;
-    }
-
-    let cancelled = false;
-    let subscription: Subscription;
-
-    Promise.all([
-      dataService.userCourseProgress.get(courseId, authedUser.email),
-      dataService.lesson.get(courseId, openedLessonId)
-    ])
-      .then(([progress, lesson]) => {
-        subscription = lessonService
-          .getLessonBS({ courseId, topic: lesson.topic })
-          .subscribe(o => {
-            if (!o || o instanceof Error || cancelled) {
-              return;
-            }
-
-            const sortedA = o.lessons.slice()
-              .sort((a, b) => {
-                const key = a.topicOrder != b.topicOrder ? 'topicOrder' : 'orderInTopic';
-                return a[key] - b[key];
-              });
-
-            const firstNotLearnedLesson = sortedA.find(l => !progress[l.id]);
-
-            setLessons(o.lessons.map(lesson => {
-              const solved = progress?.[lesson.id]?.solved ?? false;
-              const canBeAccessed = !firstNotLearnedLesson ? true
-                : firstNotLearnedLesson.topicOrder === lesson.topicOrder
-                  ? firstNotLearnedLesson.orderInTopic >= lesson.orderInTopic
-                  : firstNotLearnedLesson.topicOrder > lesson.topicOrder;
-              return { ...lesson, canBeAccessed, solved };
-            }).sort((a, b) => a.orderInTopic - b.orderInTopic));
-          })
-      })
-      .catch(err => { console.log(err) /* do nothing */ })
-
-    return () => {
-      cancelled = false;
-      subscription?.unsubscribe();
-    };
-  }, [courseId, authedUser, openedLessonId]);
+  const fetchedTopicLessons = lessonService.useTopicLessons({ courseId, lessonId: 'openedLessonId' in props ? props.openedLessonId : undefined })
+  const topicLessons = 'lessons' in props ? props.lessons : fetchedTopicLessons;
 
   return (
     <Popup>
@@ -88,10 +39,10 @@ export default function LessonsPopup(props: TProps) {
         </div>
         <div className={classes.body}>
           <div className={classes.header}>
-            <div className={classes.title}>{lessons?.[0]?.topic ?? ''}</div>
+            <div className={classes.title}>{topicLessons?.[0]?.topic ?? ''}</div>
           </div>
-          {lessons ?
-            lessons.map(lesson => (
+          {topicLessons ?
+            topicLessons.map(lesson => (
               <Link
                 key={lesson.id}
                 to={lesson.canBeAccessed ? URLSections.Study.to({ courseId, lessonId: lesson.id }) : undefined}
