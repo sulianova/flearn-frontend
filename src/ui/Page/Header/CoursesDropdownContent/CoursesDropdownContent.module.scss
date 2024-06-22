@@ -13,8 +13,8 @@
   padding: 0;
   margin-block-start: set-calc(10);
   border-radius: set-calc($border-radius-10);
-  background:  $color-palette-black-500-a;
-  border: set-calc(0.5) solid $color-palette-black-300-a;
+  background:  var(--color-content-inverted-secondary);
+  border: set-calc(0.5) solid var(--color-background-glassy-inverted-d);
 
   transition: background-color $d-hover ease;
   backdrop-filter: blur(set-calc($backdrop-filter));
@@ -73,13 +73,13 @@
   padding: set-calc(8) set-calc(8);
 
   @include font-16-normal-ui;
-  color: $color-palette-white-500-a;
+  color: var(--color-content-secondary);
 }
 
 .listOption {
   display: block;
   padding: set-calc(10) set-calc(10);
-  color: $color-palette-white-1000;
+  color: var(--color-content-primary);
   border-radius: set-calc($border-radius-8);
   transition: background-color 0.3s;
   cursor: pointer;
@@ -88,10 +88,10 @@
   @include font-18-normal-ui;
 
   &:hover {
-    background-color: $color-palette-white-300-a;
+    background-color: var(--color-background-glassy-b);
   }
 }
 
 .active {
-  background-color: $color-palette-white-200-a;
+  background-color: var(--color-background-glassy-a);
 }

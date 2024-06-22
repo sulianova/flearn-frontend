@@ -56,11 +56,6 @@
 
   @include set-media(md) {
     padding: 0 set-calc($padding-xs-mob-page) 0;
-
-    .humburger {
-      background-color: $color-palette-white-200-a;
-      backdrop-filter: blur(set-calc($backdrop-filter));
-    }
   }
 }
 
@@ -69,11 +64,6 @@
 
   @include set-media(md) {
     padding: set-calc(14) set-calc($padding-x-mob-page) set-calc(8);
-
-    .humburger {
-      background-color: $color-palette-white-200-a;
-      backdrop-filter: blur(set-calc($backdrop-filter));
-    }
   }
 }
 
@@ -163,10 +153,11 @@
     align-items: center;
     justify-content: center;
 
-    background-color: var(--color-background-glassy-inverted-d);
+    background-color: var(--color-content-inverted-secondary);
     backdrop-filter: blur(set-calc($backdrop-filter));
     padding: set-calc(7);
     border-radius: 50%;
+    box-shadow: $shadow-menu;
   
     svg {
       width: set-calc(30);
@@ -347,7 +338,7 @@
     position: absolute;
     top: set-calc(8);
     right: set-calc(8);
-    z-index: 100;
+    z-index: 300;
 
     display: inline-flex;
     justify-content: center;
@@ -357,8 +348,10 @@
     opacity: 1;
 
     color: var(--color-content-primary);
-    background-color: var(--color-background-glassy-inverted-d);
-    border-radius: set-calc($border-radius-small);
+    background-color: var(--color-content-inverted-secondary);
+    backdrop-filter: blur(set-calc($backdrop-filter));
+    border-radius: 50%;
+    box-shadow: $shadow-menu;
 
     svg {
       display: inline-block;
