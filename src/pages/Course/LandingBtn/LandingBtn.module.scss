@@ -5,24 +5,26 @@
   display: none;
 
   @include set-media(md) {
-    display: block;
     position: fixed;
-    z-index: 600;
+
     bottom: set-calc(16);
-    width: 100%;
-    padding: 0 set-calc(32);
-    text-align: center;
+    left: 0;
+    right: 0;
+    z-index: 600;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     background-color: transparent;
     transition: .3s ease;
     will-change: transform;
   }
-
-
 }
 
 .btnLink {
-  width: 100%;
   overflow: hidden;
+  width: max-content;
 
   display: flex;
   align-items: center;
@@ -31,10 +33,37 @@
   background-color: $color-palette-blue-450-a;
   backdrop-filter: blur(set-calc($backdrop-filter));
 
-  @include font-24-normal-ui ;
+  @include font-21-normal-ui ;
   color: $color-palette-white-1000;
 
   border-radius: set-calc($border-radius-large);
-  padding: set-calc(10) set-calc(48);
-  height: set-calc(60);
+  padding: set-calc(10) set-calc(24);
+  height: set-calc(44);
+}
+
+.settings {
+  position: absolute;
+  right: set-calc(16);
+  display: flex;
+  justify-content: center;
+
+  padding: set-calc(10);
+  transition: transform 0.15s ease-in;
+  opacity: 1;
+
+  color: var(--color-content-primary);
+  background-color: var(--color-content-inverted-secondary);
+  backdrop-filter: blur(set-calc($backdrop-filter));
+  border-radius: 50%;
+  box-shadow: $shadow-menu;
+
+  svg {
+    display: inline-block;
+    text-align: center;
+
+    background: 50% no-repeat;
+    background-size: contain;
+    width: set-calc(24);
+    height: set-calc(24);
+  }
 }

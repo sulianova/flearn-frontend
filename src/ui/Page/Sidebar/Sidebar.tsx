@@ -31,7 +31,7 @@ function Sidebar() {
       <div className={classes.__}>
         <aside className={classes.container}>
           <ul className={classes.items}>
-            {(urlSection === 'Profile' || urlSection === 'EmptyProfile') && (
+            {/* {(urlSection === 'Profile' || urlSection === 'EmptyProfile') && (
               <li className={classes.item}>
                 <span className={classes.iconWrapper}>
                   <Link
@@ -42,7 +42,7 @@ function Sidebar() {
                   </Link>
                 </span>
               </li>
-            )}
+            )} */}
             {urlSection === 'Study' && (
               <li className={classes.item}>
                 <span className={classes.iconWrapper}>

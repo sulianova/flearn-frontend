@@ -149,11 +149,10 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
       {buyPopupIsOpened && currentCourse && <BuyPopup course={currentCourse} close={() => setBuyPopupIsOpened(false)}/>}
       <div className={headerClass} data-is-mobile-menu-opened={mobMenuIsOpened}>
         <div className={cx({ desk: true, [`deskPadding${variant}`]: true })}>
-          {variant !== EPageVariant.LMS && (
+          { urlSection !== 'Study' && (
             <div className={classes.logo}>
               <div className={classes.logoWrapper}>
                 <Link to={URLSections.Home.index}><Icon icon='Logo'/></Link>
-                {/* <Link to={URLSections.Home.index}>{i18n.t('logo')}</Link> */}
               </div>
             </div>
           )}

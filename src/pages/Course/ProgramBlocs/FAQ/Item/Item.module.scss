@@ -17,7 +17,6 @@
   @include set-media(md) {
     border-radius: set-calc($border-radius-10);
     position: relative;
-    padding: set-calc(8);
 
     display: flex;
     flex-direction: column;
@@ -53,23 +52,23 @@
 
 .itemQuestionPlus {
   display: flex;
-  width: set-calc(24);
-  height: set-calc(24);
-  min-width: set-calc(24);
+  width: set-calc(20);
+  height: set-calc(20);
+  min-width: set-calc(20);
 
 
   svg {
     stroke-width: set-calc(2);
-    stroke: var(--color-content-background-secondary);
+    stroke:  var(--color-content-paragraph-secondary);
   }
 
   @include set-media(md) {
-    width: set-calc(12);
-    height: set-calc(12);
+    width: set-calc(16);
+    height: set-calc(16);
 
     svg {
       stroke-width: set-calc(2.5);
-      stroke: var(--color-content-background-secondary);
+      stroke: var(--color-content-paragraph-secondary);
     }
   }
 }
@@ -87,7 +86,7 @@
 .itemAnswerText {
   margin-right: set-calc(48);
   @include font-21-normal-paragraph;
-  color: var(--color-content-paragraph-primary);
+  color: var(--color-content-paragraph-secondary);
 
   @include set-media(md) {
     margin: set-calc(20) 0 set-calc(20) 0;

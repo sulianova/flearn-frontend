@@ -49,20 +49,18 @@
   position: relative;
   margin-bottom: set-calc(6);
 
-  transition: background-color $d-hover ease-out;
+  transition: border-color $d-hover ease-out;
   background-color: var(--color-background-glassy-inverted-d);
+  backdrop-filter: blur(set-calc($backdrop-filter));
+  border: set-calc(2) solid transparent;
   border-radius: 50%;
 
+  box-shadow: $shadow-icon;
+
   &:hover {
-    background-color: var(--color-content-inverted-primary);
+    border-color: var(--color-content-primary);
+    backdrop-filter: none;
     cursor: pointer;
-  }
-
-  &:active {
-
-    .icon {
-      transform: scale(0.96);
-    }
   }
 }
 
@@ -71,8 +69,8 @@
   display: block;
   overflow: inherit;
 
-  width: set-calc(46);
-  height: set-calc(46);
+  width: set-calc(54);
+  height: set-calc(54);
 }
 
 .icon {
@@ -81,9 +79,8 @@
   flex-direction: column;
   justify-content: center;
 
-  padding: set-calc(6);
+  padding: set-calc(14);
   border-radius: 50%;
-  backdrop-filter: blur(set-calc($backdrop-filter));
 
   height: 100%;
   width: 100%;
