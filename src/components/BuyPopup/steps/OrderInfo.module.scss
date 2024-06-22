@@ -1,0 +1,78 @@
+@import 'styles/index';
+
+.wrapper {
+  display: flex;
+  gap: set-calc($s-gap);
+  padding: set-calc(24) 0 0;
+  justify-content: center;
+
+  @include set-media(md) {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+
+    width: set-calc(16, true, 100%);
+    left: set-calc(-8);
+    padding: set-calc(48) set-calc(8) set-calc(16);
+
+    scrollbar-width: none;
+    overflow-y: hidden;
+    overflow-x: scroll;
+
+    scroll-behavior: smooth;
+    scroll-snap-type: block;
+  }
+}
+
+.block {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 35%;
+  padding: set-calc(24);
+  border-radius: set-calc($border-radius-large);
+  background-color: var(--color-content-inverted-secondary);
+  border: set-calc(1) solid var(--color-background-default);
+  box-shadow: $shadow-medium-default;
+
+  @include set-media(md) {
+    border-radius: set-calc($border-radius-medium);
+    padding: set-calc(16);
+
+    min-height: unset;
+    width: 100%;
+    margin: 0 set-calc(8);
+  }
+}
+
+.title {
+  max-width: set-calc(560);
+  margin-bottom: set-calc(16);
+  
+  word-break: break-word;
+  @include font-18-normal-ui;
+  color: var(--color-content-secondary);
+  
+  @include set-media(md) {
+    margin-bottom: set-calc(16);
+  }
+}
+
+.description {
+  padding: set-calc(16) 0 set-calc(80);
+
+  p {
+    @include font-18-normal-paragraph;
+  }
+
+  p:not(:last-child) {
+    margin-bottom: set-calc(16);
+  }
+
+  @include set-media(md) {
+    padding: set-calc(16) 0 set-calc(60);
+  }
+}

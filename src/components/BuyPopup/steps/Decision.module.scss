@@ -1,0 +1,232 @@
+@import 'styles/index';
+.headerTitle {
+  position: relative;
+  padding-bottom: set-calc(18);
+
+  @include font-36-normal-header;
+
+  @include set-media(md) {
+    position: relative;
+    padding-bottom: 0;
+  }
+}
+
+.commonFlowRow {
+  @include set-media(md) {
+    position: relative;
+    padding: 0 set-calc(16);
+  }
+}
+
+.wrapper {
+  display: grid;
+  grid-gap: set-calc($s-gap);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  padding: set-calc(24) 0 0;
+
+  @include set-media(md) {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+
+    width: set-calc(16, true, 100%);
+    left: set-calc(-8);
+    padding: set-calc(48) set-calc(8) set-calc(16);
+
+    scrollbar-width: none;
+    overflow-y: hidden;
+    overflow-x: scroll;
+
+    scroll-behavior: smooth;
+    scroll-snap-type: block;
+  }
+}
+
+.block {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  grid-column: span 6;
+  width: 100%;
+  min-width: min(380px, 80vw);
+  padding: set-calc(24);
+  border-radius: set-calc($border-radius-large);
+  background-color: var(--color-content-inverted-secondary);
+  border: set-calc(1) solid var(--color-background-default);
+  box-shadow: $shadow-medium-default;
+
+  @include set-media(md) {
+    border-radius: set-calc($border-radius-medium);
+    padding: set-calc(16);
+    min-height: 70vh;
+  }
+}
+
+.titleWrapper{
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: set-calc(16);
+
+  @include set-media(md) {
+    margin-bottom: set-calc(80);
+  }
+}
+
+.courseName {
+  margin-bottom: set-calc(8);
+  color: var(--color-content-tertiary);
+
+  @include font-16-normal-paragraph;
+}
+
+.title {
+  max-width: set-calc(560);
+  word-break: break-word;
+  margin-bottom: set-calc(16);
+
+  @include font-24-normal-header;
+}
+
+.buble {
+  position: absolute;
+  right: set-calc(20);
+  top: set-calc(-30);
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 9;
+
+  transform: rotate(2deg);
+  padding: set-calc(10) set-calc(15);
+
+  border-radius: set-calc($border-radius-large);
+  border: set-calc(2.5) solid var(--color-content-background-secondary);
+  backdrop-filter: blur(set-calc($backdrop-filter));
+
+  @include font-21-normal-ui;
+
+  @include set-media(md) {
+    padding: set-calc(8) set-calc(12);
+  }
+}
+
+.credit {
+  margin-top: auto;
+
+  padding-top: set-calc(32);
+  margin-bottom: set-calc(24);
+
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  s:after {
+    margin-top: 0;
+    border-bottom: set-calc(1.5) solid var(--color-content-tertiary);
+    content: "";
+    left: set-calc(-2);
+    position: absolute;
+    right: set-calc(-2);
+    top: 50%;
+
+    @include set-media(md) {
+      border-bottom: set-calc(1) solid var(--color-content-tertiary);
+    }
+  }
+}
+
+.creditWas {
+  width: max-content;
+  margin-bottom: set-calc(4);
+  color: var(--color-content-tertiary);
+
+  @include font-24-normal-header;
+  letter-spacing: -0.05rem;
+}
+
+.creditPrice {
+  position: relative;
+  @include set-typography(56, 60, 500);
+
+  display: inline-block;
+  letter-spacing: -0.2rem;
+
+  @include set-media(md) {
+    @include set-typography(48, 48, 500);
+  }
+}
+
+.discount {
+  position: absolute;
+  top: set-calc(-28);
+  right: unset;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: set-calc(8) set-calc(16);
+
+  @include font-18-normal-ui;
+  letter-spacing: 0;
+
+  background: var(--color-background-glassy-b);
+  border-radius: set-calc($border-radius-large);
+  -webkit-text-stroke: 0;
+
+
+  @include set-media(md) {
+    right: set-calc(100);
+    top: set-calc(-34);
+  }
+}
+
+.courseInfo {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  padding: 0 0 set-calc(5);
+
+  @include set-media(md) {
+    align-items: start;
+    padding-top:  0;
+    padding-bottom: set-calc(150);
+  }
+}
+
+.btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: $color-palette-white-1000;
+  @include font-21-normal-ui;
+
+  border-radius: set-calc($border-radius-10);
+  background-color: var(--color-background-btn);
+  height: set-calc(60);
+  width: 100%;
+
+  transition: opacity $d-hover ease, box-shadow $d-hover ease, background-color $d-hover ease;
+  cursor: pointer;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: $shadow-medium-hovered;
+    background-color: var(--color-background-btn);
+  }
+
+  @include set-media(md) {
+    height: set-calc(52);
+    border-radius: set-calc($border-radius-10);
+  }
+}
