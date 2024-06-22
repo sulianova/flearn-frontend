@@ -1,5 +1,5 @@
 import classnames from 'classnames/bind';
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router';
 
 import { useIsMobile, useURLSection } from 'hooks';
@@ -19,7 +19,7 @@ import Link from 'ui/Link/Link';
 
 import CoursesDropdownContent from './CoursesDropdownContent/CoursesDropdownContent';
 import MobileMenuPopup from './MobileMenuPopup/MobileMenuPopup';
-import { EPageVariant } from '../Page';
+import { EPageVariant, PageContext } from '../Page';
 import UserPopup from '../Sidebar/UserPopup/UserPopup';
 
 import classes from './header.module.scss';
@@ -33,62 +33,69 @@ interface IProps {
 }
 
 export default function Header({ variant, visible }: Readonly<IProps>) {
+  const {
+    currentCourse,
+    userCourses,
+    currentLesson,
+    firstNotSolvedLesson,
+    topicLessons,
+  } = useContext(PageContext)!;
   const { courseId, lessonId } = useParams();
   const urlSection = useURLSection();
   const isMobile = useIsMobile();
   const user = userService.useAuthedUser();
-  const firstNotSolvedLesson = userCourseProgressService.useFirstNotSolvedLesson();
-  const [currentCourse, setCurrentCourse] = useState<ICourseData>();
-  const [userCourses, setUserCourses] = useState<ICourseData[]>();
-  const currentLesson = lessonService.useLessons({ courseId, id: lessonId }).at(0);
-  const topicLessons = lessonService.useTopicLessons({ courseId, lessonId });
+  // const firstNotSolvedLesson = userCourseProgressService.useFirstNotSolvedLesson();
+  // const [currentCourse, setCurrentCourse] = useState<ICourseData>();
+  // const [userCourses, setUserCourses] = useState<ICourseData[]>();
+  // const currentLesson = lessonService.useLessons({ courseId, id: lessonId }).at(0);
+  // const topicLessons = lessonService.useTopicLessons({ courseId, lessonId });
   const currentCloseCourseDropdown = useRef<() => void>();
   const [mobMenuIsOpened, setMobMenuIsOpened] = useState(false);
   const [buyPopupIsOpened, setBuyPopupIsOpened] = useState(false);
   const [userPopupVisible, setUserPopupVisible] = useState(false);
 
-  const userId = user?.id;
-  useEffect(() => {
-    if (!userId) {
-      return;
-    }
+  // const userId = user?.id;
+  // useEffect(() => {
+  //   if (!userId) {
+  //     return;
+  //   }
   
-    let cancelled = false;
-    const s = courseService
-      .getCourseBS({ userId })
-      .subscribe(action => {
-        if (!action || (action instanceof Error) || cancelled) {
-          return;
-        }
+  //   let cancelled = false;
+  //   const s = courseService
+  //     .getCourseBS({ userId })
+  //     .subscribe(action => {
+  //       if (!action || (action instanceof Error) || cancelled) {
+  //         return;
+  //       }
 
-        setUserCourses(action.courses);
-      });
-    return () => {
-      s.unsubscribe();
-      cancelled = true;
-    };
-  }, [userId]);
+  //       setUserCourses(action.courses);
+  //     });
+  //   return () => {
+  //     s.unsubscribe();
+  //     cancelled = true;
+  //   };
+  // }, [userId]);
 
-  useEffect(() => {
-    if (!courseId) {
-      return;
-    }
+  // useEffect(() => {
+  //   if (!courseId) {
+  //     return;
+  //   }
   
-    let cancelled = false;
-    const s = courseService
-      .getCourseBS({ ids: [courseId] })
-      .subscribe(action => {
-        if (!action || (action instanceof Error) || cancelled || !action.courses.at(0)) {
-          return;
-        }
+  //   let cancelled = false;
+  //   const s = courseService
+  //     .getCourseBS({ ids: [courseId] })
+  //     .subscribe(action => {
+  //       if (!action || (action instanceof Error) || cancelled || !action.courses.at(0)) {
+  //         return;
+  //       }
 
-        setCurrentCourse(action.courses.at(0));
-      });
-    return () => {
-      s.unsubscribe();
-      cancelled = true;
-    };
-  }, [courseId]);
+  //       setCurrentCourse(action.courses.at(0));
+  //     });
+  //   return () => {
+  //     s.unsubscribe();
+  //     cancelled = true;
+  //   };
+  // }, [courseId]);
 
   useEffect(() => {
     if (mobMenuIsOpened) {
