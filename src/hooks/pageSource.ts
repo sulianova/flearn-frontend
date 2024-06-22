@@ -19,7 +19,6 @@ export function usePageSource() {
   const currentLesson = lessonService.useLessons({ courseId, id: lessonId }).at(0);
   const topicLessons = lessonService.useTopicLessons({ courseId, lessonId });
 
-  useEffect(() => console.log('currentCourse'), [currentCourse]);
   return {
     currentCourse,
     userCourses,

@@ -1,4 +1,4 @@
-import React, { createContext, useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 import EditBar from './EditBar/EditBar';
 import Footer, { EFooter } from './Footer/Footer';
@@ -8,8 +8,6 @@ import Sidebar from './Sidebar/Sidebar';
 import useHeightToCss from './useHeightToCss';
 
 import classes from './Page.module.scss';
-import { ICourseData } from 'services/course.service';
-import { ILessonData } from 'services/lesson.service';
 
 export default Page;
 export { EFooter } from './Footer/Footer';
@@ -18,19 +16,6 @@ export enum EPageVariant {
   WEB = 'WEB',
   LMS = 'LMS',
   Fallback = 'Fallback',
-}
-
-export const PageContext = createContext<IPageContext | null>(null);
-
-interface IPageContext {
-  currentCourse: ICourseData | undefined;
-  userCourses: ICourseData[];
-  firstNotSolvedLesson: ILessonData | null;
-  currentLesson: ILessonData | undefined;
-  topicLessons: (ILessonData & {
-    solved: boolean;
-    canBeAccessed: boolean;
-  })[] | undefined
 }
 
 interface IProps {
