@@ -5,6 +5,7 @@ import { type ICourseData } from 'services/course.service';
 import { lessonService } from 'services/lesson.service';
 import { URLSections } from 'router';
 
+import Icon from 'ui/Icon/Icon';
 import Link from 'ui/Link/Link';
 
 import SignupToCoursePopup from '../components/SignupToCoursePopup/SignupToCoursePopup';
@@ -45,6 +46,9 @@ export default function LandingBtn({ course }: IProps) {
             <div className={classes.text}>начать учиться</div>
           </div>
         )}
+        <div className={classes.settings}>
+          <Icon icon='List'/>
+        </div>
       </div>
     </>
   );

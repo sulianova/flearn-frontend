@@ -154,7 +154,6 @@
 .blue {
   color: var(--primary-color);
 }
-
 .isMobile {
   @include set-media-min(md) {
     display: none;
