@@ -29,18 +29,29 @@ interface IProps {
 
 export default function MobileMenuPopup(props: Readonly<IProps>) {
   const { user, userCourses, firstNotSolvedLesson, currentLesson, topicLessons, close } = props;
-  const { courseId } = useParams();
+  const { courseId, lessonId } = useParams();
   const urlSection = useURLSection();
 
   const mobMenuLessonsList = topicLessons?.map(lesson => (
-    <div className={cx({ mobItem: true, active: true })} key={lesson.id}>
-      <Link
-        to={URLSections.Study.to({ courseId: courseId!, lessonId: lesson.id })}
-        onClick={close}
-      >
-        <span className='inline-text'>{lesson.title}</span>
-      </Link>
-    </div>
+    <Link
+      key={lesson.id}
+      to={lesson.canBeAccessed ? URLSections.Study.to({ courseId: courseId!, lessonId: lesson.id }) : undefined}
+      onClick={close}
+      className={cx({ navigationItem: true, solved: lesson.solved, disabled: !lesson.canBeAccessed, active: lesson.id === lessonId })}
+    >
+      <div className={classes.navigationItemTitle}>
+          <span className={classes.navigationItemIndex}>{lesson.orderInTopic}.</span>
+          {lesson.title}
+      </div>
+      <div className={classes.navigationItemInfo}>
+        <div className={classes.infoItem}>
+          <div className={cx({ infoIcon: true, itemStatus: true })}>
+            {!lesson.canBeAccessed && <Icon icon='Lock'/>}
+            {lesson.solved && <Icon icon='Tick'/>}
+          </div>
+        </div>
+      </div>
+    </Link>
   ));
   const mobMenuCoursesList = userCourses?.map(course => (
     <div className={cx({ mobItem: true, active: true })} key={course.id}>
