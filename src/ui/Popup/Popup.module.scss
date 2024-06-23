@@ -19,7 +19,6 @@
   background-color: transparent;
 
   @include set-media(md) {
-    top: unset;
     transform: translateY(100%);
   }
 }
