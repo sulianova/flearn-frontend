@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <script>
-      if (window.location.host !== 'flearn.net' && !window.location.host.startsWith('localhost')) {
+      if (window.location.host !== 'flearn.net'
+        && !RegExp('^localhost').test(window.location.host)
+        && !RegExp('ngrok').test(window.location.host)
+      ) {
         window.location.replace('https://flearn.net');
       }
     </script>
