@@ -6,15 +6,19 @@ import Spinner from 'ui/Spinner/Spinner';
 import classes from './CoursesDropdownContent.module.scss';
 import classnames from 'classnames/bind';
 import { useParams } from 'react-router';
+import { useURLSection } from 'hooks';
+import { ILessonData } from 'services/lesson.service';
 
 const cx = classnames.bind(classes);
 
 interface IProps {
   courses: ICourseData[] | undefined
+  firstNotSolvedLesson: ILessonData | null
   close: () => void
 }
 
-export default function CoursesDropdownContent({ courses, close }: Readonly<IProps>) {
+export default function CoursesDropdownContent({ courses, firstNotSolvedLesson, close }: Readonly<IProps>) {
+  const urlSection = useURLSection();
   const { courseId } = useParams();
   return (
     <div className={classes.selectMenu} onClick={close}>
@@ -33,7 +37,17 @@ export default function CoursesDropdownContent({ courses, close }: Readonly<IPro
                     <Link
                       key={course.id}
                       to={URLSections.Profile.to({ courseId: course.id })}
-                      className={cx({ listOption: true, active: course.id === courseId })}
+                      className={cx({
+                        listOption: true,
+                        active: {
+                          'Home': course.id === firstNotSolvedLesson?.courseId,
+                          'Course': course.id === firstNotSolvedLesson?.courseId,
+                          'Profile': course.id === courseId,
+                          'EmptyProfile': course.id === courseId,
+                          'Study': course.id === courseId,
+                          'Other': course.id === courseId,
+                        }[urlSection]
+                      })}
                     >
                       {course.title}
                     </Link>

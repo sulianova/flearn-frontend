@@ -231,8 +231,8 @@ export default function Profile() {
                     {freeGroupes.map((group, index) => {
                       const totalDurationMinutes = group.lessons.reduce((acc, l) => acc + durationToMinutes(l.duration), 0);
                       return (
-                        <div className={classesList.itemWrapper} onClick={() => setOpenedTopic(group.topic)}>
-                          <div key={index} className={classesList.item}>
+                        <div key={index} className={classesList.itemWrapper} onClick={() => setOpenedTopic(group.topic)}>
+                          <div className={classesList.item}>
                             <div className={classesList.imageWrapper}/>
                             <div className={classesList.itemBody}>
                               <div className={classesList.itemBodyContainer}>
@@ -261,8 +261,8 @@ export default function Profile() {
                     {payableGroupes.map((group, index) => {
                       const totalDurationMinutes = group.lessons.reduce((acc, l) => acc + durationToMinutes(l.duration), 0);
                       return (
-                        <div className={classesList.itemWrapper} onClick={() => setOpenedTopic(group.topic)}>
-                          <div key={index} className={classesList.item}>
+                        <div key={index} className={classesList.itemWrapper} onClick={() => setOpenedTopic(group.topic)}>
+                          <div className={classesList.item}>
                             <div className={classesList.imageWrapper}/>
                             <div className={classesList.itemBody}>
                               <div className={classesList.itemBodyContainer}>

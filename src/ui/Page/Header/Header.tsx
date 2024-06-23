@@ -107,6 +107,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
                 content={({ close }) => (
                   <CoursesDropdownContent
                     courses={userCourses}
+                    firstNotSolvedLesson={firstNotSolvedLesson}
                     close={close}
                   />
                 )}

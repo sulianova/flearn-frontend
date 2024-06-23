@@ -12,7 +12,7 @@ export default Home;
 function Home() {
   const blocks = [
     <Catalogue key='catalogue'/>,
-    <Career key='catalogue'/>,
+    <Career key='career'/>,
     <RequestConsultationBanner key='requestConsultationBanner'/>,
   ];
 
@@ -20,7 +20,7 @@ function Home() {
     <Page variant={EPageVariant.WEB} header footer={EFooter.Big}>
       <Header key='header'/>
         {blocks.map(block => (
-          <div className={classes.section}>
+          <div className={classes.section} key={block.key}>
             {block}
         </div>
       ))}
