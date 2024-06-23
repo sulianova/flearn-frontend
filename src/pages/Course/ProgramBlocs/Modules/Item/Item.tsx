@@ -46,8 +46,8 @@ function Item(props: Readonly<IProps>) {
           <Text text={module.meta}/>
           {index === 0 && (
             <div className={classes.badge}>
-              <Icon icon='Lightning'/>
               Бесплатно
+              <Icon icon='Lightning'/>
             </div>
           )}
         </div>

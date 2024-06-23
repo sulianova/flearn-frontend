@@ -60,10 +60,10 @@
   transition: background-color $d-hover ease-in;
 
   svg {
-    width: set-calc(20);
-    height: set-calc(20);
+    width: set-calc(16);
+    height: set-calc(16);
 
-    stroke-width: set-calc(2);
+    stroke-width: set-calc(2.5);
     stroke:  var(--color-content-inverted-primary);
 
     @include set-media(md) {

@@ -265,29 +265,32 @@
     pointer-events: none;
   
   .itemCard {
-    background-color: $color-palette-blue-100;
-    border-color: $color-palette-blue-200;
-  }
+    border: set-calc(3) solid var(--primary-color);
 
-  .meta {
-    color: $color-palette-black-900;
-  }
-
-  .title {
-    color: $color-palette-black-900;
-  }
-
-  .description {
-    color: $color-palette-black-700;
-  }
-
-  .additionalInfo {
-    color: $color-palette-black-900;
-
-    [data-subsection] {
-      color: $color-palette-black-700;
+    @include set-media(md) {
+      border: set-calc(1.5) solid var(--primary-color);
     }
   }
+
+  // .meta {
+  //   color: $color-palette-black-900;
+  // }
+
+  // .title {
+  //   color: $color-palette-black-900;
+  // }
+
+  // .description {
+  //   color: $color-palette-black-700;
+  // }
+
+  // .additionalInfo {
+  //   color: $color-palette-black-900;
+
+  //   [data-subsection] {
+  //     color: $color-palette-black-700;
+  //   }
+  // }
 
   .bullet {display: none;}
 
@@ -302,7 +305,11 @@
   align-items: center;
   gap: set-calc(4);
 
-  color: var(--primary-color);
+  padding: set-calc(10) set-calc(16);
+  border-radius: set-calc($border-radius-30);
+  background: $gradient-button;
+
+  color: $color-palette-white-1000;
   @include font-21-normal-ui;
 
   svg {
@@ -313,6 +320,10 @@
 
     width: set-calc(24);
     height: set-calc(24);
+  }
+
+  @include set-media(md) {
+    padding: set-calc(8) set-calc(12);
   }
 }
 
