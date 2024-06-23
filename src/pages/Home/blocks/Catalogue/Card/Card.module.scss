@@ -25,7 +25,6 @@
   }
 
   @include set-media(md) {
-    border-radius: set-calc($border-radius-8);
     min-height: set-calc(200);
   }
 }
@@ -66,7 +65,7 @@
   cursor: pointer;
   
   @include set-media(md) {
-    padding: set-calc(16)  set-calc(8);
+    padding: set-calc(16);
     margin-bottom: 0;
   }
 }

@@ -15,7 +15,6 @@
   @include set-media(md) {
     min-height: unset;
     border: set-calc(1) solid var(--color-background-default);
-    border-radius: set-calc(10);
   }
 }
 
@@ -23,7 +22,7 @@
   padding: set-calc(24);
 
   @include set-media(md) {
-    padding: set-calc(16) set-calc(8);
+    padding: set-calc(16);
   }
 }
 
