@@ -94,9 +94,64 @@ class EmailService {
             <tr>
               <td>
                 <table align="center"  width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top=8px;line-height:normal;word-break:normal;">
-                  <tbody>
-                    <tr>
-                      <td align="center" bgcolor="#f5f5f5" style="background-color:#f5f5f5;padding:10px">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <table align="center"  width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top=8px;line-height:normal;word-break:normal;">
+                                  <tbody>
+                                    <tr>
+                                      <td align="center" bgcolor="#f5f5f5" style="background-color:#f5f5f5;padding:10px">
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width:600px">
+                                          <tbody>
+                                            <tr>
+                                              <td style="background-color:#f5f5f5;padding:26px 8px 0px;border-top-left-radius:25px;border-top-right-radius:25px" bgcolor:"#f5f5f5" align="center">
+                                                <table style="max-width:540px;border-spacing:0px" width="100%" cellspacing="0" cellpadding="0" border="0">
+                                                  <tbody>
+                                                    <tr>
+                                                      <td align="left">
+                                                        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                                                          <tbody>
+                                                            <tr>
+                                                              <td style="font-size:0px;line-height:0px" valign="middle" align="left">
+                                                                <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                                                                  <tbody>
+                                                                    <tr>
+                                                                      <td style="font-size:14px;line-height:16px" align="left">
+                                                                        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                                                                          <tbody>
+                                                                            <tr>
+                                                                              <td align="left">
+                                                                                <a style="font-family:Arial,Tahoma,Helvetica,sans-serif;font-size:18px;text-decoration:none;color:#262626" href="https://flearn.net">
+                                                                                  Freadom to Learn
+                                                                                </a>
+                                                                              </td>
+                                                                            </tr>
+                                                                          </tbody>
+                                                                        </table>
+                                                                      <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                                                                    <tbody>
+                                                                  <tr>
+                                                                <td style="font-size:0;line-height:25px" height="25">
+                                                              </td>
+                                                            </tr>
+                                                          </tbody>
+                                                        </table>
+                                                      </td>
+                                                    </tr>
+                                                  </tbody>
+                                                </table>
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                         <table width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width:600px">
                           <tbody>
                             <tr>
@@ -143,19 +198,6 @@ class EmailService {
                                   <tbody>
                                     <tr>
                                       <td align="left">
-                                        <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                                          <tbody>
-                                            <tr>
-                                              <td style="border-radius:100px;background-color:#262626" valign="middle" height="60" bgcolor="#262626" align="center" width="100%">
-                                                <a href="${startLink}" style="font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:52px;font-weight:normal;white-space:nowrap;text-decoration:none;display:block;padding:0px 32px;color:#ffffff" target="_blank">
-                                                  <span style="color:#ffffffff;text-decoration:none" color="#ffffffff">
-                                                    <span style="color:##ffffffff">Начать учиться</span>
-                                                  </span>
-                                                </a>
-                                              </td>
-                                            </tr>
-                                          </tbody>
-                                        </table>
                                       </td>
                                     </tr>
                                   </tbody>
@@ -266,14 +308,14 @@ class EmailService {
   };
 }
 
-  private getWelcomeToCourseEmail(props: { to: TContact, course: ICourseData, firstLesson?: ILessonData }): TEmail {
-    const { to, course, firstLesson } = props;
-    const courseTypeStr = i18n.t(`courseType.${course.type}`);
-    const startLink = firstLesson
-      ? URLSections.Study.to({ courseId: course.id, lessonId: firstLesson.id, full: true })
-      : URLSections.Profile.to({ courseId: course.id, full: true });
-    console.log('getWelcomeToCourseEmail', { props, startLink });
-    return {
+private getWelcomeToCourseEmail(props: { to: TContact, course: ICourseData, firstLesson?: ILessonData }): TEmail {
+  const { to, course, firstLesson } = props;
+  const courseTypeStr = i18n.t(`courseType.${course.type}`);
+  const startLink = firstLesson
+    ? URLSections.Study.to({ courseId: course.id, lessonId: firstLesson.id, full: true })
+    : URLSections.Profile.to({ courseId: course.id, full: true });
+  console.log('getWelcomeToCourseEmail', { props, startLink });
+  return {
       to: [to],
       from: this.senderContact,
       subject: i18n.t(`emails.WelcomeToCourse.subject.${course.type}`, { title: course.title }),
@@ -294,6 +336,65 @@ class EmailService {
                   <tbody>
                     <tr>
                       <td align="center" bgcolor="#f5f5f5" style="background-color:#f5f5f5;padding:10px">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width:600px">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <table align="center"  width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top=8px;line-height:normal;word-break:normal;">
+                                  <tbody>
+                                    <tr>
+                                      <td align="center" bgcolor="#f5f5f5" style="background-color:#f5f5f5;padding:10px">
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width:600px">
+                                          <tbody>
+                                            <tr>
+                                              <td style="background-color:#f5f5f5;padding:26px 8px 0px;border-top-left-radius:25px;border-top-right-radius:25px" bgcolor:"#f5f5f5" align="center">
+                                                <table style="max-width:540px;border-spacing:0px" width="100%" cellspacing="0" cellpadding="0" border="0">
+                                                  <tbody>
+                                                    <tr>
+                                                      <td align="left">
+                                                        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                                                          <tbody>
+                                                            <tr>
+                                                              <td style="font-size:0px;line-height:0px" valign="middle" align="left">
+                                                                <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                                                                  <tbody>
+                                                                    <tr>
+                                                                      <td style="font-size:14px;line-height:16px" align="left">
+                                                                        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                                                                          <tbody>
+                                                                            <tr>
+                                                                              <td align="left">
+                                                                                <a style="font-family:Arial,Tahoma,Helvetica,sans-serif;font-size:18px;text-decoration:none;color:#262626" href="https://flearn.net">
+                                                                                  Freadom to Learn
+                                                                                </a>
+                                                                              </td>
+                                                                            </tr>
+                                                                          </tbody>
+                                                                        </table>
+                                                                      <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                                                                    <tbody>
+                                                                  <tr>
+                                                                <td style="font-size:0;line-height:25px" height="25">
+                                                              </td>
+                                                            </tr>
+                                                          </tbody>
+                                                        </table>
+                                                      </td>
+                                                    </tr>
+                                                  </tbody>
+                                                </table>
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                         <table width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width:600px">
                           <tbody>
                             <tr>
@@ -435,7 +536,7 @@ class EmailService {
                                     <tr>
                                       <td style="padding:30px 20px 50px;font-family:Helvetica,Arial,sans-serif;font-size:12px;line-height:16px;color:#808080" align="left">
                                         <span>
-                                          ©&nbsp;flearn
+                                          ©&nbsp;2023-2024&nbsp;flearn
                                           <br>
                                           <br>
                                           Письмо создано автоматически, пожалуйста, не отвечайте на него. Чтобы отписаться от рассылки, перейдите

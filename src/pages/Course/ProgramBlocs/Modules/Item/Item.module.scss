@@ -265,32 +265,12 @@
     pointer-events: none;
   
   .itemCard {
-    border: set-calc(3) solid var(--primary-color);
+    border: set-calc(2) solid var(--primary-color);
 
     @include set-media(md) {
       border: set-calc(1.5) solid var(--primary-color);
     }
   }
-
-  // .meta {
-  //   color: $color-palette-black-900;
-  // }
-
-  // .title {
-  //   color: $color-palette-black-900;
-  // }
-
-  // .description {
-  //   color: $color-palette-black-700;
-  // }
-
-  // .additionalInfo {
-  //   color: $color-palette-black-900;
-
-  //   [data-subsection] {
-  //     color: $color-palette-black-700;
-  //   }
-  // }
 
   .bullet {display: none;}
 
