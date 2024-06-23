@@ -111,6 +111,10 @@
   min-height: set-calc(58);
   color: var(--color-content-primary);
   border-radius: set-calc(8);
+
+  @include set-media(md) {
+    min-height: set-calc(42);
+  }
 }
 
 .navigationItem:not(:last-child) {
@@ -192,6 +196,10 @@
     background: 50% no-repeat;
     background-size: contain;
   }
+
+  @include set-media(md) {
+    opacity: 1;
+  }
 }
 
 .itemStatus {
@@ -216,6 +224,14 @@
 
     .infoIcon {
       opacity: 1;
+    }
+  }
+
+  @include set-media(md) {
+    opacity: 0.5;
+  
+    .infoIcon {
+      opacity: 0.2;
     }
   }
 }
