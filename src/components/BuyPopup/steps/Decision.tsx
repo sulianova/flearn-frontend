@@ -14,10 +14,15 @@ interface IProps {
   course: ICourseData
   next: (productOptionType: TCourseProductOptionTypes) => void
 }
+const optionOrder = {
+  OPTIMAL: 1,
+  BASE: 2,
+  EXTENDED: 3,
+};
 
 export default function Decision({ course, next }: IProps) {
 
-  const optionTypes = safeObjectKeys(course.productOptions);
+  const optionTypes = safeObjectKeys(course.productOptions).sort((a, b) => optionOrder[a] - optionOrder[b]);
   const optionsNodes = optionTypes.map(type => {
     const option = course.productOptions[type]!;
     const { creditPrice, creditWas, discount } = getDiscountedPrice(course.discount, option);

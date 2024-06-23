@@ -27,6 +27,11 @@ type TState =
   | { type: 'Error', error: string };
 
 const t = formatI18nT('courseLanding.form');
+const optionOrder = {
+  OPTIMAL: 1,
+  BASE: 2,
+  EXTENDED: 3,
+};
 
 export default function DecisionForm({ course }: IProps) {
   const { type, productOptions } = course;
@@ -35,7 +40,7 @@ export default function DecisionForm({ course }: IProps) {
   const [popupOption, setPopupOption] = useState<keyof ICourseData['productOptions'] | null>(null);
   const user = userService.useAuthedUser();
 
-  const optionTypes = safeObjectKeys(productOptions);
+  const optionTypes = safeObjectKeys(productOptions).sort((a, b) => optionOrder[a] - optionOrder[b]);
   const optionsNodes = optionTypes.map(type => {
     const option = productOptions[type]!;
     const { creditPrice, creditWas, discount } = getDiscountedPrice(course.discount, option);
