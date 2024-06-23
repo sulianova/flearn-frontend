@@ -20,7 +20,7 @@
   gap: set-calc(8);
 
   overflow: hidden;
-  height: 75vh;
+  max-height: 75vh;
 
   padding: set-calc(24) set-calc(24);
   border-radius: set-calc($border-radius-medium);
@@ -29,7 +29,8 @@
 
   @include set-media(md) {
     padding: 0;
-    height: 100vh;
+    max-height: unset;
+    height: set-calc(700);
     color: var(--color-content-primary);
   }
 }
