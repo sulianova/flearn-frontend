@@ -135,7 +135,7 @@ async function submit(props: {
       courseData: course,
       userData: undefined,
       chosenProductOptionType: option,
-    });
+    }).catch(_err => { /* do nothing */});
 
     await dataService.access.add(course.id, formData.email, 'FREE');
     const firstLesson = (await lessonService.fetch({ courseId: course.id, topicOrder: 1, orderInTopic: 1 })).at(0);

@@ -103,7 +103,7 @@ async function handleSubmit(props: {
       courseData: course,
       userData: user,
       chosenProductOptionType: productType,
-    });
+    }).catch(_err => { /* do nothing */ });
 
     await dataService.access.add(course.id, user.email, 'FREE');
     const firstLesson = (await lessonService.fetch({ courseId: course.id, topicOrder: 1, orderInTopic: 1 })).at(0);
