@@ -1,3 +1,4 @@
+import classnames from 'classnames/bind';
 import { useParams } from 'react-router';
 
 import { useURLSection } from 'hooks';
@@ -12,7 +13,8 @@ import Icon from 'ui/Icon/Icon';
 import Link from 'ui/Link/Link';
 import Popup from 'ui/Popup/Popup';
 
-import classes from '../header.module.scss';
+import classes from './MobileMenuPopup.module.scss';
+const cx = classnames.bind(classes);
 
 const t = formatI18nT('header');
 
@@ -31,7 +33,7 @@ export default function MobileMenuPopup(props: Readonly<IProps>) {
   const urlSection = useURLSection();
 
   const mobMenuLessonsList = topicLessons?.map(lesson => (
-    <div className={classes.mobItem} key={lesson.id}>
+    <div className={cx({ mobItem: true, active: true })} key={lesson.id}>
       <Link
         to={URLSections.Study.to({ courseId: courseId!, lessonId: lesson.id })}
         onClick={close}
@@ -41,7 +43,7 @@ export default function MobileMenuPopup(props: Readonly<IProps>) {
     </div>
   ));
   const mobMenuCoursesList = userCourses?.map(course => (
-    <div className={classes.mobItem} key={course.id}>
+    <div className={cx({ mobItem: true, active: true })} key={course.id}>
       <Link
         to={URLSections.Profile.to({ courseId: course.id })}
         onClick={close}
@@ -95,10 +97,10 @@ export default function MobileMenuPopup(props: Readonly<IProps>) {
           <div className={classes.mobMenuMain}>
             {!user ? null :
               urlSection === 'Study' ? (<>
-                <div>{currentLesson?.topic}</div>
+                <div className={classes.listOptionTitle}>{currentLesson?.topic}</div>
                 {mobMenuLessonsList}
               </>) : (<>
-                <div>{mobMenuCoursesList?.length ? 'Мои курсы:' : 'У вас пока нет курсов'}</div>
+                <div className={classes.listOptionTitle}>{mobMenuCoursesList?.length ? 'Мои курсы:' : 'У вас пока нет курсов'}</div>
                 {mobMenuCoursesList}
               </>)
             }
