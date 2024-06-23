@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import EditBar from './EditBar/EditBar';
 import Footer, { EFooter } from './Footer/Footer';
@@ -32,28 +32,33 @@ interface IProps {
 
 function Page({ children, variant, header = false, footer, backgroundColor = 'var(--color-background-alternate)', scrollToTopDependencie, currentCourse }: IProps) {
   const ref = useHeightToCss();
-  const pageRef = useRef<HTMLDivElement>(null);
   const lastScrollTop = useRef(0);
   const [headerVisible, setHeaderVisible] = useState(true);
 
   useEffect(() => {
-    pageRef?.current?.scrollTo({ top: 0 });
+    window.scrollTo({ top: 0 });
   }, [scrollToTopDependencie]);
 
   useEffect(() => {
     document.body.style.setProperty('background-color', backgroundColor);
   }, [backgroundColor]);
 
-  const handleScroll = useCallback(() => {
-    const scrollTop = Math.max(pageRef?.current?.scrollTop ?? 0, 0);
-    setHeaderVisible(lastScrollTop.current >= scrollTop);
-    lastScrollTop.current = scrollTop;
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = Math.max(window.scrollY, 0);
+      setHeaderVisible(lastScrollTop.current >= scrollTop);
+      lastScrollTop.current = scrollTop;
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <div className={classes.trainerContent}>
       {variant === EPageVariant.LMS && <Sidebar/>}
-      <div className={classes.theoryPage} onScroll={handleScroll} ref={pageRef}>
+      <div className={classes.theoryPage}>
         <div className={classes._} ref={ref}>
           {header && <Header variant={variant} visible={headerVisible}/>}
           <div className={classes.content}>

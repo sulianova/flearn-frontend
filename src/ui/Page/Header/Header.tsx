@@ -76,8 +76,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
         />
       )}
       {buyPopupIsOpened && currentCourse && <BuyPopup course={currentCourse} close={() => setBuyPopupIsOpened(false)}/>}
-      <div className={headerClass} data-is-mobile-menu-opened={mobMenuIsOpened}>
-      {/* <div className={headerClass}> */}
+      <div className={headerClass}>
         <div className={cx({ desk: true, [`deskPadding${variant}`]: true })}>
           { urlSection !== 'Study' && (
             <div className={classes.logo}>
