@@ -11,7 +11,7 @@ import Image from 'ui/Img/Img';
 import Link from 'ui/Link/Link';
 
 import classes from './ProgramIntro.module.scss';
-import SignupToCoursePopup from '../components/SignupToCoursePopup/SignupToCoursePopup';
+import SignupToCoursePopup from '../../../components/SignupToCoursePopup/SignupToCoursePopup';
 
 export default ProgramIntro;
 

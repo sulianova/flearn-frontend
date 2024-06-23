@@ -4,10 +4,12 @@ import EditBar from './EditBar/EditBar';
 import Footer, { EFooter } from './Footer/Footer';
 import Header from './Header/Header';
 import Sidebar from './Sidebar/Sidebar';
+import MobileBtn from './MobileBtn/MobileBtn';
 
 import useHeightToCss from './useHeightToCss';
 
 import classes from './Page.module.scss';
+import { ICourseData } from 'services/course.service';
 
 export default Page;
 export { EFooter } from './Footer/Footer';
@@ -25,9 +27,10 @@ interface IProps {
   footer?: boolean | EFooter
   scrollToTopDependencie?: any
   backgroundColor?: string
+  currentCourse?: ICourseData
 }
 
-function Page({ children, variant, header = false, footer, backgroundColor = 'var(--color-background-alternate)', scrollToTopDependencie }: IProps) {
+function Page({ children, variant, header = false, footer, backgroundColor = 'var(--color-background-alternate)', scrollToTopDependencie, currentCourse }: IProps) {
   const ref = useHeightToCss();
   const pageRef = useRef<HTMLDivElement>(null);
   const lastScrollTop = useRef(0);
@@ -55,6 +58,7 @@ function Page({ children, variant, header = false, footer, backgroundColor = 'va
           {header && <Header variant={variant} visible={headerVisible}/>}
           <div className={classes.content}>
             <section className={classes[`${variant}Wrapper`]}>
+              <MobileBtn course={currentCourse}/>
               {children}
             </section>
             <EditBar/>

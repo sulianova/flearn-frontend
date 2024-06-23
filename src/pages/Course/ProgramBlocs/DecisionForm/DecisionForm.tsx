@@ -12,7 +12,7 @@ import { getDiscountedPrice, safeObjectKeys, formatCourseCredit, formatCourseDis
 
 import classes from './DecisionForm.module.scss';
 
-import SignupToCoursePopup from '../../components/SignupToCoursePopup/SignupToCoursePopup';
+import SignupToCoursePopup from '../../../../components/SignupToCoursePopup/SignupToCoursePopup';
 import Icon from 'ui/Icon/Icon';
 import { lessonService } from 'services/lesson.service';
 
