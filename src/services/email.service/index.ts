@@ -1,4 +1,5 @@
 import { v4 } from 'uuid';
+import Handlebars from 'handlebars';
 
 import { firebaseService } from 'services/firebase.service';
 import { i18n } from 'shared/translations';
@@ -18,8 +19,17 @@ import type {
   THomeworkReviewedToReviewerProps
 } from './types';
 
+import Layout from './templates/Layout.html';
+
+import WelcomeToCourse from './emails/WelcomeToCourse.html';
+import WelcomeToPaidCourse from './emails/WelcomeToPaidCourse.html';
+
 class EmailService {
   public EEmail = EEmail;
+
+  constructor() {
+    this.registerTemplates();
+  }
 
   public async sendEmail(props: TSendEmailProps): Promise<void> {
     try {
@@ -81,261 +91,282 @@ class EmailService {
     }
   }
 
+  private Layout(props: { title: string, content: string }) {
+    return Handlebars.compile(`{{>Layout }}`, { noEscape: true })(props);
+  }
+
+  private WelcomeToCourse(props: { courseType: string, courseTitle: string, startLink: string }) {
+    return Handlebars.compile(`{{>WelcomeToCourse }}`, { noEscape: true })(props);
+  }
+
+  private WelcomeToPaidCourse(props: { courseType: string, courseTitle: string, creditPrice: string, paymentMethod: string, dateOfPayment: string }) {
+    return Handlebars.compile(`{{>WelcomeToPaidCourse }}`, { noEscape: true })(props);
+  }
+
   private getWelcomeToCourseEmail(props: TWelcomeToCourseProps): IEmail {
     const { to, course, firstLesson } = props;
     const courseTypeStr = i18n.t(`courseType.${course.type}`);
     const startLink = firstLesson
       ? URLSections.Study.to({ courseId: course.id, lessonId: firstLesson.id, full: true })
       : URLSections.Profile.to({ courseId: course.id, full: true });
+    const html = this.Layout({
+      title: 'Добро пожаловать на вводную часть',
+      content: this.WelcomeToCourse({
+        courseType: courseTypeStr,
+        courseTitle: course.title,
+        startLink,
+      }),
+    });
+  //   const original_html = `
+  //   <!DOCTYPE html>
+  //     <html lang="ru">
+  //     <head>
+  //       <meta charset="UTF-8">
+  //       <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
+  //       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  //       <title>Добро пожаловать на вводную часть</title>
+  //     </head>
+  //     <body>
+  //       <table width="100%" style="padding:0;margin:0;overflow-x:hidden;">
+  //         <tr>
+  //           <td>
+  //             <table align="center"  width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top=8px;line-height:normal;word-break:normal;">
+  //               <tbody>
+  //                 <tr>
+  //                   <td align="center" bgcolor="#f5f5f5" style="background-color:#f5f5f5;padding:10px">
+  //                     <table width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width:600px">
+  //                       <tbody>
+  //                         <tr>
+  //                           <td>
+  //                             <table align="center"  width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top=8px;line-height:normal;word-break:normal;">
+  //                               <tbody>
+  //                                 <tr>
+  //                                   <td align="center" bgcolor="#f5f5f5" style="background-color:#f5f5f5;padding:10px">
+  //                                     <table width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width:600px">
+  //                                       <tbody>
+  //                                         <tr>
+  //                                           <td style="background-color:#f5f5f5;padding:26px 8px 0px;border-top-left-radius:25px;border-top-right-radius:25px" bgcolor:"#f5f5f5" align="center">
+  //                                             <table style="max-width:540px;border-spacing:0px" width="100%" cellspacing="0" cellpadding="0" border="0">
+  //                                               <tbody>
+  //                                                 <tr>
+  //                                                   <td align="left">
+  //                                                     <table width="100%" cellspacing="0" cellpadding="0" border="0">
+  //                                                       <tbody>
+  //                                                         <tr>
+  //                                                           <td style="font-size:0px;line-height:0px" valign="middle" align="left">
+  //                                                             <table width="100%" cellspacing="0" cellpadding="0" border="0">
+  //                                                               <tbody>
+  //                                                                 <tr>
+  //                                                                   <td style="font-size:14px;line-height:16px" align="left">
+  //                                                                     <table width="100%" cellspacing="0" cellpadding="0" border="0">
+  //                                                                       <tbody>
+  //                                                                         <tr>
+  //                                                                           <td align="left">
+  //                                                                             <a style="font-family:Arial,Tahoma,Helvetica,sans-serif;font-size:18px;text-decoration:none;color:#262626" href="https://flearn.net">
+  //                                                                               Freadom to Learn
+  //                                                                             </a>
+  //                                                                           </td>
+  //                                                                         </tr>
+  //                                                                       </tbody>
+  //                                                                     </table>
+  //                                                                   <table width="100%" cellspacing="0" cellpadding="0" border="0">
+  //                                                                 <tbody>
+  //                                                               <tr>
+  //                                                             <td style="font-size:0;line-height:25px" height="25">
+  //                                                           </td>
+  //                                                         </tr>
+  //                                                       </tbody>
+  //                                                     </table>
+  //                                                   </td>
+  //                                                 </tr>
+  //                                               </tbody>
+  //                                             </table>
+  //                                           </td>
+  //                                         </tr>
+  //                                       </tbody>
+  //                                     </table>
+  //                                   </td>
+  //                                 </tr>
+  //                               </tbody>
+  //                             </table>
+  //                           </td>
+  //                         </tr>
+  //                       </tbody>
+  //                     </table>
+  //                     <table width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width:600px">
+  //                       <tbody>
+  //                         <tr>
+  //                           <td style="background-color:#ffffffff;padding:30px 20px 20px;border-top-left-radius:25px;border-top-right-radius:25px" bgcolor="#ffffffff"  align="center">
+  //                             <table style="max-width:540px;border-spacing:0px" width="100%" border="0" cellspacing="0" cellpadding="0">
+  //                               <tbody>
+  //                                 <tr>
+  //                                   <td style="font-family:Helvetica,Arial,sans-serif;font-size:32px;line-height:38px;color:#000000" align="left">
+  //                                     <span>Добро пожаловать на ${courseTypeStr} </span>
+  //                                     <span style="color:#262626">«${course.title}»</span>
+  //                                   </td>
+  //                                 </tr>
+  //                               </tbody>
+  //                             </table>
+  //                           </td>
+  //                         </tr>
+  //                         <tr>
+  //                           <td style="background-color:#ffffffff;padding:0 20px 10px" bgcolor=#ffffffff" align="center">
+  //                             <table style="max-width:540px;border-spacing:0px" width="100%" border="0" cellspacing="0" cellpadding="0">
+  //                               <tbody>
+  //                                 <tr>
+  //                                   <td style="font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:20px;color:#000000" align="left">
+  //                                     <span>
+  //                                       Перед тем, как приступить к&nbsp;основному курсу, мы&nbsp;предлагаем всем студентам пройти бесплатную вводную часть. 
+  //                                       <br>
+  //                                       <br>
+  //                                       За&nbsp;10&nbsp;часов
+  //                                       <br>
+  //                                       <br>
+  //                                       → познакомитесь с&nbsp;форматом обучения в&nbsp;flearn
+  //                                       <br>
+  //                                       <br>
+  //                                       → пройдете ключевые этапы работы над иллюстрацией
+  //                                       <br>
+  //                                       <br>
+  //                                       → нарисуете обложку к любимой песне
+  //                                       </span>
+  //                                   </td>
+  //                                 </tr>
+  //                               </tbody>
+  //                             </table>
+  //                           </td>
+  //                         </tr>
+  //                         <tr>
+  //                           <td style="background-color:#ffffff;padding:20px 20px 30px;border-bottom-left-radius:25px;border-bottom-right-radius:25px" bgcolor="#ffffff" align="center">
+  //                             <table style-"max-width:540px;border-spacing:0px" width="100%" border="0" cellspacing="0" cellpadding="0">
+  //                               <tbody>
+  //                                 <tr>
+  //                                   <td align="left">
+  //                                     <table border="0" cellspacing="0" cellpadding="0" width="100%">
+  //                                       <tbody>
+  //                                         <tr>
+  //                                           <td style="border-radius:100px;background-color:#262626" valign="middle" height="60" bgcolor="#262626" align="center" width="100%">
+  //                                             <a href="${startLink}" style="font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:52px;font-weight:normal;white-space:nowrap;text-decoration:none;display:block;padding:0px 32px;color:#ffffff" target="_blank">
+  //                                               <span style="color:#ffffffff;text-decoration:none" color="#ffffffff">
+  //                                                 <span style="color:##ffffffff">Начать учиться</span>
+  //                                               </span>
+  //                                             </a>
+  //                                           </td>
+  //                                         </tr>
+  //                                       </tbody>
+  //                                     </table>
+  //                                   </td>
+  //                                 </tr>
+  //                               </tbody>
+  //                             </table>
+  //                           </td>
+  //                         </tr>
+  //                         <tr>
+  //                           <td align="center">
+  //                           <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  //                             <tbody>
+  //                               <tr>
+  //                                 <td style="line-height:20px;font-size:0" height="20"></td>
+  //                               </tr>
+  //                             </tbody>
+  //                           </table>
+  //                           </td>
+  //                         </tr>
+  //                         <tr>
+  //                           <td style="background-color:#ffffffff;padding:30px 20px 20px;border-top-left-radius:25px;border-top-right-radius:25px" bgcolor="#ffffffff" align="center">
+  //                             <table style="max-width:540px;border-spacing:0px" width="100%" border="0" cellspacing="0" cellpadding="0">
+  //                               <tbody>
+  //                                 <tr>
+  //                                   <td style="font-family:Helvetica,Arial,sans-serif;font-size:32px;line-height:38px;color:#000000" align="left">
+  //                                     <span>
+  //                                       Присоединяйтесь к нам в Telegram
+  //                                     </span>
+  //                                   </td>
+  //                                 </tr>
+  //                               </tbody>
+  //                             </table>
+  //                           </td>
+  //                         </tr>
+  //                         <tr>
+  //                           <td style="background-color:#ffffff;padding:0 20px 20px" bgcolor="#ffffffff" align="center">
+  //                             <table style="max-width:540px;border-spacing:0px" width="100%" border="0" cellspacing="0" cellpadding="0">
+  //                               <tbody>
+  //                                 <tr>
+  //                                   <td style="font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:20px;color:#000000" valign="top" align="left">
+  //                                     <span>
+  //                                       Там мы рассказываем про анонсы и скидки на ранние запуски курсов в flearn. А также наш преподаватель, Соня Ульянова пишет про свои личные проекты и отвечает на вопросы студентов.
+  //                                     </span>
+  //                                   </td> 
+  //                                 </tr>
+  //                               </tbody>
+  //                             </table>
+  //                           </td>
+  //                         </tr>
+  //                         <tr>
+  //                           <td style="background-color:#ffffff;padding:20px 20px 30px;border-bottom-left-radius:25px;border-bottom-right-radius:25px" bgcolor="#ffffff" align="center">
+  //                             <table style-"max-width:540px;border-spacing:0px" width="100%" border="0" cellspacing="0" cellpadding="0">
+  //                               <tbody>
+  //                                 <tr>
+  //                                   <td align="left">
+  //                                     <table border="0" cellspacing="0" cellpadding="0" width="100%">
+  //                                       <tbody>
+  //                                         <tr>
+  //                                           <td style="border-radius:100px;background-color:#262626" valign="middle" height="60" bgcolor="#262626" align="center">
+  //                                             <a href="https://t.me/sofiulyanova" style="font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:52px;font-weight:normal;white-space:nowrap;text-decoration:none;display:block;padding:0px 32px;color:#ffffff" target="_blank">
+  //                                               <span style="color:#ffffffff;text-decoration:none" color="#ffffffff">
+  //                                                 <span style="color:#ffffffff">Присоединиться к телеграм-каналу</span>
+  //                                               </span>
+  //                                             </a>
+  //                                           </td>
+  //                                         </tr>
+  //                                       </tbody>
+  //                                     </table>
+  //                                   </td>
+  //                                 </tr>
+  //                               </tbody>
+  //                             </table>
+  //                           </td>
+  //                         </tr>
+  //                         <tr>
+  //                           <td>
+  //                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  //                               <tbody>
+  //                                 <tr>
+  //                                   <td style="padding:30px 20px 50px;font-family:Helvetica,Arial,sans-serif;font-size:12px;line-height:16px;color:#808080" align="left">
+  //                                     <span>
+  //                                       ©&nbsp;2023-2024&nbsp;flearn
+  //                                       <br>
+  //                                       <br>
+  //                                       Письмо создано автоматически, пожалуйста, не отвечайте на него. Чтобы отписаться от рассылки, перейдите
+  //                                       <a href="#" style="font-family:Helvetica,Arial,sans-serif;font-size:12px;line-height:16px;font-weight:normal;white-space:nowrap;text-decoration:underline;color:#808080" target="_blank">
+  //                                         <span style="color:#808080;text-decoration:none" color=#808080">
+  //                                           <span style="color:#808080">по этой ссылке.</span>
+  //                                         </span>
+  //                                       </a>
+  //                                     </span>
+  //                                   </td>
+  //                                 </tr>
+  //                               </tbody>
+  //                             </table>
+  //                           </td>
+  //                         </tr>
+  //                       </tbody>
+  //                     </table>
+  //                   </td>
+  //                 </tr>
+  //               </tbody>
+  //             </table>
+  //           </td>
+  //         </tr>
+  //       </table>
+  //     </body>
+  //   </html>
+  // `;
     return {
         to: [to],
         from: this.senderContact,
         subject: i18n.t(`emails.${props.type}.subject.${course.type}`, { title: course.title }),
-        html: `
-        <!DOCTYPE html>
-          <html lang="ru">
-          <head>
-            <meta charset="UTF-8">
-            <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Добро пожаловать на вводную часть</title>
-          </head>
-          <body>
-            <table width="100%" style="padding:0;margin:0;overflow-x:hidden;">
-              <tr>
-                <td>
-                  <table align="center"  width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top=8px;line-height:normal;word-break:normal;">
-                    <tbody>
-                      <tr>
-                        <td align="center" bgcolor="#f5f5f5" style="background-color:#f5f5f5;padding:10px">
-                          <table width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width:600px">
-                            <tbody>
-                              <tr>
-                                <td>
-                                  <table align="center"  width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top=8px;line-height:normal;word-break:normal;">
-                                    <tbody>
-                                      <tr>
-                                        <td align="center" bgcolor="#f5f5f5" style="background-color:#f5f5f5;padding:10px">
-                                          <table width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width:600px">
-                                            <tbody>
-                                              <tr>
-                                                <td style="background-color:#f5f5f5;padding:26px 8px 0px;border-top-left-radius:25px;border-top-right-radius:25px" bgcolor:"#f5f5f5" align="center">
-                                                  <table style="max-width:540px;border-spacing:0px" width="100%" cellspacing="0" cellpadding="0" border="0">
-                                                    <tbody>
-                                                      <tr>
-                                                        <td align="left">
-                                                          <table width="100%" cellspacing="0" cellpadding="0" border="0">
-                                                            <tbody>
-                                                              <tr>
-                                                                <td style="font-size:0px;line-height:0px" valign="middle" align="left">
-                                                                  <table width="100%" cellspacing="0" cellpadding="0" border="0">
-                                                                    <tbody>
-                                                                      <tr>
-                                                                        <td style="font-size:14px;line-height:16px" align="left">
-                                                                          <table width="100%" cellspacing="0" cellpadding="0" border="0">
-                                                                            <tbody>
-                                                                              <tr>
-                                                                                <td align="left">
-                                                                                  <a style="font-family:Arial,Tahoma,Helvetica,sans-serif;font-size:18px;text-decoration:none;color:#262626" href="https://flearn.net">
-                                                                                    Freadom to Learn
-                                                                                  </a>
-                                                                                </td>
-                                                                              </tr>
-                                                                            </tbody>
-                                                                          </table>
-                                                                        <table width="100%" cellspacing="0" cellpadding="0" border="0">
-                                                                      <tbody>
-                                                                    <tr>
-                                                                  <td style="font-size:0;line-height:25px" height="25">
-                                                                </td>
-                                                              </tr>
-                                                            </tbody>
-                                                          </table>
-                                                        </td>
-                                                      </tr>
-                                                    </tbody>
-                                                  </table>
-                                                </td>
-                                              </tr>
-                                            </tbody>
-                                          </table>
-                                        </td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                          <table width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width:600px">
-                            <tbody>
-                              <tr>
-                                <td style="background-color:#ffffffff;padding:30px 20px 20px;border-top-left-radius:25px;border-top-right-radius:25px" bgcolor="#ffffffff"  align="center">
-                                  <table style="max-width:540px;border-spacing:0px" width="100%" border="0" cellspacing="0" cellpadding="0">
-                                    <tbody>
-                                      <tr>
-                                        <td style="font-family:Helvetica,Arial,sans-serif;font-size:32px;line-height:38px;color:#000000" align="left">
-                                          <span>Добро пожаловать на ${courseTypeStr} </span>
-                                          <span style="color:#262626">«${course.title}»</span>
-                                        </td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td style="background-color:#ffffffff;padding:0 20px 10px" bgcolor=#ffffffff" align="center">
-                                  <table style="max-width:540px;border-spacing:0px" width="100%" border="0" cellspacing="0" cellpadding="0">
-                                    <tbody>
-                                      <tr>
-                                        <td style="font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:20px;color:#000000" align="left">
-                                          <span>
-                                            Перед тем, как приступить к&nbsp;основному курсу, мы&nbsp;предлагаем всем студентам пройти бесплатную вводную часть. 
-                                            <br>
-                                            <br>
-                                            За&nbsp;10&nbsp;часов
-                                            <br>
-                                            <br>
-                                            → познакомитесь с&nbsp;форматом обучения в&nbsp;flearn
-                                            <br>
-                                            <br>
-                                            → пройдете ключевые этапы работы над иллюстрацией
-                                            <br>
-                                            <br>
-                                            → нарисуете обложку к любимой песне
-                                            </span>
-                                        </td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td style="background-color:#ffffff;padding:20px 20px 30px;border-bottom-left-radius:25px;border-bottom-right-radius:25px" bgcolor="#ffffff" align="center">
-                                  <table style-"max-width:540px;border-spacing:0px" width="100%" border="0" cellspacing="0" cellpadding="0">
-                                    <tbody>
-                                      <tr>
-                                        <td align="left">
-                                          <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                                            <tbody>
-                                              <tr>
-                                                <td style="border-radius:100px;background-color:#262626" valign="middle" height="60" bgcolor="#262626" align="center" width="100%">
-                                                  <a href="${startLink}" style="font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:52px;font-weight:normal;white-space:nowrap;text-decoration:none;display:block;padding:0px 32px;color:#ffffff" target="_blank">
-                                                    <span style="color:#ffffffff;text-decoration:none" color="#ffffffff">
-                                                      <span style="color:##ffffffff">Начать учиться</span>
-                                                    </span>
-                                                  </a>
-                                                </td>
-                                              </tr>
-                                            </tbody>
-                                          </table>
-                                        </td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td align="center">
-                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                  <tbody>
-                                    <tr>
-                                      <td style="line-height:20px;font-size:0" height="20"></td>
-                                    </tr>
-                                  </tbody>
-                                </table>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td style="background-color:#ffffffff;padding:30px 20px 20px;border-top-left-radius:25px;border-top-right-radius:25px" bgcolor="#ffffffff" align="center">
-                                  <table style="max-width:540px;border-spacing:0px" width="100%" border="0" cellspacing="0" cellpadding="0">
-                                    <tbody>
-                                      <tr>
-                                        <td style="font-family:Helvetica,Arial,sans-serif;font-size:32px;line-height:38px;color:#000000" align="left">
-                                          <span>
-                                            Присоединяйтесь к нам в Telegram
-                                          </span>
-                                        </td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td style="background-color:#ffffff;padding:0 20px 20px" bgcolor="#ffffffff" align="center">
-                                  <table style="max-width:540px;border-spacing:0px" width="100%" border="0" cellspacing="0" cellpadding="0">
-                                    <tbody>
-                                      <tr>
-                                        <td style="font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:20px;color:#000000" valign="top" align="left">
-                                          <span>
-                                            Там мы рассказываем про анонсы и скидки на ранние запуски курсов в flearn. А также наш преподаватель, Соня Ульянова пишет про свои личные проекты и отвечает на вопросы студентов.
-                                          </span>
-                                        </td> 
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td style="background-color:#ffffff;padding:20px 20px 30px;border-bottom-left-radius:25px;border-bottom-right-radius:25px" bgcolor="#ffffff" align="center">
-                                  <table style-"max-width:540px;border-spacing:0px" width="100%" border="0" cellspacing="0" cellpadding="0">
-                                    <tbody>
-                                      <tr>
-                                        <td align="left">
-                                          <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                                            <tbody>
-                                              <tr>
-                                                <td style="border-radius:100px;background-color:#262626" valign="middle" height="60" bgcolor="#262626" align="center">
-                                                  <a href="https://t.me/sofiulyanova" style="font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:52px;font-weight:normal;white-space:nowrap;text-decoration:none;display:block;padding:0px 32px;color:#ffffff" target="_blank">
-                                                    <span style="color:#ffffffff;text-decoration:none" color="#ffffffff">
-                                                      <span style="color:#ffffffff">Присоединиться к телеграм-каналу</span>
-                                                    </span>
-                                                  </a>
-                                                </td>
-                                              </tr>
-                                            </tbody>
-                                          </table>
-                                        </td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                    <tbody>
-                                      <tr>
-                                        <td style="padding:30px 20px 50px;font-family:Helvetica,Arial,sans-serif;font-size:12px;line-height:16px;color:#808080" align="left">
-                                          <span>
-                                            ©&nbsp;2023-2024&nbsp;flearn
-                                            <br>
-                                            <br>
-                                            Письмо создано автоматически, пожалуйста, не отвечайте на него. Чтобы отписаться от рассылки, перейдите
-                                            <a href="#" style="font-family:Helvetica,Arial,sans-serif;font-size:12px;line-height:16px;font-weight:normal;white-space:nowrap;text-decoration:underline;color:#808080" target="_blank">
-                                              <span style="color:#808080;text-decoration:none" color=#808080">
-                                                <span style="color:#808080">по этой ссылке.</span>
-                                              </span>
-                                            </a>
-                                          </span>
-                                        </td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </td>
-              </tr>
-            </table>
-          </body>
-        </html>
-      `,
+        html,
     };
   }
 
@@ -352,235 +383,246 @@ class EmailService {
       PAYPAL: 'PayPal',
     }[paymentOption];
     const dateOfPaymentStr = formatDate(dateOfPaiment, { timeZone: 'Europe/Moscow', wTime: true });
+    const html = this.Layout({
+      title: 'Подтверждение записи',
+      content: this.WelcomeToPaidCourse({
+        courseType: courseTypeStr,
+        courseTitle: course.title,
+        paymentMethod: paymentMethodStr,
+        creditPrice: creditPriceStr,
+        dateOfPayment: dateOfPaymentStr,
+      }),
+    });
     return {
       to: [to],
       from: this.senderContact,
       subject: i18n.t(`emails.${props.type}.subject.${course.type}`, { title: course.title }),
-      html: `
-        <!DOCTYPE html>
-          <html lang="ru">
-          <head>
-            <meta charset="UTF-8">
-            <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Подтверждение записи</title>
-          </head>
-          <body>
-            <table width="100%" style="padding:0;margin:0;overflow-x:hidden;">
-              <tr>
-                <td>
-                  <table align="center"  width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top=8px;line-height:normal;word-break:normal;">
-                            <tbody>
-                              <tr>
-                                <td>
-                                  <table align="center"  width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top=8px;line-height:normal;word-break:normal;">
-                                    <tbody>
-                                      <tr>
-                                        <td align="center" bgcolor="#f5f5f5" style="background-color:#f5f5f5;padding:10px">
-                                          <table width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width:600px">
-                                            <tbody>
-                                              <tr>
-                                                <td style="background-color:#f5f5f5;padding:26px 8px 0px;border-top-left-radius:25px;border-top-right-radius:25px" bgcolor:"#f5f5f5" align="center">
-                                                  <table style="max-width:540px;border-spacing:0px" width="100%" cellspacing="0" cellpadding="0" border="0">
-                                                    <tbody>
-                                                      <tr>
-                                                        <td align="left">
-                                                          <table width="100%" cellspacing="0" cellpadding="0" border="0">
-                                                            <tbody>
-                                                              <tr>
-                                                                <td style="font-size:0px;line-height:0px" valign="middle" align="left">
-                                                                  <table width="100%" cellspacing="0" cellpadding="0" border="0">
-                                                                    <tbody>
-                                                                      <tr>
-                                                                        <td style="font-size:14px;line-height:16px" align="left">
-                                                                          <table width="100%" cellspacing="0" cellpadding="0" border="0">
-                                                                            <tbody>
-                                                                              <tr>
-                                                                                <td align="left">
-                                                                                  <a style="font-family:Arial,Tahoma,Helvetica,sans-serif;font-size:18px;text-decoration:none;color:#262626" href="https://flearn.net">
-                                                                                    Freadom to Learn
-                                                                                  </a>
-                                                                                </td>
-                                                                              </tr>
-                                                                            </tbody>
-                                                                          </table>
-                                                                        <table width="100%" cellspacing="0" cellpadding="0" border="0">
-                                                                      <tbody>
-                                                                    <tr>
-                                                                  <td style="font-size:0;line-height:25px" height="25">
-                                                                </td>
-                                                              </tr>
-                                                            </tbody>
-                                                          </table>
-                                                        </td>
-                                                      </tr>
-                                                    </tbody>
-                                                  </table>
-                                                </td>
-                                              </tr>
-                                            </tbody>
-                                          </table>
-                                        </td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                          <table width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width:600px">
-                            <tbody>
-                              <tr>
-                                <td style="background-color:#ffffffff;padding:30px 20px 20px;border-top-left-radius:25px;border-top-right-radius:25px" bgcolor="#ffffffff"  align="center">
-                                  <table style="max-width:540px;border-spacing:0px" width="100%" border="0" cellspacing="0" cellpadding="0">
-                                    <tbody>
-                                      <tr>
-                                        <td style="font-family:Helvetica,Arial,sans-serif;font-size:32px;line-height:38px;color:#000000" align="left">
-                                          <span>Вы записались на ${courseTypeStr}</span>
-                                          <span style="color:#262626">«${course.title}»</span>
-                                        </td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td style="background-color:#ffffffff;padding:0 20px 10px" bgcolor=#ffffffff" align="center">
-                                  <table style="max-width:540px;border-spacing:0px" width="100%" border="0" cellspacing="0" cellpadding="0">
-                                    <tbody>
-                                      <tr>
-                                        <td style="font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:20px;color:#000000" align="left">
-                                          <span>
-                                            Вы сделали первый шаг на пути к новым навыкам, поздравляем! Мы получили ваше подтверждение об оплате. В течении 1-2 рабочих дней откроем доступ к материалам и пришлем письмо со ссылкой на первый платный урок.
-                                            <br>
-                                            <br>
-                                            Сумма: ${creditPriceStr}
-                                            <br>
-                                            <br>
-                                            Способ оплаты: ${paymentMethodStr}
-                                            <br>
-                                            <br>
-                                            Дата и время (MSK): ${dateOfPaymentStr}
-                                          </span>
-                                        </td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td style="background-color:#ffffff;padding:20px 20px 30px;border-bottom-left-radius:25px;border-bottom-right-radius:25px" bgcolor="#ffffff" align="center">
-                                  <table style-"max-width:540px;border-spacing:0px" width="100%" border="0" cellspacing="0" cellpadding="0">
-                                    <tbody>
-                                      <tr>
-                                        <td align="left">
-                                        </td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td align="center">
-                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                  <tbody>
-                                    <tr>
-                                      <td style="line-height:20px;font-size:0" height="20"></td>
-                                    </tr>
-                                  </tbody>
-                                </table>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td style="background-color:#ffffffff;padding:30px 20px 20px;border-top-left-radius:25px;border-top-right-radius:25px" bgcolor="#ffffffff" align="center">
-                                  <table style="max-width:540px;border-spacing:0px" width="100%" border="0" cellspacing="0" cellpadding="0">
-                                    <tbody>
-                                      <tr>
-                                        <td style="font-family:Helvetica,Arial,sans-serif;font-size:32px;line-height:38px;color:#000000" align="left">
-                                          <span>
-                                            Присоединяйтесь к нам в Telegram
-                                          </span>
-                                        </td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td style="background-color:#ffffff;padding:0 20px 20px" bgcolor="#ffffffff" align="center">
-                                  <table style="max-width:540px;border-spacing:0px" width="100%" border="0" cellspacing="0" cellpadding="0">
-                                    <tbody>
-                                      <tr>
-                                        <td style="font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:20px;color:#000000" valign="top" align="left">
-                                          <span>
-                                            Там мы рассказываем про анонсы и скидки на ранние запуски курсов в flearn. А также наш преподаватель, Соня Ульянова пишет про свои личные проекты и отвечает на вопросы студентов.
-                                          </span>
-                                        </td> 
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td style="background-color:#ffffff;padding:20px 20px 30px;border-bottom-left-radius:25px;border-bottom-right-radius:25px" bgcolor="#ffffff" align="center">
-                                  <table style-"max-width:540px;border-spacing:0px" width="100%" border="0" cellspacing="0" cellpadding="0">
-                                    <tbody>
-                                      <tr>
-                                        <td align="left">
-                                          <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                                            <tbody>
-                                              <tr>
-                                                <td style="border-radius:100px;background-color:#262626" valign="middle" height="60" bgcolor="#262626" align="center">
-                                                  <a href="https://t.me/sofiulyanova" style="font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:52px;font-weight:normal;white-space:nowrap;text-decoration:none;display:block;padding:0px 32px;color:#ffffff" target="_blank">
-                                                    <span style="color:#ffffffff;text-decoration:none" color="#ffffffff">
-                                                      <span style="color:#ffffffff">Присоединиться к телеграм-каналу</span>
-                                                    </span>
-                                                  </a>
-                                                </td>
-                                              </tr>
-                                            </tbody>
-                                          </table>
-                                        </td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                    <tbody>
-                                      <tr>
-                                        <td style="padding:30px 20px 50px;font-family:Helvetica,Arial,sans-serif;font-size:12px;line-height:16px;color:#808080" align="left">
-                                          <span>
-                                            ©&nbsp;2023-2024&nbsp;flearn
-                                            <br>
-                                            <br>
-                                            Письмо создано автоматически, пожалуйста, не отвечайте на него. Чтобы отписаться от рассылки, перейдите
-                                            <a href="#" style="font-family:Helvetica,Arial,sans-serif;font-size:12px;line-height:16px;font-weight:normal;white-space:nowrap;text-decoration:underline;color:#808080" target="_blank">
-                                              <span style="color:#808080;text-decoration:none" color=#808080">
-                                                <span style="color:#808080">по этой ссылке.</span>
-                                              </span>
-                                            </a>
-                                          </span>
-                                        </td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </td>
-              </tr>
-            </table>
-          </body>
-        </html>
-      `,
+      html,
+      // html: `
+      //   <!DOCTYPE html>
+      //     <html lang="ru">
+      //     <head>
+      //       <meta charset="UTF-8">
+      //       <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
+      //       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      //       <title>Подтверждение записи</title>
+      //     </head>
+      //     <body>
+      //       <table width="100%" style="padding:0;margin:0;overflow-x:hidden;">
+      //         <tr>
+      //           <td>
+      //             <table align="center"  width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top=8px;line-height:normal;word-break:normal;">
+      //                       <tbody>
+      //                         <tr>
+      //                           <td>
+      //                             <table align="center"  width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top=8px;line-height:normal;word-break:normal;">
+      //                               <tbody>
+      //                                 <tr>
+      //                                   <td align="center" bgcolor="#f5f5f5" style="background-color:#f5f5f5;padding:10px">
+      //                                     <table width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width:600px">
+      //                                       <tbody>
+      //                                         <tr>
+      //                                           <td style="background-color:#f5f5f5;padding:26px 8px 0px;border-top-left-radius:25px;border-top-right-radius:25px" bgcolor:"#f5f5f5" align="center">
+      //                                             <table style="max-width:540px;border-spacing:0px" width="100%" cellspacing="0" cellpadding="0" border="0">
+      //                                               <tbody>
+      //                                                 <tr>
+      //                                                   <td align="left">
+      //                                                     <table width="100%" cellspacing="0" cellpadding="0" border="0">
+      //                                                       <tbody>
+      //                                                         <tr>
+      //                                                           <td style="font-size:0px;line-height:0px" valign="middle" align="left">
+      //                                                             <table width="100%" cellspacing="0" cellpadding="0" border="0">
+      //                                                               <tbody>
+      //                                                                 <tr>
+      //                                                                   <td style="font-size:14px;line-height:16px" align="left">
+      //                                                                     <table width="100%" cellspacing="0" cellpadding="0" border="0">
+      //                                                                       <tbody>
+      //                                                                         <tr>
+      //                                                                           <td align="left">
+      //                                                                             <a style="font-family:Arial,Tahoma,Helvetica,sans-serif;font-size:18px;text-decoration:none;color:#262626" href="https://flearn.net">
+      //                                                                               Freadom to Learn
+      //                                                                             </a>
+      //                                                                           </td>
+      //                                                                         </tr>
+      //                                                                       </tbody>
+      //                                                                     </table>
+      //                                                                   <table width="100%" cellspacing="0" cellpadding="0" border="0">
+      //                                                                 <tbody>
+      //                                                               <tr>
+      //                                                             <td style="font-size:0;line-height:25px" height="25">
+      //                                                           </td>
+      //                                                         </tr>
+      //                                                       </tbody>
+      //                                                     </table>
+      //                                                   </td>
+      //                                                 </tr>
+      //                                               </tbody>
+      //                                             </table>
+      //                                           </td>
+      //                                         </tr>
+      //                                       </tbody>
+      //                                     </table>
+      //                                   </td>
+      //                                 </tr>
+      //                               </tbody>
+      //                             </table>
+      //                           </td>
+      //                         </tr>
+      //                       </tbody>
+      //                     </table>
+      //                     <table width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width:600px">
+      //                       <tbody>
+      //                         <tr>
+      //                           <td style="background-color:#ffffffff;padding:30px 20px 20px;border-top-left-radius:25px;border-top-right-radius:25px" bgcolor="#ffffffff"  align="center">
+      //                             <table style="max-width:540px;border-spacing:0px" width="100%" border="0" cellspacing="0" cellpadding="0">
+      //                               <tbody>
+      //                                 <tr>
+      //                                   <td style="font-family:Helvetica,Arial,sans-serif;font-size:32px;line-height:38px;color:#000000" align="left">
+      //                                     <span>Вы записались на ${courseTypeStr}</span>
+      //                                     <span style="color:#262626">«${course.title}»</span>
+      //                                   </td>
+      //                                 </tr>
+      //                               </tbody>
+      //                             </table>
+      //                           </td>
+      //                         </tr>
+      //                         <tr>
+      //                           <td style="background-color:#ffffffff;padding:0 20px 10px" bgcolor=#ffffffff" align="center">
+      //                             <table style="max-width:540px;border-spacing:0px" width="100%" border="0" cellspacing="0" cellpadding="0">
+      //                               <tbody>
+      //                                 <tr>
+      //                                   <td style="font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:20px;color:#000000" align="left">
+      //                                     <span>
+      //                                       Вы сделали первый шаг на пути к новым навыкам, поздравляем! Мы получили ваше подтверждение об оплате. В течении 1-2 рабочих дней откроем доступ к материалам и пришлем письмо со ссылкой на первый платный урок.
+      //                                       <br>
+      //                                       <br>
+      //                                       Сумма: ${creditPriceStr}
+      //                                       <br>
+      //                                       <br>
+      //                                       Способ оплаты: ${paymentMethodStr}
+      //                                       <br>
+      //                                       <br>
+      //                                       Дата и время (MSK): ${dateOfPaymentStr}
+      //                                     </span>
+      //                                   </td>
+      //                                 </tr>
+      //                               </tbody>
+      //                             </table>
+      //                           </td>
+      //                         </tr>
+      //                         <tr>
+      //                           <td style="background-color:#ffffff;padding:20px 20px 30px;border-bottom-left-radius:25px;border-bottom-right-radius:25px" bgcolor="#ffffff" align="center">
+      //                             <table style-"max-width:540px;border-spacing:0px" width="100%" border="0" cellspacing="0" cellpadding="0">
+      //                               <tbody>
+      //                                 <tr>
+      //                                   <td align="left">
+      //                                   </td>
+      //                                 </tr>
+      //                               </tbody>
+      //                             </table>
+      //                           </td>
+      //                         </tr>
+      //                         <tr>
+      //                           <td align="center">
+      //                           <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      //                             <tbody>
+      //                               <tr>
+      //                                 <td style="line-height:20px;font-size:0" height="20"></td>
+      //                               </tr>
+      //                             </tbody>
+      //                           </table>
+      //                           </td>
+      //                         </tr>
+      //                         <tr>
+      //                           <td style="background-color:#ffffffff;padding:30px 20px 20px;border-top-left-radius:25px;border-top-right-radius:25px" bgcolor="#ffffffff" align="center">
+      //                             <table style="max-width:540px;border-spacing:0px" width="100%" border="0" cellspacing="0" cellpadding="0">
+      //                               <tbody>
+      //                                 <tr>
+      //                                   <td style="font-family:Helvetica,Arial,sans-serif;font-size:32px;line-height:38px;color:#000000" align="left">
+      //                                     <span>
+      //                                       Присоединяйтесь к нам в Telegram
+      //                                     </span>
+      //                                   </td>
+      //                                 </tr>
+      //                               </tbody>
+      //                             </table>
+      //                           </td>
+      //                         </tr>
+      //                         <tr>
+      //                           <td style="background-color:#ffffff;padding:0 20px 20px" bgcolor="#ffffffff" align="center">
+      //                             <table style="max-width:540px;border-spacing:0px" width="100%" border="0" cellspacing="0" cellpadding="0">
+      //                               <tbody>
+      //                                 <tr>
+      //                                   <td style="font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:20px;color:#000000" valign="top" align="left">
+      //                                     <span>
+      //                                       Там мы рассказываем про анонсы и скидки на ранние запуски курсов в flearn. А также наш преподаватель, Соня Ульянова пишет про свои личные проекты и отвечает на вопросы студентов.
+      //                                     </span>
+      //                                   </td> 
+      //                                 </tr>
+      //                               </tbody>
+      //                             </table>
+      //                           </td>
+      //                         </tr>
+      //                         <tr>
+      //                           <td style="background-color:#ffffff;padding:20px 20px 30px;border-bottom-left-radius:25px;border-bottom-right-radius:25px" bgcolor="#ffffff" align="center">
+      //                             <table style-"max-width:540px;border-spacing:0px" width="100%" border="0" cellspacing="0" cellpadding="0">
+      //                               <tbody>
+      //                                 <tr>
+      //                                   <td align="left">
+      //                                     <table border="0" cellspacing="0" cellpadding="0" width="100%">
+      //                                       <tbody>
+      //                                         <tr>
+      //                                           <td style="border-radius:100px;background-color:#262626" valign="middle" height="60" bgcolor="#262626" align="center">
+      //                                             <a href="https://t.me/sofiulyanova" style="font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:52px;font-weight:normal;white-space:nowrap;text-decoration:none;display:block;padding:0px 32px;color:#ffffff" target="_blank">
+      //                                               <span style="color:#ffffffff;text-decoration:none" color="#ffffffff">
+      //                                                 <span style="color:#ffffffff">Присоединиться к телеграм-каналу</span>
+      //                                               </span>
+      //                                             </a>
+      //                                           </td>
+      //                                         </tr>
+      //                                       </tbody>
+      //                                     </table>
+      //                                   </td>
+      //                                 </tr>
+      //                               </tbody>
+      //                             </table>
+      //                           </td>
+      //                         </tr>
+      //                         <tr>
+      //                           <td>
+      //                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      //                               <tbody>
+      //                                 <tr>
+      //                                   <td style="padding:30px 20px 50px;font-family:Helvetica,Arial,sans-serif;font-size:12px;line-height:16px;color:#808080" align="left">
+      //                                     <span>
+      //                                       ©&nbsp;2023-2024&nbsp;flearn
+      //                                       <br>
+      //                                       <br>
+      //                                       Письмо создано автоматически, пожалуйста, не отвечайте на него. Чтобы отписаться от рассылки, перейдите
+      //                                       <a href="#" style="font-family:Helvetica,Arial,sans-serif;font-size:12px;line-height:16px;font-weight:normal;white-space:nowrap;text-decoration:underline;color:#808080" target="_blank">
+      //                                         <span style="color:#808080;text-decoration:none" color=#808080">
+      //                                           <span style="color:#808080">по этой ссылке.</span>
+      //                                         </span>
+      //                                       </a>
+      //                                     </span>
+      //                                   </td>
+      //                                 </tr>
+      //                               </tbody>
+      //                             </table>
+      //                           </td>
+      //                         </tr>
+      //                       </tbody>
+      //                     </table>
+      //                   </td>
+      //                 </tr>
+      //               </tbody>
+      //             </table>
+      //           </td>
+      //         </tr>
+      //       </table>
+      //     </body>
+      //   </html>
+      // `,
     };
   }
 
@@ -741,8 +783,13 @@ class EmailService {
   //     `,
   //   };
   // }
+
+  private registerTemplates() {
+    Handlebars.registerPartial("Layout", Layout);
+    Handlebars.registerPartial("WelcomeToCourse", WelcomeToCourse);
+    Handlebars.registerPartial("WelcomeToPaidCourse", WelcomeToPaidCourse);
+  }
 }
 
 export const emailService = new EmailService();
-
-// (window as any).emailService = emailService;
+(window as any).emailService = emailService;
