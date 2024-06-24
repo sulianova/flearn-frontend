@@ -24,6 +24,8 @@ body.light {
   --color-background-overlay: var(--color-background-overlay-light);
   --color-background-active: var(--color-background-active-light);
   --color-background-stroke: var(--color-background-stroke-light);
+  --color-border: var(--color-border-light);
+  --color-card: var(--color-card-light);
   --border-color: var(--border-color-light);
   --color-content-inverted-primary: var(--color-content-inverted-primary-light);
   --color-content-inverted-secondary: var(--color-content-inverted-secondary-light);
@@ -63,6 +65,8 @@ body.dark {
   --color-background-overlay: var(--color-background-overlay-dark);
   --color-background-active: var(--color-background-active-dark);
   --color-background-stroke: var(--color-background-stroke-dark);
+  --color-border: var(--color-border-dark);
+  --color-card: var(--color-card-dark);
   --border-color: var(--border-color-dark);
   --color-content-inverted-primary: var(--color-content-inverted-primary-dark);
   --color-content-inverted-secondary: var(--color-content-inverted-secondary-dark);

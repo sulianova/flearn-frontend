@@ -86,7 +86,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
             </div>
           )}
           <div className={classes.nav}>
-            {variant === EPageVariant.LMS && (
+            {/* {variant === EPageVariant.LMS && (
               <div className={cx({ userSettinsWrapper: true, open: userPopupVisible })}>
                 {user && userPopupVisible && (
                     <UserPopup
@@ -101,7 +101,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
                   <Icon icon='User'/>
                 </div>
               </div>
-            )}
+            )} */}
             {user && (
               <Dropdown
                 content={({ close }) => (
@@ -115,7 +115,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
                   currentCloseCourseDropdown.current = close;
                   return (
                     <div className={cx({ navContent: true, navItem: true, selectToggleIsOpened: opened })} onClick={opened ? close : open}>
-                      <span className={classes.selectToggleContent}>мои курсы</span>
+                      <span className={classes.selectToggleContent}>Мои курсы</span>
                       <span className={classes.selectToggleIcon}><Icon icon='SelectToggleIcon'/></span>
                     </div>
                   );
@@ -126,7 +126,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
               urlSection === 'EmptyProfile' ? null :
               variant === EPageVariant.LMS ? (
                 <div className={cx({ navBuy: true, navItem: true })} onClick={() => setBuyPopupIsOpened(true)}>
-                  <div className={cx({ buyBtn: true})}>купить полный курс</div>
+                  <div className={cx({ buyBtn: true})}>Купить полный курс</div>
                   {getCourseBaseDiscountAmountPrc(currentCourse?.discount) && (
                     <div className={classes.buyBadge}>{formatCourseDiscount(getCourseBaseDiscountAmountPrc(currentCourse?.discount)!)}</div>
                   )}

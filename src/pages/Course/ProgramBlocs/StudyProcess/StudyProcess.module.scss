@@ -32,8 +32,8 @@
 
 .item {
   grid-column: span 1;
-  background-color: var(--color-content-inverted-secondary);
-  border: set-calc(1) solid var(--color-background-default);
+  background-color: var(--color-card);
+  border: set-calc(1) solid var(--color-border);
   box-shadow: $shadow-huge-default;
   padding: set-calc(24);
   border-radius: set-calc($border-radius-medium);

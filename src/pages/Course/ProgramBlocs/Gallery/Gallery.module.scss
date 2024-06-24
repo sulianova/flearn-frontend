@@ -6,7 +6,8 @@
   display: block;
   padding-top: set-calc(0);
   @include is-beige;
-  background-color: $color-palette-black-900;
+  background-color: $color-card-dark;
+  border: set-calc(1) solid $color-border-dark;
 }
 
 .title {
@@ -14,7 +15,7 @@
   margin-bottom: set-calc(10);
 
   @include font-18-normal-paragraph;
-  color: $color-palette-white-300-a;
+  color: $color-palette-white-700-a;
 
   @include set-media(md) {
     padding-left: set-calc(8);
@@ -41,7 +42,7 @@
     left: set-calc(-8);
     padding: 0 set-calc(8);
 
-    scrollbar-width: none;
+    scrollbar-width: 0;
     overflow-y: hidden;
     overflow-x: scroll;
 

@@ -37,8 +37,8 @@
   border-radius: set-calc($border-radius-medium);
 
   box-sizing: border-box;
-  background: var(--color-content-inverted-secondary);
-  border: set-calc(1) solid var(--color-background-default);
+  background-color: var(--color-card);
+  border: set-calc(1) solid var(--color-border);
   text-align: left;
   box-shadow: $shadow-huge-default;
 

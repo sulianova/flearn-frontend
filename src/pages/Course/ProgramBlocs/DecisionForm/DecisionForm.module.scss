@@ -58,12 +58,12 @@
   min-width: min(380px, 80vw);
   padding: set-calc(24);
   border-radius: set-calc($border-radius-large);
-  background-color: var(--color-content-inverted-secondary);
-  border: set-calc(1) solid var(--color-background-default);
+  background-color: var(--color-card);
+  border: set-calc(1) solid var(--color-border);
   box-shadow: $shadow-medium-default;
 
   @include set-media(md) {
-    border-radius: set-calc($border-radius-10);
+    border-radius: set-calc($border-radius-medium);
     padding: set-calc(16);
   }
 }

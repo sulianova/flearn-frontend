@@ -14,7 +14,7 @@ export default function Header() {
             <div className={classes.description}>{i18n.t('catalogue.description')}</div>
           </div> */}
         </div>
-          <div className={classes.actions}>
+          {/* <div className={classes.actions}>
               <a
                 className={classes.actionsBtn}
                 href='#decision-form'
@@ -28,7 +28,7 @@ export default function Header() {
               >
                 <div className={classes.text}>{i18n.t('signUp')}</div>
               </a>
-            </div>
+          </div> */}
       </div>
     </div>
   );

@@ -4,7 +4,7 @@
   position: sticky;
   position: -webkit-sticky; 
   top: 0;
-  z-index: 400;
+  z-index: 300;
   width: 100%;
   transition: transform .5s;
   
@@ -12,14 +12,13 @@
   @include set-typography(18, 18, 500);
 
   @include set-media(md) {
+    @include font-16-normal-ui;
     transition: top 0.5s, transform 0.5s;
 
     // min-height: 100vh;
     // min-height: -moz-available;
     // min-height: -webkit-fill-available;
     // min-height: fill-available;
-
-    @include font-16-normal-ui;
   }
 }
 
@@ -29,9 +28,21 @@
   justify-content: space-between;
   align-items: center;
 
-  width: 100%;
-  padding: set-calc(10) set-calc(2 * $padding-x-desk-page) set-calc(16);
-  transition: transform 0.15s ease-in;
+  height: set-calc(52);
+
+  padding: 0 set-calc(16);
+  margin: set-calc(10) set-calc(80);
+  transition: transform 0.15s ease-out, backdrop-filter $d-hover ease-out;
+
+  background-color: var(--color-card);
+  border: set-calc(1) solid var(--color-border);
+  backdrop-filter: blur(set-calc($backdrop-filter));
+  border-radius: set-calc($border-radius-30);
+
+  &:hover {
+    backdrop-filter: none;
+    cursor: pointer;
+  }
 
   @include is-grid-12;
   gap: 0;
@@ -43,11 +54,8 @@
     height: set-calc(52);
     grid-gap: set-calc(16);
     padding: set-calc(8) set-calc($padding-xs-mob-page) set-calc(8);
-
-    background-color: var(--color-content-inverted-secondary);
-    backdrop-filter: blur(set-calc($backdrop-filter));
-
-    margin-bottom: set-calc(8);
+    margin: 0 0;
+    border-radius: 0;
 
     .logo {
       display: none;
@@ -56,18 +64,14 @@
 }
 
 .deskPaddingWEB {
-  padding: set-calc(10) set-calc(2 * $padding-x-desk-page) set-calc(16);
-
   @include set-media(md) {
     padding: 0 set-calc($padding-xs-mob-page) 0;
   }
 }
 
 .deskPaddingLMS {
-  padding: set-calc(10) set-calc($padding-x-mob-page) set-calc(16);
-
   @include set-media(md) {
-    padding: set-calc(14) set-calc($padding-x-mob-page) set-calc(8);
+    padding: set-calc(8) set-calc($padding-x-mob-page) set-calc(8);
   }
 }
 
@@ -157,9 +161,6 @@
     align-items: center;
     justify-content: center;
 
-    // backdrop-filter: blur(set-calc($backdrop-filter));
-    // box-shadow: $shadow-menu;
-    // background-color: var(--color-background-glassy-a);
     border-radius: set-calc($border-radius-6);
     padding: set-calc(6);
   
@@ -177,9 +178,10 @@
   align-items: center;
   position: relative;
 
-  background-color: $color-palette-black-900;
   color: $color-palette-white-1000;
+
   padding: set-calc(4) set-calc(24);
+  background-color: $color-palette-black-900;
   border-radius: set-calc($border-radius-large);
   width: max-content;
   height: set-calc(40);
@@ -210,22 +212,23 @@
   width: max-content;
   height: set-calc(40);
 
+  @include font-18-normal-ui;
+
   color: $color-palette-white-1000;
 
   padding: set-calc(4) set-calc(24);
-  border-radius: set-calc($border-radius-large);
   background-color: $color-palette-black-900;
-
-  transition: background-color $d-hover ease;
+  border-radius: set-calc($border-radius-large);
+  transition: color $d-hover ease;
   
   &:hover {
     cursor: pointer;
     background-color: $color-palette-black-800;
+    color: $color-palette-white-1000;
   }
 
   @include set-media(md) {
-    height: set-calc(30);
-    border-radius: set-calc($border-radius-small);
+    height: set-calc(36);
     padding: set-calc(4) set-calc(16);
   }
 }
@@ -254,19 +257,21 @@
   @include set-typography(14, 16, 500);
 
   @include set-media(md) {
-    position: absolute;
-    top: set-calc(-6);
-    right: set-calc(-6);
+    display: none;
 
-    padding: 0 set-calc(3.5);
-    height: set-calc(16);
+    // position: absolute;
+    // top: set-calc(-6);
+    // right: set-calc(-6);
 
-    border-radius: set-calc(2);
-    transform: rotate(10.5deg);
+    // padding: 0 set-calc(3.5);
+    // height: set-calc(16);
 
-    pointer-events: none;
+    // border-radius: set-calc(2);
+    // transform: rotate(10.5deg);
 
-    @include set-typography(12, 14, 500);
+    // pointer-events: none;
+
+    // @include set-typography(12, 14, 500);
   }
 }
 
@@ -277,11 +282,7 @@
   align-items: center;
 
   color: var(--color-content-primary);
-
-  background-color: var(--color-background-glassy-inverted-d);
   padding: set-calc(4) set-calc(24);
-  border-radius: set-calc(100);
-  border: set-calc(2.5) solid  var(--color-content-primary);
 
   width: max-content;
   height: set-calc(40);
@@ -289,7 +290,6 @@
   gap: set-calc(4);
 
   transition: background-color $d-hover ease;
-  backdrop-filter: blur(set-calc($backdrop-filter));
   
   &:hover {
     cursor: pointer;
@@ -352,7 +352,6 @@
     opacity: 1;
 
     color: var(--color-content-primary);
-    // background-color: var(--color-background-glassy-a);
     border-radius: set-calc($border-radius-6);
     padding: set-calc(6);
     // background-color: var(--color-content-inverted-secondary);
