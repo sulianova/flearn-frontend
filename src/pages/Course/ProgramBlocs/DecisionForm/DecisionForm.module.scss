@@ -84,7 +84,7 @@
   margin-bottom: set-calc(8);
 
   @include font-16-normal-paragraph;
-  color: var(--color-content-tertiary);
+  color: var(--color-content-paragraph-primary);
 }
 
 .title {
@@ -211,14 +211,14 @@
   justify-content: center;
   align-items: center;
 
-  height: set-calc(60);
-  padding: 0 set-calc(50);
+  height: set-calc(44);
+  padding: 0 set-calc(32);
   width: fit-content;
 
   color: $color-palette-white-1000;
   @include font-21-normal-ui;
 
-  border-radius: set-calc($border-radius-30);
+  border-radius: set-calc($border-radius-10);
   background-color: var(--primary-color);
   transition: opacity $d-hover ease, box-shadow $d-hover ease, background-color $d-hover ease;
   cursor: pointer;
@@ -231,6 +231,6 @@
 
   @include set-media(md) {
     height: set-calc(52);
-    border-radius: set-calc($border-radius-30);
+    border-radius: set-calc($border-radius-10);
   }
 }

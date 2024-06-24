@@ -82,6 +82,7 @@
   border-radius: set-calc($border-radius-large);
   background: var(--color-content-primary);
   color: var(--color-content-inverted-primary);
+  backdrop-filter: blur(set-calc($backdrop-filter));
 
   @include set-media(md) {
     padding: set-calc(8) set-calc(12);

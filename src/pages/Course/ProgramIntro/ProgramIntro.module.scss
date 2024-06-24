@@ -22,7 +22,7 @@
   gap: set-calc(8);
 
   overflow: hidden;
-  max-height: 75vh;
+  height: 75vh;
 
   padding: set-calc(24) set-calc(24);
   border-radius: set-calc($border-radius-medium);
@@ -178,27 +178,25 @@
   grid-column: span 2;
   position: relative;
 
-  overflow: hidden;
-
   display: block;
   align-self: stretch;
   justify-self: stretch;
   border-radius: set-calc($border-radius-medium);
+  overflow: hidden;
 
-  &:before {
-    content: "";
-    position: absolute;
-    inset: 0;
+  // &:before {
+  //   content: "";
+  //   position: absolute;
+  //   inset: 0;
 
-    @include set-media(md) {
-      background: transparent;
-    }
-  }
+  //   @include set-media(md) {
+  //     background: transparent;
+  //   }
+  // }
 
   @include set-media(md) {
     position: relative;
     width: 100%;
-    height: 100%;
     padding-left: 0;
   }
 }

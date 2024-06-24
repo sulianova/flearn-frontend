@@ -133,7 +133,7 @@
   width: set-calc(48);
   height: set-calc(48);
   border-radius: 50%;
-  background-color: var(--color-background-glassy-a);
+  background-color: var(--color-background-glassy-b);
   color: var(--color-content-primary);
   font-feature-settings: 'pnum' on, 'lnum' on;
 
@@ -188,7 +188,7 @@
   @include font-16-normal-ui;
 
   border-radius: set-calc($border-radius-large);
-  background-color: var(--color-background-glassy-a);
+  background-color: var(--color-background-glassy-b);
   list-style-type: none;
 
   @include set-media(md) {
@@ -281,10 +281,10 @@
 
   padding: set-calc(10) set-calc(16);
   border-radius: set-calc($border-radius-30);
-  background: $gradient-button;
 
-  color: $color-palette-white-1000;
+  color: var(--primary-color);
   @include font-21-normal-ui;
+  font-variant: small-caps;
 
   svg {
     display: inline-block;
