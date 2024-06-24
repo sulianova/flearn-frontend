@@ -20,8 +20,8 @@ export enum EEmail {
   WelcomeToPaidCourse = 'WelcomeToPaidCourse',
   DiscontSolveFreeLessonsInWeek = 'DiscontSolveFreeLessonsInWeek',
   HomeworkSentForReview = 'HomeworkSentForReview',
-  HomeworkSentForReviewToReviewer = 'HomeworkSentForReviewToReviewer',
   HomeworkReviewed = 'HomeworkReviewed',
+  HomeworkSentForReviewToReviewer = 'HomeworkSentForReviewToReviewer',
   HomeworkReviewedToReviewer = 'HomeworkReviewedToReviewer',
 }
 

@@ -18,18 +18,11 @@ import type {
   THomeworkReviewedProps,
   THomeworkReviewedToReviewerProps
 } from './types';
+import EmailTemplateService from './emailTemplate.service';
 
-import Layout from './templates/Layout.html';
-
-import WelcomeToCourse from './emails/WelcomeToCourse.html';
-import WelcomeToPaidCourse from './emails/WelcomeToPaidCourse.html';
 
 class EmailService {
   public EEmail = EEmail;
-
-  constructor() {
-    this.registerTemplates();
-  }
 
   public async sendEmail(props: TSendEmailProps): Promise<void> {
     try {
@@ -91,27 +84,15 @@ class EmailService {
     }
   }
 
-  private Layout(props: { title: string, content: string }) {
-    return Handlebars.compile(`{{>Layout }}`, { noEscape: true })(props);
-  }
-
-  private WelcomeToCourse(props: { courseType: string, courseTitle: string, startLink: string }) {
-    return Handlebars.compile(`{{>WelcomeToCourse }}`, { noEscape: true })(props);
-  }
-
-  private WelcomeToPaidCourse(props: { courseType: string, courseTitle: string, creditPrice: string, paymentMethod: string, dateOfPayment: string }) {
-    return Handlebars.compile(`{{>WelcomeToPaidCourse }}`, { noEscape: true })(props);
-  }
-
   private getWelcomeToCourseEmail(props: TWelcomeToCourseProps): IEmail {
     const { to, course, firstLesson } = props;
     const courseTypeStr = i18n.t(`courseType.${course.type}`);
     const startLink = firstLesson
       ? URLSections.Study.to({ courseId: course.id, lessonId: firstLesson.id, full: true })
       : URLSections.Profile.to({ courseId: course.id, full: true });
-    const html = this.Layout({
+    const html = this.ts.Layout({
       title: 'Добро пожаловать на вводную часть',
-      content: this.WelcomeToCourse({
+      content: this.ts.WelcomeToCourse({
         courseType: courseTypeStr,
         courseTitle: course.title,
         startLink,
@@ -383,9 +364,9 @@ class EmailService {
       PAYPAL: 'PayPal',
     }[paymentOption];
     const dateOfPaymentStr = formatDate(dateOfPaiment, { timeZone: 'Europe/Moscow', wTime: true });
-    const html = this.Layout({
+    const html = this.ts.Layout({
       title: 'Подтверждение записи',
-      content: this.WelcomeToPaidCourse({
+      content: this.ts.WelcomeToPaidCourse({
         courseType: courseTypeStr,
         courseTitle: course.title,
         paymentMethod: paymentMethodStr,
@@ -628,123 +609,75 @@ class EmailService {
 
   private getDiscontSolveFreeLessonsInWeekEmail(props: TDiscontSolveFreeLessonsInWeekProps): IEmail {
     const { to, course } = props;
-    const courseTypeStr = i18n.t(`courseType.${course.type}`);
     return {
       to: [to],
       from: this.senderContact,
       subject: i18n.t(`emails.${props.type}.subject.${course.type}`, { title: course.title }),
-      html: `
-        <!DOCTYPE html>
-          <html lang="ru">
-          <head>
-            <meta charset="UTF-8">
-            <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>DiscontSolveFreeLessonsInWeek</title>
-          </head>
-          <body>
-            Пройдите бесплатную часть за неделю и получите скидку 15% на курс 
-          </body>
-        </html>
-      `,
+      html: this.ts.Layout({
+        title: 'DiscontSolveFreeLessonsInWeek',
+        content: this.ts.DiscontSolveFreeLessonsInWeek(),
+      }),
     };
   }
 
   private getHomeworkSentForReviewEmail(props: THomeworkSentForReviewProps): IEmail {
     const { to, course } = props;
-    const courseTypeStr = i18n.t(`courseType.${course.type}`);
     return {
       to: [to],
       from: this.senderContact,
       subject: i18n.t(`emails.${props.type}.subject.${course.type}`, { title: course.title }),
-      html: `
-        <!DOCTYPE html>
-          <html lang="ru">
-          <head>
-            <meta charset="UTF-8">
-            <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>HomeworkSentForReview</title>
-          </head>
-          <body>
-            Мы получили ваше задание, преподаватель проверит его в течении 2-3 дней. И мы пришлем письмо с ссылкой на ревью 
-          </body>
-        </html>
-      `,
+      html: this.ts.Layout({
+        title: 'HomeworkSentForReview',
+        content: this.ts.HomeworkSentForReview(),
+      }),
     };
   }
 
   private getHomeworkReviewedEmail(props: THomeworkReviewedProps): IEmail {
-    const { to, course } = props;
-    const courseTypeStr = i18n.t(`courseType.${course.type}`);
+    const { to, course, reviewLink } = props;
     return {
       to: [to],
       from: this.senderContact,
       subject: i18n.t(`emails.${props.type}.subject.${course.type}`, { title: course.title }),
-      html: `
-        <!DOCTYPE html>
-          <html lang="ru">
-          <head>
-            <meta charset="UTF-8">
-            <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>HomeworkReviewed</title>
-          </head>
-          <body>
-            Ваша работа проверена, по ссылке можете посмотреть ревью ${props.reviewLink}
-          </body>
-        </html>
-      `,
+      html: this.ts.Layout({
+        title: 'HomeworkReviewed',
+        content: this.ts.HomeworkReviewed({ reviewLink }),
+      }),
     };
   }
 
   private getHomeworkSentForReviewToReviewerEmail(props: THomeworkSentForReviewToReviewerProps): IEmail {
     const { course, lesson, homework, homeworkUser } = props;
-    const courseTypeStr = i18n.t(`courseType.${course.type}`);
     return {
       to: [this.reviewerContact],
       from: this.senderContact,
       subject: i18n.t(`emails.${props.type}.subject.${course.type}`, { title: course.title }),
-      html: `
-        <!DOCTYPE html>
-          <html lang="ru">
-          <head>
-            <meta charset="UTF-8">
-            <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>HomeworkSentForReviewToReviewer</title>
-          </head>
-          <body>
-            Пользователь ${homeworkUser.email} отправил на проверку домашнее задание по курсу "${course.title}" по уроку "${lesson.title}".
-            Посмотреть домашнее задание можно по ссылке ${homework.externalHomeworkLink ?? '[emptyExternalHomeworkLink]'}.
-            После ревью в консоле сайта напишите 'window.homeworkService.submitReview({ homeworkId: '${homework.id}', reviewLink: '${homework.externalHomeworkLink}' })'.
-          </body>
-        </html>
-      `,
+      html: this.ts.Layout({
+        title: 'HomeworkSentForReviewToReviewer',
+        content: this.ts.HomeworkSentForReviewToReviewer({
+          courseTitle: course.title,
+          lessonTitle: lesson.title,
+          homeworkUserEmail: homeworkUser.email,
+          homework,
+        }),
+      }),
     };
   }
 
   private getHomeworkReviewedToReviewerEmail(props: THomeworkReviewedToReviewerProps): IEmail {
     const { course, lesson, homeworkUser } = props;
-    const courseTypeStr = i18n.t(`courseType.${course.type}`);
     return {
       to: [this.reviewerContact],
       from: this.senderContact,
       subject: i18n.t(`emails.${props.type}.subject.${course.type}`, { title: course.title }),
-      html: `
-        <!DOCTYPE html>
-          <html lang="ru">
-          <head>
-            <meta charset="UTF-8">
-            <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>HomeworkReviewedToReviewer</title>
-          </head>
-          <body>
-            Вы уведомили пользователя ${homeworkUser.email}, о том, что его домашнее задание по курсу "${course.title}" по уроку "${lesson.title}" проверено.
-          </body>
-        </html>
-      `,
+      html: this.ts.Layout({
+        title: 'HomeworkReviewedToReviewer',
+        content: this.ts.HomeworkReviewedToReviewer({
+          courseTitle: course.title,
+          lessonTitle: lesson.title,
+          homeworkUserEmail: homeworkUser.email,
+        }),
+      }),
     };
   }
 
@@ -784,11 +717,7 @@ class EmailService {
   //   };
   // }
 
-  private registerTemplates() {
-    Handlebars.registerPartial("Layout", Layout);
-    Handlebars.registerPartial("WelcomeToCourse", WelcomeToCourse);
-    Handlebars.registerPartial("WelcomeToPaidCourse", WelcomeToPaidCourse);
-  }
+  private ts = new EmailTemplateService();
 }
 
 export const emailService = new EmailService();
