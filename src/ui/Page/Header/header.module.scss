@@ -4,7 +4,7 @@
   position: sticky;
   position: -webkit-sticky; 
   top: 0;
-  z-index: 400;
+  z-index: 300;
   width: 100%;
   transition: transform .5s;
   
@@ -29,9 +29,21 @@
   justify-content: space-between;
   align-items: center;
 
-  width: 100%;
-  padding: set-calc(10) set-calc(2 * $padding-x-desk-page) set-calc(16);
+  height: set-calc(52);
+
+  padding: 0 set-calc(16);
+  margin: set-calc(10) set-calc(80);
   transition: transform 0.15s ease-in;
+
+  background-color: var(--color-card);
+  border: set-calc(1) solid var(--color-border);
+  backdrop-filter: blur(set-calc($backdrop-filter));
+  border-radius: set-calc($border-radius-30);
+
+  &:hover {
+    backdrop-filter: none;
+    cursor: pointer;
+  }
 
   @include is-grid-12;
   gap: 0;
@@ -43,11 +55,7 @@
     height: set-calc(52);
     grid-gap: set-calc(16);
     padding: set-calc(8) set-calc($padding-xs-mob-page) set-calc(8);
-
-    background-color: var(--color-content-inverted-secondary);
-    backdrop-filter: blur(set-calc($backdrop-filter));
-
-    margin-bottom: set-calc(8);
+    margin: set-calc(10) set-calc(16);
 
     .logo {
       display: none;
@@ -56,18 +64,14 @@
 }
 
 .deskPaddingWEB {
-  padding: set-calc(10) set-calc(2 * $padding-x-desk-page) set-calc(16);
-
   @include set-media(md) {
     padding: 0 set-calc($padding-xs-mob-page) 0;
   }
 }
 
 .deskPaddingLMS {
-  padding: set-calc(10) set-calc($padding-x-mob-page) set-calc(16);
-
   @include set-media(md) {
-    padding: set-calc(14) set-calc($padding-x-mob-page) set-calc(8);
+    padding: set-calc(8) set-calc($padding-x-mob-page) set-calc(8);
   }
 }
 
@@ -157,9 +161,6 @@
     align-items: center;
     justify-content: center;
 
-    // backdrop-filter: blur(set-calc($backdrop-filter));
-    // box-shadow: $shadow-menu;
-    // background-color: var(--color-background-glassy-a);
     border-radius: set-calc($border-radius-6);
     padding: set-calc(6);
   
@@ -177,9 +178,12 @@
   align-items: center;
   position: relative;
 
-  background-color: $color-palette-black-900;
   color: $color-palette-white-1000;
+  font-variant: small-caps;
+  letter-spacing: -0.01rem;
+
   padding: set-calc(4) set-calc(24);
+  background-color: $color-palette-black-900;
   border-radius: set-calc($border-radius-large);
   width: max-content;
   height: set-calc(40);
@@ -210,17 +214,17 @@
   width: max-content;
   height: set-calc(40);
 
-  color: $color-palette-white-1000;
+  color: var(--primary-color);
+  @include font-18-normal-ui;
+  font-variant: small-caps;
+  letter-spacing: -0.01rem;
 
   padding: set-calc(4) set-calc(24);
-  border-radius: set-calc($border-radius-large);
-  background-color: $color-palette-black-900;
-
-  transition: background-color $d-hover ease;
+  transition: color $d-hover ease;
   
   &:hover {
     cursor: pointer;
-    background-color: $color-palette-black-800;
+    color: var(--primary-color);
   }
 
   @include set-media(md) {
@@ -277,11 +281,10 @@
   align-items: center;
 
   color: var(--color-content-primary);
-
-  background-color: var(--color-background-glassy-inverted-d);
+  font-variant: small-caps;
+  letter-spacing: -0.01rem;
+  
   padding: set-calc(4) set-calc(24);
-  border-radius: set-calc(100);
-  border: set-calc(2.5) solid  var(--color-content-primary);
 
   width: max-content;
   height: set-calc(40);
@@ -289,7 +292,6 @@
   gap: set-calc(4);
 
   transition: background-color $d-hover ease;
-  backdrop-filter: blur(set-calc($backdrop-filter));
   
   &:hover {
     cursor: pointer;
