@@ -33,27 +33,27 @@ export default function MobileBtn({ course }: IProps) {
         />
       }
       <div className={classes.__}>
-        {urlSection === 'Course' && course && (
-          authService.isAuthenticated && firstLesson
-            ? (
-              <Link
-                className={classes.btnLink}
-                to={URLSections.Study.to({ courseId: course.id, lessonId: firstLesson.id })}
-              >
-                <div className={classes.text}>начать учиться</div>
-              </Link>
-            ) : (
-              <div
-                className={classes.btnLink}
-                onClick={() => setPopupVisible(true)}
-              >
-                <div className={classes.text}>начать учиться</div>
-              </div>
-            )
-        )}
-        <div className={classes.settings} onClick={() => frontendSettingsService.update({ theme: theme === 'light' ? 'dark' : 'light' })}>
-          <Icon icon='List'/>
-        </div>
+          {urlSection === 'Course' && course && (
+            authService.isAuthenticated && firstLesson
+              ? (
+                <Link
+                  className={classes.btnLink}
+                  to={URLSections.Study.to({ courseId: course.id, lessonId: firstLesson.id })}
+                >
+                  <div className={classes.text}>начать учиться</div>
+                </Link>
+              ) : (
+                <div
+                  className={classes.btnLink}
+                  onClick={() => setPopupVisible(true)}
+                >
+                  <div className={classes.text}>начать учиться</div>
+                </div>
+              )
+          )}
+          <div className={classes.settings} onClick={() => frontendSettingsService.update({ theme: theme === 'light' ? 'dark' : 'light' })}>
+            <Icon icon='List'/>
+          </div>
       </div>
     </>
   );

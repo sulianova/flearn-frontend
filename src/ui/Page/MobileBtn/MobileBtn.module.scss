@@ -1,7 +1,6 @@
 @import 'styles/index';
 
 .__ {
-
   display: none;
 
   @include set-media(md) {
@@ -23,7 +22,6 @@
 }
 
 .btnLink {
-  overflow: hidden;
   width: max-content;
 
   display: flex;
@@ -43,9 +41,11 @@
 
 .settings {
   position: absolute;
-  right: set-calc(16);
   display: flex;
   justify-content: center;
+  right: set-calc(16);
+
+  align-self: flex-end;
 
   padding: set-calc(10);
   transition: transform 0.15s ease-in;

@@ -1,7 +1,8 @@
 @import 'styles/index';
 
 .__ {
-  position: fixed;
+  position: sticky;
+  position: -webkit-sticky; 
   top: 0;
   z-index: 400;
   width: 100%;
@@ -30,7 +31,6 @@
 
   width: 100%;
   padding: set-calc(10) set-calc(2 * $padding-x-desk-page) set-calc(16);
-  background-color: transparent;
   transition: transform 0.15s ease-in;
 
   @include is-grid-12;
@@ -43,7 +43,11 @@
     height: set-calc(52);
     grid-gap: set-calc(16);
     padding: set-calc(8) set-calc($padding-xs-mob-page) set-calc(8);
-    background-color: transparent;
+
+    background-color: var(--color-content-inverted-secondary);
+    backdrop-filter: blur(set-calc($backdrop-filter));
+
+    margin-bottom: set-calc(8);
 
     .logo {
       display: none;
@@ -153,11 +157,11 @@
     align-items: center;
     justify-content: center;
 
-    background-color: var(--color-content-inverted-secondary);
-    backdrop-filter: blur(set-calc($backdrop-filter));
-    border-radius: 50%;
-    padding: set-calc(10);
-    box-shadow: $shadow-menu;
+    // backdrop-filter: blur(set-calc($backdrop-filter));
+    // box-shadow: $shadow-menu;
+    // background-color: var(--color-background-glassy-a);
+    border-radius: set-calc($border-radius-6);
+    padding: set-calc(6);
   
     svg {
       width: set-calc(24);
@@ -348,10 +352,13 @@
     opacity: 1;
 
     color: var(--color-content-primary);
-    background-color: var(--color-content-inverted-secondary);
-    backdrop-filter: blur(set-calc($backdrop-filter));
-    border-radius: 50%;
-    box-shadow: $shadow-menu;
+    // background-color: var(--color-background-glassy-a);
+    border-radius: set-calc($border-radius-6);
+    padding: set-calc(6);
+    // background-color: var(--color-content-inverted-secondary);
+    // backdrop-filter: blur(set-calc($backdrop-filter));
+    // border-radius: 50%;
+    // box-shadow: $shadow-menu;
 
     svg {
       display: inline-block;
