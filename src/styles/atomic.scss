@@ -133,7 +133,7 @@
 
   @include set-media(md) {
     @include set-typography(40, 42, 500);
-    letter-spacing: set-calc(-1.2);
+    letter-spacing: set-calc(-1);
   }
 }
 
