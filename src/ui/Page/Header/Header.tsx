@@ -86,7 +86,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
             </div>
           )}
           <div className={classes.nav}>
-            {/* {variant === EPageVariant.LMS && (
+            {variant === EPageVariant.LMS && (
               <div className={cx({ userSettinsWrapper: true, open: userPopupVisible })}>
                 {user && userPopupVisible && (
                     <UserPopup
@@ -101,7 +101,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
                   <Icon icon='User'/>
                 </div>
               </div>
-            )} */}
+            )}
             {user && (
               <Dropdown
                 content={({ close }) => (

@@ -42,7 +42,7 @@
   @include set-typography(21, 25, 500);
 
   @include set-media(md) {
-    @include set-typography(16, 20, 500);
+    @include set-typography(18, 24, 500);
   }
 }
 
@@ -50,7 +50,7 @@
   @include set-typography(21, 21, 500);
 
   @include set-media(md) {
-    @include set-typography(16, 18, 500);
+    @include set-typography(18, 20, 500);
   }
 }
 
@@ -132,7 +132,8 @@
   letter-spacing: set-calc(-1);
 
   @include set-media(md) {
-    @include set-typography(36, 36, 500);
+    @include set-typography(40, 42, 500);
+    letter-spacing: set-calc(-1);
   }
 }
 

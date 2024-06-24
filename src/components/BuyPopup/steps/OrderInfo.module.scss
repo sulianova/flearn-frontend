@@ -14,13 +14,6 @@
     width: set-calc(390);
     left: set-calc(12);
     padding: set-calc(48) 0 set-calc(16);
-
-    scrollbar-width: none;
-    overflow-y: hidden;
-    overflow-x: scroll;
-
-    scroll-behavior: smooth;
-    scroll-snap-type: block;
   }
 }
 
@@ -31,7 +24,7 @@
   flex-direction: column;
   justify-content: space-between;
 
-  width: 35%;
+  width: 50%;
   padding: set-calc(24);
   border-radius: set-calc($border-radius-large);
   background-color: var(--color-content-inverted-secondary);

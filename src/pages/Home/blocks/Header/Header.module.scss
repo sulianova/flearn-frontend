@@ -29,7 +29,7 @@
   margin-top: set-calc(24);
 
   @include set-media(md) {
-    margin-top: set-calc(10);
+    margin: set-calc(10) set-calc(16) 0;
   }
 }
 
@@ -42,7 +42,7 @@
   font-family: $font-family-compact;
 
   @include set-media(md) {
-    @include set-typography(28, 28, 500);
+    @include set-typography(40, 42, 500);
     margin-bottom: set-calc(24);
   }
 }

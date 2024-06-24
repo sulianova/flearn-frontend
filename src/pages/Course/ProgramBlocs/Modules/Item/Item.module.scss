@@ -140,13 +140,7 @@
   @include set-typography(24, 24, 500);
 
   @include set-media(md) {
-
-    @include set-typography(12, 12, 500);
-
-    top: set-calc(12);
-    right: set-calc(12);
-    width: set-calc(24);
-    height: set-calc(24);
+    display: none;
   }
 }
 
