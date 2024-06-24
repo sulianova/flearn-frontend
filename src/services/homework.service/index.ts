@@ -1,12 +1,15 @@
 import { BehaviorSubject, CompletionObserver, ErrorObserver, NextObserver, Subject } from 'rxjs';
 
 import { dataService } from 'services/data.service';
-import type { IUserData } from 'services/user.service';
+import { userService, type IUserData } from 'services/user.service';
 import { reviewDB2FR } from 'services/utils/homework';
 
 import type { IFetchHomeworksProps, IHomeworkData, IHomeworkDataWPopulate, TActionS } from './types';
 import { getReview } from './data';
 import useHomeworks from './useHomeworks';
+import { emailService } from 'services/email.service';
+import { courseService } from 'services/course.service';
+import { lessonService } from 'services/lesson.service';
 
 export * from './types';
 
@@ -62,7 +65,7 @@ class HomeworkService {
     }
   }
 
-  public async createHomework(props: { courseId: string, lessonId: string, userId: string, externalHomeworkLink: string }) {
+  public async submitHomework(props: { courseId: string, lessonId: string, userId: string, externalHomeworkLink: string }) {
     const id = dataService.homework.getFullId(props.courseId, props.lessonId, props.userId);
     const newHomework: IHomeworkData = {
       id: id,
@@ -77,7 +80,20 @@ class HomeworkService {
 
     await dataService.homework.create(id, newHomework);
 
+    this.sendSubmitHomeworkEmails(newHomework);
+
     this._homeworkS.next({ type: 'created', payload: { id, ...props } });
+  }
+
+  public async submitReview(props: { homeworkId: string, reviewLink: string }) {
+    try {
+      const { homeworkId, reviewLink } = props;
+      await this.patchHomework(homeworkId, { reviewLink, state: 'REVIEWED' });
+      this.sendSumbitReviewEmails(homeworkId);
+    } catch (error) {
+      console.log('Failed to submit review', { props, error });
+      throw error;
+    }
   }
 
   public async patchHomework(id: string, patch: Partial<IHomeworkData>) {
@@ -85,8 +101,83 @@ class HomeworkService {
     this._homeworkS.next({ type: 'updated', payload: { id } });
   }
 
-  public async getHomework(props: { courseId: string, lessonId: string, userId: string }) {
-    return dataService.homework.get(props.courseId, props.lessonId, props.userId);
+  public async getHomework(props: { courseId: string, lessonId: string, userId: string } | string) {
+    return dataService.homework.get(props);
+  }
+
+  private async sendSubmitHomeworkEmails(hw: IHomeworkData) {
+    try {
+      const user = await userService.getAuthenticatedUser();
+      const course = (await courseService._fetch({ ids: [hw.courseId] })).at(0);
+      const lesson = (await lessonService.fetch({ courseId: hw.courseId, id: hw.lessonId })).at(0);
+      if (!user) {
+        throw new Error('Not authenticated');
+      }
+      if (!course) {
+        throw new Error('Failed to fetch course');
+      }
+      if (!lesson) {
+        throw new Error('Failed to fetch lesson');
+      }
+      await emailService.sendEmail({
+        type: emailService.EEmail.HomeworkSentForReview,
+        to: user,
+        course,
+        lesson,
+      });
+      await emailService.sendEmail({
+        type: emailService.EEmail.HomeworkSentForReviewToReviewer,
+        course,
+        lesson,
+        homework: hw,
+        homeworkUser: user,
+      });
+    } catch (error) {
+      console.log('Failed to send submitHomeworkEmails', { hw, error });
+      throw error;
+    }
+  }
+
+  private async sendSumbitReviewEmails(homeworkId: string) {
+    try {
+      const homework = await this.getHomework(homeworkId);
+      const { courseId, lessonId, reviewLink, state } = homework;
+      const user = await userService.getAuthenticatedUser();
+      const course = (await courseService._fetch({ ids: [courseId] })).at(0);
+      const lesson = (await lessonService.fetch({ courseId, id: lessonId })).at(0);
+      if (!user) {
+        throw new Error('Not authenticated');
+      }
+      if (!course) {
+        throw new Error('Failed to fetch course');
+      }
+      if (!lesson) {
+        throw new Error('Failed to fetch lesson');
+      }
+      if (state !== 'REVIEWED') {
+        throw new Error(`HW State is "${state}" and not "REVIEWED"`);
+      }
+      if (!reviewLink) {
+        throw new Error('HW doesnot have "reviewLink"');
+      }
+      await emailService.sendEmail({
+        type: emailService.EEmail.HomeworkReviewed,
+        to: user,
+        course,
+        lesson,
+        reviewLink: reviewLink,
+      });
+      await emailService.sendEmail({
+        type: emailService.EEmail.HomeworkReviewedToReviewer,
+        course,
+        lesson,
+        homeworkUser: user,
+        reviewLink,
+      });
+    } catch (error) {
+      console.log('Failed to send SumbitReviewEmails', { homeworkId, error });
+      throw error;
+    }
   }
 
   // public generateImageId(props: { originalName: string }) {
@@ -172,3 +263,4 @@ class HomeworkService {
 
 export const homeworkService = new HomeworkService();
 export default HomeworkService;
+(window as any).homeworkService = homeworkService;

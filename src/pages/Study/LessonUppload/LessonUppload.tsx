@@ -61,7 +61,7 @@ function LessonUppload({ user, homework }: IProps) {
                 <button
                   onClick={() => {
                     setIsPending(true);
-                    homeworkService.createHomework({
+                    homeworkService.submitHomework({
                       userId: user!.id,
                       courseId: courseId!,
                       lessonId: lessonId!,

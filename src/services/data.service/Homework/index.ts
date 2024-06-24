@@ -11,14 +11,14 @@ interface IHomeworksFilter extends
   courseId: string
 }
 class Homework {
-  public async get(courseId: string, lessonId: string, userId: string) {
+  public async get(props: { courseId: string, lessonId: string, userId: string } | string) {
     // const hasAccess = await dataService.lesson._checkCourseAccess(courseId);
 
     // if (!hasAccess) {
     //   throw new Error('Homework: access restricted');
     // }
 
-    const id = this.getFullId(courseId, lessonId, userId);
+    const id = typeof props === 'string' ? props: this.getFullId(props.courseId, props.lessonId, props.userId);
     const homeworkDataDB = await firebaseService.getDoc(ECollections.Homework, id) as IHomeworkDataDB | undefined;
 
     if (!homeworkDataDB) {

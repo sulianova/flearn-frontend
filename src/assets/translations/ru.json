@@ -304,6 +304,41 @@
         "intensive": "Подтверждение записи на интенсив \"{{title}}\"",
         "webinar": "Подтверждение записи на вебинар \"{{title}}\""
       }
+    },
+    "DiscontSolveFreeLessonsInWeek": {
+      "subject": {
+        "course": "DiscontSolveFreeLessonsInWeekSubject",
+        "intensive": "DiscontSolveFreeLessonsInWeekSubject",
+        "webinar": "DiscontSolveFreeLessonsInWeekSubject"
+      }
+    },
+    "HomeworkSentForReview": {
+      "subject": {
+        "course": "HomeworkSentForReviewSubject",
+        "intensive": "HomeworkSentForReviewSubject",
+        "webinar": "HomeworkSentForReviewSubject"
+      }
+    },
+    "HomeworkReviewed": {
+      "subject": {
+        "course": "HomeworkReviewedSubject",
+        "intensive": "HomeworkReviewedSubject",
+        "webinar": "HomeworkReviewedSubject"
+      }
+    },
+    "HomeworkSentForReviewToReviewer": {
+      "subject": {
+        "course": "HomeworkSentForReviewToReviewerSubject",
+        "intensive": "HomeworkSentForReviewToReviewerSubject",
+        "webinar": "HomeworkSentForReviewToReviewerSubject"
+      }
+    },
+    "HomeworkReviewedToReviewer": {
+      "subject": {
+        "course": "HomeworkReviewedToReviewerSubject",
+        "intensive": "HomeworkReviewedToReviewerSubject",
+        "webinar": "HomeworkReviewedToReviewerSubject"
+      }
     }
   },
   "courseType": {

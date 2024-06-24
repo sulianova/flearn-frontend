@@ -12,6 +12,7 @@ import Article from 'ui/Article/Article';
 
 import TheoryFooter from '../TheoryFooter/TheoryFooter';
 import classes from './LessonContent.module.scss';
+import { emailService } from 'services/email.service';
 
 export default LessonContent;
 
@@ -63,9 +64,21 @@ function LessonContent(props: IProps) {
         <h1 className={classes.title}>{lesson.title}</h1>
         <Article blocks={lesson.content}/>
         <TheoryFooter
-          onNext={() => {
+          onNext={async () => {
             if (!user || nextLesson === undefined) {
               return;
+            }
+            if (course && lesson.topicOrder === 1 && lesson.orderInTopic === 1 && lesson.isFree) {
+              const isLessonSolved = await userCourseProgressService
+                .isLessonSolved(course.id, user.email, lesson.id)
+                .catch(_err => true);
+              if (!isLessonSolved) {
+                emailService.sendEmail({
+                  type: emailService.EEmail.DiscontSolveFreeLessonsInWeek,
+                  to: user,
+                  course,
+                });
+              }
             }
             userCourseProgressService
               .markLessonAsRead(courseId, user.email, lesson.id)

@@ -11,6 +11,7 @@ export interface IHomeworkData {
   images: IHomeworkImageData[]
   state: THomeworkState
   review?: IArticleContent
+  reviewLink?: string
 }
 
 export interface IHomeworkDataDB {
@@ -23,6 +24,7 @@ export interface IHomeworkDataDB {
   images: IHomeworkImageDataDB[]
   state: THomeworkState
   review?: IArticleContentDB
+  reviewLink?: string
 }
 
 export type THomeworkState =

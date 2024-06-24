@@ -23,6 +23,15 @@ class UserCourseProgressService {
     }
   }
 
+  public async isLessonSolved(courseId: string, userEmail: string, lessonId: string) {
+    try {
+      return (await dataService.userCourseProgress.get(courseId, userEmail))[lessonId]?.solved ?? false;
+    } catch (error) {
+      console.log('Failed to check id lesson is solved');
+      throw error;
+    }
+  }
+
   protected getFirstNotSolvedLessonBS() {
     try {
       const mainSubject = new BehaviorSubject<TActionBS>(null);

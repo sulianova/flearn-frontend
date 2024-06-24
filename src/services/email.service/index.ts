@@ -7,7 +7,16 @@ import { URLSections } from 'router';
 import { formatCourseCredit, formatDate, getDiscountedPrice } from 'utils';
 
 import { EEmail } from './types';
-import type { TSendEmailProps, TWelcomeToCourseProps, TWelcomeToPaidCourseProps, IEmail, IEmailContact } from './types';
+import type { IEmail, IEmailContact, TSendEmailProps } from './types';
+import type {
+  TWelcomeToCourseProps,
+  TWelcomeToPaidCourseProps,
+  TDiscontSolveFreeLessonsInWeekProps,
+  THomeworkSentForReviewProps,
+  THomeworkSentForReviewToReviewerProps,
+  THomeworkReviewedProps,
+  THomeworkReviewedToReviewerProps
+} from './types';
 
 class EmailService {
   public EEmail = EEmail;
@@ -23,6 +32,11 @@ class EmailService {
     }
   }
 
+  private reviewerContact: IEmailContact = {
+    email: 'ulianova.sofi@gmail.com',
+    name: 'Sofiia Ulianova',
+  };
+
   private senderContact: IEmailContact = {
     email: 'info@flearn.net',
     name: 'Sofiia Ulianova',
@@ -31,9 +45,16 @@ class EmailService {
   private getId(props: TSendEmailProps) {
     const id = v4().slice(0, 4);
     switch (props.type) {
-      case EEmail.WelcomeToCourse:
-      case EEmail.WelcomeToPaidCourse:
+      case this.EEmail.WelcomeToCourse:
+      case this.EEmail.WelcomeToPaidCourse:
+      case this.EEmail.DiscontSolveFreeLessonsInWeek:
         return `${props.type}-${props.course.id}-${props.to.email}-${id}`;
+      case this.EEmail.HomeworkSentForReview:
+      case this.EEmail.HomeworkReviewed:
+        return `${props.type}-${props.course.id}-${props.lesson.id}-${props.to.email}-${id}`;
+      case this.EEmail.HomeworkSentForReviewToReviewer:
+      case this.EEmail.HomeworkReviewedToReviewer:
+          return `${props.type}-${props.course.id}-${props.lesson.id}-${props.homeworkUser.email}-${id}`;
       default:
         throw new Error('Unknown email type');
     }
@@ -45,6 +66,16 @@ class EmailService {
         return this.getWelcomeToCourseEmail(props);
       case EEmail.WelcomeToPaidCourse:
         return this.getWelcomeToPaidCourseEmail(props);
+      case EEmail.DiscontSolveFreeLessonsInWeek:
+        return this.getDiscontSolveFreeLessonsInWeekEmail(props);
+      case EEmail.HomeworkSentForReview:
+        return this.getHomeworkSentForReviewEmail(props);
+      case EEmail.HomeworkReviewed:
+        return this.getHomeworkReviewedEmail(props);
+      case EEmail.HomeworkSentForReviewToReviewer:
+        return this.getHomeworkSentForReviewToReviewerEmail(props);
+      case EEmail.HomeworkReviewedToReviewer:
+        return this.getHomeworkReviewedToReviewerEmail(props);
       default:
         throw new Error('Unknown email type');
     }
@@ -553,6 +584,128 @@ class EmailService {
     };
   }
 
+  private getDiscontSolveFreeLessonsInWeekEmail(props: TDiscontSolveFreeLessonsInWeekProps): IEmail {
+    const { to, course } = props;
+    const courseTypeStr = i18n.t(`courseType.${course.type}`);
+    return {
+      to: [to],
+      from: this.senderContact,
+      subject: i18n.t(`emails.${props.type}.subject.${course.type}`, { title: course.title }),
+      html: `
+        <!DOCTYPE html>
+          <html lang="ru">
+          <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>DiscontSolveFreeLessonsInWeek</title>
+          </head>
+          <body>
+            Пройдите бесплатную часть за неделю и получите скидку 15% на курс 
+          </body>
+        </html>
+      `,
+    };
+  }
+
+  private getHomeworkSentForReviewEmail(props: THomeworkSentForReviewProps): IEmail {
+    const { to, course } = props;
+    const courseTypeStr = i18n.t(`courseType.${course.type}`);
+    return {
+      to: [to],
+      from: this.senderContact,
+      subject: i18n.t(`emails.${props.type}.subject.${course.type}`, { title: course.title }),
+      html: `
+        <!DOCTYPE html>
+          <html lang="ru">
+          <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>HomeworkSentForReview</title>
+          </head>
+          <body>
+            Мы получили ваше задание, преподаватель проверит его в течении 2-3 дней. И мы пришлем письмо с ссылкой на ревью 
+          </body>
+        </html>
+      `,
+    };
+  }
+
+  private getHomeworkReviewedEmail(props: THomeworkReviewedProps): IEmail {
+    const { to, course } = props;
+    const courseTypeStr = i18n.t(`courseType.${course.type}`);
+    return {
+      to: [to],
+      from: this.senderContact,
+      subject: i18n.t(`emails.${props.type}.subject.${course.type}`, { title: course.title }),
+      html: `
+        <!DOCTYPE html>
+          <html lang="ru">
+          <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>HomeworkReviewed</title>
+          </head>
+          <body>
+            Ваша работа проверена, по ссылке можете посмотреть ревью ${props.reviewLink}
+          </body>
+        </html>
+      `,
+    };
+  }
+
+  private getHomeworkSentForReviewToReviewerEmail(props: THomeworkSentForReviewToReviewerProps): IEmail {
+    const { course, lesson, homework, homeworkUser } = props;
+    const courseTypeStr = i18n.t(`courseType.${course.type}`);
+    return {
+      to: [this.reviewerContact],
+      from: this.senderContact,
+      subject: i18n.t(`emails.${props.type}.subject.${course.type}`, { title: course.title }),
+      html: `
+        <!DOCTYPE html>
+          <html lang="ru">
+          <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>HomeworkSentForReviewToReviewer</title>
+          </head>
+          <body>
+            Пользователь ${homeworkUser.email} отправил на проверку домашнее задание по курсу "${course.title}" по уроку "${lesson.title}".
+            Посмотреть домашнее задание можно по ссылке ${homework.externalHomeworkLink ?? '[emptyExternalHomeworkLink]'}.
+            После ревью в консоле сайта напишите 'window.homeworkService.submitReview({ homeworkId: '${homework.id}', reviewLink: '${homework.externalHomeworkLink}' })'.
+          </body>
+        </html>
+      `,
+    };
+  }
+
+  private getHomeworkReviewedToReviewerEmail(props: THomeworkReviewedToReviewerProps): IEmail {
+    const { course, lesson, homeworkUser } = props;
+    const courseTypeStr = i18n.t(`courseType.${course.type}`);
+    return {
+      to: [this.reviewerContact],
+      from: this.senderContact,
+      subject: i18n.t(`emails.${props.type}.subject.${course.type}`, { title: course.title }),
+      html: `
+        <!DOCTYPE html>
+          <html lang="ru">
+          <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>HomeworkReviewedToReviewer</title>
+          </head>
+          <body>
+            Вы уведомили пользователя ${homeworkUser.email}, о том, что его домашнее задание по курсу "${course.title}" по уроку "${lesson.title}" проверено.
+          </body>
+        </html>
+      `,
+    };
+  }
+
   // private getWelcomeToCourseEmail(props: { to: IEmailContact, course: ICourseData, chosenProductOption: keyof ICourseData['productOptions'] }): IEmail {
   //   const { to, course, chosenProductOption } = props;
   //   const option = course.productOptions[chosenProductOption]!;
@@ -588,33 +741,6 @@ class EmailService {
   //     `,
   //   };
   // }
-
-  private getCourseIsStartingTomorrowEmail(props: { to: IEmailContact, startDate: Date  }): IEmail {
-    const { to, startDate } = props;
-    const startDateStr = formatDate(startDate, { timeZone: 'Europe/Moscow' });
-    return {
-      to: [to],
-      from: this.senderContact,
-      subject: `Старт ${startDateStr}: “Как найти стиль”, приглашение в телеграм-чат`,
-      html: `
-        <!DOCTYPE html>
-        <html lang="ru">
-        <head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Document</title>
-        </head>
-        <body>
-          <p>Добрый день! Завтра, ${startDateStr}, стартует интенсив “Как найти стиль”.</p>
-        
-          <p><a href="https://t.me/+Pi3lxGTKYdhkZmYy">Переходите в телеграм-чат</a>, в группе будет вся дальнейшая информация.</p>
-        
-          <p style="white-space: pre-line;">София&#10;Преподаватель, график-иллюстратор</p>
-        </body>
-        </html>
-      `,
-    };
-  }
 }
 
 export const emailService = new EmailService();

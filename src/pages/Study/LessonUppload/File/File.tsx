@@ -142,7 +142,7 @@ function ImageCaption(props: {
 }
 
 async function handleCaptionChange(props: { courseId: string, lessonId: string, userId: string, imageId: string, caption: string, onError?: (error: Error) => void }) {
-  return dataService.homework.get(props.courseId, props.lessonId, props.userId)
+  return dataService.homework.get(props)
     .then(hw => {
       const imageIndex = hw.images.findIndex(image => image.id === props.imageId);
       if (imageIndex === -1) {
