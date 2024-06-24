@@ -58,7 +58,7 @@ function LessonContent(props: IProps) {
 
   return (
     <>
-      {buyPopupIsOpened && course && <BuyPopup course={course} close={() => setBuyPopupIsOpened(false)}/>}
+      {buyPopupIsOpened && course && user && <BuyPopup user={user} course={course} close={() => setBuyPopupIsOpened(false)}/>}
       <div className={classes._}>
         <h1 className={classes.title}>{lesson.title}</h1>
         <Article blocks={lesson.content}/>

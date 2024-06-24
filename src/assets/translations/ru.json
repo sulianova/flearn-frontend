@@ -298,7 +298,7 @@
         "webinar": "Вы начали обучение на вебинаре \"{{title}}\""
       }
     },
-    "PaymentSubmittion": {
+    "WelcomeToPaidCourse": {
       "subject": {
         "course": "Подтверждение записи на курс \"{{title}}\"",
         "intensive": "Подтверждение записи на интенсив \"{{title}}\"",

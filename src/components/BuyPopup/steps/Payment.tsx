@@ -8,14 +8,17 @@ import Link from 'ui/Link/Link';
 import classes from './Payment.module.scss';
 import type { IProps } from './types';
 import { ICourseData } from 'services/course.service';
-import { formatCourseCredit, formatCourseDiscount, getDiscountedPrice } from 'utils';
+import { formatCourseCredit, getDiscountedPrice } from 'utils';
+import { emailService } from 'services/email.service';
+import Spinner from 'ui/Spinner/Spinner';
 
 const cx = classnames.bind(classes);
 const t = formatI18nT('courseLanding.form');
 
 export default function Payment(props: IProps & { chosenProductOptionType: keyof ICourseData['productOptions'] }) {
-  const { next, course, chosenProductOptionType } = props;
+  const { next, course, user, chosenProductOptionType } = props;
   const chosenProductOption = course.productOptions[chosenProductOptionType]!;
+  const [isPending, setIsPending] = useState(false);
   const [isPayed, setIsPayed] = useState(false);
   const [paymentOption, setPaymentOption] = useState<'CARD_RU' | 'PAYPAL'>('CARD_RU');
   const { creditWas: creditWasRub, creditPrice: creditPriceRub, discount } = getDiscountedPrice(course.discount, chosenProductOption);
@@ -75,7 +78,28 @@ export default function Payment(props: IProps & { chosenProductOptionType: keyof
           <div className={classes.paymentCheck}>
             <Checkbox value={isPayed} onChange={() => setIsPayed(!isPayed)}>Перевод отправил, готов учиться!</Checkbox>
           </div>
-          <button disabled={!isPayed} className={classes.btn} onClick={next}>Подтвердить перевод</button>
+          <button
+            disabled={!isPayed}
+            className={classes.btn}
+            onClick={() => {
+              setIsPending(true);
+              emailService.sendEmail({
+                type: emailService.EEmail.WelcomeToPaidCourse,
+                course,
+                to: {
+                  email: user.email,
+                  name: user.displayName ?? undefined,
+                },
+                paymentOption: paymentOption,
+                productOption: chosenProductOptionType,
+                dateOfPaiment: new Date(),
+              })
+                .then(next)
+                .finally(() => setIsPending(false));
+            }}
+          >
+            {isPending ? <Spinner/> : 'Подтвердить перевод'}
+          </button>
         </div>
       </div>
     </div>
