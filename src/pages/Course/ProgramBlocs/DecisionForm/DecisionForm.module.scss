@@ -31,7 +31,8 @@
   @include set-media(md) {
     position: relative;
     display: flex;
-    flex-flow: row nowrap;
+    flex-direction: column;
+    // flex-flow: row nowrap;
 
     width: set-calc(16, true, 100%);
     left: set-calc(-8);
@@ -184,7 +185,7 @@
 
 
   @include set-media(md) {
-    right: set-calc(80);
+    right: set-calc(160);
     top: set-calc(-34);
   }
 }
@@ -211,24 +212,25 @@
   align-items: center;
 
   height: set-calc(60);
-  width: 100%;
+  padding: 0 set-calc(50);
+  width: fit-content;
 
   color: $color-palette-white-1000;
   @include font-21-normal-ui;
 
-  border-radius: set-calc($border-radius-10);
-  background-color: var(--color-background-btn);
+  border-radius: set-calc($border-radius-30);
+  background-color: var(--primary-color);
   transition: opacity $d-hover ease, box-shadow $d-hover ease, background-color $d-hover ease;
   cursor: pointer;
 
   &:hover {
     cursor: pointer;
     box-shadow: $shadow-medium-hovered;
-    background-color: var(--color-background-btn-hover);
+    background-color: var(--primary-color-hover);
   }
 
   @include set-media(md) {
     height: set-calc(52);
-    border-radius: set-calc($border-radius-10);
+    border-radius: set-calc($border-radius-30);
   }
 }

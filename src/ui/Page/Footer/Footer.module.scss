@@ -34,8 +34,6 @@
   @include set-media(md) {
     left: set-calc(-$padding-xs-mob-page);
     width: set-calc($padding-xs-mob-page * 2, true, 100%);
-    background-color: var(--color-content-inverted-secondary);
-    border: set-calc(1) solid var(--color-background-default);
     padding: set-calc(16);
 
   }
@@ -97,11 +95,11 @@
 }
 
 .creatorTitle {
-  @include font-16-normal-ui;
+  @include font-18-normal-ui;
 }
 
 .creatorName {
-  @include font-18-normal-ui;
+  @include font-21-normal-ui;
   text-transform: uppercase;
   margin-left: set-calc(8);
 }
