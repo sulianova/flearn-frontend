@@ -16,8 +16,8 @@
     "freeZone": "бесплатно",
     "catalogue": "все курсы",
     "login": {
-      "signIn": "войти",
-      "profile": "профиль"
+      "signIn": "Войти",
+      "profile": "Профиль"
     }
   },
   "footer": {
