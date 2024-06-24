@@ -21,7 +21,6 @@
   width: 100%;
   height: max-content;
   padding: set-calc(16);
-  margin-bottom: set-calc(24);
 }
 
 .mobItem {
@@ -140,6 +139,10 @@ padding: set-calc(16);
   @include set-media(md) {
     margin-bottom: 0;
   }
+}
+
+.navigationItem:last-child {
+  margin-bottom: set-calc(24);
 }
 
 .navigationItem:hover {

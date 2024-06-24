@@ -123,20 +123,20 @@ export default function MobileMenuPopup(props: Readonly<IProps>) {
               </>) : (<>
                 <div className={classes.listOptionTitle}>{mobMenuCoursesList?.length ? 'Мои курсы:' : 'У вас пока нет курсов'}</div>
                 {mobMenuCoursesList}
-                <div className={classes.mobMenuControls}>
-                  {!user ? mobMenuLoginBtn :
-                    {
-                      'Home': mobMenuFirstNotSolvedLessonProfileBtn,
-                      'Course': mobMenuFirstNotSolvedLessonProfileBtn,
-                      'Profile': homeBtn,
-                      'EmptyProfile': homeBtn,
-                      'Study': mobMenuCurrentLessonProfileBtn,
-                      'Other': null,
-                    }[urlSection]
-                  }
-                </div>
               </>)
             }
+            <div className={classes.mobMenuControls}>
+              {!user ? mobMenuLoginBtn :
+                  {
+                    'Home': mobMenuFirstNotSolvedLessonProfileBtn,
+                    'Course': mobMenuFirstNotSolvedLessonProfileBtn,
+                    'Profile': homeBtn,
+                    'EmptyProfile': homeBtn,
+                    'Study': null,
+                    'Other': null,
+                  }[urlSection]
+                }
+              </div>
           </div>
       </div>
     </Popup>

@@ -64,7 +64,7 @@
   text-align: center;
 
   @include set-media(md) {
-    min-width: min(380px, 90vw);
+    min-width: min(480px, 110vw);
   }
 }
 
