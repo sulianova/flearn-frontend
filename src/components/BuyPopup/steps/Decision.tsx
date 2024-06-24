@@ -50,7 +50,7 @@ export default function Decision({ course, next }: IProps) {
   return (
     <>
       <div className={classes.commonFlowRow}>
-        <h2 className={classes.headerTitle}>Выберите, что больше подходит</h2>
+        {/* <h2 className={classes.headerTitle}>Выберите, что больше подходит</h2> */}
         <div className={classes.wrapper}>
           {optionsNodes}
         </div>

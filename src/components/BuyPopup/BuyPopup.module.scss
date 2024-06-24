@@ -8,7 +8,8 @@
 
 
   color: var(--color-content-primary);
-  background-color: var(--color-background-alternate);
+  background-color: var(--color-card);
+  border: set-calc(1) solid var(--color-border);
   border-radius: set-calc($border-radius-medium);
 
   padding: set-calc(16);
@@ -24,6 +25,10 @@
     border-radius: 0;
 
     width: 100%;
+    min-height: 100vh;
+    min-height: -moz-available;
+    min-height: -webkit-fill-available;
+    min-height: fill-available;
   }
 }
 

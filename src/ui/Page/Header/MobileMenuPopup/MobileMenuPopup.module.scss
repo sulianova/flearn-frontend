@@ -4,10 +4,6 @@
   display: flex;
   flex-direction: column;
 
-  // // min-height: 100vh;
-  // // min-height: -webkit-fill-available;
-  // // min-height: fill-available;
-
   padding: 0;
   border-radius: 0;
 
@@ -25,6 +21,7 @@
   width: 100%;
   height: max-content;
   padding: set-calc(16);
+  margin-bottom: set-calc(24);
 }
 
 .mobItem {
@@ -155,6 +152,15 @@ padding: set-calc(16);
 
   &:hover {
     cursor: default;
+  }
+}
+
+.title {
+  margin: 0 0 set-calc(20);
+  @include font-36-normal-header;
+
+  @include set-media(md) {
+    margin: set-calc(16) 0 set-calc(16);
   }
 }
 

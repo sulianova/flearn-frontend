@@ -118,24 +118,24 @@ export default function MobileMenuPopup(props: Readonly<IProps>) {
           <div className={classes.mobMenuMain}>
             {!user ? null :
               urlSection === 'Study' ? (<>
-                <div className={classes.listOptionTitle}>{currentLesson?.topic}</div>
+                <div className={classes.title}>{currentLesson?.topic}</div>
                 {mobMenuLessonsList}
               </>) : (<>
                 <div className={classes.listOptionTitle}>{mobMenuCoursesList?.length ? 'Мои курсы:' : 'У вас пока нет курсов'}</div>
                 {mobMenuCoursesList}
+                <div className={classes.mobMenuControls}>
+                  {!user ? mobMenuLoginBtn :
+                    {
+                      'Home': mobMenuFirstNotSolvedLessonProfileBtn,
+                      'Course': mobMenuFirstNotSolvedLessonProfileBtn,
+                      'Profile': homeBtn,
+                      'EmptyProfile': homeBtn,
+                      'Study': mobMenuCurrentLessonProfileBtn,
+                      'Other': null,
+                    }[urlSection]
+                  }
+                </div>
               </>)
-            }
-          </div>
-          <div className={classes.mobMenuControls}>
-            {!user ? mobMenuLoginBtn :
-              {
-                'Home': mobMenuFirstNotSolvedLessonProfileBtn,
-                'Course': mobMenuFirstNotSolvedLessonProfileBtn,
-                'Profile': homeBtn,
-                'EmptyProfile': homeBtn,
-                'Study': mobMenuCurrentLessonProfileBtn,
-                'Other': null,
-              }[urlSection]
             }
           </div>
       </div>
