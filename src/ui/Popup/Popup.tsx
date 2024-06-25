@@ -17,6 +17,14 @@ function Popup({ children }: Readonly<IProps>) {
   const [state, setState] = useState<null | 'OPENING' | 'OPENED' | 'CLOSING'>(null);
 
   useEffect(() => {
+    document.body.style.overflowY = 'hidden';
+
+    return () => {
+      document.body.style.overflowY = '';
+    };
+  }, []);
+
+  useEffect(() => {
     setState('OPENING');
     setTimeout(() => setState('OPENED'), MODAL_ANIMATION_DURATION);
   }, []);

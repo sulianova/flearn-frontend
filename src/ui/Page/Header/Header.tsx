@@ -46,16 +46,6 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
   const [userPopupVisible, setUserPopupVisible] = useState(false);
 
   useEffect(() => {
-    if (mobMenuIsOpened) {
-      document.body.style.overflowY = 'hidden';
-
-      return () => {
-        document.body.style.overflowY = '';
-      };
-    }
-  }, [mobMenuIsOpened]);
-
-  useEffect(() => {
     if (!visible) {
       currentCloseCourseDropdown.current?.();
     }
