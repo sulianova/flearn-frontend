@@ -116,7 +116,7 @@
   color: var(--color-content-inverted-primary);
   @include font-16-normal-ui;
 
-  background: var(--color-content-background-secondary);
+  background: var(--color-content-background-primary);
   border-radius: set-calc($border-radius-8);
   cursor: pointer;
 
@@ -130,12 +130,12 @@
 }
 
 .submitBtn:hover {
-  background-color: var(--color-content-background-primary);
+  background-color: var(--color-content-background-secondary);
 }
 
 .isDisabled {
   color: var(--color-content-tertiary);
-  background: var(--color-background-glassy-a);
+  background: var(--color-background-glassy-b);
 
   pointer-events: none;
 }

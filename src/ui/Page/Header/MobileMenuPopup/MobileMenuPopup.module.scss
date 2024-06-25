@@ -40,8 +40,7 @@
 }
 
 .active {
-  background-color: var(--color-background-glassy-b);
-  color: var(--primary-color);
+  background-color: var(--color-background-glassy-b)
 }
 
 .mobMenuControls {
@@ -145,13 +144,8 @@ padding: set-calc(16);
   margin-bottom: set-calc(24);
 }
 
-.navigationItem:hover {
-  cursor: pointer;
-  background-color: var(--color-background-glassy-a);
-}
-
 .active {
-  background-color: var(--color-background-glassy-a);
+  background-color: var(--color-background-glassy-b);
 
   &:hover {
     cursor: default;

@@ -65,7 +65,7 @@ function Page({ children, variant, header = false, footer, backgroundColor = 'va
           {header && <Header variant={variant} visible={headerVisible}/>}
           <div className={classes.content}>
             <section className={classes[`${variant}Wrapper`]}>
-              <MobileBtn course={currentCourse}/>
+              <MobileBtn course={currentCourse} variant={variant} visible={headerVisible}/>
               {children}
             </section>
             <EditBar/>

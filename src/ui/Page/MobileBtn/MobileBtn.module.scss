@@ -39,11 +39,19 @@
   height: set-calc(56);
 }
 
+.btnWrapper {
+  position: fixed;
+
+  display: flex;
+  flex-direction: column;
+  gap: set-calc(6);
+  right: set-calc(16);
+  bottom: 0;
+}
+
 .settings {
-  position: absolute;
   display: flex;
   justify-content: center;
-  right: set-calc(16);
 
   align-self: flex-end;
 
@@ -66,5 +74,7 @@
     background-size: contain;
     width: set-calc(24);
     height: set-calc(24);
+
+    fill: var(--color-content-primary);
   }
 }
