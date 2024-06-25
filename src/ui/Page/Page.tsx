@@ -45,9 +45,11 @@ function Page({ children, variant, header = false, footer, backgroundColor = 'va
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollTop = Math.max(window.scrollY, 0);
-      setHeaderVisible(lastScrollTop.current >= scrollTop);
-      lastScrollTop.current = scrollTop;
+      const minScroll = 0;
+      const maxScroll = document.body.scrollHeight - window.innerHeight;
+      const capedScrollTop = Math.min(Math.max(window.scrollY, minScroll), maxScroll);
+      setHeaderVisible(lastScrollTop.current >= capedScrollTop && capedScrollTop !== maxScroll);
+      lastScrollTop.current = capedScrollTop;
     };
 
     window.addEventListener('scroll', handleScroll);

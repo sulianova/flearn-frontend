@@ -48,6 +48,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
   useEffect(() => {
     if (!visible) {
       currentCloseCourseDropdown.current?.();
+      setUserPopupVisible(false);
     }
   }, [visible]);
 
