@@ -20,7 +20,7 @@ export default function Card({ course }: Readonly<IProps>) {
       <div className={classes.content}>
       <div className={classes.contentWrapper}>
         <div className={classes.info}>
-          <div className={classes.infoDate}>
+          <div className={classes.infoText}>
             {i18n.t('catalogue.card.info', {
             startDate: formatDate(course.startDate, { timeZone: 'Europe/Moscow' }),
             endDate: formatDate(course.endDate, { timeZone: 'Europe/Moscow' }),

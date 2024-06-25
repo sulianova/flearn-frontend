@@ -63,24 +63,25 @@
 
 .content {
   position: absolute;
+
   top: set-calc(16);
   left: set-calc(16);
   display: flex;
+
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
-  padding: set-calc(24);
+  padding: set-calc(20);
   z-index: 100;
 
   backdrop-filter: blur(set-calc($backdrop-filter));
-  background-color: var(--color-card);
-  border-radius: set-calc($border-radius-30);
+  background-color: var(--color-card-glassy);
+  border-radius: set-calc($border-radius-20);
   cursor: pointer;
   
   @include set-media(md) {
-    border-radius: set-calc($border-radius-20);
-    padding: set-calc(16);
-    margin-bottom: 0;
+    border-radius: set-calc($border-radius-14);
+    padding: set-calc(12);
   }
 }
 
@@ -101,18 +102,24 @@
   z-index: 100;
 
   margin-bottom: set-calc(16);
-  padding: 0 set-calc(8);
-  // height: set-calc(30);
+  padding: 0 set-calc(12);
   width: max-content;
 
-  // border-radius: set-calc($border-radius-large);
-  // background-color: var(--color-card);
-  // backdrop-filter: blur(set-calc($backdrop-filter));
+  height: set-calc(30);
+  border-radius: set-calc($border-radius-large);
+  background-color: var(--color-background-glassy-c);
+
+  @include set-media(md) {
+    height: set-calc(20);
+    margin-bottom: set-calc(8);
+    margin-bottom: set-calc(8);
+  }
 }
 
-.infoDate {
+.infoText {
   @include font-16-normal-ui;
-  color: var(--color-content-primary);
+  font-variant: small-caps;
+  color: var(--color-content-inverted-primary);
 }
 
 .title {
@@ -125,7 +132,7 @@
 
   @include set-media(md) {
     max-width: set-calc(250);
-    margin-bottom: set-calc(24);
+    margin-bottom: set-calc(8);
   }
 }
 
