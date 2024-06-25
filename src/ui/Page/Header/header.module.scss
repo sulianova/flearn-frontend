@@ -104,6 +104,12 @@
     color: var(--primary-color);
   }
 
+  span {
+    @include font-28-normal-header;
+    text-transform: uppercase;
+    letter-spacing: -0.05rem;
+  }
+
   svg {
     margin-top: set-calc(4);
     width: set-calc(56);
@@ -191,7 +197,6 @@
   &:hover {
     cursor: pointer;
     opacity: 0.9;
-    color: $color-palette-white-1000;
   }
 
   @include set-media(md) {

@@ -9,10 +9,11 @@
   "inputEmail": {
     "placeholder": "Email"
   },
-  "logo": "freedom to learn",
+  "logo": "flearn",
   "logoLong": "freedom to learn",
   "header": {
     "my": "мoe обучение",
+    "logo": "flearn",
     "freeZone": "бесплатно",
     "catalogue": "все курсы",
     "login": {

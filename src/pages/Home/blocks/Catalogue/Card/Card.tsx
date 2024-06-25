@@ -32,14 +32,11 @@ export default function Card({ course }: Readonly<IProps>) {
         {/* <div className={classes.description}>{course.introDescription}</div> */}
       </div>
       </div>
-      <div className={classes.background}></div>
-      {/* <div className={classes.preview}>
-        <Link
-          className={classes.previewLink}
-          to={URLSections.Course.to({ courseId: course.id })}
-        />
-        <Img src={course.cardImage?.imageSrc ?? ''} alt={course.cardImage?.imageAlt ?? ''}/>
-      </div> */}
+      <div className={classes.background}>
+        <div className={classes.preview}>
+          <Img src={course.introImage?.imageSrc ?? ''} alt={course.introImage?.imageAlt ?? ''}/>
+        </div>
+      </div>
     </Link>
   );
 }

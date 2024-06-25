@@ -72,7 +72,10 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
           { urlSection !== 'Study' && (
             <div className={classes.logo}>
               <div className={classes.logoWrapper}>
-                <Link to={URLSections.Home.index}><Icon icon='Logo'/></Link>
+                <Link to={URLSections.Home.index}>
+                  {/* <Icon icon='Logo'/> */}
+                  <span>{t('logo')}</span>
+                </Link>
               </div>
             </div>
           )}
