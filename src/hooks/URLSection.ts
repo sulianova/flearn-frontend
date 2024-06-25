@@ -4,10 +4,10 @@ import { useLocation } from 'react-router-dom';
 export type TURLSection = 'Home' | 'Course' | 'EmptyProfile' | 'Profile' | 'Study' | 'Other';
 
 const homeRegex = /^\/$/;
-const courseRegex = /\/course\/[^\/]+$/;
-const emptyProfileRegex = /\/profile$/;
-const profileRegex = /\/profile\/[^\/]+$/;
-const studyRegex = /\/study\/[^\/]+\/[^\/]+$/;
+const courseRegex = /^\/course\//;
+const emptyProfileRegex = /^\/profile\/$/;
+const profileRegex = /^\/profile\/.+/;
+const studyRegex = /^\/study\//;
 
 export function useURLSection() {
   const location = useLocation();
