@@ -92,6 +92,10 @@
   &:hover {
     cursor: pointer;
     color: var(--primary-color);
+
+    span {
+      -webkit-text-stroke: set-calc(0.5) var(--primary-color);
+    }
   }
 
   span {

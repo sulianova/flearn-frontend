@@ -119,7 +119,7 @@
 .infoText {
   @include font-16-normal-ui;
   font-variant: small-caps;
-  color: var(--color-content-inverted-primary);
+  color: $color-palette-white-1000;
 }
 
 .title {
