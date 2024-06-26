@@ -3,8 +3,6 @@
 .__ {
   position: relative;
 
-  overflow: hidden;
-
   display: block;
   @include is-beige;
 }
@@ -24,7 +22,7 @@
 @keyframes row {
   100% {
     opacity: 1;
-    transform: translateX(-16000px); 
+    transform: translateX(-100%); 
   }
 }
 
@@ -53,7 +51,6 @@
     padding: 0 0 0 set-calc(8);
 
     scrollbar-width: 0;
-    overflow-y: hidden;
     overflow-x: scroll;
 
     scroll-behavior: smooth;
@@ -68,9 +65,7 @@
   margin-right: set-calc(4);
 
   min-width: 45%;
-  overflow: hidden;
   border-radius: set-calc($border-radius-medium);
-  animation: row linear 80s infinite;
 
   aspect-ratio: 1 / 1.5;
 
@@ -78,6 +73,7 @@
 
   @include set-media(md) {
     min-width: min(510px, 110vw);
+    // animation: row linear 20s infinite;
   }
 }
 
@@ -89,4 +85,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+
+  border-radius: set-calc($border-radius-medium);
 }

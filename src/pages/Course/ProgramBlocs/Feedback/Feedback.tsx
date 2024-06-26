@@ -1,9 +1,7 @@
-import Img from 'ui/Img/Img';
-
-import Sofi from './SofiUlianova25.jpg'
 import classes from './Feedback.module.scss'; 
 
 export default function Feedback() {
+  
   return (
     <>
       <div className={classes.header}>
