@@ -110,6 +110,7 @@
     @include font-56-normal-header;
     padding-right: set-calc(8);
     padding-left: set-calc(8);
+    color: var(--color-content-primary);
 
     text-align: center;
   }
