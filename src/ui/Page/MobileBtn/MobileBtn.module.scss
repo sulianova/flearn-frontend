@@ -30,6 +30,7 @@
 
   background-color: $color-palette-blue-900-a;
   backdrop-filter: blur(set-calc($backdrop-filter));
+  box-shadow: $shadow-menu;
 
   @include font-21-normal-ui ;
   color: $color-palette-white-1000;
