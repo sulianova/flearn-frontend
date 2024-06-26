@@ -259,7 +259,7 @@
     pointer-events: none;
   
   .itemCard {
-    border: set-calc(2) solid var(--primary-color);
+    border: set-calc(2.5) solid var(--primary-color);
 
     @include set-media(md) {
       border: set-calc(1.5) solid var(--primary-color);

@@ -59,15 +59,15 @@
 
 @mixin is-beige {
   position: relative;
-  background-color: var(--color-content-tertiary);
+  background-color: transparent;
+  color: var(--color-content-primary);
 
   left: set-calc(-$padding-x-desk-page);
   width: set-calc(2 * $padding-x-desk-page, true, 100%);
-  padding: set-calc($padding-x-desk-page) set-calc($padding-x-desk-page);
+  padding: set-calc(0) set-calc(24);
 
   @include set-media(md) {
     display: block;
-    border-radius: 0;
 
     left: set-calc(-$padding-xs-mob-page);
     width: set-calc(2 * $padding-xs-mob-page, true, 100%);
@@ -123,6 +123,11 @@
   }
 }
 
+@mixin keyframes($name) {
+  @keyframes #{$name} {
+    @content;
+  }
+}
 
 @function set-calc(
   $value,

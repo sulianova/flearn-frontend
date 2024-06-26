@@ -185,6 +185,10 @@ const courseDB1: ICourseDataDB = {
         imageId: 'SofiUlianova22.jpg',
         imageAlt: 'SofiUlianova22',
       },
+      {
+        imageId: 'SofiUlianova26.jpg',
+        imageAlt: 'SofiUlianova26',
+      },
     ],
     // studentsWorks: [
     //   {
@@ -431,6 +435,10 @@ const courseDB2: ICourseDataDB = {
       {
         imageId: 'SofiUlianova22.jpg',
         imageAlt: 'SofiUlianova22',
+      },
+      {
+        imageId: 'SofiUlianova26.jpg',
+        imageAlt: 'SofiUlianova26',
       },
     ],
     studentsWorks: [],

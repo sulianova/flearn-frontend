@@ -18,8 +18,9 @@ interface IProps {
 
 function Gallery({ teacherGallery }: IProps) {
   return (
+  <>
+    <h2 className={cx({ title: true })}>{t('title')}</h2>
     <div className={classes.__}>
-      <h2 className={cx({ title: true })}>{t('title')}</h2>
       <div className={classes.commonFlowRow}>
         <div className={cx({ list: true })}>
           {teacherGallery.map(({ imageSrc, imageAlt }, index) => (
@@ -30,5 +31,6 @@ function Gallery({ teacherGallery }: IProps) {
         </div>
       </div>
     </div>
+  </>
   );
 }
