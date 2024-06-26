@@ -87,16 +87,15 @@
   &:hover {
     cursor: pointer;
     color: var(--primary-color);
-
-    span {
-      -webkit-text-stroke: set-calc(0.5) var(--primary-color);
-    }
   }
 
   span {
     @include font-28-normal-header;
-    -webkit-text-stroke: set-calc(0.5) var(--color-content-primary);
+    letter-spacing: -0.02rem;
+    -webkit-text-fill-color: transparent;
+    background: $gradient-blue-text;
     text-transform: uppercase;
+    background-clip: text;
   }
 
   svg {

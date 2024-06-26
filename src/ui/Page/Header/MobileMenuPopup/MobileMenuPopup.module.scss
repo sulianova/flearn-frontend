@@ -67,7 +67,7 @@ padding: set-calc(16);
   width: 100%;
 
   border-radius: set-calc($border-radius-30);
-  background: $gradient-button;
+  background: $gradient-blue-button;
   color: $color-palette-white-1000;
 
   @include set-typography(18, 24, 500);

@@ -80,7 +80,8 @@ $color-palette-blue-200: rgb(222, 232, 255);
 $color-palette-blue-100: rgb(245, 248, 255);
 
 //gradient
-$gradient-button: linear-gradient(98.34deg, rgb(0, 87, 255) 6.94%, rgb(98, 146, 255) 80.88%);
+$gradient-blue-button: linear-gradient(98.34deg, rgb(0, 87, 255) 6.94%, rgb(98, 146, 255) 80.88%);
+$gradient-blue-text: radial-gradient(122% 400% at -30.17% 120%,rgb(222, 232, 255) 0%,rgb(191, 210, 255) 40.7%, rgb(139, 174, 255) 73.35%,rgb(108, 157, 255) 83.9%,rgb(222, 232, 255) 96.79%);
 
 //theme-light
 $primary-color-light: $color-palette-blue-700;

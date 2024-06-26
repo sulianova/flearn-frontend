@@ -55,7 +55,6 @@
   justify-content: center;
   align-items: center;
   gap: set-calc(8);
-  overflow: hidden;
 
   margin-top: set-calc(24);
 
@@ -72,16 +71,16 @@
   justify-content: center;
 
   width: max-content;
-  height: set-calc(52);
+  height: set-calc(60);
   
-  padding: set-calc(0) set-calc(48);
+  padding: set-calc(0) set-calc(24);
   border-radius: set-calc($border-radius-30);
-  background-color: var(--color-background-btn);
+  background-color: var(--primary-color);
   transition: opacity $d-hover ease, box-shadow $d-hover ease, background-color $d-hover ease;
   cursor: pointer;
 
   @include font-21-normal-ui;
-  color: $color-palette-white-1000;
+  color: var(--color-content-inverted-primary);
   white-space: nowrap;
 
   @include set-media(md) {
@@ -92,5 +91,5 @@
 .button:hover {
   cursor: pointer;
   box-shadow: $shadow-medium-hovered;
-  background-color: var(--color-background-btn-hover);
+  background-color: var(--primary-color-hover);
 }

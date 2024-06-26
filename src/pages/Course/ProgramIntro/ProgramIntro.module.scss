@@ -102,6 +102,8 @@
 .title {
   @include font-88-normal-header;
   padding-right: set-calc(32);
+  
+  color: $color-palette-white-1000;
 
   @include set-media(md) {
 

@@ -75,7 +75,7 @@
   z-index: 100;
 
   backdrop-filter: blur(set-calc($backdrop-filter));
-  background-color: var(--color-card-glassy);
+  background-color: $color-card-glassy-dark;
   border-radius: set-calc($border-radius-20);
   cursor: pointer;
   
@@ -107,7 +107,7 @@
 
   height: set-calc(30);
   border-radius: set-calc($border-radius-large);
-  background-color: var(--color-background-glassy-c);
+  background-color: $color-background-glassy-c-dark;
 
   @include set-media(md) {
     height: set-calc(20);
@@ -128,7 +128,7 @@
   max-width: set-calc(450);
 
   @include font-56-normal-header;
-  color: var(--color-content-primary);
+  color: $color-palette-white-1000;
 
   @include set-media(md) {
     max-width: set-calc(250);
