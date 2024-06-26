@@ -105,48 +105,46 @@ function ImageModal({ variant, image, onClose, onNext, onPrev }: Readonly<IProps
   ) : (
       <div className={classes.imageGallery__modalContentWrapper}>
         <div className={classes.imageGallery__modalContent}>
-        <div>
-          <div className={classes.imageGallery__mainImageWrapper}>
-            {onPrev && (
-              <div
-                className={classes.imageGallery__backwardButton}
-                onClick={() => {
-                  setState('SWITCHING_FROM');
-                  setTimeout(() => {
-                    setState('SWITCHING_TO');
-                    onPrev();
-
+          {onPrev && (
+                <div
+                  className={classes.imageGallery__backwardButton}
+                  onClick={() => {
+                    setState('SWITCHING_FROM');
                     setTimeout(() => {
-                      setState('OPENED');
-                    }, 250);
-                  }, 250);
-                }}
-              >
-                <Icon icon='ArrowButton'/>
-              </div>
-            )}
-              <Img className={cx({ imageGallery__mainImage: true, fade: state === 'SWITCHING_FROM' })} src={image.data.src} alt={image.data.alt}/>
-            {onNext && (
-              <div
-                className={classes.imageGallery__forwardButton}
-                onClick={() => {
-                  setState('SWITCHING_FROM');
-                  setTimeout(() => {
-                    setState('SWITCHING_TO');
-                    onNext();
+                      setState('SWITCHING_TO');
+                      onPrev();
 
-                    setTimeout(() => {
-                      setState('OPENED');
+                      setTimeout(() => {
+                        setState('OPENED');
+                      }, 250);
                     }, 250);
+                  }}
+                >
+                  <Icon icon='ArrowButton'/>
+                </div>
+              )}
+        <div className={classes.imageGallery__mainImageWrapper}>
+            <Img className={cx({ imageGallery__mainImage: true, fade: state === 'SWITCHING_FROM' })} src={image.data.src} alt={image.data.alt}/>
+        </div>
+          {image.data.caption && <div className={classes.modalCaptionWrapper}><div className={classes.modalCaption}><Text text={image.data.caption}/></div></div>}
+        {onNext && (
+            <div
+              className={classes.imageGallery__forwardButton}
+              onClick={() => {
+                setState('SWITCHING_FROM');
+                setTimeout(() => {
+                  setState('SWITCHING_TO');
+                  onNext();
+
+                  setTimeout(() => {
+                    setState('OPENED');
                   }, 250);
-                }}
-              >
-                <Icon icon='ArrowButton'/>
-              </div>
-            )}
-          </div>
-            {image.data.caption && <div className={classes.modalCaptionWrapper}><div className={classes.modalCaption}><Text text={image.data.caption}/></div></div>}
-          </div>
+                }, 250);
+              }}
+            >
+              <Icon icon='ArrowButton'/>
+            </div>
+          )}
         </div>
       </div>
   );

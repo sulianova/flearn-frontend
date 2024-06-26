@@ -31,8 +31,7 @@
   background-color: var(--color-card);
   border: set-calc(1) solid var(--color-border);
   backdrop-filter: blur(set-calc($backdrop-filter));
-  
-  border: set-calc(0.5) solid var(--color-background-glassy-inverted-d);
+
   box-shadow: $shadow-menu;
 
   @include set-media(md) {
@@ -40,8 +39,6 @@
     right: 0;
     left: unset;
     bottom: set-calc(8, true, 100%);
-
-    border-radius: set-calc(10);
 
     width: set-calc(250);
   }
