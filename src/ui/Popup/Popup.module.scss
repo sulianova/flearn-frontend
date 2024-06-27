@@ -15,21 +15,27 @@
   align-items: center;
   overflow: hidden;
 
-  transition: background-color $d-fade ease-in-out;
   background-color: transparent;
+  transition: background-color $d-fade ease-in-out;
 
   @include set-media(md) {
     transform: translateY(100%);
+    transition: transform 0.5s ccubic-bezier(0.19, 1, 0.22, 1);
+    -webkit-transition: transform .5s cubic-bezier(0.19, 1, 0.22, 1);
+    will-change: transform;
   }
 }
 
 .modal_Animation {
-  background-color: var(--color-background-overlay);
+  background: var(--color-background-overlay);
 
   @include set-media(md) {
-    transition: transform 0.65s cubic-bezier(0.2, 1, 0.3, 1);
-    background-color: transparent;
-    transform: none;
+    transform: translateY(0);
+    transition: transform 0.5s ccubic-bezier(0.19, 1, 0.22, 1);
+    -webkit-transition: transform .5s cubic-bezier(0.19, 1, 0.22, 1);
+    will-change: transform;
+
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.5)), transparent;
   }
 }
 
@@ -81,8 +87,6 @@
     -webkit-overflow-scrolling: touch;
     overflow: scroll;
     transform: none;
-
-    background-color: var(--color-card-glassy);
   }
 }
 
