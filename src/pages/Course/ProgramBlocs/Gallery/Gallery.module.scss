@@ -3,24 +3,35 @@
 .__ {
   position: relative;
 
+  z-index: 500;
+
   display: block;
   @include is-beige;
 }
 
 .__:hover {
+
   .backwardButton {
-    opacity: 1;
+    transform: translate(150%, 0) rotate(180deg);
+
+    &:hover {
+      transform: translate(150%, 0) rotate(180deg);
+    }
   }
 
   .forwardButton {
-    opacity: 1;
+    transform: translate(-150%, 0) rotate(180deg);
+
+    &:hover {
+      transform: translate(-150%, 0) rotate(180deg);
+    }
   }
 }
 
 .backwardButton {
   position: absolute;
   top: 50%;
-  left: set-calc(8);
+  left: set-calc(-56);
   box-sizing: border-box;
 
   z-index: 500;
@@ -29,27 +40,25 @@
   width: set-calc(54);
   height: set-calc(54);
 
-  opacity: 0;
-
   cursor: pointer;
   transition: all $d-hover ease-in;
 
   border-radius: 50%;
   color: $color-palette-black-500;
-  background: $color-core-gradient;
+  background: $color-gradient-summer-fair;
   border: set-calc(1) solid $color-border-light;
   box-shadow: $shadow-icon;
-  transform: rotate(90deg);
+  transform: rotate(180deg) translate(0, 0);
+
 
   svg {
     width: 100%;
     height: 100%;
-    transform: rotate(270deg);
+    transform: rotate(180deg);
   }
 
   &:hover {
-    transform: rotate(90deg) scale(1.05);
-    background: $color-core-gradient;
+    transform: rotate(180deg) scale(1.05);
   }
 
   @include set-media(md) {
@@ -60,7 +69,7 @@
 .forwardButton {
   position: absolute;
   top: 50%;
-  right: set-calc(8);
+  right: set-calc(-56);
   box-sizing: border-box;
 
   z-index: 500;
@@ -69,17 +78,16 @@
   width: set-calc(54);
   height: set-calc(54);
 
-  opacity: 0;
-
   cursor: pointer;
   transition: all $d-hover ease-in;
 
   border-radius: 50%;
   color: $color-palette-black-500;
-  background: $color-core-gradient;
+  background: $color-gradient-summer-fair;
   border: set-calc(1) solid $color-border-light;
   box-shadow: $shadow-icon;
-  transform: rotate(180deg);
+  transform: rotate(180deg) translate(0, 0);
+
 
   svg {
     width: 100%;
@@ -146,7 +154,7 @@
 
     width: set-calc(16, true, 100%);
     left: set-calc(-8);
-    padding: 0 0 0 set-calc(8);
+    padding: 0 set-calc(8);
   }
 }
 

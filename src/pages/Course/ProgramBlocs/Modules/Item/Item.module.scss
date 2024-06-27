@@ -161,11 +161,10 @@
   max-width: set-calc(800);
 
   @include font-21-normal-paragraph;
-  color: var(--color-content-paragraph-secondary);
+  color: var(--color-content-paragraph-primary);
 
   @include set-media(md) {
     margin-right: 0;
-    color: var(--color-content-secondary);
   }
 }
 
@@ -259,11 +258,28 @@
     pointer-events: none;
   
   .itemCard {
-    border: set-calc(2.5) solid var(--primary-color);
+    // background: linear-gradient(var(--color-card), var(--color-card)) padding-box,
+    // $color-gradient-summer-fair border-box;
+    // border-radius: set-calc($border-radius-medium);
+    // border: set-calc(2.5) solid  var(--primary-color);
+    background: $color-gradient-summer-fair;
 
-    @include set-media(md) {
-      border: set-calc(1.5) solid var(--primary-color);
+    [data-subsection] {
+      color: $color-content-paragraph-primary-light;
     }
+
+    .description {
+      color: $color-content-paragraph-primary-light;
+    }
+
+    .subsections,
+    .projectsDescription,
+    .title,
+    .meta {
+      color: $color-content-primary-light;
+    }
+
+
   }
 
   .bullet {display: none;}

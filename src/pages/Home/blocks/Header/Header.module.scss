@@ -40,6 +40,10 @@
 
   @include set-typography(52, 52, 500);
   font-family: $font-family-compact;
+  
+  background: var(--color-core-heading-gradient);
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 
   @include set-media(md) {
     @include set-typography(40, 42, 500);
