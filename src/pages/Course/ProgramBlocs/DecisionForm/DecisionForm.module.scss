@@ -108,7 +108,7 @@
 
   border-radius: set-calc($border-radius-large);
   padding: set-calc(10) set-calc(15);
-  border: set-calc(2.5) solid $color-content-background-secondary-light;
+  border: set-calc(2.5) solid var(--color-content-primary);
   backdrop-filter: blur(set-calc($backdrop-filter));
 
   @include font-21-normal-ui;

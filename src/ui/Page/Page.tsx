@@ -59,7 +59,7 @@ function Page({ children, variant, header = false, footer, backgroundColor = 'va
 
   return (
     <div className={classes.trainerContent}>
-      {variant === EPageVariant.LMS && <Sidebar/>}
+      {<Sidebar/>}
       <div className={classes.theoryPage}>
         <div className={classes._} ref={ref}>
           {header && <Header variant={variant} visible={headerVisible}/>}

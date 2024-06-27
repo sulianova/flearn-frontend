@@ -79,22 +79,24 @@ function Sidebar() {
                 </div>
               </span>
             </li>
-            <li className={cx({ item: true, open: userPopupVisible })}>
-              {authedUser && userPopupVisible && (
-                <UserPopup
-                  user={authedUser}
-                  close={() => setUserPopupVisible(false)}
-                />
-              )}
-              <span className={classes.iconWrapper}>
-              <div
-                  className={classes.icon}
-                  onClick={() => setUserPopupVisible(!userPopupVisible)}
-                >
-                  <Icon icon='User' />
-                </div>
-              </span>
-            </li>
+            {urlSection === 'Profile' && (
+              <li className={cx({ item: true, open: userPopupVisible })}>
+                {authedUser && userPopupVisible && (
+                  <UserPopup
+                    user={authedUser}
+                    close={() => setUserPopupVisible(false)}
+                  />
+                )}
+                <span className={classes.iconWrapper}>
+                <div
+                    className={classes.icon}
+                    onClick={() => setUserPopupVisible(!userPopupVisible)}
+                  >
+                    <Icon icon='User' />
+                  </div>
+                </span>
+              </li>
+            )}
           </ul>
         </aside>
       </div>
