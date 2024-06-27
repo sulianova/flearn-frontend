@@ -29,6 +29,7 @@ $color-palette-black-800: #1c1c1c;
 $color-palette-black-900: #161616;
 $color-palette-black-950: #121212;
 $color-palette-black-1000: #000000;
+$color-palette-black-25-a: rgba(0, 0, 0, 0.015);
 $color-palette-black-50-a: rgba(0, 0, 0, 0.03);
 $color-palette-black-100-a: rgba(0, 0, 0, 0.06);
 $color-palette-black-200-a: rgba(0, 0, 0, 0.12);
@@ -74,7 +75,7 @@ $color-palette-blue-900-a: rgba(20, 115, 230, 0.9);
 //pink
 $color-pink: #ffd7fd;
 $color-pink-lt: #ffe9fe;
-$color-gradient: linear-gradient(317.42deg,#ffe9fe 10.4%,#ff96f9 83.03%);
+$color-pink-gradient: linear-gradient(317.42deg,#ffe9fe 10.4%,#ff96f9 83.03%);
 
 //color-palette-blue
 $color-palette-blue-900: rgb(0, 47, 154);
@@ -88,7 +89,6 @@ $color-palette-blue-200: rgb(222, 232, 255);
 $color-palette-blue-100: rgb(245, 248, 255);
 
 //gradient
-$color-core-heading-gradient: linear-gradient(180deg,$color-palette-blue-400,rgba(214,255,195,0), $color-palette-blue-200);
 $color-core-intro-gradient: linear-gradient(144.5deg,$color-palette-blue-300 65.09%, $color-palette-blue-500), linear-gradient(311.31deg, $color-palette-blue-500 36.08%, $color-palette-blue-300 106.98%);
 $color-core-button-gradient: linear-gradient(98.34deg, rgb(0, 87, 255) 6.94%, rgb(98, 146, 255) 80.88%);
 $color-gradient-summer-fair: linear-gradient(168.89deg,$color-pink -21.3%,$color-palette-blue-300 89.88%);
@@ -113,10 +113,10 @@ $color-accent-neutral-light: $color-palette-black-700;
 $color-accent-neutral-hover-light: $black;
 $color-background-alternate-light: $color-palette-black-50;
 $color-background-default-light: $color-palette-white-1000;
-$color-background-glassy-a-light: $color-palette-black-50-a;
-$color-background-glassy-b-light: $color-palette-black-100-a;
-$color-background-glassy-c-light: $color-palette-black-200-a;
-$color-background-glassy-d-light: $color-palette-black-300-a;
+$color-background-glassy-a-light: $color-palette-black-25-a;
+$color-background-glassy-b-light: $color-palette-black-50-a;
+$color-background-glassy-c-light: $color-palette-black-100-a;
+$color-background-glassy-d-light: $color-palette-black-200-a;
 $color-background-glassy-inverted-a-light: $color-palette-white-50-a;
 $color-background-glassy-inverted-b-light: $color-palette-white-100-a;
 $color-background-glassy-inverted-c-light: $color-palette-white-200-a;
@@ -141,6 +141,7 @@ $color-background-btn-light: $color-palette-black-700;
 $color-background-btn-hover-light: $color-palette-black-900;
 
 $border-color-light: rgba(217, 217, 217, 0.5);
+$color-core-heading-gradient-light: linear-gradient(180deg,$color-palette-black-900,rgba(214,255,195,0)), $color-palette-black-900;
 
 //theme-dark
 $primary-color-dark: $color-palette-blue-500;
@@ -183,6 +184,7 @@ $color-background-btn-dark: $primary-color-dark;
 $color-background-btn-hover-dark: $primary-color-hover-dark;
 
 $border-color-dark: hsla(0, 0%, 100%, .1);
+$color-core-heading-gradient-dark: linear-gradient(180deg,$color-palette-blue-300,rgba(214,255,195,0)), $color-palette-blue-100;
 
 //links
 $link: var(--color-content-primary);
@@ -296,6 +298,7 @@ $z-index-500: 500;
   --color-content-paragraph-secondary-light: #{$color-content-paragraph-secondary-light};
   --color-background-btn-light: #{$color-background-btn-light};
   --color-background-btn-hover-light: #{$color-background-btn-hover-light};
+  --color-core-heading-gradient-light: #{$color-core-heading-gradient-light};
 
   // theme dark
   --primary-color-dark: #{$primary-color-dark};
@@ -336,4 +339,5 @@ $z-index-500: 500;
   --color-content-paragraph-secondary-dark: #{$color-content-paragraph-secondary-dark};
   --color-background-btn-dark: #{$color-background-btn-dark};
   --color-background-btn-hover-dark: #{$color-background-btn-hover-dark};
+  --color-core-heading-gradient-dark: #{$color-core-heading-gradient-dark};
 }

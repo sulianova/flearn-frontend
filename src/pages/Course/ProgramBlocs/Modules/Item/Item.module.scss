@@ -79,7 +79,7 @@
       z-index: 1;
       width: 100%;
       height: set-calc(56);
-      background: linear-gradient(180deg, transparent 0%, var(--color-background-glassy-b) 100%);
+      background: linear-gradient(180deg, transparent 0%, var(--color-background-glassy-c) 100%);
       pointer-events: none;
     }
   
@@ -134,7 +134,7 @@
   width: set-calc(48);
   height: set-calc(48);
   border-radius: 50%;
-  background-color: var(--color-background-glassy-b);
+  background-color: var(--color-background-glassy-c);
   color: $color-palette-black-25;
 
   @include set-typography(24, 24, 500);

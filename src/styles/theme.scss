@@ -39,6 +39,7 @@ body.light {
   --color-content-paragraph-secondary: var(--color-content-paragraph-secondary-light);
   --color-background-btn: var(--color-background-btn-light);
   --color-background-btn-hover: var(--color-background-btn-hover-light);
+  --color-core-heading-gradient: var(--color-core-heading-gradient-light);
 }
 
 body.dark {
@@ -81,4 +82,5 @@ body.dark {
   --color-content-paragraph-secondary: var(--color-content-paragraph-secondary-dark);
   --color-background-btn: var(--color-background-btn-dark);
   --color-background-btn-hover: var(--color-background-btn-hover-dark);
+  --color-core-heading-gradient: var(--color-core-heading-gradient-dark);
 }
