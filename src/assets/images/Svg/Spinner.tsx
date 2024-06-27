@@ -1,9 +1,8 @@
-import { TwoSeventyRing, NinetyRingWithBg, ThreeDotsFade } from "react-svg-spinners";
+import { TwoSeventyRing, Tadpole } from "react-svg-spinners";
 
 export function Spinner() {
-  // return <NinetyRingWithBg color="var(--primary-color)"/>
-  return <TwoSeventyRing color="var(--primary-color)"/>;
-  // return <ThreeDotsFade />;
+  return <Tadpole color="var(--primary-color)"/>
+  // return <TwoSeventyRing color="var(--primary-color)"/>;
 
 }
 // export function Spinner() {

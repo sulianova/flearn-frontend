@@ -103,7 +103,7 @@
   @include font-88-normal-header;
   padding-right: set-calc(32);
   
-  color: $color-palette-white-1000;
+  color: $color-content-primary-dark;
 
   @include set-media(md) {
 
@@ -121,6 +121,7 @@
   padding-bottom: set-calc(16);
 
   @include font-21-normal-paragraph;
+  color: $color-content-secondary-dark;
 
   white-space: pre-line;
 
@@ -130,6 +131,7 @@
     padding-left: set-calc(20);
 
     text-align: center;
+    color: var(--color-content-secondary);
   }
 }
 

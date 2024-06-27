@@ -75,10 +75,11 @@
       content: '';
       position: absolute;
       bottom: 0;
+      left: 0;
       z-index: 1;
       width: 100%;
       height: set-calc(56);
-      background: linear-gradient(180deg, transparent 0%, var(--color-content-inverted-secondary) 100%);
+      background: linear-gradient(180deg, transparent 0%, var(--color-background-glassy-b) 100%);
       pointer-events: none;
     }
   
@@ -134,8 +135,7 @@
   height: set-calc(48);
   border-radius: 50%;
   background-color: var(--color-background-glassy-b);
-  color: var(--color-content-primary);
-  font-feature-settings: 'pnum' on, 'lnum' on;
+  color: $color-palette-black-25;
 
   @include set-typography(24, 24, 500);
 
@@ -161,7 +161,7 @@
   max-width: set-calc(800);
 
   @include font-21-normal-paragraph;
-  color: var(--color-content-background-secondary);
+  color: var(--color-content-paragraph-secondary);
 
   @include set-media(md) {
     margin-right: 0;

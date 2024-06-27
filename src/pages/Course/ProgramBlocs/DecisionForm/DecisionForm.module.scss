@@ -58,23 +58,15 @@
   min-width: min(380px, 80vw);
   padding: set-calc(24);
   border-radius: set-calc($border-radius-large);
-  background-color: var(--color-card);
-  border: set-calc(1) solid var(--color-border);
-  border: set-calc(2.5) solid var(--color-content-background-secondary);
+  background: $color-gradient-summer-fair;
+  border: set-calc(1) solid $color-border-light;
+  border: set-calc(2.5) solid $color-content-background-secondary-light;
   box-shadow: $shadow-medium-default;
 
   @include set-media(md) {
     border-radius: set-calc($border-radius-medium);
-    border: set-calc(2) solid var(--color-content-background-secondary);
+    border: set-calc(2) solid $color-content-background-secondary-light;
     padding: set-calc(16);
-  }
-}
-
-.blockDetails {
-  border: set-calc(2.5) solid var(--color-content-background-secondary);
-
-  @include set-media(md) {
-    border: set-calc(2) solid var(--color-content-background-secondary);
   }
 }
 
@@ -93,13 +85,14 @@
   margin-bottom: set-calc(8);
 
   @include font-16-normal-paragraph;
-  color: var(--color-content-paragraph-primary);
+  color: $color-content-paragraph-primary-light;
 }
 
 .title {
   max-width: set-calc(560);
   word-break: break-word;
   @include font-24-normal-header;
+  color: $color-content-primary-light;
 }
 
 .buble {
@@ -115,14 +108,14 @@
 
   border-radius: set-calc($border-radius-large);
   padding: set-calc(10) set-calc(15);
-  border: set-calc(2.5) solid var(--color-content-background-secondary);
+  border: set-calc(2.5) solid $color-content-background-secondary-light;
   backdrop-filter: blur(set-calc($backdrop-filter));
 
   @include font-21-normal-ui;
 
   @include set-media(md) {
     padding: set-calc(8) set-calc(12);
-    border: set-calc(2) solid var(--color-content-background-secondary);
+    border: set-calc(2) solid $color-content-background-secondary-light;
   }
 }
 
@@ -139,7 +132,7 @@
 
   s:after {
     margin-top: 0;
-    border-bottom: set-calc(1.5) solid var(--color-content-background-secondary);
+    border-bottom: set-calc(1.5) solid $color-content-background-secondary-light;
     content: "";
     left: set-calc(-2);
     position: absolute;
@@ -147,14 +140,14 @@
     top: 50%;
 
     @include set-media(md) {
-      border-bottom: set-calc(1) solid var(--color-content-background-secondary);
+      border-bottom: set-calc(1) solid $color-content-background-secondary-light;
     }
   }
 }
 
 .creditWas {
   @include font-24-normal-header;
-  color: var(--color-content-background-secondary);
+  color: $color-content-background-secondary-light;
   letter-spacing: -0.05rem;
 
   margin-bottom: set-calc(4);
@@ -167,10 +160,9 @@
 
   display: inline-block;
   letter-spacing: -0.2rem;
-  // -webkit-text-stroke: set-calc(1.5) var(--color-content-background-primary);
+  color: $color-content-primary-light;
 
   @include set-media(md) {
-    // -webkit-text-stroke: set-calc(1) var(--color-content-background-primary);
     @include set-typography(48, 48, 500);
   }
 }
@@ -186,10 +178,11 @@
   @include font-18-normal-ui;
   letter-spacing: 0;
 
-  background: var(--color-background-glassy-b);
+  background: $color-palette-white-500-a;
+  backdrop-filter: blur(set-calc($backdrop-filter));
+
   padding: set-calc(8) set-calc(16);
   border-radius: set-calc($border-radius-large);
-  -webkit-text-stroke: 0;
 
 
   @include set-media(md) {
@@ -227,14 +220,14 @@
   @include font-21-normal-ui;
 
   border-radius: set-calc($border-radius-10);
-  background-color: var(--primary-color);
+  background-color: $color-content-primary-light;
   transition: opacity $d-hover ease, box-shadow $d-hover ease, background-color $d-hover ease;
   cursor: pointer;
 
   &:hover {
     cursor: pointer;
     box-shadow: $shadow-medium-hovered;
-    background-color: var(--primary-color-hover);
+    opacity: 0.9;
   }
 
   @include set-media(md) {

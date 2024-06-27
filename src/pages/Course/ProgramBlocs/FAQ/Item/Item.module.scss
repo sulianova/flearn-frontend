@@ -64,7 +64,7 @@
     height: set-calc(16);
 
     stroke-width: set-calc(2.5);
-    stroke:  var(--color-content-inverted-primary);
+    stroke:  $color-palette-black-25;
 
     @include set-media(md) {
       width: set-calc(16);

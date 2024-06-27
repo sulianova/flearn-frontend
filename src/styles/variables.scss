@@ -10,6 +10,7 @@ $mobile-gap: 6;
 
 $white: #fff;
 $black: #000000;
+
 $matt-white: #EDEDED;
 $matt-white_hover: #E0E0E0;
 $matt-black: #181818;
@@ -61,12 +62,19 @@ $color-promo-highlight-neon: #ece2fc;
 $color-promo-highlight-green: #21d49e;
 
 //color-palette-blue-a
-$color-palette-blue-50-a: rgba(0, 87, 255, 0.05);
-$color-palette-blue-100-a: rgba(0, 87, 255, 0.1);
-$color-palette-blue-300-a: rgba(0, 87, 255, 0.3);
-$color-palette-blue-450-a: rgba(0, 87, 255, 0.45);
-$color-palette-blue-500-a: rgba(0, 87, 255, 0.5);
-$color-palette-blue-900-a: rgba(0, 87, 255, 0.9);
+$color-palette-blue-50-a: rgba(20, 115, 230, 0.05);
+$color-palette-blue-100-a: rgba(20, 115, 230, 0.1);
+$color-palette-blue-300-a: rgba(20, 115, 230, 0.3);
+$color-palette-blue-450-a: rgba(20, 115, 230, 0.45);
+$color-palette-blue-500-a: rgba(20, 115, 230, 0.5);
+$color-palette-blue-700-a: rgba(20, 115, 230, 0.7);
+$color-palette-blue-800-a: rgba(20, 115, 230, 0.8);
+$color-palette-blue-900-a: rgba(20, 115, 230, 0.9);
+
+//pink
+$color-pink: #ffd7fd;
+$color-pink-lt: #ffe9fe;
+$color-gradient: linear-gradient(317.42deg,#ffe9fe 10.4%,#ff96f9 83.03%);
 
 //color-palette-blue
 $color-palette-blue-900: rgb(0, 47, 154);
@@ -80,8 +88,17 @@ $color-palette-blue-200: rgb(222, 232, 255);
 $color-palette-blue-100: rgb(245, 248, 255);
 
 //gradient
-$gradient-blue-button: linear-gradient(98.34deg, rgb(0, 87, 255) 6.94%, rgb(98, 146, 255) 80.88%);
-$gradient-blue-text: radial-gradient(122% 400% at -30.17% 120%,rgb(222, 232, 255) 0%,rgb(191, 210, 255) 40.7%, rgb(139, 174, 255) 73.35%,rgb(108, 157, 255) 83.9%,rgb(222, 232, 255) 96.79%);
+$color-core-heading-gradient: linear-gradient(180deg,$color-palette-blue-400,rgba(214,255,195,0), $color-palette-blue-200);
+$color-core-intro-gradient: linear-gradient(144.5deg,$color-palette-blue-300 65.09%, $color-palette-blue-500), linear-gradient(311.31deg, $color-palette-blue-500 36.08%, $color-palette-blue-300 106.98%);
+$color-core-button-gradient: linear-gradient(98.34deg, rgb(0, 87, 255) 6.94%, rgb(98, 146, 255) 80.88%);
+$color-gradient-summer-fair: linear-gradient(168.89deg,$color-pink -21.3%,$color-palette-blue-300 89.88%);
+
+//ease
+$ease-in: cubic-bezier(0.755,0.05,0.855,0.06);
+$ease-out: cubic-bezier(0.23,1,0.32,1);
+$ease-in-out: cubic-bezier(0.86,0,0.07,1);
+$ease-out-quart: cubic-bezier(0.175,0.79,0.38,0.905);
+$ease-in-out-quart: cubic-bezier(0.645,0.045,0.355,1);
 
 //theme-light
 $primary-color-light: $color-palette-blue-700;
@@ -111,18 +128,19 @@ $color-background-stroke-light: rgba(0, 0, 0, 0.2);
 $color-border-light: $color-palette-white-1000;
 $color-card-glassy-light: $color-palette-white-800-a;
 $color-card-light: $color-palette-black-25;
-$border-color-light: rgba(217, 217, 217, 0.5);
-$color-content-inverted-primary-light: $color-palette-white-1000;
-$color-content-inverted-secondary-light: $color-palette-white-500-a;
+$color-content-inverted-primary-light: $color-palette-black-25;
+$color-content-inverted-secondary-light: $color-palette-black-300;
 $color-content-primary-light: $color-palette-black-900;
-$color-content-secondary-light: $color-palette-black-500-a;
-$color-content-tertiary-light: $color-palette-black-300-a;
+$color-content-secondary-light: $color-palette-black-700;
+$color-content-tertiary-light: $color-palette-black-500;
 $color-content-background-primary-light: $color-palette-black-900;
 $color-content-background-secondary-light: $color-palette-black-700;
-$color-content-paragraph-primary-light: $color-palette-black-600;
-$color-content-paragraph-secondary-light: $color-palette-black-600-a;
+$color-content-paragraph-primary-light: $color-palette-black-800;
+$color-content-paragraph-secondary-light: $color-palette-black-500;
 $color-background-btn-light: $color-palette-black-700;
 $color-background-btn-hover-light: $color-palette-black-900;
+
+$border-color-light: rgba(217, 217, 217, 0.5);
 
 //theme-dark
 $primary-color-dark: $color-palette-blue-500;
@@ -152,18 +170,19 @@ $color-background-stroke-dark: rgba(255, 255, 255, 0.2);
 $color-border-dark: hsla(0, 0%, 100%, .1);
 $color-card-glassy-dark: rgba(15,15,15,0.6);
 $color-card-dark: $color-palette-black-950;
-$border-color-dark: hsla(0, 0%, 100%, .1);
-$color-content-inverted-primary-dark: $color-palette-black-800-a;
-$color-content-inverted-secondary-dark: $color-palette-black-500-a;
-$color-content-primary-dark: $color-palette-white-1000;
-$color-content-secondary-dark: $color-palette-white-500-a;
-$color-content-tertiary-dark: $color-palette-white-300-a;
+$color-content-inverted-primary-dark:  $color-palette-black-700;
+$color-content-inverted-secondary-dark:  $color-palette-black-500;
+$color-content-primary-dark: $color-palette-black-25;
+$color-content-secondary-dark: $color-palette-black-300;
+$color-content-tertiary-dark: $color-palette-black-500;
 $color-content-background-primary-dark: $color-palette-black-300;
 $color-content-background-secondary-dark: $color-palette-black-500;
-$color-content-paragraph-primary-dark: $color-palette-white-700-a;
-$color-content-paragraph-secondary-dark: $color-palette-white-500-a;
+$color-content-paragraph-primary-dark: $color-palette-black-300;
+$color-content-paragraph-secondary-dark: $color-palette-black-500;
 $color-background-btn-dark: $primary-color-dark;
 $color-background-btn-hover-dark: $primary-color-hover-dark;
+
+$border-color-dark: hsla(0, 0%, 100%, .1);
 
 //links
 $link: var(--color-content-primary);
@@ -280,7 +299,7 @@ $z-index-500: 500;
 
   // theme dark
   --primary-color-dark: #{$primary-color-dark};
-  --primary-color--hover-dark: #{$primary-color-hover-dark};
+  --primary-color-hover-dark: #{$primary-color-hover-dark};
   --color-accent-error-dark: #{$color-accent-error-dark};
   --color-accent-notice-dark: #{$color-accent-notice-dark};
   --color-accent-success-dark: #{$color-accent-success-dark};

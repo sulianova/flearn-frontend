@@ -149,12 +149,13 @@
 
 
 .color-background-glassy-c {
-  color: var(--color-background-glassy-d);
+  color: var(--color-background-glassy-c);
 }
 
 .blue {
   color: var(--primary-color);
 }
+
 .isMobile {
   @include set-media-min(md) {
     display: none;
