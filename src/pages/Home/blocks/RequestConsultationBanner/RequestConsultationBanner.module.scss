@@ -80,7 +80,7 @@
   cursor: pointer;
 
   @include font-21-normal-ui;
-  color: $color-palette-black-900;
+  color: var(--color-content-inverted-primary);
   white-space: nowrap;
 
   @include set-media(md) {

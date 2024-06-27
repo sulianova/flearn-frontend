@@ -62,12 +62,11 @@ padding: set-calc(16);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 set-calc(32);
-  height: set-calc(60);
-  width: 100%;
+  padding: 0 set-calc(24);
+  height: set-calc(56);
 
   border-radius: set-calc($border-radius-30);
-  background: $color-core-button-gradient;
+  background: var(--primary-color);
   color: $color-palette-white-1000;
 
   @include set-typography(18, 24, 500);
