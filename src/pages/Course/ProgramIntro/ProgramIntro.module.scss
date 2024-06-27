@@ -160,7 +160,7 @@
 
   border-radius: set-calc($border-radius-30);
   transition: opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
-  background: $color-gradient-summer-fair;
+  background: $color-core-button-gradient;
 
   @include font-21-normal-ui;
 
@@ -175,7 +175,7 @@
 
   .text {
     z-index: 200;
-    color: $color-palette-black-900;
+    color: $color-palette-white-1000;
   }
 
   &:hover {

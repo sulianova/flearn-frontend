@@ -37,6 +37,7 @@
 
   @include set-typography(18, 24, 500);
   touch-action: manipulation;
+  box-shadow: none;
 }
 
 .active {
@@ -66,8 +67,9 @@ padding: set-calc(16);
   height: set-calc(56);
 
   border-radius: set-calc($border-radius-30);
-  background: var(--primary-color);
+  background: $color-core-button-gradient;
   color: $color-palette-white-1000;
+  width: 100%;
 
   @include set-typography(18, 24, 500);
   touch-action: manipulation;
