@@ -31,18 +31,6 @@ function Sidebar() {
       <div className={classes.__}>
         <aside className={classes.container}>
           <ul className={classes.items}>
-            {/* {(urlSection === 'Profile' || urlSection === 'EmptyProfile') && (
-              <li className={classes.item}>
-                <span className={classes.iconWrapper}>
-                  <Link
-                    className={classes.icon}
-                    to={URLSections.Home.index}
-                  >
-                    <Icon icon='Logo' />
-                  </Link>
-                </span>
-              </li>
-            )} */}
             {urlSection === 'Study' && (
               <li className={classes.item}>
                 <span className={classes.iconWrapper}>

@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import classnames from 'classnames/bind';
 
-import { useURLSection } from 'hooks';
+import { useIsMobile, useURLSection } from 'hooks';
 import { authService } from 'services/auth.service';
 import { type ICourseData } from 'services/course.service';
 import { userService } from 'services/user.service';
-import { frontendSettingsService } from 'services/frontendSettings.service';
 import { lessonService } from 'services/lesson.service';
+import { frontendSettingsService } from 'services/frontendSettings.service';
 import { URLSections } from 'router';
 
 import SignupToCoursePopup from 'components/SignupToCoursePopup/SignupToCoursePopup';
@@ -15,8 +15,11 @@ import Link from 'ui/Link/Link';
 
 import { EPageVariant } from '../Page';
 import UserPopup from '../Sidebar/UserPopup/UserPopup';
+import MobileMenuPopup from '../Header/MobileMenuPopup/MobileMenuPopup';
 
 import classes from './MobileBtn.module.scss';
+import { usePageSource } from 'hooks/pageSource';
+
 const cx = classnames.bind(classes);
 
 interface IProps {
@@ -26,12 +29,21 @@ interface IProps {
 }
 
 export default function MobileBtn({ course, variant, visible }: IProps) {
+  const {
+    currentCourse,
+    userCourses,
+    currentLesson,
+    firstNotSolvedLesson,
+    topicLessons,
+  } = usePageSource();
+  const isMobile = useIsMobile();
   const urlSection = useURLSection();
-  const { theme } = frontendSettingsService.useFrontendSettings();
   const firstLesson = lessonService.useLessons({ courseId: course?.id, topicOrder: 1, orderInTopic: 1 }).at(0);
   const [popupVisible, setPopupVisible] = useState(false);
   const [userPopupVisible, setUserPopupVisible] = useState(false);
   const user = userService.useAuthedUser();
+  const [mobMenuIsOpened, setMobMenuIsOpened] = useState(false);
+  const { theme } = frontendSettingsService.useFrontendSettings();
 
 
   useEffect(() => {
@@ -42,6 +54,16 @@ export default function MobileBtn({ course, variant, visible }: IProps) {
 
   return (
     <>
+      {isMobile && mobMenuIsOpened && (
+        <MobileMenuPopup
+          user={user}
+          userCourses={userCourses}
+          firstNotSolvedLesson={firstNotSolvedLesson}
+          currentLesson={currentLesson}
+          topicLessons={topicLessons}
+          close={() => setMobMenuIsOpened(false)}
+        />
+      )}
       {popupVisible && course &&
         <SignupToCoursePopup
           course={course}
@@ -70,22 +92,25 @@ export default function MobileBtn({ course, variant, visible }: IProps) {
           )}
           <div className={classes.btnWrapper}>
             {variant === EPageVariant.LMS && (
-                  <div
-                    className={cx({ settings: true, open: userPopupVisible })}
-                    onClick={() => setUserPopupVisible(!userPopupVisible)}
-                  >
-                    {user && userPopupVisible && (
-                      <UserPopup
-                        user={user}
-                        close={() => setUserPopupVisible(false)}
-                      />
-                    )}
-                    <Icon icon='User'/>
-                  </div>
-              )}
-              <div className={classes.settings} onClick={() => frontendSettingsService.update({ theme: theme === 'light' ? 'dark' : 'light' })}>
-                <Icon icon='Night'/>
+              <div
+                className={cx({ settings: true, open: userPopupVisible })}
+                onClick={() => setUserPopupVisible(!userPopupVisible)}
+              >
+                {user && userPopupVisible && (
+                  <UserPopup
+                    user={user}
+                    close={() => setUserPopupVisible(false)}
+                  />
+                )}
+                <Icon icon='User'/>
               </div>
+            )}
+            <div className={classes.settings} onClick={() => frontendSettingsService.update({ theme: theme === 'light' ? 'dark' : 'light' })}>
+              <Icon icon='Night'/>
+            </div>
+            <div className={classes.settings} onClick={() => setMobMenuIsOpened(o => !o)}>
+              <Icon icon='List'/>
+            </div>
           </div>
       </div>
     </>

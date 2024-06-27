@@ -1,5 +1,6 @@
 import classnames from 'classnames/bind';
 import { useEffect, useRef, useState } from 'react';
+import { useParams } from 'react-router';
 
 import { useIsMobile, useURLSection } from 'hooks';
 import { formatI18nT } from 'shared';
@@ -7,6 +8,7 @@ import { authService } from 'services';
 import { userService } from 'services/user.service';
 import { URLSections } from 'router';
 import { formatCourseDiscount, getCourseBaseDiscountAmountPrc } from 'utils';
+import { frontendSettingsService } from 'services/frontendSettings.service';
 
 import BuyPopup from 'components/BuyPopup/BuyPopup';
 import Dropdown from 'ui/Dropdown/Dropdown';
@@ -16,7 +18,6 @@ import Link from 'ui/Link/Link';
 import CoursesDropdownContent from './CoursesDropdownContent/CoursesDropdownContent';
 import MobileMenuPopup from './MobileMenuPopup/MobileMenuPopup';
 import { EPageVariant } from '../Page';
-import UserPopup from '../Sidebar/UserPopup/UserPopup';
 
 import classes from './header.module.scss';
 import { usePageSource } from 'hooks/pageSource';
@@ -43,6 +44,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
   const currentCloseCourseDropdown = useRef<() => void>();
   const [mobMenuIsOpened, setMobMenuIsOpened] = useState(false);
   const [buyPopupIsOpened, setBuyPopupIsOpened] = useState(false);
+  const { courseId, lessonId } = useParams();
   const [userPopupVisible, setUserPopupVisible] = useState(false);
 
   useEffect(() => {
@@ -77,20 +79,24 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
             </div>
           </div>
           <div className={classes.nav}>
-            {variant === EPageVariant.LMS && (
-              <div className={cx({ userSettinsWrapper: true, open: userPopupVisible })}>
-                {user && userPopupVisible && (
-                    <UserPopup
-                      user={user}
-                      close={() => setUserPopupVisible(false)}
-                    />
-                  )}
-                <div
-                  className={classes.userSettings}
-                  onClick={() => setUserPopupVisible(!userPopupVisible)}
-                >
-                  <Icon icon='User'/>
-                </div>
+            {(urlSection === 'Profile' || urlSection === 'EmptyProfile' || urlSection === 'Course') && (
+              <div className={classes.userSettingsWrapper}>
+                  <Link
+                    className={classes.userSettings}
+                    to={URLSections.Home.index}
+                  >
+                    <Icon icon='ArrowButton' />
+                  </Link>
+              </div>
+            )}
+            {(urlSection === 'Study' || urlSection === 'EmptyProfile') && (
+              <div className={classes.userSettingsWrapper}>
+                  <Link
+                    className={classes.userSettings}
+                    to={URLSections.Profile.to({ courseId: courseId! })}
+                  >
+                    <Icon icon='ArrowButton' />
+                  </Link>
               </div>
             )}
             {user && (
@@ -132,9 +138,9 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
               )
             }
           </div>
-          <div className={cx({ humburger: true})} onClick={() => setMobMenuIsOpened(o => !o)}>
+          {/* <div className={cx({ humburger: true})} >
             <Icon icon='List'/>
-          </div>
+          </div> */}
           </div>
       </div>
       
