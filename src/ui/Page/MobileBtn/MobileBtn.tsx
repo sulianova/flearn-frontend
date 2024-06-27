@@ -91,7 +91,7 @@ export default function MobileBtn({ course, variant, visible }: IProps) {
               )
           )}
           <div className={classes.btnWrapper}>
-            {variant === EPageVariant.LMS && (
+            {urlSection === 'Profile' && (
               <div
                 className={cx({ settings: true, open: userPopupVisible })}
                 onClick={() => setUserPopupVisible(!userPopupVisible)}
