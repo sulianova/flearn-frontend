@@ -43,7 +43,7 @@
 
   display: flex;
   color: var(--color-content-primary);
-  background-color:  var(--color-background-glassy-a);
+  background-color:  var(--color-background-glassy-b);
 
   cursor: pointer;
 
@@ -73,7 +73,7 @@
 }
 
 .close:hover {
-  background-color: var(--color-background-glassy-b);
+  background-color: var(--color-background-glassy-c);
 
   @include set-media(md) {
     background-color: transparent;
@@ -100,7 +100,7 @@
 
   display: flex;
   color: var(--color-content-primary);
-  background-color:  var(--color-background-glassy-a);
+  background-color:  var(--color-background-glassy-b);
 
   cursor: pointer;
 
@@ -131,7 +131,7 @@
 }
 
 .back:hover {
-  background-color:  var(--color-background-glassy-b);
+  background-color:  var(--color-background-glassy-c);
 
   @include set-media(md) {
     background-color: transparent;
@@ -191,7 +191,7 @@
 
   padding: 0 set-calc(16);
   border-radius: set-calc($border-radius-large);
-  background-color: var(--color-background-glassy-a);
+  background-color: var(--color-background-glassy-b);
   color: var(--color-content-tertiary);
   height: set-calc(30);
 

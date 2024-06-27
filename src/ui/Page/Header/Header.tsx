@@ -69,16 +69,13 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
       {buyPopupIsOpened && currentCourse && user && <BuyPopup user={user} course={currentCourse} close={() => setBuyPopupIsOpened(false)}/>}
       <div className={headerClass}>
         <div className={cx({ desk: true, [`deskPadding${variant}`]: true })}>
-          { urlSection !== 'Study' && (
-            <div className={classes.logo}>
-              <div className={classes.logoWrapper}>
-                <Link to={URLSections.Home.index}>
-                  {/* <Icon icon='Logo'/> */}
-                  <span>{t('logo')}</span>
-                </Link>
-              </div>
+          <div className={classes.logo}>
+            <div className={classes.logoWrapper}>
+              <Link to={URLSections.Home.index}>
+                <span>{t('logo')}</span>
+              </Link>
             </div>
-          )}
+          </div>
           <div className={classes.nav}>
             {variant === EPageVariant.LMS && (
               <div className={cx({ userSettinsWrapper: true, open: userPopupVisible })}>

@@ -6,10 +6,8 @@ import { courseService, ICourseData } from 'services/course.service';
 
 import Page, { EFooter, EPageVariant } from 'ui/Page/Page';
 
-// import DiscountBanner from './DiscountBanner/DiscountBanner';
 import ProgramBlocks from './ProgramBlocs/ProgramBlocks';
 import ProgramIntro from './ProgramIntro/ProgramIntro';
-// import LandingBtn from './LandingBtn/LandingBtn';
 
 import Fallback from 'ui/Fallback';
 
@@ -34,14 +32,7 @@ export default function Course() {
 
   return (
     <Page variant={EPageVariant.WEB} header footer={EFooter.Big} currentCourse={course}>
-      {/* <LandingBtn course={course}/> */}
       <ProgramIntro course={course}/>
-      {/* {course.discontDeadline && (
-        <DiscountBanner
-          discontAmount={course.discontAmount}
-          discontDeadline={course.discontDeadline}
-        />
-      )} */}
       <ProgramBlocks course={course} />
     </Page>
   );

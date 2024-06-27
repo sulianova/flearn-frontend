@@ -84,7 +84,7 @@ export default function MobileBtn({ course, variant, visible }: IProps) {
                   </div>
               )}
               <div className={classes.settings} onClick={() => frontendSettingsService.update({ theme: theme === 'light' ? 'dark' : 'light' })}>
-                <Icon icon='List'/>
+                <Icon icon='Night'/>
               </div>
           </div>
       </div>

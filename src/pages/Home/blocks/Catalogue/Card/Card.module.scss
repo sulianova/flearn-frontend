@@ -76,11 +76,10 @@
 
   backdrop-filter: blur(set-calc($backdrop-filter));
   background-color: var(--color-card-glassy);;
-  border-radius: set-calc($border-radius-20);
+  border-radius: set-calc($border-radius-medium);
   cursor: pointer;
   
   @include set-media(md) {
-    border-radius: set-calc($border-radius-14);
     padding: set-calc(12);
   }
 }
@@ -168,6 +167,5 @@
 
   @include set-media(md) {
     border: set-calc(1) solid var(--color-border);
-    border-radius: set-calc(10);
   }
 }

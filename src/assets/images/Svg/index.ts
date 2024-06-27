@@ -11,6 +11,7 @@ export * from './Instagram';
 export * from './Lessons';
 export * from './Lightning';
 export * from './List';
+export * from './Night';
 export * from './Lock';
 export * from './Logo';
 export * from './Minus';

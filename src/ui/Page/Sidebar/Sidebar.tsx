@@ -75,7 +75,7 @@ function Sidebar() {
                   className={classes.icon}
                   onClick={() => frontendSettingsService.update({ theme: theme === 'dark' ? 'light' : 'dark' })}
                 >
-                  <Icon icon="Portfolio"/>
+                  <Icon icon="Night"/>
                 </div>
               </span>
             </li>

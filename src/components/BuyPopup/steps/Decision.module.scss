@@ -66,14 +66,49 @@
 
   padding: set-calc(24);
   border-radius: set-calc($border-radius-large);
-  background-color: var(--color-content-inverted-secondary);
-  border: set-calc(1) solid var(--color-background-default);
+  background: $color-gradient-summer-fair;
+  border: set-calc(2.5) solid $color-content-background-secondary-light;
   box-shadow: $shadow-medium-default;
 
   @include set-media(md) {
     border-radius: set-calc($border-radius-medium);
+    border: set-calc(2) solid $color-content-background-secondary-light;
     padding: set-calc(16);
     flex-grow: 1;
+  }
+}
+
+.block:last-child {
+  background: var(--color-card);
+
+  .courseName {
+    color: var(--color-content-paragraph-primary);
+  }
+
+  .title {
+    color: var(--color-content-primary);
+  }
+
+  .credit{
+    s::after {
+      color: var(--color-content-tertiary);
+    }
+  }
+
+  .creditWas {
+    color: var(--color-content-tertiary);
+  }
+
+  .creditPrice {
+    color: var(--color-content-primary);
+  }
+
+  .discount {
+    background: var(--color-background-alternate);
+  }
+
+  .btn {
+    background-color: var(--color-background-glassy-d);
   }
 }
 
@@ -90,7 +125,7 @@
 
 .courseName {
   margin-bottom: set-calc(8);
-  color: var(--color-content-tertiary);
+  color: $color-content-paragraph-primary-light;
 
   @include font-16-normal-paragraph;
 }
@@ -101,6 +136,7 @@
   margin-bottom: set-calc(16);
 
   @include font-24-normal-header;
+  color: $color-content-primary-light;
 }
 
 .buble {
@@ -117,14 +153,15 @@
   padding: set-calc(10) set-calc(15);
 
   border-radius: set-calc($border-radius-large);
-  border: set-calc(2.5) solid var(--color-content-background-secondary);
+  padding: set-calc(10) set-calc(15);
+  border: set-calc(2.5) solid var(--color-content-primary);
   backdrop-filter: blur(set-calc($backdrop-filter));
 
   @include font-21-normal-ui;
 
   @include set-media(md) {
     padding: set-calc(8) set-calc(12);
-    border: set-calc(1.5) solid var(--color-content-background-secondary);
+    border: set-calc(1.5) solid var(--color-content-primary);
   }
 }
 
@@ -145,7 +182,7 @@
 
   s:after {
     margin-top: 0;
-    border-bottom: set-calc(1.5) solid var(--color-content-tertiary);
+    border-bottom: set-calc(1.5) solid $color-palette-black-300-a;
     content: "";
     left: set-calc(-2);
     position: absolute;
@@ -153,7 +190,7 @@
     top: 50%;
 
     @include set-media(md) {
-      border-bottom: set-calc(1) solid var(--color-content-tertiary);
+      border-bottom: set-calc(1) solid $color-palette-black-300-a;
     }
   }
 }
@@ -161,7 +198,7 @@
 .creditWas {
   width: max-content;
   margin-bottom: set-calc(4);
-  color: var(--color-content-tertiary);
+  color: $color-palette-black-300-a;
 
   @include font-24-normal-header;
   letter-spacing: -0.05rem;
@@ -173,6 +210,7 @@
 
   display: inline-block;
   letter-spacing: -0.2rem;
+  color: $color-content-primary-light;
 
   @include set-media(md) {
     @include set-typography(48, 48, 500);
@@ -188,15 +226,13 @@
   align-items: center;
   justify-content: center;
 
-  padding: set-calc(8) set-calc(16);
-
   @include font-18-normal-ui;
   letter-spacing: 0;
 
-  background: var(--color-background-alternate);
+  padding: set-calc(8) set-calc(16);
+  background: $color-palette-white-500-a;
+  backdrop-filter: blur(set-calc($backdrop-filter));
   border-radius: set-calc($border-radius-large);
-  -webkit-text-stroke: 0;
-
 
   @include set-media(md) {
     right: set-calc(100);
@@ -229,7 +265,7 @@
   @include font-21-normal-ui;
 
   border-radius: set-calc($border-radius-10);
-  background-color: var(--color-background-btn);
+  background-color: $color-content-background-primary-light;
   height: set-calc(60);
   padding: 0 set-calc(32);
   width: 100%;
@@ -240,7 +276,7 @@
   &:hover {
     cursor: pointer;
     box-shadow: $shadow-medium-hovered;
-    background-color: var(--color-background-btn-hover);
+    opacity: 0.9;
   }
 
   @include set-media(md) {
