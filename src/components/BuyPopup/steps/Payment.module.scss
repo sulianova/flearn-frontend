@@ -58,11 +58,11 @@
   justify-content: center;
   align-items: center;
 
-  color: var(--color-content-inverted-primary);
+  color: $color-content-inverted-primary-light;
   @include font-21-normal-ui;
 
   border-radius: set-calc($border-radius-10);
-  background-color: var(--color-content-background-primary);
+  background: var(--primary-color);
   height: set-calc(60);
   width: 100%;
 
@@ -81,7 +81,7 @@
 }
 
 .btn:disabled {
-  background-color: var(--color-background-glassy-a);
+  background: var(--color-background-glassy-c);
   color: var(--color-content-tertiary);
   pointer-events: none;
 }
@@ -118,7 +118,7 @@
       }
 
       rect {
-        fill: var(--color-background-glassy-a);
+        fill: var(--color-background-glassy-c);
       }
     }
   }
@@ -237,7 +237,7 @@
   display: flex;
   padding: set-calc(4);
   border-radius: set-calc($border-radius-large);
-  background-color: var(--color-background-glassy-b);
+  background-color: var(--color-background-glassy-c);
   backdrop-filter: blur(set-calc($backdrop-filter));
 }
 

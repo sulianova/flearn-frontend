@@ -117,6 +117,11 @@
   display: flex;
   align-items: center;
   justify-content: end;
+
+  @include set-media(md) {
+    width: 100%;
+    justify-content: space-between;
+  }
 }
 
 .navItem:not(:first-child) {
@@ -209,10 +214,10 @@
   height: set-calc(40);
 
   @include font-18-normal-ui;
-  color: var(--color-content-inverted-primary);
+  color: $color-content-primary-light;
 
   padding: set-calc(4) set-calc(24);
-  background-color: var(--color-content-primary);
+  background: $color-gradient-summer-fair;
   border-radius: set-calc($border-radius-large);
   transition: color $d-hover ease, opacity $d-hover ease;
   
@@ -245,8 +250,8 @@
 
   pointer-events: none;
 
-  background-color: var(--color-accent-promo);
-  color: $color-palette-white-1000;
+  background-color: $color-promo-highlight-yellow;
+  color: $color-content-primary-light;
 
   @include set-typography(14, 16, 500);
 
