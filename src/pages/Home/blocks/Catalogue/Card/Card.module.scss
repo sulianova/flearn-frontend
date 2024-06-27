@@ -30,6 +30,15 @@
 
   @include set-media(md) {
     min-height: set-calc(500);
+
+    .background {
+      box-shadow: none;
+      transform: scale(1);
+    }
+
+    .preview {
+      transform: scale(1);
+    }
   }
 }
 
