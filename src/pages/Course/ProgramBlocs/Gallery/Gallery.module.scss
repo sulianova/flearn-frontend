@@ -32,11 +32,11 @@
   opacity: 0;
 
   cursor: pointer;
-  transition: transform $d-hover ease-in, opacity $d-hover ease-in;
+  transition: all $d-hover ease-in;
 
   border-radius: 50%;
   color: $color-palette-black-500;
-  background: $color-core-gradient-flipped;
+  background: $color-core-gradient;
   border: set-calc(1) solid $color-border-light;
   box-shadow: $shadow-icon;
   transform: rotate(90deg);
@@ -49,6 +49,7 @@
 
   &:hover {
     transform: rotate(90deg) scale(1.05);
+    background: $color-core-gradient;
   }
 
   @include set-media(md) {
@@ -71,7 +72,7 @@
   opacity: 0;
 
   cursor: pointer;
-  transition: transform $d-hover ease-in, opacity $d-hover ease-in;
+  transition: all $d-hover ease-in;
 
   border-radius: 50%;
   color: $color-palette-black-500;
