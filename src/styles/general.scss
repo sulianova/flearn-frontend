@@ -23,6 +23,8 @@ html {
   -webkit-text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+
+  scroll-behavior: smooth;
 }
 
 body,
@@ -89,6 +91,10 @@ a {
   text-decoration: none;
   cursor: pointer;
   transition: background-color $d-hover, color $d-hover, opacity $d-hover;
+  -o-transition: background-color $d-hover, color $d-hover, opacity $d-hover;
+  -moz-transition: background-color $d-hover, color $d-hover, opacity $d-hover;
+  -ms-transition: background-color $d-hover, color $d-hover, opacity $d-hover;
+  -webkit-: background-color $d-hover, color $d-hover, opacity $d-hover;
 }
 
 button {
@@ -101,6 +107,10 @@ button {
 
   cursor: pointer;
   transition: color $d-hover,background-color $d-hover,opacity $d-hover;
+  -o-transition: color $d-hover,background-color $d-hover,opacity $d-hover;
+  -moz-transition: color $d-hover,background-color $d-hover,opacity $d-hover;
+  -ms-transition: color $d-hover,background-color $d-hover,opacity $d-hover;
+  -webkit-transition: color $d-hover,background-color $d-hover,opacity $d-hover;
 
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -116,6 +126,11 @@ s {
 
 .inline-link {
   transition: color $d-hover ease-out 0s;
+  -o-transition: color $d-hover ease-out 0s;
+  -moz-transition: color $d-hover ease-out 0s;
+  -ms-transition: color $d-hover ease-out 0s;
+  -webkit-transition: color $d-hover ease-out 0s;
+
   cursor: pointer;
 
   &:hover {
@@ -157,7 +172,11 @@ s {
 
 .s-hoverable {
   cursor: pointer;
-  transition: color $d-hover ease-out 0s;
+  transition: color $d-hover ease-out 0.1s;
+  -o-transition: color $d-hover ease-out 0.1s;
+  -moz-transition: color $d-hover ease-out 0.1s;
+  -ms-transition: color $d-hover ease-out 0.1s;
+  -webkit-transition: color $d-hover ease-out 0.1s;
 
   &:hover {
     color: var(--primary-color);
@@ -166,7 +185,13 @@ s {
 
 .key-link {
   color: var(--primary-color);
-  transition: color $d-hover ease-out 0s;
+  transition: color $d-hover ease-out 0.1s;
+  -o-transition: color $d-hover ease-out 0.1s;
+  -moz-transition: color $d-hover ease-out 0.1s;
+  -ms-transition: color $d-hover ease-out 0.1s;
+  -webkit-transition: color $d-hover ease-out 0.1s;
+  cursor: pointer;
+
   width: fit-content;
 
   &:hover {
@@ -177,7 +202,12 @@ s {
 .link {
   color: $link;
   width: fit-content;
-  transition: color $d-hover ease-out 0s;
+  transition: color $d-hover ease-out 0.1s;
+  -o-transition: color $d-hover ease-out 0.1s;
+  -moz-transition: color $d-hover ease-out 0.1s;
+  -ms-transition: color $d-hover ease-out 0.1s;
+  -webkit-transition: color $d-hover ease-out 0.1s;
+  cursor: pointer;
 
   &:hover {
     color: var(--primary-color);
@@ -185,7 +215,11 @@ s {
 }
 
 .nav-link {
-  transition: color $d-hover ease-out 0s;
+  transition: color $d-hover ease-out 0.1s;
+  -o-transition: color $d-hover ease-out 0.1s;
+  -moz-transition: color $d-hover ease-out 0.1s;
+  -ms-transition: color $d-hover ease-out 0.1s;
+  -webkit-transition: color $d-hover ease-out 0.1s;
   cursor: pointer;
 
   &:hover {

@@ -12,12 +12,20 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  transition: background-color $modal-animation-duration ease-in-out, transform  $modal-animation-duration ease-in-out;
-  background-color: transparent;
+  transition: opacity $modal-animation-duration ease-out, transform  $modal-animation-duration ease-out;
+  background-color: $color-palette-black-700-a;
+
+  opacity: 0;
 }
 
-.modal_Animation {
-  background-color: $color-palette-black-700-a;
+.modal_AnimationEnter {
+  transition: opacity $modal-animation-duration ease-out, transform  $modal-animation-duration ease-out;
+  opacity: 1;
+}
+
+.modal_AnimationExit {
+  transition: opacity $modal-animation-duration ease-out, transform  $modal-animation-duration ease-out;
+  opacity: 1;
 }
 
 .modalContentWrapper {
@@ -28,7 +36,7 @@
 }
 
 .modalContent {
-  transition: background-color $modal-animation-duration ease-in-out, transform  $modal-animation-duration ease-in-out;
+  transition: transform  $modal-animation-duration ease-in-out;
   transform: translate(var(--original-translate-x), var(--original-translate-y)) scale(calc(1 * var(--original-scale)), calc(1 * var(--original-scale)));
   transform-origin: top left;
 

@@ -155,7 +155,7 @@ function ImageModal({ variant, image, onClose, onNext, onPrev }: Readonly<IProps
     (
       <div
         data-variant={variant}
-        className={cx({ modal: true, modal_Animation: openCloseAnimation })}
+        className={cx({ modal: true, modal_AnimationEnter: state === 'OPENING' || state === 'OPENED', modal_AnimationExit: state === 'CLOSING' })}
         style={style}
       >
         <div className={classes.modalClose} onClick={close}>

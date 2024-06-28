@@ -2,6 +2,7 @@
 @use "sass:list";
 @use "sass:map";
 @use "sass:meta";
+@use "sass:string";
 
 @function px-to-rem($list) {
   $rem-list: ();
@@ -126,6 +127,12 @@
 @mixin keyframes($name) {
   @keyframes #{$name} {
     @content;
+  }
+}
+
+@mixin apply-to-all($mixin, $list) {
+  @each $element in $list {
+    @include meta.apply($mixin, $element);
   }
 }
 

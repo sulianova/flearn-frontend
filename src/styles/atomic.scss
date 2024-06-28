@@ -1,3 +1,4 @@
+//fonts
 @mixin font-14-normal-ui {
   @include set-typography(14, 16, 500);
 } 
@@ -147,7 +148,7 @@
   }
 }
 
-
+//color
 .color-background-glassy-c {
   color: var(--color-background-glassy-d);
 }
@@ -156,6 +157,7 @@
   color: var(--primary-color);
 }
 
+//
 .isMobile {
   @include set-media-min(md) {
     display: none;
@@ -166,4 +168,64 @@
   @include set-media(md) {
     display: none!important;
   }
+}
+
+//button
+.btnIcon {
+  display: inline-flex;
+  align-items: center;
+  height: set-calc(24);
+  justify-content: center;
+}
+
+.btn {
+  background: none;
+  border: none;
+  position: relative;
+
+  transition-property: background-color, border-color, box-shadow, color, transform;
+  transition-duration: 0.15s;
+  transition-timing-function: ease-out;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.btn:disabled {
+  cursor: default;
+  pointer-events: none;
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+//slider
+.slide-right-enter, .slide-right-exit-active {
+  transform: translateX(-100%);
+}
+
+.slide-left-enter, .slide-left-exit-active {
+  transform: translateX(100%);
+}
+
+.slide-right-enter, .slide-right-exit, .slide-right-enter-active, .slide-right-exit-active,
+.slide-left-enter,
+.slide-left-exit,
+.slide-left-enter-active,
+.slide-left-exit-active {
+  will-change: transform;
+}
+
+.slide-right-enter-active,
+.slide-left-enter-active {
+  transition: transform 0.65s cubic-bezier(0.2, 1, 0.3, 1);
+  transition-delay: 0.1s;
+  transform: translateX(0);
+}
+.slide-right-exit,
+.slide-left-exit {
+  transform: translateX(0);
 }
