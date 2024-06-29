@@ -99,7 +99,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
                   </Link>
               </div>
             )}
-            {user && (
+            {(user && !isMobile) && (
               <Dropdown
                 content={({ close }) => (
                   <CoursesDropdownContent

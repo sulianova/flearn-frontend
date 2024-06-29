@@ -194,7 +194,7 @@
   height: set-calc(4);
   margin-left: 0;
   border-radius: set-calc(2) 0 0 set-calc(2);
-  background-color: $color-palette-black-200;
+  background-color: $color-palette-black-100;
 
   @include set-media(md) {
     display: none;
@@ -226,7 +226,7 @@
   padding: set-calc(4) set-calc(12);
 
   border-radius: set-calc(100);
-  background-color: $color-palette-black-200;
+  background-color: $color-palette-black-100;
   color: $color-palette-black-900;
   white-space: nowrap;
 
@@ -245,7 +245,7 @@
 }
 
 .progressStepArrow {
-  color: $color-palette-black-200;
+  color: $color-palette-black-100;
 
   svg {
     width: set-calc(10);
@@ -273,7 +273,7 @@
   border-radius: 50%;
 
   color: $color-palette-black-900;
-  background-color:  $color-palette-black-200;
+  background-color: $color-palette-black-100;
 
   svg {
     width: set-calc(32);
