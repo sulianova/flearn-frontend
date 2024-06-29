@@ -116,7 +116,7 @@
 
   height: set-calc(30);
   border-radius: set-calc($border-radius-large);
-  background: $color-palette-indigo-300;
+  background: $color-gradient-matcha;
 
   @include set-media(md) {
     height: set-calc(24);
@@ -127,7 +127,7 @@
 
 .infoText {
   @include font-16-normal-ui;
-  color: var(--color-content-inverted-primary);
+  color: $color-content-secondary-light;
 }
 
 .title {

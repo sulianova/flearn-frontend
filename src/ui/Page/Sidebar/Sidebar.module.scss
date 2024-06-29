@@ -54,6 +54,7 @@
   transition: transform 0.15s ease-out, backdrop-filter $d-hover ease-out;
   background-color: var(--color-card);
   border: set-calc(1) solid var(--color-border);
+  backdrop-filter: blur(set-calc($backdrop-filter));
   border-radius: 50%;
 
   box-shadow: $shadow-icon;
@@ -93,7 +94,7 @@
     height: set-calc(40);
 
     path {
-      fill: var(--color-content-primary);
+      fill: $color-palette-indigo-600;
     }
   }
 

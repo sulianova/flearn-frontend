@@ -107,6 +107,7 @@ $color-core-gradient: radial-gradient( 89.08% 84.62% at 16.54% 78.46%,$color-pal
 $color-core-intro-gradient: linear-gradient(144.5deg,$color-palette-blue-300 65.09%, $color-palette-indigo-600), linear-gradient(311.31deg, $color-palette-indigo-500 36.08%, $color-palette-indigo-300 106.98%);
 $color-core-button-gradient: linear-gradient(98.34deg, $color-palette-indigo-700 6.94%, $color-palette-indigo-600 80.88%);
 $color-gradient-summer-fair: linear-gradient(168.89deg,$color-pink -21.3%,$color-palette-blue-300 89.88%);
+$color-gradient-matcha: linear-gradient(168.89deg,$color-promo-highlight-yellow -21.3%, $color-pink 89.88%);
 $color-gradient-summer-fair-dark: linear-gradient(90deg, rgb(2, 116, 243), rgb(255, 112, 159));
 $color-gradient-rainbow: linear-gradient(90deg,#4385f7,#e274cf 50%,#f5b056), linear-gradient(90deg, #8684ec 0, #ff60f5 50%, #ffb68d 100%);
 $color-gradient-pink: linear-gradient(317.42deg,#ffe9fe 10.4%,#ff96f9 83.03%);
@@ -149,7 +150,7 @@ $color-card-light: $color-palette-black-25;
 $color-content-inverted-primary-light: $color-palette-black-25;
 $color-content-inverted-secondary-light: $color-palette-black-300;
 $color-content-primary-light: $color-palette-black-900;
-$color-content-secondary-light: $color-palette-black-700;
+$color-content-secondary-light: $color-palette-black-600;
 $color-content-tertiary-light: $color-palette-black-500;
 $color-content-background-primary-light: $color-palette-black-900;
 $color-content-background-secondary-light: $color-palette-black-700;
@@ -201,7 +202,7 @@ $color-background-btn-dark: $primary-color-dark;
 $color-background-btn-hover-dark: $primary-color-hover-dark;
 
 $border-color-dark: hsla(0, 0%, 100%, .1);
-$color-core-heading-gradient-dark: linear-gradient(180deg,$color-palette-blue-300,rgba(214,255,195,0)), $color-palette-blue-100;
+$color-core-heading-gradient-dark: linear-gradient(180deg,$color-palette-indigo-300,rgba(214,255,195,0)), $color-palette-indigo-100;
 
 //links
 $link: var(--color-content-primary);
@@ -234,13 +235,13 @@ $shadow-medium-hovered: 0px 2px 32px 6px rgba(36, 36, 36, 0.07);
 $shadow-medium-default: 0px 1px 12px 2px rgba(36, 36, 36, 0.07);
 $shadow-medium-pressed: 0px 1px 8px rgba(36, 36, 36, 0.07);
 $shadow-huge-default: 4px 15px 24px -8px rgba(36, 36, 36, .02);
-$shadow-icon: 0 2px 4px rgba(0, 0, 0, .08);
+$shadow-icon: 0 3px 5px rgba(0, 0, 0, .1);
 $shadow-popup: 0 2px 10px 0 rgba(0, 0, 0, .3);
 $shadow-popup-cross: 0 1px 17px rgba(0, 0, 0, 0.08);
 $shadow-menu: 0px 2px 17px 2px rgba(0, 0, 0, 0.1);
 
 //filter
-$backdrop-filter: 15;
+$backdrop-filter: 10;
 
 //border
 $border-radius-small: 6;
