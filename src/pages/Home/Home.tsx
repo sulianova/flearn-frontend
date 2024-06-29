@@ -11,14 +11,14 @@ export default Home;
 
 function Home() {
   const blocks = [
-    <Catalogue key='catalogue'/>,
     <Career key='career'/>,
+    <Catalogue key='catalogue'/>,
     <RequestConsultationBanner key='requestConsultationBanner'/>,
   ];
 
   return (
     <Page variant={EPageVariant.WEB} header footer={EFooter.Big}>
-      <Header key='header'/>
+      {/* <Header key='header'/> */}
         {blocks.map(block => (
           <div className={classes.section} key={block.key}>
             {block}
