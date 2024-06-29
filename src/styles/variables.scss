@@ -103,9 +103,6 @@ $color-palette-indigo-1300: rgb(27, 30, 100);
 $color-palette-indigo-1400: rgb(20, 22, 72);
 
 //gradient
-// $color-core-gradient: radial-gradient( 89.08% 84.62% at 16.54% 78.46%,$color-palette-blue-100 0%,$color-palette-blue-200 39.58%,$color-palette-blue-300 77.6%,$color-palette-blue-400 100%);
-// $color-core-intro-gradient: linear-gradient(144.5deg,$color-palette-blue-300 65.09%, $color-palette-blue-500), linear-gradient(311.31deg, $color-palette-blue-500 36.08%, $color-palette-blue-300 106.98%);
-// $color-core-button-gradient: linear-gradient(98.34deg, rgb(0, 87, 255) 6.94%, rgb(20, 115, 230) 80.88%);
 $color-core-gradient: radial-gradient( 89.08% 84.62% at 16.54% 78.46%,$color-palette-indigo-100 0%,$color-palette-indigo-200 39.58%,$color-palette-indigo-300 77.6%,$color-palette-indigo-400 100%);
 $color-core-intro-gradient: linear-gradient(144.5deg,$color-palette-blue-300 65.09%, $color-palette-indigo-600), linear-gradient(311.31deg, $color-palette-indigo-500 36.08%, $color-palette-indigo-300 106.98%);
 $color-core-button-gradient: linear-gradient(98.34deg, $color-palette-indigo-700 6.94%, $color-palette-indigo-600 80.88%);

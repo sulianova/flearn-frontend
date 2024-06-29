@@ -26,12 +26,10 @@
 .card {
   position: relative;
   padding: set-calc(24);
-  background: $color-gradient-summer-fair;
+  background: var(--color-card);
   border: set-calc(1) solid var(--color-border);
   box-shadow: $shadow-huge-default;
   border-radius: set-calc($border-radius-medium);
-
-  color: var(--color-content-inverted-primary);
 
   @include set-media(md) {
     left: set-calc(-$padding-xs-mob-page);
