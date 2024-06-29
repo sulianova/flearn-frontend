@@ -75,7 +75,7 @@
   
   padding: set-calc(0) set-calc(24);
   border-radius: set-calc($border-radius-30);
-  background: $color-palette-indigo-400;
+  background: var(--color-content-background-primary);
   color: var(--color-content-inverted-primary);
   transition: opacity $d-hover ease, box-shadow $d-hover ease, background-color $d-hover ease;
   cursor: pointer;

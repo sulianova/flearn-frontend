@@ -94,18 +94,16 @@
 
   @include font-18-normal-ui;
   padding: set-calc(6) set-calc(24);
-
-  border: set-calc(2) solid $matt-white;
+  background-color: $color-background-glassy-inverted-b-light;
+  
   border-radius: set-calc($border-radius-large);
 
   @include set-media(md) {
-    border: none;
-    border-radius: set-calc($border-radius-large);
-    background-color: var(--color-card);
+    background-color: var(--color-background-glassy-b);
     height: set-calc(30);
     padding: 0 set-calc(12);
 
-    color: var(--color-content-tertiary);
+    // color: var(--color-content-tertiary);
   }
 }
 
