@@ -133,7 +133,7 @@
   letter-spacing: set-calc(-1);
 
   @include set-media(md) {
-    @include set-typography(40, 42, 500);
+    @include set-typography(40, 40, 500);
     letter-spacing: set-calc(-1);
   }
 }
@@ -144,13 +144,18 @@
   letter-spacing: set-calc(-1);
 
   @include set-media(md) {
-    @include set-typography(48, 52, 500);
+    @include set-typography(48, 44, 500);
+    letter-spacing: set-calc(-1);
   }
 }
 
 //color
 .color-background-glassy-c {
-  color: var(--color-background-glassy-d);
+  // color: var(--color-background-glassy-d);
+
+  -webkit-text-fill-color: transparent;
+  background: $color-gradient-summer-fair;
+  background-clip: text;
 }
 
 .blue {

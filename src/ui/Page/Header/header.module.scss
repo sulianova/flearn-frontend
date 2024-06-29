@@ -12,7 +12,7 @@
   @include set-typography(18, 18, 500);
 
   @include set-media(md) {
-    @include font-16-normal-ui;
+    @include font-18-normal-ui;
     transition: top 0.5s, transform 0.5s;
 
     // min-height: 100vh;
@@ -198,7 +198,7 @@
 
   @include set-media(md) {
     // display: none;
-    color: $color-content-primary-light;
+    color: var(--color-content-inverted-primary);
     margin-left: auto;
   }
 }

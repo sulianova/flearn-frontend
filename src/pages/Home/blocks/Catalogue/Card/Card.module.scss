@@ -81,7 +81,7 @@
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
-  padding: set-calc(20);
+  padding: set-calc(20) set-calc(20) set-calc(48);
   z-index: 100;
 
   backdrop-filter: blur(set-calc($backdrop-filter));
@@ -90,7 +90,7 @@
   cursor: pointer;
   
   @include set-media(md) {
-    padding: set-calc(12);
+    padding: set-calc(16) set-calc(16) set-calc(24);
   }
 }
 
@@ -116,10 +116,10 @@
 
   height: set-calc(30);
   border-radius: set-calc($border-radius-large);
-  background-color: var(--color-card-glassy);
+  background: $color-palette-indigo-300;
 
   @include set-media(md) {
-    height: set-calc(20);
+    height: set-calc(24);
     margin-bottom: set-calc(8);
     margin-bottom: set-calc(8);
   }
@@ -127,7 +127,7 @@
 
 .infoText {
   @include font-16-normal-ui;
-  color: var(--color-content-primary);
+  color: var(--color-content-inverted-primary);
 }
 
 .title {
@@ -135,7 +135,7 @@
   z-index: 100;
   max-width: set-calc(450);
 
-  @include font-56-normal-header;
+  @include font-36-normal-header;
   color: var(--color-content-primary);
 
   @include set-media(md) {

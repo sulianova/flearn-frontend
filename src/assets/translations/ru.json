@@ -90,7 +90,7 @@
   "courseLanding": {
       "programIntro" : {
         "free": "Бесплатно",
-        "datesInfoLabel": "{{durationInUnits}} $t({{unit}}.p, {\"count\": {{durationInUnits}} })  \u2022 с нуля"
+        "datesInfoLabel": "с нуля"
       },
       "form": {
           "subtitle": "Выберите почту, с которой будете учиться",
@@ -272,7 +272,7 @@
     "title": "Freadom to Learn \u2014 учим думать как художник, а говорить и действовать как арт-директор",
     "description": "учим думать как художник, а говорить и действовать, как арт-директор",
     "card": {
-      "info": "с опытом"
+      "info": "с нуля"
     }
   },
   "day": {
