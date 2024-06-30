@@ -75,7 +75,7 @@ function ProgramIntro({ course }: IProps) {
                 </div>
               </div>
           </div>
-          <div className={classes.cover}><Image src={course.introImage.imageSrc} alt={course.introImage.imageAlt}/></div>
+          {/* <div className={classes.cover}><Image src={course.introImage.imageSrc} alt={course.introImage.imageAlt}/></div> */}
         </div>
       </div>
     </>

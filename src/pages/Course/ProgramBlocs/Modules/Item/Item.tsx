@@ -42,6 +42,9 @@ function Item(props: Readonly<IProps>) {
     <div className={classes.item} style={{ '--items-in-row': 1 } as React.CSSProperties}>
       <div className={itemClasses}>
         <div className={classes.bullet}>{index}</div>
+        <div className={classes.itemPlus}>
+              {<Icon icon='PlusOpen'/>}
+            </div>
         <div className={classes.meta}>
           <Text text={module.meta}/>
           {index === 0 && (

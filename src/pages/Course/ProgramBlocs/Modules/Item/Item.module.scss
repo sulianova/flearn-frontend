@@ -57,17 +57,22 @@
   color: var(--color-content-primary);
   text-align: left;
 
+  transition: max-height 0.2s  ease-out, box-shadow 0.2s  ease-out;
+
+
   @include set-media(md) {
-    padding: set-calc(12);
+    padding: set-calc(16);
     margin-bottom: 0;
   }
 }
 
 .itemCardHoverable:hover {
   box-shadow: $shadow-medium-hovered;
+  transition: max-height 0.2s  ease-out, box-shadow 0.2s  ease-out;
 
   .slideDownClosed {
     max-height: set-calc(56);
+    transition: max-height 0.2s  ease-out;
   }
 
   .slideDownClosed::before {
@@ -112,15 +117,21 @@
   } 
 }
 
-.itemCard:focus-within {
-  .slideDown {
-    transition-duration: 500ms;
-    transition-timing-function: cubic-bezier(1, 0, 1, 0);
-  }
+.slideDown {
+  display: flex;
+  flex-direction: column;
+  max-height: 1000vh;
+  transition-property: max-height;
+  transition-timing-function: ease-out;
+  transition-delay: -200ms;
 
-  .slideDownClosed {
-    transition-timing-function: cubic-bezier(0, 1, 0, 1);
-  }
+  transition-duration: 500ms;
+  transition-timing-function: cubic-bezier(1, 0, 1, 0);
+}
+
+.slideDownClosed {
+  max-height: 0;
+  transition-timing-function: cubic-bezier(0, 1, 0, 1);
 }
 
 .bullet {
@@ -194,20 +205,6 @@
   }
 }
 
-.slideDown {
-  display: flex;
-  flex-direction: column;
-  max-height: 1000vh;
-  transition-property: max-height;
-  transition-duration: 400ms;
-  transition-timing-function: ease-out;
-  transition-delay: -200ms;
-}
-
-.slideDownClosed {
-  max-height: 0;
-}
-
 .additionalInfo {
   display: flex;
   gap: set-calc(36);
@@ -257,10 +254,6 @@
     pointer-events: none;
   
   .itemCard {
-    // background: linear-gradient(var(--color-card), var(--color-card)) padding-box,
-    // $color-gradient-summer-fair border-box;
-    // border-radius: set-calc($border-radius-medium);
-    // border: set-calc(2.5) solid  var(--primary-color);
     background: $color-gradient-summer-fair;
 
     [data-subsection] {
@@ -281,7 +274,13 @@
 
   }
 
-  .bullet {display: none;}
+  .bullet {
+    display: none;
+  }
+
+  .itemPlus {
+    display: none;
+  }
 
   @include set-media(md) {
     pointer-events: unset;
@@ -319,5 +318,32 @@
 .item:not(:first-child) {
   .badge  {
     display: none;
+  }
+}
+
+
+.itemPlus {
+  display: none;
+
+  @include set-media(md) {
+    position: absolute;
+    top: set-calc(16);
+    right: set-calc(16);
+    display: flex;
+
+    padding: set-calc(8);
+    background: var(--color-background-glassy-d);
+    border-radius: 50%;
+
+    svg {
+      width: set-calc(16);
+      height: set-calc(16);
+
+      stroke-width: set-calc(3);
+      stroke:  var(--color-content-inverted-primary);
+
+        width: set-calc(16);
+        height: set-calc(16);
+      }
   }
 }

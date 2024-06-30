@@ -5,14 +5,13 @@
   flex-direction: column;
   overflow: hidden;
   border-radius: set-calc($border-radius-medium);
-  background-color: $color-palette-black-900;
-  border: set-calc(1) solid $color-border-dark;
+  background: $gradient-purple-haze;
+  border: set-calc(1) solid var(--color-border);
 
   @include set-media(md) {
     position: relative;
     border: none;
     background-color: transparent;
-    border-radius: 0;
   }
 }
 
@@ -23,17 +22,17 @@
   gap: set-calc(8);
 
   overflow: hidden;
-  height: 75vh;
+  min-height: 75vh;
 
-  padding: set-calc(24) set-calc(24);
+  padding: set-calc(32);
   border-radius: set-calc($border-radius-medium);
   @include is-grid-4;
   color: $matt-white;
 
   @include set-media(md) {
-    padding: 0;
+    padding: set-calc(16);
     max-height: unset;
-    height: set-calc(700);
+    min-height: set-calc(300);
     color: var(--color-content-primary);
     border-radius: 0;
   }
@@ -82,7 +81,7 @@
   }
 
   @include set-media(md) {
-    padding: set-calc(16) set-calc(8) set-calc(8);
+    padding: set-calc(4) 0 set-calc(8);
     justify-content: flex-start;
   }
 }
@@ -93,38 +92,29 @@
   align-items: center;
 
   @include font-18-normal-ui;
+  color: $color-palette-indigo-600;
   padding: set-calc(6) set-calc(24);
-  background-color: $color-background-glassy-inverted-b-light;
+  background-color: $color-background-glassy-inverted-d-light;
   
   border-radius: set-calc($border-radius-large);
 
   @include set-media(md) {
-    background-color: var(--color-background-glassy-b);
     height: set-calc(30);
     padding: 0 set-calc(12);
-
-    // color: var(--color-content-tertiary);
   }
 }
 
 .title {
-  @include font-88-normal-header;
-  padding-right: set-calc(32);
+  @include set-typography(120, 90, 500);
+  padding-bottom: set-calc(32);
   
-  background: $color-core-heading-gradient-dark;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-content-inverted-primary);
 
   @include set-media(md) {
 
-    @include font-70-normal-header;
-    padding-right: set-calc(8);
-    padding-left: set-calc(8);
+    @include font-88-normal-header;
+    color: $color-content-inverted-primary-light;
     padding-bottom: set-calc(16);
-
-    background: var(--color-core-heading-gradient);
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
   }
 }
 
@@ -133,14 +123,14 @@
   padding-bottom: set-calc(16);
 
   @include font-21-normal-paragraph;
-  color: $color-content-secondary-dark;
+  color: $color-palette-indigo-600;
 
   white-space: pre-line;
 
   @include set-media(md) {
-    padding: 0 set-calc(8) set-calc(16);
+    padding: 0 0 set-calc(16);
 
-    color: var(--color-content-secondary);
+    color: $color-content-inverted-secondary-light;
 
     max-width: 90%;
   }
@@ -166,7 +156,7 @@
 
   border-radius: set-calc($border-radius-30);
   transition: opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
-  background: $color-core-button-gradient;
+  background: $color-content-background-primary-light;
 
   @include font-21-normal-ui;
 

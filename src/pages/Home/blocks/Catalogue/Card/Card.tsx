@@ -29,13 +29,13 @@ export default function Card({ course }: Readonly<IProps>) {
           </div>
         </div>
         <h3 className={classes.title}>{course.title}</h3>
-        {/* <div className={classes.description}>{course.introDescription}</div> */}
+        <div className={classes.description}>{course.introDescription}</div>
       </div>
       </div>
       <div className={classes.background}>
-        <div className={classes.preview}>
+        {/* <div className={classes.preview}>
           <Img src={course.introImage?.imageSrc ?? ''} alt={course.introImage?.imageAlt ?? ''}/>
-        </div>
+        </div> */}
       </div>
     </Link>
   );

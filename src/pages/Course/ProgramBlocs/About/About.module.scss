@@ -14,7 +14,7 @@
 
   @include set-media(md) {
     margin: set-calc(6) auto 0;
-    row-gap: set-calc(2 * $s-gap);
+    row-gap: set-calc(20);
     padding: set-calc(16) set-calc(16);
   }
 }
@@ -33,8 +33,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: set-calc(34);
-    height: set-calc(34);
+    width: set-calc(44);
+    height: set-calc(44);
 
     svg {
       height: 100%;
@@ -49,8 +49,8 @@
     }
 
     @include set-media(md) {
-      width: set-calc(32);
-      height: set-calc(32);
+      width: set-calc(36);
+      height: set-calc(36);
 
     }
   }

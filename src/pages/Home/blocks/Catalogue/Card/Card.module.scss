@@ -9,7 +9,7 @@
   border-radius: set-calc($border-radius-medium);
   color: var(--color-content-primary);
   
-  min-height: set-calc(800);
+  min-height: set-calc(400);
 
   transition: transform $d-hover ease, box-shadow $d-hover ease;
   box-shadow: none;
@@ -29,7 +29,7 @@
   }
 
   @include set-media(md) {
-    min-height: set-calc(500);
+    min-height: set-calc(300);
 
     .background {
       box-shadow: none!important;
@@ -81,16 +81,15 @@
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
-  padding: set-calc(20) set-calc(20) set-calc(48);
+  padding-right: set-calc(20);
   z-index: 100;
 
-  backdrop-filter: blur(set-calc($backdrop-filter));
-  background-color: var(--color-card-glassy);;
+  background-color: transparent;
   border-radius: set-calc($border-radius-medium);
   cursor: pointer;
   
   @include set-media(md) {
-    padding: set-calc(16) set-calc(16) set-calc(24);
+    padding-right: set-calc(16);
   }
 }
 
@@ -116,7 +115,7 @@
 
   height: set-calc(30);
   border-radius: set-calc($border-radius-large);
-  background: $color-gradient-matcha;
+  background: $color-background-glassy-inverted-d-light;
 
   @include set-media(md) {
     height: set-calc(24);
@@ -131,12 +130,12 @@
 }
 
 .title {
-  margin-bottom: set-calc(32);
+  margin-bottom: set-calc(16);
   z-index: 100;
   max-width: set-calc(450);
 
-  @include font-36-normal-header;
-  color: var(--color-content-primary);
+  @include font-56-normal-header;
+  color: $color-content-secondary-light;
 
   @include set-media(md) {
     max-width: set-calc(250);
@@ -147,12 +146,13 @@
 .description {
   padding-right: set-calc(16);
   z-index: 1;
+  max-width: 80%;
 
-  @include font-18-normal-paragraph;
-  color: var(--color-content-paragraph-primary);
+  @include font-21-normal-paragraph;
+  color: $color-content-secondary-light;
 
   @include set-media(md) {
-    margin-bottom: set-calc(32);
+    max-width: 100%;
   }
 }
 
@@ -169,7 +169,7 @@
   overflow: hidden;
 
   border-radius: set-calc($border-radius-medium);
-  background-color: var(--color-card);
+  background: $color-core-gradient;
   border: set-calc(1) solid var(--color-border);
   backdrop-filter: blur(set-calc($backdrop-filter));
   box-shadow: $shadow-huge-default;
