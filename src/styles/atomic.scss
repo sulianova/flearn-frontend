@@ -152,9 +152,7 @@
 //color
 .color-background-glassy-c {
 
-  -webkit-text-fill-color: transparent;
-  background: $color-gradient-summer-fair;
-  background-clip: text;
+  color: var(--color-background-glassy-d);
 }
 
 .blue {

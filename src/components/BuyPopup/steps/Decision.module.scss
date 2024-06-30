@@ -66,8 +66,8 @@
 
   padding: set-calc(24);
   border-radius: set-calc($border-radius-large);
-  background: $color-gradient-summer-fair;
-  border: set-calc(2.5) solid $color-content-background-secondary-light;
+  background: $color-promo-highlight-sky;
+  border: set-calc(1) solid var(--color-border);
   box-shadow: $shadow-medium-default;
 
   @include set-media(md) {

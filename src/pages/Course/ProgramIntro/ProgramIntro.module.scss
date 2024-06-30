@@ -5,7 +5,7 @@
   flex-direction: column;
   overflow: hidden;
   border-radius: set-calc($border-radius-medium);
-  background: $color-palette-indigo-100;
+  background: var(--color-card);
   border: set-calc(1) solid var(--color-border);
 
   @include set-media(md) {
@@ -21,7 +21,6 @@
   gap: set-calc(8);
 
   overflow: hidden;
-  min-height: 75vh;
 
   padding: set-calc(32);
   border-radius: set-calc($border-radius-medium);
@@ -54,11 +53,13 @@
   display: flex;
   flex-direction: column;
   gap: set-calc(24);
+  margin-bottom: set-calc(24);
 
   @include set-media(md) {
     justify-content: flex-start;
     flex-direction: column;
     gap: 0;
+    margin-bottom: 0;
   }
 }
 
@@ -66,7 +67,6 @@
   align-items: flex-end;
   width: 100%;
   max-width: 100%;
-  padding-inline: set-calc(24);
 }
 
 .categories {
@@ -90,23 +90,27 @@
   align-items: center;
 
   @include font-18-normal-ui;
-  color: $color-palette-indigo-600;
-  padding: set-calc(6) set-calc(24);
-  background-color: $color-palette-indigo-200;
+  color: var(--color-content-primary);
+  padding: 0 set-calc(12);
+  height: set-calc(30);
+  background-color: transparent;
   
   border-radius: set-calc($border-radius-large);
+  border: set-calc(2) solid var(--color-content-primary);
 
   @include set-media(md) {
+    border: set-calc(1.5) solid var(--color-content-primary);
     height: set-calc(30);
     padding: 0 set-calc(12);
   }
 }
 
 .title {
-  @include set-typography(120, 90, 500);
-  padding-bottom: set-calc(32);
+  @include set-typography(88, 88, 500);
+  padding-bottom: set-calc(8);
+  letter-spacing: -0.05rem;
   
-  color: $color-content-primary-light;
+  color: var(--color-content-primary);
 
   @include set-media(md) {
 
@@ -119,8 +123,8 @@
   max-width: set-calc(550);
   padding-bottom: set-calc(16);
 
-  @include font-21-normal-paragraph;
-  color: $color-content-primary-light;
+  @include font-28-normal-header;
+  color: var(--color-content-primary);
 
   white-space: pre-line;
 
@@ -140,7 +144,6 @@
     justify-content: center;
     align-items: center;
   }
-
 }
 
 .actionsBtn {
@@ -149,13 +152,17 @@
   align-items: center;
   justify-content: center;
 
-  border-radius: set-calc($border-radius-30);
+  border-radius: set-calc($border-radius-10);
   transition: opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
-  background: var(--primary-color);
+  background: linear-gradient(320deg, #7C84F3, #FF4DD2, #FF993B, #FF4DD2, #7C84F3, #FF4DD2, #FF993B);
+  background-size: 400% 400%;
+
+  animation: buttonGradient 45s ease infinite;
+  transition: width .3s, margin .3s, min-width .3s, background-color .3s, color .3s, border .3s, background-position 2s ease-out, padding-left .3s;
 
   @include font-21-normal-ui;
 
-  padding: set-calc(20) set-calc(32);
+  padding: 0 set-calc(64);
   height: set-calc(60);
 
   @include set-media(md) {

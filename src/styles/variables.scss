@@ -106,13 +106,7 @@ $color-palette-indigo-1400: rgb(20, 22, 72);
 $color-core-gradient: radial-gradient( 89.08% 84.62% at 16.54% 78.46%,$color-palette-indigo-100 0%,$color-palette-indigo-200 39.58%,$color-palette-indigo-300 77.6%,$color-palette-indigo-400 100%);
 $color-core-intro-gradient: linear-gradient(144.5deg,$color-palette-blue-300 65.09%, $color-palette-indigo-600), linear-gradient(311.31deg, $color-palette-indigo-500 36.08%, $color-palette-indigo-300 106.98%);
 $color-core-button-gradient: linear-gradient(98.34deg, $color-palette-indigo-800 6.94%, $color-palette-indigo-700 80.88%);
-$color-gradient-summer-fair: linear-gradient(168.89deg,$color-pink -21.3%,$color-palette-blue-300 89.88%);
-$color-gradient-matcha: linear-gradient(168.89deg,$color-promo-highlight-yellow -21.3%, #cd237f 89.88%);
-$color-gradient-summer-fair-dark: linear-gradient(90deg, rgb(2, 116, 243), rgb(255, 112, 159));
 $color-gradient-rainbow: linear-gradient(90deg,#4385f7,#e274cf 50%,#f5b056), linear-gradient(90deg, #8684ec 0, #ff60f5 50%, #ffb68d 100%);
-$color-gradient-pink: linear-gradient(317.42deg,#ffe9fe 10.4%,#ff96f9 83.03%);
-$gradient-lipstick: linear-gradient(165.72deg,#f7bdf8 21.15%,#cd237f 81.93%);
-$gradient-purple-haze: linear-gradient(153.58deg,#f7bdf8 32.25%,#2f3cc0 92.68%);
 
 //ease
 $ease-in: cubic-bezier(0.755,0.05,0.855,0.06);

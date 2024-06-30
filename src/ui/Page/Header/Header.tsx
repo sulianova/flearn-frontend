@@ -124,9 +124,9 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
               variant === EPageVariant.LMS ? (
                 <div className={cx({ navBuy: true, navItem: true })} onClick={() => setBuyPopupIsOpened(true)}>
                   <div className={cx({ buyBtn: true})}>Купить полный курс</div>
-                  {getCourseBaseDiscountAmountPrc(currentCourse?.discount) && (
+                  {/* {getCourseBaseDiscountAmountPrc(currentCourse?.discount) && (
                     <div className={classes.buyBadge}>{formatCourseDiscount(getCourseBaseDiscountAmountPrc(currentCourse?.discount)!)}</div>
-                  )}
+                  )} */}
                 </div>
               ) : (
                 <div className={cx({ navLogin: true, navItem: true })}>
