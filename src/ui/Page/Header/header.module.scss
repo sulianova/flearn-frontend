@@ -181,11 +181,12 @@
   align-items: center;
   position: relative;
 
-  color: var(--color-content-inverted-primary);
+  color: var(--color-content-primary);
 
   padding: set-calc(4) set-calc(24);
-  background: $color-gradient-summer-fair;
+  background: transparent;
   border-radius: set-calc($border-radius-large);
+  border: set-calc(2) solid var(--color-content-primary);
   width: max-content;
   height: set-calc(40);
 
@@ -197,8 +198,8 @@
   }
 
   @include set-media(md) {
-    // display: none;
-    color: var(--color-content-inverted-primary);
+    border: set-calc(1.5) solid var(--color-content-primary);
+    color: var(--color-content-primary);
     margin-left: auto;
   }
 }

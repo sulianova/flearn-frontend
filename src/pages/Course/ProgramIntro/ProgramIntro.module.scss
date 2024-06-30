@@ -5,12 +5,12 @@
   flex-direction: column;
   overflow: hidden;
   border-radius: set-calc($border-radius-medium);
-  background: transparent;
-  border: set-calc(3) solid var(--color-content-primary);
+  background: $color-palette-indigo-100;
+  border: set-calc(1) solid var(--color-border);
 
   @include set-media(md) {
     position: relative;
-    border: set-calc(2) solid var(--color-content-primary);
+    border: set-calc(1) solid var(--color-border);
   }
 }
 
@@ -30,7 +30,7 @@
 
   @include set-media(md) {
     padding: set-calc(16);
-    min-height: 85vh;
+    min-height: 45vh;
     color: var(--color-content-primary);
     border-radius: 0;
   }
@@ -90,9 +90,9 @@
   align-items: center;
 
   @include font-18-normal-ui;
-  color: var(--color-content-primary);
+  color: $color-palette-indigo-600;
   padding: set-calc(6) set-calc(24);
-  background-color: var(--color-background-glassy-b);
+  background-color: $color-palette-indigo-200;
   
   border-radius: set-calc($border-radius-large);
 
@@ -106,7 +106,7 @@
   @include set-typography(120, 90, 500);
   padding-bottom: set-calc(32);
   
-  color: var(--color-content-primary);
+  color: $color-content-primary-light;
 
   @include set-media(md) {
 
@@ -120,7 +120,7 @@
   padding-bottom: set-calc(16);
 
   @include font-21-normal-paragraph;
-  color: var(--color-content-primary);
+  color: $color-content-primary-light;
 
   white-space: pre-line;
 
@@ -151,7 +151,7 @@
 
   border-radius: set-calc($border-radius-30);
   transition: opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
-  background: var(--color-content-background-primary);
+  background: var(--primary-color);
 
   @include font-21-normal-ui;
 
@@ -166,7 +166,7 @@
 
   .text {
     z-index: 200;
-    color: var(--color-content-inverted-primary);
+    color: $color-content-inverted-primary-light;
   }
 
   &:hover {
