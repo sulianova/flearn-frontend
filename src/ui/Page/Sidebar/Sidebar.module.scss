@@ -94,7 +94,7 @@
     height: set-calc(40);
 
     path {
-      fill: $color-palette-indigo-600;
+      fill: var(--color-content-primary);
     }
   }
 

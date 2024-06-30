@@ -5,13 +5,12 @@
   flex-direction: column;
   overflow: hidden;
   border-radius: set-calc($border-radius-medium);
-  background: $gradient-purple-haze;
-  border: set-calc(1) solid var(--color-border);
+  background: transparent;
+  border: set-calc(3) solid var(--color-content-primary);
 
   @include set-media(md) {
     position: relative;
-    border: none;
-    background-color: transparent;
+    border: set-calc(2) solid var(--color-content-primary);
   }
 }
 
@@ -31,8 +30,7 @@
 
   @include set-media(md) {
     padding: set-calc(16);
-    max-height: unset;
-    min-height: set-calc(300);
+    min-height: 85vh;
     color: var(--color-content-primary);
     border-radius: 0;
   }
@@ -92,9 +90,9 @@
   align-items: center;
 
   @include font-18-normal-ui;
-  color: $color-palette-indigo-600;
+  color: var(--color-content-primary);
   padding: set-calc(6) set-calc(24);
-  background-color: $color-background-glassy-inverted-d-light;
+  background-color: var(--color-background-glassy-b);
   
   border-radius: set-calc($border-radius-large);
 
@@ -108,12 +106,11 @@
   @include set-typography(120, 90, 500);
   padding-bottom: set-calc(32);
   
-  color: var(--color-content-inverted-primary);
+  color: var(--color-content-primary);
 
   @include set-media(md) {
 
     @include font-88-normal-header;
-    color: $color-content-inverted-primary-light;
     padding-bottom: set-calc(16);
   }
 }
@@ -123,14 +120,12 @@
   padding-bottom: set-calc(16);
 
   @include font-21-normal-paragraph;
-  color: $color-palette-indigo-600;
+  color: var(--color-content-primary);
 
   white-space: pre-line;
 
   @include set-media(md) {
     padding: 0 0 set-calc(16);
-
-    color: $color-content-inverted-secondary-light;
 
     max-width: 90%;
   }
@@ -156,7 +151,7 @@
 
   border-radius: set-calc($border-radius-30);
   transition: opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
-  background: $color-content-background-primary-light;
+  background: var(--color-content-background-primary);
 
   @include font-21-normal-ui;
 
@@ -171,7 +166,7 @@
 
   .text {
     z-index: 200;
-    color: $color-palette-white-1000;
+    color: var(--color-content-inverted-primary);
   }
 
   &:hover {
