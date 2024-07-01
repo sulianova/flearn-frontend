@@ -32,9 +32,10 @@ export default function LessonsPopup(props: TProps) {
   const topicLessons = 'lessons' in props ? props.lessons : fetchedTopicLessons;
 
   return (
-    <Popup>
+    <Popup
+     children={close => (
       <div className={classes.__}>
-        <div className={classes.close} onClick={onClose}>
+        <div className={classes.close} onClick={() => close(onClose)}>
           <Icon icon='Cross'/>
         </div>
         <div className={classes.body}>
@@ -68,6 +69,7 @@ export default function LessonsPopup(props: TProps) {
           }
         </div>
       </div>
-    </Popup>
+     )}
+    />
   );
 }
