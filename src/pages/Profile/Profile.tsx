@@ -292,7 +292,7 @@ export default function Profile() {
         <LessonsPopup
           courseId={courseId}
           lessons={groupes.find(g => g.topic === openedTopic)!.lessons}
-          onClose={() => setOpenedTopic(null)}
+          close={() => setOpenedTopic(null)}
         />
       )}
     </>

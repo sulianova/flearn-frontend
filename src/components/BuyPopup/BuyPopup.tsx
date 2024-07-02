@@ -31,53 +31,56 @@ export default function BuyPopup({ close, course, user }: IProps) {
   const [step, setStep] = useState<TStep>('DECISION');
 
   return (
-    <Popup>
-      <div className={classes.__}>
-        <div className={classes.close} onClick={close}>
-          <Icon icon='Cross'/>
-        </div>
-        {step !== 'DECISION' && (
-          <div
-            className={classes.back}
-            onClick={() => setStep(({
-              'PAYMENT': 'DECISION',
-              'ORDER_INFO': 'PAYMENT',
-            } as const)[step])}
-          >
-            <Icon icon='ArrowButton'/>
+    <Popup
+      close={close}
+      children={startClosingProcess => (
+        <div className={classes.__}>
+          <div className={classes.close} onClick={startClosingProcess}>
+            <Icon icon='Cross'/>
           </div>
-        )}
-        <div className={classes.body}>
-          <div className={classes.header}>
-            <div className={classes.stepWidget}>
-              <div className={cx({ stepWidgetItem: true, stepWidgetItemDesk: true, active: step === 'DECISION' })}>о курсе</div>
-              <div className={cx({ stepWidgetItem: true, stepWidgetItemDesk: true, active: step === 'PAYMENT' })}>способы оплаты</div>
-              <div className={cx({ stepWidgetItem: true, stepWidgetItemDesk: true, active: step === 'ORDER_INFO' })}>подтверждение</div>
-              <div className={cx({ stepWidgetItem: true, stepWidgetItemMob: true, active: step === 'DECISION' })}>1</div>
-              <div className={cx({ stepWidgetItem: true, stepWidgetItemMob: true, active: step === 'PAYMENT' })}>2</div>
-              <div className={cx({ stepWidgetItem: true, stepWidgetItemMob: true, active: step === 'ORDER_INFO' })}>3</div>
+          {step !== 'DECISION' && (
+            <div
+              className={classes.back}
+              onClick={() => setStep(({
+                'PAYMENT': 'DECISION',
+                'ORDER_INFO': 'PAYMENT',
+              } as const)[step])}
+            >
+              <Icon icon='ArrowButton'/>
             </div>
+          )}
+          <div className={classes.body}>
+            <div className={classes.header}>
+              <div className={classes.stepWidget}>
+                <div className={cx({ stepWidgetItem: true, stepWidgetItemDesk: true, active: step === 'DECISION' })}>о курсе</div>
+                <div className={cx({ stepWidgetItem: true, stepWidgetItemDesk: true, active: step === 'PAYMENT' })}>способы оплаты</div>
+                <div className={cx({ stepWidgetItem: true, stepWidgetItemDesk: true, active: step === 'ORDER_INFO' })}>подтверждение</div>
+                <div className={cx({ stepWidgetItem: true, stepWidgetItemMob: true, active: step === 'DECISION' })}>1</div>
+                <div className={cx({ stepWidgetItem: true, stepWidgetItemMob: true, active: step === 'PAYMENT' })}>2</div>
+                <div className={cx({ stepWidgetItem: true, stepWidgetItemMob: true, active: step === 'ORDER_INFO' })}>3</div>
+              </div>
+            </div>
+            {step === 'DECISION' &&
+              <Decision
+                course={course}
+                next={productOptionType => {
+                  setStep('PAYMENT');
+                  setChosenProductOptionType(productOptionType);
+                }}
+              />
+            }
+            {step === 'PAYMENT' &&
+              <Payment
+                user={user}
+                course={course}
+                chosenProductOptionType={chosenProductOptionType!}
+                next={() => setStep('ORDER_INFO')}
+              />
+            }
+            {step === 'ORDER_INFO' && <OrderInfo user={user} course={course} next={close} />}
           </div>
-          {step === 'DECISION' &&
-            <Decision
-              course={course}
-              next={productOptionType => {
-                setStep('PAYMENT');
-                setChosenProductOptionType(productOptionType);
-              }}
-            />
-          }
-          {step === 'PAYMENT' &&
-            <Payment
-              user={user}
-              course={course}
-              chosenProductOptionType={chosenProductOptionType!}
-              next={() => setStep('ORDER_INFO')}
-            />
-          }
-          {step === 'ORDER_INFO' && <OrderInfo user={user} course={course} next={close} />}
         </div>
-      </div>
-    </Popup>
+      )}
+    />
   );
 }

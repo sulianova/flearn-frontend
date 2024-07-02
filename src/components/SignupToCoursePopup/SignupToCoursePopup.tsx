@@ -14,18 +14,19 @@ const t = formatI18nT('courseLanding.form');
 interface IProps {
   course: ICourseData
   option: keyof ICourseData['productOptions']
-  onClose: () => void
+  close: () => void
 }
 
 export default function SignupToCoursePopup(props: Readonly<IProps>) {
-  const { course, option, onClose } = props;
+  const { course, option, close } = props;
   const [orderEmail, setOrderEmail] = useState<string | null>(null);
 
   return (
     <Popup
-      children={close => (
+      close={close}
+      children={startClosingProcess => (
         <div className={classes.__}>
-          <div className={classes.close} onClick={() => close(onClose)}>
+          <div className={classes.close} onClick={startClosingProcess}>
             <Icon icon='Cross'/>
           </div>
           <div className={classes.header}>

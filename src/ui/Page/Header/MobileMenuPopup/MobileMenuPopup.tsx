@@ -110,35 +110,38 @@ export default function MobileMenuPopup(props: Readonly<IProps>) {
   );
 
   return (
-    <Popup>
-      <div className={classes.mob + ' isMobile'}>
-        <div className={classes.close} onClick={close}>
-          <Icon icon='Cross' />
-        </div>
-          <div className={classes.mobMenuMain}>
-            {!user ? null :
-              urlSection === 'Study' ? (<>
-                <div className={classes.title}>{currentLesson?.topic}</div>
-                {mobMenuLessonsList}
-              </>) : (<>
-                <div className={classes.listOptionTitle}>{mobMenuCoursesList?.length ? 'Мои курсы:' : 'У вас пока нет курсов'}</div>
-                {mobMenuCoursesList}
-              </>)
-            }
-            <div className={classes.mobMenuControls}>
-              {!user ? mobMenuLoginBtn :
-                  {
-                    'Home': mobMenuFirstNotSolvedLessonProfileBtn,
-                    'Course': mobMenuFirstNotSolvedLessonProfileBtn,
-                    'Profile': homeBtn,
-                    'EmptyProfile': homeBtn,
-                    'Study': null,
-                    'Other': null,
-                  }[urlSection]
-                }
-              </div>
+    <Popup
+      close={close}
+      children={startClosingProcess => (
+        <div className={classes.mob + ' isMobile'}>
+          <div className={classes.close} onClick={startClosingProcess}>
+            <Icon icon='Cross' />
           </div>
-      </div>
-    </Popup>
+            <div className={classes.mobMenuMain}>
+              {!user ? null :
+                urlSection === 'Study' ? (<>
+                  <div className={classes.title}>{currentLesson?.topic}</div>
+                  {mobMenuLessonsList}
+                </>) : (<>
+                  <div className={classes.listOptionTitle}>{mobMenuCoursesList?.length ? 'Мои курсы:' : 'У вас пока нет курсов'}</div>
+                  {mobMenuCoursesList}
+                </>)
+              }
+              <div className={classes.mobMenuControls}>
+                {!user ? mobMenuLoginBtn :
+                    {
+                      'Home': mobMenuFirstNotSolvedLessonProfileBtn,
+                      'Course': mobMenuFirstNotSolvedLessonProfileBtn,
+                      'Profile': homeBtn,
+                      'EmptyProfile': homeBtn,
+                      'Study': null,
+                      'Other': null,
+                    }[urlSection]
+                  }
+                </div>
+            </div>
+        </div>
+      )}
+    />
   );
 }

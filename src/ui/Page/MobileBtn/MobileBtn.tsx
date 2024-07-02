@@ -68,7 +68,7 @@ export default function MobileBtn({ course, variant, visible }: IProps) {
         <SignupToCoursePopup
           course={course}
           option={'OPTIMAL'}
-          onClose={() => setPopupVisible(false)}
+          close={() => setPopupVisible(false)}
         />
       }
       <div className={classes.__}>

@@ -90,7 +90,7 @@ function Sidebar() {
       </div>
       {courseId && lessonId && lessonsPopupVisible && (
         <LessonsPopup
-          onClose={() => setLessonsPopupVisible(false)}
+          close={() => setLessonsPopupVisible(false)}
           courseId={courseId}
           openedLessonId={lessonId}
         />

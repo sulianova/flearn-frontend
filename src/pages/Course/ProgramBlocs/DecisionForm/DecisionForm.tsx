@@ -86,7 +86,7 @@ export default function DecisionForm({ course }: IProps) {
         <SignupToCoursePopup
           course={course}
           option={popupOption}
-          onClose={() => setPopupOption(null)}
+          close={() => setPopupOption(null)}
         />
       )}
     </>

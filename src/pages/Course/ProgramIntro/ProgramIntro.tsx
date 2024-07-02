@@ -40,7 +40,7 @@ function ProgramIntro({ course }: IProps) {
         <SignupToCoursePopup
           course={course}
           option={'OPTIMAL'}
-          onClose={() => setPopupVisible(false)}
+          close={() => setPopupVisible(false)}
         />
       }
       <div className={classes._} id='program-intro'>

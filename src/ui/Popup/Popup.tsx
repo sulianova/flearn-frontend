@@ -10,10 +10,11 @@ export default Popup;
 
 const MODAL_ANIMATION_DURATION = 200;
 interface IProps {
-  children: ReactNode | ((close: (onClose: () => void) => void) => ReactNode)
+  close: () => void
+  children: (startClosingProcess: () => void) => ReactNode
 }
 
-function Popup({ children }: Readonly<IProps>) {
+function Popup({ children, close }: Readonly<IProps>) {
   const [state, setState] = useState<null | 'OPENING' | 'OPENED' | 'CLOSING'>(null);
 
   useEffect(() => {
@@ -29,10 +30,10 @@ function Popup({ children }: Readonly<IProps>) {
     setTimeout(() => setState('OPENED'), MODAL_ANIMATION_DURATION);
   }, []);
 
-  const close = useCallback((onClose: () => void) => {
+  const startClosingProcess = useCallback(() => {
     setState('CLOSING');
-    setTimeout(onClose, MODAL_ANIMATION_DURATION);
-  }, []);
+    setTimeout(close, MODAL_ANIMATION_DURATION);
+  }, [close]);
 
   return createPortal(
     (
@@ -40,7 +41,7 @@ function Popup({ children }: Readonly<IProps>) {
         {(state === null || state === 'OPENING' || state === 'OPENED' || state === 'CLOSING') && (
           <div className={classes.modalContentWrapper}>
             <div className={cx({ modalContent: true})}>
-              {typeof children === 'function' ? children(close) : children}
+              {children(startClosingProcess)}
             </div>
           </div>
         )}
