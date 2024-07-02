@@ -19,7 +19,6 @@ export class FirebaseService {
     this._app = initializeApp(config);
     this._db = getFirestore(this._app);
     this._storage = getStorage(this._app);
-    this._analytics = getAnalytics(this._app);
   }
 
   public async docExists(collectionName: ECollections, id: string, throws?: boolean) {
@@ -182,10 +181,18 @@ export class FirebaseService {
     logEvent(this._analytics, eventName, eventParams, options);
   }
 
+  private get _analytics() {
+    if (!this.__analytics) {
+      this.__analytics = getAnalytics(this._app);
+    }
+
+    return this.__analytics;
+  }
+
   private _app: FirebaseApp;
   private _db: Firestore;
   private _storage: FirebaseStorage;
-  private _analytics: Analytics;
+  private __analytics: Analytics | null = null;
 }
 
 export const firebaseService = new FirebaseService(getFirebaseConfig());

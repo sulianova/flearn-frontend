@@ -11,7 +11,9 @@ class AnalyticsService {
         const eventWithEnv = { ...event, data: { ...event.data, env: envService.env } };
         // tslint:disable-next-line
         console.log('logEvent', eventWithEnv);
-        firebaseService.logEvent(eventWithEnv.type, eventWithEnv.data, options);
+        if (envService.env === 'prod') {
+            firebaseService.logEvent(eventWithEnv.type, eventWithEnv.data, options);
+        }
     }
 }
 
