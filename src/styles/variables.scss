@@ -78,34 +78,30 @@ $color-pink-lt: #ffe9fe;
 
 //color-palette-blue
 $color-palette-blue-900: rgb(0, 47, 154);
-$color-palette-blue-800: rgb(0, 62, 203);
-$color-palette-blue-700: rgb(0, 87, 255);
+$color-palette-blue-700: rgb(0, 62, 203);
 $color-palette-blue-600: rgb(13, 102, 208);
-$color-palette-blue-500: rgb(20, 115, 230);
+$color-palette-blue-500: rgb(0, 87, 255);
 $color-palette-blue-400: rgb(98, 146, 255);
 $color-palette-blue-300: rgb(191, 210, 255);
 $color-palette-blue-200: rgb(222, 232, 255);
 $color-palette-blue-100: rgb(245, 248, 255);
 
 //color-palette-indigo
-$color-palette-indigo-100: rgb(237, 238, 255);
-$color-palette-indigo-200: rgb(224, 226, 255);
-$color-palette-indigo-300: rgb(211, 213, 255);
-$color-palette-indigo-400: rgb(193, 196, 255);
-$color-palette-indigo-500: rgb(172, 175, 255);
-$color-palette-indigo-600: rgb(149, 153, 255);
-$color-palette-indigo-700: rgb(0, 87, 255); //rgb(126, 132, 252);
-$color-palette-indigo-800: rgb(0, 62, 203); //rgb(104, 109, 244);
-$color-palette-indigo-900: rgb(82, 88, 228);
-$color-palette-indigo-1000: rgb(64, 70, 202);
-$color-palette-indigo-1100: rgb(50, 54, 168);
-$color-palette-indigo-1300: rgb(27, 30, 100);
 $color-palette-indigo-1400: rgb(20, 22, 72);
+$color-palette-indigo-1300: rgb(27, 30, 100);
+$color-palette-indigo-1100: rgb(50, 54, 168);
+$color-palette-indigo-1000: rgb(64, 70, 202);
+$color-palette-indigo-900: rgb(82, 88, 228);
+$color-palette-indigo-800: rgb(104, 109, 244);
+$color-palette-indigo-700: rgb(126, 132, 252);
+$color-palette-indigo-600: rgb(149, 153, 255);
+$color-palette-indigo-500: rgb(172, 175, 255);
+$color-palette-indigo-400: rgb(193, 196, 255);
+$color-palette-indigo-300: rgb(211, 213, 255);
+$color-palette-indigo-200: rgb(224, 226, 255);
+$color-palette-indigo-100: rgb(237, 238, 255);
 
 //gradient
-$color-core-gradient: radial-gradient( 89.08% 84.62% at 16.54% 78.46%,$color-palette-indigo-100 0%,$color-palette-indigo-200 39.58%,$color-palette-indigo-300 77.6%,$color-palette-indigo-400 100%);
-$color-core-intro-gradient: linear-gradient(144.5deg,$color-palette-blue-300 65.09%, $color-palette-indigo-600), linear-gradient(311.31deg, $color-palette-indigo-500 36.08%, $color-palette-indigo-300 106.98%);
-$color-core-button-gradient: linear-gradient(98.34deg, $color-palette-indigo-800 6.94%, $color-palette-indigo-700 80.88%);
 $color-gradient-rainbow: linear-gradient(90deg,#4385f7,#e274cf 50%,#f5b056), linear-gradient(90deg, #8684ec 0, #ff60f5 50%, #ffb68d 100%);
 
 //ease
@@ -116,8 +112,8 @@ $ease-out-quart: cubic-bezier(0.175,0.79,0.38,0.905);
 $ease-in-out-quart: cubic-bezier(0.645,0.045,0.355,1);
 
 //theme-light
-$primary-color-light: $color-palette-indigo-900;
-$primary-color-hover-light: $color-palette-indigo-1100;
+$primary-color-light: $color-palette-blue-500;
+$primary-color-hover-light: $color-palette-blue-700;
 $color-accent-error-light: #f22a2a;
 $color-accent-notice-light: #e67046;
 $color-accent-success-light: #1c9c75;
@@ -159,8 +155,8 @@ $border-color-light: rgba(217, 217, 217, 0.5);
 $color-core-heading-gradient-light: linear-gradient(180deg,$color-palette-black-900,rgba(214,255,195,0)), $color-palette-black-900;
 
 //theme-dark
-$primary-color-dark: $color-palette-indigo-700;
-$primary-color-hover-dark: $color-palette-indigo-600;
+$primary-color-dark: $color-palette-indigo-800;
+$primary-color-hover-dark: $color-palette-indigo-900;
 $color-accent-error-dark: #f22a2a;
 $color-accent-notice-dark: #e67046;
 $color-accent-success-dark: #1c9c75;

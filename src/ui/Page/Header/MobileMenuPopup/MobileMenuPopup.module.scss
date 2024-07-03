@@ -67,7 +67,7 @@ padding: set-calc(16);
   height: set-calc(56);
 
   border-radius: set-calc($border-radius-30);
-  background: $color-core-button-gradient;
+  background: var(--primary-color);
   color: $color-palette-white-1000;
   width: 100%;
 

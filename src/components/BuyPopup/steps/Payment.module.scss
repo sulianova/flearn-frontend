@@ -62,17 +62,17 @@
   @include font-21-normal-ui;
 
   border-radius: set-calc($border-radius-10);
-  background: var(--primary-color);
+  background-color: var(--primary-color);
   height: set-calc(60);
   width: 100%;
 
-  transition: opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
+  transition: background-color $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
   cursor: pointer;
 
   &:hover {
     cursor: pointer;
     box-shadow: $shadow-medium-hovered;
-    opacity: 0.9;
+    background-color: var(--primary-color-hover);
   }
 
   @include set-media(md) {

@@ -1,10 +1,12 @@
 @import 'styles/index';
 
 .__ {
-  margin: set-calc(30) set-calc(300) set-calc(70) set-calc(50);
+  margin: set-calc(30) 0 set-calc(70) set-calc(40);
+  width: 80%;
 
   @include set-media(md) {
-    margin: set-calc(20) set-calc(24) set-calc(40) set-calc(16);
+    margin: set-calc(20) 0 set-calc(40) set-calc(8);
+    width: 96%;
   }
 }
 .title {

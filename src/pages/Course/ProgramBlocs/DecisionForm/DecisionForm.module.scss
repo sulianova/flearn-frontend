@@ -56,11 +56,17 @@
   grid-column: span 6;
   width: 100%;
   min-width: min(380px, 80vw);
+
   padding: set-calc(24);
   border-radius: set-calc($border-radius-large);
-  background: $color-promo-highlight-sky;
   border: set-calc(1) solid var(--color-border);
   box-shadow: $shadow-medium-default;
+
+  background: linear-gradient(320deg, #7C84F3, #FF4DD2, #FF993B, #FF4DD2, #7C84F3, #FF4DD2, #FF993B);
+  background-size: 400% 400%;
+
+  animation: buttonGradient 45s ease infinite;
+  transition: width .3s, margin .3s, min-width .3s, background-color .3s, color .3s, border .3s, background-position 2s ease-out, padding-left .3s;
 
   @include set-media(md) {
     border-radius: set-calc($border-radius-medium);

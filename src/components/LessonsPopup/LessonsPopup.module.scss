@@ -113,6 +113,8 @@
   color: var(--color-content-primary);
   border-radius: set-calc(8);
 
+  transition: background-color $d-hover ease;
+
   @include set-media(md) {
     min-height: set-calc(42);
   }
@@ -128,11 +130,11 @@
 
 .navigationItem:hover {
   cursor: pointer;
-  background-color: var(--color-background-glassy-a);
+  background-color: var(--color-background-glassy-b);
 }
 
 .active {
-  background-color: var(--color-background-glassy-a);
+  background-color: var(--color-background-glassy-b);
 
   &:hover {
     cursor: default;

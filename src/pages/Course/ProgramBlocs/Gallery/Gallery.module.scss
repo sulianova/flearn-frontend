@@ -3,8 +3,6 @@
 .__ {
   position: relative;
 
-  z-index: 500;
-
   display: block;
   @include is-beige;
 }
@@ -34,21 +32,25 @@
   left: set-calc(-56);
   box-sizing: border-box;
 
-  z-index: 500;
+  z-index: 100;
 
   padding: set-calc(16);
   width: set-calc(54);
   height: set-calc(54);
 
   cursor: pointer;
-  transition: all $d-hover ease-in;
+  transform: rotate(180deg) translate(0, 0);
 
   border-radius: 50%;
-  color: $color-content-inverted-primary-light;
-  background: transparent;
-  border: set-calc(2) solid $color-content-inverted-primary-light;
   box-shadow: $shadow-icon;
-  transform: rotate(180deg) translate(0, 0);
+
+  color: $color-content-inverted-primary-light;
+  background: linear-gradient(320deg, #7C84F3, #FF4DD2, #FF993B, #FF4DD2, #7C84F3, #FF4DD2, #FF993B);
+  background-size: 400% 400%;
+
+  animation: buttonGradient 45s ease infinite;
+  transition: width .3s, margin .3s, min-width .3s, background-color .3s, color .3s, border .3s, background-position 2s ease-out, padding-left .3s, transform $d-hover ease-in, opacity $d-hover ease-in;
+
 
 
   svg {
@@ -72,22 +74,24 @@
   right: set-calc(-56);
   box-sizing: border-box;
 
-  z-index: 500;
+  z-index: 100;
 
   padding: set-calc(16);
   width: set-calc(54);
   height: set-calc(54);
 
   cursor: pointer;
-  transition: all $d-hover ease-in;
-
-  border-radius: 50%;
-  color: $color-content-inverted-primary-light;
-  background: transparent;
-  border: set-calc(2) solid $color-content-inverted-primary-light;
-  box-shadow: $shadow-icon;
   transform: rotate(180deg) translate(0, 0);
 
+  border-radius: 50%;
+  box-shadow: $shadow-icon;
+
+  color: $color-content-inverted-primary-light;
+  background: linear-gradient(320deg, #7C84F3, #FF4DD2, #FF993B, #FF4DD2, #7C84F3, #FF4DD2, #FF993B);
+  background-size: 400% 400%;
+
+  animation: buttonGradient 45s ease infinite;
+  transition: width .3s, margin .3s, min-width .3s, background-color .3s, color .3s, border .3s, background-position 2s ease-out, padding-left .3s, transform $d-hover ease-in, opacity $d-hover ease-in;
 
   svg {
     width: 100%;

@@ -90,26 +90,30 @@ export default function MobileBtn({ course, variant, visible }: IProps) {
                 </div>
               )
           )}
-          <div className={classes.btnWrapper}>
-            {urlSection === 'Profile' && (
-              <div
-                className={cx({ settings: true, open: userPopupVisible })}
-                onClick={() => setUserPopupVisible(!userPopupVisible)}
-              >
-                {user && userPopupVisible && (
-                  <UserPopup
-                    user={user}
-                    close={() => setUserPopupVisible(false)}
-                  />
-                )}
-                <Icon icon='User'/>
-              </div>
-            )}
+          <div className={classes.btnWrapperRight}>
+              {urlSection !== 'Course' && user && (
+                <div className={classes.settings} onClick={() => setMobMenuIsOpened(o => !o)}>
+                  <Icon icon='List'/>
+                </div>
+              )}
+          </div>
+          <div className={classes.btnWrapperLeft}>
+              {urlSection === 'Profile' && (
+                <div
+                  className={cx({settings: true, open: userPopupVisible })}
+                  onClick={() => setUserPopupVisible(!userPopupVisible)}
+                >
+                  {user && userPopupVisible && (
+                    <UserPopup
+                      user={user}
+                      close={() => setUserPopupVisible(false)}
+                    />
+                  )}
+                  <Icon icon='User'/>
+                </div>
+              )}
             <div className={classes.settings} onClick={() => frontendSettingsService.update({ theme: theme === 'light' ? 'dark' : 'light' })}>
               <Icon icon='Night'/>
-            </div>
-            <div className={classes.settings} onClick={() => setMobMenuIsOpened(o => !o)}>
-              <Icon icon='List'/>
             </div>
           </div>
       </div>

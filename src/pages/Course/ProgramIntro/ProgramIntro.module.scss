@@ -123,13 +123,14 @@
   max-width: set-calc(550);
   padding-bottom: set-calc(16);
 
-  @include font-28-normal-header;
+  @include set-typography(28, 36, 500);
   color: var(--color-content-primary);
 
   white-space: pre-line;
 
   @include set-media(md) {
     padding: 0 0 set-calc(16);
+    @include set-typography(20, 28, 500);
 
     max-width: 90%;
   }
