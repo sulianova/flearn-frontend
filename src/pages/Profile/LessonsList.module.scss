@@ -43,7 +43,7 @@
   box-shadow: $shadow-huge-default;
 
   @include set-media(md) {
-    flex-direction: row;
+    // flex-direction: row;
     height: auto;
     
     .infoItem {

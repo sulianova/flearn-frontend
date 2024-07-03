@@ -102,7 +102,7 @@ $color-palette-indigo-200: rgb(224, 226, 255);
 $color-palette-indigo-100: rgb(237, 238, 255);
 
 //gradient
-$color-gradient-rainbow: linear-gradient(90deg,#4385f7,#e274cf 50%,#f5b056), linear-gradient(90deg, #8684ec 0, #ff60f5 50%, #ffb68d 100%);
+$color-gradient-rainbow: linear-gradient(320deg, #7C84F3, #FF4DD2, #FF993B, #FF4DD2, #7C84F3, #FF4DD2, #FF993B);
 
 //ease
 $ease-in: cubic-bezier(0.755,0.05,0.855,0.06);
@@ -155,8 +155,8 @@ $border-color-light: rgba(217, 217, 217, 0.5);
 $color-core-heading-gradient-light: linear-gradient(180deg,$color-palette-black-900,rgba(214,255,195,0)), $color-palette-black-900;
 
 //theme-dark
-$primary-color-dark: $color-palette-indigo-800;
-$primary-color-hover-dark: $color-palette-indigo-900;
+$primary-color-dark: $color-palette-indigo-900;
+$primary-color-hover-dark: $color-palette-indigo-1000;
 $color-accent-error-dark: #f22a2a;
 $color-accent-notice-dark: #e67046;
 $color-accent-success-dark: #1c9c75;

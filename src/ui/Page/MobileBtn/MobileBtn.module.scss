@@ -33,7 +33,7 @@
   align-items: center;
   justify-content: center;
 
-  background: rgb(0, 87, 255, 0.95);
+  background: var(--primary-color);
   backdrop-filter: blur(set-calc($backdrop-filter));
   box-shadow: $shadow-menu;
 
@@ -71,12 +71,12 @@
 
   align-self: flex-end;
 
-  padding: set-calc(16);
+  padding: set-calc(15);
   transition: transform 0.15s ease-in;
   opacity: 1;
 
-  color: var(--color-content-primary);
-  background-color: var(--color-card);
+  color: $color-content-primary-light;
+  background-color: $color-palette-white-900-a;
   border: set-calc(1) solid var(--color-border);
   backdrop-filter: blur(set-calc($backdrop-filter));
   border-radius: 50%;
@@ -91,6 +91,6 @@
     width: set-calc(24);
     height: set-calc(24);
 
-    fill: var(--color-content-primary);
+    fill: $color-content-primary-light;
   }
 }

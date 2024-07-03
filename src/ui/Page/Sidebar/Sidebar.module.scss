@@ -78,8 +78,8 @@
   display: block;
   overflow: inherit;
 
-  width: set-calc(50);
-  height: set-calc(50);
+  width: set-calc(56);
+  height: set-calc(56);
 }
 
 .icon {
@@ -98,8 +98,8 @@
     text-align: center;
     background: 50% no-repeat;
     background-size: contain;
-    width: set-calc(20);
-    height: set-calc(20);
+    width: set-calc(24);
+    height: set-calc(24);
 
     path {
       fill: var(--color-content-primary);

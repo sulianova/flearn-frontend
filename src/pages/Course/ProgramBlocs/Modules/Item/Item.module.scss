@@ -149,7 +149,7 @@
 
   color: var(--color-content-inverted-primary);
 
-  background: linear-gradient(320deg, #7C84F3, #FF4DD2, #FF993B, #FF4DD2, #7C84F3, #FF4DD2, #FF993B);
+  background: $color-gradient-rainbow;
   background-size: 400% 400%;
 
   animation: buttonGradient 45s ease infinite;

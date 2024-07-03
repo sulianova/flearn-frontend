@@ -52,7 +52,7 @@
     border: none;
     border-radius: 0;
 
-    background-color: var(--color-background-alternate);
+    background-color: transparent;
 
     .logo {
       display: none;
@@ -96,7 +96,7 @@
     letter-spacing: -0.02rem;
 
     transition: opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
-    background: linear-gradient(320deg, #7C84F3, #FF4DD2, #FF993B, #FF4DD2, #7C84F3, #FF4DD2, #FF993B);
+    background: $color-gradient-rainbow;
     background-size: 400% 400%;
 
     -webkit-text-fill-color: transparent;
@@ -148,14 +148,14 @@
     align-items: center;
     justify-content: center;
 
-    background-color: var(--color-background-glassy-c);
+    background-color: $color-palette-white-900-a;
     border-radius: set-calc($border-radius-6);
   
     svg {
       width: set-calc(32);
       height: set-calc(32);
   
-      color: var(--color-content-primary);
+      color: $color-content-primary-light;
     }
   }
 }
@@ -228,7 +228,7 @@
   padding: set-calc(4) set-calc(24);
   border-radius: set-calc($border-radius-large);
   transition: opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
-  background: linear-gradient(320deg, #7C84F3, #FF4DD2, #FF993B, #FF4DD2, #7C84F3, #FF4DD2, #FF993B);
+  background: $color-gradient-rainbow;
   background-size: 400% 400%;
 
   animation: buttonGradient 45s ease infinite;
@@ -387,7 +387,7 @@
 
       .desk {
         transform: none;
-        // transform: translateY(-100%);
+        transform: translateY(-100%);
       }
     }
 }
