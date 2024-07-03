@@ -223,16 +223,15 @@
   height: set-calc(40);
 
   @include font-18-normal-ui;
-  color: $color-content-inverted-primary-light;
+  color: var(--color-content-inverted-primary);
 
   padding: set-calc(4) set-calc(24);
   border-radius: set-calc($border-radius-large);
-  transition: opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
   background: $color-gradient-rainbow;
   background-size: 400% 400%;
 
   animation: buttonGradient 45s ease infinite;
-  transition: width .3s, margin .3s, min-width .3s, background-color .3s, color .3s, border .3s, background-position 2s ease-out, padding-left .3s;
+  transition: width .3s, margin .3s, min-width .3s, background-color .3s, color .3s, border .3s, background-position 2s ease-out, padding-left .3s, opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
   
   &:hover {
     cursor: pointer;

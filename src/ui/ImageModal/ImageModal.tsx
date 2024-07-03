@@ -149,8 +149,6 @@ function ImageModal({ variant, image, onClose, onNext, onPrev }: Readonly<IProps
       </div>
   );
 
-  const openCloseAnimation = state != null && state != 'CLOSING';
-
   return createPortal(
     (
       <div
@@ -158,11 +156,12 @@ function ImageModal({ variant, image, onClose, onNext, onPrev }: Readonly<IProps
         className={cx({ modal: true, modal_AnimationEnter: state === 'OPENING' || state === 'OPENED', modal_AnimationExit: state === 'CLOSING' })}
         style={style}
       >
+        <div className={classes.overlay}></div>
         <div className={classes.modalClose} onClick={close}>
           <Icon icon='ModalCross'/>
         </div>
         <div className={classes.modalContentWrapper}>
-          <div className={cx({ modalContent: true, modalContent_Animation: openCloseAnimation })}>
+          <div className={cx({ modalContent: true})}>
             {content}
           </div>
         </div>
