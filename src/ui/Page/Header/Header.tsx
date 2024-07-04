@@ -121,7 +121,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
             )}
             {
               urlSection.name === 'EmptyProfile' ? null :
-              variant === EPageVariant.LMS ? (
+              variant !== EPageVariant.WEB ? (
                 <div className={cx({ navBuy: true, navItem: true })} onClick={() => setBuyPopupIsOpened(true)}>
                   <div className={cx({ buyBtn: true})}>Купить полный курс</div>
                   {/* {getCourseBaseDiscountAmountPrc(currentCourse?.discount) && (
