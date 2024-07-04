@@ -41,9 +41,7 @@
   }
 
   .modalContent {
-    img {
-      transform: translate(0, 0) scale(1, 1);
-    }
+    transform: translate(0, 0) scale(1, 1);
   }
 }
 
@@ -54,12 +52,8 @@
   }
 
   .modalContent {
-    img {
-      transition: transform  $modal-animation-duration ease-in-out;
-      transform: translate(var(--original-translate-x), var(--original-translate-y)) scale(calc(1 * var(--original-scale)), calc(1 * var(--original-scale)));
-      transform-origin: top left;
-    }
-    }
+    transform: translate(var(--original-translate-x, 0), var(--original-translate-y, 0)) scale(calc(1 * var(--original-scale, 0)), calc(1 * var(--original-scale, 0)));
+  }
 }
 
 .modalContentWrapper {
@@ -77,6 +71,12 @@
 
   margin: set-calc(10);
   color: var(--color-content-primary);
+
+  transition: 0;
+  transition: $modal-animation-duration;
+  transition-timing-function: ease-in-out;
+  transform: translate(var(--original-translate-x, 0), var(--original-translate-y, 0)) scale(calc(1 * var(--original-scale, 0)), calc(1 * var(--original-scale, 0)));
+  transform-origin: left top;
 }
 
 [data-variant="GALLERY"] .modalContent {
@@ -90,9 +90,9 @@
     max-width: set-calc(calc(-2 * var(--image-image-min-padding-scaled)), true, 100vw);
     max-height: set-calc(calc(-3 * var(--image-image-min-padding-scaled)), true, 100vh);
 
-    transition: transform  $modal-animation-duration ease-in-out;
-    transform: translate(var(--original-translate-x), var(--original-translate-y)) scale(calc(1 * var(--original-scale)), calc(1 * var(--original-scale)));
-    transform-origin: top left;
+    // transition: transform  $modal-animation-duration ease-in-out;
+    // transform: translate(var(--original-translate-x), var(--original-translate-y)) scale(calc(1 * var(--original-scale)), calc(1 * var(--original-scale)));
+    // transform-origin: top left;
 
     touch-action: none;
     pointer-events: none;

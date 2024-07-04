@@ -38,7 +38,7 @@
   cursor: pointer;
 
   transition-property: background-color, border-color, box-shadow, color, transform;
-  transition-duration: 0.15s;
+  transition-duration: $d-hover;
   transition-timing-function: ease-out;
 
   
@@ -58,7 +58,7 @@
 }
 
 .close:hover {
-  background-color: var(--color-background-glassy-a);
+  background-color: var(--color-background-glassy-b);
 
   @include set-media(md) {
     background-color: transparent;
@@ -67,7 +67,7 @@
 
 .close:active {
   transform: scale(0.96);
-  background-color: var(--color-background-glassy-b);
+  background-color: var(--color-background-glassy-c);
 
   @include set-media(md) {
     transform: none;
