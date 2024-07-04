@@ -2,6 +2,7 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 import { locationService } from 'services/location.service';
 
+import Fallback from 'ui/Fallback';
 import Home from 'pages/Home/Home';
 import Course from 'pages/Course/Course';
 import EmptyProfile from 'pages/EmptyProfile/EmptyProfile';
@@ -40,6 +41,9 @@ function MyRouter() {
       <Route path={URLSections.Static.Oferta.index} element={<Oferta />}/>
       <Route path={URLSections.Static.Policy.index} element={<Policy />}/>
       <Route path={URLSections.Static.Unsubscribe.index} element={<Unsubscribe />}/>
+      <Route path={URLSections.Static.TikTokLogin.index} element={
+        <Fallback.Info>You cannot login from TikTok in-app browser. Please you other browser</Fallback.Info>
+      }/>
       <Route path={'*'} element={<Navigate to={URLSections.Home.index} />}/>
     </Routes>
   );

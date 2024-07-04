@@ -14,6 +14,8 @@ import { getFirebaseConfig } from '../firebase.service/firebase.config';
 
 import type { FirebaseApp, FirebaseOptions } from 'firebase/app';
 import type { Auth, User as FirebaseUserRaw } from 'firebase/auth';
+import { getBrowserAgent } from 'utils';
+import { URLSections } from 'router/utils';
 
 type FirebaseUser = Omit<FirebaseUserRaw, 'email'> & { email: string };
 
@@ -59,6 +61,11 @@ class AuthService {
   public async authenticate() {
     try {
       if (this._authenticationInProgress || this.isAuthenticated) {
+        return;
+      }
+
+      if (getBrowserAgent() === 'TIKTOK') {  
+        window.location.replace(URLSections.Static.TikTokLogin.index);
         return;
       }
   
