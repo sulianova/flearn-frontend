@@ -2,25 +2,22 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 
 
-import { ILessonData, TLessonState, lessonService } from 'services/lesson.service';
+import { lessonService } from 'services/lesson.service';
 import { authService, dataService } from 'services';
 import { homeworkService } from 'services/homework.service';
 import { userService } from 'services/user.service';
 import { emailService } from 'services/email.service';
 import { courseService } from 'services/course.service';
+import { userAccessService } from 'services/userAccess.service';
 
 import Fallback from 'ui/Fallback';
 import Page, { EPageVariant } from 'ui/Page/Page';
-
-import { ECommonErrorTypes } from 'types';
 
 import classes from './Study.module.scss';
 import LessonContent from './LessonContent/LessonContent';
 import LessonUppload from './LessonUppload/LessonUppload';
 // import LessonWorks from './LessonWorks/LessonWorks';
 import LessonHeader from './LessonHeader/LessonHeader';
-import useLessonFallback from './useLessonFallback';
-import { userAccessService } from 'services/userAccess.service';
 
 interface IProps {
   section: 'task' | 'results'
@@ -66,9 +63,18 @@ function Lesson({ section }: IProps) {
   const authedUserId = authedUser?.id;
   const homework = homeworkService.useHomeworks({ filter: { courseId: courseId!, lessonId: lessonId, userId: authedUserId }}).at(0);
   const currentLesson = lessonService.useCurrentLesson();
+  const currentCourseAccess = userAccessService.useCurrentCourseAccess();
 
-  if (!currentLesson) {
+  if (!currentLesson || !currentCourseAccess) {
     return <Fallback.Pending text='Loading lesson'/>;
+  }
+
+  if (!currentLesson.isFree && currentCourseAccess === 'FREE') {
+    return (
+      <Fallback.Info>
+        This is a paid lesson. Buy course to get access.
+      </Fallback.Info>
+    );
   }
 
   return (

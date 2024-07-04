@@ -14,6 +14,7 @@ import useLessons from './useLessons';
 import useTopicLessons from './useTopicLessons';
 import useCurrentLesson from './useCurrentLesson';
 import useCourseLessons from './useCourseLessons';
+import { userAccessService } from 'services/userAccess.service';
 
 export type { ILessonData, TActionS, ILessonDataDB, TLessonState, IFetchLessonsProps } from './types';
 
@@ -179,6 +180,7 @@ class LessonService {
       }
 
       const { courseId } = section.params;
+      const currentCourseAccess = userAccessService.currentCourseAccess;
 
       dataService.userCourseProgress.get(courseId, authedUser.email)
         .then(progress =>
@@ -196,7 +198,9 @@ class LessonService {
                 lessons
                   .map(lesson => {
                     const solved = progress?.[lesson.id]?.solved ?? false;
-                    const canBeAccessed = !firstNotLearnedLesson ? true
+                    const canBeAccessed =
+                      !lesson.isFree && currentCourseAccess === 'FREE' ? false
+                      : !firstNotLearnedLesson ? true
                       : firstNotLearnedLesson.topicOrder === lesson.topicOrder
                         ? firstNotLearnedLesson.orderInTopic >= lesson.orderInTopic
                         : firstNotLearnedLesson.topicOrder > lesson.topicOrder;
@@ -223,6 +227,7 @@ class LessonService {
       locationService.URLSectionBS,
       authService.firebaseUserBS,
       userCourseProgressService.userCourseProgresS,
+      userAccessService._currentCourseAccessBS,
     ).subscribe(refetch);
   }
 

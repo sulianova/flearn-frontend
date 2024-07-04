@@ -7,6 +7,7 @@ import { URLSections } from 'router';
 import { userService } from 'services/user.service';
 import { ILessonData, lessonService } from 'services/lesson.service';
 import { courseService } from 'services/course.service';
+import { userAccessService } from 'services/userAccess.service';
 
 import LessonsPopup from 'components/LessonsPopup/LessonsPopup';
 import Link from 'ui/Link/Link';
@@ -15,6 +16,7 @@ import Fallback from 'ui/Fallback';
 
 import classesList from './LessonsList.module.scss';
 import classes from './Profile.module.scss';
+import BuyPopup from 'components/BuyPopup/BuyPopup';
 
 interface IGroup {
   topic: string
@@ -31,8 +33,10 @@ export default function Profile() {
   const authedUser = userService.useAuthedUser();
   const currentCourse = courseService.useCurrentCourse();
   const courseLessons = lessonService.useCourseLessons();
+  const currentCourseAccess = userAccessService.useCurrentCourseAccess();
 
   const [openedTopic, setOpenedTopic] = useState<string | null>(null);
+  const [buyCoursePopupIsOpened, setBuyCoursePopupIsOpened] = useState(false);
 
   const filteredCourseLessons = useMemo(() => {
     if (!courseLessons) {
@@ -101,12 +105,21 @@ export default function Profile() {
                     </div>
                     <div className={classes.currentLessonDetails}></div>
                     <div>
-                      <Link
-                        className={classes.currentLessonButton}
-                        to={URLSections.Study.to({ courseId: currentCourse.id, lessonId: firstNotSolvedLesson.id })}
-                      >
-                        Учиться
-                      </Link>
+                      {!firstNotSolvedLesson.isFree && currentCourseAccess === 'FREE' ? (
+                        <div
+                          className={classes.currentLessonButton}
+                          onClick={() => setBuyCoursePopupIsOpened(true)}
+                        >
+                          Купить
+                        </div>
+                      ) : (
+                        <Link
+                          className={classes.currentLessonButton}
+                          to={URLSections.Study.to({ courseId: currentCourse.id, lessonId: firstNotSolvedLesson.id })}
+                        >
+                          Учиться
+                        </Link>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -182,6 +195,13 @@ export default function Profile() {
           courseId={courseId}
           topic={openedTopic}
           close={() => setOpenedTopic(null)}
+        />
+      )}
+      {buyCoursePopupIsOpened && authedUser && (
+        <BuyPopup
+          course={currentCourse}
+          user={authedUser}
+          close={() => setBuyCoursePopupIsOpened(false)}
         />
       )}
     </>
