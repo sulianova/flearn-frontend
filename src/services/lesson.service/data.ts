@@ -5967,13 +5967,13 @@ const lessonData33: ILessonDataDB = {
 }
 
 const lessonDataFYS0: ILessonDataDB = {
-  orderInTopic: 1,
   id: 'Checklist_hUpx7l',
   courseId: 'finding-your-style',
   title: 'Чек-лист продуктивного обучения',
   type: 'Theory',
   topic: 'Чек-лист продуктивного обучения',
-  topicOrder: 0,
+  topicOrder: 1,
+  orderInTopic: 1,
   duration: {
     unit: 'hours',
     value: 1
@@ -6048,13 +6048,13 @@ const lessonDataFYS0: ILessonDataDB = {
 }
 
 const lessonDataFYS1: ILessonDataDB = {
-  orderInTopic: 1,
   id: 'IllustrationSeriesStyle_C4qFhu',
   courseId: 'finding-your-style',
   title: '1. Что такое иллюстрация, серия, стиль',
   type: 'Theory',
   topic: 'Что такое иллюстрация, серия, стиль',
-  topicOrder: 1,
+  topicOrder: 2,
+  orderInTopic: 1,
   duration: {
     unit: 'hours',
     value: 1
@@ -7376,13 +7376,13 @@ const lessonDataFYS1: ILessonDataDB = {
 }
 
 const lessonDataFYS2: ILessonDataDB = {
-  orderInTopic: 1,
   id: 'Narrative_ stPfNE',
   courseId: 'finding-your-style',
   title: '2. Литературный сюжет: что рисовать',
   type: 'Theory',
   topic: '2. Литературный сюжет: что рисовать',
-  topicOrder: 2,
+  topicOrder: 3,
+  orderInTopic: 1,
   duration: {
     unit: 'hours',
     value: 1
@@ -8541,13 +8541,13 @@ const lessonDataFYS2: ILessonDataDB = {
 }
 
 const lessonDataFYS3: ILessonDataDB = {
-  orderInTopic: 1,
   id: 'VisualConcept_WeYEGw',
   courseId: 'finding-your-style',
   title: '3. Пластический сюжет: как рисовать',
   type: 'Theory',
   topic: 'Пластический сюжет: как рисовать',
-  topicOrder: 3,
+  topicOrder: 4,
+  orderInTopic: 1,
   duration: {
     unit: 'hours',
     value: 1
@@ -10246,13 +10246,13 @@ const lessonDataFYS3: ILessonDataDB = {
 }
 
 const lessonDataFYS4: ILessonDataDB = {
-  orderInTopic: 1,
   id: 'FindingYourStyle_Practice_ t4jUts',
   courseId: 'finding-your-style',
   title: 'Практика интенсива',
   type: 'Practice',
   topic: 'Практика интенсива',
-  topicOrder: 4,
+  topicOrder: 5,
+  orderInTopic: 1,
   duration: {
     unit: 'hours',
     value: 1
