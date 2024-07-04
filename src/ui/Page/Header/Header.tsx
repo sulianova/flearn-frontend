@@ -7,8 +7,6 @@ import { formatI18nT } from 'shared';
 import { authService } from 'services';
 import { userService } from 'services/user.service';
 import { URLSections } from 'router';
-import { formatCourseDiscount, getCourseBaseDiscountAmountPrc } from 'utils';
-import { frontendSettingsService } from 'services/frontendSettings.service';
 
 import BuyPopup from 'components/BuyPopup/BuyPopup';
 import Dropdown from 'ui/Dropdown/Dropdown';
@@ -121,7 +119,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
             )}
             {
               urlSection.name === 'EmptyProfile' ? null :
-              variant !== EPageVariant.WEB ? (
+              (urlSection.name === 'Profile' || urlSection.name === 'Study') ? (
                 <div className={cx({ navBuy: true, navItem: true })} onClick={() => setBuyPopupIsOpened(true)}>
                   <div className={cx({ buyBtn: true})}>Купить полный курс</div>
                   {/* {getCourseBaseDiscountAmountPrc(currentCourse?.discount) && (
