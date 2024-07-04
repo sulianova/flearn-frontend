@@ -72,7 +72,7 @@ export default function MobileBtn({ course, variant, visible }: IProps) {
         />
       }
       <div className={classes.__}>
-          {urlSection === 'Course' && course && (
+          {urlSection.name === 'Course' && course && (
             authService.isAuthenticated && firstLesson
               ? (
                 <Link
@@ -91,14 +91,14 @@ export default function MobileBtn({ course, variant, visible }: IProps) {
               )
           )}
           <div className={classes.btnWrapperRight}>
-              {urlSection !== 'Course' && user && (
+              {urlSection.name !== 'Course' && user && (
                 <div className={classes.settings} onClick={() => setMobMenuIsOpened(o => !o)}>
                   <Icon icon='List'/>
                 </div>
               )}
           </div>
           <div className={classes.btnWrapperLeft}>
-              {urlSection === 'Profile' && (
+              {urlSection.name === 'Profile' && (
                 <div
                   className={cx({settings: true, open: userPopupVisible })}
                   onClick={() => setUserPopupVisible(!userPopupVisible)}

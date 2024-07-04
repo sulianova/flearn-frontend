@@ -1,8 +1,8 @@
-import { BehaviorSubject, CompletionObserver, ErrorObserver, NextObserver, Subject } from 'rxjs';
+import { BehaviorSubject, CompletionObserver, ErrorObserver, merge, NextObserver, Subject } from 'rxjs';
 
 import { dataService } from 'services/data.service';
 
-import type { TActionBS, TActionS } from './types';
+import { IUserData, type TActionBS, type TActionS } from './types';
 
 import useAuthedUser from './useAuthUser';
 import { authService } from 'services';
@@ -11,6 +11,39 @@ export { type IUserData, type IUserDataDB } from './types';
 
 class UserService {
   public useAuthedUser = useAuthedUser;
+
+  constructor() {
+    this.init();
+  }
+
+  public init() {
+    merge(
+      this._usersS,
+      authService.firebaseUserBS,
+    ).subscribe(() => {
+      const authedUserId = authService.user?.uid;
+      if (!authedUserId) {
+        this._authedUserBS.next(null);
+        return;
+      }
+  
+      this._fetch({ filter: { id: authedUserId } })
+        .then(users => {
+          const user = users.at(0);
+          if (!user) {
+            this._authedUserBS.next(null);
+            return;
+          }
+
+          this._authedUserBS.next(user);
+        })
+        .catch(error => {
+          console.log('Failed to fetch authed user', { authedUserId, error });
+          this._authedUserBS.next(null);
+        })
+    });
+  }
+
   public async getUserBS(props: {
     filter: { id?: string, ids?: string[] }
   }) {
@@ -97,7 +130,8 @@ class UserService {
     }
   }
 
-  private _usersS = new Subject<TActionS>();
+  protected _usersS = new Subject<TActionS>();
+  protected _authedUserBS = new BehaviorSubject<IUserData | null>(null);
 }
 
 export const userService = new UserService;

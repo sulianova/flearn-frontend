@@ -79,7 +79,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
             </div>
           </div>
           <div className={classes.nav}>
-            {(urlSection === 'Profile' || urlSection === 'EmptyProfile' || urlSection === 'Course') && (
+            {(urlSection.name === 'Profile' || urlSection.name === 'EmptyProfile' || urlSection.name === 'Course') && (
               <div className={classes.userSettingsWrapper}>
                   <Link
                     className={classes.userSettings}
@@ -89,7 +89,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
                   </Link>
               </div>
             )}
-            {(urlSection === 'Study' || urlSection === 'EmptyProfile') && (
+            {(urlSection.name === 'Study' || urlSection.name === 'EmptyProfile') && (
               <div className={classes.userSettingsWrapper}>
                   <Link
                     className={classes.userSettings}
@@ -120,7 +120,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
               />
             )}
             {
-              urlSection === 'EmptyProfile' ? null :
+              urlSection.name === 'EmptyProfile' ? null :
               variant === EPageVariant.LMS ? (
                 <div className={cx({ navBuy: true, navItem: true })} onClick={() => setBuyPopupIsOpened(true)}>
                   <div className={cx({ buyBtn: true})}>Купить полный курс</div>

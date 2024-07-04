@@ -46,7 +46,7 @@ export default function CoursesDropdownContent({ courses, firstNotSolvedLesson, 
                           'EmptyProfile': course.id === courseId,
                           'Study': course.id === courseId,
                           'Other': course.id === courseId,
-                        }[urlSection]
+                        }[urlSection.name]
                       })}
                     >
                       {course.title}

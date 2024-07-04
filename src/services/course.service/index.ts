@@ -5,14 +5,51 @@ import { localFilesServise } from 'services/localFiles.service';
 import { ECommonErrorTypes } from 'types';
 
 import { allCourses, getData } from './data';
+import { type IFetchCourseProps, type TSource, type TActionBS, type TActionS, type TCourseError, ICourseData } from './types/index';
+
 import useCourses from './useCourses';
-import type { IFetchCourseProps, TSource, TActionBS, TActionS, TCourseError } from './types/index';
+import useCurrentCourse from './useCurrentCourse';
+import useUserCourses from './useUserCourses';
+import useSubscribeToLocation from './useSubscribeToLocation';
+import { authService } from 'services';
+import { userAccessService } from 'services/userAccess.service';
 
 export * from './types/index';
 
 class CourseService {
   public useCourses = useCourses;
+  public useCurrentCourse = useCurrentCourse;
+  public useUserCourses = useUserCourses;
+  public useSubscribeToLocation = useSubscribeToLocation;
+
   public sourceBS = new BehaviorSubject<TSource>('remote');
+
+  constructor() {
+    this.init();
+  }
+
+  public init() {
+    merge(
+      authService.firebaseUserBS,
+      userAccessService.accessS,
+    ).subscribe(() => {
+      const user = authService.user;
+      if (!user) {
+        this._userCoursesBS.next(null);
+        return;
+      }
+
+      this._fetch({ userId: user.uid })
+        .then(courses => {
+          this._userCoursesBS.next(courses);
+        })
+        .catch(error => {
+          console.log('Failed to fetch courses for userCoursesBS', { user, error });
+          this._userCoursesBS.next(null);
+        })
+    })
+  }
+
   public getCourseBS(props: IFetchCourseProps) {
     try {
       const mainSubject = new BehaviorSubject<TActionBS>(null);
@@ -105,7 +142,9 @@ class CourseService {
     }
   }
 
-  private _courseS = new Subject<TActionS>();
+  protected _courseS = new Subject<TActionS>();
+  protected _currentCourseBS = new BehaviorSubject<ICourseData | null>(null);
+  protected _userCoursesBS = new BehaviorSubject<ICourseData[] | null>(null);
 }
 
 export const courseService = new CourseService;

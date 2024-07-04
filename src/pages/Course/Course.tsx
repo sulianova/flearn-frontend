@@ -14,7 +14,7 @@ import Fallback from 'ui/Fallback';
 export default function Course() {
   const { courseId } = useParams();
 
-  const course = courseService.useCourses({ ids: [courseId!] }).at(0)
+  const course = courseService.useCurrentCourse();
 
   useEffect(() => {
     analyticsService.logEvent({

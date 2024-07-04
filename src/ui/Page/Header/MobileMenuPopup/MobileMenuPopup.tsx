@@ -63,7 +63,7 @@ export default function MobileMenuPopup(props: Readonly<IProps>) {
           'EmptyProfile': course.id === courseId,
           'Study': false,
           'Other': false,
-        }[urlSection]
+        }[urlSection.name]
       })} key={course.id}>
       <Link
         to={URLSections.Profile.to({ courseId: course.id })}
@@ -119,7 +119,7 @@ export default function MobileMenuPopup(props: Readonly<IProps>) {
           </div>
             <div className={classes.mobMenuMain}>
               {!user ? null :
-                urlSection === 'Study' ? (<>
+                urlSection.name === 'Study' ? (<>
                   <div className={classes.title}>{currentLesson?.topic}</div>
                   {mobMenuLessonsList}
                 </>) : (<>
@@ -136,7 +136,7 @@ export default function MobileMenuPopup(props: Readonly<IProps>) {
                       'EmptyProfile': homeBtn,
                       'Study': null,
                       'Other': null,
-                    }[urlSection]
+                    }[urlSection.name]
                   }
                 </div>
             </div>

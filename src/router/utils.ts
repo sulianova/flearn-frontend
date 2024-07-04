@@ -8,29 +8,76 @@ interface IBaseProps {
 }
 
 export const URLSections = {
-  Home: { index: '/' },
+  Home: {
+    index: '/',
+    to: () => '/',
+    regex: /^\/$/,
+    getParams: (_pathname: string) => ({}),
+  },
   Course: {
     index: '/course/:courseId',
     to: (props: { courseId: string } & IBaseProps) =>
       assemble({ ...props, path: `/course/${props.courseId}` }),
+    regex: /^\/course\/([^\/]+)$/,
+    getParams(pathname: string) {
+      const res = this.regex.exec(pathname);
+      return !res
+        ? null
+        : {
+          courseId: res[1],
+        };
+    },
   },
   Profile: {
     index: '/profile/:courseId',
     to: (props: { courseId: string } & IBaseProps) =>
       assemble({ ...props, path: `/profile/${props.courseId}` }),
+    regex: /^\/profile\/([^\/]+)$/,
+    getParams(pathname: string) {
+      const res = this.regex.exec(pathname);
+      return !res
+        ? null
+        : {
+          courseId: res[1],
+        };
+    },
   },
   EmptyProfile: {
     index: '/profile',
+    to: () => '/profile',
+    regex: /^\/profile$/,
+    getParams: (_pathname: string) => ({}),
   },
   Study: {
     index: '/study/:courseId/:lessonId',
     to: (props: { courseId: string, lessonId: string } & IBaseProps) =>
       assemble({ ...props, path: `/study/${props.courseId}/${props.lessonId}` }),
-      Results: {
-        index: '/study/:courseId/:lessonId/results',
-        to: (props: { courseId: string, lessonId: string } & IBaseProps) =>
-          assemble({ ...props, path: `/study/${props.courseId}/${props.lessonId}/results` }),
+    regex: /^\/study\/([^\/]+)\/([^\/]+)$/,
+    getParams(pathname: string) {
+      const res = this.regex.exec(pathname);
+      return !res
+        ? null
+        : {
+          courseId: res[1],
+          lessonId: res[2],
+        };
+    },
+
+    Results: {
+      index: '/study/:courseId/:lessonId/results',
+      to: (props: { courseId: string, lessonId: string } & IBaseProps) =>
+        assemble({ ...props, path: `/study/${props.courseId}/${props.lessonId}/results` }),
+      regex: /^\/study\/([^\/]+)\/([^\/]+)\/results$/,
+      getParams(pathname: string) {
+        const res = this.regex.exec(pathname);
+        return !res
+          ? null
+          : {
+            courseId: res[1],
+            lessonId: res[2],
+          };
       },
+    },
   },
   Static: {
     Policy: { index: '/policy' },

@@ -9,18 +9,18 @@ import classes from './EditBar.module.scss';
 
 export default function EditBar() {
   const { courseId, lessonId } = useParams();
-  const variant = useURLSection();
+  const urlSection = useURLSection();
   const courseSource = useBehaviourSubjectValue(courseService.sourceBS);
   const lessonSource = useBehaviourSubjectValue(lessonService.sourceBS);
 
   if (
-    variant === 'Other'
-    || variant === 'Home'
-    || variant === 'Profile'
-    || variant === 'EmptyProfile'
+    urlSection.name === 'Other'
+    || urlSection.name === 'Home'
+    || urlSection.name === 'Profile'
+    || urlSection.name === 'EmptyProfile'
     || envService.dataMode !== 'EDIT'
-    || (variant === 'Course' && !courseId)
-    || (variant === 'Study' && (!courseId || !lessonId))
+    || (urlSection.name === 'Course' && !courseId)
+    || (urlSection.name === 'Study' && (!courseId || !lessonId))
   ) {
     return null;
   }
@@ -36,7 +36,7 @@ export default function EditBar() {
       () => lessonService.changeSource(lessonSource === 'local' ? 'remote' : 'local'),
       lessonId ? () => lessonService.upload(lessonId) : undefined,
     ],
-  } as const)[variant];
+  } as const)[urlSection.name];
 
   return (
     <section className={classes._}>

@@ -12,3 +12,7 @@ Keys extends Keys ?
     T[Keys]
   : T[Keys] extends {} ? TGetObjectValues<T[Keys]> : never
 : never;
+
+export type Entries<T> = {
+  [K in keyof T]: [K, T[K]];
+}[keyof T][];

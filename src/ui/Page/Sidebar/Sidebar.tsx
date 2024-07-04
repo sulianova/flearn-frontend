@@ -31,7 +31,7 @@ function Sidebar() {
       <div className={classes.__}>
         <aside className={classes.container}>
           <ul className={classes.items}>
-            {urlSection === 'Study' && (
+            {urlSection.name === 'Study' && (
               <li className={classes.item}>
                 <span className={classes.iconWrapper}>
                   <Link
@@ -43,7 +43,7 @@ function Sidebar() {
                 </span>
               </li>
             )}
-            {urlSection === 'Study' && (
+            {urlSection.name === 'Study' && (
               <li className={classes.item}>
                 <span className={classes.iconWrapper}>
                 <div
@@ -67,7 +67,7 @@ function Sidebar() {
                 </div>
               </span>
             </li>
-            {urlSection === 'Profile' && (
+            {urlSection.name === 'Profile' && (
               <li className={cx({ item: true, open: userPopupVisible })}>
                 {authedUser && userPopupVisible && (
                   <UserPopup
