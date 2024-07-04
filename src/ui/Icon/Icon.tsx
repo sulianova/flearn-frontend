@@ -33,18 +33,19 @@ function Icon(props: Readonly<IPropsWithoutRef>, ref: React.Ref<SVGSVGElement>) 
     const transitionEntered = transition?.[1];
 
     return (
-        <ConcreteIcon
-            {...nativeProps}
-            style={{ transform: rotate ? `rotate(${rotate}deg)` : undefined, ...nativeProps.style }}
-            ref={ref}
-            className={cx({
-                Icon: true,
-                [color!]: Boolean(color),
-                [className!]: Boolean(className),
-                [sizeVariant!]: Boolean(sizeVariant),
-                [transitionType!]: Boolean(transitionType),
-                TransitionEntered: Boolean(transitionEntered),
-            })}
-        />
+        <div className={cx({
+            Icon: true,
+            [color!]: Boolean(color),
+            [className!]: Boolean(className),
+            [sizeVariant!]: Boolean(sizeVariant),
+            [transitionType!]: Boolean(transitionType),
+            TransitionEntered: Boolean(transitionEntered),
+        })}>
+            <ConcreteIcon
+                {...nativeProps}
+                style={{ transform: rotate ? `rotate(${rotate}deg)` : undefined, ...nativeProps.style }}
+                ref={ref}
+            />
+        </div>
     );
 }

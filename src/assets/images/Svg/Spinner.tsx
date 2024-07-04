@@ -1,10 +1,15 @@
-import { TwoSeventyRing, Tadpole } from "react-svg-spinners";
+import { Tadpole } from "react-svg-spinners";
 
-export function Spinner() {
-  return <Tadpole color="var(--primary-color)"/>
-  // return <TwoSeventyRing color="var(--primary-color)"/>;
-
+interface IProps {
+  width?: number | string
+  height?: number | string
 }
+
+export function Spinner({ width = '', height = ''}: IProps) {
+  return <Tadpole width={width} height={height} color="var(--primary-color)"/>
+  // return <TwoSeventyRing color="var(--primary-color)"/>;
+}
+
 // export function Spinner() {
 //   return (
 //     <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="100" height="100" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
