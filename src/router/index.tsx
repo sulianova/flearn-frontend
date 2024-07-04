@@ -8,6 +8,7 @@ import Study from 'pages/Study/Study';
 
 import Oferta from 'pages/Static/Oferta';
 import Policy from 'pages/Static/Policy';
+import Unsubscribe from 'pages/Static/Unsubscribe';
 
 import ProtectedRoute from './ProtectedRoute';
 import { URLSections } from './utils';
@@ -38,6 +39,7 @@ function MyRouter() {
       </Route>
       <Route path={URLSections.Static.Oferta.index} element={<Oferta />}/>
       <Route path={URLSections.Static.Policy.index} element={<Policy />}/>
+      <Route path={URLSections.Static.Unsubscribe.index} element={<Unsubscribe />}/>
       <Route path={'*'} element={<Navigate to={URLSections.Home.index} />}/>
     </Routes>
   );

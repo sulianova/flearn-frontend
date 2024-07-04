@@ -4,8 +4,10 @@ import { i18n } from 'shared';
 
 import Card from './components/Card';
 import Layout from './components/Layout';
+import { IEmailContact } from '../types';
 
 export interface IHomeworkReviewedProps {
+  to: IEmailContact
   reviewLink: string
   course: ICourseData
   lesson: ILessonData
@@ -16,7 +18,7 @@ HomeworkReviewed.getSubject = function(props: IHomeworkReviewedProps) {
 }
 
 export default function HomeworkReviewed(props: IHomeworkReviewedProps) {
-  const { reviewLink } = props;
+  const { reviewLink, to } = props;
   const mainCard = (
     <Card
       content={[
@@ -36,6 +38,7 @@ export default function HomeworkReviewed(props: IHomeworkReviewedProps) {
   return (
     <Layout
       title='HomeworkReviewed'
+      to={to}
       content={[
         mainCard,
       ]}

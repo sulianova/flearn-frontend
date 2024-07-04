@@ -3,8 +3,10 @@ import { i18n } from 'shared';
 
 import Card from './components/Card';
 import Layout from './components/Layout';
+import { IEmailContact } from '../types';
 
 export interface IDiscontSolveFreeLessonsInWeekProps {
+  to: IEmailContact
   course: ICourseData
 }
 
@@ -32,6 +34,7 @@ export default function DiscontSolveFreeLessonsInWeek(props: IDiscontSolveFreeLe
   return (
     <Layout
       title='DiscontSolveFreeLessonsInWeek'
+      to={props.to}
       content={[
         mainCard,
       ]}

@@ -8,8 +8,10 @@ import Button from './components/Button';
 import Card from './components/Card';
 import JoinTelegramCard from './components/JoinTelegramCard';
 import Layout from './components/Layout';
+import { IEmailContact } from '../types';
 
 export interface IWelcomeToCourseEmailProps {
+  to: IEmailContact
   course: ICourseData
   firstLesson: ILessonData | undefined
 }
@@ -19,7 +21,7 @@ WelcomeToCourse.getSubject = function(props: IWelcomeToCourseEmailProps) {
 }
 
 export default function WelcomeToCourse(props: IWelcomeToCourseEmailProps) {
-  const { course, firstLesson } = props;
+  const { course, firstLesson, to } = props;
   const courseType = i18n.t(`courseType.${course.type}`);
   const startLink = firstLesson
     ? URLSections.Study.to({ courseId: course.id, lessonId: firstLesson.id, full: true })
@@ -82,6 +84,7 @@ export default function WelcomeToCourse(props: IWelcomeToCourseEmailProps) {
   return (
     <Layout
       title='Добро пожаловать на вводную часть'
+      to={to}
       gapPx={20}
       content={[
         mainCard,

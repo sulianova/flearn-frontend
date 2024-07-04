@@ -12,7 +12,7 @@ export interface IEmailContact {
 }
 
 export interface IEmail {
-  to: IEmailContact[]
+  to: [IEmailContact]
   from: IEmailContact
   subject: string
   html: string
@@ -42,44 +42,44 @@ export type TSendEmailProps =
   | THomeworkReviewedProps
   | THomeworkReviewedToReviewerProps;
 
-export type TWelcomeToCourseProps = TCommonProps
+export type TWelcomeToCourseProps =
   & Omit<IWelcomeToCourseEmailProps, 'firstLesson'>
   & {
     type: EEmail.WelcomeToCourse
   };
 
-export type TWelcomeToPaidCourseProps = TCommonProps
+export type TWelcomeToPaidCourseProps =
   & IWelcomeToPaidCourseEmailProps
   & {
     type: EEmail.WelcomeToPaidCourse
   };
 
-export type TDiscontSolveFreeLessonsInWeekProps = TCommonProps
+export type TDiscontSolveFreeLessonsInWeekProps =
   & IDiscontSolveFreeLessonsInWeekProps
   & {
     type: EEmail.DiscontSolveFreeLessonsInWeek
   };
 
-export type THomeworkSentForReviewProps = TCommonProps
+export type THomeworkSentForReviewProps =
   & IHomeworkSentForReviewProps
   & {
     type: EEmail.HomeworkSentForReview
   };
 
-export type THomeworkReviewedProps = TCommonProps
+export type THomeworkReviewedProps =
   & IHomeworkReviewedProps
   & {
     type: EEmail.HomeworkReviewed
   };
 
 export type THomeworkSentForReviewToReviewerProps =
-  IHomeworkSentForReviewToReviewerProps
+  Omit<IHomeworkSentForReviewToReviewerProps, 'to'>
   & {
     type: EEmail.HomeworkSentForReviewToReviewer
   };
 
 export type THomeworkReviewedToReviewerProps =
-  IHomeworkReviewedToReviewerProps
+  Omit<IHomeworkReviewedToReviewerProps, 'to'>
   & {
     type: EEmail.HomeworkReviewedToReviewer
   };

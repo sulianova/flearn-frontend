@@ -82,6 +82,10 @@ export const URLSections = {
   Static: {
     Policy: { index: '/policy' },
     Oferta: { index: '/oferta' },
+    Unsubscribe: {
+      index: '/unsubscribe',
+      to: (props: IBaseProps) => assemble({ ...props, path: `/unsubscribe` }),
+    },
   },
 } as const;
 

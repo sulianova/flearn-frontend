@@ -1,14 +1,15 @@
 import type { ICourseData } from 'services/course.service';
+import type { IHomeworkData } from 'services/homework.service';
 import type { ILessonData } from 'services/lesson.service';
 import type { IUserData } from 'services/user.service';
 import { i18n } from 'shared';
 
 import Card from './components/Card';
 import Layout from './components/Layout';
-
-import type { IHomeworkData } from 'services/homework.service';
+import { IEmailContact } from '../types';
 
 export interface IHomeworkSentForReviewToReviewerProps {
+  to: IEmailContact
   course: ICourseData
   lesson: ILessonData
   homework: IHomeworkData
@@ -20,7 +21,7 @@ HomeworkSentForReviewToReviewer.getSubject = function(props: IHomeworkSentForRev
 }
 
 export default function HomeworkSentForReviewToReviewer(props: IHomeworkSentForReviewToReviewerProps) {
-  const { course, lesson, homework, homeworkUser } = props;
+  const { course, lesson, homework, homeworkUser, to } = props;
   const mainCard = (
     <Card
       content={[
@@ -42,6 +43,7 @@ export default function HomeworkSentForReviewToReviewer(props: IHomeworkSentForR
   return (
     <Layout
       title='HomeworkSentForReviewToReviewer'
+      to={to}
       content={[
         mainCard,
       ]}

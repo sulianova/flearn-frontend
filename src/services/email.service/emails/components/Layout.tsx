@@ -1,12 +1,19 @@
 import type { ReactNode } from 'react'
 
+import { URLSections } from 'router'
+
+import type { IEmailContact } from '../../types'
+
 interface IProps {
+  to: IEmailContact
   title: string
   content: ReactNode[]
   gapPx?: number
 }
 
-export default function Layout({ title, content, gapPx }: IProps) {
+export default function Layout({ title, content, to: { email }, gapPx }: IProps) {
+  const unsubscribeLink = URLSections.Static.Unsubscribe.to({ params: { email }, full: true });
+  
   const separator = gapPx && (
     <tr>
       <td align="center">
@@ -130,7 +137,7 @@ export default function Layout({ title, content, gapPx }: IProps) {
                                                           <br/>
                                                           Письмо создано автоматически, пожалуйста, не отвечайте на него. Чтобы
                                                           отписаться от рассылки, перейдите
-                                                          <a href="#"
+                                                          <a href={unsubscribeLink}
                                                             style={{ fontFamily: 'Helvetica,Arial,sans-serif', fontSize: '12px', lineHeight: '16px', fontWeight:'normal', whiteSpace: 'nowrap', textDecoration: 'underline', color: '#808080' }}
                                                             target="_blank">
                                                             <span style={{ color: '#808080', textDecoration: 'none' }} color="#808080">

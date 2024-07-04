@@ -4,8 +4,10 @@ import { i18n } from 'shared';
 
 import Card from './components/Card';
 import Layout from './components/Layout';
+import { IEmailContact } from '../types';
 
 export interface IHomeworkSentForReviewProps {
+  to: IEmailContact
   course: ICourseData
   lesson: ILessonData
 }
@@ -34,6 +36,7 @@ export default function HomeworkSentForReview(props: IHomeworkSentForReviewProps
   return (
     <Layout
       title='HomeworkSentForReview'
+      to={props.to}
       content={[
         mainCard,
       ]}

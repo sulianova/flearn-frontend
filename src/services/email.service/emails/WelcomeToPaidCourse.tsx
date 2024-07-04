@@ -5,8 +5,10 @@ import { formatCourseCredit, formatDate, getDiscountedPrice } from 'utils';
 import Card from './components/Card';
 import JoinTelegramCard from './components/JoinTelegramCard';
 import Layout from './components/Layout';
+import { IEmailContact } from '../types';
 
 export interface IWelcomeToPaidCourseEmailProps {
+  to: IEmailContact
   course: ICourseData
   paymentOption: 'CARD_RU' | 'PAYPAL'
   productOption: TCourseProductOptionTypes
@@ -18,7 +20,7 @@ WelcomeToPaidCourse.getSubject = function(props: IWelcomeToPaidCourseEmailProps)
 }
 
 export default function WelcomeToPaidCourse(props: IWelcomeToPaidCourseEmailProps) {
-  const { course, paymentOption, productOption, dateOfPaiment } = props;
+  const { course, paymentOption, productOption, dateOfPaiment, to } = props;
 
   const courseTypeStr = i18n.t(`courseType.${course.type}`);
   const option = course.productOptions[productOption]!;
@@ -76,6 +78,7 @@ export default function WelcomeToPaidCourse(props: IWelcomeToPaidCourseEmailProp
   return (
     <Layout
       title='Подтверждение записи'
+      to={to}
       gapPx={20}
       content={[
         mainCard,

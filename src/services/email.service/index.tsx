@@ -33,9 +33,9 @@ class EmailService {
     try {
       const id = this.getId(props);
       const email = await this.getEmail(props);
-      email.to = await this.filterContacts(email.to);
-      console.log({ email });
-      await firebaseService.setDoc(firebaseService.Collections.Email, id, email);
+      if (await this.canSend(email.to[0])) {
+        await firebaseService.setDoc(firebaseService.Collections.Email, id, email);
+      }
     } catch (error) {
       console.log('Failed to send email', { props, error });
       throw error;
@@ -91,9 +91,9 @@ class EmailService {
     }
   }
 
-  private async filterContacts(to: IEmailContact[]) {
-    const notificationSettings = await dataService.notificationSettings.getAll(to.map(t => t.email));
-    return to.filter(t => (notificationSettings.find(ns => ns.id === t.email)?.data ?? {}).email !== false);
+  private async canSend(to: IEmailContact) {
+    const notificationSettings = await dataService.notificationSettings.get(to.email);
+    return notificationSettings.email !== false;
   }
 
   private async getWelcomeToCourseEmail(props: TWelcomeToCourseProps) {
@@ -131,7 +131,7 @@ class EmailService {
       getSubject(props: T): string,
     },
     props: T & TCommonProps
-  ) {
+  ): IEmail {
     return {
       to: [props.to],
       from: this.senderContact,
@@ -139,6 +139,7 @@ class EmailService {
       html: this.renderEmail(
         <Component
           {...props}
+          email={props.to.email}
         />
       ),
     };
