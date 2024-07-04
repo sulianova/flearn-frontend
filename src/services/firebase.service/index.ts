@@ -1,7 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getAnalytics, type Analytics, logEvent, type AnalyticsCallOptions } from "firebase/analytics";
-import { collection, doc as getDocRef, getDoc, getDocs, getFirestore, setDoc, query, where, FieldPath, DocumentSnapshot } from 'firebase/firestore';
-import { deleteObject, getStorage, ref as getStorageRef, getDownloadURL, getBytes, getBlob, uploadBytes } from 'firebase/storage';
+import { collection, doc as getDocRef, getDoc, getDocs, getFirestore, setDoc, query, where, FieldPath, documentId } from 'firebase/firestore';
+import { deleteObject, getStorage, ref as getStorageRef, getDownloadURL, getBlob, uploadBytes } from 'firebase/storage';
 import { getFirebaseConfig } from './firebase.config';
 
 import { ECollections } from './data';
@@ -89,7 +89,24 @@ export class FirebaseService {
     }
   }
 
-  public async getDocs<T extends {}>(collectionName: ECollections, whereProps: TWhereProps ) {
+  public async getDocsByIds<T extends {}>(collectionName: ECollections, ids: string[]) {
+    try {
+      const q = query(collection(this._db, collectionName), where(documentId(), 'in', ids));
+      const querySnapshot = await getDocs(q);
+      const data = [] as { id: string, data: T }[];
+      querySnapshot.forEach((doc) => {
+        data.push({ id: doc.id, data: doc.data() as T });
+      });
+
+      return data;
+    } catch(e) {
+      // tslint:disable-next-line
+      console.error(e);
+      throw new Error('Failed to get docs');
+    }
+  }
+
+  public async getDocs<T extends {}>(collectionName: ECollections, whereProps: TWhereProps) {
     try {
       const queryConstraints = whereProps
         .filter(({ value, operator }) => operator !== 'in' || (Array.isArray(value) && value.length))

@@ -8,4 +8,5 @@ export enum ECollections {
   Email = 'email',
   UserCourseProgress = 'user_course_progress',
   FrontendSettings = 'frontend_settings',
+  NotificationSettings = 'notification_settings',
 }

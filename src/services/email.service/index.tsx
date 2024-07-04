@@ -2,6 +2,7 @@ import type { JSXElementConstructor, ReactElement } from 'react';
 import { renderToString } from 'react-dom/server';
 import { v4 } from 'uuid';
 
+import { dataService } from 'services/data.service';
 import { firebaseService } from 'services/firebase.service';
 import { lessonService } from 'services/lesson.service';
 
@@ -32,6 +33,8 @@ class EmailService {
     try {
       const id = this.getId(props);
       const email = await this.getEmail(props);
+      email.to = await this.filterContacts(email.to);
+      console.log({ email });
       await firebaseService.setDoc(firebaseService.Collections.Email, id, email);
     } catch (error) {
       console.log('Failed to send email', { props, error });
@@ -86,6 +89,11 @@ class EmailService {
       default:
         throw new Error('Unknown email type');
     }
+  }
+
+  private async filterContacts(to: IEmailContact[]) {
+    const notificationSettings = await dataService.notificationSettings.getAll(to.map(t => t.email));
+    return to.filter(t => (notificationSettings.find(ns => ns.id === t.email)?.data ?? {}).email !== false);
   }
 
   private async getWelcomeToCourseEmail(props: TWelcomeToCourseProps) {

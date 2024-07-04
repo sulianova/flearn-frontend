@@ -5,6 +5,7 @@ import lesson from './Lesson';
 import order from './Order';
 import user from './User';
 import userCourseProgress from './UserCourseProgress';
+import notificationSettings from './NotificationSettings';
 
 export const dataService = {
   access: access,
@@ -14,4 +15,5 @@ export const dataService = {
   order: order,
   user: user,
   userCourseProgress,
+  notificationSettings,
 };
