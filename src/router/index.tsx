@@ -1,18 +1,18 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
+import { locationService } from 'services/location.service';
+
 import Home from 'pages/Home/Home';
 import Course from 'pages/Course/Course';
 import EmptyProfile from 'pages/EmptyProfile/EmptyProfile';
 import Profile from 'pages/Profile/Profile';
 import Study from 'pages/Study/Study';
-
 import Oferta from 'pages/Static/Oferta';
 import Policy from 'pages/Static/Policy';
 import Unsubscribe from 'pages/Static/Unsubscribe';
 
 import ProtectedRoute from './ProtectedRoute';
 import { URLSections } from './utils';
-import { courseService } from 'services/course.service';
 
 export { URLSections, type TRouteConfig } from './utils';
 export * from './types';
@@ -26,7 +26,7 @@ export default function MyRouterContainer() {
 }
 
 function MyRouter() {
-  courseService.useSubscribeToLocation();
+  locationService.useSubscribeToLocation();
   return (
     <Routes>
       <Route index path={URLSections.Home.index} element={<Home />} />

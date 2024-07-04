@@ -1,15 +1,9 @@
 import { useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { URLSections, type ParamsToSectionMap } from 'router';
-import { Entries } from 'utils';
+import { type TURLSectionObj, URLSections } from 'router';
 
-type TRes<T = Entries<ParamsToSectionMap>[number]> =
-  T extends [infer SectionName, infer SectionParams]
-    ? { name: SectionName, params: SectionParams }
-  : never;
-
-export function useURLSection(): TRes {
+export function useURLSection(): TURLSectionObj {
   const location = useLocation();
 
   return useMemo(() => {

@@ -10,9 +10,9 @@ import { type IFetchCourseProps, type TSource, type TActionBS, type TActionS, ty
 import useCourses from './useCourses';
 import useCurrentCourse from './useCurrentCourse';
 import useUserCourses from './useUserCourses';
-import useSubscribeToLocation from './useSubscribeToLocation';
 import { authService } from 'services';
 import { userAccessService } from 'services/userAccess.service';
+import { locationService } from 'services/location.service';
 
 export * from './types/index';
 
@@ -20,34 +20,12 @@ class CourseService {
   public useCourses = useCourses;
   public useCurrentCourse = useCurrentCourse;
   public useUserCourses = useUserCourses;
-  public useSubscribeToLocation = useSubscribeToLocation;
 
   public sourceBS = new BehaviorSubject<TSource>('remote');
 
   constructor() {
-    this.init();
-  }
-
-  public init() {
-    merge(
-      authService.firebaseUserBS,
-      userAccessService.accessS,
-    ).subscribe(() => {
-      const user = authService.user;
-      if (!user) {
-        this._userCoursesBS.next(null);
-        return;
-      }
-
-      this._fetch({ userId: user.uid })
-        .then(courses => {
-          this._userCoursesBS.next(courses);
-        })
-        .catch(error => {
-          console.log('Failed to fetch courses for userCoursesBS', { user, error });
-          this._userCoursesBS.next(null);
-        })
-    })
+    this.initCurrentCourseBS();
+    this.initUserCoursesBS();
   }
 
   public getCourseBS(props: IFetchCourseProps) {
@@ -140,6 +118,64 @@ class CourseService {
       console.log(`Failed to fetch courses`, { props, error });
       throw error;
     }
+  }
+
+  protected initCurrentCourseBS() {
+    const refetch = () => {
+      const section = locationService.URLSection;
+      if (section.name !== 'Course' && section.name !== 'Profile' && section.name !== 'Study') {
+        this._currentCourseBS.next(null);
+        return;
+      }
+
+      this._fetch({ ids: [section.params.courseId] })
+        .then(courses => {
+          const course = courses.at(0);
+          if (!course) {
+            console.log('Failed to fetch current course', { course, section });
+            this._currentCourseBS.next(null);
+            return;
+          }
+
+          this._currentCourseBS.next(course);
+        })
+        .catch(error => {
+          console.log('Failed to fetch current course', { error, section });
+          this._currentCourseBS.next(null);
+        })
+    };
+
+    merge(
+      this._courseS,
+      this.sourceBS,
+      locationService.URLSectionBS,
+    ).subscribe(refetch);
+  }
+
+  protected initUserCoursesBS() {
+    const refetch = () => {
+      const user = authService.user;
+      if (!user) {
+        this._userCoursesBS.next(null);
+        return;
+      }
+
+      this._fetch({ userId: user.uid })
+        .then(courses => {
+          this._userCoursesBS.next(courses);
+        })
+        .catch(error => {
+          console.log('Failed to fetch courses for userCoursesBS', { user, error });
+          this._userCoursesBS.next(null);
+        })
+    };
+
+    merge(
+      this._courseS,
+      this.sourceBS,
+      authService.firebaseUserBS,
+      userAccessService.accessS,
+    ).subscribe(refetch);
   }
 
   protected _courseS = new Subject<TActionS>();
