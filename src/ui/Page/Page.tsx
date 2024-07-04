@@ -61,7 +61,7 @@ function Page({ children, variant, header = false, footer, backgroundColor = 'va
     <div className={classes.trainerContent}>
       {<Sidebar/>}
       <div className={classes.theoryPage}>
-        <div className={classes._} ref={ref}>
+        <div className={classes._} data-footer={footer !== false} ref={ref}>
           {header && <Header variant={variant} visible={headerVisible}/>}
           <div className={classes.content}>
             <section className={classes[`${variant}Wrapper`]}>

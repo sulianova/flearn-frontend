@@ -19,14 +19,22 @@
 }
 
 ._ {
-  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: start;
-
   flex-grow: 1;
   flex-shrink: 0;
   width: 100%;
+  height: -moz-max-content;
+  height: max-content;
+  min-height: 100vh;
+
+  &[data-footer="true"] {
+    justify-content: space-between;
+  }
+
+  &[data-footer="false"] {
+    justify-content: start;
+  }
 }
 
 .content {
