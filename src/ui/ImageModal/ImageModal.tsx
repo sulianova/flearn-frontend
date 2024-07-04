@@ -45,6 +45,14 @@ function ImageModal({ variant, image, onClose, onNext, onPrev }: Readonly<IProps
   const [state, setState] = useState<null | 'OPENING' | 'OPENED' | 'CLOSING' | 'SWITCHING_FROM' | 'SWITCHING_TO'>(null);
 
   useEffect(() => {
+    document.body.style.overflowY = 'hidden';
+
+    return () => {
+      document.body.style.overflowY = '';
+    };
+  }, []);
+
+  useEffect(() => {
     setState('OPENING');
     setTimeout(() => setState('OPENED'), MODAL_ANIMATION_DURATION);
   }, []);
@@ -153,7 +161,11 @@ function ImageModal({ variant, image, onClose, onNext, onPrev }: Readonly<IProps
     (
       <div
         data-variant={variant}
-        className={cx({ modal: true, modal_AnimationEnter: state === 'OPENING' || state === 'OPENED', modal_AnimationExit: state === 'CLOSING' })}
+        className={cx({
+          modal: true,
+          modal_AnimationEnter: state && state !== 'CLOSING',
+          modal_AnimationExit: state === 'CLOSING'
+        })}
         style={style}
       >
         <div className={classes.overlay}></div>

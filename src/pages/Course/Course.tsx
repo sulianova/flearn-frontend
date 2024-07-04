@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router';
 
 import { analyticsService, EAnalyticsEvent } from 'services/analytics.service';
-import { courseService, ICourseData } from 'services/course.service';
+import { courseService } from 'services/course.service';
 
 import Page, { EFooter, EPageVariant } from 'ui/Page/Page';
 
