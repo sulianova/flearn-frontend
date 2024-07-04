@@ -16,6 +16,7 @@ import classesInputField from './InputField.module.scss';
 import { useNavigate } from 'react-router';
 import { URLSections } from 'router';
 import { lessonService } from 'services/lesson.service';
+import { userAccessService } from 'services/userAccess.service';
 
 const cx = classNames.bind(classes);
 const cx2 = classNames.bind(classesInputField);
@@ -137,7 +138,7 @@ async function submit(props: {
       chosenProductOptionType: option,
     }).catch(_err => { /* do nothing */});
 
-    await dataService.access.add(course.id, formData.email, 'FREE');
+    await userAccessService.add(course.id, formData.email, 'FREE');
     await emailService.sendEmail({
       type: emailService.EEmail.WelcomeToCourse,
       to: { email: formData.email },

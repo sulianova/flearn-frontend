@@ -15,6 +15,7 @@ import classes from './DecisionForm.module.scss';
 import SignupToCoursePopup from '../../../../components/SignupToCoursePopup/SignupToCoursePopup';
 import Icon from 'ui/Icon/Icon';
 import { lessonService } from 'services/lesson.service';
+import { userAccessService } from 'services/userAccess.service';
 
 const cx = classNames.bind(classes);
 interface IProps {
@@ -110,7 +111,7 @@ async function handleSubmit(props: {
       chosenProductOptionType: productType,
     }).catch(_err => { /* do nothing */ });
 
-    await dataService.access.add(course.id, user.email, 'FREE');
+    await userAccessService.add(course.id, user.email, 'FREE');
     await emailService.sendEmail({
       type: emailService.EEmail.WelcomeToCourse,
       to: { email: user.email },

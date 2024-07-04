@@ -6,7 +6,8 @@ import { TAccess } from 'services/data.service/Access';
 class UserAccessService {
   public accessS = new Subject<{ type: 'updated' }>();
   public async add(courseId: string, email: string, accessValue: TAccess) {
-    return dataService.access.add(courseId, email, accessValue);
+    await dataService.access.add(courseId, email, accessValue);
+    this.accessS.next({ type: 'updated' });
   }
 }
 

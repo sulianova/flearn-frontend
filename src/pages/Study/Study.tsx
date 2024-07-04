@@ -20,6 +20,7 @@ import LessonUppload from './LessonUppload/LessonUppload';
 // import LessonWorks from './LessonWorks/LessonWorks';
 import LessonHeader from './LessonHeader/LessonHeader';
 import useLessonFallback from './useLessonFallback';
+import { userAccessService } from 'services/userAccess.service';
 
 interface IProps {
   section: 'task' | 'results'
@@ -38,7 +39,7 @@ export default function LessonContainer(props: IProps) {
     (async () => {
       const hasAccess = await dataService.access.get(courseId, user.email).catch(() => null).then(Boolean);
       if (!hasAccess) {
-        await dataService.access.add(courseId, user.email, 'FREE');
+        await userAccessService.add(courseId, user.email, 'FREE');
         const course = (await courseService._fetch({ ids: [courseId] })).at(0)!;
         await emailService.sendEmail({
           type: emailService.EEmail.WelcomeToCourse,
