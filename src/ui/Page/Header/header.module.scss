@@ -188,12 +188,10 @@
   align-items: center;
   position: relative;
 
-  color: var(--color-content-primary);
-
+  color: var(--color-content-inverted-primary);
+  background-color: var(--color-content-background-primary);
   padding: set-calc(4) set-calc(24);
-  
-  background-color: $color-palette-white-900-a;
-  border-radius: set-calc($border-radius-6);
+
 
   border-radius: set-calc($border-radius-large);
   width: max-content;
@@ -207,7 +205,8 @@
   }
 
   @include set-media(md) {
-    color: var(--color-content-primary);
+    color: $color-content-primary-light;
+    background-color: $color-palette-white-900-a;
     margin-left: auto;
   }
 }

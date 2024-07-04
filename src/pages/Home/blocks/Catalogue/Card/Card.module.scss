@@ -1,7 +1,7 @@
 @import 'styles/index';
 
 .__ {
-  grid-column: span 6;
+  grid-column: span 3;
   position: relative;
 
   display: flex;
@@ -12,7 +12,7 @@
   
   min-height: set-calc(400);
 
-  transition: transform $d-hover ease, box-shadow $d-hover ease;
+  transition: transform $d-hover ease, box-shadow $d-hover ease, opacity $d-hover ease;
   box-shadow: none;
   transform-origin: center center;
 
@@ -79,15 +79,15 @@
 .content {
   position: absolute;
 
-  top: set-calc(16);
-  left: set-calc(16);
-  bottom: set-calc(16);
+  top: set-calc(24);
+  left: set-calc(24);
+  bottom: set-calc(24);
   display: flex;
 
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
-  padding-right: set-calc(20);
+  padding-right: set-calc(24);
   z-index: 100;
 
   background-color: transparent;
@@ -95,7 +95,11 @@
   cursor: pointer;
   
   @include set-media(md) {
+    top: set-calc(16);
+    left: set-calc(16);
+    bottom: set-calc(16);
     padding-right: set-calc(16);
+    
     justify-content: flex-start;
   }
 }
@@ -132,7 +136,7 @@
   z-index: 100;
   max-width: set-calc(450);
 
-  @include font-36-normal-header;
+  @include font-28-normal-header;
   color: $color-content-inverted-primary-light;
 
   @include set-media(md) {
@@ -146,14 +150,13 @@
   transition: opacity $d-hover ease;
 
   z-index: 1;
-  max-width: 80%;
   margin-top: auto;
 
   @include font-18-normal-paragraph;
   color: $color-content-inverted-primary-light;
 
   @include set-media(md) {
-    max-width: 100%;
+    transition: none;
   }
 }
 
