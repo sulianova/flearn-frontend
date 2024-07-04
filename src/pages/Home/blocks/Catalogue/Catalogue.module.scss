@@ -68,8 +68,7 @@
 }
 
 .wrapper {
-  grid-column: span 12;
-  @include is-grid-4;
+  @include is-grid-12;
   column-gap: set-calc(16);
 
   @include set-media(md) {

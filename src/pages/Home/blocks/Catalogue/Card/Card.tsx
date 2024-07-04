@@ -18,7 +18,6 @@ export default function Card({ course }: Readonly<IProps>) {
       className={classes.__}
       to={URLSections.Course.to({ courseId: course.id })}>
       <div className={classes.content}>
-      <div className={classes.contentWrapper}>
         <div className={classes.info}>
           <div className={classes.infoText}>
             {i18n.t('catalogue.card.info', {
@@ -30,7 +29,6 @@ export default function Card({ course }: Readonly<IProps>) {
         </div>
         <h3 className={classes.title}>{course.title}</h3>
         <div className={classes.description}>{course.introDescription}</div>
-      </div>
       </div>
       <div className={classes.background}>
         {/* <div className={classes.preview}>

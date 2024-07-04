@@ -191,7 +191,10 @@
   color: var(--color-content-primary);
 
   padding: set-calc(4) set-calc(24);
-  background: var(--color-background-glassy-b);
+  
+  background-color: $color-palette-white-900-a;
+  border-radius: set-calc($border-radius-6);
+
   border-radius: set-calc($border-radius-large);
   width: max-content;
   height: set-calc(40);

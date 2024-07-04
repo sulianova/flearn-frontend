@@ -14,7 +14,7 @@
 
   @include set-media(md) {
     min-height: unset;
-    border: set-calc(1) solid var(--color-background-default);
+    border: set-calc(1) solid var(--color-border);
   }
 }
 

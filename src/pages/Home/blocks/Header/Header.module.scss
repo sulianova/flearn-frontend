@@ -9,7 +9,7 @@
 
   @include set-media(md) {
     position: relative;
-    margin: 0 set-calc(16) set-calc(16);
+    margin: 0 set-calc(16) set-calc(40);
   }
 }
 
@@ -39,11 +39,6 @@
   max-width: set-calc(900);
 
   @include set-typography(52, 52, 500);
-  font-family: $font-family-compact;
-  
-  background: var(--color-core-heading-gradient);
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 
   @include set-media(md) {
     @include set-typography(40, 42, 500);
@@ -112,7 +107,6 @@
     width: max-content;
 
     border-radius: set-calc($border-radius-small);
-    background-color: var(--color-content-background-primary);
   }
 
   .text {
