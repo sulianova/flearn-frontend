@@ -79,6 +79,7 @@ class AuthService {
       this.firebaseUserBS.next(result.user);
     } catch (err) {
       console.log('Failed to authenticate', { err });
+      this._authenticationInProgress = false;
     }
   }
 
