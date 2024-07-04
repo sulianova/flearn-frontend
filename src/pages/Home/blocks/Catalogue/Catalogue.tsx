@@ -5,26 +5,18 @@ import { ICourseData, courseService } from 'services/course.service';
 import Card from './Card/Card';
 
 import classes from './Catalogue.module.scss';
+import Spinner from 'ui/Spinner/Spinner';
 
 export default function Catalogue() {
-  const [courses, setCourses] = useState<ICourseData[] | null>(null);
-  useEffect(() => {
-    let cancelled = false;
-    const s = courseService.getCourseBS({})
-      .subscribe(o => {
-        if (!o || o instanceof Error || cancelled) {
-          return;
-        }
-        setCourses(o.courses.filter(course => !['illustration', 'how-to-draw-free'].includes(course.id)));
-      });
-    return () => {
-      s.unsubscribe();
-      cancelled = true;
-    };
-  }, []);
+  const courses = courseService.useCourses({})
+    .filter(course => !['illustration', 'how-to-draw-free'].includes(course.id))
 
-  if (!courses) {
-    return null;
+  if (!courses.length) {
+    return (
+      <div className={classes.spinnerWrapper}>
+        <Spinner variant='global'/>
+      </div>
+    );
   }
 
   return (
