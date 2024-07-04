@@ -5,13 +5,40 @@ import { dataService } from 'services/data.service';
 import type { TActionBS, TActionS } from './types';
 import { authService } from 'services';
 import { safeObjectKeys } from 'utils';
-import { lessonService } from 'services/lesson.service';
+import { ILessonData, lessonService } from 'services/lesson.service';
 import useFirstNotSolvedLesson from './useFirstNotSolvedLesson';
 
 export type { TProgress, TProgressDB, TUserCourseProgress, TUserCourseProgressDB } from './types';
 
 class UserCourseProgressService {
   public useFirstNotSolvedLesson = useFirstNotSolvedLesson;
+
+  constructor() {
+    this.init();
+  }
+
+  public init() {
+    merge(
+      this.userCourseProgresS,
+      authService.firebaseUserBS,
+    )
+    .subscribe(() => {
+      const user = authService.user;
+      if (!user) {
+        this._firstNotSolvedLessonBS.next(null);
+        return;
+      }
+
+      this.fetchFirstNotSolvedLesson()
+        .then(lesson => {
+          this._firstNotSolvedLessonBS.next(lesson);
+        })
+        .catch(error => {
+          console.log('Failed to fetch FirstNotSolvedLesson for _firstNotSolvedLessonBS', { error, user });
+          this._firstNotSolvedLessonBS.next(null);
+        })
+    });
+  }
 
   public async markLessonAsRead(courseId: string, userEmail: string, lessonId: string) {
     try {
@@ -113,7 +140,8 @@ class UserCourseProgressService {
     }
   }
 
-  private userCourseProgresS = new Subject<TActionS>();
+  protected userCourseProgresS = new Subject<TActionS>();
+  protected _firstNotSolvedLessonBS = new BehaviorSubject<ILessonData | null>(null);
 }
 
 export const userCourseProgressService = new UserCourseProgressService();
