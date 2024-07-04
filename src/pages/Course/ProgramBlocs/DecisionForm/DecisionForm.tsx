@@ -111,13 +111,12 @@ async function handleSubmit(props: {
     }).catch(_err => { /* do nothing */ });
 
     await dataService.access.add(course.id, user.email, 'FREE');
-    const firstLesson = (await lessonService.fetch({ courseId: course.id, topicOrder: 1, orderInTopic: 1 })).at(0);
     await emailService.sendEmail({
       type: emailService.EEmail.WelcomeToCourse,
       to: { email: user.email },
       course,
-      firstLesson,
     });
+    const firstLesson = (await lessonService.fetch({ courseId: course.id, topicOrder: 1, orderInTopic: 1 })).at(0);
     if (firstLesson) {
       navigate(URLSections.Study.to({ courseId: course.id, lessonId: firstLesson.id }));
     } else {

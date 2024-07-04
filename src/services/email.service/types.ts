@@ -1,7 +1,10 @@
-import type { ICourseData, TCourseProductOptionTypes } from 'services/course.service'
-import type { IHomeworkData } from 'services/homework.service'
-import type { ILessonData } from 'services/lesson.service'
-import type { IUserData } from 'services/user.service'
+import type { IWelcomeToCourseEmailProps } from './emails/WelcomeToCourse';
+import type { IWelcomeToPaidCourseEmailProps } from './emails/WelcomeToPaidCourse';
+import type { IDiscontSolveFreeLessonsInWeekProps } from './emails/DiscontSolveFreeLessonsInWeek';
+import type { IHomeworkSentForReviewProps } from './emails/HomeworkSentForReview';
+import type { IHomeworkReviewedProps } from './emails/HomeworkReviewed';
+import type { IHomeworkSentForReviewToReviewerProps } from './emails/HomeworkSentForReviewToReviewer';
+import type { IHomeworkReviewedToReviewerProps } from './emails/HomeworkReviewedToReviewer';
 
 export interface IEmailContact {
   email: string
@@ -28,7 +31,7 @@ export enum EEmail {
 
 //////////////////// Emails props /////////////////
 
-type TCommonProps = { to: IEmailContact };
+export type TCommonProps = { to: IEmailContact };
 
 export type TSendEmailProps =
   | TWelcomeToCourseProps
@@ -39,50 +42,44 @@ export type TSendEmailProps =
   | THomeworkReviewedProps
   | THomeworkReviewedToReviewerProps;
 
-export type TWelcomeToCourseProps = TCommonProps & {
-  type: EEmail.WelcomeToCourse
-  course: ICourseData
-  firstLesson: ILessonData | undefined
-};
+export type TWelcomeToCourseProps = TCommonProps
+  & Omit<IWelcomeToCourseEmailProps, 'firstLesson'>
+  & {
+    type: EEmail.WelcomeToCourse
+  };
 
-export type TWelcomeToPaidCourseProps = TCommonProps & {
-  type: EEmail.WelcomeToPaidCourse
-  course: ICourseData
-  paymentOption: 'CARD_RU' | 'PAYPAL'
-  productOption: TCourseProductOptionTypes
-  dateOfPaiment: Date
-};
+export type TWelcomeToPaidCourseProps = TCommonProps
+  & IWelcomeToPaidCourseEmailProps
+  & {
+    type: EEmail.WelcomeToPaidCourse
+  };
 
-export type TDiscontSolveFreeLessonsInWeekProps = TCommonProps & {
-  type: EEmail.DiscontSolveFreeLessonsInWeek
-  course: ICourseData
-};
+export type TDiscontSolveFreeLessonsInWeekProps = TCommonProps
+  & IDiscontSolveFreeLessonsInWeekProps
+  & {
+    type: EEmail.DiscontSolveFreeLessonsInWeek
+  };
 
-export type THomeworkSentForReviewProps = TCommonProps & {
-  type: EEmail.HomeworkSentForReview
-  course: ICourseData
-  lesson: ILessonData
-};
+export type THomeworkSentForReviewProps = TCommonProps
+  & IHomeworkSentForReviewProps
+  & {
+    type: EEmail.HomeworkSentForReview
+  };
 
-export type THomeworkReviewedProps = TCommonProps & {
-  type: EEmail.HomeworkReviewed
-  course: ICourseData
-  lesson: ILessonData
-  reviewLink: string
-};
+export type THomeworkReviewedProps = TCommonProps
+  & IHomeworkReviewedProps
+  & {
+    type: EEmail.HomeworkReviewed
+  };
 
-export type THomeworkSentForReviewToReviewerProps = {
-  type: EEmail.HomeworkSentForReviewToReviewer
-  course: ICourseData
-  lesson: ILessonData
-  homework: IHomeworkData
-  homeworkUser: IUserData
-};
+export type THomeworkSentForReviewToReviewerProps =
+  IHomeworkSentForReviewToReviewerProps
+  & {
+    type: EEmail.HomeworkSentForReviewToReviewer
+  };
 
-export type THomeworkReviewedToReviewerProps = {
-  type: EEmail.HomeworkReviewedToReviewer
-  course: ICourseData
-  lesson: ILessonData
-  homeworkUser: IUserData
-  reviewLink: string
-};
+export type THomeworkReviewedToReviewerProps =
+  IHomeworkReviewedToReviewerProps
+  & {
+    type: EEmail.HomeworkReviewedToReviewer
+  };

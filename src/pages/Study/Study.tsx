@@ -40,12 +40,10 @@ export default function LessonContainer(props: IProps) {
       if (!hasAccess) {
         await dataService.access.add(courseId, user.email, 'FREE');
         const course = (await courseService._fetch({ ids: [courseId] })).at(0)!;
-        const firstLesson = (await lessonService.fetch({ courseId: courseId, topicOrder: 1, orderInTopic: 1 })).at(0);
         await emailService.sendEmail({
           type: emailService.EEmail.WelcomeToCourse,
           to: { email: user.email },
           course,
-          firstLesson,
         });
       }
 

@@ -138,12 +138,10 @@ async function submit(props: {
     }).catch(_err => { /* do nothing */});
 
     await dataService.access.add(course.id, formData.email, 'FREE');
-    const firstLesson = (await lessonService.fetch({ courseId: course.id, topicOrder: 1, orderInTopic: 1 })).at(0);
     await emailService.sendEmail({
       type: emailService.EEmail.WelcomeToCourse,
       to: { email: formData.email },
       course,
-      firstLesson,
     });
     setFormData(d => ({ ...d, state: { type: 'Success' } }));
   } catch (e) {
