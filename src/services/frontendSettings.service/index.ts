@@ -1,8 +1,6 @@
 import { isEqual } from 'lodash';
 import { BehaviorSubject } from 'rxjs';
 
-import { ECollections } from 'types';
-
 import { authService } from 'services';
 import { firebaseService } from 'services/firebase.service';
 import { localStorageService } from 'services/localStorage.service';
@@ -38,7 +36,7 @@ class FrontendSettingsService {
 
       const authedUser = authService.user;
       if (authedUser) {
-        await firebaseService.setDoc(ECollections.FrontendSettings, authedUser.email, newSettigs);
+        await firebaseService.setDoc(firebaseService.Collections.FrontendSettings, authedUser.email, newSettigs);
       }
 
       localStorageService.set(this.lsKey, newSettigs);
@@ -56,7 +54,7 @@ class FrontendSettingsService {
         throw new Error('Not authenticated');
       }
 
-      const settigsDB = await firebaseService.getDoc<IFrontendSettingsBD>(ECollections.FrontendSettings, authedUser.email) ?? {};
+      const settigsDB = await firebaseService.getDoc<IFrontendSettingsBD>(firebaseService.Collections.FrontendSettings, authedUser.email) ?? {};
       const settigs: IFrontendSettings = {
         ...this.defaultFrontendSettings,
         ...settigsDB,

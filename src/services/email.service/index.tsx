@@ -4,7 +4,6 @@ import { v4 } from 'uuid';
 
 import { firebaseService } from 'services/firebase.service';
 import { lessonService } from 'services/lesson.service';
-import { ECollections } from 'types';
 
 import { EEmail } from './types';
 import type { IEmail, IEmailContact, TCommonProps, TSendEmailProps } from './types';
@@ -33,7 +32,7 @@ class EmailService {
     try {
       const id = this.getId(props);
       const email = await this.getEmail(props);
-      await firebaseService.setDoc(ECollections.Email, id, email);
+      await firebaseService.setDoc(firebaseService.Collections.Email, id, email);
     } catch (error) {
       console.log('Failed to send email', { props, error });
       throw error;

@@ -2,7 +2,7 @@ import { v4 } from 'uuid';
 
 import { firebaseService } from 'services/firebase.service';
 
-import { ECollections, ECommonErrorTypes } from 'types';
+import { ECommonErrorTypes } from 'types';
 import { homeworkConverter } from './homeworkConverter';
 import type { IHomeworkData, IHomeworkDataDB } from 'services/homework.service';
 
@@ -19,7 +19,7 @@ class Homework {
     // }
 
     const id = typeof props === 'string' ? props: this.getFullId(props.courseId, props.lessonId, props.userId);
-    const homeworkDataDB = await firebaseService.getDoc(ECollections.Homework, id) as IHomeworkDataDB | undefined;
+    const homeworkDataDB = await firebaseService.getDoc(firebaseService.Collections.Homework, id) as IHomeworkDataDB | undefined;
 
     if (!homeworkDataDB) {
       throw new Error(ECommonErrorTypes.FailedToFindData);
@@ -37,7 +37,7 @@ class Homework {
     // }
 
     const queryConstraints = Object.entries(filter).map(([param, value]) => ({ param, value }));
-    const homeworksDataDB = (await firebaseService.getDocs(ECollections.Homework, queryConstraints))
+    const homeworksDataDB = (await firebaseService.getDocs(firebaseService.Collections.Homework, queryConstraints))
       .map(d => d.data) as IHomeworkDataDB[];
     const homeworksData = await Promise.all(homeworksDataDB.map(homeworkDataDB => homeworkConverter.fromFirestore(homeworkDataDB)));
 
@@ -45,7 +45,7 @@ class Homework {
   }
 
   public async create(id: string, homeworkData: IHomeworkData) {
-    const homeworkAlreadyExists = await firebaseService.docExists(ECollections.Homework, id);
+    const homeworkAlreadyExists = await firebaseService.docExists(firebaseService.Collections.Homework, id);
     if (homeworkAlreadyExists) {
       throw new Error('Cannot create duplicated homework');
     }
@@ -55,13 +55,13 @@ class Homework {
 
   public async set(id: string, homeworkData: IHomeworkData) {
     const homeworkDataDB = homeworkConverter.toFirestore(homeworkData);
-    return await firebaseService.setDoc(ECollections.Homework, id, homeworkDataDB);
+    return await firebaseService.setDoc(firebaseService.Collections.Homework, id, homeworkDataDB);
   }
 
   public async patch(id: string, patch: Partial<IHomeworkData>) {
-    const homeworkData = await firebaseService.getDocOrThrow(ECollections.Homework, id) as IHomeworkData;
+    const homeworkData = await firebaseService.getDocOrThrow(firebaseService.Collections.Homework, id) as IHomeworkData;
     const homeworkDataDB = homeworkConverter.toFirestore({ ...homeworkData, ...patch });
-    return await firebaseService.setDoc(ECollections.Homework, id, homeworkDataDB);
+    return await firebaseService.setDoc(firebaseService.Collections.Homework, id, homeworkDataDB);
   }
 
   public async uploadImage(props: { courseId: string, lessonId: string, userId: string, imageId: string, file: File }) {

@@ -4,7 +4,7 @@ import { collection, doc as getDocRef, getDoc, getDocs, getFirestore, setDoc, qu
 import { deleteObject, getStorage, ref as getStorageRef, getDownloadURL, getBytes, getBlob, uploadBytes } from 'firebase/storage';
 import { getFirebaseConfig } from './firebase.config';
 
-import { ECollections } from 'types';
+import { ECollections } from './data';
 
 import type { FirebaseApp, FirebaseOptions } from 'firebase/app';
 import type { DocumentData, Firestore, FirestoreDataConverter } from 'firebase/firestore';
@@ -13,8 +13,11 @@ import type { IObject } from 'types';
 import type { TWhereProps } from './types';
 
 export { type TWhereProps } from './types';
+export * from './data';
 
 export class FirebaseService {
+  public Collections = ECollections;
+
   constructor(config: FirebaseOptions) {
     this._app = initializeApp(config);
     this._db = getFirestore(this._app);
@@ -77,7 +80,7 @@ export class FirebaseService {
       const pathSegments = [collectionName, id, ...subcollectionPathSegments] as const;
       const docRef = converter ? getDocRef(this._db, ...pathSegments).withConverter(converter) : getDocRef(this._db, ...pathSegments);
       await setDoc(docRef, filterData(data));
-      const savedDoc = await this.getDoc(collectionName, id, converter, subCollection);
+      const savedDoc = await this.getDoc<T>(collectionName, id, converter, subCollection);
       return savedDoc;
     } catch(e) {
       // tslint:disable-next-line

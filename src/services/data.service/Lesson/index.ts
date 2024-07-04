@@ -4,7 +4,7 @@ import type { ILessonData, ILessonDataDB } from 'services/lesson.service';
 
 import { lessonConverter } from './lessonConverter';
 
-import { ECollections, ECommonErrorTypes } from 'types';
+import { ECommonErrorTypes } from 'types';
 import { isDefined } from 'utils';
 export interface ILessonFilter extends
   Pick<ILessonData, 'courseId'>,
@@ -18,7 +18,7 @@ class Lesson {
     if (!userHasAccess) {
       throw new Error(ECommonErrorTypes.Restricted);
     }
-    const lessonDataDB = (await firebaseService.getDoc(ECollections.Lesson, fullLessonId)) as ILessonDataDB | undefined;
+    const lessonDataDB = (await firebaseService.getDoc(firebaseService.Collections.Lesson, fullLessonId)) as ILessonDataDB | undefined;
     if (!lessonDataDB) {
       throw new Error(ECommonErrorTypes.FailedToFindData);
     }
@@ -44,7 +44,7 @@ class Lesson {
       filter.orderInTopic ? { param: 'orderInTopic', value: filter.orderInTopic } : undefined,
     ];
     const lessonsDataDB =
-      (await firebaseService.getDocs(ECollections.Lesson, queryConstraints.filter(isDefined)))
+      (await firebaseService.getDocs(firebaseService.Collections.Lesson, queryConstraints.filter(isDefined)))
       .map(d => d.data) as ILessonDataDB[];
     // TODO add check for restricted access for each lesson
     const lessonsData = await Promise.all(lessonsDataDB.map(lessonDataDB => lessonConverter.fromFirestore(lessonDataDB)));
@@ -55,7 +55,7 @@ class Lesson {
   public async set(courseId: string, lessonId: string, lessonData: ILessonData): Promise<ILessonData> {
     const fullLessonId = this.getFullId(courseId, lessonId);
     const lessonDataDB = lessonConverter.toFirestore(lessonData);
-    const newLessonDataDB = (await firebaseService.setDoc(ECollections.Lesson, fullLessonId, lessonDataDB)) as ILessonDataDB | undefined;
+    const newLessonDataDB = (await firebaseService.setDoc(firebaseService.Collections.Lesson, fullLessonId, lessonDataDB)) as ILessonDataDB | undefined;
 
     if (!newLessonDataDB) {
       throw new Error('Failed to update lesson');
@@ -75,7 +75,7 @@ class Lesson {
       throw new Error(ECommonErrorTypes.Unauthorized);
     }
 
-    // const accessData = await firebaseService.getDoc(ECollections.Access, courseId) as TAccessData | undefined;
+    // const accessData = await firebaseService.getDoc(firebaseService.Collections.Access, courseId) as TAccessData | undefined;
     // if (!accessData) {
     //   throw new Error('Server error: failed to find access table');
     // }

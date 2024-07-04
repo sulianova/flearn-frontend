@@ -1,5 +1,5 @@
 import { firebaseService } from 'services/firebase.service';
-import { ECollections } from 'types';
+
 import { TAccess, TAccessData } from './types';
 
 export type { TAccess, TAccessData } from './types';
@@ -7,7 +7,7 @@ export type { TAccess, TAccessData } from './types';
 class Access {
   public async get(courseId: string, email: string) {
     try {
-      return (await firebaseService.getDocOrThrow<TAccessData>(ECollections.Access, courseId))[email];
+      return (await firebaseService.getDocOrThrow<TAccessData>(firebaseService.Collections.Access, courseId))[email];
     } catch (err) {
       const error = err as Error;
       // tslint:disable-next-line
@@ -18,8 +18,8 @@ class Access {
 
   public async add(courseId: string, email: string, accessValue: TAccess) {
     try {
-      const access = await firebaseService.getDocOrThrow<TAccessData>(ECollections.Access, courseId);
-      await firebaseService.setDoc<TAccessData>(ECollections.Access, courseId, { ...access, [email]: accessValue });
+      const access = await firebaseService.getDocOrThrow<TAccessData>(firebaseService.Collections.Access, courseId);
+      await firebaseService.setDoc<TAccessData>(firebaseService.Collections.Access, courseId, { ...access, [email]: accessValue });
     } catch (err) {
       const error = err as Error;
       // tslint:disable-next-line
@@ -30,7 +30,7 @@ class Access {
 
   public async getAll(props: { email: string }) {
     try {
-      return await firebaseService.getDocs<TAccessData>(ECollections.Access, [{ param: props.email, value: ['FREE', 'BASE', 'OPTIMAL', 'EXTENDED' ], operator: 'in' }]);
+      return await firebaseService.getDocs<TAccessData>(firebaseService.Collections.Access, [{ param: props.email, value: ['FREE', 'BASE', 'OPTIMAL', 'EXTENDED' ], operator: 'in' }]);
     } catch (error) {
       console.log('Failed to getAll accesses', { props, error });
       throw error;

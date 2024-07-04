@@ -2,12 +2,12 @@ import { firebaseService, TWhereProps } from 'services/firebase.service';
 
 import { userConverter } from './userConverter';
 
-import { ECollections, ECommonErrorTypes } from 'types';
+import { ECommonErrorTypes } from 'types';
 import type { IUserData, IUserDataDB } from '../../user.service/types';
 
 class User {
   public async get(id: string): Promise<IUserData> {
-    const userDataDB = await firebaseService.getDoc(ECollections.User, id) as IUserDataDB | undefined;
+    const userDataDB = await firebaseService.getDoc(firebaseService.Collections.User, id) as IUserDataDB | undefined;
 
     if (!userDataDB) {
       throw new Error(ECommonErrorTypes.FailedToFindData);
@@ -18,7 +18,7 @@ class User {
 
   public async set(id: string, data: IUserData): Promise<IUserData> {
     const dataDB = userConverter.toFirestore(data);
-    const newDataDB = await firebaseService.setDoc(ECollections.User, id, dataDB) as IUserDataDB;
+    const newDataDB = await firebaseService.setDoc(firebaseService.Collections.User, id, dataDB) as IUserDataDB;
     return userConverter.fromFirestore(newDataDB);
   }
 
@@ -27,7 +27,7 @@ class User {
       filter.ids && { param: 'id', value: filter.ids, operator: 'in' },
     ].filter(Boolean) as TWhereProps;
 
-    const usersDataDB = (await firebaseService.getDocs(ECollections.User, queryConstraints))
+    const usersDataDB = (await firebaseService.getDocs(firebaseService.Collections.User, queryConstraints))
       .map(d => d.data) as IUserDataDB[];
     return usersDataDB.map(userDataDB => userConverter.fromFirestore(userDataDB));
   }
