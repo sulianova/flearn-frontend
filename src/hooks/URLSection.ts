@@ -7,16 +7,17 @@ export function useURLSection(): TURLSectionObj {
   const location = useLocation();
 
   return useMemo(() => {
-    if (URLSections.Home.regex.test(location.pathname)) {
-      return { name: 'Home', params: URLSections.Home.getParams(location.pathname)! };
-    } else if (URLSections.Course.regex.test(location.pathname)) {
-      return { name: 'Course', params: URLSections.Course.getParams(location.pathname)! };
-    } else if (URLSections.Profile.regex.test(location.pathname)) {
-      return { name: 'Profile', params: URLSections.Profile.getParams(location.pathname)! };
-    } else if (URLSections.EmptyProfile.regex.test(location.pathname)) {
-      return { name: 'EmptyProfile', params: URLSections.EmptyProfile.getParams(location.pathname)! };
-    } else if (URLSections.Study.regex.test(location.pathname)) {
-      return { name: 'Study', params: URLSections.Study.getParams(location.pathname)! };
+    const pathname = decodeURI(location.pathname);
+    if (URLSections.Home.regex.test(pathname)) {
+      return { name: 'Home', params: URLSections.Home.getParams(pathname)! };
+    } else if (URLSections.Course.regex.test(pathname)) {
+      return { name: 'Course', params: URLSections.Course.getParams(pathname)! };
+    } else if (URLSections.Profile.regex.test(pathname)) {
+      return { name: 'Profile', params: URLSections.Profile.getParams(pathname)! };
+    } else if (URLSections.EmptyProfile.regex.test(pathname)) {
+      return { name: 'EmptyProfile', params: URLSections.EmptyProfile.getParams(pathname)! };
+    } else if (URLSections.Study.regex.test(pathname)) {
+      return { name: 'Study', params: URLSections.Study.getParams(pathname)! };
     } else {
       return { name: 'Other', params: {} };
     }

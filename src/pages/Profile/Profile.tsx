@@ -1,23 +1,17 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useParams } from 'react-router';
 
 import { formatI18nT } from 'shared';
-import { ECommonErrorTypes } from 'types';
 import { URLSections } from 'router';
 
 import { userService } from 'services/user.service';
-import { ILessonData, TLessonState, lessonService } from 'services/lesson.service';
-import { ICourseData, TCourseState, courseService } from 'services/course.service';
-import { TCourseError } from 'services/course.service';
-import { TAccess } from 'services/data.service/Access';
-import { TUserCourseProgress } from 'services/userCourseProgress.service';
-import { dataService } from 'services';
+import { ILessonData, lessonService } from 'services/lesson.service';
+import { courseService } from 'services/course.service';
 
 import LessonsPopup from 'components/LessonsPopup/LessonsPopup';
 import Link from 'ui/Link/Link';
 import Page, { EPageVariant } from 'ui/Page/Page';
-
-import useFallback from './useFallback';
+import Fallback from 'ui/Fallback';
 
 import classesList from './LessonsList.module.scss';
 import classes from './Profile.module.scss';
@@ -35,146 +29,40 @@ export default function Profile() {
   const { courseId } = useParams();
 
   const authedUser = userService.useAuthedUser();
-  const [courseState, setCourseState] = useState<{ state: TCourseState, course?: ICourseData }>({ state: { type: 'pending' }, course: undefined });
-  const [lessonsState, setLessonsState] = useState<{ state: TLessonState, lessons: ILessonData[] }>({ state: { type: 'pending' }, lessons: [] });
-  const [access, setAccess] = useState<TAccess | null>(null);
-  const [userCourseProgress, setUserCourseProgress] = useState<TUserCourseProgress | null>(null);
+  const currentCourse = courseService.useCurrentCourse();
+  const courseLessons = lessonService.useCourseLessons();
 
   const [openedTopic, setOpenedTopic] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (!courseId) {
-      return;
-    }
-
-    let cancelled = false;
-    const s = courseService
-      .getCourseBS({ ids: [courseId] })
-      .subscribe(o => {
-        if (!o || cancelled) {
-          return;
-        }
-        if (o instanceof Error) {
-          const error = o;
-          const errorIsUnknown = !(Object.values(ECommonErrorTypes) as string[]).includes(error.message);
-          const errorType = errorIsUnknown ? ECommonErrorTypes.Other : error.message as TCourseError;
-          setCourseState({ state: { type: 'error', error, errorType }, course: undefined });
-          return;
-        }
-        setCourseState({ state: { type: 'idle' }, course: o.courses[0]})
-      });
-    return () => {
-      cancelled = true;
-      s.unsubscribe();
-    };
-  }, [courseId]);
-
-  useEffect(() => {
-    if (!courseId) {
-      return;
-    }
-
-    let cancelled = false;
-    const s = lessonService
-      .getLessonBS({ courseId })
-      .subscribe(o => {
-        if (!o || cancelled) {
-          return;
-        }
-        if (o instanceof Error) {
-          const error = o;
-          const errorIsUnknown = !(Object.values(ECommonErrorTypes) as string[]).includes(error.message);
-          const errorType = errorIsUnknown ? ECommonErrorTypes.Other : error.message as ECommonErrorTypes;
-          setLessonsState({ state: { type: 'error', error, errorType }, lessons: [] });
-          return;
-        }
-        setLessonsState({ state: { type: 'idle' }, lessons: o.lessons });
-      });
-    return () => {
-      cancelled = true;
-      s.unsubscribe();
-    };
-  }, [courseId]);
-
-  useEffect(() => {
-    if (!courseId || !authedUser?.email) {
-      return;
-    }
-
-    let cancelled = false;
-    dataService.access
-      .get(courseId, authedUser?.email)
-      .then(a => {
-        if (cancelled || !a) {
-          return;
-        }
-
-        setAccess(a);
-      });
-
-    dataService.userCourseProgress
-      .get(courseId, authedUser?.email)
-      .then(a => {
-        if (cancelled || !a) {
-          return;
-        }
-
-        setUserCourseProgress(a);
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, [courseId, authedUser?.email]);
-
-  const lessons = lessonsState?.lessons;
-  const filteredLessons = useMemo(() => {
-    if (!lessons) {
+  const filteredCourseLessons = useMemo(() => {
+    if (!courseLessons) {
       return [];
     }
 
     if (authedUser?.role === 'support') {
-      return lessons;
+      return courseLessons;
     }
 
-    return lessons;
-  }, [lessons, authedUser]);
-
-  const firstNotLearnedLesson = useMemo(() => {
-    if (!userCourseProgress) {
-      return undefined;
-    }
-
-    return lessons
-      .sort((a, b) => {
-        const key = a.topicOrder != b.topicOrder ? 'topicOrder' : 'orderInTopic';
-        return a[key] - b[key];
-      })
-      .find(l => !userCourseProgress[l.id]);
-  }, [userCourseProgress, lessons]);
-
+    return courseLessons;
+  }, [courseLessons, authedUser]);
 
   const groupes: IGroup[] = useMemo(() => {
     const getKey = (topic: string, topicOrder: number) => `${topic}-${topicOrder}`;
-    return [...filteredLessons
+    return [...filteredCourseLessons
       .reduce((acc, lessonData) => {
         const key = getKey(lessonData.topic, lessonData.topicOrder);
-        const solved = userCourseProgress?.[lessonData.id]?.solved ?? false;
-        const canBeAccessed = !firstNotLearnedLesson ? false
-          : firstNotLearnedLesson.topicOrder === lessonData.topicOrder
-            ? firstNotLearnedLesson.orderInTopic >= lessonData.orderInTopic
-            : firstNotLearnedLesson.topicOrder > lessonData.topicOrder;
 
         if (!acc.has(key)) {
           acc.set(key, {
             topic: lessonData.topic,
             topicOrder: lessonData.topicOrder,
             isFree: lessonData.isFree,
-            lessons: [{ ...lessonData, canBeAccessed, solved }],
+            lessons: [lessonData],
           })
         } else {
           const group = acc.get(key)!;
           group.isFree = group.isFree && lessonData.isFree;
-          group.lessons.push({ ...lessonData, canBeAccessed, solved });
+          group.lessons.push(lessonData);
           group.lessons.sort((a, b) => a.orderInTopic - b.orderInTopic);
         }
 
@@ -183,11 +71,12 @@ export default function Profile() {
       .values()]
       .sort((a, b) => a.topicOrder - b.topicOrder);
 
-  }, [filteredLessons, firstNotLearnedLesson, userCourseProgress]);
+  }, [filteredCourseLessons]);
 
-  const fallback = useFallback({ courseState, lessonsState });
-  if (!courseState.course || !lessonsState.lessons || !lessonsState.lessons.length) {
-    return fallback;
+  const firstNotSolvedLesson = courseLessons?.find(l => !l.solved);
+
+  if (!currentCourse || !courseLessons || !courseLessons.length) {
+    return <Fallback.Pending text='Loading profile'/>;
   }
 
   const freeGroupes = groupes.filter(g => g.isFree);
@@ -197,24 +86,24 @@ export default function Profile() {
     <>
       <Page variant={EPageVariant.LMS} header footer>
         <div className={classes.profilePage}>
-          <div className={classes.title}>{courseState.course.title}</div>
+          <div className={classes.title}>{currentCourse.title}</div>
           <div className={classes.profilePageContent}>
-            {firstNotLearnedLesson ? (
+            {firstNotSolvedLesson ? (
               <div className={classes.currentLesson}>
                 <div className={classes.currentLessonWrapper}>
                   <div className={classes.currentLessonReminder}>
                     <div className={classes.currentLessonSubtitle}>
-                      <div className={classes.currentLessonSubtitleIndex}>{firstNotLearnedLesson.orderInTopic}.</div>
-                      <span>{firstNotLearnedLesson.title}</span>
+                      <div className={classes.currentLessonSubtitleIndex}>{firstNotSolvedLesson.orderInTopic}.</div>
+                      <span>{firstNotSolvedLesson.title}</span>
                     </div>
                     <div className={classes.currentLessonTitle}>
-                      {firstNotLearnedLesson.topic}
+                      {firstNotSolvedLesson.topic}
                     </div>
                     <div className={classes.currentLessonDetails}></div>
                     <div>
                       <Link
                         className={classes.currentLessonButton}
-                        to={URLSections.Study.to({ courseId: courseState.course.id, lessonId: firstNotLearnedLesson.id })}
+                        to={URLSections.Study.to({ courseId: currentCourse.id, lessonId: firstNotSolvedLesson.id })}
                       >
                         Учиться
                       </Link>
@@ -291,7 +180,7 @@ export default function Profile() {
       {openedTopic && courseId && authedUser && (
         <LessonsPopup
           courseId={courseId}
-          lessons={groupes.find(g => g.topic === openedTopic)!.lessons}
+          topic={openedTopic}
           close={() => setOpenedTopic(null)}
         />
       )}

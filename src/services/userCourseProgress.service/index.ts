@@ -11,6 +11,7 @@ import useFirstNotSolvedLesson from './useFirstNotSolvedLesson';
 export type { TProgress, TProgressDB, TUserCourseProgress, TUserCourseProgressDB } from './types';
 
 class UserCourseProgressService {
+  public userCourseProgresS = new Subject<TActionS>();
   public useFirstNotSolvedLesson = useFirstNotSolvedLesson;
 
   constructor() {
@@ -140,7 +141,6 @@ class UserCourseProgressService {
     }
   }
 
-  protected userCourseProgresS = new Subject<TActionS>();
   protected _firstNotSolvedLessonBS = new BehaviorSubject<ILessonData | null>(null);
 }
 

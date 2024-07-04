@@ -1,11 +1,13 @@
 import classnames from 'classnames/bind';
 import { useEffect, useRef, useState } from 'react';
-import { useParams } from 'react-router';
 
 import { useIsMobile, useURLSection } from 'hooks';
 import { formatI18nT } from 'shared';
 import { authService } from 'services';
+import { courseService } from 'services/course.service';
+import { userCourseProgressService } from 'services/userCourseProgress.service';
 import { userService } from 'services/user.service';
+import { lessonService } from 'services/lesson.service';
 import { URLSections } from 'router';
 
 import BuyPopup from 'components/BuyPopup/BuyPopup';
@@ -18,7 +20,6 @@ import MobileMenuPopup from './MobileMenuPopup/MobileMenuPopup';
 import { EPageVariant } from '../Page';
 
 import classes from './header.module.scss';
-import { usePageSource } from 'hooks/pageSource';
 
 const cx = classnames.bind(classes);
 const t = formatI18nT('header');
@@ -29,26 +30,23 @@ interface IProps {
 }
 
 export default function Header({ variant, visible }: Readonly<IProps>) {
-  const {
-    currentCourse,
-    userCourses,
-    currentLesson,
-    firstNotSolvedLesson,
-    topicLessons,
-  } = usePageSource();
   const urlSection = useURLSection();
   const isMobile = useIsMobile();
+
   const user = userService.useAuthedUser();
+  const currentCourse = courseService.useCurrentCourse()
+  const userCourses = courseService.useUserCourses() ?? [];
+  const firstNotSolvedLesson = userCourseProgressService.useFirstNotSolvedLesson();
+  const currentLesson = lessonService.useCurrentLesson() ?? undefined;
+  const topicLessons = lessonService.useTopicLessons({ topic: currentLesson?.topic }) ?? [];
+
   const currentCloseCourseDropdown = useRef<() => void>();
   const [mobMenuIsOpened, setMobMenuIsOpened] = useState(false);
   const [buyPopupIsOpened, setBuyPopupIsOpened] = useState(false);
-  const { courseId, lessonId } = useParams();
-  const [userPopupVisible, setUserPopupVisible] = useState(false);
 
   useEffect(() => {
     if (!visible) {
       currentCloseCourseDropdown.current?.();
-      setUserPopupVisible(false);
     }
   }, [visible]);
 
@@ -87,11 +85,11 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
                   </Link>
               </div>
             )}
-            {(urlSection.name === 'Study' || urlSection.name === 'EmptyProfile') && (
+            {(urlSection.name === 'Study') && (
               <div className={classes.userSettingsWrapper}>
                   <Link
                     className={classes.userSettings}
-                    to={URLSections.Profile.to({ courseId: courseId! })}
+                    to={URLSections.Profile.to({ courseId: urlSection.params.courseId })}
                   >
                     <Icon icon='ArrowButton' />
                   </Link>

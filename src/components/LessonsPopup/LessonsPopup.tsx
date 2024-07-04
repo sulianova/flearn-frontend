@@ -18,18 +18,15 @@ type TProps = {
   close: () => void
 } & (
   {
-    lessons: (ILessonData & { solved: boolean, canBeAccessed: boolean })[]
-  } | {
-    openedLessonId: string
+    topic?: string
+    lessonId?: string
   }
 )
 
 export default function LessonsPopup(props: TProps) {
   const { courseId, close } = props;
 
-  const openedLessonId = 'openedLessonId' in props ? props.openedLessonId : null;
-  const fetchedTopicLessons = lessonService.useTopicLessons({ courseId, lessonId: 'openedLessonId' in props ? props.openedLessonId : undefined })
-  const topicLessons = 'lessons' in props ? props.lessons : fetchedTopicLessons;
+  const topicLessons = lessonService.useTopicLessons(props) ?? [];
 
   return (
     <Popup
@@ -49,7 +46,7 @@ export default function LessonsPopup(props: TProps) {
                   key={lesson.id}
                   to={lesson.canBeAccessed ? URLSections.Study.to({ courseId, lessonId: lesson.id }) : undefined}
                   onClick={startClosingProcess}
-                  className={cx({ navigationItem: true, solved: lesson.solved, disabled: !lesson.canBeAccessed, active: lesson.id === openedLessonId })}
+                  className={cx({ navigationItem: true, solved: lesson.solved, disabled: !lesson.canBeAccessed, active: lesson.id === props.lessonId })}
                 >
                   <div className={classes.navigationItemTitle}>
                       <span className={classes.navigationItemIndex}>{lesson.orderInTopic}.</span>

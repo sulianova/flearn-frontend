@@ -3,10 +3,11 @@ import classnames from 'classnames/bind';
 
 import { useIsMobile, useURLSection } from 'hooks';
 import { authService } from 'services/auth.service';
-import { type ICourseData } from 'services/course.service';
+import { courseService, type ICourseData } from 'services/course.service';
 import { userService } from 'services/user.service';
 import { lessonService } from 'services/lesson.service';
 import { frontendSettingsService } from 'services/frontendSettings.service';
+import { userCourseProgressService } from 'services/userCourseProgress.service';
 import { URLSections } from 'router';
 
 import SignupToCoursePopup from 'components/SignupToCoursePopup/SignupToCoursePopup';
@@ -18,7 +19,6 @@ import UserPopup from '../Sidebar/UserPopup/UserPopup';
 import MobileMenuPopup from '../Header/MobileMenuPopup/MobileMenuPopup';
 
 import classes from './MobileBtn.module.scss';
-import { usePageSource } from 'hooks/pageSource';
 
 const cx = classnames.bind(classes);
 
@@ -29,13 +29,11 @@ interface IProps {
 }
 
 export default function MobileBtn({ course, variant, visible }: IProps) {
-  const {
-    currentCourse,
-    userCourses,
-    currentLesson,
-    firstNotSolvedLesson,
-    topicLessons,
-  } = usePageSource();
+  const userCourses = courseService.useUserCourses() ?? [];
+  const firstNotSolvedLesson = userCourseProgressService.useFirstNotSolvedLesson();
+  const currentLesson = lessonService.useCurrentLesson() ?? undefined;
+  const topicLessons = lessonService.useTopicLessons({ topic: currentLesson?.topic }) ?? [];
+  
   const isMobile = useIsMobile();
   const urlSection = useURLSection();
   const firstLesson = lessonService.useLessons({ courseId: course?.id, topicOrder: 1, orderInTopic: 1 }).at(0);

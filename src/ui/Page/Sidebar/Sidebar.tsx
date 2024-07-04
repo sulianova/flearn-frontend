@@ -92,7 +92,7 @@ function Sidebar() {
         <LessonsPopup
           close={() => setLessonsPopupVisible(false)}
           courseId={courseId}
-          openedLessonId={lessonId}
+          lessonId={lessonId}
         />
       )}
     </>

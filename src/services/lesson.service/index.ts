@@ -1,6 +1,9 @@
 import { BehaviorSubject, CompletionObserver, ErrorObserver, NextObserver, Subject, merge } from 'rxjs';
 
 import { dataService } from 'services/data.service';
+import { locationService } from 'services/location.service';
+import { authService } from 'services';
+import { userCourseProgressService } from 'services/userCourseProgress.service';
 
 import { allLessons, getData } from './data';
 import { ECommonErrorTypes } from 'types';
@@ -9,13 +12,23 @@ import { localFilesServise } from 'services/localFiles.service';
 
 import useLessons from './useLessons';
 import useTopicLessons from './useTopicLessons';
+import useCurrentLesson from './useCurrentLesson';
+import useCourseLessons from './useCourseLessons';
 
 export type { ILessonData, TActionS, ILessonDataDB, TLessonState, IFetchLessonsProps } from './types';
 
 class LessonService {
   public useLessons = useLessons;
   public useTopicLessons = useTopicLessons;
+  public useCurrentLesson = useCurrentLesson;
+  public useCourseLessons = useCourseLessons;
   public sourceBS = new BehaviorSubject<TSource>('remote');
+
+  constructor() {
+    this.initCurrentLessonBS();
+    this.initCourseLessonsBS();
+  }
+
   public getLessonBS(props: IFetchLessonsProps) {
     try {
       const mainSubject = new BehaviorSubject<TActionBS>(null);
@@ -124,14 +137,98 @@ class LessonService {
     this.sourceBS.next(source);
   }
 
-  private errorToType(error: Error): TLessonError {
+  protected errorToType(error: Error): TLessonError {
     const errorIsUnknown = !([ECommonErrorTypes.DataIsCorrupted, ECommonErrorTypes.FailedToFindData, ECommonErrorTypes.Other] as string[]).includes(error.message);
     const errorType = errorIsUnknown ? ECommonErrorTypes.Other : error.message as TLessonError;
 
     return errorType;
   }
 
-  private _lessonS = new Subject<TActionS>();
+  protected initCurrentLessonBS() {
+    const refetch = () => {
+      const section = locationService.URLSection;
+      const courseLessons = this._courseLessonsBS.getValue();
+
+      if (section.name !== 'Study' || !courseLessons) {
+        this._currentLessonBS.next(null);
+        return;
+      }
+
+      const currentLesson = courseLessons.find(l => l.id === section.params.lessonId);
+      if (!currentLesson) {
+        this._currentLessonBS.next(null);
+        return;
+      }
+
+      this._currentLessonBS.next(currentLesson);
+    };
+
+    merge(
+      this._courseLessonsBS,
+      locationService.URLSectionBS,
+    ).subscribe(refetch);
+  }
+
+  protected initCourseLessonsBS() {
+    const refetch = () => {
+      const section = locationService.URLSection;
+      const authedUser = authService.user;
+      if ((section.name !== 'Profile' && section.name !== 'Study') || !authedUser) {
+        this._courseLessonsBS.next(null);
+        return;
+      }
+
+      const { courseId } = section.params;
+
+      dataService.userCourseProgress.get(courseId, authedUser.email)
+        .then(progress =>
+          this.fetch({ courseId })
+            .then(lessons => {
+              const sortedA = lessons.slice()
+                .sort((a, b) => {
+                  const key = a.topicOrder != b.topicOrder ? 'topicOrder' : 'orderInTopic';
+                  return a[key] - b[key];
+                });
+
+              const firstNotLearnedLesson = sortedA.find(l => !progress[l.id]);
+
+              this._courseLessonsBS.next(
+                lessons
+                  .map(lesson => {
+                    const solved = progress?.[lesson.id]?.solved ?? false;
+                    const canBeAccessed = !firstNotLearnedLesson ? true
+                      : firstNotLearnedLesson.topicOrder === lesson.topicOrder
+                        ? firstNotLearnedLesson.orderInTopic >= lesson.orderInTopic
+                        : firstNotLearnedLesson.topicOrder > lesson.topicOrder;
+                    return { ...lesson, canBeAccessed, solved };
+                  })
+                  .sort((a, b) => {
+                    const key = a.topicOrder != b.topicOrder ? 'topicOrder' : 'orderInTopic';
+                    return a[key] - b[key];
+                  })
+              );
+            })
+            .catch(error => {
+              console.log('Failed to fetch topic lessons', { error });
+            })
+        )
+        .catch(error => {
+          console.log('Failed to fetch topic lessons', { error });
+        });
+    };
+
+    merge(
+      this._lessonS,
+      this.sourceBS,
+      locationService.URLSectionBS,
+      authService.firebaseUserBS,
+      userCourseProgressService.userCourseProgresS,
+    ).subscribe(refetch);
+  }
+
+  protected _lessonS = new Subject<TActionS>();
+  protected _currentLessonBS = new BehaviorSubject<ILessonData | null>(null);
+  protected _courseLessonsBS = new BehaviorSubject<(ILessonData & { solved: boolean, canBeAccessed: boolean })[] | null>(null);
 }
 
 export const lessonService = new LessonService;
