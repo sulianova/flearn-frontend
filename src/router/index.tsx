@@ -28,6 +28,8 @@ export default function MyRouterContainer() {
 
 function MyRouter() {
   locationService.useSubscribeToLocation();
+  locationService.useSubscribeToNavigate();
+
   return (
     <Routes>
       <Route index path={URLSections.Home.index} element={<Home />} />

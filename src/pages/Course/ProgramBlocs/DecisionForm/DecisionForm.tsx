@@ -46,7 +46,7 @@ export default function DecisionForm({ course }: IProps) {
     const option = productOptions[type]!;
     const { creditPrice, creditWas, discount } = getDiscountedPrice(course.discount, option);
     return (
-      <div className={cx({ block: true, blockDetails: type === 'OPTIMAL' })}>
+      <div className={cx({ block: true, blockDetails: type === 'OPTIMAL' })} key={type}>
         {type === 'OPTIMAL' && (
           <div className={classes.buble}>самый популярный</div>
         )}

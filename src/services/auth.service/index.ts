@@ -16,6 +16,7 @@ import type { FirebaseApp, FirebaseOptions } from 'firebase/app';
 import type { Auth, User as FirebaseUserRaw } from 'firebase/auth';
 import { getBrowserAgent } from 'utils';
 import { URLSections } from 'router/utils';
+import { locationService } from 'services/location.service';
 
 type FirebaseUser = Omit<FirebaseUserRaw, 'email'> & { email: string };
 
@@ -64,11 +65,11 @@ class AuthService {
         return;
       }
 
-      if (getBrowserAgent() === 'TIKTOK') {  
-        window.location.replace(URLSections.Static.TikTokLogin.index);
+      if (getBrowserAgent() === 'TIKTOK') {
+        locationService.navigate?.(URLSections.Static.TikTokLogin.index);
         return;
       }
-  
+
       this._authenticationInProgress = true;
   
       const result = await signInWithPopup(this._auth, this._authProvider, );

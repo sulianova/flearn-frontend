@@ -29,7 +29,7 @@ function Item(props: Readonly<IProps>) {
 
   const tagsListNode = module.tags && module.tags.length && (
     <ul className={classes.tags}>
-      {module.tags.map(tag => <li className={classes.tag}>{tag}</li>)}
+      {module.tags.map((tag, i) => <li key={i} className={classes.tag}>{tag}</li>)}
     </ul>
   );
 
