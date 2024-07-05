@@ -199,6 +199,7 @@ export class FirebaseService {
   }
 
   public logEvent(eventName: string, eventParams?: IObject, options?: AnalyticsCallOptions) {
+    console.log(`logEvent [${eventName}]`, eventParams);
     logEvent(this._analytics, eventName, eventParams, options);
   }
 
