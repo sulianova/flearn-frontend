@@ -17,6 +17,7 @@ import type { Auth, User as FirebaseUserRaw } from 'firebase/auth';
 import { getBrowserAgent } from 'utils';
 import { URLSections } from 'router/utils';
 import { locationService } from 'services/location.service';
+import { analyticsService } from 'services/analytics.service';
 
 type FirebaseUser = Omit<FirebaseUserRaw, 'email'> & { email: string };
 
@@ -61,6 +62,7 @@ class AuthService {
 
   public async authenticate() {
     try {
+      analyticsService.logEvent({ type: analyticsService.event.TryToLogin });
       if (this._authenticationInProgress || this.isAuthenticated) {
         return;
       }
@@ -85,6 +87,7 @@ class AuthService {
 
       await this._afterAuth(result.user);
       this.firebaseUserBS.next(result.user);
+      analyticsService.logEvent({ type: analyticsService.event.Login });
     } catch (err) {
       console.log('Failed to authenticate', { err });
       this._authenticationInProgress = false;

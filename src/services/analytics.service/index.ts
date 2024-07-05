@@ -2,11 +2,13 @@ import { type AnalyticsCallOptions } from 'firebase/analytics';
 
 import { envService } from 'services/env.service';
 import { firebaseService } from 'services/firebase.service';
-import type { TAnalyticsEvents } from './types';
+import { EAnalyticsEvent, type TAnalyticsEvents } from './types';
 
 export * from './types';
 
 class AnalyticsService {
+    event = EAnalyticsEvent;
+
     logEvent(event: TAnalyticsEvents, options?: AnalyticsCallOptions) {
         const eventWithEnv = { ...event, data: { ...event.data, env: envService.env } };
         // tslint:disable-next-line

@@ -1,4 +1,7 @@
 export enum EAnalyticsEvent {
+    TryToLogin = 'try_to_login',
+    Login = 'login',
+    SignUp = 'sign_up',
     PageVisited = 'page_visited',
     ButtonClicked = 'button_clicked',
     StartTypingInDecisionForm = 'start_typing_in_decision_form',
@@ -22,6 +25,12 @@ export type TScrollToDecisionFormButtonClicked = {
     };
 }
 
+export type TElse = {
+    type: EAnalyticsEvent
+    data?: {}
+}
+
 export type TAnalyticsEvents =
     | TLandingPageVisitedEvent
-    | TScrollToDecisionFormButtonClicked;
+    | TScrollToDecisionFormButtonClicked
+    | TElse;
