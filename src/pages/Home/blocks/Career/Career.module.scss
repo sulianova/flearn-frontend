@@ -11,10 +11,10 @@
 
   padding: set-calc(48) set-calc(24);
 
-  background-color:  var(--color-card);
-  border: set-calc(1) solid  var(--color-border);
-  box-shadow: $shadow-huge-default;
-  border-radius: set-calc($border-radius-medium);
+  // background-color: var(--color-card);
+  // border: set-calc(1) solid  var(--color-border);
+  // box-shadow: $shadow-huge-default;
+  // border-radius: set-calc($border-radius-medium);
 
   display: flex;
   flex-direction: column;
@@ -24,7 +24,7 @@
   @include set-media(md) {
     padding: set-calc(32) set-calc(16);
 
-    border: set-calc(1) solid var(--color-border);
+    // border: set-calc(1) solid var(--color-border);
   }
 }
 

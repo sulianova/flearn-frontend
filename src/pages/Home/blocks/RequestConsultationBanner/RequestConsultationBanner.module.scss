@@ -22,7 +22,7 @@
   padding: set-calc(24);
 
   @include set-media(md) {
-    padding: set-calc(16);
+    padding: set-calc(24) set-calc(16);
   }
 }
 
@@ -30,11 +30,11 @@
   color: var(--color-content-primary);
   margin-bottom: set-calc(16);
 
-  @include font-56-normal-header;
+  @include font-40-normal-header ;
   text-align: center;
 
   @include set-media(md) {
-    text-align: start;
+    @include set-typography(24, 28, 500);
   }
 }
 
@@ -44,7 +44,7 @@
   text-align: center;
 
   @include set-media(md) {
-    text-align: start;
+    text-align: center;
   }
 }
 
@@ -57,10 +57,6 @@
   gap: set-calc(8);
 
   margin-top: set-calc(24);
-
-  @include set-media(md) {
-    align-items: start;
-  }
 }
 
 .button {
@@ -80,7 +76,7 @@
   transition: opacity $d-hover ease, box-shadow $d-hover ease, background-color $d-hover ease;
   cursor: pointer;
 
-  @include font-21-normal-ui;
+  @include font-18-normal-ui;
   white-space: nowrap;
 
   @include set-media(md) {

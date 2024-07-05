@@ -79,9 +79,9 @@
 .content {
   position: absolute;
 
-  top: set-calc(24);
+  top: set-calc(32);
   left: set-calc(24);
-  bottom: set-calc(24);
+  bottom: set-calc(32);
   display: flex;
 
   flex-direction: column;
@@ -95,9 +95,9 @@
   cursor: pointer;
   
   @include set-media(md) {
-    top: set-calc(16);
+    top: set-calc(24);
     left: set-calc(16);
-    bottom: set-calc(16);
+    bottom: set-calc(24);
     padding-right: set-calc(16);
     
     justify-content: flex-start;

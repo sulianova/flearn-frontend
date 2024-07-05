@@ -96,10 +96,10 @@ export default function Profile() {
               <div className={classes.currentLesson}>
                 <div className={classes.currentLessonWrapper}>
                   <div className={classes.currentLessonReminder}>
-                    <div className={classes.currentLessonSubtitle}>
+                    {/* <div className={classes.currentLessonSubtitle}>
                       <div className={classes.currentLessonSubtitleIndex}>{firstNotSolvedLesson.orderInTopic}.</div>
                       <span>{firstNotSolvedLesson.title}</span>
-                    </div>
+                    </div> */}
                     <div className={classes.currentLessonTitle}>
                       {firstNotSolvedLesson.topic}
                     </div>

@@ -5,7 +5,7 @@ interface IProps {
 }
 
 export default function Spinner({ variant = 'local' }: Readonly<IProps>) {
-  const size = variant === 'local' ? 48 : 96;
+  const size = variant === 'local' ? 16 : 32;
 
   return <Icon
     icon='Spinner'

@@ -109,7 +109,8 @@
 .currentLessonTitle {
   margin-bottom: set-calc(16);
 
-  @include font-28-normal-header;
+  @include font-21-normal-paragraph;
+  color: var(--color-content-paragraph-primary);
 }
 
 .currentLessonDetails {

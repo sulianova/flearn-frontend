@@ -45,7 +45,7 @@
   box-shadow: $shadow-icon;
 
   color: $color-content-inverted-primary-light;
-  background: linear-gradient(320deg, #7C84F3, #FF4DD2, #FF993B, #FF4DD2, #7C84F3, #FF4DD2, #FF993B);
+  background: $color-gradient-rainbow;
   background-size: 400% 400%;
 
   animation: buttonGradient 45s ease infinite;
@@ -87,7 +87,7 @@
   box-shadow: $shadow-icon;
 
   color: $color-content-inverted-primary-light;
-  background: linear-gradient(320deg, #7C84F3, #FF4DD2, #FF993B, #FF4DD2, #7C84F3, #FF4DD2, #FF993B);
+  background: $color-gradient-rainbow;
   background-size: 400% 400%;
 
   animation: buttonGradient 45s ease infinite;
@@ -116,13 +116,6 @@
     padding-bottom: set-calc(16);
     padding-left: set-calc(8);
     padding-right: set-calc(8);
-  }
-}
-
-@keyframes row {
-  100% {
-    opacity: 1;
-    transform: translateX(-100%); 
   }
 }
 
@@ -170,8 +163,7 @@
   border-radius: set-calc($border-radius-medium);
 
   aspect-ratio: 1 / 1.5;
-
-  text-align: center;
+  text-align: center; 
 
   @include set-media(md) {
     min-width: min(510px, 110vw);
