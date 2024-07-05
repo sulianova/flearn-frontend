@@ -33,7 +33,7 @@ interface IProps {
 function Page({ children, variant, header = false, footer, backgroundColor = 'var(--color-background-alternate)', scrollToTopDependencie, currentCourse }: IProps) {
   const ref = useHeightToCss();
   const lastScrollTop = useRef(0);
-  const [headerVisible, setHeaderVisible] = useState(true);
+  const [headerVisible, setHeaderVisible] = useState(false);
 
   useEffect(() => {
     window.scrollTo({ top: 0 });
@@ -44,17 +44,24 @@ function Page({ children, variant, header = false, footer, backgroundColor = 'va
   }, [backgroundColor]);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const calc = () => {
       const minScroll = 0;
       const maxScroll = document.body.scrollHeight - window.innerHeight;
       const capedScrollTop = Math.min(Math.max(window.scrollY, minScroll), maxScroll);
-      setHeaderVisible(lastScrollTop.current >= capedScrollTop && capedScrollTop !== maxScroll);
+      const pageHasScroll = maxScroll > 0;
+      setHeaderVisible(!pageHasScroll || (lastScrollTop.current >= capedScrollTop && capedScrollTop !== maxScroll));
       lastScrollTop.current = capedScrollTop;
     };
 
-    window.addEventListener('scroll', handleScroll);
+    calc();
+  
+    window.addEventListener('scroll', calc);
+    document.body.addEventListener('resize', calc);
 
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', calc);
+      document.body.removeEventListener('resiz', calc);
+    };
   }, []);
 
   return (
