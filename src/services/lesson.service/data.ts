@@ -89,7 +89,7 @@ const lessonData01: ILessonDataDB = {
   id: 'CommercialIllustratorTasks_2Q1wTR',
   courseId: 'how-to-draw',
   title: 'Какие задачи решает иллюстратор',
-  type: 'Practice',
+  type: 'Theory',
   topic: 'Как это — быть иллюстратором',
   topicOrder: 1,
   orderInTopic: 2,
@@ -108,7 +108,7 @@ const lessonData01: ILessonDataDB = {
       text: [
         {
           tag: 'p',
-          content: 'Добро пожаловать на вводную часть курса «Композиция: как выделить главное». Совсем скоро вы сделаете свою первую обложку для любимой песни. Ну а в начале давайте разберемся, кто такой иллюстратор и чем он занимается.',
+          content: 'Добро пожаловать на вводную часть курса «Композиция: как выделить главное». Совсем скоро вы сделаете свою обложку для любимой песни. Ну а в начале давайте разберемся, кто такой иллюстратор и чем он занимается.',
         },
         {
           tag: 'p',
@@ -121,64 +121,54 @@ const lessonData01: ILessonDataDB = {
       title: 'Иллюстрации в IT',
     },
     {
-      type: 'image',
-      imageData: {
-        id: 'LauraDiez.webp',
-        alt: 'LauraDíez',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Laura Díez',
-            props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/lauradieze' },
-          }
-        ]
-      },
-      size: 'LARGE',
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'MinHeo1.webp',
-        alt: 'MinHeo1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Min Heo',
-            props: { className: 'key-link', target: "_blank", to: 'https://minstudio.cargo.site/index' },
-          }
-        ]
-      },
-      size: 'LARGE',
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'IvanHaidutski.webp',
-        alt: 'IvanHaidutski',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Ivan Haidutski',
-            props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/ivanhaidutski' },
-          }
-        ]
-      },
-      size: 'LARGE',
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'bayduzha5.webp',
-        alt: 'bayduzha5',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Наташа Байдужа',
-            props: { className: 'key-link', target: "_blank", to: 'http://bayduzha.com/' },
-          }
-        ]
-      },
-      size: 'LARGE',
+      type: 'gallery',
+      maxHeightPx: 1_000,
+      images: [
+        {
+          id: 'LauraDiez.webp',
+          alt: 'LauraDíez',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Laura Díez',
+              props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/lauradieze' },
+            }
+          ]
+        },
+        {
+          id: 'MinHeo1.webp',
+          alt: 'MinHeo1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Min Heo',
+              props: { className: 'key-link', target: "_blank", to: 'https://minstudio.cargo.site/index' },
+            }
+          ]
+        },
+        {
+          id: 'IvanHaidutski.webp',
+          alt: 'IvanHaidutski',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Ivan Haidutski',
+              props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/ivanhaidutski' },
+            }
+          ]
+        },
+        {
+          id: 'bayduzha5.webp',
+          alt: 'bayduzha5',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Наташа Байдужа',
+              props: { className: 'key-link', target: "_blank", to: 'http://bayduzha.com/' },
+            }
+          ]
+        },
+      ]
     },
     {
       type: 'title',

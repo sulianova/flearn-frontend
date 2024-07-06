@@ -193,6 +193,7 @@
   justify-self: stretch;
   border-radius: set-calc($border-radius-medium);
   overflow: hidden;
+  max-height: set-calc(600);
 
   // &:before {
   //   content: "";

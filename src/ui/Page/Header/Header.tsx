@@ -67,6 +67,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
       {buyPopupIsOpened && currentCourse && user && <BuyPopup user={user} course={currentCourse} close={() => setBuyPopupIsOpened(false)}/>}
       <div className={headerClass}>
         <div className={cx({ desk: true, [`deskPadding${variant}`]: true })}>
+         {(urlSection.name !== 'Study') && (
           <div className={classes.logo}>
             <div className={classes.logoWrapper}>
               <Link to={URLSections.Home.index}>
@@ -74,6 +75,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
               </Link>
             </div>
           </div>
+         )}
           <div className={classes.nav}>
             {(urlSection.name === 'Profile' || urlSection.name === 'EmptyProfile' || urlSection.name === 'Course') && (
               <div className={classes.userSettingsWrapper}>
@@ -95,7 +97,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
                   </Link>
               </div>
             )}
-            {(user && !isMobile) && (
+            {(user && !isMobile) && (urlSection.name !== 'Study') && (
               <Dropdown
                 content={({ close }) => (
                   <CoursesDropdownContent
