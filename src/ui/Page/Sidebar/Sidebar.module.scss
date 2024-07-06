@@ -47,6 +47,10 @@
 
   padding: 0;
   margin: 0;
+
+  backdrop-filter: blur(set-calc($backdrop-filter));
+  border-radius: set-calc($border-radius-10);
+  background: var(--primary-color);
 }
 
 .items:last-child {
@@ -58,20 +62,18 @@
 
 .item {
   position: relative;
-  margin-bottom: set-calc(6);
 
   transition: background-color $d-hover ease-out, transform $d-hover ease-out;
-  border-radius: set-calc($border-radius-6);
   background-color: transparent;
 
   &:hover {
-    background-color: var(--color-background-glassy-b);
+    background-color: $color-background-glassy-c-dark;
     cursor: pointer;
   }
 
   &:active {
     transform: scale(0.96);
-    background-color: var(--color-background-glassy-c);
+    background-color: $color-background-glassy-d-dark;
   }
 }
 
@@ -80,8 +82,8 @@
   display: block;
   overflow: inherit;
 
-  width: set-calc(40);
-  height: set-calc(40);
+  width: set-calc(46);
+  height: set-calc(46);
 }
 
 .icon {
@@ -104,7 +106,7 @@
     height: set-calc(24);
 
     path {
-      fill: var(--color-content-primary);
+      fill: $color-content-primary-dark;
     }
   }
 

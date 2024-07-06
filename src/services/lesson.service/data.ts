@@ -122,8 +122,52 @@ const lessonData01: ILessonDataDB = {
     },
     {
       type: 'gallery',
-      maxHeightPx: 1_000,
+      maxHeightPx: 1_300,
       images: [
+        {
+          id: 'PaulaCruz2.webp',
+          alt: 'PaulaCruz2',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Paula Cruz',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/paulacruz' },
+            }
+          ]
+        },
+        {
+          id: 'PaulaCruz1.webp',
+          alt: 'PaulaCruz1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Paula Cruz',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/paulacruz' },
+            }
+          ]
+        },
+        {
+          id: 'SusannaRumiz2.webp',
+          alt: 'SusannaRumiz2',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Susanna Rumiz',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/susannarumiz/projects' },
+            }
+          ]
+        },
+        {
+          id: 'SusannaRumiz.webp',
+          alt: 'SusannaRumiz',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Susanna Rumiz',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/susannarumiz/projects' },
+            }
+          ]
+        },
         {
           id: 'LauraDiez.webp',
           alt: 'LauraDíez',
@@ -131,7 +175,7 @@ const lessonData01: ILessonDataDB = {
             {
               tag: 'a',
               content: 'Laura Díez',
-              props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/lauradieze' },
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/lauradieze' },
             }
           ]
         },
@@ -142,7 +186,7 @@ const lessonData01: ILessonDataDB = {
             {
               tag: 'a',
               content: 'Min Heo',
-              props: { className: 'key-link', target: "_blank", to: 'https://minstudio.cargo.site/index' },
+              props: { className: 's-hoverable', target: "_blank", to: 'https://minstudio.cargo.site/index' },
             }
           ]
         },
@@ -153,7 +197,7 @@ const lessonData01: ILessonDataDB = {
             {
               tag: 'a',
               content: 'Ivan Haidutski',
-              props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/ivanhaidutski' },
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/ivanhaidutski' },
             }
           ]
         },
@@ -164,7 +208,7 @@ const lessonData01: ILessonDataDB = {
             {
               tag: 'a',
               content: 'Наташа Байдужа',
-              props: { className: 'key-link', target: "_blank", to: 'http://bayduzha.com/' },
+              props: { className: 's-hoverable', target: "_blank", to: 'http://bayduzha.com/' },
             }
           ]
         },

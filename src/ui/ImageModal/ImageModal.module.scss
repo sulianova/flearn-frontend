@@ -22,13 +22,13 @@
   left: 0;
   right: 0;
 
-  background: var(--color-background-overlay);
+  background: $color-palette-black-800-a;
   opacity: 0;
 
   transition: opacity 0.2s ease-out;
 
   @include set-media(md) {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7)), transparent;
+    background: $color-palette-black-800-a;
     opacity: 1;
     
     transition: opacity 0.3s ease-out;
@@ -90,10 +90,6 @@
     max-width: set-calc(calc(-2 * var(--image-image-min-padding-scaled)), true, 100vw);
     max-height: set-calc(calc(-3 * var(--image-image-min-padding-scaled)), true, 100vh);
 
-    // transition: transform  $modal-animation-duration ease-in-out;
-    // transform: translate(var(--original-translate-x), var(--original-translate-y)) scale(calc(1 * var(--original-scale)), calc(1 * var(--original-scale)));
-    // transform-origin: top left;
-
     touch-action: none;
     pointer-events: none;
     cursor: default;
@@ -105,32 +101,37 @@
 
   position: absolute;
   top: set-calc(16);
-  right: set-calc(50);
+  right: set-calc(16);
 
-  display: inline-block;
-  text-align: center;
-  background: 50% no-repeat;
-  background-size: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
 
-  opacity: .7;
-  transition: opacity $d-hover ease;
+  padding: set-calc(10);
+  width: set-calc(40);
+  height: set-calc(40);
+
+  transition: transform .1s ease-in, background-color .2s ease-in;
+
+  border-radius: 50%;
   color: $color-palette-white-1000;
+  background-color: $color-palette-black-600;
+  box-shadow: $shadow-icon;
 
   svg {
-    width: set-calc(24);
-    height: set-calc(24);
-    fill: none;
+    width: 100%;
+    height: 100%;
   }
 
   @include set-media(md) {
-    top: set-calc(16);
-    right: set-calc(16);
+    top: set-calc(10);
+    right: set-calc(8);
   }
 }
 
 .modalClose:hover {
-  opacity: 1;
+  transform: scale(1.05);
 }
 
 .imageGallery__modalContentWrapper {
@@ -204,15 +205,13 @@
     width: set-calc(58);
     height: set-calc(58);
   
-    opacity: 1;
-  
     cursor: pointer;
     transform: translate(-120%, -50%);
-    transition: transform .1s ease-in, opacity .1s ease-in;
+    transition: transform .1s ease-in, background-color .2s ease-in;
   
     border-radius: 50%;
     color: $color-palette-white-1000;
-    background-color: $color-palette-black-1000;
+    background-color: $color-palette-black-600;
     box-shadow: $shadow-icon;
 
     svg {
@@ -228,7 +227,7 @@
       transform: unset;
 
       top: unset;
-      left: set-calc(16);
+      left: set-calc(0);
       bottom: set-calc(0);
 
       &:hover {
@@ -249,15 +248,13 @@
   width: set-calc(58);
   height: set-calc(58);
 
-  opacity: 1;
-
   cursor: pointer;
   transform: translate(120%, -50%) rotate(180deg);
-  transition: transform .1s ease-in, opacity .1s ease-in;
+  transition: transform .1s ease-in, background-color .2s ease-in;
 
   border-radius: 50%;
   color: $color-palette-white-1000;
-  background-color: $color-palette-black-1000;
+  background-color: $color-palette-black-600;
   box-shadow: $shadow-icon;
 
   svg {
@@ -274,7 +271,7 @@
 
     top: unset;
     bottom: set-calc(0);
-    right: set-calc(16);
+    right: set-calc(0);
 
     &:hover {
       transform: rotate(180deg);

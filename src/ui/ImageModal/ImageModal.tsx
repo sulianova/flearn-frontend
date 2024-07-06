@@ -13,7 +13,7 @@ const cx = classnames.bind(classes);
 export default ImageModal;
 
 const MODAL_ANIMATION_DURATION = 200;
-const GALLERY_IMAGE_MAX_WIDTH_VW = 87;
+const GALLERY_IMAGE_MAX_WIDTH_VW = 90;
 const GALLERY_IMAGE_MAX_HEIGHT_VH = 93;
 const IMAGE_IMAGE_MIN_PADDING_SCALED = 24;
 
@@ -170,7 +170,7 @@ function ImageModal({ variant, image, onClose, onNext, onPrev }: Readonly<IProps
       >
         <div className={classes.overlay}></div>
         <div className={classes.modalClose} onClick={close}>
-          <Icon icon='ModalCross'/>
+          <Icon icon='Cross'/>
         </div>
         <div className={classes.modalContentWrapper}>
           <div className={cx({ modalContent: true})}>
