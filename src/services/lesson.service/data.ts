@@ -227,6 +227,28 @@ const lessonData01: ILessonDataDB = {
       maxHeightPx: 3_000,
       images: [
         {
+          id: 'ETolsma2.webp',
+          alt: 'ETolsma2',
+          caption: [
+            {
+              tag: 'a',
+              content: 'E. Tolsma',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/ellistolsma' },
+            }
+          ]
+        },
+        {
+          id: 'SusannaRumiz3.webp',
+          alt: 'SusannaRumiz3',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Susanna Rumiz',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/susannarumiz/projects' },
+            }
+          ]
+        },
+        {
           id: 'AmandaLobos3.webp',
           alt: 'AmandaLobos3',
           caption: [
@@ -355,8 +377,19 @@ const lessonData01: ILessonDataDB = {
     },
     {
       type: 'gallery',
-      maxHeightPx: 2_000,
+      maxHeightPx: 2_300,
       images: [
+        {
+          id: 'SusannaRumiz5.webp',
+          alt: 'SusannaRumiz5',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Susanna Rumiz',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/susannarumiz/projects' },
+            }
+          ]
+        },
         {
           id: 'NickLiefhebber3.webp',
           alt: 'NickLiefhebber3',
@@ -639,8 +672,63 @@ const lessonData01: ILessonDataDB = {
     },
     {
       type: 'gallery',
-      maxHeightPx: 1_100,
+      maxHeightPx: 2_300,
       images: [
+        {
+          id: 'ETolsma3.webp',
+          alt: 'ETolsma3',
+          caption: [
+            {
+              tag: 'a',
+              content: 'E. Tolsma',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/ellistolsma' },
+            }
+          ]
+        },
+        {
+          id: 'ETolsma4.webp',
+          alt: 'ETolsma4',
+          caption: [
+            {
+              tag: 'a',
+              content: 'E. Tolsma',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/ellistolsma' },
+            }
+          ]
+        },
+        {
+          id: 'ETolsma5.webp',
+          alt: 'ETolsma5',
+          caption: [
+            {
+              tag: 'a',
+              content: 'E. Tolsma',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/ellistolsma' },
+            }
+          ]
+        },
+        {
+          id: 'ETolsma6.webp',
+          alt: 'ETolsma6',
+          caption: [
+            {
+              tag: 'a',
+              content: 'E. Tolsma',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/ellistolsma' },
+            }
+          ]
+        },
+        {
+          id: 'SusannaRumiz4.webp',
+          alt: 'SusannaRumiz4',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Susanna Rumiz',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/susannarumiz/projects' },
+            }
+          ]
+        },
         {
           id: 'NickLiefhebber2.webp',
           alt: 'NickLiefhebber2',
@@ -737,8 +825,19 @@ const lessonData01: ILessonDataDB = {
     },
     {
       type: 'gallery',
-      maxHeightPx: 1_400,
+      maxHeightPx: 1_500,
       images: [
+        {
+          id: 'ETolsma1.webp',
+          alt: 'ETolsma1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'E. Tolsma',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/ellistolsma' },
+            }
+          ]
+        },
         {
           id: 'NickLiefhebber4.webp',
           alt: 'NickLiefhebber4',
@@ -1182,6 +1281,41 @@ const lessonData01: ILessonDataDB = {
         },
       ]
     }
+  ]
+}
+
+const lessonData02: ILessonDataDB = {
+  id: 'WorkSteps_fawKxs',
+  courseId: 'how-to-draw',
+  title: 'Этапы работы над иллюстрацией',
+  type: 'Theory',
+  topic: 'Как это — быть иллюстратором',
+  topicOrder: 1,
+  orderInTopic: 3,
+  duration: {
+    unit: 'hours',
+    value: 1
+  },
+  isFree: true,
+  content: [
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'В прошлом уроке мы рассказали, в каких сферах применяется иллюстрация. Самое время погрузиться в работу иллюстратора и узнать, как устроен этот процесс.  Иллюстратор работает над задачей в несколько этапов:',
+        }
+      ]
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'В следующих уроках мы подробно изучим каждый этап и поможем выполнить финальное заданием. Задание можно отправить на проверку нашим специалистам. Они оставят комментарии, по которым вы сможете доработать иллюстрацию и положить её в портфолио.',
+        }
+      ]
+    },
   ]
 }
 
@@ -10623,6 +10757,7 @@ const lessonDataFYS4: ILessonDataDB = {
 export const allLessons = [
   lessonData00,
   lessonData01,
+  lessonData02,
   lessonData11,
   lessonData12,
   lessonData13,

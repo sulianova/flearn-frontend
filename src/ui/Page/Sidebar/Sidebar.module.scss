@@ -50,7 +50,8 @@
 
   backdrop-filter: blur(set-calc($backdrop-filter));
   border-radius: set-calc($border-radius-10);
-  background: var(--primary-color);
+  border: none;
+  background-color: var(--color-content-background-primary);
   overflow: hidden;
 }
 
@@ -68,13 +69,13 @@
   background-color: transparent;
 
   &:hover {
-    background-color: $color-background-glassy-c-dark;
+    background-color: var(--color-background-glassy-inverted-c);
     cursor: pointer;
   }
 
   &:active {
     transform: scale(0.96);
-    background-color: $color-background-glassy-d-dark;
+    background-color: var(--color-background-glassy-inverted-d);
   }
 }
 
@@ -107,7 +108,7 @@
     height: set-calc(24);
 
     path {
-      fill: $color-content-primary-dark;
+      fill: var(--color-content-inverted-primary);
     }
   }
 
