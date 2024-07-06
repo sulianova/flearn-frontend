@@ -62,14 +62,13 @@ class AuthService {
 
   public async authenticate() {
     try {
-      analyticsService.logEvent({ type: analyticsService.event.TryToLogin });
       if (this._authenticationInProgress || this.isAuthenticated) {
         return;
       }
 
       if (getBrowserAgent() === 'TIKTOK') {
         locationService.navigate?.(URLSections.Static.TikTokLogin.index);
-        return;
+        throw new Error('Cannot authenticate from TikTok');
       }
 
       this._authenticationInProgress = true;
@@ -87,10 +86,17 @@ class AuthService {
 
       await this._afterAuth(result.user);
       this.firebaseUserBS.next(result.user);
-      analyticsService.logEvent({ type: analyticsService.event.Login });
-    } catch (err) {
-      console.log('Failed to authenticate', { err });
+      analyticsService.logEvent({
+        type: analyticsService.event.Login,
+        data: { method: 'Google' },
+      });
+    } catch (error) {
+      console.log('Failed to authenticate', { error });
       this._authenticationInProgress = false;
+      analyticsService.logEvent({
+        type: analyticsService.event.LoginFailed,
+        data: { method: 'Google', reason: String(error) },
+      });
     }
   }
 

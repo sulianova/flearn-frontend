@@ -9,6 +9,7 @@ export function getBrowserAgent(): TBrowserAgent {
   if (tiktokRegex.test(agent)) {
     return 'TIKTOK';
   } else {
-    return 'OTHER';
+    return 'TIKTOK';
+    // return 'OTHER';
   }
 }

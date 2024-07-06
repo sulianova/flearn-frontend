@@ -1,7 +1,3 @@
-import { useEffect } from 'react';
-import { useParams } from 'react-router';
-
-import { analyticsService, EAnalyticsEvent } from 'services/analytics.service';
 import { courseService } from 'services/course.service';
 
 import Page, { EFooter, EPageVariant } from 'ui/Page/Page';
@@ -12,19 +8,7 @@ import ProgramIntro from './ProgramIntro/ProgramIntro';
 import Fallback from 'ui/Fallback';
 
 export default function Course() {
-  const { courseId } = useParams();
-
   const course = courseService.useCurrentCourse();
-
-  useEffect(() => {
-    analyticsService.logEvent({
-      type: EAnalyticsEvent.PageVisited,
-      data: {
-        type: 'landing_page',
-        courseId: courseId!,
-      },
-    });
-  }, []);
 
   if (!course) {
     return <Fallback.Pending text={'loading course'}/>;
