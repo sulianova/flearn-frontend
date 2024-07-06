@@ -67,7 +67,8 @@ class AuthService {
       }
 
       if (getBrowserAgent() === 'TIKTOK') {
-        locationService.navigate?.(URLSections.Static.TikTokLogin.index);
+        const pathname = locationService.location?.pathname;
+        locationService.navigate?.(URLSections.Static.TikTokLogin.to({ params: { prevPathname: pathname } }));
         throw new Error('Cannot authenticate from TikTok');
       }
 

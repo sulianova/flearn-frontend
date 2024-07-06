@@ -1,13 +1,12 @@
 import { useEffect } from 'react';
-
-import { useURLSection } from 'hooks';
+import { useLocation } from 'react-router';
 
 import type LocationService from '.';
 
 export default function useSubscribeToLocation(this: LocationService) {
-  const section = useURLSection();
+  const location = useLocation();
 
   useEffect(() => {
-    this.URLSectionBS.next(section)
-  }, [section]);
+    this.locationBS.next(location);
+  }, [location]);
 }

@@ -2,7 +2,6 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 import { locationService } from 'services/location.service';
 
-import Fallback from 'ui/Fallback';
 import Home from 'pages/Home/Home';
 import Course from 'pages/Course/Course';
 import EmptyProfile from 'pages/EmptyProfile/EmptyProfile';
@@ -11,6 +10,7 @@ import Study from 'pages/Study/Study';
 import Oferta from 'pages/Static/Oferta';
 import Policy from 'pages/Static/Policy';
 import Unsubscribe from 'pages/Static/Unsubscribe';
+import TikTokLogin from 'pages/Static/TikTokLogin';
 
 import ProtectedRoute from './ProtectedRoute';
 import { URLSections } from './utils';
@@ -28,6 +28,7 @@ export default function MyRouterContainer() {
 
 function MyRouter() {
   locationService.useSubscribeToLocation();
+  locationService.useSubscribeToSection();
   locationService.useSubscribeToNavigate();
 
   return (
@@ -43,9 +44,7 @@ function MyRouter() {
       <Route path={URLSections.Static.Oferta.index} element={<Oferta />}/>
       <Route path={URLSections.Static.Policy.index} element={<Policy />}/>
       <Route path={URLSections.Static.Unsubscribe.index} element={<Unsubscribe />}/>
-      <Route path={URLSections.Static.TikTokLogin.index} element={
-        <Fallback.Info>You cannot login from TikTok in-app browser. Please you other browser</Fallback.Info>
-      }/>
+      <Route path={URLSections.Static.TikTokLogin.index} element={<TikTokLogin/>}/>
       <Route path={'*'} element={<Navigate to={URLSections.Home.index} />}/>
     </Routes>
   );

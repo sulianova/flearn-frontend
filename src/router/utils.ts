@@ -86,7 +86,10 @@ export const URLSections = {
       index: '/unsubscribe',
       to: (props: IBaseProps) => assemble({ ...props, path: `/unsubscribe` }),
     },
-    TikTokLogin: { index: '/tiktokLogin' },
+    TikTokLogin: {
+      index: '/tiktokLogin',
+      to: (props: IBaseProps) => assemble({ ...props, path: `/tiktokLogin` }),
+    },
   },
 } as const;
 
