@@ -52,7 +52,7 @@
   border-radius: set-calc($border-radius-10);
   border: none;
   background-color: var(--color-content-background-secondary);
-  overflow: hidden;
+  // overflow: hidden;
 }
 
 .items:last-child {
@@ -67,6 +67,7 @@
 
   transition: background-color $d-hover ease-out, transform $d-hover ease-out;
   background-color: transparent;
+  border-radius: set-calc($border-radius-10);
 
   &:hover {
     background-color: var(--color-background-glassy-c);
