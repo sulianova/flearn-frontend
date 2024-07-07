@@ -1,8 +1,5 @@
 import { firebaseService } from 'services/firebase.service';
-
-import { TAccess, TAccessData } from './types';
-
-export type { TAccess, TAccessData } from './types';
+import type { TAccess, TAccessData } from 'services/userAccess.service/types';
 
 class Access {
   public async get(courseId: string, email: string) {

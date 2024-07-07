@@ -2,14 +2,14 @@ import { BehaviorSubject, CompletionObserver, ErrorObserver, NextObserver, Subje
 
 import { dataService } from 'services/data.service';
 import { locationService } from 'services/location.service';
-import { authService } from 'services';
 import { userCourseProgressService } from 'services/userCourseProgress.service';
 import { userAccessService } from 'services/userAccess.service';
+import { userService } from 'services/user.service';
+import { localFilesServise } from 'services/localFiles.service';
 
 import { allLessons, getData } from './data';
 import { ECommonErrorTypes } from 'types';
 import { TSource, type IFetchLessonsProps, type ILessonData, type TActionBS, type TActionS, type TLessonError } from './types';
-import { localFilesServise } from 'services/localFiles.service';
 
 import useLessons from './useLessons';
 import useTopicLessons from './useTopicLessons';
@@ -175,7 +175,7 @@ class LessonService {
   protected initCourseLessonsBS() {
     const refetch = () => {
       const section = locationService.URLSection;
-      const authedUser = authService.user;
+      const authedUser = userService.authedUser;
       if ((section.name !== 'Profile' && section.name !== 'Study') || !authedUser) {
         this._courseLessonsBS.next(null);
         return;
@@ -188,29 +188,26 @@ class LessonService {
         .then(progress =>
           this.fetch({ courseId })
             .then(lessons => {
-              const sortedA = lessons.slice()
+              const sortedLessons = lessons.slice()
                 .sort((a, b) => {
                   const key = a.topicOrder != b.topicOrder ? 'topicOrder' : 'orderInTopic';
                   return a[key] - b[key];
                 });
 
-              const firstNotLearnedLesson = sortedA.find(l => !progress[l.id]);
+              const firstNotLearnedLesson = sortedLessons.find(l => !progress[l.id]);
 
               this._courseLessonsBS.next(
-                lessons
+                sortedLessons
                   .map(lesson => {
                     const solved = progress?.[lesson.id]?.solved ?? false;
                     const canBeAccessed =
-                      !lesson.isFree && currentCourseAccess === 'FREE' ? false
+                      authedUser.role === 'support' ? true
+                      : !lesson.isFree && currentCourseAccess === 'FREE' ? false
                       : !firstNotLearnedLesson ? true
                       : firstNotLearnedLesson.topicOrder === lesson.topicOrder
                         ? firstNotLearnedLesson.orderInTopic >= lesson.orderInTopic
                         : firstNotLearnedLesson.topicOrder > lesson.topicOrder;
                     return { ...lesson, canBeAccessed, solved };
-                  })
-                  .sort((a, b) => {
-                    const key = a.topicOrder != b.topicOrder ? 'topicOrder' : 'orderInTopic';
-                    return a[key] - b[key];
                   })
               );
             })
@@ -227,7 +224,7 @@ class LessonService {
       this._lessonS,
       this.sourceBS,
       locationService.URLSectionBS,
-      authService.firebaseUserBS,
+      userService.authedUserBS,
       userCourseProgressService.userCourseProgresS,
       userAccessService._currentCourseAccessBS,
     ).subscribe(refetch);

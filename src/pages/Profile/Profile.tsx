@@ -1,14 +1,14 @@
 import { useMemo, useState } from 'react';
-import { useParams } from 'react-router';
 
 import { formatI18nT } from 'shared';
 import { URLSections } from 'router';
 
-import { userService } from 'services/user.service';
-import { ILessonData, lessonService } from 'services/lesson.service';
-import { courseService } from 'services/course.service';
-import { userAccessService } from 'services/userAccess.service';
+import { type IUserData, userService } from 'services/user.service';
+import { type ILessonData, lessonService } from 'services/lesson.service';
+import { type ICourseData, courseService } from 'services/course.service';
+import { type TAccess, userAccessService } from 'services/userAccess.service';
 
+import BuyPopup from 'components/BuyPopup/BuyPopup';
 import LessonsPopup from 'components/LessonsPopup/LessonsPopup';
 import Link from 'ui/Link/Link';
 import Page, { EPageVariant } from 'ui/Page/Page';
@@ -16,7 +16,6 @@ import Fallback from 'ui/Fallback';
 
 import classesList from './LessonsList.module.scss';
 import classes from './Profile.module.scss';
-import BuyPopup from 'components/BuyPopup/BuyPopup';
 
 interface IGroup {
   topic: string
@@ -27,32 +26,42 @@ interface IGroup {
 
 const t = formatI18nT('courseLessons');
 
-export default function Profile() {
-  const { courseId } = useParams();
-
+export default function ProfileContainer() {
   const authedUser = userService.useAuthedUser();
   const currentCourse = courseService.useCurrentCourse();
   const courseLessons = lessonService.useCourseLessons();
   const currentCourseAccess = userAccessService.useCurrentCourseAccess();
 
+  if (!authedUser || !currentCourse || !courseLessons || !currentCourseAccess) {
+    return <Fallback.Pending text='Loading profile'/>;
+  }
+
+  return (
+    <Profile
+      authedUser={authedUser}
+      currentCourse={currentCourse}
+      courseLessons={courseLessons}
+      currentCourseAccess={currentCourseAccess}
+    />
+  );
+}
+
+interface IProps {
+  authedUser: IUserData
+  currentCourse: ICourseData
+  courseLessons: Array<ILessonData & { solved: boolean, canBeAccessed: boolean }>
+  currentCourseAccess: TAccess
+}
+
+function Profile(props: IProps) {
+  const { authedUser, currentCourse, courseLessons, currentCourseAccess } = props;
+
   const [openedTopic, setOpenedTopic] = useState<string | null>(null);
   const [buyCoursePopupIsOpened, setBuyCoursePopupIsOpened] = useState(false);
 
-  const filteredCourseLessons = useMemo(() => {
-    if (!courseLessons) {
-      return [];
-    }
-
-    if (authedUser?.role === 'support') {
-      return courseLessons;
-    }
-
-    return courseLessons;
-  }, [courseLessons, authedUser]);
-
   const groupes: IGroup[] = useMemo(() => {
     const getKey = (topic: string, topicOrder: number) => `${topic}-${topicOrder}`;
-    return [...filteredCourseLessons
+    return [...courseLessons
       .reduce((acc, lessonData) => {
         const key = getKey(lessonData.topic, lessonData.topicOrder);
 
@@ -74,15 +83,9 @@ export default function Profile() {
       }, new Map() as Map<string, IGroup>)
       .values()]
       .sort((a, b) => a.topicOrder - b.topicOrder);
+  }, [courseLessons]);
 
-  }, [filteredCourseLessons]);
-
-  const firstNotSolvedLesson = courseLessons?.find(l => !l.solved);
-
-  if (!currentCourse || !courseLessons || !courseLessons.length) {
-    return <Fallback.Pending text='Loading profile'/>;
-  }
-
+  const firstNotSolvedLesson = courseLessons.find(l => !l.solved);
   const freeGroupes = groupes.filter(g => g.isFree);
   const payableGroupes = groupes.filter(g => !g.isFree);
 
@@ -127,10 +130,11 @@ export default function Profile() {
             ) : (
               <div>Реклама</div>
             )}
-            <div className={classes.program}>
-              <div className={classes.programTitle}>Доступно сейчас и бесплатно</div>
-                <div className={classesList.wrapper}>
-                    {freeGroupes.map((group, index) => {
+            {(currentCourseAccess !== 'FREE' || authedUser.role === 'support') ? (
+              <div className={classes.program}>
+                <div className={classes.programTitle}>Модули</div>
+                  <div className={classesList.wrapper}>
+                    {[...freeGroupes, ...payableGroupes].map((group, index) => {
                       const totalDurationMinutes = group.lessons.reduce((acc, l) => acc + durationToMinutes(l.duration), 0);
                       return (
                         <div key={index} className={classesList.itemWrapper} onClick={() => setOpenedTopic(group.topic)}>
@@ -156,48 +160,82 @@ export default function Profile() {
                       );
                     })}
                 </div>
-            </div>
-            <div className={classes.program}>
-              <div className={classes.programTitle}>Будет доступно после оплаты</div>
-                <div className={classesList.wrapper}>
-                    {payableGroupes.map((group, index) => {
-                      const totalDurationMinutes = group.lessons.reduce((acc, l) => acc + durationToMinutes(l.duration), 0);
-                      return (
-                        <div key={index} className={classesList.itemWrapper} onClick={() => setOpenedTopic(group.topic)}>
-                          <div className={classesList.item}>
-                            <div className={classesList.imageWrapper}/>
-                            <div className={classesList.itemBody}>
-                              <div className={classesList.itemBodyContainer}>
-                                <div className={classesList.titleContainer}>
-                                  <h2 className={classesList.title}>
-                                    {group.topic}
-                                  </h2>
+              </div>
+            ) : (
+              <>
+                <div className={classes.program}>
+                  <div className={classes.programTitle}>Доступно сейчас и бесплатно</div>
+                    <div className={classesList.wrapper}>
+                      {freeGroupes.map((group, index) => {
+                        const totalDurationMinutes = group.lessons.reduce((acc, l) => acc + durationToMinutes(l.duration), 0);
+                        return (
+                          <div key={index} className={classesList.itemWrapper} onClick={() => setOpenedTopic(group.topic)}>
+                            <div className={classesList.item}>
+                              <div className={classesList.imageWrapper}/>
+                              <div className={classesList.itemBody}>
+                                <div className={classesList.itemBodyContainer}>
+                                  <div className={classesList.titleContainer}>
+                                    <h2 className={classesList.title}>
+                                      {group.topic}
+                                    </h2>
+                                  </div>
                                 </div>
-                              </div>
-                              <div className={classesList.info}>
-                                <div className={classesList.infoMain}>
-                                  <span className={classesList.infoItem}>{`${group.lessons.length} урока`}</span>
-                                  <span className={classesList.infoItem}>{`≈ ${Math.round(totalDurationMinutes / 6) / 10} ч  `}</span>
+                                <div className={classesList.info}>
+                                  <div className={classesList.infoMain}>
+                                    <span className={classesList.infoItem}>{`${group.lessons.length} урока`}</span>
+                                    <span className={classesList.infoItem}>{`≈ ${Math.round(totalDurationMinutes / 6) / 10} ч  `}</span>
+                                  </div>
                                 </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      );
-                    })}
+                        );
+                      })}
+                  </div>
                 </div>
-            </div>
+                <div className={classes.program}>
+                  <div className={classes.programTitle}>Будет доступно после оплаты</div>
+                    <div className={classesList.wrapper}>
+                      {payableGroupes.map((group, index) => {
+                        const totalDurationMinutes = group.lessons.reduce((acc, l) => acc + durationToMinutes(l.duration), 0);
+                        return (
+                          <div key={index} className={classesList.itemWrapper} onClick={() => setOpenedTopic(group.topic)}>
+                            <div className={classesList.item}>
+                              <div className={classesList.imageWrapper}/>
+                              <div className={classesList.itemBody}>
+                                <div className={classesList.itemBodyContainer}>
+                                  <div className={classesList.titleContainer}>
+                                    <h2 className={classesList.title}>
+                                      {group.topic}
+                                    </h2>
+                                  </div>
+                                </div>
+                                <div className={classesList.info}>
+                                  <div className={classesList.infoMain}>
+                                    <span className={classesList.infoItem}>{`${group.lessons.length} урока`}</span>
+                                    <span className={classesList.infoItem}>{`≈ ${Math.round(totalDurationMinutes / 6) / 10} ч  `}</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })}
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </Page>
-      {openedTopic && courseId && authedUser && (
+      {openedTopic && (
         <LessonsPopup
-          courseId={courseId}
+          courseId={currentCourse.id}
           topic={openedTopic}
           close={() => setOpenedTopic(null)}
         />
       )}
-      {buyCoursePopupIsOpened && authedUser && (
+      {buyCoursePopupIsOpened && (
         <BuyPopup
           course={currentCourse}
           user={authedUser}

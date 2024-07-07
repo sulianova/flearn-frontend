@@ -11,9 +11,14 @@ export { type IUserData, type IUserDataDB } from './types';
 
 class UserService {
   public useAuthedUser = useAuthedUser;
+  public authedUserBS = new BehaviorSubject<IUserData | null>(null);
 
   constructor() {
     this.init();
+  }
+
+  public get authedUser() {
+    return this.authedUserBS.getValue();
   }
 
   public init() {
@@ -23,7 +28,7 @@ class UserService {
     ).subscribe(() => {
       const authedUserId = authService.user?.uid;
       if (!authedUserId) {
-        this._authedUserBS.next(null);
+        this.authedUserBS.next(null);
         return;
       }
   
@@ -31,15 +36,15 @@ class UserService {
         .then(users => {
           const user = users.at(0);
           if (!user) {
-            this._authedUserBS.next(null);
+            this.authedUserBS.next(null);
             return;
           }
 
-          this._authedUserBS.next(user);
+          this.authedUserBS.next(user);
         })
         .catch(error => {
           console.log('Failed to fetch authed user', { authedUserId, error });
-          this._authedUserBS.next(null);
+          this.authedUserBS.next(null);
         })
     });
   }
@@ -131,7 +136,6 @@ class UserService {
   }
 
   protected _usersS = new Subject<TActionS>();
-  protected _authedUserBS = new BehaviorSubject<IUserData | null>(null);
 }
 
 export const userService = new UserService;

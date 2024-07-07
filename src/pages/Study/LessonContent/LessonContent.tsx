@@ -2,11 +2,11 @@ import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
 import { type ICourseData } from 'services/course.service';
-import { type TAccess } from 'services/data.service/Access';
 import { type IUserData } from 'services/user.service';
 import { type ILessonData, lessonService } from 'services/lesson.service';
 import { userCourseProgressService } from 'services/userCourseProgress.service';
 import { emailService } from 'services/email.service';
+import { type TAccess } from 'services/userAccess.service';
 import { URLSections } from 'router';
 
 import BuyPopup from 'components/BuyPopup/BuyPopup';
@@ -64,7 +64,7 @@ export default function LessonContent(props: IProps) {
               .then(() => {
                 if (nextLesson === null) {
                   navigate(URLSections.Profile.to({ courseId: course.id }));
-                } else if (!nextLesson.isFree && courseAccess === 'FREE') {
+                } else if (!nextLesson.isFree && courseAccess === 'FREE' && user.role === 'user') {
                   setBuyPopupIsOpened(true);
                 } else {
                   navigate(URLSections.Study.to({ courseId: course.id, lessonId: nextLesson.id }));

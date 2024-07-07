@@ -68,7 +68,7 @@ function Lesson({ section }: IProps) {
     return <Fallback.Pending text='Loading lesson'/>;
   }
 
-  if (!currentLesson.isFree && currentCourseAccess === 'FREE') {
+  if (!currentLesson.isFree && currentCourseAccess === 'FREE' && authedUser.role === 'user') {
     return (
       <Fallback.Info>
         Это платный урок. Купите курс, чтобы получить доступ.

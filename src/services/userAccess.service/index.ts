@@ -2,10 +2,12 @@ import { BehaviorSubject, merge, Subject } from 'rxjs';
 
 import { authService } from 'services/auth.service';
 import { dataService } from 'services/data.service';
-import { TAccess } from 'services/data.service/Access';
 import { locationService } from 'services/location.service';
 
+import { type TAccess } from './types';
 import useCurrentCourseAccess from './useCurrentCourseAccess';
+
+export { type TAccess, type TAccessData } from './types';
 
 class UserAccessService {
   public useCurrentCourseAccess = useCurrentCourseAccess;
