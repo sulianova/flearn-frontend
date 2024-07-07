@@ -181,8 +181,13 @@ class LessonService {
         return;
       }
 
+      const prevCourseId = this._courseLessonsBS.getValue()?.at(0)?.courseId;
       const { courseId } = section.params;
       const currentCourseAccess = userAccessService.currentCourseAccess;
+
+      if (prevCourseId && prevCourseId !== courseId) {
+        this._courseLessonsBS.next(null);
+      }
 
       dataService.userCourseProgress.get(courseId, authedUser.email)
         .then(progress =>
