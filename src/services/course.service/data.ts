@@ -178,16 +178,16 @@ const courseDB1: ICourseDataDB = {
         imageAlt: 'SofiUlianova23',
       },
       {
-        imageId: 'SofiUlianova25.jpg',
-        imageAlt: 'SofiUlianova25',
+        imageId: 'SofiUlianova26.jpg',
+        imageAlt: 'SofiUlianova26',
       },
       {
         imageId: 'SofiUlianova22.jpg',
         imageAlt: 'SofiUlianova22',
       },
       {
-        imageId: 'SofiUlianova26.jpg',
-        imageAlt: 'SofiUlianova26',
+        imageId: 'SofiUlianova25.jpg',
+        imageAlt: 'SofiUlianova25',
       },
     ],
     // studentsWorks: [
@@ -429,16 +429,16 @@ const courseDB2: ICourseDataDB = {
         imageAlt: 'SofiUlianova23',
       },
       {
-        imageId: 'SofiUlianova25.jpg',
-        imageAlt: 'SofiUlianova25',
+        imageId: 'SofiUlianova26.jpg',
+        imageAlt: 'SofiUlianova26',
       },
       {
         imageId: 'SofiUlianova22.jpg',
         imageAlt: 'SofiUlianova22',
       },
       {
-        imageId: 'SofiUlianova26.jpg',
-        imageAlt: 'SofiUlianova26',
+        imageId: 'SofiUlianova25.jpg',
+        imageAlt: 'SofiUlianova25',
       },
     ],
     studentsWorks: [],

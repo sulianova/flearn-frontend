@@ -23,7 +23,7 @@
   display: flex;
   justify-content: stretch;
   align-items: center;
-  gap: set-calc(12);
+  gap: set-calc(16);
 
   @include set-media(md) {
     gap: set-calc(12);
@@ -33,12 +33,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: set-calc(54);
-    height: set-calc(54);
+    width: set-calc(56);
+    height: set-calc(56);
 
     border-radius: set-calc($border-radius-10);
     background-color: var(--color-background-glassy-b);
-    padding: set-calc(8);
+    padding: set-calc(10);
 
     svg {
       height: 100%;
