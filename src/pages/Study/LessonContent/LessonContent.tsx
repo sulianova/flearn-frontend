@@ -11,6 +11,7 @@ import BuyPopup from 'components/BuyPopup/BuyPopup';
 import Article from 'ui/Article/Article';
 
 import TheoryFooter from '../TheoryFooter/TheoryFooter';
+import LessonQuestion from '../LessonQuestion/LessonQuestion';
 import classes from './LessonContent.module.scss';
 import { emailService } from 'services/email.service';
 
@@ -63,6 +64,7 @@ function LessonContent(props: IProps) {
       <div className={classes._}>
         <h1 className={classes.title}>{lesson.title}</h1>
         <Article blocks={lesson.content}/>
+        <LessonQuestion/>
         <TheoryFooter
           onNext={async () => {
             if (!user || nextLesson === undefined) {

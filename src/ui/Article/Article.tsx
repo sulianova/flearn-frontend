@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import { IArticleContent } from 'types';
 
-import Factoid from './Factoid/Factoid';
+import Question from './Question/Question';
 import Gallery from './Gallery/Gallery';
 import Image from './Image/Image';
 import Qoute from './Qoute/Qoute';
@@ -15,7 +15,7 @@ import './Article.scss';
 
 export default Article;
 
-Article.Factoid = Factoid;
+Article.Question = Question;
 Article.Gallery = Gallery;
 Article.Image = Image;
 Article.Qoute = Qoute;
@@ -53,8 +53,8 @@ function renderBlock(block: IArticleContent[number]) {
       return (<TextImportant data={block}/>);
     case 'qoute':
       return (<Qoute data={block}/>);
-    case 'factoid':
-      return (<Factoid data={block}/>);
+    case 'question':
+      return (<Question data={block}/>);
     case 'video':
       return (<Video data={block}/>);
     case 'image':

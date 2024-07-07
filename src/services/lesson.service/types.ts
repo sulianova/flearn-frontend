@@ -79,9 +79,9 @@ export interface ILessonGalleryBlock extends ILessonBlock {
   maxHeightPx?: number
 }
 
-export interface ILessonFactoidBlock extends ILessonBlock {
-  type: 'factoid'
-  factoid: TText
+export interface ILessonQuestionBlock extends ILessonBlock {
+  type: 'question'
+  question: TText
 }
 
 export interface ILessonTextBlock extends ILessonBlock {
@@ -129,5 +129,5 @@ export interface ILessonImageBlock extends ILessonBlock {
   size?: 'LARGE'
 }
 
-export type ILessonContentDB = Array<ILessonTextBlock | ILessonFactoidBlock | ILessonQouteBlock | ILessonTextImportantBlock | ILessonTitleBlock  | ILessonVideoBlock | ILessonImageBlockDB | ILessonGalleryBlockDB>;
-export type ILessonContent = Array<ILessonTextBlock | ILessonFactoidBlock | ILessonQouteBlock | ILessonTextImportantBlock | ILessonTitleBlock  | ILessonVideoBlock | ILessonImageBlock | ILessonGalleryBlock>;
+export type ILessonContentDB = Array<ILessonTextBlock | ILessonQuestionBlock | ILessonQouteBlock | ILessonTextImportantBlock | ILessonTitleBlock  | ILessonVideoBlock | ILessonImageBlockDB | ILessonGalleryBlockDB>;
+export type ILessonContent = Array<ILessonTextBlock | ILessonQuestionBlock | ILessonQouteBlock | ILessonTextImportantBlock | ILessonTitleBlock  | ILessonVideoBlock | ILessonImageBlock | ILessonGalleryBlock>;

@@ -16,7 +16,6 @@ import Page, { EPageVariant } from 'ui/Page/Page';
 import classes from './Study.module.scss';
 import LessonContent from './LessonContent/LessonContent';
 import LessonUppload from './LessonUppload/LessonUppload';
-// import LessonWorks from './LessonWorks/LessonWorks';
 import LessonHeader from './LessonHeader/LessonHeader';
 
 interface IProps {

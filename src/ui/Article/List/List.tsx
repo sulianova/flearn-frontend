@@ -12,7 +12,6 @@ interface IProps {
 function List(props: IProps) {
   return (
     <ul className={classes.__}>
-      {/* {props.data.list && <div className={classes.qouteWrapper}><UIText text={props.data.list}/></div>} */}
       <li className={classes.item}>лалала</li>
       <li className={classes.item}>лалала</li>
       <li className={classes.item}>лалала</li>

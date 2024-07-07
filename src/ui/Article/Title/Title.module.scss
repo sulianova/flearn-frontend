@@ -5,7 +5,7 @@
 
   @include font-36-normal-header;
   color: var(--color-content-primary);
-  text-transform: uppercase;
+  // text-transform: uppercase;
 
   @include set-media(md) {
     margin: set-calc(40) 0 set-calc(16);

@@ -4,12 +4,12 @@ export function getData(lessonId: string) {
   return allLessons.find(l => l.id === lessonId);
 }
 
-const lessonData00: ILessonDataDB = {
-  id: 'Checklist_hUpx7v',
+const lessonData11: ILessonDataDB = {
+  id: 'AboutProcess_3QFOpt',
   courseId: 'how-to-draw',
-  title: 'Чек-лист продуктивного обучения',
+  title: 'Что здесь происходит',
   type: 'Theory',
-  topic: 'Как это — быть иллюстратором',
+  topic: 'Как устроено обучение',
   topicOrder: 1,
   orderInTopic: 1,
   duration: {
@@ -19,80 +19,42 @@ const lessonData00: ILessonDataDB = {
   isFree: true,
   content: [
     {
-      type: 'title',
-      title: 'Учиться так, как хочется',
-    },
-    {
       type: 'text',
       text: [
         {
           tag: 'p',
-          content: 'У каждого из нас свой уникальный опыт, свои ожидания от обучения и свои цели относительно рисования.',
+          content: 'Добро пожаловать в бесплатный блок! Мы рады, что вы с нами.',
         },
         {
           tag: 'p',
-          content: 'Есть силы только на то, чтобы посмотреть видео — отлично, значит сейчас этого достаточно. Я буду рада любому вашему выбору.',
+          content: 'Совсем скоро вы погрузитесь в интерактивный учебник и создадите ваш первый проект. Но сначала расскажем, как всё устроено. В ближайшие несколько минут ответим на вопросы:',
         },
       ]
     },
     {
-      type: 'title',
-      title: 'Беспокоиться о количестве, а не качестве',
-    },
-    {
       type: 'text',
       text: [
         {
           tag: 'p',
-          content: 'Над одной работой слишком много трясешься, боишься исправлять, принимать радикальные решения. В большинстве случаев полезнее сделать следующий рисунок, чем сидеть и думать, как улучшить старый.',
+          content: 'Как проходит обучение и кто будет вас учить?',
         },
         {
           tag: 'p',
-          content: 'Когда работа одна, ее легко испортить. Когда работ 10, среди них можно выбрать.',
-        },
-      ]
-    },
-    {
-      type: 'title',
-      title: 'Мыслить серией',
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Одна удачная работа может быть случайностью. 5 удачных работ — признак того, что автор умело использует визуальное решение.',
-        },
-        {
-          tag: 'p',
-          content: 'Когда вы нашли удачный прием, попробуйте повторить его еще в 4-5 рисунках. Изучайте возможности этого приема: выкручивайте его на максимум, наоборот, приглушайте.',
-        },
-      ]
-    },
-    {
-      type: 'title',
-      title: 'Задавать вопросы',
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Мы лучше понимаем то, что можем сформулировать. Поэтому верно заданный вопрос — половина успеха. Сразу после того, как появилась мысль — “не получилось”. Задайте вопросы — что я делала? Чего я хотела? Как я планировала этого достичь? В какой момент рисунок перестал работать?',
+          content: 'Сколько времени нужно тратить на учёбу?',
         },
       ]
     },
   ]
 }
 
-const lessonData01: ILessonDataDB = {
+const lessonData21: ILessonDataDB = {
   id: 'CommercialIllustratorTasks_2Q1wTR',
   courseId: 'how-to-draw',
   title: 'Какие задачи решает иллюстратор',
   type: 'Theory',
   topic: 'Как это — быть иллюстратором',
-  topicOrder: 1,
-  orderInTopic: 2,
+  topicOrder: 2,
+  orderInTopic: 1,
   duration: {
     unit: 'hours',
     value: 1
@@ -1284,14 +1246,14 @@ const lessonData01: ILessonDataDB = {
   ]
 }
 
-const lessonData02: ILessonDataDB = {
+const lessonData22: ILessonDataDB = {
   id: 'WorkSteps_fawKxs',
   courseId: 'how-to-draw',
   title: 'Этапы работы над иллюстрацией',
   type: 'Theory',
   topic: 'Как это — быть иллюстратором',
-  topicOrder: 1,
-  orderInTopic: 3,
+  topicOrder: 2,
+  orderInTopic: 2,
   duration: {
     unit: 'hours',
     value: 1
@@ -1319,13 +1281,13 @@ const lessonData02: ILessonDataDB = {
   ]
 }
 
-const lessonData11: ILessonDataDB = {
+const lessonData31: ILessonDataDB = {
   id: 'DrawingExercises_h3dx7k',
   courseId: 'how-to-draw',
   title: 'Упражнения, чтобы разрисоваться',
   type: 'Theory',
   topic: 'Линия',
-  topicOrder: 2,
+  topicOrder: 3,
   orderInTopic: 1,
   duration: {
     unit: 'hours',
@@ -1722,13 +1684,13 @@ const lessonData11: ILessonDataDB = {
   ],
 };
 
-const lessonData12: ILessonDataDB = {
+const lessonData32: ILessonDataDB = {
   id: 'LineIntroduction_gBpaFa',
   courseId: 'how-to-draw',
   title: 'Линия: знакомство',
   type: 'Theory',
   topic: 'Линия',
-  topicOrder: 2,
+  topicOrder: 3,
   orderInTopic: 2,
   duration: {
     unit: 'hours',
@@ -2334,13 +2296,13 @@ const lessonData12: ILessonDataDB = {
   ]
 }
 
-const lessonData13: ILessonDataDB = {
+const lessonData33: ILessonDataDB = {
   id: 'LineShape_RY7PQ3',
   courseId: 'how-to-draw',
   title: 'Линия: как рисовать объемно',
   type: 'Theory',
   topic: 'Линия',
-  topicOrder: 2,
+  topicOrder: 3,
   orderInTopic: 3,
   duration: {
     unit: 'hours',
@@ -2551,13 +2513,13 @@ const lessonData13: ILessonDataDB = {
   ]
 }
 
-const lessonData14: ILessonDataDB = {
+const lessonData34: ILessonDataDB = {
   id: 'HowToDrawSimilarPicture_bah4tw',
   courseId: 'how-to-draw',
   title: 'Как рисовать похоже',
   type: 'Theory',
   topic: 'Линия',
-  topicOrder: 2,
+  topicOrder: 3,
   orderInTopic: 4,
   duration: {
     unit: 'hours',
@@ -2881,13 +2843,13 @@ const lessonData14: ILessonDataDB = {
   ],
 };
 
-const lessonData15: ILessonDataDB = {
+const lessonData35: ILessonDataDB = {
   id: 'HowToDrawSimilarPictureLine_t6qrnq',
   courseId: 'how-to-draw',
   title: 'Как рисовать похоже. Линия',
   type: 'Theory',
   topic: 'Линия',
-  topicOrder: 2,
+  topicOrder: 3,
   orderInTopic: 5,
   duration: {
     unit: 'hours',
@@ -3125,13 +3087,13 @@ const lessonData15: ILessonDataDB = {
   ],
 };
 
-const lessonData16: ILessonDataDB = {
+const lessonData41: ILessonDataDB = {
   id: 'HowToDrawSimilarPictureLine_t6qrnq_Practice_iqln35',
   courseId: 'how-to-draw',
   title: 'Практика первой недели',
   type: 'Practice',
   topic: 'Линия: Практика',
-  topicOrder: 3,
+  topicOrder: 4,
   orderInTopic: 1,
   duration: {
     unit: 'hours',
@@ -3498,13 +3460,13 @@ const lessonData16: ILessonDataDB = {
   ]
 }
 
-const lessonData21: ILessonDataDB = {
+const lessonData51: ILessonDataDB = {
   id: 'DifferencesLineSpot_W4baHU',
   courseId: 'how-to-draw',
   title: 'Про разницу между линией и пятном',
   type: 'Theory',
   topic: 'Пятно',
-  topicOrder: 4,
+  topicOrder: 5,
   orderInTopic: 1,
   duration: {
     unit: 'hours',
@@ -3634,13 +3596,13 @@ const lessonData21: ILessonDataDB = {
   ]
 }
 
-const lessonData22: ILessonDataDB = {
+const lessonData52: ILessonDataDB = {
   id: 'SpotIntroduction_R4vzDr',
   courseId: 'how-to-draw',
   title: 'Пятно: знакомство',
   type: 'Theory',
   topic: 'Пятно',
-  topicOrder: 4,
+  topicOrder: 5,
   orderInTopic: 2,
   duration: {
     unit: 'hours',
@@ -4405,13 +4367,13 @@ const lessonData22: ILessonDataDB = {
   ]
 }
 
-const lessonData23: ILessonDataDB = {
+const lessonData53: ILessonDataDB = {
   id: 'HowToDrawSimilarPictureSpot_p6hXtt',
   courseId: 'how-to-draw',
   title: 'Как рисовать похоже. Пятно',
   type: 'Theory',
   topic: 'Пятно',
-  topicOrder: 4,
+  topicOrder: 5,
   orderInTopic: 3,
   duration: {
     unit: 'hours',
@@ -4562,13 +4524,13 @@ const lessonData23: ILessonDataDB = {
   ]
 }
 
-const lessonData24: ILessonDataDB = {
+const lessonData54: ILessonDataDB = {
   id: 'SpotShape_dftUrH',
   courseId: 'how-to-draw',
   title: 'Как рисовать объемно. Пятно',
   type: 'Theory',
   topic: 'Пятно',
-  topicOrder: 4,
+  topicOrder: 5,
   orderInTopic: 4,
   duration: {
     unit: 'hours',
@@ -4662,13 +4624,13 @@ const lessonData24: ILessonDataDB = {
   ]
 }
 
-const lessonData25: ILessonDataDB = {
+const lessonData61: ILessonDataDB = {
   id: 'SpotPractice_kfKAEY',
   courseId: 'how-to-draw',
   title: 'Практика второй недели',
   type: 'Practice',
   topic: 'Пятно: Практика',
-  topicOrder: 5,
+  topicOrder: 6,
   orderInTopic: 1,
   duration: {
     unit: 'hours',
@@ -5039,13 +5001,13 @@ const lessonData25: ILessonDataDB = {
   ]
 }
 
-const lessonData31: ILessonDataDB = {
+const lessonData71: ILessonDataDB = {
   id: 'LineAndSpot_jr2WYu',
   courseId: 'how-to-draw',
   title: 'Линия и пятно: как совмещать',
   type: 'Theory',
   topic: 'Линия и пятно',
-  topicOrder: 6,
+  topicOrder: 7,
   orderInTopic: 1,
   duration: {
     unit: 'hours',
@@ -5102,16 +5064,16 @@ const lessonData31: ILessonDataDB = {
         },
       ]
     },
-    {
-      type: 'factoid',
-      factoid: [
-        {
-          tag: 'a',
-          content: 'Графический плэнэр Димы Горелышева про линию и пятно',
-          props: { className: 'nav-link', target: "_blank", to: 'https://www.notion.so/8d1b632581a04417a9cb6d10b3e681cb?pvs=4' },
-        },
-      ],
-    },
+    // {
+    //   type: 'factoid',
+    //   factoid: [
+    //     {
+    //       tag: 'a',
+    //       content: 'Графический плэнэр Димы Горелышева про линию и пятно',
+    //       props: { className: 'nav-link', target: "_blank", to: 'https://www.notion.so/8d1b632581a04417a9cb6d10b3e681cb?pvs=4' },
+    //     },
+    //   ],
+    // },
     {
       type: 'title',
       title: 'Примеры линии и пятна в одном рисунке',
@@ -5644,13 +5606,13 @@ const lessonData31: ILessonDataDB = {
   ]
 }
 
-const lessonData32: ILessonDataDB = {
+const lessonData72: ILessonDataDB = {
   id: 'ContrastNuance_9rP6Yl',
   courseId: 'how-to-draw',
   title: 'Как выделить главное: контраст, нюанс',
   type: 'Theory',
   topic: 'Линия и пятно',
-  topicOrder: 6,
+  topicOrder: 7,
   orderInTopic: 2,
   duration: {
     unit: 'hours',
@@ -5833,13 +5795,13 @@ const lessonData32: ILessonDataDB = {
   ]
 }
 
-const lessonData33: ILessonDataDB = {
+const lessonData81: ILessonDataDB = {
   id: 'LineSpotPractice_L8A8Jk',
   courseId: 'how-to-draw',
   title: 'Практика третьей недели',
   type: 'Practice',
   topic: 'Линия и пятно: Практика',
-  topicOrder: 7,
+  topicOrder: 8,
   orderInTopic: 1,
   duration: {
     unit: 'hours',
@@ -10755,23 +10717,23 @@ const lessonDataFYS4: ILessonDataDB = {
 // }
 
 export const allLessons = [
-  lessonData00,
-  lessonData01,
-  lessonData02,
   lessonData11,
-  lessonData12,
-  lessonData13,
-  lessonData14,
-  lessonData15,
-  lessonData16,
   lessonData21,
   lessonData22,
-  lessonData23,
-  lessonData24,
-  lessonData25,
   lessonData31,
   lessonData32,
   lessonData33,
+  lessonData34,
+  lessonData35,
+  lessonData41,
+  lessonData51,
+  lessonData52,
+  lessonData53,
+  lessonData54,
+  lessonData61,
+  lessonData71,
+  lessonData72,
+  lessonData81,
   lessonDataFYS0,
   lessonDataFYS1,
   lessonDataFYS2,
