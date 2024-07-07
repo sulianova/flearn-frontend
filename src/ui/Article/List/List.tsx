@@ -1,20 +1,21 @@
 import type { IArticleListBlock } from 'types';
-import classes from './List.module.scss';
 
 import UIText from 'ui/Text/Text';
 
-export default List;
+import classes from './List.module.scss';
 
-interface IProps {
-  data: IArticleListBlock
-}
+export default function List({ items }: Omit<IArticleListBlock, 'type'>) {
+  if (!items.length) {
+    return null;
+  }
 
-function List(props: IProps) {
   return (
     <ul className={classes.__}>
-      <li className={classes.item}>лалала</li>
-      <li className={classes.item}>лалала</li>
-      <li className={classes.item}>лалала</li>
+      {items.map((item, i) => (
+        <li className={classes.item} key={i}>
+          <UIText text={item}/>
+        </li>
+      ))}
     </ul>
   );
 }

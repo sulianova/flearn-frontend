@@ -1,18 +1,19 @@
-import { Fragment } from 'react';
 import type { IArticleTextImportantBlock } from 'types';
-import classes from './TextImportant.module.scss';
+
 import UIText from 'ui/Text/Text';
 
-export default TextImportant;
+import classes from './TextImportant.module.scss';
 
-interface IProps {
-  data: IArticleTextImportantBlock
-}
+export default function TextImportant({ text }: Omit<IArticleTextImportantBlock, 'type'>) {
+  if (!text) {
+    return null;
+  }
 
-function TextImportant(props: IProps) {
   return (
     <div className={classes.__}>
-      {props.data.text && <div className={classes.textImportantWrapper}><UIText text={props.data.text}/></div>}
+      <div className={classes.textImportantWrapper}>
+        <UIText text={text}/>
+      </div>
     </div>
   );
 }

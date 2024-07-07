@@ -1,19 +1,17 @@
-import { Fragment } from 'react';
 import type { IArticleQuestionBlock } from 'types';
-import classes from './Question.module.scss';
 
 import UIText from 'ui/Text/Text';
 
-export default Question;
+import classes from './Question.module.scss';
 
-interface IProps {
-  data: IArticleQuestionBlock
-}
+export default function Question({ question, factoid }: Omit<IArticleQuestionBlock, 'type'>) {
+  if (!question) {
+    return null;
+  }
 
-function Question(props: IProps) {
   return (
-    <Fragment>
+    <>
       {/* {props.data.factoid && <p className={classes.factoid}> <UIText text={props.data.factoid}/> </p>} */}
-    </Fragment>
+    </>
   );
 }

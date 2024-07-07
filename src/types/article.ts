@@ -26,12 +26,12 @@ export interface IArticleTextBlock extends IArticleBlock {
 
 export interface IArticleListBlock extends IArticleBlock {
   type: 'list'
-  text: TText
+  items: TText[]
 }
 
-export interface IArticleQouteBlock extends IArticleBlock {
-  type: 'qoute'
-  qoute: TText
+export interface IArticleQuoteBlock extends IArticleBlock {
+  type: 'quote'
+  quote: TText
 }
 
 export interface IArticleTextImportantBlock extends IArticleBlock {
@@ -78,7 +78,7 @@ export type TArticleBlocks =
   | IArticleQuestionBlock
   | IArticleGalleryBlock
   | IArticleImageBlock
-  | IArticleQouteBlock
+  | IArticleQuoteBlock
   | IArticleTextBlock
   | IArticleListBlock
   | IArticleTextImportantBlock
@@ -89,7 +89,7 @@ export type TArticleBlocksDB =
   | IArticleQuestionBlock
   | IArticleGalleryBlock
   | IArticleImageBlockDB
-  | IArticleQouteBlock
+  | IArticleQuoteBlock
   | IArticleTextBlock
   | IArticleListBlock
   | IArticleTextImportantBlock

@@ -89,9 +89,9 @@ export interface ILessonTextBlock extends ILessonBlock {
   text: TText
 }
 
-export interface ILessonQouteBlock extends ILessonBlock {
-  type: 'qoute'
-  qoute: TText
+export interface ILessonQuoteBlock extends ILessonBlock {
+  type: 'quote'
+  quote: TText
 }
 
 export interface ILessonTextImportantBlock extends ILessonBlock {
@@ -129,5 +129,5 @@ export interface ILessonImageBlock extends ILessonBlock {
   size?: 'LARGE'
 }
 
-export type ILessonContentDB = Array<ILessonTextBlock | ILessonQuestionBlock | ILessonQouteBlock | ILessonTextImportantBlock | ILessonTitleBlock  | ILessonVideoBlock | ILessonImageBlockDB | ILessonGalleryBlockDB>;
-export type ILessonContent = Array<ILessonTextBlock | ILessonQuestionBlock | ILessonQouteBlock | ILessonTextImportantBlock | ILessonTitleBlock  | ILessonVideoBlock | ILessonImageBlock | ILessonGalleryBlock>;
+export type ILessonContentDB = Array<ILessonTextBlock | ILessonQuestionBlock | ILessonQuoteBlock | ILessonTextImportantBlock | ILessonTitleBlock  | ILessonVideoBlock | ILessonImageBlockDB | ILessonGalleryBlockDB>;
+export type ILessonContent = Array<ILessonTextBlock | ILessonQuestionBlock | ILessonQuoteBlock | ILessonTextImportantBlock | ILessonTitleBlock  | ILessonVideoBlock | ILessonImageBlock | ILessonGalleryBlock>;

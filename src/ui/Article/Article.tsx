@@ -4,7 +4,7 @@ import { IArticleContent } from 'types';
 import Question from './Question/Question';
 import Gallery from './Gallery/Gallery';
 import Image from './Image/Image';
-import Qoute from './Qoute/Qoute';
+import Quote from './Quote/Quote';
 import Text from './Text/Text';
 import List from './List/List';
 import TextImportant from './TextImportant/TextImportant';
@@ -18,7 +18,7 @@ export default Article;
 Article.Question = Question;
 Article.Gallery = Gallery;
 Article.Image = Image;
-Article.Qoute = Qoute;
+Article.Quote = Quote;
 Article.Text = Text;
 Article.List = List;
 Article.TextImportant = TextImportant;
@@ -44,19 +44,19 @@ function renderBlocks(blocks: IArticleContent) {
 function renderBlock(block: IArticleContent[number]) {
   switch(block.type) {
     case 'title':
-      return (<Title data={block}/>);
+      return (<Title {...block}/>);
     case 'text':
-      return (<Text data={block}/>);
+      return (<Text {...block}/>);
     case 'list':
-      return (<List data={block}/>);
+      return (<List {...block}/>);
     case 'textImportant':
-      return (<TextImportant data={block}/>);
-    case 'qoute':
-      return (<Qoute data={block}/>);
+      return (<TextImportant {...block}/>);
+    case 'quote':
+      return (<Quote {...block}/>);
     case 'question':
-      return (<Question data={block}/>);
+      return (<Question {...block}/>);
     case 'video':
-      return (<Video data={block}/>);
+      return (<Video {...block}/>);
     case 'image':
       return (<Image {...block}/>);
     case 'gallery':
