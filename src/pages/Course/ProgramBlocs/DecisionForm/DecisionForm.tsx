@@ -16,6 +16,7 @@ import SignupToCoursePopup from '../../../../components/SignupToCoursePopup/Sign
 import Icon from 'ui/Icon/Icon';
 import { lessonService } from 'services/lesson.service';
 import { userAccessService } from 'services/userAccess.service';
+import { analyticsService } from 'services/analytics.service';
 
 const cx = classNames.bind(classes);
 interface IProps {
@@ -117,6 +118,7 @@ async function handleSubmit(props: {
       to: { email: user.email },
       course,
     });
+    analyticsService.logEvent({ type: analyticsService.event.ButtonClickedStartStudy });
     const firstLesson = (await lessonService.fetch({ courseId: course.id, topicOrder: 1, orderInTopic: 1 })).at(0);
     if (firstLesson) {
       navigate(URLSections.Study.to({ courseId: course.id, lessonId: firstLesson.id }));

@@ -1,7 +1,12 @@
-import { ILessonDataDB } from './types';
+import type { IFetchLessonsProps, ILessonDataDB } from './types';
 
-export function getData(lessonId: string) {
-  return allLessons.find(l => l.id === lessonId);
+export function getData(filter: Partial<IFetchLessonsProps>) {
+  return allLessons
+    .filter(l => filter.courseId ? l.courseId === filter.courseId : true)
+    .filter(l => filter.id ? l.id === filter.id : true)
+    .filter(l => filter.topic ? l.topic === filter.topic : true)
+    .filter(l => filter.topicOrder ? l.topicOrder === filter.topicOrder : true)
+    .filter(l => filter.orderInTopic ? l.orderInTopic === filter.orderInTopic : true);
 }
 
 const lessonData11: ILessonDataDB = {

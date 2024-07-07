@@ -80,7 +80,7 @@ class LessonService {
 
   public async upload(id: string) {
     try {
-      const lessonLocalDB = getData(id);
+      const lessonLocalDB = getData({ id }).at(0);
       if (!lessonLocalDB) {
         throw new Error('No local lesson data');
       }
@@ -116,17 +116,11 @@ class LessonService {
 
   public async fetch(filter: IFetchLessonsProps) {
     try {
-      const source = this.sourceBS.getValue();
-      if (source === 'local' && filter.id) {
-        const lessonLocalDB = getData(filter.id);
-        if (lessonLocalDB) {
-          const lessonLocal = await localFilesServise.Lesson.localToFR(lessonLocalDB);
-          if (lessonLocal) {
-            return [lessonLocal];
-          }
-        }
+      if (this.sourceBS.getValue() === 'remote') {
+        return await dataService.lesson.getAll(filter);
       }
-      return await dataService.lesson.getAll(filter);
+      const lessonsLocalDB = getData(filter);
+      return Promise.all(lessonsLocalDB.map(lessonDB => localFilesServise.Lesson.localToFR(lessonDB)));
     } catch (error) {
       // tslint:disable-next-line
       console.log(`Failed to fetch lessons`, { filter, error });

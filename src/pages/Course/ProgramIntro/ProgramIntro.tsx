@@ -12,6 +12,7 @@ import Link from 'ui/Link/Link';
 
 import classes from './ProgramIntro.module.scss';
 import SignupToCoursePopup from '../../../components/SignupToCoursePopup/SignupToCoursePopup';
+import { analyticsService } from 'services/analytics.service';
 
 export default ProgramIntro;
 
@@ -60,6 +61,7 @@ function ProgramIntro({ course }: IProps) {
                   {authService.isAuthenticated && firstLesson ? (
                     <Link
                       className={classes.actionsBtn}
+                      onClick={() => analyticsService.logEvent({ type: analyticsService.event.ButtonClickedStartStudy })}
                       to={URLSections.Study.to({ courseId, lessonId: firstLesson.id })}
                     >
                       <div className={classes.text}>{i18n.t('signUp')}</div>

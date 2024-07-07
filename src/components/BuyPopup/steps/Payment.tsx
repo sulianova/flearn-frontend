@@ -11,6 +11,7 @@ import { ICourseData } from 'services/course.service';
 import { formatCourseCredit, getDiscountedPrice } from 'utils';
 import { emailService } from 'services/email.service';
 import Spinner from 'ui/Spinner/Spinner';
+import { analyticsService } from 'services/analytics.service';
 
 const cx = classnames.bind(classes);
 const t = formatI18nT('courseLanding.form');
@@ -82,6 +83,7 @@ export default function Payment(props: IProps & { chosenProductOptionType: keyof
             disabled={!isPayed}
             className={classes.btn}
             onClick={() => {
+              analyticsService.logEvent({ type: analyticsService.event.Purchase });
               setIsPending(true);
               emailService.sendEmail({
                 type: emailService.EEmail.WelcomeToPaidCourse,
