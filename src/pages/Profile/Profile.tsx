@@ -108,7 +108,7 @@ function Profile(props: IProps) {
                     </div>
                     <div className={classes.currentLessonDetails}></div>
                     <div>
-                      {!firstNotSolvedLesson.isFree && currentCourseAccess === 'FREE' ? (
+                      {!firstNotSolvedLesson.isFree && currentCourseAccess === 'FREE' && authedUser.role === 'user' ? (
                         <div
                           className={classes.currentLessonButton}
                           onClick={() => setBuyCoursePopupIsOpened(true)}
