@@ -1,5 +1,5 @@
 import classnames from 'classnames/bind';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import type { ICourseData, TCourseProductOptionTypes } from 'services/course.service';
 import type { IUserData } from 'services/user.service';
@@ -12,6 +12,7 @@ import Popup from 'ui/Popup/Popup';
 import Icon from 'ui/Icon/Icon';
 
 import classes from './BuyPopup.module.scss';
+import { analyticsService } from 'services/analytics.service';
 
 const cx = classnames.bind(classes);
 
@@ -29,6 +30,10 @@ type TStep =
 export default function BuyPopup({ close, course, user }: IProps) {
   const [chosenProductOptionType, setChosenProductOptionType] = useState<TCourseProductOptionTypes | undefined> ( undefined);
   const [step, setStep] = useState<TStep>('DECISION');
+
+  useEffect(() => {
+    analyticsService.logEvent({ type: analyticsService.event.FormStartBuyCourse });
+  }, []);
 
   return (
     <Popup

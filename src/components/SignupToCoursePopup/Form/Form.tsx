@@ -17,6 +17,7 @@ import { useNavigate } from 'react-router';
 import { URLSections } from 'router';
 import { lessonService } from 'services/lesson.service';
 import { userAccessService } from 'services/userAccess.service';
+import { analyticsService } from 'services/analytics.service';
 
 const cx = classNames.bind(classes);
 const cx2 = classNames.bind(classesInputField);
@@ -58,6 +59,7 @@ export default function Form({ onOrderCreated, course, option }: IProps) {
             authService.authenticate(),
           ])
           .then(([firstLesson]) => {
+            analyticsService.logEvent({ type: analyticsService.event.ButtonClickedStartStudy });
             if (firstLesson) {
               navigate(URLSections.Study.to({ courseId: course.id, lessonId: firstLesson.id }));
             } else {
@@ -144,6 +146,7 @@ async function submit(props: {
       to: { email: formData.email },
       course,
     });
+    analyticsService.logEvent({ type: analyticsService.event.GenerateLead });
     setFormData(d => ({ ...d, state: { type: 'Success' } }));
   } catch (e) {
     setFormData(d => ({ ...d, state: { type: 'Error', error: e as Error } }));

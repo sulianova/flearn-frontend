@@ -19,6 +19,7 @@ import UserPopup from '../Sidebar/UserPopup/UserPopup';
 import MobileMenuPopup from '../Header/MobileMenuPopup/MobileMenuPopup';
 
 import classes from './MobileBtn.module.scss';
+import { analyticsService } from 'services/analytics.service';
 
 const cx = classnames.bind(classes);
 
@@ -75,6 +76,7 @@ export default function MobileBtn({ course, variant, visible }: IProps) {
               ? (
                 <Link
                   className={classes.btnLink}
+                  onClick={() => analyticsService.logEvent({ type: analyticsService.event.ButtonClickedStartStudy })}
                   to={URLSections.Study.to({ courseId: course.id, lessonId: firstLesson.id })}
                 >
                   <div className={classes.text}>начать учиться</div>
