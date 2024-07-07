@@ -4,6 +4,7 @@ import { dataService } from 'services/data.service';
 import { locationService } from 'services/location.service';
 import { authService } from 'services';
 import { userCourseProgressService } from 'services/userCourseProgress.service';
+import { userAccessService } from 'services/userAccess.service';
 
 import { allLessons, getData } from './data';
 import { ECommonErrorTypes } from 'types';
@@ -13,8 +14,8 @@ import { localFilesServise } from 'services/localFiles.service';
 import useLessons from './useLessons';
 import useTopicLessons from './useTopicLessons';
 import useCurrentLesson from './useCurrentLesson';
+import useNextLesson from './useNextLesson';
 import useCourseLessons from './useCourseLessons';
-import { userAccessService } from 'services/userAccess.service';
 
 export type { ILessonData, TActionS, ILessonDataDB, TLessonState, IFetchLessonsProps } from './types';
 
@@ -22,11 +23,12 @@ class LessonService {
   public useLessons = useLessons;
   public useTopicLessons = useTopicLessons;
   public useCurrentLesson = useCurrentLesson;
+  public useNextLesson = useNextLesson;
   public useCourseLessons = useCourseLessons;
   public sourceBS = new BehaviorSubject<TSource>('remote');
 
   constructor() {
-    this.initCurrentLessonBS();
+    this.initCurrentAndNextLessonBS();
     this.initCourseLessonsBS();
   }
 
@@ -139,23 +141,29 @@ class LessonService {
     return errorType;
   }
 
-  protected initCurrentLessonBS() {
+  protected initCurrentAndNextLessonBS() {
     const refetch = () => {
       const section = locationService.URLSection;
       const courseLessons = this._courseLessonsBS.getValue();
 
       if (section.name !== 'Study' || !courseLessons) {
         this._currentLessonBS.next(null);
+        this._nextLessonBS.next(null);
         return;
       }
 
       const currentLesson = courseLessons.find(l => l.id === section.params.lessonId);
       if (!currentLesson) {
         this._currentLessonBS.next(null);
+        this._nextLessonBS.next(null);
         return;
       }
 
+      const nextInTopickLesson = courseLessons.find(l => l.topicOrder === currentLesson.topicOrder && l.orderInTopic === currentLesson.orderInTopic + 1);
+      const firstInNextTopickLesson = courseLessons.find(l => l.topicOrder === currentLesson.topicOrder + 1 && l.orderInTopic === 1);
+
       this._currentLessonBS.next(currentLesson);
+      this._nextLessonBS.next(nextInTopickLesson ?? firstInNextTopickLesson ?? null)
     };
 
     merge(
@@ -227,6 +235,7 @@ class LessonService {
 
   protected _lessonS = new Subject<TActionS>();
   protected _currentLessonBS = new BehaviorSubject<ILessonData | null>(null);
+  protected _nextLessonBS = new BehaviorSubject<ILessonData | null>(null);
   protected _courseLessonsBS = new BehaviorSubject<(ILessonData & { solved: boolean, canBeAccessed: boolean })[] | null>(null);
 }
 

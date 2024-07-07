@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 
-
 import { lessonService } from 'services/lesson.service';
 import { authService, dataService } from 'services';
 import { homeworkService } from 'services/homework.service';
@@ -61,17 +60,18 @@ function Lesson({ section }: IProps) {
   const authedUser = userService.useAuthedUser();
   const authedUserId = authedUser?.id;
   const homework = homeworkService.useHomeworks({ filter: { courseId: courseId!, lessonId: lessonId, userId: authedUserId }}).at(0);
+  const currentCourse = courseService.useCurrentCourse();
   const currentLesson = lessonService.useCurrentLesson();
   const currentCourseAccess = userAccessService.useCurrentCourseAccess();
 
-  if (!currentLesson || !currentCourseAccess) {
+  if (!currentCourse || !currentLesson || !currentCourseAccess || !authedUser) {
     return <Fallback.Pending text='Loading lesson'/>;
   }
 
   if (!currentLesson.isFree && currentCourseAccess === 'FREE') {
     return (
       <Fallback.Info>
-        This is a paid lesson. Buy course to get access.
+        Это платный урок. Купите курс, чтобы получить доступ.
       </Fallback.Info>
     );
   }
@@ -92,8 +92,8 @@ function Lesson({ section }: IProps) {
         )}
         {section === 'task' &&
           (<LessonContent
-            courseId={courseId!}
-            lessonId={lessonId!}
+            course={currentCourse}
+            courseAccess={currentCourseAccess}
             lesson={currentLesson}
             user={authedUser}
           />)
