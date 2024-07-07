@@ -7,7 +7,7 @@ import { userAccessService } from 'services/userAccess.service';
 import { userService } from 'services/user.service';
 import { localFilesServise } from 'services/localFiles.service';
 
-import { allLessons, getData } from './data';
+import { getData } from './data';
 import { ECommonErrorTypes } from 'types';
 import { TSource, type IFetchLessonsProps, type ILessonData, type TActionBS, type TActionS, type TLessonError } from './types';
 
@@ -80,23 +80,23 @@ class LessonService {
     }
   }
 
-  public async upload(id: string) {
+  public async upload(props: { courseId?: string, id?: string }) {
     try {
-      const lessonLocalDB = getData({ id }).at(0);
-      if (!lessonLocalDB) {
-        throw new Error('No local lesson data');
+      const { courseId, id } = props;
+
+      const lessonsDB = getData({ courseId, id })
+      if (!lessonsDB.length) {
+        throw new Error('No local data');
       }
-      const lessonLocal = await localFilesServise.Lesson.localToFR(lessonLocalDB);
-      await dataService.lesson.set(lessonLocal.courseId, lessonLocal.id, lessonLocal);
+
+      const lessons = await Promise.all(lessonsDB.map(l => localFilesServise.Lesson.localToFR(l)));
+      await Promise.all(lessons.map(l => dataService.lesson.set(l.courseId, l.id, l)));
+      this._lessonS.next({ type: 'updated' });
     } catch (error) {
       // tslint:disable-next-line
-      console.log(`Failed to upload lesson`, { id, error });
+      console.log(`Failed to upload lessons`, { props, error });
       throw error;
     }
-  }
-
-  public _uploadAll() {
-    Promise.all(allLessons.map(l => this.upload(l.id)));
   }
 
   public async fetchNextLesson(lesson: ILessonData) {

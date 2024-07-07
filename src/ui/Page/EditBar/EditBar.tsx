@@ -16,7 +16,6 @@ export default function EditBar() {
   if (
     urlSection.name === 'Other'
     || urlSection.name === 'Home'
-    || urlSection.name === 'Profile'
     || urlSection.name === 'EmptyProfile'
     || envService.dataMode !== 'EDIT'
     || (urlSection.name === 'Course' && !courseId)
@@ -25,16 +24,24 @@ export default function EditBar() {
     return null;
   }
 
-  const [source, toggleSource, upload] = ({
+  const [source, toggleSource, upload, uploadTitle] = ({
     'Course': [
       courseSource,
       () => courseService.changeSource(courseSource === 'local' ? 'remote' : 'local'),
       courseId ? () => courseService.upload(courseId) : undefined,
+      courseId ? 'Upload course' : undefined,
+    ],
+    'Profile': [
+      lessonSource,
+      () => lessonService.changeSource(lessonSource === 'local' ? 'remote' : 'local'),
+      courseId ? () => lessonService.upload({ courseId }) : undefined,
+      courseId ? 'Upload course lessons' : undefined,
     ],
     'Study': [
       lessonSource,
       () => lessonService.changeSource(lessonSource === 'local' ? 'remote' : 'local'),
-      lessonId ? () => lessonService.upload(lessonId) : undefined,
+      lessonId ? () => lessonService.upload({ id: lessonId }) : undefined,
+      lessonId ? 'Upload lesson' : undefined,
     ],
   } as const)[urlSection.name];
 
@@ -42,8 +49,18 @@ export default function EditBar() {
     <section className={classes._}>
       <div className={classes.stickyBtnStaff}>
         <div className={classes.stickyBtnShaftInner}>
-          <div className={classes.stickyBtn + ' s-text-24'} onClick={upload}>Upload</div>
-          <div className={classes.stickyBtn + ' s-text-24'} onClick={toggleSource}>
+          {upload && (
+            <div
+              className={classes.stickyBtn + ' s-text-24'}
+              onClick={upload}
+            >
+              {uploadTitle}
+            </div>
+          )}
+          <div
+            className={classes.stickyBtn + ' s-text-24'}
+            onClick={toggleSource}
+          >
             {source === 'local' ? 'use remote' : 'use local'}
           </div>
         </div>

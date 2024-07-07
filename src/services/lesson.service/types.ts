@@ -37,8 +37,7 @@ export interface ILessonDataDB {
   content: ILessonContentDB
 }
 
-export type TActionS =
-  | { type: 'updated', payload: { id: string } };
+export type TActionS = { type: 'updated' };
 
 export type TLessonError =
   | ECommonErrorTypes.Restricted
