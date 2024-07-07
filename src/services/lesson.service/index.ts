@@ -3,19 +3,20 @@ import { BehaviorSubject, CompletionObserver, ErrorObserver, NextObserver, Subje
 import { dataService } from 'services/data.service';
 import { locationService } from 'services/location.service';
 import { userCourseProgressService } from 'services/userCourseProgress.service';
-import { userAccessService } from 'services/userAccess.service';
-import { userService } from 'services/user.service';
+import { TAccess, userAccessService } from 'services/userAccess.service';
+import { IUserData, userService } from 'services/user.service';
 import { localFilesServise } from 'services/localFiles.service';
 
 import { getData } from './data';
 import { ECommonErrorTypes } from 'types';
-import { TSource, type IFetchLessonsProps, type ILessonData, type TActionBS, type TActionS, type TLessonError } from './types';
+import { TCourseLessonsBSDependencies, TCourseLessonsBSValue, TSource, type IFetchLessonsProps, type ILessonData, type TActionBS, type TActionS, type TLessonError } from './types';
 
 import useLessons from './useLessons';
 import useTopicLessons from './useTopicLessons';
 import useCurrentLesson from './useCurrentLesson';
 import useNextLesson from './useNextLesson';
 import useCourseLessons from './useCourseLessons';
+import { TURLSectionObj } from 'router';
 
 export type { ILessonData, TActionS, ILessonDataDB, TLessonState, IFetchLessonsProps } from './types';
 
@@ -144,7 +145,7 @@ class LessonService {
   protected initCurrentAndNextLessonBS() {
     const refetch = () => {
       const section = locationService.URLSection;
-      const courseLessons = this._courseLessonsBS.getValue();
+      const courseLessons = this._courseLessonsBS.getValue().lessons;
 
       if (section.name !== 'Study' || !courseLessons) {
         this._currentLessonBS.next(null);
@@ -174,22 +175,34 @@ class LessonService {
 
   protected initCourseLessonsBS() {
     const refetch = () => {
-      const section = locationService.URLSection;
-      const authedUser = userService.authedUser;
-      if ((section.name !== 'Profile' && section.name !== 'Study') || !authedUser) {
-        this._courseLessonsBS.next(null);
+      const dependencies: TCourseLessonsBSDependencies = {
+        source: this.sourceBS.getValue(),
+        section: locationService.URLSection,
+        authedUser: userService.authedUser,
+        courseAccess: userAccessService.currentCourseAccess,
+      };
+      if ((dependencies.section.name !== 'Profile' && dependencies.section.name !== 'Study') || !dependencies.authedUser) {
+        this._courseLessonsBS.next({ lessons: null, dependencies });
         return;
       }
 
-      const prevCourseId = this._courseLessonsBS.getValue()?.at(0)?.courseId;
-      const { courseId } = section.params;
-      const currentCourseAccess = userAccessService.currentCourseAccess;
-
-      if (prevCourseId && prevCourseId !== courseId) {
-        this._courseLessonsBS.next(null);
+      const prevDependencies = this._courseLessonsBS.getValue().dependencies;
+      if (prevDependencies
+        && prevDependencies.source !== dependencies.source
+      ) {
+        // trigger spinner
+        this._courseLessonsBS.next({ lessons: null, dependencies });
+      } else if (
+        prevDependencies
+        && (prevDependencies.section.name === 'Profile' || prevDependencies.section.name === 'Study')
+        && prevDependencies.section.params.courseId !== dependencies.section.params.courseId
+      ) {
+        // trigger spinner
+        this._courseLessonsBS.next({ lessons: null, dependencies });
       }
 
-      dataService.userCourseProgress.get(courseId, authedUser.email)
+      const courseId = dependencies.section.params.courseId;
+      dataService.userCourseProgress.get(courseId, dependencies.authedUser.email)
         .then(progress =>
           this.fetch({ courseId })
             .then(lessons => {
@@ -202,18 +215,21 @@ class LessonService {
               const firstNotLearnedLesson = sortedLessons.find(l => !progress[l.id]);
 
               this._courseLessonsBS.next(
-                sortedLessons
-                  .map(lesson => {
-                    const solved = progress?.[lesson.id]?.solved ?? false;
-                    const canBeAccessed =
-                      authedUser.role === 'support' ? true
-                      : !lesson.isFree && currentCourseAccess === 'FREE' ? false
-                      : !firstNotLearnedLesson ? true
-                      : firstNotLearnedLesson.topicOrder === lesson.topicOrder
-                        ? firstNotLearnedLesson.orderInTopic >= lesson.orderInTopic
-                        : firstNotLearnedLesson.topicOrder > lesson.topicOrder;
-                    return { ...lesson, canBeAccessed, solved };
-                  })
+                {
+                  lessons: sortedLessons
+                    .map(lesson => {
+                      const solved = progress?.[lesson.id]?.solved ?? false;
+                      const canBeAccessed =
+                        dependencies.authedUser!.role === 'support' ? true
+                        : !lesson.isFree && dependencies.courseAccess! === 'FREE' ? false
+                        : !firstNotLearnedLesson ? true
+                        : firstNotLearnedLesson.topicOrder === lesson.topicOrder
+                          ? firstNotLearnedLesson.orderInTopic >= lesson.orderInTopic
+                          : firstNotLearnedLesson.topicOrder > lesson.topicOrder;
+                      return { ...lesson, canBeAccessed, solved };
+                    }),
+                  dependencies,
+                }
               );
             })
             .catch(error => {
@@ -233,12 +249,22 @@ class LessonService {
       userCourseProgressService.userCourseProgresS,
       userAccessService._currentCourseAccessBS,
     ).subscribe(refetch);
+
+    type TCourseLessonsBSValue = {
+      lessons: Array<ILessonData & { solved: boolean, canBeAccessed: boolean }> | null
+      dependencies: {
+        source: TSource
+        section: TURLSectionObj
+        authedUser: IUserData
+        courseAccess: TAccess
+      } | null
+    }
   }
 
   protected _lessonS = new Subject<TActionS>();
   protected _currentLessonBS = new BehaviorSubject<ILessonData | null>(null);
   protected _nextLessonBS = new BehaviorSubject<ILessonData | null>(null);
-  protected _courseLessonsBS = new BehaviorSubject<(ILessonData & { solved: boolean, canBeAccessed: boolean })[] | null>(null);
+  protected _courseLessonsBS = new BehaviorSubject<TCourseLessonsBSValue>({ lessons: null, dependencies: null });
 }
 
 export const lessonService = new LessonService;

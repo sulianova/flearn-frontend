@@ -10,7 +10,7 @@ type TProps =
   };
 
 export default function useTopicLessons(this: LessonService, { topic, lessonId }: TProps) {
-  const courseLessons = useBehaviourSubjectValue(this._courseLessonsBS);
+  const courseLessons = useBehaviourSubjectValue(this._courseLessonsBS).lessons;
   return useMemo(() => {
     if (!courseLessons) {
       return null;

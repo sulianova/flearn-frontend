@@ -1,10 +1,25 @@
+import { TURLSectionObj } from 'router';
 import { ILessonFilter } from 'services/data.service/Lesson';
+import { IUserData } from 'services/user.service';
+import { TAccess } from 'services/userAccess.service';
 import { ECommonErrorTypes, TStateState } from 'types';
 import type { TText } from 'ui/Text/Text';
 
 export interface IFetchLessonsProps extends ILessonFilter {}
 
 export type TSource = 'remote' | 'local';
+
+export type TCourseLessonsBSDependencies = {
+  source: TSource
+  section: TURLSectionObj
+  authedUser: IUserData | null
+  courseAccess: TAccess | null
+}
+
+export type TCourseLessonsBSValue = {
+  lessons: Array<ILessonData & { solved: boolean, canBeAccessed: boolean }> | null
+  dependencies: TCourseLessonsBSDependencies | null
+}
 export interface ILessonData {
   id: string
   courseId: string
