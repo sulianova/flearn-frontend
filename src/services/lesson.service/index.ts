@@ -3,8 +3,8 @@ import { BehaviorSubject, CompletionObserver, ErrorObserver, NextObserver, Subje
 import { dataService } from 'services/data.service';
 import { locationService } from 'services/location.service';
 import { userCourseProgressService } from 'services/userCourseProgress.service';
-import { TAccess, userAccessService } from 'services/userAccess.service';
-import { IUserData, userService } from 'services/user.service';
+import { userAccessService } from 'services/userAccess.service';
+import { userService } from 'services/user.service';
 import { localFilesServise } from 'services/localFiles.service';
 
 import { getData } from './data';
@@ -16,7 +16,6 @@ import useTopicLessons from './useTopicLessons';
 import useCurrentLesson from './useCurrentLesson';
 import useNextLesson from './useNextLesson';
 import useCourseLessons from './useCourseLessons';
-import { TURLSectionObj } from 'router';
 
 export type { ILessonData, TActionS, ILessonDataDB, TLessonState, IFetchLessonsProps } from './types';
 
@@ -43,7 +42,6 @@ class LessonService {
           const lessons = await this.fetch(props);
           mainSubject.next({ lessons });
         } catch (err) {
-          err = err as Error;
           const error = Object.assign(err as Error, { ErrorType: this.errorToType(err as Error )});
           mainSubject.next(error);
         }
@@ -208,7 +206,7 @@ class LessonService {
             .then(lessons => {
               const sortedLessons = lessons.slice()
                 .sort((a, b) => {
-                  const key = a.topicOrder != b.topicOrder ? 'topicOrder' : 'orderInTopic';
+                  const key = a.topicOrder !== b.topicOrder ? 'topicOrder' : 'orderInTopic';
                   return a[key] - b[key];
                 });
 
@@ -249,16 +247,6 @@ class LessonService {
       userCourseProgressService.userCourseProgresS,
       userAccessService._currentCourseAccessBS,
     ).subscribe(refetch);
-
-    type TCourseLessonsBSValue = {
-      lessons: Array<ILessonData & { solved: boolean, canBeAccessed: boolean }> | null
-      dependencies: {
-        source: TSource
-        section: TURLSectionObj
-        authedUser: IUserData
-        courseAccess: TAccess
-      } | null
-    }
   }
 
   protected _lessonS = new Subject<TActionS>();
@@ -267,7 +255,7 @@ class LessonService {
   protected _courseLessonsBS = new BehaviorSubject<TCourseLessonsBSValue>({ lessons: null, dependencies: null });
 }
 
-export const lessonService = new LessonService;
+export const lessonService = new LessonService();
 export default LessonService;
 
 (window as any).lessonService = lessonService;

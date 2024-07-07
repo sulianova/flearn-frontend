@@ -1023,7 +1023,7 @@ const lessonData21: ILessonDataDB = {
           caption: [
             {
               tag: 'a',
-              content: 'Jazz music band \"Anders Bast & The Bast\'ards\" album',
+              content: 'Jazz music band "Anders Bast & The Bast\'ards" album',
               props: { className: 's-hoverable', target: "_blank", to: 'https://music.yandex.ru/album/14889733/track/80939520' },
             }
           ]
