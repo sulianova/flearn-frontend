@@ -5,7 +5,6 @@ import type { ILessonData, ILessonDataDB } from 'services/lesson.service';
 import { lessonConverter } from './lessonConverter';
 
 import { ECommonErrorTypes } from 'types';
-import { isDefined } from 'utils';
 export interface ILessonFilter extends
   Pick<ILessonData, 'courseId'>,
   Partial<Pick<ILessonData, 'id' | 'topic' | 'topicOrder' | 'orderInTopic'>> {}
@@ -44,8 +43,12 @@ class Lesson {
       filter.orderInTopic ? { param: 'orderInTopic', value: filter.orderInTopic } : undefined,
     ];
     const lessonsDataDB =
-      (await firebaseService.getDocs(firebaseService.Collections.Lesson, queryConstraints.filter(isDefined)))
-      .map(d => d.data) as ILessonDataDB[];
+      (await firebaseService
+        .getDocs(
+          firebaseService.Collections.Lesson,
+          queryConstraints.filter(c => c !== undefined)
+        )
+      ).map(d => d.data as ILessonDataDB);
     // TODO add check for restricted access for each lesson
     const lessonsData = await Promise.all(lessonsDataDB.map(lessonDataDB => lessonConverter.fromFirestore(lessonDataDB)));
 

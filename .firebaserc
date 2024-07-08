@@ -9,5 +9,6 @@
         "mailersend-email": "871273614b947a8cc241db2a6743ad3b556e8fca1b4ccdf88acf043958d19204"
       }
     }
-  }
+  },
+  "dataconnectEmulatorConfig": {}
 }

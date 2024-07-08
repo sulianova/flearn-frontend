@@ -1,5 +1,4 @@
 import type { ICourseData, ICourseProductOption } from 'services/course.service';
-import { isDefined } from './types';
 
 export function getDiscountedPrice(courseBaseDiscount: ICourseData['discount'], productOption: ICourseProductOption) {
   const discount = productOption.discount ?? courseBaseDiscount;
@@ -26,7 +25,7 @@ export function formatCourseCredit(credit: number, sign?: string) {
   const thousands = String(credit).slice(0, -3);
   const theReast = String(credit).slice(-3);
   return [thousands, theReast, sign]
-    .filter(isDefined)
+    .filter(p => p !== undefined)
     .join(' ');
 }
 

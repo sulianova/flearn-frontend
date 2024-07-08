@@ -1,7 +1,6 @@
 import { firebaseService } from 'services/firebase.service';
 import type { TUserCourseProgress, TUserCourseProgressDB } from 'services/userCourseProgress.service';
 import { userCourseProgressConverter } from './userCourseProgressConverter';
-import { isDefined } from 'utils';
 
 class UserCourseProgress {
   public async get(courseId: string, userEmail: string) {
@@ -28,7 +27,7 @@ class UserCourseProgress {
           .then(progress => !progress ? undefined : userCourseProgressConverter.fromFirestore(progress))
           .then(progress => !progress ? undefined : ({ progress, courseId }))
       ));
-      return userCourseProgresses.filter(isDefined);
+      return userCourseProgresses.filter(p => p !== undefined);
     } catch (error) {
       console.log('Failed to get all user course progresses');
       throw error;

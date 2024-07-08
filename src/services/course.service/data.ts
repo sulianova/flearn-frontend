@@ -1,10 +1,9 @@
-import { isDefined } from 'utils';
 import { ICourseDataDB } from './types/index';
 
 export function getData(courseIds: string[]) {
   return courseIds
     .map(courseId => allCourses.find(l => l.id === courseId))
-    .filter(isDefined);
+    .filter(course => course !== undefined);
 }
 
 const courseDB1: ICourseDataDB = {
