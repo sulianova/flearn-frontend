@@ -50,7 +50,7 @@ export default function ProgramBlocks({ course }: IProps) {
     feedbacks && feedbacks.length && <Feedbacks key='feedbacks' feedbacks={feedbacks}/>,
     <DecisionForm key='decisionForm' course={course}/>,
     faq && faq.length && <FAQ key='faq' faq={faq}/>,
-  ].filter(Boolean) as JSX.Element[];
+  ].filter(e => e !== undefined && e !== null && e !== 0);
 
   return (
     <div className={classes._}>

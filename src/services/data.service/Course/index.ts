@@ -30,9 +30,9 @@ class Course {
         return [];
       }
     }
-    const queryConstraints = [
-      (filter.ids || usersCoursesIds) && { param: 'id', value: [...filter.ids ?? [], ...usersCoursesIds ?? []], operator: 'in' },
-    ].filter(Boolean) as TWhereProps;
+    const queryConstraints: TWhereProps = [
+      (filter.ids || usersCoursesIds) && { param: 'id' as const, value: [...filter.ids ?? [], ...usersCoursesIds ?? []], operator: 'in' as const },
+    ].filter(c => c !== undefined);
 
     const coursesDataDB = (await firebaseService.getDocs<ICourseDataDB>(firebaseService.Collections.Course, queryConstraints)).map(d => d.data);
     return await Promise.all(coursesDataDB.map(courseDataDB => courseConverter.fromFirestore(courseDataDB)));

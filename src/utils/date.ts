@@ -50,6 +50,6 @@ export function formatDate(date: Date, params: { timeZone?: TTimeZone, wWeekDay?
     wTime ? (dateStr + ',') : dateStr,
     wTime && time!,
   ]
-    .filter(Boolean)
+    .filter(p => p && p !== undefined)
     .join(' ');
 }

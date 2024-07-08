@@ -23,9 +23,9 @@ class User {
   }
 
   public async getAll(filter: { ids?: string[] }): Promise<IUserData[]> {
-    const queryConstraints = [
-      filter.ids && { param: 'id', value: filter.ids, operator: 'in' },
-    ].filter(Boolean) as TWhereProps;
+    const queryConstraints: TWhereProps = [
+      filter.ids && { param: 'id' as const, value: filter.ids, operator: 'in' as const },
+    ].filter(c => c !== undefined);
 
     const usersDataDB = (await firebaseService.getDocs(firebaseService.Collections.User, queryConstraints))
       .map(d => d.data) as IUserDataDB[];

@@ -33,7 +33,7 @@ function ProgramIntro({ course }: IProps) {
       durationInUnits: duration.value,
       unit: duration.unit,
     }),
-  ].filter(Boolean);
+  ];
 
   return (
     <>
