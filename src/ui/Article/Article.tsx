@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import { IArticleContent } from 'types';
 
-import Question from './Question/Question';
+import Quiz from './Quiz/Quiz';
 import Gallery from './Gallery/Gallery';
 import Image from './Image/Image';
 import Quote from './Quote/Quote';
@@ -15,7 +15,7 @@ import './Article.scss';
 
 export default Article;
 
-Article.Question = Question;
+Article.Quiz = Quiz;
 Article.Gallery = Gallery;
 Article.Image = Image;
 Article.Quote = Quote;
@@ -53,8 +53,8 @@ function renderBlock(block: IArticleContent[number]) {
       return (<TextImportant {...block}/>);
     case 'quote':
       return (<Quote {...block}/>);
-    case 'question':
-      return (<Question {...block}/>);
+    case 'quiz':
+      return (<Quiz {...block}/>);
     case 'video':
       return (<Video {...block}/>);
     case 'image':

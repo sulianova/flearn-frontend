@@ -31,7 +31,7 @@
   justify-content: space-between;
   align-items: center;
 
-  height: set-calc(40);
+  height: set-calc(52);
 
   padding: 0 set-calc(16);
   margin: set-calc(10) set-calc($padding-x-desk-page);
@@ -79,12 +79,15 @@
   background-color:transparent;
   border: none;
   backdrop-filter: none;
-
   box-shadow: none;
+
+  height: set-calc(40);
 
   @include set-media(md) {
     padding: set-calc(8) set-calc($padding-x-mob-page) set-calc(10);
     backdrop-filter: blur(set-calc($backdrop-filter));
+
+    height: set-calc(62);
   }
 }
 

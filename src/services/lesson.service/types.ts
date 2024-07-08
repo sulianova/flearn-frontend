@@ -94,8 +94,8 @@ export interface ILessonGalleryBlock extends ILessonBlock {
 }
 
 export interface ILessonQuestionBlock extends ILessonBlock {
-  type: 'question'
-  question: TText
+  type: 'quiz'
+  quiz: TText
 }
 
 export interface ILessonTextBlock extends ILessonBlock {
@@ -143,5 +143,11 @@ export interface ILessonImageBlock extends ILessonBlock {
   size?: 'LARGE'
 }
 
-export type ILessonContentDB = Array<ILessonTextBlock | ILessonQuestionBlock | ILessonQuoteBlock | ILessonTextImportantBlock | ILessonTitleBlock  | ILessonVideoBlock | ILessonImageBlockDB | ILessonGalleryBlockDB>;
-export type ILessonContent = Array<ILessonTextBlock | ILessonQuestionBlock | ILessonQuoteBlock | ILessonTextImportantBlock | ILessonTitleBlock  | ILessonVideoBlock | ILessonImageBlock | ILessonGalleryBlock>;
+export interface ILessonListBlock extends ILessonBlock {
+  type: 'list'
+  items: TText[]
+}
+
+
+export type ILessonContentDB = Array<ILessonTextBlock | ILessonQuestionBlock | ILessonQuoteBlock | ILessonTextImportantBlock | ILessonTitleBlock  | ILessonVideoBlock | ILessonImageBlockDB | ILessonGalleryBlockDB | ILessonListBlock>;
+export type ILessonContent = Array<ILessonTextBlock | ILessonQuestionBlock | ILessonQuoteBlock | ILessonTextImportantBlock | ILessonTitleBlock  | ILessonVideoBlock | ILessonImageBlock | ILessonGalleryBlock | ILessonListBlock>;

@@ -14,9 +14,9 @@ export interface IArticleTitleBlock extends IArticleBlock {
  * This is type i sused to ...
  */
 
-export interface IArticleQuestionBlock extends IArticleBlock {
-  type: 'question'
-  question: TText
+export interface IArticleQuizBlock extends IArticleBlock {
+  type: 'quiz'
+  quiz: TText
 }
 
 export interface IArticleTextBlock extends IArticleBlock {
@@ -75,7 +75,7 @@ export interface IArticleGalleryBlock extends IArticleBlock {
 }
 
 export type TArticleBlocks =
-  | IArticleQuestionBlock
+  | IArticleQuizBlock
   | IArticleGalleryBlock
   | IArticleImageBlock
   | IArticleQuoteBlock
@@ -86,7 +86,7 @@ export type TArticleBlocks =
   | IArticleVideoBlock;
 
 export type TArticleBlocksDB =
-  | IArticleQuestionBlock
+  | IArticleQuizBlock
   | IArticleGalleryBlock
   | IArticleImageBlockDB
   | IArticleQuoteBlock

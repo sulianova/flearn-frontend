@@ -13,7 +13,7 @@ import BuyPopup from 'components/BuyPopup/BuyPopup';
 import Article from 'ui/Article/Article';
 
 import TheoryFooter from '../TheoryFooter/TheoryFooter';
-import LessonQuestion from '../LessonQuestion/LessonQuestion';
+import LessonSurvey from '../LessonSurvey/LessonSurvey';
 import classes from './LessonContent.module.scss';
 
 interface IProps {
@@ -43,7 +43,7 @@ export default function LessonContent(props: IProps) {
       <div className={classes._}>
         <h1 className={classes.title}>{lesson.title}</h1>
         <Article blocks={lesson.content}/>
-        <LessonQuestion/>
+        <LessonSurvey/>
         <TheoryFooter
           onNext={async () => {
             if (lesson.topicOrder === 1 && lesson.orderInTopic === 1 && lesson.isFree) {
