@@ -1,5 +1,6 @@
 import { TURLSectionObj } from 'router';
 import { ILessonFilter } from 'services/data.service/Lesson';
+import { TSurvey } from 'services/surveyAnswers.service';
 import { IUserData } from 'services/user.service';
 import { TAccess } from 'services/userAccess.service';
 import { ECommonErrorTypes, TStateState } from 'types';
@@ -34,6 +35,7 @@ export interface ILessonData {
   }
   isFree: boolean
   content: ILessonContent
+  survey?: TSurvey
 }
 
 export interface ILessonDataDB {
@@ -50,6 +52,7 @@ export interface ILessonDataDB {
   }
   isFree: boolean
   content: ILessonContentDB
+  survey?: TSurvey
 }
 
 export type TActionS = { type: 'updated' };

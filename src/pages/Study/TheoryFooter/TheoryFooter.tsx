@@ -3,7 +3,7 @@ import classes from './TheoryFooter.module.scss';
 export default TheoryFooter;
 
 interface IProps {
-  onNext: () => void
+  onNext?: () => void
 }
 
 function TheoryFooter(props: IProps) {
@@ -11,7 +11,9 @@ function TheoryFooter(props: IProps) {
     <div className={classes.__}>
       <div className={classes.buttons}>
         <div className={classes.nextLesson}>
-          <button className={classes.button} onClick={props.onNext}>К следующему уроку</button>
+          {props.onNext && (
+            <button className={classes.button} onClick={props.onNext}>К следующему уроку</button>
+          )}
         </div>
       </div>
     </div>
