@@ -64,7 +64,7 @@
 .item {
   position: relative;
 
-  transition: background-color $d-hover ease-out, transform $d-hover ease-out;
+  transition: background-color $d-hover ease, transform $d-hover ease;
   background-color: transparent;
 
   &:hover {

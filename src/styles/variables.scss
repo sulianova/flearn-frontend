@@ -211,7 +211,7 @@ $breakpoints: (
 );
 
 //duration
-$d-hover: 0.2s;
+$d-hover: 0.25s;
 $d-expansion: 0.5s;
 $d-collapse: calc($d-expansion / 3);
 $d-zoom: .3s;
@@ -311,6 +311,7 @@ $z-index-500: 500;
   --color-background-btn-light: #{$color-background-btn-light};
   --color-background-btn-hover-light: #{$color-background-btn-hover-light};
   --color-core-heading-gradient-light: #{$color-core-heading-gradient-light};
+  --color-quiz-light: var(--verdict-color, #{$color-accent-neutral-light});
 
   // theme dark
   --primary-color-dark: #{$primary-color-dark};
@@ -353,4 +354,5 @@ $z-index-500: 500;
   --color-background-btn-dark: #{$color-background-btn-dark};
   --color-background-btn-hover-dark: #{$color-background-btn-hover-dark};
   --color-core-heading-gradient-dark: #{$color-core-heading-gradient-dark};
+  --color-quiz-dark: var(--verdict-color, #{$color-accent-neutral-dark});
 }

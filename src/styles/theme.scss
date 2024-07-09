@@ -41,6 +41,7 @@ body.light {
   --color-background-btn: var(--color-background-btn-light);
   --color-background-btn-hover: var(--color-background-btn-hover-light);
   --color-core-heading-gradient: var(--color-core-heading-gradient-light);
+  --color-quiz: var(--color-quiz-light);
 }
 
 body.dark {
@@ -85,4 +86,5 @@ body.dark {
   --color-background-btn: var(--color-background-btn-dark);
   --color-background-btn-hover: var(--color-background-btn-hover-dark);
   --color-core-heading-gradient: var(--color-core-heading-gradient-dark);
+  --color-quiz: var(--color-quiz-dark);
 }

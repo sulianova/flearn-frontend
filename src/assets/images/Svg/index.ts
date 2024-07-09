@@ -35,3 +35,4 @@ export * from './User';
 export * from './Vk';
 export * from './YandexZen';
 export * from './Youtube';
+export * from './SmallCross';

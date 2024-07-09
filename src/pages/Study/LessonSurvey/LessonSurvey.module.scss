@@ -1,5 +1,13 @@
 @import 'styles/index';
 
+  .shouldBeChecked {
+    --verdict-color: var(--color-accent-success);
+  }
+
+  .shouldNotBeChecked {
+    --verdict-color: var(--color-accent-error);
+  }
+
  .__ {
    position: relative;
    margin: set-calc(40) 0 set-calc(20);
@@ -70,35 +78,59 @@
   @include font-20-normal-paragraph;
 }
 
-.quizAnswers {
+.quizGroup {
   display: flex;
   flex-direction: column;
+
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-inline-size: auto;
 }
 
-.quizAnswer {
+.choiceOption{
+  position: relative;
+
   display: flex;
-  align-items: start;
+  align-items: center;
+  gap: set-calc(12);
 
-  border-radius: set-calc($border-radius-12);
-  border: set-calc(1.2) solid var(--color-background-stroke);
-  background-color: var(--color-background-glassy-b);
+  margin: set-calc(10) 0;
 
-  margin-bottom: set-calc(4);
-  padding: set-calc(24);
-  gap: set-calc(8);
-
-  cursor: pointer;
-
+  border-radius: set-calc(6);
   @include font-18-normal-ui;
 
-  @include set-media(md) {
-    padding: set-calc(24) set-calc(16);
-  }
+  cursor: pointer;
+}
+
+.choiceOption::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  content: "";
+  transition: opacity .2s;
+  pointer-events: none;
+  opacity: 0;
+  border-radius: inherit;
+  background-color: var(--color-quiz);
 }
 
 //check general
 .checked {
-  background-color: var(--color-accent-neutral);
+  background-color: var(--color-quiz);
+}
+
+.cheched::before {
+  position: absolute;
+  top: 4px;
+  left: -1px;
+  width: 3px;
+  height: calc(100% - 2* 4px);
+  content: "";
+  background: var(--verdict-color);
 }
 
 .checked .icon {
@@ -141,6 +173,12 @@
   }
 }
 
+//feedback
+.feedback {
+  color: var(--verdict-color);
+  @include font-16-normal-paragraph;
+}
+
 //radio
 .radio {
   position: relative;
@@ -159,7 +197,7 @@
 
   transition: background-color .2s ease-in-out;
   border-radius: 50%;
-  box-shadow: inset 0 0 0 1.5px var(--color-accent-neutral);
+  box-shadow: inset 0 0 0 1.5px var(--color-quiz);
 }
 
 //checkbox 
@@ -179,7 +217,7 @@
 
   transition: background-color .2s ease-in-out;
   border-radius: set-calc(6);
-  box-shadow: inset 0 0 0 1.5px var(--color-accent-neutral);
+  box-shadow: inset 0 0 0 1.5px var(--color-quiz);
 }
 
 .checkbox::after,
@@ -200,7 +238,7 @@
   transform: translate(-100%, 100%);
   border-radius: inherit;
 
-  background-color: var(--color-accent-neutral);
+  background-color: var(--color-quiz);
 }
 
 .checked .checkboxWithMovementAnimation::before{
