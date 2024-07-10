@@ -38,7 +38,7 @@
 }
 
 .light {
-  background: var(--color-content-inverted-secondary);
+  background: var(--color-background-glassy-a);
   border: set-calc(1) solid var(--color-background-stroke);
 
   @include set-media(md) {

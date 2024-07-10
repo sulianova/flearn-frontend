@@ -10,6 +10,7 @@ import { formatI18nT } from 'shared';
 import InputField from 'ui/Form/Input/InputField';
 import Link from 'ui/Link/Link';
 import Spinner from 'ui/Spinner/Spinner';
+import Icon from 'ui/Icon/Icon';
 
 import classes from './Form.module.scss';
 import classesInputField from './InputField.module.scss';
@@ -94,10 +95,10 @@ export default function Form({ onOrderCreated, course, option }: IProps) {
           >
             <span className={classes.btnSvg}>
               {
-                formData.state.type === 'Idle' ? '→' :
+                formData.state.type === 'Idle' ?  <Icon icon='ArrowButton'/> :
                 formData.state.type === 'Pending' ? <Spinner/> :
-                formData.state.type === 'Success' ? '✓' :
-                formData.state.type === 'Error' ? '\u21aa' : ''
+                formData.state.type === 'Success' ?  <Icon icon='Tick'/>  :
+                formData.state.type === 'Error' ? <Icon icon='Refresh'/> : ''
               }
             </span>
           </button>

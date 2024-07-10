@@ -54,6 +54,10 @@
   }
 }
 
+svg[data-arrow] {
+  transform: rotate(180deg);
+}
+
 .isSuccess {
   pointer-events: none;
   color: var(--color-content-background-secondary);

@@ -39,35 +39,17 @@ const lessonData11: ILessonDataDB = {
     {
       type: 'list',
       items: [
-        'Как проходит обучение и кто будет вас учить?',
+        'Как проходит обучение и кто вас будет учить?',
         'Что входит в программу?',
         'Сколько времени нужно тратить на учёбу?',
         'Можно ли стать иллюстратором, если не умеешь рисовать?',
         'Что входит в стоимость курса?',
-        'Когда можно начать обучение на платной части курса?',
+        'Когда можно начать обучение на платной программе',
       ]
     },
   ],
   survey: {
     0: {
-      type: 'SELECT',
-      variant: 'RADIO',
-      title: 'У\u00A0вас есть опыт работы или учёбы по\u00A0специальности «Иллюстратор»?',
-      options: [
-        'Нет, впервые знакомлюсь с профессией',
-        'Да, уже в процессе изучения или работаю в этой сфере',
-      ],
-    },
-    1: {
-      type: 'SELECT',
-      variant: 'CHECKBOX',
-      title: 'У\u00A0вас есть опыт работы или учёбы по\u00A0специальности «Иллюстратор»?',
-      options: [
-        'Нет, впервые знакомлюсь с профессией',
-        'Да, уже в процессе изучения или работаю в этой сфере',
-      ],
-    },
-    2: {
       type: 'SELECT',
       variant: 'CARD',
       subtitle: 'Хотим зафиксировать цель, с которой вы проходите вводную часть. А в конце спросим, получилось ли её достичь.',
@@ -79,7 +61,7 @@ const lessonData11: ILessonDataDB = {
         },
         {
           title: 'Попробовать формат',
-          subtitle: 'Понять, понравится ли мне учеба в Flearn',
+          subtitle: 'Понять, понравится ли мне учеба в flearn',
         },
         {
           title: 'Пройти только вводную часть',
@@ -87,6 +69,44 @@ const lessonData11: ILessonDataDB = {
         },
       ],
     },
+    // 0: {
+    //   type: 'SELECT',
+    //   variant: 'RADIO',
+    //   title: 'У\u00A0вас есть опыт работы или учёбы по\u00A0специальности «Иллюстратор»?',
+    //   options: [
+    //     'Нет, впервые знакомлюсь с профессией',
+    //     'Да, уже в процессе изучения или работаю в этой сфере',
+    //   ],
+    // },
+    // 1: {
+    //   type: 'SELECT',
+    //   variant: 'CHECKBOX',
+    //   title: 'У\u00A0вас есть опыт работы или учёбы по\u00A0специальности «Иллюстратор»?',
+    //   options: [
+    //     'Нет, впервые знакомлюсь с профессией',
+    //     'Да, уже в процессе изучения или работаю в этой сфере',
+    //   ],
+    // },
+    // 2: {
+    //   type: 'SELECT',
+    //   variant: 'CARD',
+    //   subtitle: 'Хотим зафиксировать цель, с которой вы проходите вводную часть. А в конце спросим, получилось ли её достичь.',
+    //   description: 'Выберите цель:',
+    //   options: [
+    //     {
+    //       title: 'Пройти и оплатить',
+    //       subtitle: 'Подготовиться к стартру курса',
+    //     },
+    //     {
+    //       title: 'Попробовать формат',
+    //       subtitle: 'Понять, понравится ли мне учеба в Flearn',
+    //     },
+    //     {
+    //       title: 'Пройти только вводную часть',
+    //       subtitle: 'Бесплатно научиться чему-нибудь новому',
+    //     },
+    //   ],
+    // },
   },
 }
 
@@ -118,104 +138,6 @@ const lessonData21: ILessonDataDB = {
         {
           tag: 'p',
           content: 'Иллюстратор помогает компаниям и людям выделиться среди конкурентов, передать настроение бренда, сделать текст нагляднее и проще.',
-        },
-      ]
-    },
-    {
-      type: 'title',
-      title: 'Иллюстрации в IT',
-    },
-    {
-      type: 'gallery',
-      maxHeightPx: 1_300,
-      images: [
-        {
-          id: 'PaulaCruz2.webp',
-          alt: 'PaulaCruz2',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Paula Cruz',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/paulacruz' },
-            }
-          ]
-        },
-        {
-          id: 'PaulaCruz1.webp',
-          alt: 'PaulaCruz1',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Paula Cruz',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/paulacruz' },
-            }
-          ]
-        },
-        {
-          id: 'SusannaRumiz2.webp',
-          alt: 'SusannaRumiz2',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Susanna Rumiz',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/susannarumiz/projects' },
-            }
-          ]
-        },
-        {
-          id: 'SusannaRumiz.webp',
-          alt: 'SusannaRumiz',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Susanna Rumiz',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/susannarumiz/projects' },
-            }
-          ]
-        },
-        {
-          id: 'LauraDiez.webp',
-          alt: 'LauraDíez',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Laura Díez',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/lauradieze' },
-            }
-          ]
-        },
-        {
-          id: 'MinHeo1.webp',
-          alt: 'MinHeo1',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Min Heo',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://minstudio.cargo.site/index' },
-            }
-          ]
-        },
-        {
-          id: 'IvanHaidutski.webp',
-          alt: 'IvanHaidutski',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Ivan Haidutski',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/ivanhaidutski' },
-            }
-          ]
-        },
-        {
-          id: 'bayduzha5.webp',
-          alt: 'bayduzha5',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Наташа Байдужа',
-              props: { className: 's-hoverable', target: "_blank", to: 'http://bayduzha.com/' },
-            }
-          ]
         },
       ]
     },
@@ -524,7 +446,7 @@ const lessonData21: ILessonDataDB = {
     },
     {
       type: 'gallery',
-      maxHeightPx: 1_800,
+      maxHeightPx: 1_300,
       images: [
         {
           id: 'bayduzha1.webp',
@@ -622,50 +544,6 @@ const lessonData21: ILessonDataDB = {
               tag: 'a',
               content: 'Amanda Lobos',
               props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
-            }
-          ]
-        },
-        {
-          id: 'StudioZwupp1.webp',
-          alt: 'StudioZwupp1',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Studio Zwupp',
-              props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/zwupp' },
-            }
-          ]
-        },
-        {
-          id: 'StudioZwupp2.webp',
-          alt: 'StudioZwupp2',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Studio Zwupp',
-              props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/zwupp' },
-            }
-          ]
-        },
-        {
-          id: 'StudioZwupp3.webp',
-          alt: 'StudioZwupp3',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Studio Zwupp',
-              props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/zwupp' },
-            }
-          ]
-        },
-        {
-          id: 'StudioZwupp4.webp',
-          alt: 'StudioZwupp4',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Studio Zwupp',
-              props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/zwupp' },
             }
           ]
         },
@@ -943,118 +821,8 @@ const lessonData21: ILessonDataDB = {
     },
     {
       type: 'gallery',
-      maxHeightPx: 2_800,
+      maxHeightPx: 900,
       images: [
-        {
-          id: 'Lx24.webp',
-          alt: 'Lx24',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Сингл “Роли”, Lx24',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://music.yandex.ru/album/10850856' },
-            }
-          ]
-        },
-        {
-          id: 'NIKER.webp',
-          alt: 'NIKER',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Сингл “Грузовик”, Niker',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://music.yandex.ru/album/21920804' },
-            }
-          ]
-        },
-        {
-          id: 'Vopross.webp',
-          alt: 'Vopross',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Сингл “Не люблю”, Vopross',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://music.yandex.ru/album/21957862/track/103009245' },
-            }
-          ]
-        },
-        {
-          id: 'слишкомлично.webp',
-          alt: 'слишкомлично',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Сингл “Норт-Дам”, Слишкомлично',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://music.yandex.ru/album/23268397/track/106625078' },
-            }
-          ]
-        },
-        {
-          id: 'хмыров.webp',
-          alt: 'хмыров',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Сингл “Ничего святого”, Хмыров',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://music.yandex.ru/album/23265803/' },
-            }
-          ]
-        },
-        {
-          id: 'MilkyChance.webp',
-          alt: 'MilkyChance',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Альбом “Trip Tape”, Milky Chance',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://music.yandex.ru/album/18601440' },
-            }
-          ]
-        },
-        {
-          id: 'plussize.webp',
-          alt: 'plussize',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Сингл “Батарейка”, Плюс Сайз',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://music.yandex.ru/album/21058503' },
-            }
-          ]
-        },
-        {
-          id: 'fenekot.webp',
-          alt: 'fenekot',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Сингл “Let Me Down Slowly”, fenekot',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://music.yandex.ru/album/18263863' },
-            }
-          ]
-        },
-        {
-          id: 'MIKAYA.webp',
-          alt: 'MIKAYA',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Сингл “Битлждус”, Mikaya',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://music.yandex.ru/album/16059358/track/84610206' },
-            }
-          ]
-        },
-        {
-          id: 'Zuwu.webp',
-          alt: 'Zuwu',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Сингл “Молодость”, zuwu',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://music.yandex.ru/album/14889733/track/80939520' },
-            }
-          ]
-        },
         {
           id: ' EllaMezule1.webp',
           alt: ' EllaMezule1',
@@ -1107,7 +875,7 @@ const lessonData21: ILessonDataDB = {
     },
     {
       type: 'gallery',
-      maxHeightPx: 1_500,
+      maxHeightPx: 1_100,
       images: [
         {
           id: 'AmandaLobos13.webp',
@@ -1132,17 +900,6 @@ const lessonData21: ILessonDataDB = {
           ]
         },
         {
-          id: 'AsahiNagata1.webp',
-          alt: 'AsahiNagata1',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Asahi Nagata',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/nagataae6d8' },
-            }
-          ]
-        },
-        {
           id: 'bayduzha6.webp',
           alt: 'bayduzha6',
           caption: [
@@ -1161,17 +918,6 @@ const lessonData21: ILessonDataDB = {
               tag: 'a',
               content: 'Polyandria NoAge',
               props: { className: 's-hoverable', target: "_blank", to: 'https://polyandria.ru/noage/?fbclid=PAZXh0bgNhZW0CMTEAAabAi9e6KyC7CAY-L2drZK5r471d00tMEufQpVFfQC-qVHTJY-cOJBfRyL4_aem_ZmFrZWR1bW15MTZieXRlcw' },
-            }
-          ]
-        },
-        {
-          id: 'IlyaMilstein2.webp',
-          alt: 'IlyaMilstein2',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Ilya Milstein',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://www.ilyamilstein.com/' },
             }
           ]
         },
