@@ -17,7 +17,7 @@
 }
 .textImportantWrapper {
   padding: set-calc(32);
-  background: var(--color-background-glassy-b);
+  background: $color-palette-indigo-100;
   border: set-calc(1) solid var(--color-border);
   border-radius: set-calc($border-radius-medium);
 
@@ -44,6 +44,6 @@
 
 .textImportantWrapper {
   @include font-20-normal-paragraph;
-  color: var(--color-content-secondary);
+  color: $color-content-secondary-light;
 
 }

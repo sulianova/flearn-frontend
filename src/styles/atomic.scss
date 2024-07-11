@@ -41,6 +41,10 @@
 
 @mixin font-20-normal-paragraph {
   @include set-typography(20, 28, 500);
+
+  @include set-media(md) {
+    @include set-typography(18, 24, 500);
+  }
 }
 
 @mixin font-21-normal-paragraph  {
@@ -77,7 +81,6 @@
 
 @mixin font-28-normal-header {
   @include set-typography(28, 32, 500);
-  font-family: $font-family-compact;
 
   @include set-media(md) {
     @include set-typography(20, 20, 500);
@@ -86,7 +89,6 @@
 
 @mixin font-32-normal-header  {
   @include set-typography(32, 32, 500);
-  font-family: $font-family-compact;
 
   @include set-media(md) {
     @include set-typography(28, 28, 500);
@@ -95,7 +97,6 @@
 
 @mixin font-36-normal-header  {
   @include set-typography(36, 36, 500);
-  font-family: $font-family-compact;
 
   @include set-media(md) {
     @include set-typography(28, 28, 500);
@@ -104,17 +105,14 @@
 
 @mixin font-40-normal-header {
   @include set-typography(40, 42, 500);
-  font-family: $font-family-compact;
 
   @include set-media(md) {
-    @include set-typography(28, 28, 500);
+    @include set-typography(30, 32, 500);
   }
 }
 
 @mixin font-56-normal-header  {
   @include set-typography(56, 48, 500);
-  font-family: $font-family-compact;
-  letter-spacing: set-calc(-1);
 
   @include set-media(md) {
     @include set-typography(36, 36, 500);
@@ -123,8 +121,6 @@
 
 @mixin font-56-normal-ui {
   @include set-typography(56, 60, 500);
-  font-family: $font-family-compact;
-  letter-spacing: set-calc(-1);
 
   @include set-media(md) {
     @include set-typography(48, 48, 500);
@@ -133,23 +129,17 @@
 
 @mixin font-70-normal-header  {
   @include set-typography(70, 66, 500);
-  font-family: $font-family-compact;
-  letter-spacing: set-calc(-1);
 
   @include set-media(md) {
     @include set-typography(40, 40, 500);
-    letter-spacing: set-calc(-1);
   }
 }
 
 @mixin font-88-normal-header  {
   @include set-typography(88, 70, 500);
-  font-family: $font-family-compact;
-  letter-spacing: set-calc(-1);
 
   @include set-media(md) {
     @include set-typography(48, 44, 500);
-    letter-spacing: set-calc(-1);
   }
 }
 

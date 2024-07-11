@@ -91,29 +91,21 @@ function LessonSurvey<Survey extends TSurvey>(props: IProps<Survey>) {
             <SelectRadioStep
               {...step}
               selectedValue={answer as TSurveyAnswer<typeof step>}
-              onSelect={v => {
-                setAnswers({ ...answers, [currentStepIndex]: v });
-                nextStep?.();
-              }}
+              onSelect={v => setAnswers({ ...answers, [currentStepIndex]: v })}
             />
           )}
           {step.type === 'SELECT' && step.variant === 'CHECKBOX' && (
             <SelectCheckboxStep
               {...step}
               selectedValue={answer as TSurveyAnswer<typeof step>}
-              onSelect={v => {
-                setAnswers({ ...answers, [currentStepIndex]: v });
-              }}
+              onSelect={v => setAnswers({ ...answers, [currentStepIndex]: v })}
             />
           )}
           {step.type === 'SELECT' && step.variant === 'CARD' && (
             <SelectCardStep
               {...step}
               selectedValue={answer as TSurveyAnswer<typeof step>}
-              onSelect={v => {
-                setAnswers({ ...answers, [currentStepIndex]: v });
-                nextStep?.();
-              }}
+              onSelect={v => setAnswers({ ...answers, [currentStepIndex]: v })}
             />
           )}
           {hasNextStep ? (

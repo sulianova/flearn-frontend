@@ -52,10 +52,10 @@
     width: set-calc(24);
     height: set-calc(24);
   }
-}
 
-svg[data-arrow] {
-  transform: rotate(180deg);
+  svg[data-arrow] {
+    transform: rotate(180deg);
+  }
 }
 
 .isSuccess {

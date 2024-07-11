@@ -1,7 +1,7 @@
 @use "sass:math";
 $rem-base: 18px;
 $font-family: TTNormsPro-Normal, sans-serif;
-$font-family-compact: TTNormsProCompact-Normall, sans-serif;
+$font-family-bold: TTNormsPro-Bold, sans-serif;
 $padding-x-desk-page: 16;
 $padding-x-mob-page: 16;
 $padding-xs-mob-page: 8;
@@ -74,9 +74,6 @@ $color-palette-blue-700-a: rgba(20, 115, 230, 0.7);
 $color-palette-blue-800-a: rgba(20, 115, 230, 0.8);
 $color-palette-blue-900-a: rgba(20, 115, 230, 0.9);
 
-//pink
-$color-pink: #ffd7fd;
-$color-pink-lt: #ffe9fe;
 
 //color-palette-blue
 $color-palette-blue-900: rgb(0, 47, 154);
@@ -134,17 +131,17 @@ $color-background-overlay-light: $color-palette-black-500-a;
 $color-background-active-light: rgba(0, 0, 0, 0.03);
 $color-background-stroke-light: rgba(0, 0, 0, 0.2);
 $color-border-light: $color-palette-white-1000;
-$color-card-glassy-light: $color-palette-white-800-a;
+$color-card-glassy-light: $color-palette-white-500-a;
 $color-card-light: $color-palette-black-25;
 $color-content-inverted-primary-light: $color-palette-black-25;
 $color-content-inverted-secondary-light: $color-palette-black-200;
-$color-content-primary-light: $color-palette-black-900;
-$color-content-secondary-light: $color-palette-black-700;
+$color-content-primary-light: $color-palette-black-700;
+$color-content-secondary-light: $color-palette-black-600;
 $color-content-tertiary-light: $color-palette-black-500;
 $color-content-background-primary-light: $color-palette-black-900;
 $color-content-background-secondary-light: $color-palette-black-700;
 $color-content-background-tertiary-light: $color-palette-black-200;
-$color-content-paragraph-primary-light: $color-palette-black-800;
+$color-content-paragraph-primary-light: $color-palette-black-700;
 $color-content-paragraph-secondary-light: $color-palette-black-500;
 $color-background-btn-light: $color-palette-black-700;
 $color-background-btn-hover-light: $color-palette-black-900;
@@ -163,7 +160,7 @@ $color-accent-promo-dark: #f7235b;
 $color-accent-promo-hover-dark: #bb1441;
 $color-accent-neutral-dark: $color-palette-white-1000;
 $color-accent-neutral-hover-dark: $color-palette-black-300;
-$color-background-default-dark: $color-palette-black-950;
+$color-background-default-dark: $color-palette-black-800;
 $color-background-alternate-dark: $color-palette-black-950;
 $color-background-glassy-a-dark: $color-palette-white-50-a;
 $color-background-glassy-b-dark: $color-palette-white-100-a;
@@ -187,9 +184,9 @@ $color-content-tertiary-dark: $color-palette-black-500;
 $color-content-background-primary-dark: $color-palette-black-200;
 $color-content-background-secondary-dark: $color-palette-black-500;
 $color-content-background-tertiary-dark: $color-palette-black-700;
-$color-content-paragraph-primary-dark: $color-palette-black-300;
+$color-content-paragraph-primary-dark: $color-palette-black-200;
 $color-content-paragraph-secondary-dark: $color-palette-black-500;
-$color-background-btn-dark: $primary-color-dark;
+$color-background-btn-dark: $color-palette-black-700;
 $color-background-btn-hover-dark: $primary-color-hover-dark;
 
 $border-color-dark: hsla(0, 0%, 100%, .1);

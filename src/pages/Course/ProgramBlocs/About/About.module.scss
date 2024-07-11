@@ -48,13 +48,13 @@
       stroke-width: 0;
   
      path {
-        fill: var(--primary-color);
+        fill: var(--color-content-primary);
       }
     }
 
     @include set-media(md) {
-      width: set-calc(44);
-      height: set-calc(44);
+      width: set-calc(56);
+      height: set-calc(56);
 
     }
   }

@@ -120,7 +120,6 @@
   @include font-18-normal-ui;
 
   white-space: pre-wrap;
-  z-index: 2;
   text-align: left;
   color: var(--color-content-paragraph-secondary);
 }
@@ -198,7 +197,6 @@
 }
 
 .icon {
-  z-index: 1;
 
   display: flex;
   justify-content: center;

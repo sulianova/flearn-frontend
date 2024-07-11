@@ -9,7 +9,7 @@
 
   color: var(--color-content-primary);
 
-  padding: set-calc(32);
+  padding: set-calc(56) set-calc(32) set-calc(32);
   width: set-calc(560);
   min-height: set-calc(600);
 
@@ -88,7 +88,7 @@
 }
 
 .header {
-  margin: 0 set-calc(16);
+  margin: 0 set-calc(16) 0;
   max-width: set-calc(700);
 
   @include set-media(md) {
@@ -101,7 +101,7 @@
   @include font-36-normal-header;
 
   @include set-media(md) {
-    margin: set-calc(16) 0 set-calc(16);
+    margin: 0 0 set-calc(16);
   }
 }
 

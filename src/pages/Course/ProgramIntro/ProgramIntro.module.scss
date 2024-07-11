@@ -1,43 +1,32 @@
 @import 'styles/index';
 
-._ {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  border-radius: set-calc($border-radius-medium);
-  background: var(--color-card);
-  border: set-calc(1) solid var(--color-border);
-
-  @include set-media(md) {
-    position: relative;
-    border: set-calc(1) solid var(--color-border);
-  }
-}
-
 .inner {
   position: relative;
 
   @include is-grid-4;
-  gap: set-calc(8);
-
+  gap: 0;
+  min-height: set-calc(600);
   overflow: hidden;
 
-  padding: set-calc(32);
+  padding: set-calc(48) set-calc(24) set-calc(24);
   border-radius: set-calc($border-radius-medium);
-  @include is-grid-4;
+  border: set-calc(1) solid var(--color-border);
+  background: var(--color-card);
+
   color: $matt-white;
 
   @include set-media(md) {
-    padding: set-calc(16);
     min-height: 45vh;
     color: var(--color-content-primary);
-    border-radius: 0;
+
+    padding: set-calc(16) set-calc(16) set-calc(16);
+    border: set-calc(1) solid var(--color-border);
   }
 }
 
 .info {
   position: relative;
-  grid-column: span 2;
+  grid-column: span 4;
 
   display: flex;
   flex-direction: column;
@@ -52,13 +41,13 @@
 .topContent {
   display: flex;
   flex-direction: column;
-  gap: set-calc(24);
+  align-items: center;
+
   margin-bottom: set-calc(24);
 
   @include set-media(md) {
     justify-content: flex-start;
     flex-direction: column;
-    gap: 0;
     margin-bottom: 0;
   }
 }
@@ -72,14 +61,16 @@
 .categories {
   display: flex;
   flex-wrap: wrap;
-  max-width: set-calc(620);
+  justify-content: center;
+
+  margin-bottom: set-calc(16);
 
   & > div:not(:last-child) {
     margin-right: set-calc(4);
   }
 
   @include set-media(md) {
-    padding: set-calc(4) 0 set-calc(16);
+    margin: set-calc(4) 0 set-calc(16);
     justify-content: flex-start;
   }
 }
@@ -107,29 +98,30 @@
 
 .title {
   @include set-typography(88, 88, 500);
-  padding-bottom: set-calc(8);
+  margin-bottom: set-calc(16);
   letter-spacing: -0.05rem;
   
   color: var(--color-content-primary);
+  text-align: center;
 
   @include set-media(md) {
 
     @include font-88-normal-header;
-    padding-bottom: set-calc(16);
+    margin-bottom: set-calc(16);
   }
 }
 
 .block {
-  max-width: set-calc(550);
-  padding-bottom: set-calc(16);
+  margin-bottom: set-calc(16);
 
-  @include set-typography(28, 36, 500);
+  @include set-typography(24, 34, 500);
   color: var(--color-content-primary);
 
   white-space: pre-line;
+  text-align: center;
 
   @include set-media(md) {
-    padding: 0 0 set-calc(16);
+    margin: 0 0 set-calc(16);
     @include set-typography(20, 28, 500);
 
     max-width: 90%;
@@ -139,6 +131,7 @@
 .actions {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 
   @include set-media(md) {
     flex-direction: row-reverse;

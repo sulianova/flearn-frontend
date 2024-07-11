@@ -44,41 +44,39 @@ function ProgramIntro({ course }: IProps) {
           close={() => setPopupVisible(false)}
         />
       }
-      <div className={classes._} id='program-intro'>
-        <div className={classes.inner}>
-          <div className={classes.info}>
-              <div className={classes.topContent}>
-                <div className={classes.categories}>
-                  {labels.map((label, i) => (
-                    <div className={classes.categoriesItem} key={i}>{label}</div>
-                  ))}
-                </div>
-                <h1 className={classes.title}>{course.title}</h1>
-                <div className={classes.block}>{course.introDescription}</div>
-                  </div>
-              <div className={classes.bottomContent}>
-                <div className={classes.actions}>
-                  {authService.isAuthenticated && firstLesson ? (
-                    <Link
-                      className={classes.actionsBtn}
-                      onClick={() => analyticsService.logEvent({ type: analyticsService.event.ButtonClickedStartStudy })}
-                      to={URLSections.Study.to({ courseId, lessonId: firstLesson.id })}
-                    >
-                      <div className={classes.text}>{i18n.t('signUp')}</div>
-                    </Link>
-                  ) : (
-                    <div
-                      className={classes.actionsBtn}
-                      onClick={() => setPopupVisible(true)}
-                    >
-                      <div className={classes.text}>{i18n.t('signUp')}</div>
-                    </div>
-                  )}
-                </div>
+      <div className={classes.inner} id='program-intro'>
+        <div className={classes.info}>
+            <div className={classes.topContent}>
+              <div className={classes.categories}>
+                {labels.map((label, i) => (
+                  <div className={classes.categoriesItem} key={i}>{label}</div>
+                ))}
               </div>
-          </div>
-          {/* <div className={classes.cover}><Image src={course.introImage.imageSrc} alt={course.introImage.imageAlt}/></div> */}
+              <h1 className={classes.title}>{course.title}</h1>
+              <div className={classes.block}>{course.introDescription}</div>
+                </div>
+            <div className={classes.bottomContent}>
+              <div className={classes.actions}>
+                {authService.isAuthenticated && firstLesson ? (
+                  <Link
+                    className={classes.actionsBtn}
+                    onClick={() => analyticsService.logEvent({ type: analyticsService.event.ButtonClickedStartStudy })}
+                    to={URLSections.Study.to({ courseId, lessonId: firstLesson.id })}
+                  >
+                    <div className={classes.text}>{i18n.t('signUp')}</div>
+                  </Link>
+                ) : (
+                  <div
+                    className={classes.actionsBtn}
+                    onClick={() => setPopupVisible(true)}
+                  >
+                    <div className={classes.text}>{i18n.t('signUp')}</div>
+                  </div>
+                )}
+              </div>
+            </div>
         </div>
+        {/* <div className={classes.cover}><Image src={course.introImage.imageSrc} alt={course.introImage.imageAlt}/></div> */}
       </div>
     </>
   );

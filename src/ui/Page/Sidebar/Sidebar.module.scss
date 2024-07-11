@@ -51,7 +51,7 @@
   backdrop-filter: blur(set-calc($backdrop-filter));
   border-radius: set-calc($border-radius-10);
   border: none;
-  background-color: var(--color-content-background-tertiary);
+  background-color: var(--color-background-btn);
 }
 
 .items:last-child {
@@ -68,13 +68,13 @@
   background-color: transparent;
 
   &:hover {
-    background-color: var(--color-background-glassy-c);
+    background-color: $color-background-glassy-inverted-b-light;
     cursor: pointer;
   }
 
   &:active {
     transform: scale(0.96);
-    background-color: var(--color-background-glassy-d);
+    background-color: $color-background-glassy-inverted-b-light;
   }
 }
 
@@ -117,7 +117,7 @@
     height: set-calc(24);
 
     path {
-      fill: var(--color-content-primary);
+      fill: $color-content-inverted-primary-light;
     }
   }
 

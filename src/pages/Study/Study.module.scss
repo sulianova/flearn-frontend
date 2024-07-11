@@ -6,7 +6,7 @@
   flex: 1 1 100%;
   align-items: center;
   width: 100%;
-  margin: set-calc(24) 0 set-calc(52);
+  margin: 0 0 set-calc(52);
 
   @include set-media(md) {
     margin: set-calc(8) 0 set-calc(24);

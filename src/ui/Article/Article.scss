@@ -4,18 +4,3 @@
   color: var(--primary-color);
   font-family: $font-family!important;
 }
-
-.listHeader {
-  padding-bottom: set-calc(16)!important;
-}
-
-.listItem {
-  position: relative;
-  
-  padding-bottom: set-calc(8)!important;
-  padding-left: set-calc(24);
-
-  @include set-media(md) {
-    padding-left: set-calc(16);
-  }
-}
