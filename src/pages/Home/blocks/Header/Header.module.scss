@@ -41,7 +41,7 @@
   @include set-typography(52, 52, 500);
 
   @include set-media(md) {
-    @include set-typography(40, 42, 500);
+    @include set-typography(28, 30, 500);
     margin-bottom: set-calc(24);
   }
 }

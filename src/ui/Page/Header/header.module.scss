@@ -31,15 +31,15 @@
   justify-content: space-between;
   align-items: center;
 
-  height: set-calc(52);
+  height: set-calc(58);
 
   padding: 0 set-calc(16);
   margin: set-calc(10) set-calc($padding-x-desk-page);
   transition: transform 0.15s ease-out, backdrop-filter $d-hover ease-out;
 
-  width: 90%;
+  width: 40%;
 
-  background-color: var(--color-card);
+  background-color: var(--color-card-glassy);
   border: set-calc(1) solid var(--color-border);
   backdrop-filter: blur(set-calc($backdrop-filter));
   border-radius: set-calc($border-radius-30);
@@ -61,7 +61,7 @@
     border: none;
     border-radius: 0;
 
-    background-color: transparent;
+    background-color: var(--color-card-glassy);
     box-shadow: none;
 
     .logo {
@@ -93,7 +93,7 @@
 }
 
 .logo {
-  grid-column: span 2;
+  grid-column: span 4;
 }
 
 .logoWrapper {
@@ -209,9 +209,9 @@
   align-items: center;
   position: relative;
 
-  color: var(--color-content-inverted-primary);
-  background-color: var(--color-background-btn);
-  padding: set-calc(4) set-calc(24);
+  color: var(--primary-color);
+  background-color: transparent;
+  padding: set-calc(4) set-calc(16);
 
 
   border-radius: set-calc($border-radius-large);
@@ -222,7 +222,7 @@
   
   &:hover {
     cursor: pointer;
-    background-color: var(--color-background-btn-hover);
+    color: var(--primary-color-hover);
   }
 
   @include set-media(md) {

@@ -71,8 +71,8 @@
   
   padding: set-calc(0) set-calc(24);
   border-radius: set-calc($border-radius-30);
-  background: var(--primary-color);
-  color: $color-content-inverted-primary-light;
+  background-color: var(--color-background-btn);
+  color: var(--color-content-inverted-primary);
   transition: opacity $d-hover ease, box-shadow $d-hover ease, background-color $d-hover ease;
   cursor: pointer;
 
@@ -87,5 +87,5 @@
 .button:hover {
   cursor: pointer;
   box-shadow: $shadow-medium-hovered;
-  opacity: 0.9;
+  background-color: var(--color-background-btn-hover);
 }
