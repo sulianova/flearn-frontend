@@ -210,7 +210,7 @@
   position: relative;
 
   color: var(--color-content-inverted-primary);
-  background-color: var(--color-content-background-primary);
+  background-color: var(--color-background-btn);
   padding: set-calc(4) set-calc(24);
 
 
@@ -222,7 +222,7 @@
   
   &:hover {
     cursor: pointer;
-    opacity: 0.9;
+    background-color: var(--color-background-btn-hover);
   }
 
   @include set-media(md) {

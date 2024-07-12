@@ -54,6 +54,7 @@ $color-palette-white-1000: #ffffff;
 
 //color-promo-highlight
 $color-promo-highlight-yellow: rgb(226, 255, 45);
+$color-promo-highlight-green: #21d49e;
 $color-promo-highlight-silver: #edf2f7;
 $color-promo-highlight-gold: #fff1b8;
 $color-promo-highlight-asphalt: #eaebeb;
@@ -62,11 +63,11 @@ $color-promo-highlight-copper: #ffe6c4;
 $color-promo-highlight-mint: #ccf0d2;
 $color-promo-highlight-sky: #d6e9fd;
 $color-promo-highlight-neon: #ece2fc;
-$color-promo-highlight-green: #21d49e;
 
 //color-palette-blue-a
 $color-palette-blue-50-a: rgba(20, 115, 230, 0.05);
 $color-palette-blue-100-a: rgba(20, 115, 230, 0.1);
+$color-palette-blue-200-a: rgba(20, 115, 230, 0.2);
 $color-palette-blue-300-a: rgba(20, 115, 230, 0.3);
 $color-palette-blue-450-a: rgba(20, 115, 230, 0.45);
 $color-palette-blue-500-a: rgba(20, 115, 230, 0.5);
@@ -102,8 +103,8 @@ $color-palette-indigo-100: rgb(237, 238, 255);
 
 //gradient
 $color-gradient-rainbow: linear-gradient(320deg, #7C84F3, #FF4DD2, #FF993B, #FF4DD2, #7C84F3, #FF4DD2, #FF993B);
-$color-gradient-rainbow-alternate: linear-gradient(90deg, #f17265 5%, #e46ce6 35%, #459ffc 70%, #e46ce6 95%, #f17265 101%) repeat-x 0 0;
-// $color-gradient-rainbow: linear-gradient(90deg, #7fa9ff 0, #9e38ff 20.44%, #f53449 38.67%, #ff715c 53.59%, #ffa74c 72.38%, #76d774 82.87%, #31c0c0 100%);
+$color-gradient-rainbow-background: linear-gradient(68deg, rgb(255, 250, 208) 28.59%, rgb(255, 202, 238) 100%);
+$color-gradient-rainbow-btn: linear-gradient(90deg, #ff5c4d 0%, #eb469f 26.56%, #8341ef 75%, #3f68f9 100%), #3f68f9;
 
 //theme-light
 $primary-color-light: $color-palette-blue-500;
@@ -186,8 +187,8 @@ $color-content-background-secondary-dark: $color-palette-black-500;
 $color-content-background-tertiary-dark: $color-palette-black-700;
 $color-content-paragraph-primary-dark: $color-palette-black-200;
 $color-content-paragraph-secondary-dark: $color-palette-black-500;
-$color-background-btn-dark: $color-palette-black-700;
-$color-background-btn-hover-dark: $primary-color-hover-dark;
+$color-background-btn-dark: $color-palette-black-200;
+$color-background-btn-hover-dark: $color-palette-black-25;
 
 $border-color-dark: hsla(0, 0%, 100%, .1);
 $color-core-heading-gradient-dark: linear-gradient(180deg,$color-palette-indigo-300,rgba(214,255,195,0)), $color-palette-indigo-100;

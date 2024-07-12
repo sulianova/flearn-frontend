@@ -92,9 +92,10 @@
   border-radius: set-calc($border-radius-small);
   transition: background-color $d-hover ease, color $d-hover ease, box-shadow $d-hover ease;
   background-color: var(--color-background-btn);
+  box-shadow: $shadow-medium-default;
 
-  @include font-21-normal-ui;
-  color: $color-palette-white-1000;
+  @include font-18-normal-ui;
+  color: var(--color-content-inverted-primary);
 
   height: set-calc(52);
   width: 100%;

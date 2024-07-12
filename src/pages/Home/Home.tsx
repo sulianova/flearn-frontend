@@ -12,7 +12,7 @@ export default Home;
 function Home() {
   const blocks = [
     <Catalogue key='catalogue'/>,
-    <Career key='career'/>,
+    // <Career key='career'/>,
     <RequestConsultationBanner key='requestConsultationBanner'/>,
   ];
 

@@ -42,50 +42,47 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: set-calc(4);
+
   flex-grow: 1;
   list-style: none;
-
-  padding: 0;
-  margin: 0;
+  padding: set-calc(4);
 
   backdrop-filter: blur(set-calc($backdrop-filter));
-  border-radius: set-calc($border-radius-10);
+  border-radius: set-calc($border-radius-6);
   border: none;
-  background-color: var(--color-background-btn);
+  background-color: var(--color-card);
+
+  box-shadow: $shadow-menu;
+  box-shadow: 0px 2px 10px rgba(5, 0, 56, 0.08);
 }
 
 .items:last-child {
   position: fixed;
 
   top: unset;
-  bottom: set-calc(10);
+  bottom: set-calc(24);
 }
 
 .item {
   position: relative;
 
   transition: background-color $d-hover ease, transform $d-hover ease;
-  background-color: transparent;
+  background-color: var(--color-card);
+  border-radius: set-calc($border-radius-6);
 
   &:hover {
-    background-color: $color-background-glassy-inverted-b-light;
+    background-color: var(--color-background-glassy-b);
     cursor: pointer;
   }
 
   &:active {
-    transform: scale(0.96);
-    background-color: $color-background-glassy-inverted-b-light;
+    background-color: var(--color-background-glassy-c);
+
+    .icon {
+      transform: scale(0.96);
+    }
   }
-}
-
-.item:first-child {
-  border-top-left-radius: set-calc($border-radius-10);
-  border-top-right-radius: set-calc($border-radius-10);
-}
-
-.item:last-child {
-  border-bottom-left-radius: set-calc($border-radius-10);
-  border-bottom-right-radius: set-calc($border-radius-10);
 }
 
 .iconWrapper {
@@ -93,8 +90,8 @@
   display: block;
   overflow: inherit;
 
-  width: set-calc(46);
-  height: set-calc(46);
+  width: set-calc(52);
+  height: set-calc(52);
 }
 
 .icon {
@@ -104,6 +101,7 @@
   justify-content: center;
 
   border-radius: 50%;
+  transition: background-color $d-hover ease, transform $d-hover ease;
 
   height: 100%;
   width: 100%;
@@ -117,7 +115,7 @@
     height: set-calc(24);
 
     path {
-      fill: $color-content-inverted-primary-light;
+      fill: var(--color-content-primary);
     }
   }
 

@@ -9,13 +9,13 @@ export default function RequestConsultationBanner() {
     <div className={classes.__}>
       <div className={classes.content}>
         <h3 className={classes.contentTitle}>Готовы ответить на любые вопросы — спрашивайте</h3>
-        {/* <div className={classes.contentDescription}>Подберем подходящий курс или спланируем индивидуальные занятия</div> */}
+        <div className={classes.contentDescription}>Подберем подходящий курс или спланируем индивидуальные занятия</div>
         <div className={classes.buttons}>
           <Link 
             className={classes.button}
             to={t('creatorLink')}  target='_blank'
             >
-            написать в Telegram
+            Написать в Telegram
           </Link>
           </div>
       </div>
