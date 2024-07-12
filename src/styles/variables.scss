@@ -55,6 +55,7 @@ $color-palette-white-1000: #ffffff;
 //color-promo-highlight
 $color-promo-highlight-yellow: rgb(226, 255, 45);
 $color-promo-highlight-green: #21d49e;
+$color-promo-highlight-violet: rgb(134, 25, 245);
 $color-promo-highlight-silver: #edf2f7;
 $color-promo-highlight-gold: #fff1b8;
 $color-promo-highlight-asphalt: #eaebeb;
@@ -185,10 +186,10 @@ $color-content-tertiary-dark: $color-palette-black-500;
 $color-content-background-primary-dark: $color-palette-black-200;
 $color-content-background-secondary-dark: $color-palette-black-500;
 $color-content-background-tertiary-dark: $color-palette-black-700;
-$color-content-paragraph-primary-dark: $color-palette-black-200;
+$color-content-paragraph-primary-dark: $color-palette-black-300;
 $color-content-paragraph-secondary-dark: $color-palette-black-500;
-$color-background-btn-dark: $color-palette-black-200;
-$color-background-btn-hover-dark: $color-palette-black-25;
+$color-background-btn-dark: $primary-color-dark;
+$color-background-btn-hover-dark: $primary-color-hover-dark;
 
 $border-color-dark: hsla(0, 0%, 100%, .1);
 $color-core-heading-gradient-dark: linear-gradient(180deg,$color-palette-indigo-300,rgba(214,255,195,0)), $color-palette-indigo-100;

@@ -95,7 +95,7 @@
   box-shadow: $shadow-medium-default;
 
   @include font-18-normal-ui;
-  color: var(--color-content-inverted-primary);
+  color: $color-content-inverted-primary-light;
 
   height: set-calc(52);
   width: 100%;

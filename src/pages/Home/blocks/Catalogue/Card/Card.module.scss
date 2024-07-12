@@ -56,13 +56,13 @@
 
 .__:first-child {
   .background {
-    background-color: $color-promo-highlight-neon;
+    background-size: 600% 900%;
   }
 }
 
 .__:last-child {
   .background {
-    background-color: $color-promo-highlight-sky;
+    background-size: 600% 300%;
   }
 }
 
@@ -130,7 +130,7 @@
 
   height: set-calc(30);
   border-radius: set-calc($border-radius-large);
-  background:$color-palette-white-500-a;
+  background: $color-palette-white-500-a;
 
   @include set-media(md) {
     height: set-calc(24);
@@ -141,7 +141,7 @@
 
 .infoText {
   @include font-16-normal-ui;
-  color: $color-content-paragraph-primary-light;
+  color: var(--color-content-inverted-primary);
 }
 
 .title {
@@ -150,7 +150,7 @@
   max-width: set-calc(450);
 
   @include font-32-normal-header;
-  color: $color-content-primary-light;
+  color: var(--color-content-inverted-primary);
 
   @include set-media(md) {
     max-width: set-calc(250);
@@ -163,7 +163,7 @@
   transition: opacity $d-hover ease;
 
   @include font-18-normal-paragraph;
-  color: $color-content-paragraph-primary-light;
+  color: var(--color-content-inverted-secondary);
 
   @include set-media(md) {
     transition: none;
@@ -174,8 +174,8 @@
   display: flex;
   margin-top: auto;
 
-  @include font-18-normal-paragraph;
-  color: $color-content-primary-light;
+  @include font-21-normal-paragraph;
+  color: var(--color-content-inverted-primary);
 
   .icon {
     display: flex;
@@ -205,7 +205,7 @@
   overflow: hidden;
 
   border-radius: set-calc($border-radius-medium);
-  background-color: transparent;
+  background: $color-gradient-rainbow;
   box-shadow: $shadow-medium-default;
 
   transition: width .3s, margin .3s, min-width .3s, background-color .3s, color .3s, border .3s, background-position 2s ease-out, padding-left .3s, transform $d-hover ease, box-shadow $d-hover ease;

@@ -83,7 +83,7 @@
   backdrop-filter: none;
   box-shadow: none;
 
-  height: set-calc(40);
+  height: set-calc(44);
 
   @include set-media(md) {
     padding: set-calc(8) set-calc($padding-x-mob-page) set-calc(10);
@@ -245,7 +245,7 @@
   position: relative;
 
   width: max-content;
-  height: set-calc(40);
+  height: set-calc(44);
 
   @include font-18-normal-ui;
   color: var(--color-content-inverted-primary);
@@ -322,7 +322,8 @@
   padding: set-calc(4) set-calc(24);
 
   width: max-content;
-  height: set-calc(40);
+  height: set-calc(44);
+  border-radius: set-calc($border-radius-large);
 
   gap: set-calc(4);
 
@@ -330,6 +331,7 @@
   
   &:hover {
     cursor: pointer;
+    background-color: var(--color-background-glassy-b);
   }
 
 
