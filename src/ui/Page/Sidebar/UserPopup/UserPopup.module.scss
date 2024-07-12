@@ -36,7 +36,8 @@
 
   @include set-media(md) {
     top: unset;
-    left: 0;
+    right: 0;
+    left: unset;
     bottom: set-calc(8, true, 100%);
 
     width: set-calc(250);

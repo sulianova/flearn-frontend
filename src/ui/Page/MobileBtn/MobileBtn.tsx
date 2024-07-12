@@ -6,7 +6,6 @@ import { authService } from 'services/auth.service';
 import { courseService, type ICourseData } from 'services/course.service';
 import { userService } from 'services/user.service';
 import { lessonService } from 'services/lesson.service';
-import { frontendSettingsService } from 'services/frontendSettings.service';
 import { userCourseProgressService } from 'services/userCourseProgress.service';
 import { URLSections } from 'router';
 
@@ -42,7 +41,7 @@ export default function MobileBtn({ course, variant, visible }: IProps) {
   const [userPopupVisible, setUserPopupVisible] = useState(false);
   const user = userService.useAuthedUser();
   const [mobMenuIsOpened, setMobMenuIsOpened] = useState(false);
-  const { theme } = frontendSettingsService.useFrontendSettings();
+
 
 
   useEffect(() => {
@@ -96,8 +95,6 @@ export default function MobileBtn({ course, variant, visible }: IProps) {
                   <Icon icon='List'/>
                 </div>
               )}
-          </div>
-          <div className={classes.btnWrapperLeft}>
               {urlSection.name === 'Profile' && (
                 <div
                   className={cx({settings: true, open: userPopupVisible })}
@@ -112,9 +109,22 @@ export default function MobileBtn({ course, variant, visible }: IProps) {
                   <Icon icon='User'/>
                 </div>
               )}
-            <div className={classes.settings} onClick={() => frontendSettingsService.update({ theme: theme === 'light' ? 'dark' : 'light' })}>
-              <Icon icon='Night'/>
-            </div>
+          </div>
+          <div className={classes.btnWrapperLeft}>
+              {/* {urlSection.name === 'Profile' && (
+                <div
+                  className={cx({settings: true, open: userPopupVisible })}
+                  onClick={() => setUserPopupVisible(!userPopupVisible)}
+                >
+                  {user && userPopupVisible && (
+                    <UserPopup
+                      user={user}
+                      close={() => setUserPopupVisible(false)}
+                    />
+                  )}
+                  <Icon icon='User'/>
+                </div>
+              )} */}
           </div>
       </div>
     </>

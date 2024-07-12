@@ -166,6 +166,11 @@
   }
 }
 
+.navMob {
+  display: flex;
+  gap: set-calc(4);
+}
+
 .userSettingsWrapper {
   display: none;
 
@@ -231,6 +236,8 @@
     box-shadow: $shadow-menu;
     border: set-calc(1) solid var(--color-border);
     margin-left: auto;
+
+    height: set-calc(44);
   }
 }
 
