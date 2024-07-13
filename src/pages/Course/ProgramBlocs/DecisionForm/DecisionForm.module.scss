@@ -60,7 +60,7 @@
   padding: set-calc(24);
   border-radius: set-calc($border-radius-large);
   box-shadow: $shadow-medium-default;
-  border: 1px solid $color-promo-highlight-violet;
+
 
   background: $color-card-light;
   // background-size: 400% 400%;
@@ -72,10 +72,6 @@
     border-radius: set-calc($border-radius-medium);
     padding: set-calc(16);
   }
-}
-
-.block:last-child {
-  border: none;
 }
 
 .titleWrapper{
@@ -116,7 +112,12 @@
 
   border-radius: set-calc($border-radius-large);
   padding: set-calc(10) set-calc(15);
-  background: $color-promo-highlight-violet;
+  background: $color-gradient-rainbow;
+  background-size: 400% 400%;
+
+  animation: buttonGradient 45s ease infinite;
+  transition: width .3s, margin .3s, min-width .3s, background-color .3s, color .3s, border .3s, background-position 2s ease-out, padding-left .3s, opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
+  
   color: $color-content-primary-dark;
 
   @include font-21-normal-ui;

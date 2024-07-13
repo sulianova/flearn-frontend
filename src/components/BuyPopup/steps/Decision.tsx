@@ -27,7 +27,7 @@ export default function Decision({ course, next }: IProps) {
     const option = course.productOptions[type]!;
     const { creditPrice, creditWas, discount } = getDiscountedPrice(course.discount, option);
     return (
-      <div className={cx({ block: true, blockDetails: type === 'OPTIMAL' })} key={type}>
+      <div className={cx({ block: true, blockDetails: type === 'OPTIMAL', active: false })} key={type}>
         {type === 'OPTIMAL' && (
           <div className={classes.buble}>самый популярный</div>
         )}
@@ -42,7 +42,6 @@ export default function Decision({ course, next }: IProps) {
             <span className={classes.discount}>{formatCourseDiscount(discount ?? 0)}</span>
           </div>
         </div>
-        <button className={classes.btn} onClick={() => next(type)}>Перейти к оплате</button>
       </div>
     );
   });
@@ -50,10 +49,12 @@ export default function Decision({ course, next }: IProps) {
   return (
     <>
       <div className={classes.commonFlowRow}>
-        {/* <h2 className={classes.headerTitle}>Выберите, что больше подходит</h2> */}
         <div className={classes.wrapper}>
           {optionsNodes}
         </div>
+      </div>
+      <div className={classes.btnWrapper}>
+          <button className={classes.btn + ' btn'}>Перейти к оплате</button>
       </div>
     </>
   );

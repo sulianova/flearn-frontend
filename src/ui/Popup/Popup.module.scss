@@ -42,6 +42,13 @@
   transform: translate(-50%, -50%);
 
   @include set-media(md) {
+    max-height: 100vh;
+    max-height: -moz-available;
+    max-height: -webkit-fill-available;
+    max-height: fill-available;
+  
+    overflow: scroll;
+    
     display: flex;
     font-display: column;
     justify-content: flex-end;

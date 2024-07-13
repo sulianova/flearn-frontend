@@ -22,14 +22,14 @@
     flex-direction: column;
     justify-content: space-between;
 
-    padding: 0 set-calc(16);
+    padding: 0 set-calc(16) set-calc(85);
   }
 }
 
 .wrapper {
   display: flex;
   justify-content: center;
-  grid-gap: set-calc($s-gap);
+  grid-gap: set-calc(16);
   padding: set-calc(24) 0 0;
 
   @include set-media(md) {
@@ -37,19 +37,11 @@
 
     display: flex;
     justify-content: flex-start;
-    flex-flow: row nowrap;
-    flex-grow: 1;
+    flex-direction: column;
 
     width: set-calc(16, true, 100%);
     left: set-calc(-8);
     padding: set-calc(32) set-calc(8) set-calc(16);
-
-    scrollbar-width: none;
-    overflow-y: hidden;
-    overflow-x: scroll;
-
-    scroll-behavior: smooth;
-    scroll-snap-type: block;
   }
 }
 
@@ -62,64 +54,65 @@
 
   width: 50%;
   min-width: min(380px, 80vw);
-  min-height: 60vh;
 
   padding: set-calc(24);
   border-radius: set-calc($border-radius-large);
-  border: 1px solid var(--primary-color);
 
-  background: $color-palette-black-25;
-  box-shadow: $shadow-medium-default;
+  background-color: var(--color-card);
+  box-shadow: 0 0 0 2px $color-palette-black-200, 0 2px 0 2px $color-palette-black-200;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
 
-  transition: width .3s, margin .3s, min-width .3s, background-color .3s, color .3s, border .3s, background-position 2s ease-out, padding-left .3s, transform $d-hover ease-in, opacity $d-hover ease-in;
+  transition: box-shadow $d-hover ease-in, background-color $d-hover ease-in;
 
 
   @include set-media(md) {
+    min-width: 100%;
+    min-height: unset;
+
     border-radius: set-calc($border-radius-medium);
-    border: set-calc(2) solid $color-content-background-secondary-light;
     padding: set-calc(16);
     flex-grow: 1;
   }
 }
 
-.block:last-child {
-  background: var(--color-card);
-  border: set-calc(1) solid var(--color-border);
+.block:active {
+  box-shadow: 0 0 0 2px $color-palette-black-600;
+  transform: translate3d(0, 2px, 0);
+}
+
+.active {
+  background-color: $color-palette-indigo-100;
+  box-shadow: 0 0 0 2px var(--primary-color), 0 2px 0 2px var(--primary-color);
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
 
   .courseName {
-    color: var(--color-content-paragraph-primary);
+    color: $color-content-primary-light;
   }
-
-  .title {
-    color: var(--color-content-primary);
+  .title  {
+    color: $color-content-paragraph-secondary-light;
   }
-
-  .credit{
+  .credit {
     s:after {
-      border-bottom: set-calc(1.5) solid var(--color-background-glassy-d);
-  
+      border-bottom: set-calc(1.5) solid $color-background-glassy-d-light;
       @include set-media(md) {
-        border-bottom: set-calc(1) solid var(--color-background-glassy-d);
+        border-bottom: set-calc(1) solid $color-background-glassy-d-light;
       }
     }
   }
-
+  
   .creditWas {
-    color: var(--color-background-glassy-d);
+    color: $color-background-glassy-d-light;
   }
-
+  
   .creditPrice {
-    color: var(--color-content-primary);
+    color: $color-content-primary-light;
   }
-
+  
   .discount {
-    background: var(--color-background-glassy-b);
-    color: var(--color-content-background-primary);
-  }
-
-  .btn {
-    background-color: var(--color-background-glassy-d);
-    color: $color-content-inverted-primary-light;
+    background: $color-background-glassy-b-light;
+    color: $color-content-primary-light;
   }
 }
 
@@ -135,10 +128,10 @@
 }
 
 .courseName {
-  margin-bottom: set-calc(8);
-  color: $color-content-paragraph-primary-light;
+  margin-bottom: set-calc(16);
+  color: var(--color-content-primary);
 
-  @include font-16-normal-paragraph;
+  @include font-32-normal-header;
 }
 
 .title {
@@ -146,14 +139,15 @@
   word-break: break-word;
   margin-bottom: set-calc(16);
 
-  @include font-24-normal-header;
-  color: $color-content-primary-light;
+  @include font-16-normal-paragraph;
+  color: $color-content-paragraph-secondary-light;
+
 }
 
 .buble {
   position: absolute;
   right: set-calc(20);
-  top: set-calc(-30);
+  top: set-calc(-24);
   transform: rotate(0);
 
   display: flex;
@@ -171,7 +165,7 @@
   
   color: $color-content-primary-dark;
 
-  @include font-21-normal-ui;
+  @include font-16-normal-ui;
 
   @include set-media(md) {
     right: set-calc(20);
@@ -188,8 +182,8 @@
 
   display: flex;
   flex: 1;
-  flex-direction: column;
-  justify-content: flex-end;
+  flex-direction: row-reverse;
+  justify-content: space-between;
 
   @include set-media(md) {
     padding-top: 0;
@@ -197,7 +191,7 @@
 
   s:after {
     margin-top: 0;
-    border-bottom: set-calc(1.5) solid $color-background-glassy-d-light;
+    border-bottom: set-calc(1.5) solid var(--color-background-glassy-d);
     content: "";
     left: set-calc(-2);
     position: absolute;
@@ -205,7 +199,7 @@
     top: 50%;
 
     @include set-media(md) {
-      border-bottom: set-calc(1) solid $color-background-glassy-d-light;
+      border-bottom: set-calc(1) solid var(--color-background-glassy-d);
     }
   }
 }
@@ -213,10 +207,11 @@
 .creditWas {
   width: max-content;
   margin-bottom: set-calc(4);
-  color: $color-background-glassy-d-light;
+  color: var(--color-background-glassy-d);
 
   @include font-24-normal-header;
   letter-spacing: -0.05rem;
+  align-self: flex-end;
 }
 
 .creditPrice {
@@ -225,7 +220,8 @@
 
   display: inline-block;
   letter-spacing: -0.2rem;
-  color: $color-content-primary-light;
+  color: var(--color-content-primary);
+  align-self: flex-end;
 
   @include set-media(md) {
     @include set-typography(48, 48, 500);
@@ -241,18 +237,17 @@
   align-items: center;
   justify-content: center;
 
-  @include font-18-normal-ui;
+  @include font-16-normal-ui;
   letter-spacing: 0;
 
-  padding: set-calc(8) set-calc(16);
-  background: $color-content-primary-light;
-  color: $color-content-inverted-primary-light;
-  backdrop-filter: blur(set-calc($backdrop-filter));
+  padding: set-calc(6) set-calc(10);
+  background: var(--color-background-glassy-b);
+  color: var(--color-content-primary);
   border-radius: set-calc($border-radius-large);
 
   @include set-media(md) {
-    right: set-calc(100);
-    top: set-calc(-34);
+    right: set-calc(-60);
+    top: set-calc(-24);
   }
 }
 
@@ -271,6 +266,25 @@
   }
 }
 
+.btnWrapper {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  padding: set-calc(40) 0 0;
+
+  @include set-media(md) {
+    position: fixed;
+    bottom: set-calc(0);
+    background-color: var(--color-card);
+
+    padding: set-calc(16) 0;
+  }
+}
+
 .btn {
   position: relative;
   display: flex;
@@ -278,15 +292,15 @@
   align-items: center;
 
   color: $color-content-inverted-primary-light;
-  @include font-21-normal-ui;
+  @include font-18-normal-ui;
 
   border-radius: set-calc($border-radius-10);
   background-color: var(--primary-color);
   height: set-calc(60);
   padding: 0 set-calc(32);
-  width: 100%;
+  width: fit-content;
 
-  transition: opacity $d-hover ease, box-shadow $d-hover ease, background-color $d-hover ease;
+  transition: opacity $d-hover ease, box-shadow $d-hover ease, background-color $d-hover ease, transform 0.15s ease-out;
   cursor: pointer;
 
   &:hover {
@@ -297,6 +311,8 @@
 
   @include set-media(md) {
     height: set-calc(52);
+    width: 100%;
     border-radius: set-calc($border-radius-10);
+    margin: 0 set-calc(16);
   }
 }

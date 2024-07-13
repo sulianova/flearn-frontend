@@ -1,7 +1,6 @@
 @import 'styles/index';
 
 .__ {
-  min-height: set-calc(350);
   background-color: var(--color-card);
   border: set-calc(1) solid var(--color-border);
   box-shadow: $shadow-huge-default;
@@ -13,13 +12,12 @@
   align-items: center;
 
   @include set-media(md) {
-    min-height: unset;
     border: set-calc(1) solid var(--color-border);
   }
 }
 
 .content {
-  padding: set-calc(24);
+  padding: set-calc(48) set-calc(32);
 
   @include set-media(md) {
     padding: set-calc(24) set-calc(16);
@@ -28,14 +26,15 @@
 
 .contentTitle {
   color: var(--color-content-primary);
-  margin-bottom: set-calc(16);
+  margin-bottom: set-calc(48);
 
-  @include font-40-normal-header ;
+  @include font-40-normal-header;
   text-align: center;
 
   @include set-media(md) {
-    @include set-typography(24, 28, 500);
+    @include font-32-normal-header;
     text-align: start;
+    margin-bottom: set-calc(16);
   }
 }
 
