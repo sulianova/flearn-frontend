@@ -27,10 +27,9 @@
 }
 
 .headerTitle {
-  grid-column: 1 / 7;
+  grid-column: 4 / -4;
+
   margin-bottom: set-calc(24);
-
-
   @include font-70-normal-header;
 
   @include set-media(md) {
@@ -39,9 +38,14 @@
 }
 
 .headerDesc {
-  grid-column: 1/6;
+  grid-column: 4 / -4;
+  margin-right: set-calc(80);
 
   @include font-21-normal-paragraph;
+
+  @include set-media(md) {
+    margin-right: 0;
+  }
 }
 
 .list {

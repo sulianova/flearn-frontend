@@ -2,9 +2,9 @@
 
 .item {
   position: relative;
-  grid-column: 1 / 7;
 
-  padding: set-calc(16);
+  grid-column: 4 / -4;
+  padding: set-calc(24);
   border-radius: set-calc($border-radius-medium);
   background-color: var(--color-card);
   border: set-calc(1) solid var(--color-border);
@@ -50,27 +50,37 @@
   max-width: 80%;
 }
 
-.itemQuestionPlus {
-  display: flex;
+.itemArrow {
+  display: block;
+  margin-top: set-calc(8);
 
-  padding: set-calc(8);
-  background-color: var(--color-background-glassy-d);
-  border-radius: 50%;
-
-  transition: background-color $d-hover ease-in;
+  transition: transform $d-hover ease-in-out;
 
   svg {
-    width: set-calc(16);
-    height: set-calc(16);
+    flex-shrink: 0;
+    display: inline-block;
+    text-align: center;
+    background: 50% no-repeat;
+    background-size: contain;
+    opacity: 0.85;
 
-    stroke-width: set-calc(2.5);
-    stroke:  $color-palette-black-25;
+    width: set-calc(24);
+    height: set-calc(24);
+  }
 
-    @include set-media(md) {
+  @include set-media(md) {
+    display: block;
+    margin-top: set-calc(8);
+
+    svg {
       width: set-calc(16);
       height: set-calc(16);
     }
   }
+}
+
+.itemArrowExpended {
+  transform: rotate(180deg);
 }
 
 .itemAnswer {

@@ -38,8 +38,8 @@ function Item({ faq: { question, answer } }: Readonly<IProps>) {
             <div className={classes.itemQuestionText}>
               <Text text={question}/>
             </div>
-            <div className={classes.itemQuestionPlus}>
-              {isExpanded ? <Icon icon='Minus'/> : <Icon icon='PlusOpen'/>}
+            <div className={cx({ itemArrow: true, itemArrowExpended: isExpanded })}>
+              <Icon icon='SubsectionArrow'/>
             </div>
           </div>
           <div

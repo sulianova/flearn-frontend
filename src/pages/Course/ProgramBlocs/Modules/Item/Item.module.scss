@@ -70,22 +70,21 @@
   box-shadow: $shadow-medium-hovered;
   transition: max-height 0.2s  ease-out, box-shadow 0.2s  ease-out;
 
-  .slideDownClosed {
-    max-height: set-calc(56);
-    transition: max-height 0.2s  ease-out;
-  }
+  // .slideDownClosed {
+  //   max-height: set-calc(56);
+  // }
 
   .slideDownClosed::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      z-index: 1;
-      width: 100%;
-      height: set-calc(56);
-      background: linear-gradient(180deg, transparent 0%, var(--color-background-glassy-c) 100%);
-      pointer-events: none;
-    }
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: set-calc(56);
+    background: linear-gradient(180deg, transparent 0%, var(--color-background-glassy-c) 100%);
+    pointer-events: none;
+  }
   
   @include set-media(md) {
     box-shadow: none;
@@ -122,7 +121,6 @@
   flex-direction: column;
   max-height: 1000vh;
   transition-property: max-height;
-  transition-timing-function: ease-out;
   transition-delay: -200ms;
 
   transition-duration: 500ms;
@@ -132,6 +130,36 @@
 .slideDownClosed {
   max-height: 0;
   transition-timing-function: cubic-bezier(0, 1, 0, 1);
+}
+
+.itemArrow {
+  display: none;
+
+  @include set-media(md) {
+    position: absolute;
+    top: set-calc(16);
+    right: set-calc(16);
+    display: flex;
+    margin-top: set-calc(8);
+
+    transition: transform $d-hover ease-in-out;
+
+    svg {
+      flex-shrink: 0;
+      display: inline-block;
+      text-align: center;
+      background: 50% no-repeat;
+      background-size: contain;
+      opacity: 0.85;
+
+      width: set-calc(20);
+      height: set-calc(20);
+      }
+  }
+}
+
+.itemArrowOpened {
+  transform: rotate(180deg);
 }
 
 .bullet {
@@ -290,10 +318,6 @@
     display: none;
   }
 
-  .itemPlus {
-    display: none;
-  }
-
   @include set-media(md) {
     pointer-events: unset;
   }
@@ -330,32 +354,5 @@
 .item:not(:first-child) {
   .badge  {
     display: none;
-  }
-}
-
-
-.itemPlus {
-  display: none;
-
-  @include set-media(md) {
-    position: absolute;
-    top: set-calc(16);
-    right: set-calc(16);
-    display: flex;
-
-    padding: set-calc(8);
-    background: var(--color-background-glassy-d);
-    border-radius: 50%;
-
-    svg {
-      width: set-calc(16);
-      height: set-calc(16);
-
-      stroke-width: set-calc(3);
-      stroke:  var(--color-content-inverted-primary);
-
-        width: set-calc(16);
-        height: set-calc(16);
-      }
   }
 }

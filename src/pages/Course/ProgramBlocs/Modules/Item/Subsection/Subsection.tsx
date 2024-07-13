@@ -26,16 +26,16 @@ function Subsection({ subsection: { subsectionTitle, subsectionText }, initially
     <div className={classes.subsection}>
       <h3 className={classes.subsectionTitle}>
         {subsectionTitle}
-        <button
+        {/* <button
           className={classes.hiddenButton}
           type="button"
           onClick={() => setOpened(o => !o)}
         />
         <div className={cx({ subsectionArrow: true, subsectionArrowOpened: opened })}>
           <Icon icon='SubsectionArrow'/>
-        </div>
+        </div> */}
       </h3>
-      <div className={cx({ subsectionSlideDown: true, subsectionClosed: !opened && isMobile })}>
+      <div className={cx({ subsectionSlideDown: true})}>
         <div data-subsection className={classes.subsectionDescription}>{subsectionText && <Text text={subsectionText}/>}</div>
       </div>
     </div>

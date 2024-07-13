@@ -136,15 +136,15 @@
   transition-timing-function: ease-out;
 
   @include font-18-normal-ui;
-  color: var(--color-content-inverted-primary);
+  color: $color-content-inverted-primary-light;
   text-decoration: none;
 
   border-radius: set-calc(6);
-  background-color: var(--color-content-primary);
+  background-color: var(--color-background-btn);
   border: none;
 }
 
 .currentLessonButton:hover {
-  background-color: var(--color-content-background-secondary);
+  background-color: var(--color-background-btn-hover);
   cursor: pointer;
 }

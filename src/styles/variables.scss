@@ -88,19 +88,15 @@ $color-palette-blue-200: rgb(222, 232, 255);
 $color-palette-blue-100: rgb(245, 248, 255);
 
 //color-palette-indigo
-$color-palette-indigo-1400: rgb(20, 22, 72);
-$color-palette-indigo-1300: rgb(27, 30, 100);
-$color-palette-indigo-1100: rgb(50, 54, 168);
-$color-palette-indigo-1000: rgb(64, 70, 202);
-$color-palette-indigo-900: rgb(82, 88, 228);
-$color-palette-indigo-800: rgb(104, 109, 244);
-$color-palette-indigo-700: rgb(126, 132, 252);
-$color-palette-indigo-600: rgb(149, 153, 255);
-$color-palette-indigo-500: rgb(172, 175, 255);
-$color-palette-indigo-400: rgb(193, 196, 255);
-$color-palette-indigo-300: rgb(211, 213, 255);
-$color-palette-indigo-200: rgb(224, 226, 255);
-$color-palette-indigo-100: rgb(237, 238, 255);
+$color-palette-indigo-900: #0f0a1f;
+$color-palette-indigo-800: #221c3d;
+$color-palette-indigo-700: #2c2361;
+$color-palette-indigo-600: #382a85;
+$color-palette-indigo-500: #452dbd;;
+$color-palette-indigo-400: #513deb;
+$color-palette-indigo-300: #9282fa;
+$color-palette-indigo-200: #ede8ff;
+$color-palette-indigo-100: #f7f5ff;
 
 //gradient
 $color-gradient-rainbow: linear-gradient(320deg, #7C84F3, #FF4DD2, #FF993B, #FF4DD2, #7C84F3, #FF4DD2, #FF993B);
@@ -133,7 +129,7 @@ $color-background-overlay-light: $color-palette-black-500-a;
 $color-background-active-light: rgba(0, 0, 0, 0.03);
 $color-background-stroke-light: rgba(0, 0, 0, 0.2);
 $color-border-light: $color-palette-white-1000;
-$color-card-glassy-light: $color-palette-white-500-a;
+$color-card-glassy-light: $color-palette-white-700-a;
 $color-card-light: $color-palette-black-25;
 $color-content-inverted-primary-light: $color-palette-black-25;
 $color-content-inverted-secondary-light: $color-palette-black-200;
@@ -147,13 +143,13 @@ $color-content-paragraph-primary-light: $color-palette-black-700;
 $color-content-paragraph-secondary-light: $color-palette-black-500;
 $color-background-btn-light: $color-palette-black-700;
 $color-background-btn-hover-light: $color-palette-black-900;
+$color-background-card-light: $color-palette-black-900;
 
 $border-color-light: rgba(217, 217, 217, 0.5);
-$color-core-heading-gradient-light: linear-gradient(180deg,$color-palette-black-900,rgba(214,255,195,0)), $color-palette-black-900;
 
 //theme-dark
-$primary-color-dark: $color-palette-indigo-900;
-$primary-color-hover-dark: $color-palette-indigo-1000;
+$primary-color-dark: $color-palette-indigo-300;
+$primary-color-hover-dark: $color-palette-indigo-400;
 $color-accent-error-dark: #f22a2a;
 $color-accent-notice-dark: #e67046;
 $color-accent-success-dark: #1c9c75;
@@ -176,7 +172,7 @@ $color-background-highlighted-dark: #404959;
 $color-background-overlay-dark: $color-palette-black-800-a;
 $color-background-stroke-dark: rgba(255, 255, 255, 0.2);
 $color-border-dark: hsla(0, 0%, 100%, .1);
-$color-card-glassy-dark: rgba(15,15,15,0.6);
+$color-card-glassy-dark: rgba(15,15,15,0.7);
 $color-card-dark: $color-palette-black-700;
 $color-content-inverted-primary-dark:  $color-palette-black-900;
 $color-content-inverted-secondary-dark:  $color-palette-black-700;
@@ -190,9 +186,9 @@ $color-content-paragraph-primary-dark: $color-palette-black-300;
 $color-content-paragraph-secondary-dark: $color-palette-black-500;
 $color-background-btn-dark: $primary-color-dark;
 $color-background-btn-hover-dark: $primary-color-hover-dark;
+$color-background-card-dark: $color-palette-indigo-300;
 
 $border-color-dark: hsla(0, 0%, 100%, .1);
-$color-core-heading-gradient-dark: linear-gradient(180deg,$color-palette-indigo-300,rgba(214,255,195,0)), $color-palette-indigo-100;
 
 //links
 $link: var(--color-content-primary);
@@ -231,7 +227,7 @@ $shadow-popup-cross: 0 1px 17px rgba(0, 0, 0, 0.08);
 $shadow-menu: 0px 2px 17px 2px rgba(0, 0, 0, 0.1);
 
 //filter
-$backdrop-filter: 15;
+$backdrop-filter: 20;
 
 //border
 $border-radius-small: 6;
@@ -309,7 +305,7 @@ $z-index-500: 500;
   --color-content-paragraph-secondary-light: #{$color-content-paragraph-secondary-light};
   --color-background-btn-light: #{$color-background-btn-light};
   --color-background-btn-hover-light: #{$color-background-btn-hover-light};
-  --color-core-heading-gradient-light: #{$color-core-heading-gradient-light};
+  --color-background-card-light: #{$color-background-card-light};
   --color-quiz-light: var(--verdict-color, #{$color-accent-neutral-light});
 
   // theme dark
@@ -352,6 +348,6 @@ $z-index-500: 500;
   --color-content-paragraph-secondary-dark: #{$color-content-paragraph-secondary-dark};
   --color-background-btn-dark: #{$color-background-btn-dark};
   --color-background-btn-hover-dark: #{$color-background-btn-hover-dark};
-  --color-core-heading-gradient-dark: #{$color-core-heading-gradient-dark};
+  --color-background-card-dark: #{$color-background-card-dark};
   --color-quiz-dark: var(--verdict-color, #{$color-accent-neutral-dark});
 }

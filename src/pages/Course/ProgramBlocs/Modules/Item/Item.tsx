@@ -42,9 +42,9 @@ function Item(props: Readonly<IProps>) {
     <div className={classes.item} style={{ '--items-in-row': 1 } as React.CSSProperties}>
       <div className={itemClasses}>
         <div className={classes.bullet}>{index}</div>
-        {module.subsectionDescription && module.subsection && module.subsection.length && (
-          <div className={classes.itemPlus}>
-            {<Icon icon='PlusOpen'/>}
+        {module.subsectionDescription && module.subsection && module.subsection.length && index !== 0 && (
+          <div className={cx({ itemArrow: true, itemArrowOpened: opened })}>
+            <Icon icon='SubsectionArrow'/>
           </div>
         )}
         <div className={classes.meta}>

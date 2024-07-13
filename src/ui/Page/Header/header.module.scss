@@ -214,20 +214,20 @@
   align-items: center;
   position: relative;
 
-  color: var(--primary-color);
+  color: var(--color-content-primary);
   background-color: transparent;
-  padding: set-calc(4) set-calc(16);
+  padding: set-calc(4) set-calc(24);
 
 
   border-radius: set-calc($border-radius-large);
   width: max-content;
   height: set-calc(40);
 
-  transition: background-color $d-hover ease, opacity $d-hover ease;
+  transition: color $d-hover ease, opacity $d-hover ease;
   
   &:hover {
     cursor: pointer;
-    color: var(--primary-color-hover);
+    color: var(--primary-color);
   }
 
   @include set-media(md) {
@@ -255,7 +255,7 @@
   height: set-calc(44);
 
   @include font-18-normal-ui;
-  color: var(--color-content-inverted-primary);
+  color: $color-content-inverted-primary-light;
 
   padding: set-calc(4) set-calc(24);
   border-radius: set-calc($border-radius-large);
@@ -334,13 +334,18 @@
 
   gap: set-calc(4);
 
-  transition: background-color $d-hover ease;
+  transition: all $d-hover ease;
   
   &:hover {
     cursor: pointer;
-    background-color: var(--color-background-glassy-b);
-  }
+    color: var(--primary-color);
 
+    .selectToggleIcon {
+      svg {
+        fill: var(--primary-color);
+      }
+    }
+  }
 
   @include set-media(md) {
     display: none;
@@ -359,7 +364,11 @@
   height: set-calc(32);
   justify-content: center;
 
+  transition: all $d-hover ease;
+
   svg {
+    transition: all $d-hover ease;
+    
     display: inline-block;
     text-align: center;
     width: set-calc(16);
@@ -412,7 +421,7 @@
 }
 
 .__Hidden {
-  transform: translateY(-100%);
+  // transform: translateY(-100%);
 
     @include set-media(md) {
       transform: none;

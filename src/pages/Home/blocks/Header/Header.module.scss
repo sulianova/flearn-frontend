@@ -89,7 +89,7 @@
   justify-content: center;
 
   padding: 0 set-calc(32);
-  border-radius: set-calc($border-radius-small);
+  border-radius: set-calc($border-radius-12);
   transition: background-color $d-hover ease, color $d-hover ease, box-shadow $d-hover ease;
   background-color: var(--color-background-btn);
   box-shadow: $shadow-medium-default;
