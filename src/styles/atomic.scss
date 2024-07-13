@@ -174,10 +174,6 @@
 }
 
 .btn {
-  background: none;
-  border: none;
-  position: relative;
-
   transition-property: background-color, border-color, box-shadow, color, transform;
   transition-duration: 0.15s;
   transition-timing-function: ease-out;
