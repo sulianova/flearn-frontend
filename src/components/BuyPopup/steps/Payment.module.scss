@@ -26,12 +26,8 @@
   flex-direction: column;
   justify-content: space-between;
 
-  width: 50%;
-  padding: set-calc(24);
+  max-width: set-calc(400);
   border-radius: set-calc($border-radius-large);
-  background-color: var(--color-card);
-  border: set-calc(1) solid var(--color-border);
-  box-shadow: $shadow-medium-default;
 
   @include set-media(md) {
     border-radius: set-calc($border-radius-medium);
@@ -44,6 +40,61 @@
 .headerWrapper{
   display: flex;
   flex-direction: column;
+}
+
+.title {
+  max-width: set-calc(560);
+  margin-bottom: set-calc(20);
+
+  word-break: break-word;
+  @include font-32-normal-header;
+  color: var(--color-content-primary);
+  font-family: $font-family-bold;
+  text-align: center;
+
+  @include set-media(md) {
+    margin-bottom: set-calc(16);
+  }
+}
+
+.benefits {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  margin-bottom: set-calc(32);
+  gap: set-calc(12);
+}
+
+.benefitsItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.itemIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    flex-shrink: 0;
+    width: set-calc(16);
+    height: set-calc(16);
+    border-radius: 50%;
+    color: var(--primary-color);
+
+    path {
+      fill: $color-content-inverted-primary-light;
+    }
+  }
+}
+
+.itemText {
+  margin-left: set-calc(6);
+  color: var(--color-content-paragraph-secondary);
+  @include font-14-normal-ui;
 }
 
 .bottom {
@@ -59,9 +110,10 @@
   align-items: center;
 
   color: $color-content-inverted-primary-light;
-  @include font-21-normal-ui;
+  font-family: $font-family-bold;
+  @include font-18-normal-ui;
 
-  border-radius: set-calc($border-radius-10);
+  border-radius: set-calc($border-radius-12);
   background-color: var(--primary-color);
   height: set-calc(60);
   width: 100%;
@@ -76,7 +128,7 @@
   }
 
   @include set-media(md) {
-    height: set-calc(48);
+    height: set-calc(60);
   }
 }
 
@@ -130,37 +182,14 @@
   }
 }
 
-.title {
-  max-width: set-calc(560);
-  margin-bottom: set-calc(16);
-
-  word-break: break-word;
-  @include font-18-normal-ui;
-  color: var(--color-content-tertiary);
-
-  @include set-media(md) {
-    margin-bottom: set-calc(16);
-  }
-}
-
-.creditPrice {
-  position: relative;
-  @include font-36-normal-header;
-
-  display: inline-block;
-  margin-right: set-calc(16);
-  color: var(--color-content-primary);
-
-  @include set-media(md) {
-    @include font-56-normal-header;
-  }
-}
-
 .paymentSummary {
   display: flex;
-  gap: 0.25em 1em;
 
-  margin-top: set-calc(16);
+  padding: set-calc(16) 0 set-calc(20);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+
+  margin: 0!important;
 }
 
 .paymentSummary > :last-child {
@@ -179,7 +208,7 @@
   display: inline-block;
   padding: set-calc(4);
 
-  background: var(--color-background-alternate);
+  background: var(--color-accent-promo);
   border-radius: set-calc($border-radius-4);
   color: var(--color-content-primary);
 
@@ -212,16 +241,15 @@
 }
 
 .paymentOptions {
-  margin-top: set-calc(80);
-  margin-bottom: set-calc(24);
+  padding-top: set-calc(16);
+  padding-bottom: set-calc(24);
+  border-bottom: 1px solid var(--border-color);
 
-  @include set-media(md) {
-    margin-bottom: set-calc(32);
-  }
+  margin-bottom: set-calc(24);
 }
 
 .optionDescription {
-  padding: set-calc(8) set-calc(8) 0;
+  padding: set-calc(32) set-calc(8) 0;
   @include font-14-normal-ui;
 
   a {
@@ -229,7 +257,7 @@
   }
 
   @include set-media(md) {
-    padding: set-calc(16) set-calc(8) 0;
+    padding: set-calc(32) set-calc(8) 0;
   }
 }
 

@@ -9,6 +9,6 @@
   margin: 0 0 set-calc(52);
 
   @include set-media(md) {
-    margin: set-calc(8) 0 set-calc(24);
+    margin: set-calc(16) 0 set-calc(24);
   }
 }

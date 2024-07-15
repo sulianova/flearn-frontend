@@ -6,19 +6,23 @@
   flex-direction: column;
   width: 100%;
   max-width: set-calc(988);
-  margin: 0 auto;
+  margin: set-calc(24) auto 0;
 
   @include set-media(md) {
     left: set-calc(-$padding-xs-mob-page);
     width: set-calc(2 * $padding-xs-mob-page, true, 100%);
+
+    margin: set-calc(24) auto 0;
   }
 }
 
 .title {
   margin: 0 set-calc(16);
   @include font-28-normal-header;
+  font-family: $font-family-bold;
 
   @include set-media(md) {
+    @include font-32-normal-header;
     margin: 0 set-calc(8);
   }
 }
@@ -44,6 +48,7 @@
 
   @include font-28-normal-header;
   color: var(--color-content-primary);
+  font-family: $font-family-bold;
 
   @include set-media(md) {
     margin: 0 0 set-calc(24) set-calc(8);
@@ -110,7 +115,7 @@
   margin-bottom: set-calc(16);
 
   @include font-21-normal-paragraph;
-  color: var(--color-content-paragraph-primary);
+  color: var(--color-content-primary);
 }
 
 .currentLessonDetails {
@@ -137,14 +142,15 @@
 
   @include font-18-normal-ui;
   color: $color-content-inverted-primary-light;
+  font-family: $font-family-bold;
   text-decoration: none;
 
-  border-radius: set-calc(6);
-  background-color: var(--color-background-btn);
+  border-radius: set-calc($border-radius-12);
+  background-color: var(--primary-color);
   border: none;
 }
 
 .currentLessonButton:hover {
-  background-color: var(--color-background-btn-hover);
+  background-color: var(--primary-color-hover);
   cursor: pointer;
 }

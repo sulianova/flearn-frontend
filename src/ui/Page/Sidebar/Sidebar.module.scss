@@ -49,9 +49,9 @@
   padding: set-calc(4);
 
   backdrop-filter: blur(set-calc($backdrop-filter));
-  border-radius: set-calc($border-radius-6);
+  border-radius: set-calc($border-radius-8);
   border: set-calc(1) solid var(--border-color);
-  background-color: var(--color-card-glassy);
+  background-color: var(--color-card);
 
   box-shadow: $shadow-menu;
   box-shadow: 0px 2px 10px rgba(5, 0, 56, 0.08);
@@ -68,7 +68,7 @@
   position: relative;
 
   transition: background-color $d-hover ease, transform $d-hover ease;
-  border-radius: set-calc($border-radius-6);
+  border-radius: set-calc($border-radius-8);
 
   &:hover {
     background-color: var(--color-background-glassy-b);

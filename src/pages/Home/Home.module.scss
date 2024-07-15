@@ -3,10 +3,10 @@
 .section {
   display: block;
   position: relative;
-  margin-top: set-calc(16);
+  margin-top: set-calc(24);
 
   @include set-media(md) {
-    margin-top: set-calc(8);
+    margin-top: set-calc(16);
   }
 }
 

@@ -37,3 +37,4 @@ export * from './YandexZen';
 export * from './Youtube';
 export * from './SmallCross';
 export * from './Refresh';
+export * from './TickInCircle';

@@ -130,7 +130,7 @@
 
   height: set-calc(30);
   border-radius: set-calc($border-radius-large);
-  background: $color-palette-white-500-a;
+  background: var(--color-accent-promo);
 
   @include set-media(md) {
     height: set-calc(24);
@@ -141,7 +141,8 @@
 
 .infoText {
   @include font-16-normal-ui;
-  color: var(--color-content-inverted-primary);
+  color: var(--color-content-primary);
+  font-family: $font-family-bold;
 }
 
 .title {
@@ -151,6 +152,7 @@
 
   @include font-32-normal-header;
   color: var(--color-content-inverted-primary);
+  font-family: $font-family-bold;
 
   @include set-media(md) {
     max-width: set-calc(250);
@@ -163,7 +165,7 @@
   transition: opacity $d-hover ease;
 
   @include font-18-normal-paragraph;
-  color: var(--color-content-inverted-secondary);
+  color: var(--color-content-inverted-primary);
 
   @include set-media(md) {
     transition: none;
@@ -174,8 +176,9 @@
   display: flex;
   margin-top: auto;
 
-  @include font-21-normal-paragraph;
+  @include set-typography(21, 21, 500);
   color: var(--color-content-inverted-primary);
+  font-family: $font-family-bold;
 
   .icon {
     display: flex;

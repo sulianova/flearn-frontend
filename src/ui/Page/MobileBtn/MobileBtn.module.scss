@@ -6,7 +6,7 @@
   @include set-media(md) {
     position: fixed;
 
-    bottom: set-calc(16);
+    bottom: set-calc(18);
     left: 0;
     right: 0;
     z-index: 600;
@@ -39,10 +39,11 @@
 
   @include font-21-normal-ui ;
   color: $color-palette-white-1000;
+  font-family: $font-family-bold;
 
-  border-radius: set-calc($border-radius-large);
+  border-radius: set-calc($border-radius-16);
   padding: set-calc(10) set-calc(24);
-  height: set-calc(56);
+  height: set-calc(62);
 }
 
 .btnWrapperLeft {
@@ -76,10 +77,9 @@
   transition: transform 0.15s ease-in;
   opacity: 1;
 
-  color: $color-content-primary-light;
-  background-color: $color-palette-white-900-a;
+  color: var(--color-content-primary);
+  background-color: var(--color-card);
   border: set-calc(1) solid var(--color-border);
-  backdrop-filter: blur(set-calc($backdrop-filter));
   border-radius: 50%;
   box-shadow: $shadow-menu;
 
@@ -92,6 +92,6 @@
     width: set-calc(24);
     height: set-calc(24);
 
-    fill: $color-content-primary-light;
+    fill: var(--color-content-primary);
   }
 }

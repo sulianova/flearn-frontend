@@ -9,9 +9,9 @@
 }
 
 @font-face {
+  font-family: DINRoundPro-Bold;
   font-weight: 500;
-  font-family: TTNormsPro-Bold;
-  src: url("../assets/fonts/TTNormsPro-Normal.ttf");
+  src: url("../assets/fonts/DINRoundPro-Bold.ttf");
 }
 
 html {
@@ -103,7 +103,6 @@ button {
   padding: 0;
   background: none;
   outline: none;
-  font-family: $font-family !important;
 
   cursor: pointer;
   transition: color $d-hover,background-color $d-hover,opacity $d-hover;

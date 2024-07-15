@@ -3,6 +3,7 @@ import classnames from 'classnames/bind';
 import { formatI18nT } from 'shared';
 
 import classes from './Decision.module.scss';
+import Icon from 'ui/Icon/Icon';
 
 import { formatCourseCredit, formatCourseDiscount, getDiscountedPrice, safeObjectKeys } from 'utils';
 import { ICourseData, TCourseProductOptionTypes } from 'services/course.service';
@@ -27,21 +28,31 @@ export default function Decision({ course, next }: IProps) {
     const option = course.productOptions[type]!;
     const { creditPrice, creditWas, discount } = getDiscountedPrice(course.discount, option);
     return (
-      <div className={cx({ block: true, blockDetails: type === 'OPTIMAL', active: true })} key={type}>
-        {type === 'OPTIMAL' && (
-          <div className={classes.buble}>самый популярный</div>
-        )}
-        <div className={classes.titleWrapper}>
-          <h2 className={classes.courseName}>{t(`options.${type}.caption`)}</h2>
-          <h1 className={classes.title}>{t(`options.${type}.title`)}</h1>
-        </div>
+      <div className={cx({ block: true, blockDetails: type === 'OPTIMAL', active: false })} key={type}>
+        {/* {type === 'OPTIMAL' && (
+          <div className={classes.buble}>Самый популярный</div>
+        )} */}
+        <h2 className={classes.courseName}>{t(`options.${type}.caption`)}</h2>
         <div className={classes.credit}>
-          <s className={classes.creditWas}>{formatCourseCredit(creditWas)} &#8381;</s>
           <div className={classes.creditPrice}>
             {formatCourseCredit(creditPrice)} &#8381;
-            <span className={classes.discount}>{formatCourseDiscount(discount ?? 0)}</span>
+            {/* <span className={classes.discount}>{formatCourseDiscount(discount ?? 0)}</span> */}
           </div>
+          <s className={classes.creditWas}>{formatCourseCredit(creditWas)} &#8381;</s>
         </div>
+        <button
+          className={classes.cardBtn + ' btn'}
+          onClick={() => next(type)}
+        >
+          Перейти к оплате
+        </button>
+        <h3 className={classes.title}>{t(`options.${type}.title`)}</h3>
+        <ul className={classes.pricingCheckList}>
+          <li className={classes.pricingCheckListItem}>
+            <div className={classes.itemIcon}><Icon icon='TickInCircle'/></div>
+            <div className={classes.itemText}>Чат в телеграмме для студентов</div>
+          </li>
+        </ul>
       </div>
     );
   });
@@ -49,6 +60,10 @@ export default function Decision({ course, next }: IProps) {
   return (
     <>
       <div className={classes.commonFlowRow}>
+        <div className={classes.header}>
+          <div className={classes.headerTitle}>Выберите то, что больше подходит</div>
+          <div className={classes.headerDescription}>Добавить обратную связь можно позже, когда поймете, что она нужна</div>
+        </div>
         <div className={classes.wrapper}>
           {optionsNodes}
         </div>

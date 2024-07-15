@@ -53,9 +53,10 @@ padding: set-calc(16) 0;
 }
 
 .listOptionTitle {
-  padding: set-calc(8) set-calc(8);
+  padding: set-calc(12) set-calc(12);
 
-  @include font-18-normal-ui;
+  @include set-typography(18, 24, 500);
+  font-family: $font-family-bold;
   color: var(--color-content-secondary);
 }
 
@@ -64,11 +65,12 @@ padding: set-calc(16) 0;
   justify-content: center;
   align-items: center;
   padding: 0 set-calc(24);
-  height: set-calc(56);
+  height: set-calc(62);
 
-  border-radius: set-calc($border-radius-30);
+  border-radius: set-calc($border-radius-16);
   background: var(--primary-color);
   color: $color-palette-white-1000;
+  font-family: $font-family-bold;
   width: 100%;
 
   @include set-typography(18, 24, 500);
@@ -85,7 +87,7 @@ padding: set-calc(16) 0;
     z-index: 1;
 
     border-radius: 50%;
-    padding: set-calc(18);
+    padding: set-calc(24);
   
     display: flex;
     color: var(--color-content-primary);
@@ -129,7 +131,7 @@ padding: set-calc(16) 0;
   border-radius: set-calc(8);
 
   @include set-media(md) {
-    min-height: set-calc(42);
+    min-height: set-calc(50);
   }
 }
 
@@ -156,6 +158,7 @@ padding: set-calc(16) 0;
 .title {
   margin: 0 0 set-calc(20);
   @include font-36-normal-header;
+  font-family: $font-family-bold;
 
   @include set-media(md) {
     margin: set-calc(16) 0 set-calc(16);

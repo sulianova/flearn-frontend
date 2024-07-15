@@ -49,10 +49,10 @@
   }
 
   @include set-media(md) {
-    top: set-calc(12);
-    right: set-calc(12);
+    top: 0;
+    right: 0;
     border-radius: 50%;
-    padding: set-calc(3);
+    padding: set-calc(24);
     box-shadow: none;
   }
 }
@@ -99,6 +99,7 @@
 .title {
   margin: 0 0 set-calc(20);
   @include font-36-normal-header;
+  font-family: $font-family-bold;
 
   @include set-media(md) {
     margin: 0 0 set-calc(16);
@@ -116,7 +117,7 @@
   transition: background-color $d-hover ease;
 
   @include set-media(md) {
-    min-height: set-calc(42);
+    min-height: set-calc(50);
   }
 }
 
@@ -147,7 +148,7 @@
   padding: set-calc(8) set-calc(16);
   color: var(--color-content-primary);
 
-  @include font-18-normal-ui;
+  @include font-21-normal-ui;
 
   span {
     font-size: inherit;

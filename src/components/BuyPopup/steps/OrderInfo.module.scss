@@ -24,12 +24,8 @@
   flex-direction: column;
   justify-content: space-between;
 
-  width: 50%;
+  max-width: set-calc(560);
   padding: set-calc(24);
-  border-radius: set-calc($border-radius-large);
-  background-color: var(--color-card);
-  border: set-calc(1) solid var(--color-border);
-  box-shadow: $shadow-medium-default;
 
   @include set-media(md) {
     border-radius: set-calc($border-radius-medium);
@@ -45,8 +41,9 @@
   margin-bottom: set-calc(16);
   
   word-break: break-word;
-  @include font-18-normal-ui;
-  color: var(--color-content-secondary);
+  @include font-32-normal-header;
+  color: var(--color-content-primary);
+  font-family: $font-family-bold;
   
   @include set-media(md) {
     margin-bottom: set-calc(16);

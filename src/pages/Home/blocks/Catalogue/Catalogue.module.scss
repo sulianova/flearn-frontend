@@ -62,21 +62,22 @@
   display: flex;
   margin-top: auto;
 
-  @include font-24-normal-header;
+  @include set-typography(24, 26, 500);
   color: var(--color-content-inverted-primary);
+  font-family: $font-family-bold;
 
   .icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     transition: transform $d-hover ease;
     transform: translate(0, 0) rotate(180deg);
 
     margin-left: set-calc(4);
     
     svg {
-      width: set-calc(32);
-      height: set-calc(32);
+      display: inline-flex;
+      justify-content: baseline;
+  
+      width: set-calc(26);
+      height: set-calc(26);
     }
   }
 }
@@ -107,6 +108,7 @@
 
   @include font-40-normal-header;
   color: var(--color-content-inverted-primary);
+  font-family: $font-family-bold;
   text-align: left;
 }
 
@@ -126,7 +128,8 @@
   background: var(--color-background-btn);
 
   @include font-18-normal-ui;
-  color: $color-palette-white-1000;
+  color: $color-content-inverted-primary-light;
+  font-family: $font-family-bold;
 
   height: set-calc(52);
   width: max-content;

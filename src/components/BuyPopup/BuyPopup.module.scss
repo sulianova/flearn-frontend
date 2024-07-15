@@ -9,12 +9,10 @@
 
   color: var(--color-content-primary);
   background-color: var(--color-card);
-  border: set-calc(1) solid var(--color-border);
-  border-radius: set-calc($border-radius-medium);
 
   padding: set-calc(16);
-  min-height: 90vh;
-  min-width: 70vw;
+  min-height: 100vh;
+  min-width: 100vw;
 
   @include set-media(md) {
     display: flex;
@@ -63,10 +61,9 @@
   }
 
   @include set-media(md) {
-    top: set-calc(12);
-    right: set-calc(12);
-    border-radius: 50%;
-    padding: set-calc(3);
+    top: 0;
+    right: 0;
+    padding: set-calc(24);
     box-shadow: none;
     background-color: transparent;
   }
@@ -121,10 +118,10 @@
   }
 
   @include set-media(md) {
-    top: set-calc(12);
-    left: set-calc(12);
-    border-radius: 50%;
-    padding: set-calc(3);
+    top: 0;
+    right: unset;
+    left: 0;
+    padding: set-calc(24);
     box-shadow: none;
     background-color: transparent;
   }
@@ -163,14 +160,13 @@
 }
 
 .header {
-  padding: set-calc(16) set-calc(16) set-calc(40);
+  padding: 0 set-calc(16) set-calc(40);
   display: flex;
 
   @include set-media(md) {
     padding: set-calc(12) set-calc(12) set-calc(12);
   }
 }
-
 
 .stepWidget {
   display: flex;
@@ -181,6 +177,7 @@
 
   @include set-media(md) {
     column-gap: set-calc(4);
+    padding-top: set-calc(8);
   }
 }
 

@@ -1,7 +1,7 @@
 @use "sass:math";
 $rem-base: 18px;
 $font-family: TTNormsPro-Normal, sans-serif;
-$font-family-bold: TTNormsPro-Bold, sans-serif;
+$font-family-bold: DINRoundPro-Bold, sans-serif;
 $padding-x-desk-page: 16;
 $padding-x-mob-page: 16;
 $padding-xs-mob-page: 8;
@@ -36,7 +36,7 @@ $color-palette-black-100-a: rgba(0, 0, 0, 0.06);
 $color-palette-black-200-a: rgba(0, 0, 0, 0.12);
 $color-palette-black-300-a: rgba(0, 0, 0, 0.25);
 $color-palette-black-500-a: rgba(0, 0, 0, 0.5);
-$color-palette-black-600-a: rgba(0, 0, 0, 0.6);
+$color-palette-black-600-a: rgba(0, 0, 0, 0.58);
 $color-palette-black-700-a: rgba(0, 0, 0, 0.7);
 $color-palette-black-800-a: rgba(0, 0, 0, 0.85);
 
@@ -53,17 +53,21 @@ $color-palette-white-900-a: rgba(255, 255, 255, 0.8);
 $color-palette-white-1000: #ffffff;
 
 //color-promo-highlight
-$color-promo-highlight-yellow: rgb(226, 255, 45);
-$color-promo-highlight-green: #21d49e;
-$color-promo-highlight-violet: rgb(134, 25, 245);
-$color-promo-highlight-silver: #edf2f7;
-$color-promo-highlight-gold: #fff1b8;
-$color-promo-highlight-asphalt: #eaebeb;
-$color-promo-highlight-tomato: #ffdede;
-$color-promo-highlight-copper: #ffe6c4;
-$color-promo-highlight-mint: #ccf0d2;
-$color-promo-highlight-sky: #d6e9fd;
-$color-promo-highlight-neon: #ece2fc;
+$color-highlight-greenish: rgb(226, 255, 45);
+$color-highlight-green: #54e3a3;
+$color-highlight-violet: rgb(134, 25, 245);
+$color-highlight-yellow: #f5cb36;
+$color-highlight-pink: #f7235b;
+
+$color-highlight-silver: #edf2f7;
+$color-highlight-gold: #fef7c1;
+$color-highlight-asphalt: #eaebeb;
+$color-highlight-sky: #d6e9fd;
+$color-highlight-neon: #ece2fc;
+$color-highlight-mint: #d1ffd5;
+$color-highlight-misty-rose: #ffe3e3;
+$color-highlight-peach-puff: #fedfc2;
+
 
 //color-palette-blue-a
 $color-palette-blue-50-a: rgba(20, 115, 230, 0.05);
@@ -80,7 +84,6 @@ $color-palette-blue-900-a: rgba(20, 115, 230, 0.9);
 //color-palette-blue
 $color-palette-blue-900: rgb(0, 47, 154);
 $color-palette-blue-700: rgb(0, 62, 203);
-$color-palette-blue-600: rgb(13, 102, 208);
 $color-palette-blue-500: rgb(0, 87, 255);
 $color-palette-blue-400: rgb(98, 146, 255);
 $color-palette-blue-300: rgb(191, 210, 255);
@@ -88,13 +91,12 @@ $color-palette-blue-200: rgb(222, 232, 255);
 $color-palette-blue-100: rgb(245, 248, 255);
 
 //color-palette-indigo
-$color-palette-indigo-900: #0f0a1f;
-$color-palette-indigo-800: #221c3d;
-$color-palette-indigo-700: #2c2361;
-$color-palette-indigo-600: #382a85;
-$color-palette-indigo-500: #452dbd;;
-$color-palette-indigo-400: #513deb;
-$color-palette-indigo-300: #9282fa;
+$color-palette-indigo-1000: #090029;
+$color-palette-indigo-600: #3c1fa2;
+$color-palette-indigo-500: #452dbd;
+$color-palette-indigo-400: #5627ff;
+$color-palette-indigo-350: #7657ff;
+$color-palette-indigo-300: #9c8cff;
 $color-palette-indigo-200: #ede8ff;
 $color-palette-indigo-100: #f7f5ff;
 
@@ -104,14 +106,14 @@ $color-gradient-rainbow-background: linear-gradient(68deg, rgb(255, 250, 208) 28
 $color-gradient-rainbow-btn: linear-gradient(90deg, #ff5c4d 0%, #eb469f 26.56%, #8341ef 75%, #3f68f9 100%), #3f68f9;
 
 //theme-light
-$primary-color-light: $color-palette-blue-500;
-$primary-color-hover-light: $color-palette-blue-700;
+$primary-color-light: $color-palette-indigo-350;
+$primary-color-hover-light: $color-palette-indigo-400;
 $color-accent-error-light: #f22a2a;
 $color-accent-notice-light: #e67046;
 $color-accent-success-light: #1c9c75;
 $color-accent-warning-light: #ffb72c;
-$color-accent-promo-light: #f7235b;
-$color-accent-promo-hover-light: #bb1441;
+$color-accent-promo-light: $color-highlight-yellow;
+$color-accent-promo-background-light: $color-palette-black-800;
 $color-accent-neutral-light: $color-palette-black-700;
 $color-accent-neutral-hover-light: $black;
 $color-background-alternate-light: $color-palette-black-50;
@@ -136,11 +138,11 @@ $color-content-inverted-secondary-light: $color-palette-black-200;
 $color-content-primary-light: $color-palette-black-700;
 $color-content-secondary-light: $color-palette-black-600;
 $color-content-tertiary-light: $color-palette-black-500;
-$color-content-background-primary-light: $color-palette-black-900;
+$color-content-background-primary-light: $color-palette-black-800;
 $color-content-background-secondary-light: $color-palette-black-700;
-$color-content-background-tertiary-light: $color-palette-black-200;
-$color-content-paragraph-primary-light: $color-palette-black-700;
-$color-content-paragraph-secondary-light: $color-palette-black-500;
+$color-content-background-tertiary-light: $color-palette-black-500;
+$color-content-paragraph-primary-light: $color-palette-black-800-a;
+$color-content-paragraph-secondary-light: $color-palette-black-600-a;
 $color-background-btn-light: $color-palette-black-700;
 $color-background-btn-hover-light: $color-palette-black-900;
 $color-background-card-light: $color-palette-black-900;
@@ -148,14 +150,14 @@ $color-background-card-light: $color-palette-black-900;
 $border-color-light: rgba(217, 217, 217, 0.5);
 
 //theme-dark
-$primary-color-dark: $color-palette-indigo-300;
+$primary-color-dark: $color-palette-indigo-350;
 $primary-color-hover-dark: $color-palette-indigo-400;
 $color-accent-error-dark: #f22a2a;
 $color-accent-notice-dark: #e67046;
 $color-accent-success-dark: #1c9c75;
 $color-accent-warning-dark: #ffb72c;
-$color-accent-promo-dark: #f7235b;
-$color-accent-promo-hover-dark: #bb1441;
+$color-accent-promo-dark: $primary-color-dark;
+$color-accent-promo-background-dark: $color-palette-indigo-100;
 $color-accent-neutral-dark: $color-palette-white-1000;
 $color-accent-neutral-hover-dark: $color-palette-black-300;
 $color-background-default-dark: $color-palette-black-800;
@@ -175,15 +177,15 @@ $color-border-dark: hsla(0, 0%, 100%, .1);
 $color-card-glassy-dark: rgba(15,15,15,0.7);
 $color-card-dark: $color-palette-black-700;
 $color-content-inverted-primary-dark:  $color-palette-black-900;
-$color-content-inverted-secondary-dark:  $color-palette-black-700;
-$color-content-primary-dark: $color-palette-black-25;
+$color-content-inverted-secondary-dark: $color-palette-black-600;
+$color-content-primary-dark: $color-palette-black-50;
 $color-content-secondary-dark: $color-palette-black-300;
 $color-content-tertiary-dark: $color-palette-black-500;
 $color-content-background-primary-dark: $color-palette-black-200;
 $color-content-background-secondary-dark: $color-palette-black-500;
 $color-content-background-tertiary-dark: $color-palette-black-700;
 $color-content-paragraph-primary-dark: $color-palette-black-300;
-$color-content-paragraph-secondary-dark: $color-palette-black-500;
+$color-content-paragraph-secondary-dark: $color-palette-black-400;
 $color-background-btn-dark: $primary-color-dark;
 $color-background-btn-hover-dark: $primary-color-hover-dark;
 $color-background-card-dark: $color-palette-indigo-300;
@@ -272,7 +274,7 @@ $z-index-500: 500;
   --color-accent-success-light: #{$color-accent-success-light};
   --color-accent-warning-light: #{$color-accent-warning-light};
   --color-accent-promo-light: #{$color-accent-promo-light};
-  --color-accent-promo-hover-light: #{$color-accent-promo-hover-light};
+  --color-accent-promo-background-light: #{$color-accent-promo-background-light};
   --color-accent-neutral-light: #{$color-accent-neutral-light};
   --color-accent-neutral-hover-light: #{$color-accent-neutral-hover-light};
   --color-background-alternate-light: #{$color-background-alternate-light};
@@ -316,7 +318,7 @@ $z-index-500: 500;
   --color-accent-success-dark: #{$color-accent-success-dark};
   --color-accent-warning-dark: #{$color-accent-warning-dark};
   --color-accent-promo-dark: #{$color-accent-promo-dark};
-  --color-accent-promo-hover-dark: #{$color-accent-promo-hover-dark};
+  --color-accent-promo-background-dark: #{$color-accent-promo-background-dark};
   --color-accent-neutral-dark: #{$color-accent-neutral-dark};
   --color-accent-neutral-hover-dark: #{$color-accent-neutral-hover-dark};
   --color-background-default-dark: #{$color-background-default-dark};

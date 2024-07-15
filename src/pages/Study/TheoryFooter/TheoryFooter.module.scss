@@ -42,6 +42,7 @@
 
   @include font-18-normal-ui;
   color: $color-content-inverted-primary-light;
+  font-family: $font-family-bold;
 
   transition-property: background-color, border-color, box-shadow, color, transform;
   transition-duration: 0.15s;

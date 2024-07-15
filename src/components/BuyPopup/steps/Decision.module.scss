@@ -1,16 +1,44 @@
 @import 'styles/index';
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: set-calc(24);
+  @include set-media(md) {
+    margin-top: set-calc(32);
+  }
+}
+
+
 .headerTitle {
   position: relative;
 
-  padding-bottom: set-calc(18);
+  padding-bottom: set-calc(24);
 
-  @include font-36-normal-header;
+  @include font-56-normal-header;
+  font-family: $font-family-bold;
   text-align: center;
 
   @include set-media(md) {
-    padding-bottom: 0;
+    padding-bottom: set-calc(16);
+  }
+}
 
-    text-align: start;
+.headerDescription {
+  position: relative;
+
+  margin-bottom: set-calc(40);
+  max-width: set-calc(600);
+
+  @include font-21-normal-paragraph;
+  color: var(--color-content-paragraph-primary);
+  text-align: center;
+
+  @include set-media(md) {
+    margin-bottom: set-calc(16);
   }
 }
 
@@ -22,7 +50,7 @@
     flex-direction: column;
     justify-content: space-between;
 
-    padding: 0 set-calc(16) set-calc(85);
+    padding: 0 set-calc(16) set-calc(16);
   }
 }
 
@@ -52,101 +80,188 @@
   flex-direction: column;
   justify-content: space-between;
 
-  width: 50%;
-  min-width: min(380px, 80vw);
+  width: min(380px, 80vw);
 
-  padding: set-calc(24);
+  padding: set-calc(32);
+  background-color: var(--color-background-glassy-c);
   border-radius: set-calc($border-radius-large);
 
-  background-color: var(--color-card);
-  box-shadow: 0 0 0 2px $color-palette-black-200, 0 2px 0 2px $color-palette-black-200;
-  -webkit-tap-highlight-color: transparent;
-  cursor: pointer;
-
-  transition: box-shadow $d-hover ease-in, background-color $d-hover ease-in;
-
-
   @include set-media(md) {
+    padding: set-calc(24);
+    flex-grow: 1;
+
     min-width: 100%;
     min-height: unset;
 
+    // box-shadow: 0 0 0 2px $color-palette-black-200, 0 2px 0 2px $color-palette-black-200;
     border-radius: set-calc($border-radius-medium);
-    padding: set-calc(16);
-    flex-grow: 1;
+    // background-color: var(--color-card);
+    // -webkit-tap-highlight-color: transparent;
+    // cursor: pointer;
+
+    transition: box-shadow $d-hover ease-in, background-color $d-hover ease-in;
   }
 }
 
-.block:active {
-  box-shadow: 0 0 0 2px $color-palette-black-600;
-  transform: translate3d(0, 2px, 0);
-}
+// .block:active {
+//   @include set-media(md) {
+//     box-shadow: 0 0 0 2px $color-palette-black-600;
+//     transform: translate3d(0, 2px, 0);
+//   }
+// }
 
-.active {
-  background-color: $color-palette-indigo-100;
-  box-shadow: 0 0 0 2px var(--primary-color), 0 2px 0 2px var(--primary-color);
-  -webkit-tap-highlight-color: transparent;
-  cursor: pointer;
+// .active {
+//   @include set-media(md) {
+//     background-color: $color-palette-indigo-100;
+//     box-shadow: 0 0 0 2px var(--primary-color), 0 2px 0 2px var(--primary-color);
+//     -webkit-tap-highlight-color: transparent;
+//     cursor: pointer;
+  
+//     .courseName {
+//       color: $color-content-primary-light;
+//     }
+//     .title  {
+//       color: $color-content-paragraph-secondary-light;
+//     }
+//     .credit {
+//       s:after {
+//         border-bottom: set-calc(1.5) solid $color-background-glassy-d-light;
+//         @include set-media(md) {
+//           border-bottom: set-calc(1) solid $color-background-glassy-d-light;
+//         }
+//       }
+//     }
+    
+//     .creditWas {
+//       color: $color-background-glassy-d-light;
+//     }
+    
+//     .creditPrice {
+//       color: $color-content-primary-light;
+//     }
+    
+//     .discount {
+//       background: $color-background-glassy-b-light;
+//       color: $color-content-primary-light;
+//     }
+//   }
+// }
+
+.block:first-child {
+  background-color: var(--color-accent-promo-background);
 
   .courseName {
-    color: $color-content-primary-light;
+    color: var(--color-content-inverted-primary);
   }
-  .title  {
-    color: $color-content-paragraph-secondary-light;
+  .title {
+    color: var(--color-content-inverted-secondary);
   }
+
+  .creditPrice {
+    color: var(--color-content-inverted-primary);
+  }
+
   .credit {
     s:after {
-      border-bottom: set-calc(1.5) solid $color-background-glassy-d-light;
+      border-bottom: set-calc(1.5) solid var(--color-background-glassy-inverted-d);
+
       @include set-media(md) {
-        border-bottom: set-calc(1) solid $color-background-glassy-d-light;
+        border-bottom: set-calc(1) solid var(--color-background-glassy-inverted-d);
       }
     }
   }
-  
+
   .creditWas {
-    color: $color-background-glassy-d-light;
+    color: var(--color-background-glassy-inverted-d);
   }
+
+  .itemIcon {
+    color: var(--color-content-inverted-primary);
+
+    svg {
+      path {
+        fill: var(--color-content-primary);
+      }
+    }
+  }
+
+  .itemText {
+    color: var(--color-content-inverted-secondary);
+  }
+
+  .cardBtn {
+    color: $color-content-inverted-primary-light;
+    border: 2px solid $primary-color-dark;
+    background-color: $primary-color-dark;
   
-  .creditPrice {
-    color: $color-content-primary-light;
-  }
-  
-  .discount {
-    background: $color-background-glassy-b-light;
-    color: $color-content-primary-light;
-  }
-}
-
-.titleWrapper{
-  display: flex;
-  flex-direction: column;
-
-  margin-bottom: set-calc(16);
-
-  @include set-media(md) {
-    margin-bottom: set-calc(16);
+    &:hover {
+      cursor: pointer;
+      box-shadow: $shadow-medium-hovered;
+      background-color: $primary-color-hover-dark;
+      border-color: $primary-color-hover-dark;
+    }
   }
 }
 
 .courseName {
   margin-bottom: set-calc(8);
-  color: $color-content-paragraph-secondary-light;
 
-  @include font-16-normal-paragraph;
+  @include font-21-normal-paragraph;
+  font-family: $font-family-bold;
+  color: var(--color-content-primary);
 }
 
 .title {
   max-width: set-calc(560);
   word-break: break-word;
-  margin-bottom: set-calc(16);
+  margin: set-calc(24) 0;
 
-  @include font-16-normal-paragraph;
+  @include set-typography(18, 26, 500);
+  color: var(--color-content-paragraph-secondary);
+}
+
+.pricingCheckList {
+  flex: 1;
+  display: block;
+  padding-left: 0;
+  list-style: none;
+}
+
+.pricingCheckListItem {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  gap: set-calc(12);
+}
+
+.pricingCheckListItem:not(:last-child) {
+  margin-bottom: set-calc(16);
+}
+
+.itemIcon {
+  width: set-calc(20);
+  height: set-calc(20);
+
   color: var(--color-content-primary);
+  margin-bottom: set-calc(2);
+
+  svg {
+    path {
+      fill: var(--color-content-inverted-primary);
+    }
+  }
+}
+
+.itemText {
+  @include set-typography(18, 26, 500);
+  color: var(--color-content-paragraph-secondary);
 }
 
 .buble {
   position: absolute;
   right: set-calc(20);
-  top: set-calc(-24);
+  top: set-calc(-18);
   transform: rotate(0);
 
   display: flex;
@@ -155,33 +270,29 @@
   z-index: 9;
 
   border-radius: set-calc($border-radius-large);
-  padding: set-calc(10) set-calc(15);
-  background: $color-gradient-rainbow;
+  padding: set-calc(8) set-calc(12);
+  background: $color-gradient-rainbow-btn;
   background-size: 400% 400%;
 
   animation: buttonGradient 45s ease infinite;
   transition: width .3s, margin .3s, min-width .3s, background-color .3s, color .3s, border .3s, background-position 2s ease-out, padding-left .3s, opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
   
   color: $color-content-primary-dark;
-
-  @include font-16-normal-ui;
+  @include font-14-normal-ui;
+  font-family: $font-family-bold;
 
   @include set-media(md) {
     right: set-calc(20);
-    top: set-calc(-24);
+    top: set-calc(-14);
     padding: set-calc(8) set-calc(12);
   }
 }
 
 .credit {
-  margin-top: auto;
-
-  padding-top: set-calc(32);
+  padding-top: set-calc(16);
 
   display: flex;
-  flex: 1;
-  flex-direction: row-reverse;
-  justify-content: space-between;
+  gap: set-calc(32);
 
   @include set-media(md) {
     padding-top: 0;
@@ -208,21 +319,23 @@
   color: var(--color-background-glassy-d);
 
   @include font-24-normal-header;
+  font-family: $font-family-bold;
   letter-spacing: -0.05rem;
   align-self: flex-end;
 }
 
 .creditPrice {
   position: relative;
-  @include set-typography(56, 60, 500);
+  @include set-typography(48, 50, 500);
+  font-family: $font-family-bold;
 
   display: inline-block;
-  letter-spacing: -0.2rem;
+  letter-spacing: -0.05rem;
   color: var(--color-content-primary);
   align-self: flex-end;
 
   @include set-media(md) {
-    @include set-typography(48, 48, 500);
+    @include set-typography(48, 50, 500);
   }
 }
 
@@ -235,7 +348,8 @@
   align-items: center;
   justify-content: center;
 
-  @include font-16-normal-ui;
+  @include font-14-normal-ui;
+  font-family: $font-family;
   letter-spacing: 0;
 
   padding: set-calc(6) set-calc(10);
@@ -265,22 +379,21 @@
 }
 
 .btnWrapper {
-  position: relative;
+  display: none;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+  // @include set-media(md) {
+  //   position: fixed;
 
-  padding: set-calc(100) 0 0;
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
 
-  @include set-media(md) {
-    position: fixed;
-    bottom: set-calc(0);
-    background-color: var(--color-card);
+  //   width: 100%;
+  //   bottom: set-calc(0);
+  //   background-color: var(--color-card);
 
-    padding: set-calc(16) 0;
-  }
+  //   padding: set-calc(16) 0;
+  // }
 }
 
 .btn {
@@ -290,7 +403,8 @@
   align-items: center;
 
   color: $color-content-inverted-primary-light;
-  @include font-18-normal-ui;
+  @include font-21-normal-ui;
+  font-family: $font-family-bold;
 
   border-radius: set-calc($border-radius-10);
   background-color: var(--primary-color);
@@ -312,5 +426,39 @@
     width: 100%;
     border-radius: set-calc($border-radius-10);
     margin: 0 set-calc(16);
+  }
+}
+
+.cardBtn {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: set-calc(32);
+
+  color: var(--color-content-primary);
+  @include font-21-normal-ui;
+  font-family: $font-family-bold;
+
+  border-radius: set-calc($border-radius-16);
+  border: 2px solid var(--color-content-background-primary);
+  background-color: transparent;
+  height: set-calc(64);
+  padding: 0 set-calc(32);
+
+  transition: opacity $d-hover ease, box-shadow $d-hover ease, background-color $d-hover ease, transform 0.15s ease-out, color $d-hover ease,;
+  cursor: pointer;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: $shadow-medium-hovered;
+    background-color: var(--color-content-background-primary);
+    color: var(--color-content-inverted-primary);
+  }
+
+  @include set-media(md) {
+    // display: none;
   }
 }

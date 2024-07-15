@@ -7,7 +7,7 @@ body.light {
   --color-accent-success: var(--color-accent-success-light);
   --color-accent-warning: var(--color-accent-warning-light);
   --color-accent-promo: var(--color-accent-promo-light);
-  --color-accent-promo-hover: var(--color-accent-promo-hover-light);
+  --color-accent-promo-background: var(--color-accent-promo-background-light);
   --color-accent-neutral: var(--color-accent-neutral-light);
   --color-accent-neutral-hover: var(--color-accent-neutral-hover-light);
   --color-background-alternate: var(--color-background-alternate-light);
@@ -52,7 +52,8 @@ body.dark {
   --color-accent-success: var(--color-accent-success-dark);
   --color-accent-warning: var(--color-accent-warning-dark);
   --color-accent-promo: var(--color-accent-promo-dark);
-  --color-accent-promo-hover: var(--color-accent-promo-hover-dark);
+  --color-accent-promo: var(--color-accent-promo-dark);
+  --color-accent-promo-background: var(--color-accent-promo-background-dark);
   --color-accent-neutral: var(--color-accent-neutral-dark);
   --color-accent-neutral-hover: var(--color-accent-neutral-hover-dark);
   --color-background-alternate: var(--color-background-alternate-dark);

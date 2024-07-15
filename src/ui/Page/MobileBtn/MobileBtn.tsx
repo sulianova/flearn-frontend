@@ -78,14 +78,14 @@ export default function MobileBtn({ course, variant, visible }: IProps) {
                   onClick={() => analyticsService.logEvent({ type: analyticsService.event.ButtonClickedStartStudy })}
                   to={URLSections.Study.to({ courseId: course.id, lessonId: firstLesson.id })}
                 >
-                  <div className={classes.text}>начать учиться</div>
+                  <div className={classes.text}>Начать учиться бесплатно</div>
                 </Link>
               ) : (
                 <div
                   className={classes.btnLink}
                   onClick={() => setPopupVisible(true)}
                 >
-                  <div className={classes.text}>начать учиться</div>
+                  <div className={classes.text}>Начать учиться бесплатно</div>
                 </div>
               )
           )}

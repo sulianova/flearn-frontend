@@ -4,12 +4,12 @@
   display: flex;
   flex-direction: column;
   overflow: visible;
-  margin: set-calc(32) 0 set-calc(80);
+  margin: set-calc(80) 0 set-calc(100);
 
 
   @include set-media(md) {
     position: relative;
-    margin: 0 set-calc(16) set-calc(40);
+    margin: set-calc(40) 0 set-calc(80);
   }
 }
 
@@ -17,54 +17,70 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
+
+  padding: 0 set-calc(100);
   width: 100%;
+
+  @include set-media(md) {
+    padding: 0 set-calc(16);
+    align-items: center;
+  }
 }
 
 .headerWrapper {
   position: relative;
+
   display: flex;
-  align-items: center;
   flex-direction: column;
-  margin-top: set-calc(24);
+  align-items: start;
 
   @include set-media(md) {
-    margin: set-calc(10) set-calc(16) 0;
+    align-items: center;
   }
 }
 
 .headerTitle {
-  text-align: center;
   margin-bottom: set-calc(32);
-  max-width: set-calc(900);
+  max-width: 50%;
 
-  @include set-typography(52, 52, 500);
+  @include set-typography(60, 62, 500);
+  font-family: $font-family-bold;
+  text-align: start;
 
   @include set-media(md) {
-    @include set-typography(28, 30, 500);
+
+    @include set-typography(36, 36, 500);
+    max-width: 100%;
+    font-family: $font-family-bold;
     margin-bottom: set-calc(24);
+    text-align: center;
   }
 }
 
 .descriptionWrapper {
   position: relative;
   max-width: set-calc(500);
-  text-align: center;
-  margin-bottom: set-calc(60);
+  margin-bottom: set-calc(32);
 
   @include set-media(md) {
     display: flex;
     flex-direction: column;
-    margin-bottom: set-calc(40);
-    max-width: set-calc(200);
+
+    margin-bottom: set-calc(24);
   }
 }
 
 .description {
   position: relative;
-  color: var(--color-content-tertiary);
 
+  color: var(--color-content-paragraph-primary);
+  text-align: start;
   @include font-21-normal-paragraph;
+
+  @include set-media(md) {
+    text-align: center;
+  }
 }
 
 .actions {
@@ -89,25 +105,26 @@
   justify-content: center;
 
   padding: 0 set-calc(32);
-  border-radius: set-calc($border-radius-12);
+  border-radius: set-calc($border-radius-16);
   transition: background-color $d-hover ease, color $d-hover ease, box-shadow $d-hover ease;
-  background-color: var(--color-background-btn);
+  background-color: var(--primary-color);
   box-shadow: $shadow-medium-default;
 
-  @include font-18-normal-ui;
+  @include font-21-normal-ui;
   color: $color-content-inverted-primary-light;
+  font-family: $font-family-bold;
 
-  height: set-calc(52);
+  height: set-calc(64);
   width: 100%;
 
   @include set-media(md) {
-    height: set-calc(48);
+    height: set-calc(64);
     margin: 0 0 set-calc(4) 0;
 
     padding: set-calc(0) set-calc(18);
     width: max-content;
 
-    border-radius: set-calc($border-radius-small);
+    border-radius: set-calc($border-radius-12);
   }
 
   .text {
@@ -117,6 +134,6 @@
   &:hover {
     cursor: pointer;
     box-shadow: $shadow-medium-hovered;
-    background-color: var(--color-background-btn-hover);
+    background-color: var(--primary-color-hover);
   }
 }

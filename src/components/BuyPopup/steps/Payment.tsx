@@ -11,6 +11,7 @@ import { ICourseData } from 'services/course.service';
 import { formatCourseCredit, getDiscountedPrice } from 'utils';
 import { emailService } from 'services/email.service';
 import Spinner from 'ui/Spinner/Spinner';
+import Icon from 'ui/Icon/Icon';
 import { analyticsService } from 'services/analytics.service';
 
 const cx = classnames.bind(classes);
@@ -30,14 +31,19 @@ export default function Payment(props: IProps & { chosenProductOptionType: keyof
     <div className={classes.paymentWrapper}>
       <div className={classes.paymentBlock}>
         <div className={classes.headerWrapper}>
-          <h1 
-            className={classes.title}>Оплата курса «Композиция: как выделить главное»
-          </h1>
-          <div className={classes.credit}>
-            {/* <div className={classes.creditWasWrapper}><s className={classes.creditWas}>{formatCourseCredit(creditWas, currencySign)}</s></div> */}
-            <div className={classes.creditPrice}>
-              {formatCourseCredit(creditPrice, currencySign)}
-              {/* <span className={classes.discount}>{formatCourseDiscount(discount ?? 0)}</span> */}
+          <h1 className={classes.title}>«С обратной связью»</h1>
+          <div className={classes.benefits}>
+            <div className={classes.benefitsItem}>
+              <div className={classes.itemIcon}><Icon icon='TickInCircle'/></div>
+              <div className={classes.itemText}>Чат</div>
+            </div>
+            <div className={classes.benefitsItem}>
+              <div className={classes.itemIcon}><Icon icon='TickInCircle'/></div>
+              <div className={classes.itemText}>Уроки</div>
+            </div>
+            <div className={classes.benefitsItem}>
+              <div className={classes.itemIcon}><Icon icon='TickInCircle'/></div>
+              <div className={classes.itemText}>Фидбэк</div>
             </div>
           </div>
           <dl className={classes.paymentSummary}>

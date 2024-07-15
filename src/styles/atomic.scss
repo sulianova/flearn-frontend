@@ -112,10 +112,10 @@
 }
 
 @mixin font-56-normal-header  {
-  @include set-typography(56, 48, 500);
+  @include set-typography(56, 60, 500);
 
   @include set-media(md) {
-    @include set-typography(36, 36, 500);
+    @include set-typography(40, 42, 500);
   }
 }
 
@@ -177,11 +177,6 @@
   transition-property: background-color, border-color, box-shadow, color, transform;
   transition-duration: 0.15s;
   transition-timing-function: ease-out;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
 }
 
 .btn:disabled {
