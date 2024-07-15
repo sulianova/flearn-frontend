@@ -32,6 +32,10 @@
   @include font-18-normal-paragraph;
   padding-top: set-calc(8);
 
+  span {
+    font-family: $font-family-bold;
+  }
+
   @include set-media(md) {
     padding-top: set-calc(8);
     padding-left: set-calc(16);

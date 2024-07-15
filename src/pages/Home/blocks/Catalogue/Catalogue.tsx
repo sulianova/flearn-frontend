@@ -25,7 +25,7 @@ export default function Catalogue() {
       <div className={classes.promo}>
         <div className={classes.content}>
           <div className={classes.title}>Как это — быть иллюстратором. Бесплатный курс, чтобы попробовать</div>
-          <div className={classes.cardBtn}><span>Подробнее о курсе</span><span className={classes.icon}><Icon icon='ArrowButton'/></span></div>
+          <div className={classes.cardBtn}><span className={classes.text}>Подробнее о курсе</span><span className={classes.icon}><Icon icon='ArrowButton'/></span></div>
       </div>
       <div className={classes.background + ' bc-color-promo-highlight-yellow'}>
         </div>

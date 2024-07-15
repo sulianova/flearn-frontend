@@ -208,9 +208,9 @@
   display: inline-block;
   padding: set-calc(4);
 
-  background: var(--color-accent-promo);
+  background: $color-accent-promo-light;
   border-radius: set-calc($border-radius-4);
-  color: var(--color-content-primary);
+  color: $color-content-primary-light;
 
   @include font-14-normal-ui;
   text-align: start;
@@ -265,7 +265,7 @@
   display: flex;
   padding: set-calc(4);
   border-radius: set-calc($border-radius-large);
-  background-color: var(--color-background-glassy-c);
+  background-color: $color-palette-indigo-200;
   backdrop-filter: blur(set-calc($backdrop-filter));
 }
 
@@ -285,6 +285,7 @@
   cursor: pointer;
   padding: set-calc(16) 0;
   border-radius: set-calc($border-radius-large);
+  color: $color-content-inverted-primary-dark;
 }
 
 .checked {

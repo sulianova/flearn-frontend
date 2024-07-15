@@ -11,7 +11,7 @@ export default function Course() {
   const course = courseService.useCurrentCourse();
 
   if (!course) {
-    return <Fallback.Pending text={'loading course'}/>;
+    return <Fallback.Pending/>;
   }
 
   return (

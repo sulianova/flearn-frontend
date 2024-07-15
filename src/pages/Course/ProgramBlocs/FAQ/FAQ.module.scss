@@ -30,7 +30,8 @@
   grid-column: 4 / -4;
 
   margin-bottom: set-calc(24);
-  @include font-70-normal-header;
+  @include font-56-normal-header;
+  font-family: $font-family-bold;
 
   @include set-media(md) {
     margin-bottom: set-calc(16);

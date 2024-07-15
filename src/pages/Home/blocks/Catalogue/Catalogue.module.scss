@@ -62,13 +62,18 @@
   display: flex;
   margin-top: auto;
 
-  @include set-typography(24, 26, 500);
   color: var(--color-content-inverted-primary);
-  font-family: $font-family-bold;
+
+  .text {
+    @include set-typography(24, 26, 500);
+    font-family: $font-family-bold;
+  }
 
   .icon {
     transition: transform $d-hover ease;
     transform: translate(0, 0) rotate(180deg);
+    width: set-calc(26);
+    height: set-calc(26);
 
     margin-left: set-calc(4);
     

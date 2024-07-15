@@ -130,7 +130,7 @@
 
   height: set-calc(30);
   border-radius: set-calc($border-radius-large);
-  background: var(--color-accent-promo);
+  background: $color-accent-promo-dark;
 
   @include set-media(md) {
     height: set-calc(24);
@@ -141,7 +141,7 @@
 
 .infoText {
   @include font-16-normal-ui;
-  color: var(--color-content-primary);
+  color: $color-content-inverted-primary-light;
   font-family: $font-family-bold;
 }
 
@@ -151,7 +151,7 @@
   max-width: set-calc(450);
 
   @include font-32-normal-header;
-  color: var(--color-content-inverted-primary);
+  color: $color-content-inverted-primary-light;
   font-family: $font-family-bold;
 
   @include set-media(md) {
@@ -165,7 +165,7 @@
   transition: opacity $d-hover ease;
 
   @include font-18-normal-paragraph;
-  color: var(--color-content-inverted-primary);
+  color: $color-content-inverted-primary-light;
 
   @include set-media(md) {
     transition: none;
@@ -177,7 +177,7 @@
   margin-top: auto;
 
   @include set-typography(21, 21, 500);
-  color: var(--color-content-inverted-primary);
+  color: $color-content-inverted-primary-light;
   font-family: $font-family-bold;
 
   .icon {

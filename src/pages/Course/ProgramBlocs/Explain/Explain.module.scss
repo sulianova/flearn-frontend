@@ -35,9 +35,13 @@
   position: relative;
   z-index: 2;
 
-  @include font-70-normal-header;
+  @include set-typography(68, 62, 500);
   white-space: pre-line;
   text-align: center;
+
+  @include set-media(md) {
+    @include set-typography(40, 40, 500);
+  }
 }
 
 .videoCard {

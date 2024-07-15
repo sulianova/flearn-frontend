@@ -83,7 +83,7 @@
   width: min(380px, 80vw);
 
   padding: set-calc(32);
-  background-color: var(--color-background-glassy-c);
+  background-color: var(--color-card);
   border-radius: set-calc($border-radius-large);
 
   @include set-media(md) {

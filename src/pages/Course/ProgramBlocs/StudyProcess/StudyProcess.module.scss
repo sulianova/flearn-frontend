@@ -22,7 +22,8 @@
 }
 
 .headerTitle {
-  @include font-70-normal-header;
+  @include font-56-normal-header;
+  font-family: $font-family-bold;
 }
 
 .list {
@@ -55,7 +56,7 @@
   margin-bottom: set-calc(8);
   width: max-content;
 
-  background-color: var(--color-background-alternate);
+  background-color: var(--color-accent-promo);
   padding: set-calc(10) set-calc(16);
   border-radius: set-calc($border-radius-large);
 

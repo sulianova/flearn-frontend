@@ -22,7 +22,8 @@
 }
 
 .headerTitle {
-  @include font-70-normal-header;
+  @include font-56-normal-header;
+  font-family: $font-family-bold;
   padding-left: set-calc(16);
 
   @include set-media(md) {

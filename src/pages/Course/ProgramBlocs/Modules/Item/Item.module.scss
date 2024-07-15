@@ -200,6 +200,7 @@
 .title {
   margin: set-calc(16) 0 set-calc(8);
   @include font-36-normal-header;
+  font-family: $font-family-bold;
 }
 
 .description {
@@ -233,7 +234,8 @@
   @include font-16-normal-ui;
 
   border-radius: set-calc($border-radius-large);
-  background-color: var(--color-background-glassy-b);
+  background-color: $color-palette-blue-200;
+  color: $color-content-primary-light;
   list-style-type: none;
 
   @include set-media(md) {

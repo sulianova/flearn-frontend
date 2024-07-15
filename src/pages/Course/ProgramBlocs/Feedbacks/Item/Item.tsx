@@ -20,10 +20,10 @@ export default function Item({ feedback }: IProps) {
           <div className={classes.feedbackAuthor}>
             {feedback.author.description ? (
               <>
-                <strong>{feedback.author.name},</strong>
+                <span>{feedback.author.name},</span>
                 {feedback.author.description}
               </>
-              ) : <strong>{feedback.author.name}</strong>
+              ) : <span>{feedback.author.name}</span>
             }
           </div>
           <div className={classes.feedbackQuote}>

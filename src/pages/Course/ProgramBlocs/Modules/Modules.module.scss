@@ -9,7 +9,8 @@
   padding-left: set-calc(16);
   margin-bottom: set-calc(32);
 
-  @include font-70-normal-header;
+  @include font-56-normal-header;
+  font-family: $font-family-bold;
 
   @include set-media(md) {
     padding-left: set-calc(8);

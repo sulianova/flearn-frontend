@@ -24,7 +24,6 @@
 
   @include set-media(md) {
     padding: 0 set-calc(16);
-    align-items: center;
   }
 }
 
@@ -36,7 +35,6 @@
   align-items: start;
 
   @include set-media(md) {
-    align-items: center;
   }
 }
 
@@ -50,11 +48,10 @@
 
   @include set-media(md) {
 
-    @include set-typography(36, 36, 500);
+    @include set-typography(40, 40, 500);
     max-width: 100%;
     font-family: $font-family-bold;
     margin-bottom: set-calc(24);
-    text-align: center;
   }
 }
 
@@ -66,7 +63,6 @@
   @include set-media(md) {
     display: flex;
     flex-direction: column;
-
     margin-bottom: set-calc(24);
   }
 }
@@ -79,7 +75,6 @@
   @include font-21-normal-paragraph;
 
   @include set-media(md) {
-    text-align: center;
   }
 }
 
@@ -87,8 +82,7 @@
   grid-area: actions;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+  justify-content: start;
 
   @include set-media(md) {
     flex-direction: row-reverse;

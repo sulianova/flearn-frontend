@@ -22,17 +22,14 @@
 
 .title {
   @include font-36-normal-header;
+  color: var(--color-content-paragraph-primary);
   margin-bottom: set-calc(16);
 }
 
 .desc {
   padding-right: set-calc(32);
   @include font-21-normal-paragraph;
-  color: var(--color-content-paragraph-primary);
-  
-  @include set-media(md) {
-    color: var(--color-content-paragraph-secondary);
-  }
+  color: var(--color-content-paragraph-secondary);
 
   p {
     font-size: inherit;
