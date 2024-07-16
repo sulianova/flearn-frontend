@@ -15,7 +15,7 @@
   @include set-media(md) {
     margin: set-calc(6) auto 0;
     row-gap: set-calc(20);
-    padding: set-calc(16) set-calc(16);
+    padding: set-calc(16);
   }
 }
 
@@ -26,7 +26,7 @@
   gap: set-calc(16);
 
   @include set-media(md) {
-    gap: set-calc(12);
+    gap: set-calc(16);
   }
 
   .itemSvg {

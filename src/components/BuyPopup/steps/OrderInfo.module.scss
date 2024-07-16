@@ -24,7 +24,7 @@
   flex-direction: column;
   justify-content: space-between;
 
-  max-width: set-calc(560);
+  width: set-calc(600);
   padding: set-calc(24);
 
   @include set-media(md) {
@@ -37,7 +37,6 @@
 }
 
 .title {
-  max-width: set-calc(560);
   margin-bottom: set-calc(16);
   
   word-break: break-word;
@@ -59,6 +58,12 @@
 
   p:not(:last-child) {
     margin-bottom: set-calc(16);
+
+    span {
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+    }
   }
 
   @include set-media(md) {

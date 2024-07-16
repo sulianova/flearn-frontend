@@ -21,9 +21,14 @@
 }
 
 .title {
-  @include font-36-normal-header;
-  color: var(--color-content-paragraph-primary);
-  margin-bottom: set-calc(16);
+  @include font-32-normal-header;
+  color: var(--color-content-secondary);
+  margin-bottom: set-calc(20);
+  font-family: $font-family-bold;
+
+  @include set-media(md) {
+    margin-bottom: set-calc(16);
+  }
 }
 
 .desc {

@@ -40,7 +40,7 @@
   background-color: var(--color-card);
   border: set-calc(1) solid var(--color-border);
   text-align: left;
-  box-shadow: $shadow-huge-default;
+  box-shadow: $shadow-medium-default;
 
   @include set-media(md) {
     height: auto;

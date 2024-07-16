@@ -1,16 +1,14 @@
 @import 'styles/index';
 
 .promo{
-  position: relative
-  ;
+  position: relative;
   display: flex;
   flex-direction: column;
+  grid-column: span 6;
 
-  width: 50%;
   height: set-calc(400);
   padding: set-calc(32) set-calc(32);
   border-radius: set-calc($border-radius-medium);
-  margin-bottom: set-calc(16);
 
   // background-image: ;
   // background-position: right bottom;
@@ -66,7 +64,6 @@
 
   .text {
     @include set-typography(24, 26, 500);
-    font-family: $font-family-bold;
   }
 
   .icon {
@@ -134,7 +131,6 @@
 
   @include font-18-normal-ui;
   color: $color-content-inverted-primary-light;
-  font-family: $font-family-bold;
 
   height: set-calc(52);
   width: max-content;
@@ -160,6 +156,7 @@
 
   @include set-media(md) {
     column-gap: set-calc(6);
+    flex-direction: column-reverse;
   }
 }
 

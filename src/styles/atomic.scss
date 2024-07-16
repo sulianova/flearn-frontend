@@ -8,10 +8,10 @@
 } 
 
 @mixin font-16-normal-paragraph {
-  @include set-typography(16, 18, 500);
+  @include set-typography(16, 20, 500);
 
   @include set-media(md) {
-    @include set-typography(14, 16, 500)
+    @include set-typography(14, 18, 500)
   }
 }
 
@@ -48,7 +48,7 @@
 }
 
 @mixin font-21-normal-paragraph  {
-  @include set-typography(21, 25, 500);
+  @include set-typography(21, 28, 500);
 
   @include set-media(md) {
     @include set-typography(18, 24, 500);
@@ -59,7 +59,7 @@
   @include set-typography(21, 21, 500);
 
   @include set-media(md) {
-    @include set-typography(18, 20, 500);
+    @include set-typography(18, 24, 500);
   }
 }
 
@@ -83,23 +83,23 @@
   @include set-typography(28, 32, 500);
 
   @include set-media(md) {
-    @include set-typography(20, 20, 500);
+    @include set-typography(24, 28, 500);
   }
 }
 
 @mixin font-32-normal-header  {
-  @include set-typography(32, 32, 500);
+  @include set-typography(32, 34, 500);
 
   @include set-media(md) {
-    @include set-typography(28, 28, 500);
+    @include set-typography(26, 28, 500);
   }
 }
 
 @mixin font-36-normal-header  {
-  @include set-typography(36, 36, 500);
+  @include set-typography(36, 38, 500);
 
   @include set-media(md) {
-    @include set-typography(28, 28, 500);
+    @include set-typography(24, 28, 500);
   }
 }
 
@@ -150,6 +150,10 @@
 
 .blue {
   color: var(--primary-color);
+}
+
+.bold {
+  font-family: $font-family-bold;
 }
 
 //

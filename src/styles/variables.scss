@@ -23,8 +23,9 @@ $color-palette-black-100: #f0f0f0;
 $color-palette-black-200: #e0e0e0;
 $color-palette-black-300: #bfbfbf;
 $color-palette-black-400: #b4b2b2;
-$color-palette-black-500: #808080;
-$color-palette-black-600: rgb(76, 76, 76);
+$color-palette-black-450: #808080;
+$color-palette-black-500: rgb(76, 76, 76);
+$color-palette-black-600: #2e2e2e;
 $color-palette-black-700: #262626;
 $color-palette-black-800: #1c1c1c;
 $color-palette-black-900: #161616;
@@ -56,8 +57,8 @@ $color-palette-white-1000: #ffffff;
 $color-highlight-greenish: rgb(226, 255, 45);
 $color-highlight-green: #54e3a3;
 $color-highlight-violet: rgb(134, 25, 245);
-$color-highlight-yellow: #f5cb36;
-$color-highlight-yellow: #f8db46;
+$color-highlight-yellow-hover: #fc0;
+$color-highlight-yellow: #FFE147;
 $color-highlight-pink: #f7235b;
 
 $color-highlight-silver: #edf2f7;
@@ -136,9 +137,9 @@ $color-card-glassy-light: $color-palette-white-700-a;
 $color-card-light: $color-palette-black-25;
 $color-content-inverted-primary-light: $color-palette-black-25;
 $color-content-inverted-secondary-light: $color-palette-black-200;
-$color-content-primary-light: $color-palette-black-700;
-$color-content-secondary-light: $color-palette-black-600;
-$color-content-tertiary-light: $color-palette-black-500;
+$color-content-primary-light: $color-palette-black-600;
+$color-content-secondary-light: $color-palette-black-500;
+$color-content-tertiary-light: $color-palette-black-400;
 $color-content-background-primary-light: $color-palette-black-800;
 $color-content-background-secondary-light: $color-palette-black-700;
 $color-content-background-tertiary-light: $color-palette-black-500;
@@ -148,7 +149,7 @@ $color-background-btn-light: $color-palette-black-700;
 $color-background-btn-hover-light: $color-palette-black-900;
 $color-background-card-light: $color-palette-black-900;
 
-$border-color-light: rgba(217, 217, 217, 0.5);
+$border-color-light: rgba(5, 6, 15, .1);;
 
 //theme-dark
 $primary-color-dark: $color-palette-indigo-350;
@@ -217,8 +218,8 @@ $d-fade: 100ms;
 $modal-animation-duration: 200ms;
 
 //shadow
-$shadow-small-default: 0px 1px 4px 1px rgba(36, 36, 36, 0.07);
-$shadow-small-hovered: 0px 1px 16px 2px rgba(36, 36, 36, 0.07);
+$shadow-small-default: 0 0 1px 1px rgba(0, 0, 0, .02), 0 .3px .5px rgba(0, 0, 0, .1), 0 2px 4px rgba(0, 0, 0, .2);
+$shadow-small-hovered: 0 0 1px 1px rgba(0, 0, 0, .02), 0 .4px .8px rgba(0, 0, 0, .1), 0 3px 6px rgba(0, 0, 0, .2);
 $shadow-small-pressed: 0px 0px 6px rgba(36, 36, 36, 0.07);
 $shadow-medium-hovered: 0px 2px 32px 6px rgba(36, 36, 36, 0.07);
 $shadow-medium-default: 0px 1px 12px 2px rgba(36, 36, 36, 0.07);

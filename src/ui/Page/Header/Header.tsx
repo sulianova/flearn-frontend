@@ -9,7 +9,6 @@ import { userCourseProgressService } from 'services/userCourseProgress.service';
 import { userService } from 'services/user.service';
 import { lessonService } from 'services/lesson.service';
 import { URLSections } from 'router';
-import { frontendSettingsService } from 'services/frontendSettings.service';
 
 import BuyPopup from 'components/BuyPopup/BuyPopup';
 import Dropdown from 'ui/Dropdown/Dropdown';
@@ -40,7 +39,6 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
   const firstNotSolvedLesson = userCourseProgressService.useFirstNotSolvedLesson();
   const currentLesson = lessonService.useCurrentLesson() ?? undefined;
   const topicLessons = lessonService.useTopicLessons({ topic: currentLesson?.topic }) ?? [];
-  const { theme } = frontendSettingsService.useFrontendSettings();
 
   const currentCloseCourseDropdown = useRef<() => void>();
   const [mobMenuIsOpened, setMobMenuIsOpened] = useState(false);
@@ -100,13 +98,6 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
                   </Link>
               </div>
             )}
-             {isMobile && (
-              <div className={classes.userSettingsWrapper} onClick={() => frontendSettingsService.update({ theme: theme === 'light' ? 'dark' : 'light' })}>
-                <div className={classes.userSettings}>
-                  <Icon icon='Night'/>
-                </div>
-              </div>
-             )}
             </div>
             {(user && !isMobile) && (urlSection.name !== 'Study') && (
               <Dropdown

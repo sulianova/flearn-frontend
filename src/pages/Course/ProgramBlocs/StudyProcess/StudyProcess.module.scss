@@ -53,12 +53,15 @@
 
 .caption {
   @include font-16-normal-ui;
-  margin-bottom: set-calc(8);
+  color: var(--color-content-primary);
+  text-transform: lowercase;
+
+  margin-bottom: set-calc(16);
   width: max-content;
 
   background-color: var(--color-accent-promo);
   padding: set-calc(10) set-calc(16);
-  border-radius: set-calc($border-radius-large);
+  border-radius: set-calc($border-radius-20);
 
   @include set-media(md) {
     padding: set-calc(8) set-calc(12);
@@ -66,18 +69,20 @@
 }
 
 .title {
-  margin-bottom: set-calc(16);
-  @include font-36-normal-header;
+  @include font-32-normal-header;
+  color: var(--color-content-secondary);
+  margin-bottom: set-calc(20);
+  font-family: $font-family-bold;
+
+  @include set-media(md) {
+    margin-bottom: set-calc(16);
+  }
 }
 
 .desc {
   padding-right: set-calc(32);
   @include font-21-normal-paragraph;
-  color: var(--color-content-paragraph-primary);
-
-  @include set-media(md) {
-    color: var(--color-content-paragraph-secondary);
-  }
+  color: var(--color-content-paragraph-secondary);
 
   p {
     font-size: inherit;

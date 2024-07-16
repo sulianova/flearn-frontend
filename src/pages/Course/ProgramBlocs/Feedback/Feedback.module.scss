@@ -53,19 +53,17 @@
 }
 
 .pointsCardTitle {
-  margin-bottom: set-calc(16);
-  @include font-36-normal-header;
+  @include font-32-normal-header;
+  color: var(--color-content-secondary);
+  margin-bottom: set-calc(20);
+  font-family: $font-family-bold;
 
   @include set-media(md) {
-    margin-bottom: set-calc(8);
+    margin-bottom: set-calc(16);
   }
 }
 
 .pointsCardText {
   @include font-21-normal-paragraph;
-  color: var(--color-content-paragraph-primary);
-
-  @include set-media(md) {
-    color: var(--color-content-paragraph-secondary);
-  }
+  color: var(--color-content-paragraph-secondary);
 }

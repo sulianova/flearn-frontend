@@ -19,7 +19,7 @@ export default function Card({ course }: Readonly<IProps>) {
       className={classes.__}
       to={URLSections.Course.to({ courseId: course.id })}>
       <div className={classes.content}>
-        <div className={classes.info}>
+        {/* <div className={classes.info}>
           <div className={classes.infoText}>
             {i18n.t('catalogue.card.info', {
             startDate: formatDate(course.startDate, { timeZone: 'Europe/Moscow' }),
@@ -27,7 +27,7 @@ export default function Card({ course }: Readonly<IProps>) {
             duration: i18n.t(`duration.${course.duration.unit}`, { count: course.duration.value }),
             })}
           </div>
-        </div>
+        </div> */}
         <h3 className={classes.title}>{course.title}</h3>
         <div className={classes.description}>{course.introDescription}</div>
         <div className={classes.cardBtn}><span>Подробнее о курсе</span><span className={classes.icon}><Icon icon='ArrowButton'/></span></div>

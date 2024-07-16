@@ -175,12 +175,9 @@
   display: flex;
   justify-content: center;
 
-  color: var(--color-content-inverted-primary);
+  color: var(--color-content-primary-secondary);
+  background: var(--color-background-glassy-b);
 
-  background: $color-gradient-rainbow;
-  background-size: 400% 400%;
-
-  animation: buttonGradient 45s ease infinite;
   transition: width .3s, margin .3s, min-width .3s, background-color .3s, color .3s, border .3s, background-position 2s ease-out, padding-left .3s;
 
   @include set-typography(24, 24, 500);
@@ -201,6 +198,7 @@
   margin: set-calc(16) 0 set-calc(8);
   @include font-36-normal-header;
   font-family: $font-family-bold;
+  color: var(--color-content-secondary);
 }
 
 .description {
@@ -234,8 +232,8 @@
   @include font-16-normal-ui;
 
   border-radius: set-calc($border-radius-large);
-  background-color: $color-palette-blue-200;
-  color: $color-content-primary-light;
+  background-color: var(--color-background-glassy-b);
+  color: var(--color-content-primary);
   list-style-type: none;
 
   @include set-media(md) {

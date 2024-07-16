@@ -60,7 +60,7 @@
   }
 }
 
-.__:last-child {
+.__:nth-child(2) {
   .background {
     background-size: 600% 300%;
   }
@@ -130,33 +130,32 @@
 
   height: set-calc(30);
   border-radius: set-calc($border-radius-large);
-  background: $color-accent-promo-dark;
+  background: $color-highlight-yellow;
 
   @include set-media(md) {
     height: set-calc(24);
-    margin-bottom: set-calc(8);
-    margin-bottom: set-calc(8);
+    margin-bottom: set-calc(12);
   }
 }
 
 .infoText {
   @include font-16-normal-ui;
-  color: $color-content-inverted-primary-light;
-  font-family: $font-family-bold;
+  color: $color-content-inverted-primary-dark;
 }
 
 .title {
-  margin-bottom: set-calc(16);
   z-index: 100;
+
+  margin-bottom: set-calc(16);
   max-width: set-calc(450);
 
   @include font-32-normal-header;
-  color: $color-content-inverted-primary-light;
+  color: var(--color-content-inverted-primary);
   font-family: $font-family-bold;
 
   @include set-media(md) {
     max-width: set-calc(250);
-    margin-bottom: set-calc(8);
+    margin-bottom: set-calc(16);
   }
 }
 
@@ -165,7 +164,7 @@
   transition: opacity $d-hover ease;
 
   @include font-18-normal-paragraph;
-  color: $color-content-inverted-primary-light;
+  color: var(--color-content-inverted-primary);
 
   @include set-media(md) {
     transition: none;
@@ -177,8 +176,7 @@
   margin-top: auto;
 
   @include set-typography(21, 21, 500);
-  color: $color-content-inverted-primary-light;
-  font-family: $font-family-bold;
+  color: var(--color-content-inverted-primary);
 
   .icon {
     display: flex;

@@ -31,9 +31,9 @@
   justify-content: space-between;
   align-items: center;
 
-  height: set-calc(52);
+  height: set-calc(62);
 
-  padding: 0 set-calc(16);
+  padding: 0 set-calc(24);
   margin: set-calc(10) set-calc($padding-x-desk-page);
   transition: transform 0.15s ease-out, backdrop-filter $d-hover ease-out;
 
@@ -41,7 +41,6 @@
 
   background-color: var(--color-card);
   border: set-calc(1) solid var(--color-border);
-  backdrop-filter: blur(set-calc($backdrop-filter));
   border-radius: set-calc($border-radius-30);
 
   box-shadow: $shadow-medium-default;
@@ -54,6 +53,7 @@
     display: flex;
     height: set-calc(62);
     margin: 0 0 0;
+    padding: 0 set-calc(16);
 
     width: 100%;
 
@@ -61,7 +61,7 @@
     border: none;
     border-radius: 0;
 
-    background-color: var(--color-card);
+    background-color: transparent;
     box-shadow: none;
 
     .logo {
@@ -73,7 +73,6 @@
 .deskPaddingWEB {
   @include set-media(md) {
     padding: set-calc(12) set-calc($padding-x-mob-page) set-calc(16);
-    background-color: var(--color-background-alternate);
     height: unset;
   }
 }
@@ -85,11 +84,11 @@
   backdrop-filter: none;
   box-shadow: none;
 
-  height: set-calc(46);
+  height: set-calc(62);
 
   @include set-media(md) {
     padding: set-calc(12) set-calc($padding-x-mob-page) set-calc(16);
-    background-color: var(--color-background-default);
+    background-color: transparent;
     height: unset;
   }
 }
@@ -182,7 +181,7 @@
     background-color: var(--color-card);
     border-radius: set-calc($border-radius-6);
     border: set-calc(1) solid var(--color-border);
-    box-shadow: $shadow-menu;
+    box-shadow: $shadow-small-default;
   }
 }
 
@@ -235,11 +234,11 @@
     font-family: $font-family-bold;
     
     background-color: var(--color-card);
-    box-shadow: $shadow-menu;
     border: set-calc(1) solid var(--color-border);
     margin-left: auto;
 
     height: set-calc(48);
+    box-shadow: $shadow-small-default;
   }
 }
 
@@ -264,6 +263,8 @@
   border-radius: set-calc($border-radius-12);
   background: $color-gradient-rainbow-btn;
   background-size: 400% 400%;
+
+  box-shadow: $shadow-small-default;
 
   animation: buttonGradient 45s ease infinite;
   transition: width .3s, margin .3s, min-width .3s, background-color .3s, color .3s, border .3s, background-position 2s ease-out, padding-left .3s, opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
@@ -431,7 +432,7 @@
 
       .desk {
         transform: none;
-        // transform: translateY(-100%);
+        transform: translateY(-100%);
       }
     }
 }

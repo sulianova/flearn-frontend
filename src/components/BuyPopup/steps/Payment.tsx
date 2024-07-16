@@ -46,23 +46,8 @@ export default function Payment(props: IProps & { chosenProductOptionType: keyof
               <div className={classes.itemText}>Фидбэк</div>
             </div>
           </div>
-          <dl className={classes.paymentSummary}>
-            <dt>
-              <span>За весь курс</span>
-              <div className={classes.paymentSummaryTags}>
-                <span className={classes.paymentSummaryTag}>−5% по промокоду</span>
-              </div>
-            </dt>
-            <dt>
-              {formatCourseCredit(creditPrice, currencySign)}
-              <div className={classes.paymentSummaryCreditWas}>
-                <s>{formatCourseCredit(creditWas)} &#8381;</s>
-              </div>
-            </dt>
-          </dl>
-        </div>
-        <div className={classes.bottom}>
           <div className={classes.paymentOptions}>
+            <div className={classes.paymentOptionsTitle}>Как и чем платить</div>
             <div className={classes.groupToggleOptions}>
               <div className={classes.groupToggleOption} onClick={() => setPaymentOption('CARD_RU')}>
                 <label className={cx({groupToggleLabel: true, checked: paymentOption === 'CARD_RU' })}>На карту Тинькофф</label>
@@ -82,6 +67,22 @@ export default function Payment(props: IProps & { chosenProductOptionType: keyof
               </div>
             )}
           </div>
+        </div>
+        <div className={classes.bottom}>
+          <dl className={classes.paymentSummary}>
+              <dt>
+                <span className={classes.paymentSummaryText}>За весь курс</span>
+                <div className={classes.paymentSummaryTags}>
+                  <span className={classes.paymentSummaryTag}>−5% по промокоду</span>
+                </div>
+              </dt>
+              <dt>
+                <span className={classes.paymentSummaryText}>{formatCourseCredit(creditPrice, currencySign)}</span>
+                <div className={classes.paymentSummaryCreditWas}>
+                  <s>{formatCourseCredit(creditWas)} &#8381;</s>
+                </div>
+              </dt>
+            </dl>
           <div className={classes.paymentCheck}>
             <Checkbox value={isPayed} onChange={() => setIsPayed(!isPayed)}>Перевод отправил, готов учиться!</Checkbox>
           </div>

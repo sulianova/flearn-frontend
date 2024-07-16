@@ -95,7 +95,7 @@ export default function MobileBtn({ course, variant, visible }: IProps) {
                   <Icon icon='List'/>
                 </div>
               )}
-              {urlSection.name === 'Profile' && (
+              {/* {urlSection.name === 'Profile' && (
                 <div
                   className={cx({settings: true, open: userPopupVisible })}
                   onClick={() => setUserPopupVisible(!userPopupVisible)}
@@ -108,7 +108,7 @@ export default function MobileBtn({ course, variant, visible }: IProps) {
                   )}
                   <Icon icon='User'/>
                 </div>
-              )}
+              )} */}
           </div>
           <div className={classes.btnWrapperLeft}>
               {/* {urlSection.name === 'Profile' && (

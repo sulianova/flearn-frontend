@@ -29,9 +29,7 @@
 
   border-radius: set-calc($border-radius-10);
   background-color: var(--color-card);
-  border: set-calc(1) solid var(--color-border);
-  backdrop-filter: blur(set-calc($backdrop-filter));
-
+  border: 1px solid var(--border-color);
   box-shadow: $shadow-menu;
 
   @include set-media(md) {
@@ -85,11 +83,11 @@
   height: auto;
   user-select: none;
 
-  padding: set-calc(10) set-calc(10);
-  border-radius: set-calc($border-radius-8);
+  padding: set-calc(12) set-calc(12);
+  border-radius: set-calc($border-radius-10);
 
   @include set-media(md) {
-    padding: set-calc(10) set-calc(10);
+    padding: set-calc(12) set-calc(12);
   }
 }
 
@@ -125,7 +123,8 @@
   gap: set-calc(8);
   height: auto;
 
-  color: var(--color-content-primary);
+  color: var(--color-content-paragraph-primary);
+  font-family: $font-family-bold;
   @include set-typography(18, 20, 500);
 
   @include set-media(md) {
@@ -134,10 +133,10 @@
 }
 
 .itemSubtitle {
-  margin: set-calc(4) 0 0;
+  margin: set-calc(6) 0 0;
 
   @include font-16-normal-ui;
-  color: var(--color-content-secondary);
+  color: var(--color-content-paragraph-secondary);
 }
 
 .itemHoverable {

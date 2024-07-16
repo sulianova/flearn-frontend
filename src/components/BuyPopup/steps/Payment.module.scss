@@ -26,7 +26,7 @@
   flex-direction: column;
   justify-content: space-between;
 
-  max-width: set-calc(400);
+  width: set-calc(500);
   border-radius: set-calc($border-radius-large);
 
   @include set-media(md) {
@@ -47,7 +47,7 @@
   margin-bottom: set-calc(20);
 
   word-break: break-word;
-  @include font-32-normal-header;
+  @include font-36-normal-header;
   color: var(--color-content-primary);
   font-family: $font-family-bold;
   text-align: center;
@@ -64,7 +64,7 @@
 
   width: 100%;
   margin-bottom: set-calc(32);
-  gap: set-calc(12);
+  gap: set-calc(16);
 }
 
 .benefitsItem {
@@ -92,9 +92,9 @@
 }
 
 .itemText {
-  margin-left: set-calc(6);
+  margin-left: set-calc(8);
   color: var(--color-content-paragraph-secondary);
-  @include font-14-normal-ui;
+  @include font-16-normal-ui;
 }
 
 .bottom {
@@ -111,7 +111,7 @@
 
   color: $color-content-inverted-primary-light;
   font-family: $font-family-bold;
-  @include font-18-normal-ui;
+  @include font-21-normal-ui;
 
   border-radius: set-calc($border-radius-12);
   background-color: var(--primary-color);
@@ -141,7 +141,7 @@
 .paymentCheck {
   position: relative;
   display: block;
-  margin: 0 set-calc(8) set-calc(24);
+  margin: set-calc(20) set-calc(8) set-calc(32);
 
   input {
     display: none;
@@ -155,7 +155,7 @@
     color: var(--color-content-secondary);
 
     span {
-      @include set-typography(14, 16, 500);
+      @include set-typography(16, 16, 500);
     }
 
     svg {
@@ -176,8 +176,12 @@
   }
   
   input:checked + label {
+    rect {
+      fill: var(--primary-color);
+    }
+
     path {
-      fill: var(--color-content-primary);
+      fill: var(--color-content-inverted-primary);
     }
   }
 }
@@ -185,11 +189,16 @@
 .paymentSummary {
   display: flex;
 
-  padding: set-calc(16) 0 set-calc(20);
+  padding: set-calc(20) 0 set-calc(20);
   border-top: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
 
   margin: 0!important;
+}
+
+.paymentSummaryText {
+  @include font-18-normal-ui;
+  font-family: $font-family-bold;
 }
 
 .paymentSummary > :last-child {
@@ -221,7 +230,7 @@
   padding-block: set-calc(4);
 
   color: var(--color-content-tertiary);
-  @include font-14-normal-ui;
+  @include font-16-normal-ui;
   margin-top: set-calc(4);
   white-space: nowrap;
 
@@ -241,16 +250,23 @@
 }
 
 .paymentOptions {
-  padding-top: set-calc(16);
+  padding-top: set-calc(32);
   padding-bottom: set-calc(24);
-  border-bottom: 1px solid var(--border-color);
+  border-top: 1px solid var(--border-color);
+}
 
-  margin-bottom: set-calc(24);
+.paymentOptionsTitle {
+  position: relative;
+
+  margin-bottom:set-calc(16);
+  @include font-18-normal-ui;
+  font-family: $font-family-bold;
+  color: var(--color-content-paragraph-secondary);
 }
 
 .optionDescription {
-  padding: set-calc(32) set-calc(8) 0;
-  @include font-14-normal-ui;
+  padding: set-calc(16) set-calc(8) 0;
+  @include font-14-normal-paragraph;
 
   a {
     color: var(--primary-color);
@@ -263,10 +279,9 @@
 
 .groupToggleOptions {
   display: flex;
-  padding: set-calc(4);
-  border-radius: set-calc($border-radius-large);
-  background-color: $color-palette-indigo-200;
-  backdrop-filter: blur(set-calc($backdrop-filter));
+  padding: set-calc(2);
+  border-radius: set-calc($border-radius-12);
+  background-color: var(--color-background-glassy-b);
 }
 
 .groupToggleOption {
@@ -279,17 +294,17 @@
   justify-content: center;
   height: 100%;
 
-  @include font-16-normal-ui;
+  @include font-14-normal-ui;
   text-align: center;
 
   cursor: pointer;
-  padding: set-calc(16) 0;
-  border-radius: set-calc($border-radius-large);
-  color: $color-content-inverted-primary-dark;
+  padding: set-calc(12) 0;
+  border-radius: set-calc($border-radius-12);
+  color: var(--color-content-paragraph-secondary);
+  font-family: $font-family-bold;
 }
 
 .checked {
   background-color: var(--color-content-inverted-primary);
-  color: var(--color-content-primary);
   cursor: default;
 }

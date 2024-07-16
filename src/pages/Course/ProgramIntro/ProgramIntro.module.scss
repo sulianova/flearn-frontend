@@ -92,7 +92,7 @@
   border: 2px solid var(--color-content-primary);
 
   @include set-media(md) {
-    border: 1px solid var(--color-content-primary);
+    border: 1.5px solid var(--color-content-primary);
     height: set-calc(30);
     padding: 0 set-calc(12);
   }
@@ -119,7 +119,6 @@
 
   @include set-typography(28, 30, 500);
   color: var(--color-content-primary);
-  font-family: $font-family-bold;
 
   white-space: pre-line;
   text-align: center;

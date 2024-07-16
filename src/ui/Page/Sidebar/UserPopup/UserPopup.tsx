@@ -24,8 +24,8 @@ export default function UserPopup({ user, close }: IProps) {
       <div className={cx({ popup: true, animated: true, inverseAnimated: true, open: true })}>
         <div className={classes.itemsGroup}>
          <div className={classes.item}>
-          <div className={classes.itemTitle}>{user.displayName}</div>
-          <div className={classes.itemSubtitle}>{user.email}</div>
+            <div className={classes.itemTitle}>{user.displayName}</div>
+            <div className={classes.itemSubtitle}>{user.email}</div>
           </div>
         </div>
         <div className={classes.itemsGroup}>

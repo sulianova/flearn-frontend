@@ -83,7 +83,7 @@
   width: min(380px, 80vw);
 
   padding: set-calc(32);
-  background-color: var(--color-card);
+  background-color: var(--color-background-glassy-c);
   border-radius: set-calc($border-radius-large);
 
   @include set-media(md) {
@@ -319,7 +319,6 @@
   color: var(--color-background-glassy-d);
 
   @include font-24-normal-header;
-  font-family: $font-family-bold;
   letter-spacing: -0.05rem;
   align-self: flex-end;
 }
