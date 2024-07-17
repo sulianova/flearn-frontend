@@ -27,7 +27,7 @@
   @include set-typography(18, 24, 500);
 
   @include set-media(md) {
-    @include set-typography(16, 20, 500)
+    @include set-typography(16, 24, 500)
   }
 }
 
@@ -47,16 +47,8 @@
   }
 }
 
-@mixin font-21-normal-paragraph  {
-  @include set-typography(18, 24, 500);
-
-  @include set-media(md) {
-    @include set-typography(18, 24, 500);
-  }
-}
-
-@mixin font-21-normal-ui {
-  @include set-typography(21, 21, 500);
+@mixin font-20-normal-ui {
+  @include set-typography(20, 21, 500);
 
   @include set-media(md) {
     @include set-typography(18, 24, 500);
@@ -116,14 +108,6 @@
 
   @include set-media(md) {
     @include set-typography(40, 42, 500);
-  }
-}
-
-@mixin font-56-normal-ui {
-  @include set-typography(56, 60, 500);
-
-  @include set-media(md) {
-    @include set-typography(48, 48, 500);
   }
 }
 

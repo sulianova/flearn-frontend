@@ -115,7 +115,7 @@
 
   color: $color-content-inverted-primary-light;
   font-family: $font-family-bold;
-  @include font-21-normal-ui;
+  @include font-20-normal-ui;
 
   border-radius: set-calc($border-radius-12);
   background-color: var(--primary-color);

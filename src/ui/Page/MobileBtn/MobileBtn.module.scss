@@ -37,7 +37,7 @@
   backdrop-filter: blur(set-calc($backdrop-filter));
   box-shadow: $shadow-small-default;
 
-  @include font-21-normal-ui ;
+  @include font-20-normal-ui ;
   color: $color-palette-white-1000;
   font-family: $font-family-bold;
 

@@ -204,7 +204,7 @@
   margin-right: set-calc(56);
   max-width: set-calc(800);
 
-  @include font-21-normal-paragraph;
+  @include font-18-normal-paragraph;
   color: var(--color-content-paragraph-primary);
 
   @include set-media(md) {
@@ -331,7 +331,7 @@
   padding: set-calc(10) set-calc(16);
   border-radius: set-calc($border-radius-30);
 
-  @include font-21-normal-ui;
+  @include font-20-normal-ui;
 
   color: $color-content-primary-dark;
   background: $color-gradient-rainbow-btn;

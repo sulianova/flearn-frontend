@@ -19,7 +19,6 @@
 .title {
   margin: 0 set-calc(16);
   @include font-28-normal-header;
-  font-family: $font-family-bold;
 
   @include set-media(md) {
     @include font-32-normal-header;
@@ -48,7 +47,6 @@
 
   @include font-28-normal-header;
   color: var(--color-content-primary);
-  font-family: $font-family-bold;
 
   @include set-media(md) {
     margin: 0 0 set-calc(24) set-calc(8);
@@ -114,7 +112,7 @@
 .currentLessonTitle {
   margin-bottom: set-calc(16);
 
-  @include font-21-normal-paragraph;
+  @include font-20-normal-paragraph;
   color: var(--color-content-primary);
 }
 

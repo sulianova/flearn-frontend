@@ -120,7 +120,7 @@
   
   color: $color-content-primary-dark;
 
-  @include font-21-normal-ui;
+  @include font-18-normal-ui;
 
   @include set-media(md) {
     right: set-calc(20);
@@ -226,7 +226,7 @@
   width: fit-content;
 
   color: $color-palette-white-1000;
-  @include font-21-normal-ui;
+  @include font-20-normal-ui;
 
   border-radius: set-calc($border-radius-16);
   background-color: $color-background-btn-light;

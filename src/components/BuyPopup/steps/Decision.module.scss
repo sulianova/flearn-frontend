@@ -206,7 +206,7 @@
 .courseName {
   margin-bottom: set-calc(8);
 
-  @include font-21-normal-paragraph;
+  @include font-18-normal-paragraph;
   font-family: $font-family-bold;
   color: var(--color-content-primary);
 }
@@ -402,7 +402,7 @@
   align-items: center;
 
   color: $color-content-inverted-primary-light;
-  @include font-21-normal-ui;
+  @include font-20-normal-ui;
   font-family: $font-family-bold;
 
   border-radius: set-calc($border-radius-10);
@@ -438,7 +438,7 @@
   margin-top: set-calc(32);
 
   color: var(--color-content-primary);
-  @include font-21-normal-ui;
+  @include font-20-normal-ui;
   font-family: $font-family-bold;
 
   border-radius: set-calc($border-radius-16);

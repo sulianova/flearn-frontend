@@ -221,21 +221,23 @@
 }
 
 .navLogin {
-  position: relative
-  ;
+  position: relative;
+
   display: flex;
   align-items: center;
   justify-content: center;
 
-  color: var(--color-content-primary);
-
   padding: 0 set-calc(24);
-  background-color: transparent;
-  border-radius: set-calc($border-radius-large);
+  color: var(--color-content-primary);
+    
+  background-color: var(--color-card);
+  border: set-calc(1) solid var(--color-border);
+  border-radius: set-calc($border-radius-30);
 
   width: max-content;
   height: set-calc(40);
 
+  box-shadow: $shadow-small-default;
   transition: color $d-hover ease, opacity $d-hover ease;
   
   &:hover {
@@ -271,6 +273,7 @@
   height: set-calc(40);
 
   color: $color-content-inverted-primary-light;
+  font-family: $font-family-bold;
 
   padding: set-calc(10) set-calc(16);
   border-radius: set-calc($border-radius-12);

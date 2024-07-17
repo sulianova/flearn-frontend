@@ -80,7 +80,7 @@
   align-items: flex-start;
   z-index: 9;
 
-  @include font-21-normal-ui;
+  @include font-20-normal-ui;
 
   padding: set-calc(12) set-calc(18);
   border-radius: set-calc($border-radius-large);

@@ -56,7 +56,7 @@
 }
 
 .listItemContent {
-  @include font-21-normal-paragraph;
+  @include font-18-normal-paragraph;
   margin-top: set-calc(80);
 
   @include set-media(md) {
