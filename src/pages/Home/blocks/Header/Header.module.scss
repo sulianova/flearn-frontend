@@ -42,15 +42,15 @@
   margin-bottom: set-calc(32);
   max-width: 50%;
 
-  @include set-typography(60, 62, 500);
-  font-family: $font-family-bold;
+  @include set-typography(68, 70, 500);
+  font-family: $font-family-highlight;
   text-align: start;
 
   @include set-media(md) {
 
     @include set-typography(40, 40, 500);
     max-width: 100%;
-    font-family: $font-family-bold;
+    font-family: $font-family-highlight;
     margin-bottom: set-calc(24);
   }
 }

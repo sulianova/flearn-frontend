@@ -82,7 +82,7 @@
     z-index: 1;
     width: 100%;
     height: set-calc(56);
-    background: linear-gradient(180deg, transparent 0%, var(--color-background-glassy-c) 100%);
+    background: linear-gradient(180deg, transparent 0%, var(--color-background-glassy-a) 100%);
     pointer-events: none;
   }
   
@@ -289,25 +289,25 @@
     pointer-events: none;
   
   .itemCard {
-    background: var(--primary-color);
+    background: var(--color-accent-promo);
     background-size: 400% 400%;
   
     animation: buttonGradient 45s ease infinite;
     transition: width .3s, margin .3s, min-width .3s, background-color .3s, color .3s, border .3s, background-position 2s ease-out, padding-left .3s;
 
     [data-subsection] {
-      color: $color-content-primary-dark;
+      color: var(--color-content-primary);
     }
 
     .description {
-      color: $color-content-primary-dark;
+      color: var(--color-content-primary);
     }
 
     .subsections,
     .projectsDescription,
     .title,
     .meta {
-      color: $color-content-primary-dark;
+      color: var(--color-content-primary);
     }
 
 
@@ -331,10 +331,15 @@
   padding: set-calc(10) set-calc(16);
   border-radius: set-calc($border-radius-30);
 
-  color: $color-content-primary-light;
-  background-color: $color-highlight-yellow-hover;
   @include font-21-normal-ui;
-  font-variant: small-caps;
+
+  color: $color-content-primary-dark;
+  background: $color-gradient-rainbow-btn;
+  background-size: 400% 400%;
+
+  animation: buttonGradient 45s ease infinite;
+  transition: width .3s, margin .3s, min-width .3s, background-color .3s, color .3s, border .3s, background-position 2s ease-out, padding-left .3s, opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
+  
 
   svg {
     display: inline-block;

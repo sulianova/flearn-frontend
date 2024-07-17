@@ -3,15 +3,21 @@
 }
 
 @font-face {
-  font-weight: 500;
-  font-family: TTNormsPro-Normal;
-  src: url("../assets/fonts/TTNormsPro-Normal.ttf");
+  font-weight: 400;
+  font-family: Rubik;
+  src: url("../assets/fonts/Rubik.ttf");
 }
 
 @font-face {
   font-family: Rubik-Bold;
-  font-weight: 550;
+  font-weight: 500;
   src: url("../assets/fonts/Rubik.ttf");
+}
+
+@font-face {
+  font-family: Exo2-Bold;
+  font-weight: 750;
+  src: url("../assets/fonts/Exo2.ttf");
 }
 
 html {

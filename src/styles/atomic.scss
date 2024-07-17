@@ -104,10 +104,10 @@
 }
 
 @mixin font-40-normal-header {
-  @include set-typography(40, 42, 500);
+  @include set-typography(40, 46, 500);
 
   @include set-media(md) {
-    @include set-typography(30, 32, 500);
+    @include set-typography(30, 36, 500);
   }
 }
 

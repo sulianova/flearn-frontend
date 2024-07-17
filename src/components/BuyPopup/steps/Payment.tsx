@@ -31,7 +31,7 @@ export default function Payment(props: IProps & { chosenProductOptionType: keyof
     <div className={classes.paymentWrapper}>
       <div className={classes.paymentBlock}>
         <div className={classes.headerWrapper}>
-          <h1 className={classes.title}>«С обратной связью»</h1>
+          <h1 className={classes.title}>С обратной связью</h1>
           <div className={classes.benefits}>
             <div className={classes.benefitsItem}>
               <div className={classes.itemIcon}><Icon icon='TickInCircle'/></div>

@@ -6,7 +6,6 @@
   flex-direction: column;
   grid-column: span 6;
 
-  height: set-calc(400);
   padding: set-calc(32) set-calc(32);
   border-radius: set-calc($border-radius-medium);
 
@@ -32,6 +31,7 @@
   @include set-media(md) {
     padding: set-calc(16) set-calc(16);
 
+    min-height: set-calc(350);
     width: 100%;
     border-radius: set-calc(10);
     margin-bottom: set-calc(6);
@@ -60,7 +60,7 @@
   display: flex;
   margin-top: auto;
 
-  color: var(--color-content-inverted-primary);
+  color: var(--color-content-primary);
 
   .text {
     @include set-typography(20, 26, 500);
@@ -109,7 +109,7 @@
   max-width: set-calc(600);
 
   @include font-40-normal-header;
-  color: var(--color-content-inverted-primary);
+  color: var(--color-content-primary);
   font-family: $font-family-bold;
   text-align: left;
 }

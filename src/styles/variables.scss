@@ -1,7 +1,8 @@
 @use "sass:math";
 $rem-base: 18px;
-$font-family: TTNormsPro-Normal, sans-serif;
+$font-family: Rubik, sans-serif;
 $font-family-bold: Rubik-Bold, sans-serif;
+$font-family-highlight: Exo2-Bold, sans-serif;
 $padding-x-desk-page: 16;
 $padding-x-mob-page: 16;
 $padding-xs-mob-page: 8;
@@ -187,7 +188,7 @@ $color-content-tertiary-dark: $color-palette-black-500;
 $color-content-background-primary-dark: $color-palette-black-200;
 $color-content-background-secondary-dark: $color-palette-black-500;
 $color-content-background-tertiary-dark: $color-palette-black-700;
-$color-content-paragraph-primary-dark: $color-palette-black-200;
+$color-content-paragraph-primary-dark: $color-palette-black-300;
 $color-content-paragraph-secondary-dark: $color-palette-black-400;
 $color-background-btn-dark: $primary-color-dark;
 $color-background-btn-hover-dark: $primary-color-hover-dark;
