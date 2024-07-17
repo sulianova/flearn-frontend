@@ -63,7 +63,7 @@
   color: var(--color-content-inverted-primary);
 
   .text {
-    @include set-typography(24, 26, 500);
+    @include set-typography(20, 26, 500);
   }
 
   .icon {
@@ -97,7 +97,7 @@
 
   border-radius: set-calc($border-radius-medium);
   background: $color-gradient-rainbow;
-  box-shadow: $shadow-medium-default;
+  box-shadow:$shadow-medium-default;
 
   background-size: 100% 100%;
 

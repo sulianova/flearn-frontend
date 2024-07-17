@@ -59,8 +59,8 @@
   margin-bottom: set-calc(16);
   width: max-content;
 
-  background-color: var(--color-accent-promo);
-  padding: set-calc(10) set-calc(16);
+  background-color: var(--color-background-glassy-c);
+  padding: set-calc(8) set-calc(12);
   border-radius: set-calc($border-radius-20);
 
   @include set-media(md) {
@@ -70,9 +70,8 @@
 
 .title {
   @include font-32-normal-header;
-  color: var(--color-content-secondary);
+  color: var(--color-content-primary);
   margin-bottom: set-calc(20);
-  font-family: $font-family-bold;
 
   @include set-media(md) {
     margin-bottom: set-calc(16);

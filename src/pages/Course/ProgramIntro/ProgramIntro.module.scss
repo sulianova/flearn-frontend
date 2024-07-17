@@ -150,7 +150,7 @@
   justify-content: center;
 
   border-radius: set-calc($border-radius-16);
-  background: $color-gradient-rainbow;
+  background: var(--primary-color);
   background-size: 400% 400%;
 
   animation: buttonGradient 45s ease infinite;

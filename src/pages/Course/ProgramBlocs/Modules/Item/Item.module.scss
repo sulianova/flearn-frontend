@@ -196,9 +196,8 @@
 
 .title {
   margin: set-calc(16) 0 set-calc(8);
-  @include font-36-normal-header;
-  font-family: $font-family-bold;
-  color: var(--color-content-secondary);
+  @include font-32-normal-header;
+  color: var(--color-content-primary);
 }
 
 .description {
@@ -290,7 +289,7 @@
     pointer-events: none;
   
   .itemCard {
-    background: linear-gradient(320deg, #7C84F3, #FF4DD2, #FF993B, #FF4DD2, #7C84F3, #FF4DD2, #FF993B);
+    background: var(--primary-color);
     background-size: 400% 400%;
   
     animation: buttonGradient 45s ease infinite;
@@ -332,7 +331,8 @@
   padding: set-calc(10) set-calc(16);
   border-radius: set-calc($border-radius-30);
 
-  color: var(--primary-color);
+  color: $color-content-primary-light;
+  background-color: $color-highlight-yellow-hover;
   @include font-21-normal-ui;
   font-variant: small-caps;
 

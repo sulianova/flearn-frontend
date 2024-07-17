@@ -42,7 +42,7 @@
   transform: rotate(180deg) translate(0, 0);
 
   border-radius: 50%;
-  box-shadow: $shadow-icon;
+  box-shadow: $shadow-small-default;
 
   color: $color-content-inverted-primary-light;
   background: $color-gradient-rainbow;
@@ -84,7 +84,7 @@
   transform: rotate(180deg) translate(0, 0);
 
   border-radius: 50%;
-  box-shadow: $shadow-icon;
+  box-shadow: $shadow-small-default;
 
   color: $color-content-inverted-primary-light;
   background: $color-gradient-rainbow;

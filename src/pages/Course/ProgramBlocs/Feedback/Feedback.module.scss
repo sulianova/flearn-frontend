@@ -54,9 +54,8 @@
 
 .pointsCardTitle {
   @include font-32-normal-header;
-  color: var(--color-content-secondary);
+  color: var(--color-content-primary);
   margin-bottom: set-calc(20);
-  font-family: $font-family-bold;
 
   @include set-media(md) {
     margin-bottom: set-calc(16);

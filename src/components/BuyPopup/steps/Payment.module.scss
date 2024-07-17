@@ -15,7 +15,7 @@
 
     width: set-calc(390);
     left: set-calc(12);
-    padding: set-calc(32) 0 set-calc(16);
+    padding: set-calc(16) 0 set-calc(16);
   }
 }
 
@@ -26,7 +26,7 @@
   flex-direction: column;
   justify-content: space-between;
 
-  width: set-calc(500);
+  width: set-calc(450);
   border-radius: set-calc($border-radius-large);
 
   @include set-media(md) {
@@ -47,7 +47,7 @@
   margin-bottom: set-calc(20);
 
   word-break: break-word;
-  @include font-36-normal-header;
+  @include font-32-normal-header;
   color: var(--color-content-primary);
   font-family: $font-family-bold;
   text-align: center;
@@ -65,6 +65,10 @@
   width: 100%;
   margin-bottom: set-calc(32);
   gap: set-calc(16);
+
+  @include set-media(md) {
+    margin-bottom: set-calc(20);
+  }
 }
 
 .benefitsItem {
@@ -94,7 +98,7 @@
 .itemText {
   margin-left: set-calc(8);
   color: var(--color-content-paragraph-secondary);
-  @include font-16-normal-ui;
+  @include font-14-normal-ui;
 }
 
 .bottom {
@@ -155,7 +159,7 @@
     color: var(--color-content-secondary);
 
     span {
-      @include set-typography(16, 16, 500);
+      @include font-14-normal-paragraph;
     }
 
     svg {
@@ -189,11 +193,15 @@
 .paymentSummary {
   display: flex;
 
-  padding: set-calc(20) 0 set-calc(20);
+  padding: set-calc(20) 0;
   border-top: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
 
   margin: 0!important;
+
+  @include set-media(md) {
+    padding: set-calc(16) 0;
+  }
 }
 
 .paymentSummaryText {
@@ -250,30 +258,41 @@
 }
 
 .paymentOptions {
-  padding-top: set-calc(32);
-  padding-bottom: set-calc(24);
+  padding: set-calc(20) 0 set-calc(80);
   border-top: 1px solid var(--border-color);
+
+  @include set-media(md) {
+    padding: set-calc(16) 0 set-calc(16);
+  }
 }
 
 .paymentOptionsTitle {
   position: relative;
 
-  margin-bottom:set-calc(16);
+  margin-bottom: set-calc(16);
   @include font-18-normal-ui;
   font-family: $font-family-bold;
-  color: var(--color-content-paragraph-secondary);
+  color: var(--color-content-primary);
+
+  @include set-media(md) {
+    margin-bottom:set-calc(8);
+  }
 }
 
 .optionDescription {
   padding: set-calc(16) set-calc(8) 0;
   @include font-14-normal-paragraph;
 
+  width: 80%;
+
   a {
     color: var(--primary-color);
   }
 
   @include set-media(md) {
-    padding: set-calc(32) set-calc(8) 0;
+    padding: set-calc(16) set-calc(8) 0;
+
+    width: 100%;
   }
 }
 
