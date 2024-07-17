@@ -33,7 +33,7 @@
   margin-bottom: set-calc(40);
   max-width: set-calc(600);
 
-  @include font-21-normal-paragraph;
+  @include font-20-normal-paragraph;
   color: var(--color-content-paragraph-primary);
   text-align: center;
 
@@ -216,7 +216,7 @@
   word-break: break-word;
   margin: set-calc(24) 0;
 
-  @include set-typography(18, 26, 500);
+  @include set-typography(18, 24, 500);
   color: var(--color-content-paragraph-secondary);
 }
 

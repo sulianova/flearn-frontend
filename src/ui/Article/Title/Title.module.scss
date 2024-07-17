@@ -3,7 +3,7 @@
 .title {
   margin: set-calc(40) 0 set-calc(12);
 
-  @include set-typography(24, 26, 500);
+  @include set-typography(26, 28, 500);
   color: var(--color-content-primary);
   font-family: $font-family-bold;
 

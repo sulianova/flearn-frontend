@@ -60,7 +60,7 @@
   display: flex;
   margin-top: auto;
 
-  color: var(--color-content-primary);
+  color: $color-content-primary-dark;
 
   .text {
     @include set-typography(20, 26, 500);
@@ -109,8 +109,7 @@
   max-width: set-calc(600);
 
   @include font-40-normal-header;
-  color: var(--color-content-primary);
-  font-family: $font-family-bold;
+  color: $color-content-primary-dark;
   text-align: left;
 }
 
@@ -130,7 +129,7 @@
   background: var(--color-background-btn);
 
   @include font-18-normal-ui;
-  color: $color-content-inverted-primary-light;
+  color: $color-content-primary-dark;
 
   height: set-calc(52);
   width: max-content;

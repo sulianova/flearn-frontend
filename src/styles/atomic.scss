@@ -40,15 +40,15 @@
 }
 
 @mixin font-20-normal-paragraph {
-  @include set-typography(20, 28, 500);
+  @include set-typography(20, 30, 500);
 
   @include set-media(md) {
-    @include set-typography(18, 24, 500);
+    @include set-typography(18, 26, 500);
   }
 }
 
 @mixin font-21-normal-paragraph  {
-  @include set-typography(21, 28, 500);
+  @include set-typography(18, 24, 500);
 
   @include set-media(md) {
     @include set-typography(18, 24, 500);

@@ -31,7 +31,7 @@
   justify-content: space-between;
   align-items: center;
 
-  height: set-calc(62);
+  height: set-calc(40);
 
   padding: 0 set-calc(24);
   margin: set-calc(10) set-calc($padding-x-desk-page);
@@ -71,20 +71,25 @@
 }
 
 .deskPaddingWEB {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  backdrop-filter: none;
+  box-shadow: none;
+
   @include set-media(md) {
     padding: set-calc(12) set-calc($padding-x-mob-page) set-calc(16);
+    background-color: transparent;
     height: unset;
   }
 }
 
 .deskPaddingLMS {
   width: 100%;
-  background-color:transparent;
+  background-color: transparent;
   border: none;
   backdrop-filter: none;
   box-shadow: none;
-
-  height: set-calc(62);
 
   @include set-media(md) {
     padding: set-calc(12) set-calc($padding-x-mob-page) set-calc(16);
@@ -119,7 +124,8 @@
   }
 
   span {
-    @include font-24-normal-header;
+    @include set-typography(22, 22, 500);
+    font-family: $font-family-highlight;
 
     transition: opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
     background: $color-gradient-rainbow;
@@ -155,6 +161,12 @@
     width: 100%;
     justify-content: space-between;
   }
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .navItem:not(:first-child) {
@@ -209,16 +221,18 @@
 }
 
 .navLogin {
+  position: relative
+  ;
   display: flex;
   align-items: center;
-  position: relative;
+  justify-content: center;
 
   color: var(--color-content-primary);
+
+  padding: 0 set-calc(24);
   background-color: transparent;
-  padding: set-calc(4) set-calc(24);
-
-
   border-radius: set-calc($border-radius-large);
+
   width: max-content;
   height: set-calc(40);
 
@@ -231,7 +245,6 @@
 
   @include set-media(md) {
     color: var(--color-content-primary);
-    font-family: $font-family-bold;
     
     background-color: var(--color-card);
     border: set-calc(1) solid var(--color-border);
@@ -248,36 +261,43 @@
 }
 
 .buyBtn {
-  display: flex;
-  align-items: center;
   position: relative;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   width: max-content;
-  height: set-calc(46);
+  height: set-calc(40);
 
-  @include font-18-normal-ui;
   color: $color-content-inverted-primary-light;
-  font-family: $font-family-bold;
 
-  padding: set-calc(4) set-calc(16);
+  padding: set-calc(10) set-calc(16);
   border-radius: set-calc($border-radius-12);
-  background: $color-gradient-rainbow-btn;
-  background-size: 400% 400%;
+  background: var(--primary-color);
+  // background-size: 400% 400%;
 
-  box-shadow: $shadow-menu;
-
-  animation: buttonGradient 45s ease infinite;
+  // animation: buttonGradient 45s ease infinite;
   transition: width .3s, margin .3s, min-width .3s, background-color .3s, color .3s, border .3s, background-position 2s ease-out, padding-left .3s, opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
   
   &:hover {
     cursor: pointer;
-    opacity: 0.9;
+  }
+
+  &:active {
+    transition-duration: .05s;
+    transition-property: transform;
+    transform: translateY(1px) scale(.995);
   }
 
   @include set-media(md) {
     height: set-calc(48);
     padding: set-calc(10) set-calc(16);
-    box-shadow: $shadow-menu;
+
+    &:hover,
+    &:active {
+      transform: none;
+    }
   }
 }
 
@@ -306,20 +326,6 @@
 
   @include set-media(md) {
     display: none;
-
-    // position: absolute;
-    // top: set-calc(-6);
-    // right: set-calc(-6);
-
-    // padding: 0 set-calc(3.5);
-    // height: set-calc(16);
-
-    // border-radius: set-calc(2);
-    // transform: rotate(10.5deg);
-
-    // pointer-events: none;
-
-    // @include set-typography(12, 14, 500);
   }
 }
 
@@ -328,13 +334,16 @@
 
   display: flex;
   align-items: center;
+  justify-content: center;
 
   color: var(--color-content-primary);
-  padding: set-calc(4) set-calc(24);
+
+  padding: 0 set-calc(24);
+  background-color: transparent;
+  border-radius: set-calc($border-radius-30);
 
   width: max-content;
-  height: set-calc(44);
-  border-radius: set-calc($border-radius-large);
+  height: set-calc(40);
 
   gap: set-calc(4);
 
@@ -365,7 +374,7 @@
 .selectToggleIcon {
   display: inline-flex;
   align-items: center;
-  height: set-calc(32);
+  height: set-calc(16);
   justify-content: center;
 
   transition: all $d-hover ease;
@@ -381,7 +390,6 @@
     background-size: contain;
 
     fill: var(--color-content-primary);
-    opacity: 0.85;
 
     transition: transform 200ms;
   }

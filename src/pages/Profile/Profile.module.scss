@@ -141,12 +141,12 @@
   transition-timing-function: ease-out;
 
   @include font-18-normal-ui;
-  color: $color-content-inverted-primary-light;
+  color: var(--color-content-inverted-primary);
   font-family: $font-family-bold;
   text-decoration: none;
 
   border-radius: set-calc($border-radius-12);
-  background-color: var(--primary-color);
+  background-color: var(--color-content-background-primary);
   border: none;
 }
 

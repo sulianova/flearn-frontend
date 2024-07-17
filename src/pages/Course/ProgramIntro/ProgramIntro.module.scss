@@ -99,7 +99,7 @@
 }
 
 .title {
-  @include set-typography(88, 88, 500);
+  @include set-typography(78, 80, 500);
   margin-bottom: set-calc(24);
   letter-spacing: -0.05rem;
   
@@ -117,7 +117,7 @@
 .block {
   margin-bottom: set-calc(16);
 
-  @include set-typography(28, 30, 500);
+  @include set-typography(24, 30, 500);
   color: var(--color-content-primary);
 
   white-space: pre-line;
