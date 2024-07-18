@@ -8,6 +8,7 @@ import { userService } from 'services/user.service';
 import { emailService } from 'services/email.service';
 import { courseService } from 'services/course.service';
 import { userAccessService } from 'services/userAccess.service';
+import { userCourseProgressService } from 'services/userCourseProgress.service';
 
 import Fallback from 'ui/Fallback';
 import Page, { EPageVariant } from 'ui/Page/Page';
@@ -63,8 +64,9 @@ function Lesson({ section }: IProps) {
   const currentCourse = courseService.useCurrentCourse();
   const currentLesson = lessonService.useCurrentLesson();
   const currentCourseAccess = userAccessService.useCurrentCourseAccess();
+  const progress = userCourseProgressService.useCurrentCourseProgress();
 
-  if (!currentCourse || !currentLesson || !currentCourseAccess || !authedUser) {
+  if (!currentCourse || !currentLesson || !currentCourseAccess || !authedUser || !progress) {
     return <Fallback.Pending text='Loading lesson' headerVariant={EPageVariant.LMS}/>;
   }
 
@@ -96,6 +98,7 @@ function Lesson({ section }: IProps) {
             courseAccess={currentCourseAccess}
             lesson={currentLesson}
             user={authedUser}
+            progress={progress}
           />)
         }
         {section === 'results' &&

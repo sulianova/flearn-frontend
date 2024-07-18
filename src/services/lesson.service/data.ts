@@ -37,6 +37,58 @@ const lessonData11: ILessonDataDB = {
         },
       ]
     },
+    // {
+    //   type: 'quiz',
+    //   steps: [
+    //     {
+    //       type: 'SELECT',
+    //       variant: 'RADIO',
+    //       title: 'Can fish fly?',
+    //       options: [
+    //         {
+    //           value: 'Yes',
+    //           shouldBeSelected: false,
+    //           negativeExplanation: 'Are you dumb???',
+    //         },
+    //         {
+    //           value: 'No',
+    //           shouldBeSelected: true,
+    //           positiveExplanation: 'Good job!',
+    //           negativeExplanation: 'Are you dumb???',
+    //         },
+    //         {
+    //           value: 'Some can',
+    //           shouldBeSelected: false,
+    //           negativeExplanation: 'Are you dumb???',
+    //         },
+    //       ],
+    //     },
+    //     {
+    //       type: 'SELECT',
+    //       variant: 'CHECKBOX',
+    //       title: 'Can turtles fly?',
+    //       options: [
+    //         {
+    //           value: 'Yes',
+    //           shouldBeSelected: false,
+    //           negativeExplanation: 'Are you dumb???',
+    //         },
+    //         {
+    //           value: 'No',
+    //           shouldBeSelected: true,
+    //           positiveExplanation: 'Good job!',
+    //           negativeExplanation: 'Are you dumb???',
+    //         },
+    //         {
+    //           value: 'Some can',
+    //           shouldBeSelected: true,
+    //           positiveExplanation: 'Good job!',
+    //           negativeExplanation: 'Are you dumb???',
+    //         },
+    //       ],
+    //     },
+    //   ],
+    // },
     {
       type: 'title',
       title: 'Бесплатный вводный курс'
@@ -49,6 +101,58 @@ const lessonData11: ILessonDataDB = {
       type: 'title',
       title: 'Платный курс'
     },
+    // {
+    //   type: 'quiz',
+    //   steps: [
+    //     {
+    //       type: 'SELECT',
+    //       variant: 'RADIO',
+    //       title: 'Can fish fly?',
+    //       options: [
+    //         {
+    //           value: 'Yes',
+    //           shouldBeSelected: false,
+    //           negativeExplanation: 'Are you dumb???',
+    //         },
+    //         {
+    //           value: 'No',
+    //           shouldBeSelected: true,
+    //           positiveExplanation: 'Good job!',
+    //           negativeExplanation: 'Are you dumb???',
+    //         },
+    //         {
+    //           value: 'Some can',
+    //           shouldBeSelected: false,
+    //           negativeExplanation: 'Are you dumb???',
+    //         },
+    //       ],
+    //     },
+    //     {
+    //       type: 'SELECT',
+    //       variant: 'CHECKBOX',
+    //       title: 'Can turtles fly?',
+    //       options: [
+    //         {
+    //           value: 'Yes',
+    //           shouldBeSelected: false,
+    //           negativeExplanation: 'Are you dumb???',
+    //         },
+    //         {
+    //           value: 'No',
+    //           shouldBeSelected: true,
+    //           positiveExplanation: 'Good job!',
+    //           negativeExplanation: 'Are you dumb???',
+    //         },
+    //         {
+    //           value: 'Some can',
+    //           shouldBeSelected: true,
+    //           positiveExplanation: 'Good job!',
+    //           negativeExplanation: 'Are you dumb???',
+    //         },
+    //       ],
+    //     },
+    //   ],
+    // },
     {
       type: 'text',
       text: [

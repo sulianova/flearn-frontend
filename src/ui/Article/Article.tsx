@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { Fragment, useCallback, useState } from 'react';
 import { IArticleContent, TArticleHandlers } from 'types';
 
 import Quiz from './Quiz/Quiz';
@@ -29,18 +29,50 @@ Article.Button = Button;
 
 interface IProps {
   blocks: IArticleContent
-  handlers?: TArticleHandlers
+  handlers: TArticleHandlers
+  initialSolvedQuizes: number
+  onLastQuizSubmit: () => void
+  onQuizeSubmit: (quizeIndex: number) => void
 }
 
 function Article(props: IProps) {
-  return props.blocks.map((block, index) =>
+  const { blocks, handlers, initialSolvedQuizes, onQuizeSubmit, onLastQuizSubmit } = props;
+  const [visibleQuizIndex, setVisibleQuizIndex] = useState(initialSolvedQuizes); // from 0 - length. If index === length => all quizes are submited
+  const quizBlocks = blocks.filter(b => b.type === 'quiz');
+  const lastVisibleQuizBlock = quizBlocks.at(visibleQuizIndex);
+  const lastVisibleBlockIndex =
+    !lastVisibleQuizBlock
+      ? blocks.length - 1
+      : blocks.findIndex(b => b === lastVisibleQuizBlock);
+  const visibleBlocks = blocks.slice(0, lastVisibleBlockIndex + 1);
+  const submitQuiz = useCallback(() => {
+    onQuizeSubmit(visibleQuizIndex);
+    const nextIndex = visibleQuizIndex + 1;
+    setVisibleQuizIndex(nextIndex);
+    if (nextIndex === quizBlocks.length) {
+      onLastQuizSubmit();
+    }
+  }, [quizBlocks, visibleQuizIndex, onLastQuizSubmit]);
+
+  return visibleBlocks.map((block, index) =>
     <Fragment key={index}>
-      {renderBlock(block, props.handlers)}
+      {renderBlock({
+        block,
+        handlers,
+        submitQuiz,
+        isInitialSolvedQuiz: quizBlocks.findIndex(b => b === block) < initialSolvedQuizes,
+      })}
     </Fragment>
   );
 }
 
-function renderBlock(block: IArticleContent[number], handlers?: TArticleHandlers) {
+function renderBlock(params: {
+  block: IArticleContent[number]
+  handlers: TArticleHandlers
+  submitQuiz: () => void
+  isInitialSolvedQuiz: boolean
+}) {
+  const { block, handlers, submitQuiz, isInitialSolvedQuiz } = params;
   switch(block.type) {
     case 'title':
       return (<Title {...block}/>);
@@ -53,7 +85,7 @@ function renderBlock(block: IArticleContent[number], handlers?: TArticleHandlers
     case 'quote':
       return (<Quote {...block}/>);
     case 'quiz':
-      return (<Quiz {...block}/>);
+      return (<Quiz {...block} onSubmit={submitQuiz} isInitialSolvedQuiz={isInitialSolvedQuiz}/>);
     case 'video':
       return (<Video {...block}/>);
     case 'image':
@@ -61,6 +93,6 @@ function renderBlock(block: IArticleContent[number], handlers?: TArticleHandlers
     case 'gallery':
       return (<Gallery {...block}/>);
     case 'button':
-      return (<Button {...block} handlers={handlers ?? {}}/>)
+      return (<Button {...block} handlers={handlers}/>)
   }
 }

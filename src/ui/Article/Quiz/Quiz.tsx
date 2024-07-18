@@ -1,57 +1,53 @@
-import classNames from 'classnames/bind';
+import { useCallback, useState } from 'react';
 
-import type { IArticleQuizBlock } from 'types';
+import { IArticleQuizBlock } from 'types';
 
-import UIText from 'ui/Text/Text';
-import Icon from 'ui/Icon/Icon';
+import RadioStep from './RadioStep';
+import CheckboxStep from './CheckboxStep';
 
 import classes from './Quiz.module.scss';
+interface IProps extends Omit<IArticleQuizBlock, 'type'> {
+  onSubmit: () => void
+  isInitialSolvedQuiz: boolean
+}
 
-const cx = classNames.bind(classes);
+export default function Quiz(props: IProps) {
+  const { steps, onSubmit, isInitialSolvedQuiz } = props;
+  const [currentStepIndex, setCurrentStepIndex] = useState(isInitialSolvedQuiz ? steps.length : 0); // from 0 to length. Index === length => all steps are submited
 
-export default function Quiz({ quiz, factoid }: Omit<IArticleQuizBlock, 'type'>) {
-  if (!quiz) {
-    return null;
-  }
+  const onSubmitStep = useCallback(() => {
+    const nextIndex = currentStepIndex + 1;
+    setCurrentStepIndex(nextIndex);
+    if (nextIndex === steps.length) {
+      onSubmit();
+    }
+  }, [currentStepIndex, steps, onSubmit]);
 
   return (
-    <>
     <div className={classes.__}>
-      <div className={classes.wrapper}>
-        <form className={classes.content}>
-          <div className={classes.quizHeader}>
-            <div className={classes.quizTitle}>Задание</div>
-            <div className={classes.quizDescription}>Рыбный текст для задания, а точнее вопроса, на который нужно дать ответ.</div>
-          </div>
-          <fieldset className={classes.quizGroup} role={'radiogroup'}>
-            <label className={classes.choiceOption}>
-              <div className={cx({radio: true, checked: false, shouldBeChecked: false, shouldNotBeChecked: true })}>
-                <span className={classes.visuallyHidden}>
-                  <input type="radio" value="no"/>
-                </span>
-                <div className={classes.icon}>
-                  <Icon icon='Tick'/>
-                </div>
-              </div>
-              <span>Нет, впервые знакомлюсь с профессией</span>
-            </label>
-            <label className={classes.choiceOption}>
-              <div className={cx({ radio: true, checked: true, shouldBeChecked: true, shouldNotBeChecked: false })}>
-                <span className={classes.visuallyHidden}>
-                  <input type="radio" value="no"/>
-                </span>
-                <div className={classes.icon}>
-                  <Icon icon='SmallCross'/>
-                </div>
-              </div>
-              <span>Нет, впервые знакомлюсь с профессией</span>
-            </label>
-            <div className={classes.feedback}>Это подробное описвание ответа. Это подробное описвание ответа. Это подробное описвание ответа. Это подробное описвание ответа.</div>
-          </fieldset>
-          <button disabled={true} className={classes.submitButton}>Узнать ответ</button>
-        </form>
-      </div>
+      {steps.map((step, index) => {
+        if (step.type === 'SELECT' && step.variant === 'RADIO') {
+          return (
+            <RadioStep
+              key={index}
+              step={step}
+              visible={index <= currentStepIndex}
+              onSubmit={onSubmitStep}
+              isInitialSolvedQuiz={isInitialSolvedQuiz}
+            />
+          );
+        } else if (step.type === 'SELECT' && step.variant === 'CHECKBOX') {
+          return (
+            <CheckboxStep
+              key={index}
+              step={step}
+              visible={index <= currentStepIndex}
+              onSubmit={onSubmitStep}
+              isInitialSolvedQuiz={isInitialSolvedQuiz}
+            />
+          );
+        }
+      })}
     </div>
-    </>
   );
 }

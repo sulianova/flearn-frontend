@@ -1,53 +1,64 @@
-import { BehaviorSubject, CompletionObserver, ErrorObserver, NextObserver, Subject, merge } from 'rxjs';
+import { BehaviorSubject, Subject, merge } from 'rxjs';
 
 import { dataService } from 'services/data.service';
 
-import type { TActionBS, TActionS } from './types';
+import { TCurrentCourseProgressBSValue, type TActionS, type TUserCourseProgress } from './types';
 import { authService } from 'services';
 import { safeObjectKeys } from 'utils';
-import { ILessonData, lessonService } from 'services/lesson.service';
 import useLastStudiedCourse from './useLastStudiedCourse';
 import { courseService, ICourseData } from 'services/course.service';
+import { locationService } from 'services/location.service';
+import { userService } from 'services/user.service';
+
+import useCurrentCourseProgress from './useCurrentCourseProgress';
 
 export type { TProgress, TProgressDB, TUserCourseProgress, TUserCourseProgressDB } from './types';
 
 class UserCourseProgressService {
   public userCourseProgresS = new Subject<TActionS>();
   public useLastStudiedCourse = useLastStudiedCourse;
+  public useCurrentCourseProgress = useCurrentCourseProgress;
 
   constructor() {
-    this.init();
-  }
-
-  public init() {
-    merge(
-      this.userCourseProgresS,
-      authService.firebaseUserBS,
-    )
-    .subscribe(() => {
-      const user = authService.user;
-      if (!user) {
-        this._lastStudiedCourseBS.next(null);
-        return;
-      }
-
-      this.fetchLastStudiedCourse()
-        .then(course => {
-          this._lastStudiedCourseBS.next(course);
-        })
-        .catch(error => {
-          console.log('Failed to fetch LastStudiedCourse for _lastStudiedCourseBS', { error, user });
-          this._lastStudiedCourseBS.next(null);
-        })
-    });
+    this.initLastStudiedCourseBS();
+    this.initCurrentCourseProgressBS();
   }
 
   public async markLessonAsRead(courseId: string, userEmail: string, lessonId: string) {
     try {
-      await dataService.userCourseProgress.markLessonAsRead(courseId, userEmail, lessonId);
+      const progress = await dataService.userCourseProgress.get(courseId, userEmail).catch(_err => null) ?? {};
+      const newProgress: TUserCourseProgress = {
+        ...progress,
+        [lessonId]: {
+          solved: true,
+          solvedQuizesAmount: progress[lessonId]?.solvedQuizesAmount ?? 0,
+          lastSolvedAt: new Date(),
+        },
+      };
+      await dataService.userCourseProgress.set({ courseId, userEmail, progress: newProgress });
       this.userCourseProgresS.next({ type: 'updated', payload: { courseId, lessonId }});
     } catch (error) {
       console.log('Failed to mark lesson as read', { error });
+      throw error;
+    }
+  }
+
+  public async saveLessonQuizeProgress(params: { courseId: string, userEmail: string, lessonId: string, quizIndex: number }) {
+    try {
+      const { courseId, userEmail, lessonId, quizIndex } = params;
+      const progress = await dataService.userCourseProgress.get(courseId, userEmail).catch(_err => null) ?? {};
+      const newProgress: TUserCourseProgress = {
+        ...progress,
+        [lessonId]: {
+          solved: false,
+          solvedQuizesAmount: quizIndex + 1,
+          lastSolvedAt: new Date(),
+        },
+      };
+      await dataService.userCourseProgress.set({ courseId, userEmail, progress: newProgress });
+      this.userCourseProgresS.next({ type: 'updated', payload: { courseId, lessonId }});
+    } catch (error) {
+      console.log('Failed to save lesson quize progress', { error });
       throw error;
     }
   }
@@ -94,7 +105,78 @@ class UserCourseProgressService {
     }
   }
 
+  protected initLastStudiedCourseBS() {
+    merge(
+      this.userCourseProgresS,
+      authService.firebaseUserBS,
+    )
+    .subscribe(() => {
+      const user = authService.user;
+      if (!user) {
+        this._lastStudiedCourseBS.next(null);
+        return;
+      }
+
+      this.fetchLastStudiedCourse()
+        .then(course => {
+          this._lastStudiedCourseBS.next(course);
+        })
+        .catch(error => {
+          console.log('Failed to fetch LastStudiedCourse for _lastStudiedCourseBS', { error, user });
+          this._lastStudiedCourseBS.next(null);
+        })
+    });
+  }
+
+  protected initCurrentCourseProgressBS() {
+    try {
+      merge(
+        this.userCourseProgresS,
+        userService.authedUserBS,
+        locationService.URLSectionBS,
+      )
+      .subscribe(() => {
+        const user = userService.authedUserBS.getValue();
+        const section = locationService.URLSectionBS.getValue();
+        if (!user || (section.name !== 'Profile' && section.name !== 'Study')) {
+          this._currentCourseProgressBS.next(null);
+          return;
+        }
+  
+        const prevDep = this._currentCourseProgressBS.getValue();
+        if (prevDep &&
+            (
+              prevDep.dependencies.userEmail !== user.email
+            ||
+              prevDep.dependencies.courseId !== section.params.courseId
+            )
+        ) {
+          this._currentCourseProgressBS.next(null);
+        }
+
+        dataService.userCourseProgress.get(section.params.courseId, user.email)
+          .then(progress => {
+            this._currentCourseProgressBS.next({
+              dependencies: {
+                courseId: section.params.courseId,
+                userEmail: user.email,
+              },
+              value: progress,
+            });
+          })
+          .catch(error => {
+            console.log('Failed to fetch courseProgress for _currentCourseProgressBS', { error, user, section });
+            this._currentCourseProgressBS.next(null);
+          });
+      });
+    } catch (error) {
+      console.log('Failed to init _currentCourseProgressBS');
+      throw error
+    }
+  }
+
   protected _lastStudiedCourseBS = new BehaviorSubject<ICourseData | null>(null);
+  protected _currentCourseProgressBS = new BehaviorSubject<TCurrentCourseProgressBSValue | null>(null);
 }
 
 export const userCourseProgressService = new UserCourseProgressService();

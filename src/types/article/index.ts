@@ -1,5 +1,7 @@
-import type { ButtonHTMLAttributes } from 'react';
 import type { TText } from 'ui/Text/Text';
+import { TQuizStep } from './quiz';
+
+export type * from './quiz';
 
 export interface IArticleBlock {
   factoid?: TText
@@ -13,11 +15,6 @@ export interface IArticleTitleBlock extends IArticleBlock {
 /**
  * This is type i sused to ...
  */
-
-export interface IArticleQuizBlock extends IArticleBlock {
-  type: 'quiz'
-  quiz: TText
-}
 
 export interface IArticleTextBlock extends IArticleBlock {
   type: 'text'
@@ -78,6 +75,11 @@ export interface IArticleButtonBlock extends IArticleBlock {
   type: 'button'
   handlerId: string
   content: TText
+}
+
+export interface IArticleQuizBlock extends IArticleBlock {
+  type: 'quiz'
+  steps: TQuizStep[]
 }
 
 export type TArticleBlocks =

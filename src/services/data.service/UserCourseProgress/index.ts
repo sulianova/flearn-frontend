@@ -34,38 +34,16 @@ class UserCourseProgress {
     }
   }
 
-  public async markLessonAsRead(courseId: string, userEmail: string, lessonId: string) {
+  public async set(params: { courseId: string, userEmail: string, progress: TUserCourseProgress }) {
     try {
-      const userProgressDB = await firebaseService.getDoc<TUserCourseProgressDB>(firebaseService.Collections.UserCourseProgress, courseId, null, { collection: 'users', id: userEmail });
-      const userProgress = !userProgressDB ? {} : userCourseProgressConverter.fromFirestore(userProgressDB);
-      const newUserProgress: TUserCourseProgress = {
-        ...userProgress,
-        [lessonId]: {
-          solved: true,
-          lastSolvedAt: new Date(),
-        },
-      };
-      const newUserProgressDB = userCourseProgressConverter.toFirestore(newUserProgress);
+      const { courseId, userEmail, progress } = params;
+      const newUserProgressDB = userCourseProgressConverter.toFirestore(progress);
       await firebaseService.setDoc(firebaseService.Collections.UserCourseProgress, courseId, newUserProgressDB, null, { collection: 'users', id: userEmail });
-    } catch (err) {
-      const error = err as Error;
-      // tslint:disable-next-line
-      console.error(error);
-      throw new Error(`Failed to set user course progress: ${error.message}`);
+    } catch (error) {
+      console.log('Failed to save user course progress');
+      throw error;
     }
   }
-
-  // public async init(courseId: string, userEmail: string) {
-  //   try {
-  //     const userProgressDB = (await firebaseService.getDoc<TUserCourseProgressDB>(firebaseService.Collections.UserCourseProgress, courseId, null, { collection: 'users', id: userEmail })) ?? {};
-  //     await firebaseService.setDoc(firebaseService.Collections.UserCourseProgress, courseId, userProgressDB, null, { collection: 'users', id: userEmail });
-  //   } catch (err) {
-  //     const error = err as Error;
-  //     // tslint:disable-next-line
-  //     console.error(error);
-  //     throw new Error(`Failed to init user course progress: ${error.message}`);
-  //   }
-  // }
 }
 
 const userCourseProgress = new UserCourseProgress();

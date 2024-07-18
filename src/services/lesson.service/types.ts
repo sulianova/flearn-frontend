@@ -5,6 +5,7 @@ import { IUserData } from 'services/user.service';
 import { TAccess } from 'services/userAccess.service';
 import { ECommonErrorTypes, TStateState } from 'types';
 import type { TText } from 'ui/Text/Text';
+import { TQuizStep } from 'types';
 
 export interface IFetchLessonsProps extends ILessonFilter {}
 
@@ -98,7 +99,7 @@ export interface ILessonGalleryBlock extends ILessonBlock {
 
 export interface ILessonQuestionBlock extends ILessonBlock {
   type: 'quiz'
-  quiz: TText
+  steps: TQuizStep[]
 }
 
 export interface ILessonTextBlock extends ILessonBlock {
