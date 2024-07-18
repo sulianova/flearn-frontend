@@ -28,6 +28,9 @@ const courseDB1: ICourseDataDB = {
     },
     OPTIMAL: {
       price: 12_000,
+      discount: {
+        amountPrc: 50,
+      },
     },
   },
   feild: 'Иллюстрация',
@@ -299,6 +302,9 @@ const courseDB2: ICourseDataDB = {
     },
     OPTIMAL: {
       price: 5_000,
+      discount: {
+        amountPrc: 50,
+      },
     },
   },
   introImage: {
