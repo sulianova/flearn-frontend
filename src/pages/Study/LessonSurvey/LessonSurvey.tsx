@@ -165,14 +165,14 @@ function SelectRadioStep(props: ISelectStepProps<ISurveyRadioStep>) {
     <Step {...props}>
       <div className={classes.surveyAnswers}>
         {props.options.map((option, index) => (
-          <label
-            key={index}
-            className={classes.surveyAnswer}
-            onClick={() => props.onSelect(option)}
-          >
+          <label key={index} htmlFor={`radio-${index}`} className={classes.surveyAnswer}>
             <div className={cx({ radio: true, checked: props.selectedValue === option })}>
               <span className={classes.visuallyHidden}>
-                <input type="radio" value="no"/>
+                <input
+                  id={`radio-${index}`}
+                  type="radio"
+                  onClick={() => props.onSelect(option)}
+                />
               </span>
               <div className={classes.icon}>
                 <Icon icon='Tick'/>
@@ -191,24 +191,22 @@ function SelectCheckboxStep(props: ISelectStepProps<ISurveyCheckboxStep>) {
     <Step {...props}>
       <div className={classes.surveyAnswers}>
         {props.options.map((option, index) => (
-          <label
-            key={index}
-            className={classes.surveyAnswer}
-          >
-            <div
-                onClick={() => {
-                  if (!props.selectedValue || !props.selectedValue.includes(option)) {
-                    props.onSelect([...(props.selectedValue ?? []), option]);
-                  } else {
-                    const set = new Set(props.selectedValue);
-                    set.delete(option);
-                    props.onSelect([...set]);
-                  }
-                }}
-              className={cx({ checkbox: true, checkboxWithMovementAnimation: true, checked: props.selectedValue?.includes(option) })}
-            >
+          <label key={index} htmlFor={`checkbox-${index}`} className={classes.surveyAnswer}>
+            <div className={cx({ checkbox: true, checkboxWithMovementAnimation: true, checked: props.selectedValue?.includes(option) })}>
               <span className={classes.visuallyHidden}>
-                <input type="checkbox" value="no"/>
+                <input
+                  id={`checkbox-${index}`}
+                  type="checkbox"
+                  onChange={() => {
+                    if (!props.selectedValue || !props.selectedValue.includes(option)) {
+                      props.onSelect([...(props.selectedValue ?? []), option]);
+                    } else {
+                      const set = new Set(props.selectedValue);
+                      set.delete(option);
+                      props.onSelect([...set]);
+                    }
+                  }}
+                />
               </span>
               <div className={classes.icon}>
                 <Icon icon='Tick'/>

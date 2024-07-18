@@ -20,7 +20,7 @@
     "tsc": "tsc",
     "check": "npm run lint && npm run tsc",
     "pull:fb": "firebase ext:export",
-    "ngrok": "ngrok http 3000"
+    "mb": "ngrok http 3000"
   },
   "dependencies": {
     "@tippyjs/react": "^4.2.6",
