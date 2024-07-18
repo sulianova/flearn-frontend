@@ -61,7 +61,8 @@ function LessonSurvey<Survey extends TSurvey>(props: IProps<Survey>) {
   const [isPending, setIsPending] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
-  const hasNextStep = currentStepIndex < Object.keys(survey).length - 1;
+  const stepsCount = Object.keys(survey).length;
+  const hasNextStep = currentStepIndex < stepsCount - 1;
   const nextStep = !hasNextStep ? undefined
     : () => setCurrentStepIndex(currentStepIndex + 1);
 
@@ -132,7 +133,8 @@ function LessonSurvey<Survey extends TSurvey>(props: IProps<Survey>) {
                 })
               }}
             >
-              {isPending ? <Spinner variant='local' /> : 'Отправить'}
+              {isPending ? <Spinner variant='local' />
+              : stepsCount === 1 ? 'Отправить' : 'С вопросами — все!'}
             </button>
           )}
         </div>
