@@ -526,7 +526,7 @@ const lessonData15: ILessonDataDB = {
     {
       type: 'button',
       handlerId: 'open-buy-source-popup',
-      content: 'Купить курс!',
+      content: 'Купить полный курс',
     },
     {
       type: 'title',

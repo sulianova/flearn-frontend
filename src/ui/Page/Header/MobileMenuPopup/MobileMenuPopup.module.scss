@@ -67,7 +67,6 @@ padding: set-calc(16) 0;
   border-radius: set-calc($border-radius-16);
   background: var(--primary-color);
   color: $color-palette-white-1000;
-  font-family: $font-family-bold;
   width: 100%;
 
   @include set-typography(18, 24, 500);

@@ -168,7 +168,7 @@
 
   .text {
     z-index: 200;
-    color: $color-content-inverted-primary-light;
+    color: var(--color-content-inverted-primary);
   }
 
   &:hover {

@@ -41,12 +41,12 @@ export default function Payment(props: IProps & { chosenProductOptionType: keyof
               <div className={classes.itemIcon}><Icon icon='TickInCircle'/></div>
               <div className={classes.itemText}>Уроки</div>
             </div>
-            <div className={classes.benefitsItem}>
-              <div className={classes.itemIcon}><Icon icon='TickInCircle'/></div>
-              <div className={classes.itemText}>
-                {chosenProductOptionType === 'BASE' ? 'НЕ Фидбэк' : 'Фидбэк'}
+            { chosenProductOptionType === 'OPTIMAL' && (
+              <div className={classes.benefitsItem}>
+                <div className={classes.itemIcon}><Icon icon='TickInCircle'/></div>
+                  <div className={classes.itemText}>Фидбэк</div>
               </div>
-            </div>
+            )}
           </div>
           <div className={classes.paymentOptions}>
             <div className={classes.paymentOptionsTitle}>Как и чем платить</div>
