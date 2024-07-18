@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 
-import { formatI18nT } from 'shared';
+import { formatI18nT, i18n } from 'shared';
 import { URLSections } from 'router';
 
 import { type IUserData, userService } from 'services/user.service';
@@ -150,7 +150,7 @@ function Profile(props: IProps) {
                               </div>
                               <div className={classesList.info}>
                                 <div className={classesList.infoMain}>
-                                  <span className={classesList.infoItem}>{`${group.lessons.length} урока`}</span>
+                                  <span className={classesList.infoItem}>{i18n.t('lesson.p', { count: group.lessons.length })}</span>
                                   <span className={classesList.infoItem}>{`≈ ${Math.round(totalDurationMinutes / 6) / 10} ч  `}</span>
                                 </div>
                               </div>
@@ -182,7 +182,7 @@ function Profile(props: IProps) {
                                 </div>
                                 <div className={classesList.info}>
                                   <div className={classesList.infoMain}>
-                                    <span className={classesList.infoItem}>{`${group.lessons.length} урока`}</span>
+                                    <span className={classesList.infoItem}>{i18n.t('lesson.p', { count: group.lessons.length })}</span>
                                     <span className={classesList.infoItem}>{`≈ ${Math.round(totalDurationMinutes / 6) / 10} ч  `}</span>
                                   </div>
                                 </div>
@@ -212,7 +212,7 @@ function Profile(props: IProps) {
                                 </div>
                                 <div className={classesList.info}>
                                   <div className={classesList.infoMain}>
-                                    <span className={classesList.infoItem}>{`${group.lessons.length} урока`}</span>
+                                    <span className={classesList.infoItem}>{i18n.t('lesson.p', { count: group.lessons.length })}</span>
                                     <span className={classesList.infoItem}>{`≈ ${Math.round(totalDurationMinutes / 6) / 10} ч  `}</span>
                                   </div>
                                 </div>

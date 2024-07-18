@@ -346,5 +346,11 @@
     "course": "курс",
     "intensive": "интенсив",
     "webinar": "вебинар"
+  },
+  "lesson": {
+    "p_one": "{{count}} урок",
+    "p_few": "{{count}} урока",
+    "p_many": "{{count}} уроков",
+    "p_other": "{{count}} уроков"
   }
 }
