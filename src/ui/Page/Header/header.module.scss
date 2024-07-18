@@ -12,7 +12,7 @@
   justify-content: center;
   align-items: center;
 
-  @include set-typography(18, 18, 500);
+  @include set-typography(14, 14, 500);
 
   @include set-media(md) {
     @include font-18-normal-ui;
@@ -229,6 +229,8 @@
 
   padding: 0 set-calc(24);
   color: var(--color-content-primary);
+  text-transform: uppercase;
+  font-family: $font-family-bold;
     
   background-color: var(--color-card);
   border: set-calc(1) solid var(--color-border);
@@ -237,7 +239,6 @@
   width: max-content;
   height: set-calc(40);
 
-  box-shadow: $shadow-small-default;
   transition: color $d-hover ease, opacity $d-hover ease;
   
   &:hover {
@@ -253,7 +254,6 @@
     margin-left: auto;
 
     height: set-calc(48);
-    box-shadow: $shadow-small-default;
   }
 }
 
@@ -273,10 +273,11 @@
   height: set-calc(40);
 
   color: $color-content-inverted-primary-light;
+  text-transform: uppercase;
   font-family: $font-family-bold;
 
   padding: set-calc(10) set-calc(16);
-  border-radius: set-calc($border-radius-12);
+  border-radius: set-calc($border-radius-30);
   background: var(--primary-color);
   // background-size: 400% 400%;
 
@@ -340,6 +341,7 @@
   justify-content: center;
 
   color: var(--color-content-primary);
+  text-transform: uppercase;
 
   padding: 0 set-calc(24);
   background-color: transparent;
@@ -375,10 +377,11 @@
 }
 
 .selectToggleIcon {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  height: set-calc(16);
   justify-content: center;
+  height: set-calc(16);
+
 
   transition: all $d-hover ease;
 
