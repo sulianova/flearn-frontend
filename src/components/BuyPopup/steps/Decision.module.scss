@@ -175,6 +175,13 @@
     color: var(--color-background-glassy-inverted-d);
   }
 
+  .discount {
+    color: var(--color-accent-promo);
+    font-family: $font-family-bold;
+
+    background-color: $color-accent-promo-background-light;
+  }
+
   .itemIcon {
     color: var(--color-content-inverted-primary);
 
@@ -204,11 +211,38 @@
 }
 
 .courseName {
+  position: relative;
+
   margin-bottom: set-calc(8);
+  width: max-content;
 
   @include font-18-normal-paragraph;
   font-family: $font-family-bold;
   color: var(--color-content-primary);
+}
+
+.discount {
+  position: absolute;
+  top: set-calc(-8);
+  right: set-calc(-80);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  @include font-18-normal-ui;
+  color: var(--color-content-primary);
+  font-family: $font-family;
+  letter-spacing: 0;
+
+  padding: set-calc(6) set-calc(10);
+  background-color: var(--color-background-glassy-b);
+  border-radius: set-calc(12);
+
+  @include set-media(md) {
+    top: set-calc(-8);
+    right: set-calc(-80);
+  }
 }
 
 .title {
@@ -216,7 +250,7 @@
   word-break: break-word;
   margin: set-calc(24) 0;
 
-  @include set-typography(18, 24, 500);
+  @include font-18-normal-paragraph;
   color: var(--color-content-paragraph-secondary);
 }
 
@@ -254,7 +288,7 @@
 }
 
 .itemText {
-  @include set-typography(18, 26, 500);
+  @include font-18-normal-paragraph;
   color: var(--color-content-paragraph-secondary);
 }
 
@@ -335,30 +369,6 @@
 
   @include set-media(md) {
     @include set-typography(48, 50, 500);
-  }
-}
-
-.discount {
-  position: absolute;
-  top: set-calc(-28);
-  right: unset;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  @include font-14-normal-ui;
-  font-family: $font-family;
-  letter-spacing: 0;
-
-  padding: set-calc(6) set-calc(10);
-  background: var(--color-background-glassy-b);
-  color: $color-content-paragraph-secondary-light;
-  border-radius: set-calc($border-radius-large);
-
-  @include set-media(md) {
-    right: set-calc(-44);
-    top: set-calc(-24);
   }
 }
 

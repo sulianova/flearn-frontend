@@ -32,11 +32,13 @@ export default function Decision({ course, next }: IProps) {
         {/* {type === 'OPTIMAL' && (
           <div className={classes.buble}>Самый популярный</div>
         )} */}
-        <h2 className={classes.courseName}>{t(`options.${type}.caption`)}</h2>
+        <h2 className={classes.courseName}>
+          {t(`options.${type}.caption`)}
+          <span className={classes.discount}>{formatCourseDiscount(discount ?? 0)}</span>
+        </h2>
         <div className={classes.credit}>
           <div className={classes.creditPrice}>
             {formatCourseCredit(creditPrice)} &#8381;
-            {/* <span className={classes.discount}>{formatCourseDiscount(discount ?? 0)}</span> */}
           </div>
           <s className={classes.creditWas}>{formatCourseCredit(creditWas)} &#8381;</s>
         </div>

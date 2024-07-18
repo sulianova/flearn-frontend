@@ -75,7 +75,7 @@ export default function Payment(props: IProps & { chosenProductOptionType: keyof
               <dt>
                 <span className={classes.paymentSummaryText}>За весь курс</span>
                 <div className={classes.paymentSummaryTags}>
-                  <span className={classes.paymentSummaryTag}>−5% по промокоду</span>
+                  <span className={classes.paymentSummaryTag}>{`−${discount ?? 0}% по промокоду`}</span>
                 </div>
               </dt>
               <dt>
