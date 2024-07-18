@@ -90,6 +90,7 @@ ul {
 input,
 input::placeholder {
   color: inherit;
+  font-family: $font-family;
 }
 
 a {
@@ -109,6 +110,8 @@ button {
   padding: 0;
   background: none;
   outline: none;
+
+  font-family: $font-family;
 
   cursor: pointer;
   transition: color $d-hover,background-color $d-hover,opacity $d-hover;
