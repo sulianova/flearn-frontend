@@ -9,11 +9,6 @@
   padding: set-calc(32) set-calc(32);
   border-radius: set-calc($border-radius-medium);
 
-  // background-image: ;
-  // background-position: right bottom;
-  // background-repeat: no-repeat;
-  // background-size: 45% auto;
-
   &:hover {
     .background {
       box-shadow: $shadow-medium-hovered;
@@ -60,7 +55,7 @@
   display: flex;
   margin-top: auto;
 
-  color: $color-content-primary-dark;
+  color: $color-content-primary-light;
 
   .text {
     @include set-typography(20, 26, 500);
@@ -96,10 +91,8 @@
   overflow: hidden;
 
   border-radius: set-calc($border-radius-medium);
-  background: $color-gradient-rainbow;
-  box-shadow:$shadow-medium-default;
-
-  background-size: 100% 100%;
+  background: $color-highlight-green;
+  box-shadow: $shadow-medium-default;
 
   transition: width .3s, margin .3s, min-width .3s, background-color .3s, color .3s, border .3s, background-position 2s ease-out, padding-left .3s, transform $d-hover ease, box-shadow $d-hover ease;
 }
@@ -109,7 +102,7 @@
   max-width: set-calc(600);
 
   @include font-40-normal-header;
-  color: $color-content-primary-dark;
+  color: $color-content-primary-light;
   text-align: left;
 }
 

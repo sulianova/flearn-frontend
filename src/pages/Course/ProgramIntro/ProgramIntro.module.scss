@@ -11,7 +11,7 @@
   padding: set-calc(48) set-calc(24) set-calc(24);
   border-radius: set-calc($border-radius-medium);
   border: set-calc(1) solid var(--color-border);
-  background: var(--color-accent-promo);
+  background: var(--color-accent-promo-background);
 
   color: $matt-white;
 
@@ -81,17 +81,17 @@
   align-items: center;
 
   @include font-18-normal-ui;
-  color: var(--color-content-primary);
+  color: var(--color-content-inverted-primary);
 
   padding: 0 set-calc(12);
   height: set-calc(30);
   background-color: transparent;
   
   border-radius: set-calc($border-radius-large);
-  border: 1px solid var(--color-content-primary);
+  border: 1px solid var(--color-content-inverted-primary);
 
   @include set-media(md) {
-    border: 1.5px solid var(--color-content-primary);
+    border: 1.5px solid var(--color-content-inverted-primary);
     height: set-calc(30);
     padding: 0 set-calc(12);
   }
@@ -102,7 +102,7 @@
   margin-bottom: set-calc(24);
   letter-spacing: -0.05rem;
   
-  color: var(--color-content-primary);
+  color: var(--color-content-inverted-primary);
   font-family: $font-family-bold;
   text-align: center;
 
@@ -117,7 +117,7 @@
   margin-bottom: set-calc(16);
 
   @include set-typography(28, 36, 500);
-  color: var(--color-content-primary);
+  color: var(--color-content-inverted-primary);
 
   max-width: 70%;
 
