@@ -55,7 +55,7 @@
   display: flex;
   margin-top: auto;
 
-  color: $color-content-primary-light;
+  color: $color-content-primary-dark;
 
   .text {
     @include set-typography(20, 26, 500);
@@ -91,7 +91,7 @@
   overflow: hidden;
 
   border-radius: set-calc($border-radius-medium);
-  background: $color-highlight-green;
+  background: $color-highlight-violet;
   box-shadow: $shadow-medium-default;
 
   transition: width .3s, margin .3s, min-width .3s, background-color .3s, color .3s, border .3s, background-position 2s ease-out, padding-left .3s, transform $d-hover ease, box-shadow $d-hover ease;
@@ -102,44 +102,12 @@
   max-width: set-calc(600);
 
   @include font-40-normal-header;
-  color: $color-content-primary-light;
+  color: $color-content-primary-dark;
   text-align: left;
 }
 
 .btnWrapper {
   position: relative;
-}
-
-.btn {
-  position: relative;
-  
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: set-calc($border-radius-small);
-  transition: background-color $d-hover ease, box-shadow $d-hover ease;
-  background: var(--color-background-btn);
-
-  @include font-18-normal-ui;
-  color: $color-content-primary-dark;
-
-  height: set-calc(52);
-  width: max-content;
-
-  padding: 0 set-calc(20);
-
-  @include set-media(md) {
-    padding: set-calc(16) set-calc(40);
-    width: 100%;
-    flex: 1 1 max-content;
-  }
-
-  &:hover {
-    cursor: pointer;
-    box-shadow: $shadow-medium-hovered;
-    background-color: var(--color-background-btn-hover);
-  }
 }
 
 .wrapper {
