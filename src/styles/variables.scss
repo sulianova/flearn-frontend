@@ -57,17 +57,15 @@ $color-palette-white-1000: #ffffff;
 
 //color-promo-highlight
 $color-highlight-greenish: rgb(226, 255, 45);
-$color-highlight-green: #54e3a3;
-$color-highlight-violet-dark: rgb(108, 12, 204);
-$color-highlight-violet: rgb(134, 25, 245);
-$color-highlight-violet-light: rgb(237, 232, 255);
-$color-highlight-yellow-hover: #fc0;
-$color-highlight-yellow: #FFE147;
+$color-highlight-sky: #49c2ff;
+$color-highlight-green: #a4dd49;
+$color-highlight-violet: #b595ff;
+$color-highlight-yellow: #ffe205;
+$color-highlight-pink: #ffa2e2;
 
 $color-highlight-silver: #edf2f7;
 $color-highlight-gold: #fcf6c5;;
-$color-highlight-asphalt: #eaebeb;
-$color-highlight-sky: rgb(217, 248, 255);
+
 $color-highlight-neon: #ece2fc;
 $color-highlight-mint: #d1ffd5;
 $color-highlight-misty-rose: #ffe3e3;
@@ -111,8 +109,8 @@ $color-gradient-rainbow-background: linear-gradient(68deg, rgb(255, 250, 208) 28
 $color-gradient-rainbow-btn: linear-gradient(90deg, #ff5c4d 0%, #eb469f 26.56%, #8341ef 75%, #3f68f9 100%), #3f68f9;
 
 //theme-light
-$primary-color-light: $color-palette-indigo-400;
-$primary-color-hover-light: $color-palette-indigo-350;
+$primary-color-light: $color-palette-indigo-350;
+$primary-color-hover-light: $color-palette-indigo-400;
 $color-accent-error-light: #f22a2a;
 $color-accent-notice-light: #e67046;
 $color-accent-success-light: #1c9c75;
@@ -161,7 +159,7 @@ $color-accent-error-dark: #f22a2a;
 $color-accent-notice-dark: #e67046;
 $color-accent-success-dark: #1c9c75;
 $color-accent-warning-dark: #ffb72c;
-$color-accent-promo-dark: $primary-color-dark;
+$color-accent-promo-dark: $color-highlight-violet;
 $color-accent-promo-background-dark: $color-palette-indigo-100;
 $color-accent-neutral-dark: $color-palette-white-1000;
 $color-accent-neutral-hover-dark: $color-palette-black-300;
@@ -187,7 +185,7 @@ $color-content-primary-dark: $color-palette-black-50;
 $color-content-secondary-dark: $color-palette-black-300;
 $color-content-tertiary-dark: $color-palette-black-500;
 $color-content-background-primary-dark: $color-palette-black-200;
-$color-content-background-secondary-dark: $color-palette-black-500;
+$color-content-background-secondary-dark: $color-palette-black-300;
 $color-content-background-tertiary-dark: $color-palette-black-700;
 $color-content-paragraph-primary-dark: $color-palette-black-300;
 $color-content-paragraph-secondary-dark: $color-palette-black-400;

@@ -11,7 +11,7 @@
   padding: set-calc(48) set-calc(24) set-calc(24);
   border-radius: set-calc($border-radius-medium);
   border: set-calc(1) solid var(--color-border);
-  background: var(--color-card);
+  background: var(--color-accent-promo);
 
   color: $matt-white;
 
@@ -82,14 +82,13 @@
 
   @include font-18-normal-ui;
   color: var(--color-content-primary);
-  font-family: $font-family-bold;
 
   padding: 0 set-calc(12);
   height: set-calc(30);
   background-color: transparent;
   
   border-radius: set-calc($border-radius-large);
-  border: 2px solid var(--color-content-primary);
+  border: 1px solid var(--color-content-primary);
 
   @include set-media(md) {
     border: 1.5px solid var(--color-content-primary);
@@ -99,7 +98,7 @@
 }
 
 .title {
-  @include set-typography(78, 80, 500);
+  @include set-typography(100, 100, 500);
   margin-bottom: set-calc(24);
   letter-spacing: -0.05rem;
   
@@ -117,8 +116,10 @@
 .block {
   margin-bottom: set-calc(16);
 
-  @include set-typography(24, 30, 500);
+  @include set-typography(28, 36, 500);
   color: var(--color-content-primary);
+
+  max-width: 70%;
 
   white-space: pre-line;
   text-align: center;
@@ -149,11 +150,9 @@
   align-items: center;
   justify-content: center;
 
-  border-radius: set-calc($border-radius-16);
-  background: var(--primary-color);
-  background-size: 400% 400%;
+  border-radius: set-calc($border-radius-30);
+  background: $color-highlight-violet;
 
-  animation: buttonGradient 45s ease infinite;
   transition: width .3s, margin .3s, min-width .3s, background-color .3s, color .3s, border .3s, background-position 2s ease-out, padding-left .3s, opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
 
   @include font-20-normal-ui;
@@ -170,7 +169,6 @@
   .text {
     z-index: 200;
     color: $color-content-inverted-primary-light;
-    font-family: $font-family-bold;
   }
 
   &:hover {
