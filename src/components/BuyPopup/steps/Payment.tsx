@@ -31,7 +31,7 @@ export default function Payment(props: IProps & { chosenProductOptionType: keyof
     <div className={classes.paymentWrapper}>
       <div className={classes.paymentBlock}>
         <div className={classes.headerWrapper}>
-          <h1 className={classes.title}>С обратной связью</h1>
+          <h1 className={classes.title}>{t(`options.${chosenProductOptionType}.caption`)}</h1>
           <div className={classes.benefits}>
             <div className={classes.benefitsItem}>
               <div className={classes.itemIcon}><Icon icon='TickInCircle'/></div>
@@ -43,7 +43,9 @@ export default function Payment(props: IProps & { chosenProductOptionType: keyof
             </div>
             <div className={classes.benefitsItem}>
               <div className={classes.itemIcon}><Icon icon='TickInCircle'/></div>
-              <div className={classes.itemText}>Фидбэк</div>
+              <div className={classes.itemText}>
+                {chosenProductOptionType === 'BASE' ? 'НЕ Фидбэк' : 'Фидбэк'}
+              </div>
             </div>
           </div>
           <div className={classes.paymentOptions}>
@@ -79,7 +81,7 @@ export default function Payment(props: IProps & { chosenProductOptionType: keyof
               <dt>
                 <span className={classes.paymentSummaryText}>{formatCourseCredit(creditPrice, currencySign)}</span>
                 <div className={classes.paymentSummaryCreditWas}>
-                  <s>{formatCourseCredit(creditWas)} &#8381;</s>
+                  <s>{formatCourseCredit(creditWas, currencySign)}</s>
                 </div>
               </dt>
             </dl>
