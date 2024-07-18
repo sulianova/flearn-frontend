@@ -30,7 +30,7 @@ interface IProps {
 
 export default function MobileBtn({ course, variant, visible }: IProps) {
   const userCourses = courseService.useUserCourses() ?? [];
-  const firstNotSolvedLesson = userCourseProgressService.useFirstNotSolvedLesson();
+  const lastStudiedCourse = userCourseProgressService.useLastStudiedCourse();
   const currentLesson = lessonService.useCurrentLesson() ?? undefined;
   const topicLessons = lessonService.useTopicLessons({ topic: currentLesson?.topic }) ?? [];
   
@@ -56,7 +56,7 @@ export default function MobileBtn({ course, variant, visible }: IProps) {
         <MobileMenuPopup
           user={user}
           userCourses={userCourses}
-          firstNotSolvedLesson={firstNotSolvedLesson}
+          lastStudiedCourse={lastStudiedCourse}
           currentLesson={currentLesson}
           topicLessons={topicLessons}
           close={() => setMobMenuIsOpened(false)}

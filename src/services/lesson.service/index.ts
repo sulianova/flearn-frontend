@@ -100,11 +100,14 @@ class LessonService {
 
   public async fetchNextLesson(lesson: ILessonData) {
     try {
+      console.log('fetchNextLesson');
       const nextInTopickLesson = (await this.fetch({ courseId: lesson.courseId, topicOrder: lesson.topicOrder, orderInTopic: lesson.orderInTopic + 1 }))[0] as ILessonData | undefined;
+      console.log('fetchNextLesson', { nextInTopickLesson });
       if (nextInTopickLesson) {
         return nextInTopickLesson;
       }
       const firstInNextTopickLesson = (await this.fetch({ courseId: lesson.courseId, topicOrder: lesson.topicOrder + 1, orderInTopic: 1 }))[0] as ILessonData | undefined;
+      console.log('fetchNextLesson', { firstInNextTopickLesson });
       if (firstInNextTopickLesson) {
         return firstInNextTopickLesson;
       }

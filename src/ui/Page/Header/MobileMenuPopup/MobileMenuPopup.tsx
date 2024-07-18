@@ -26,14 +26,14 @@ const t = formatI18nT('header');
 interface IProps {
   user: IUserData | null
   userCourses: ICourseData[] | undefined
-  firstNotSolvedLesson: ILessonData | null
+  lastStudiedCourse: ICourseData | null
   currentLesson?: ILessonData
   topicLessons: Array<ILessonData & { solved: boolean, canBeAccessed: boolean }> | undefined
   close: () => void
 }
 
 export default function MobileMenuPopup(props: Readonly<IProps>) {
-  const { user, userCourses, firstNotSolvedLesson, currentLesson, topicLessons, close } = props;
+  const { user, userCourses, lastStudiedCourse, currentLesson, topicLessons, close } = props;
   const { courseId, lessonId } = useParams();
   const urlSection = useURLSection();
   const isMobile = useIsMobile();
@@ -71,8 +71,8 @@ export default function MobileMenuPopup(props: Readonly<IProps>) {
       className={cx({
           mobItem: true,
           active: {
-            'Home': course.id === firstNotSolvedLesson?.courseId,
-            'Course': course.id === firstNotSolvedLesson?.courseId,
+            'Home': course.id === lastStudiedCourse?.id,
+            'Course': course.id === lastStudiedCourse?.id,
             'Profile': course.id === courseId,
             'EmptyProfile': course.id === courseId,
             'Study': false,
@@ -110,7 +110,7 @@ export default function MobileMenuPopup(props: Readonly<IProps>) {
   const mobMenuFirstNotSolvedLessonProfileBtn = (
     <Link
       className={classes.navBtn}
-      to={firstNotSolvedLesson ? URLSections.Profile.to({ courseId: firstNotSolvedLesson.courseId }) : URLSections.EmptyProfile.index}
+      to={lastStudiedCourse ? URLSections.Profile.to({ courseId: lastStudiedCourse.id }) : URLSections.EmptyProfile.index}
       onClick={close}
     >
       {t('login.profile')}

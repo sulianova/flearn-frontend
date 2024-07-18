@@ -6,13 +6,14 @@ import type { TActionBS, TActionS } from './types';
 import { authService } from 'services';
 import { safeObjectKeys } from 'utils';
 import { ILessonData, lessonService } from 'services/lesson.service';
-import useFirstNotSolvedLesson from './useFirstNotSolvedLesson';
+import useLastStudiedCourse from './useLastStudiedCourse';
+import { courseService, ICourseData } from 'services/course.service';
 
 export type { TProgress, TProgressDB, TUserCourseProgress, TUserCourseProgressDB } from './types';
 
 class UserCourseProgressService {
   public userCourseProgresS = new Subject<TActionS>();
-  public useFirstNotSolvedLesson = useFirstNotSolvedLesson;
+  public useLastStudiedCourse = useLastStudiedCourse;
 
   constructor() {
     this.init();
@@ -26,17 +27,17 @@ class UserCourseProgressService {
     .subscribe(() => {
       const user = authService.user;
       if (!user) {
-        this._firstNotSolvedLessonBS.next(null);
+        this._lastStudiedCourseBS.next(null);
         return;
       }
 
-      this.fetchFirstNotSolvedLesson()
-        .then(lesson => {
-          this._firstNotSolvedLessonBS.next(lesson);
+      this.fetchLastStudiedCourse()
+        .then(course => {
+          this._lastStudiedCourseBS.next(course);
         })
         .catch(error => {
-          console.log('Failed to fetch FirstNotSolvedLesson for _firstNotSolvedLessonBS', { error, user });
-          this._firstNotSolvedLessonBS.next(null);
+          console.log('Failed to fetch LastStudiedCourse for _lastStudiedCourseBS', { error, user });
+          this._lastStudiedCourseBS.next(null);
         })
     });
   }
@@ -60,54 +61,7 @@ class UserCourseProgressService {
     }
   }
 
-  protected getFirstNotSolvedLessonBS() {
-    try {
-      const mainSubject = new BehaviorSubject<TActionBS>(null);
-
-      const fetch = async () => {
-        try {
-          mainSubject.next(null);
-          const lesson = await this.fetchFirstNotSolvedLesson();
-          mainSubject.next(lesson);
-        } catch (err) {
-          mainSubject.next(err as Error);
-        }
-      };
-
-      return {
-        ...mainSubject,
-        subscribe: (
-          observer?:
-            | NextObserver<TActionBS>
-            | ErrorObserver<TActionBS>
-            | CompletionObserver<TActionBS>
-            | undefined
-        ) => {
-          fetch();
-
-          const dependenciesSubscription = merge(
-              this.userCourseProgresS,
-              authService.firebaseUserBS,
-            )
-            .subscribe(fetch);
-
-          const mainSubjectSubscription = mainSubject.subscribe(observer);
-          return {
-            ...mainSubjectSubscription,
-            unsubscribe: () => {
-              mainSubjectSubscription?.unsubscribe();
-              dependenciesSubscription?.unsubscribe();
-            },
-          };
-        },
-      } as BehaviorSubject<TActionBS>;
-    } catch (err) {
-      console.error('Failed to subscribe for first not solved lesson');
-      throw err;
-    }
-  }
-
-  private async fetchFirstNotSolvedLesson() {
+  private async fetchLastStudiedCourse() {
     try {
       const authedUser = authService.user;
       if (!authedUser) {
@@ -130,18 +84,17 @@ class UserCourseProgressService {
           return null;
         }
 
-        return (await lessonService.fetch({ courseId: randomAccessedCourseId, topicOrder: 1, orderInTopic: 1 })).at(0) ?? null;
+        return (await courseService._fetch({ ids: [randomAccessedCourseId] })).at(0) ?? null;
       }
-      const { courseId, lessonId } = lastSolvedLessonProgress;
-      const lastSolvedLesson = (await lessonService.fetch({ courseId, id: lessonId })).at(0)!;
-      return await lessonService.fetchNextLesson(lastSolvedLesson);
+      const { courseId } = lastSolvedLessonProgress;
+      return (await courseService._fetch({ ids: [courseId] })).at(0) ?? null;
     } catch (error) {
-      console.log('Fetch first not solved lesson', { error });
+      console.log('Fetch first last studied course', { error });
       throw error;
     }
   }
 
-  protected _firstNotSolvedLessonBS = new BehaviorSubject<ILessonData | null>(null);
+  protected _lastStudiedCourseBS = new BehaviorSubject<ICourseData | null>(null);
 }
 
 export const userCourseProgressService = new UserCourseProgressService();

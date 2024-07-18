@@ -7,17 +7,16 @@ import classes from './CoursesDropdownContent.module.scss';
 import classnames from 'classnames/bind';
 import { useParams } from 'react-router';
 import { useURLSection } from 'hooks';
-import { ILessonData } from 'services/lesson.service';
 
 const cx = classnames.bind(classes);
 
 interface IProps {
   courses: ICourseData[] | undefined
-  firstNotSolvedLesson: ILessonData | null
+  lastStudiedCourse: ICourseData | null
   close: () => void
 }
 
-export default function CoursesDropdownContent({ courses, firstNotSolvedLesson, close }: Readonly<IProps>) {
+export default function CoursesDropdownContent({ courses, lastStudiedCourse, close }: Readonly<IProps>) {
   const urlSection = useURLSection();
   const { courseId } = useParams();
   return (
@@ -40,8 +39,8 @@ export default function CoursesDropdownContent({ courses, firstNotSolvedLesson, 
                       className={cx({
                         listOption: true,
                         active: {
-                          'Home': course.id === firstNotSolvedLesson?.courseId,
-                          'Course': course.id === firstNotSolvedLesson?.courseId,
+                          'Home': course.id === lastStudiedCourse?.id,
+                          'Course': course.id === lastStudiedCourse?.id,
                           'Profile': course.id === courseId,
                           'EmptyProfile': course.id === courseId,
                           'Study': course.id === courseId,

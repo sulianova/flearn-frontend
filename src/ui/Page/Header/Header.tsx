@@ -36,7 +36,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
   const user = userService.useAuthedUser();
   const currentCourse = courseService.useCurrentCourse()
   const userCourses = courseService.useUserCourses() ?? [];
-  const firstNotSolvedLesson = userCourseProgressService.useFirstNotSolvedLesson();
+  const lastStudiedCourse = userCourseProgressService.useLastStudiedCourse();
   const currentLesson = lessonService.useCurrentLesson() ?? undefined;
   const topicLessons = lessonService.useTopicLessons({ topic: currentLesson?.topic }) ?? [];
 
@@ -58,7 +58,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
         <MobileMenuPopup
           user={user}
           userCourses={userCourses}
-          firstNotSolvedLesson={firstNotSolvedLesson}
+          lastStudiedCourse={lastStudiedCourse}
           currentLesson={currentLesson}
           topicLessons={topicLessons}
           close={() => setMobMenuIsOpened(false)}
@@ -104,7 +104,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
                 content={({ close }) => (
                   <CoursesDropdownContent
                     courses={userCourses}
-                    firstNotSolvedLesson={firstNotSolvedLesson}
+                    lastStudiedCourse={lastStudiedCourse}
                     close={close}
                   />
                 )}
@@ -134,7 +134,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
               ) : (
                 <div className={cx({ navLogin: true, navItem: true })}>
                   {user ?
-                    (<Link to={firstNotSolvedLesson ? URLSections.Profile.to({ courseId: firstNotSolvedLesson.courseId }) : URLSections.EmptyProfile.index}>{t('login.profile')}</Link>)
+                    (<Link to={lastStudiedCourse ? URLSections.Profile.to({ courseId: lastStudiedCourse.id }) : URLSections.EmptyProfile.index}>{t('login.profile')}</Link>)
                     : (<div onClick={() => authService.authenticate()}>{t('login.signIn')}</div>)
                   }
                 </div>
