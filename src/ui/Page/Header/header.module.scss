@@ -255,11 +255,11 @@
 
   padding: 0 set-calc(24);
 
-  color: $color-content-inverted-primary-light;
+  color: $color-content-primary-light;
   text-transform: uppercase;
     
-  background: $color-highlight-violet;
-  border: 1px solid $color-highlight-violet;
+  background: $color-highlight-yellow;
+  border: 1px solid $color-content-primary-light;
   border-radius: set-calc($border-radius-30);
 
   width: max-content;
@@ -269,6 +269,7 @@
   
   &:hover {
     cursor: pointer;
+    background: $color-highlight-violet;
   }
 
   &:active {
