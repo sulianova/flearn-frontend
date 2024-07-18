@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { IArticleContent } from 'types';
+import { IArticleContent, TArticleHandlers } from 'types';
 
 import Quiz from './Quiz/Quiz';
 import Gallery from './Gallery/Gallery';
@@ -10,6 +10,7 @@ import List from './List/List';
 import TextImportant from './TextImportant/TextImportant';
 import Title from './Title/Title';
 import Video from './Video/Video';
+import Button from './Button/Button';
 
 import './Article.scss';
 
@@ -24,24 +25,22 @@ Article.List = List;
 Article.TextImportant = TextImportant;
 Article.Title = Title;
 Article.Video = Video;
+Article.Button = Button;
 
 interface IProps {
   blocks: IArticleContent
+  handlers?: TArticleHandlers
 }
 
 function Article(props: IProps) {
-  return (
-    <>
-      {renderBlocks(props.blocks)}
-    </>
+  return props.blocks.map((block, index) =>
+    <Fragment key={index}>
+      {renderBlock(block, props.handlers)}
+    </Fragment>
   );
 }
 
-function renderBlocks(blocks: IArticleContent) {
-  return blocks.map((block, index) => <Fragment key={index}>{renderBlock(block)}</Fragment>);
-}
-
-function renderBlock(block: IArticleContent[number]) {
+function renderBlock(block: IArticleContent[number], handlers?: TArticleHandlers) {
   switch(block.type) {
     case 'title':
       return (<Title {...block}/>);
@@ -61,5 +60,7 @@ function renderBlock(block: IArticleContent[number]) {
       return (<Image {...block}/>);
     case 'gallery':
       return (<Gallery {...block}/>);
+    case 'button':
+      return (<Button {...block} handlers={handlers ?? {}}/>)
   }
 }

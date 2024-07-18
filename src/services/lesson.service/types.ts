@@ -151,6 +151,11 @@ export interface ILessonListBlock extends ILessonBlock {
   items: TText[]
 }
 
+export interface ILessonButtonBlock extends ILessonBlock {
+  type: 'button'
+  handlerId: string
+  content: TText
+}
 
-export type ILessonContentDB = Array<ILessonTextBlock | ILessonQuestionBlock | ILessonQuoteBlock | ILessonTextImportantBlock | ILessonTitleBlock  | ILessonVideoBlock | ILessonImageBlockDB | ILessonGalleryBlockDB | ILessonListBlock>;
-export type ILessonContent = Array<ILessonTextBlock | ILessonQuestionBlock | ILessonQuoteBlock | ILessonTextImportantBlock | ILessonTitleBlock  | ILessonVideoBlock | ILessonImageBlock | ILessonGalleryBlock | ILessonListBlock>;
+export type ILessonContentDB = Array<ILessonTextBlock | ILessonQuestionBlock | ILessonQuoteBlock | ILessonTextImportantBlock | ILessonTitleBlock  | ILessonVideoBlock | ILessonImageBlockDB | ILessonGalleryBlockDB | ILessonListBlock | ILessonButtonBlock>;
+export type ILessonContent = Array<ILessonTextBlock | ILessonQuestionBlock | ILessonQuoteBlock | ILessonTextImportantBlock | ILessonTitleBlock  | ILessonVideoBlock | ILessonImageBlock | ILessonGalleryBlock | ILessonListBlock | ILessonButtonBlock>;

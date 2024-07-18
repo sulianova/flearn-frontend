@@ -1,5 +1,5 @@
+import type { ButtonHTMLAttributes } from 'react';
 import type { TText } from 'ui/Text/Text';
-
 
 export interface IArticleBlock {
   factoid?: TText
@@ -74,6 +74,12 @@ export interface IArticleGalleryBlock extends IArticleBlock {
   maxHeightPx?: number
 }
 
+export interface IArticleButtonBlock extends IArticleBlock {
+  type: 'button'
+  handlerId: string
+  content: TText
+}
+
 export type TArticleBlocks =
   | IArticleQuizBlock
   | IArticleGalleryBlock
@@ -83,7 +89,8 @@ export type TArticleBlocks =
   | IArticleListBlock
   | IArticleTextImportantBlock
   | IArticleTitleBlock
-  | IArticleVideoBlock;
+  | IArticleVideoBlock
+  | IArticleButtonBlock;
 
 export type TArticleBlocksDB =
   | IArticleQuizBlock
@@ -94,7 +101,9 @@ export type TArticleBlocksDB =
   | IArticleListBlock
   | IArticleTextImportantBlock
   | IArticleTitleBlock
-  | IArticleVideoBlock;
+  | IArticleVideoBlock
+  | IArticleButtonBlock;
 
 export type IArticleContent = TArticleBlocks[];
 export type IArticleContentDB = TArticleBlocksDB[];
+export type TArticleHandlers = Record<string, (() => void) | undefined>

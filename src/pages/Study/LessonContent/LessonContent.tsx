@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
 import { type ICourseData } from 'services/course.service';
@@ -32,6 +32,9 @@ export default function LessonContent(props: IProps) {
   const lessonSurveyAnswers = surveyAnswersService.useCurrentLessonSurveyAnswers();
 
   const [buyPopupIsOpened, setBuyPopupIsOpened] = useState(false);
+  const handlers = useMemo(() => ({
+    'open-buy-source-popup': () => setBuyPopupIsOpened(true),
+  }), []);
 
   return (
     <>
@@ -44,7 +47,10 @@ export default function LessonContent(props: IProps) {
       )}
       <div className={classes._}>
         <h1 className={classes.title}>{lesson.title}</h1>
-        <Article blocks={lesson.content}/>
+        <Article
+          blocks={lesson.content}
+          handlers={handlers}
+        />
         <LessonSurvey
           lesson={lesson}
           user={user}
