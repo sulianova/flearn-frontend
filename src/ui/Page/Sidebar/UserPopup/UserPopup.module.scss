@@ -1,20 +1,23 @@
 @import 'styles/index';
 
-.overlay {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-}
+// .overlay {
+//   position: fixed;
+//   top: 0;
+//   right: 0;
+//   bottom: 0;
+//   left: 0;
+//   z-index: -1;
+// }
 
 .popup{
-  position: absolute;
-  top: unset;
-  bottom: 0;
-  left: set-calc(16, true, 100%);
-  right: unset;
+  // position: absolute;
+  // top: unset;
+  // bottom: 0;
+  // left: set-calc(16, true, 100%);
+  // right: unset;
+
+  margin-left: set-calc(20);
+  margin-bottom: set-calc(-5);
 
   transform: none;
   z-index: -1;
@@ -32,14 +35,14 @@
   border: 1px solid var(--border-color);
   box-shadow: $shadow-menu;
 
-  @include set-media(md) {
-    top: unset;
-    right: 0;
-    left: unset;
-    bottom: set-calc(8, true, 100%);
+  // @include set-media(md) {
+  //   top: unset;
+  //   right: 0;
+  //   left: unset;
+  //   bottom: set-calc(8, true, 100%);
 
-    width: set-calc(250);
-  }
+  //   width: set-calc(250);
+  // }
 }
 
 .animated {
@@ -74,7 +77,7 @@
 }
 
 .item {
-  position: relative;
+  // position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -86,9 +89,9 @@
   padding: set-calc(12) set-calc(12);
   border-radius: set-calc($border-radius-10);
 
-  @include set-media(md) {
-    padding: set-calc(12) set-calc(12);
-  }
+  // @include set-media(md) {
+  //   padding: set-calc(12) set-calc(12);
+  // }
 }
 
 .withIcon {

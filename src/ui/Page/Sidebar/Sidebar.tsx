@@ -1,3 +1,4 @@
+import Tippy from '@tippyjs/react';
 import classnames from 'classnames/bind';
 import { useState } from 'react';
 import { useParams } from 'react-router';
@@ -68,22 +69,30 @@ function Sidebar() {
               </span>
             </li>
             {urlSection.name === 'Profile' && (
-              <li className={cx({ item: true, open: userPopupVisible })}>
-                {authedUser && userPopupVisible && (
+              <Tippy
+                interactive
+                placement='left-end'
+                visible={userPopupVisible}
+                onClickOutside={() => setUserPopupVisible(!userPopupVisible)}
+                offset={[0, 0]}
+                content={authedUser && (
                   <UserPopup
                     user={authedUser}
                     close={() => setUserPopupVisible(false)}
                   />
                 )}
-                <span className={classes.iconWrapper}>
-                <div
-                    className={classes.icon}
-                    onClick={() => setUserPopupVisible(!userPopupVisible)}
-                  >
-                    <Icon icon='User' />
-                  </div>
-                </span>
-              </li>
+              >
+                <li className={classes.item}>
+                  <span className={classes.iconWrapper}>
+                    <div
+                      className={classes.icon}
+                      onClick={() => setUserPopupVisible(!userPopupVisible)}
+                    >
+                      <Icon icon='User' />
+                    </div>
+                  </span>
+                </li>
+              </Tippy>
             )}
           </ul>
         </aside>
