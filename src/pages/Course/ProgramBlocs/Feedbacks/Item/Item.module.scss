@@ -74,9 +74,10 @@
 .feedbackExcerpt {
   grid-column: 10 / -1;
 
-  @include font-28-normal-header;
+  @include set-typography(26, 36, 500);
   padding-right: set-calc(24);
   padding-top: set-calc(8);
+  color: $color-highlight-violet;
 
   @include set-media(md) {
     display: none;
