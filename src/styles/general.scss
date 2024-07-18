@@ -31,6 +31,11 @@ html {
   -webkit-font-smoothing: antialiased;
 
   scroll-behavior: smooth;
+
+  ::-webkit-scrollbar {
+    background: transparent;
+    width: 0;
+  }
 }
 
 body,

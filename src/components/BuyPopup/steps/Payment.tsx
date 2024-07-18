@@ -41,12 +41,12 @@ export default function Payment(props: IProps & { chosenProductOptionType: keyof
               <div className={classes.itemIcon}><Icon icon='TickInCircle'/></div>
               <div className={classes.itemText}>Уроки</div>
             </div>
-            <div className={classes.benefitsItem}>
-              <div className={classes.itemIcon}><Icon icon='TickInCircle'/></div>
-              <div className={classes.itemText}>
-                {chosenProductOptionType === 'BASE' ? 'НЕ Фидбэк' : 'Фидбэк'}
+            { chosenProductOptionType === 'OPTIMAL' && (
+              <div className={classes.benefitsItem}>
+                <div className={classes.itemIcon}><Icon icon='TickInCircle'/></div>
+                  <div className={classes.itemText}>Фидбэк</div>
               </div>
-            </div>
+            )}
           </div>
           <div className={classes.paymentOptions}>
             <div className={classes.paymentOptionsTitle}>Как и чем платить</div>
@@ -75,7 +75,7 @@ export default function Payment(props: IProps & { chosenProductOptionType: keyof
               <dt>
                 <span className={classes.paymentSummaryText}>За весь курс</span>
                 <div className={classes.paymentSummaryTags}>
-                  <span className={classes.paymentSummaryTag}>−5% по промокоду</span>
+                  <span className={classes.paymentSummaryTag}>{`−${discount ?? 0}% по промокоду`}</span>
                 </div>
               </dt>
               <dt>

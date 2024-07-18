@@ -14,11 +14,13 @@ export default function Button({ content, handlerId, handlers }: Props) {
   }
 
   return (
-    <button
-      className={classes.__}
-      onClick={handler}
-    >
-      <Text text={content}/>
-    </button>
+    <div className={classes.wrapper}>
+      <button
+        className={classes.button}
+        onClick={handler}
+      >
+        <Text text={content}/>
+      </button>
+    </div>
   );
 }
