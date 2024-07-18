@@ -110,7 +110,7 @@ export default function MobileMenuPopup(props: Readonly<IProps>) {
   const mobMenuFirstNotSolvedLessonProfileBtn = (
     <Link
       className={classes.navBtn}
-      to={lastStudiedCourse ? URLSections.Profile.to({ courseId: lastStudiedCourse.id }) : URLSections.EmptyProfile.index}
+      to={URLSections.Profile.to({ courseId: lastStudiedCourse?.id ?? 'how-to-draw' })}
       onClick={close}
     >
       {t('login.profile')}
