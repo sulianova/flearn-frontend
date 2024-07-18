@@ -41,6 +41,7 @@ $color-palette-black-500-a: rgba(0, 0, 0, 0.5);
 $color-palette-black-600-a: rgba(0, 0, 0, 0.58);
 $color-palette-black-700-a: rgba(0, 0, 0, 0.7);
 $color-palette-black-800-a: rgba(0, 0, 0, 0.85);
+$color-palette-black-900-a: rgba(0, 0, 0, 0.95);
 
 //color-palette-white
 $color-palette-white-25-a: rgba(0, 0, 0, 0.015);
@@ -145,8 +146,8 @@ $color-content-tertiary-light: $color-palette-black-400;
 $color-content-background-primary-light: $color-palette-black-800;
 $color-content-background-secondary-light: $color-palette-black-700;
 $color-content-background-tertiary-light: $color-palette-black-500;
-$color-content-paragraph-primary-light: $color-palette-black-700-a;
-$color-content-paragraph-secondary-light: $color-palette-black-600-a;
+$color-content-paragraph-primary-light: $color-palette-black-900-a;
+$color-content-paragraph-secondary-light: $color-palette-black-800-a;
 $color-background-btn-light: $color-palette-black-700;
 $color-background-btn-hover-light: $color-palette-black-900;
 $color-background-card-light: $color-palette-black-900;
