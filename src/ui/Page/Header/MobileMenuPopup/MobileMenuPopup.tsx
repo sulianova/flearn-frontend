@@ -1,21 +1,24 @@
 import classnames from 'classnames/bind';
+import { useState } from 'react';
 import { useParams } from 'react-router';
 import { useNavigate } from 'react-router';
 
 import { useIsMobile, useURLSection } from 'hooks';
 import { formatI18nT } from 'shared';
 import { authService } from 'services';
-import { ICourseData } from 'services/course.service';
+import { courseService, ICourseData } from 'services/course.service';
 import { ILessonData } from 'services/lesson.service';
 import { IUserData } from 'services/user.service';
 import { URLSections } from 'router';
 import { frontendSettingsService } from 'services/frontendSettings.service';
 
+import BuyPopup from 'components/BuyPopup/BuyPopup';
 import Icon from 'ui/Icon/Icon';
 import Link from 'ui/Link/Link';
 import Popup from 'ui/Popup/Popup';
 
 import classes from './MobileMenuPopup.module.scss';
+
 const cx = classnames.bind(classes);
 
 const t = formatI18nT('header');
@@ -36,6 +39,8 @@ export default function MobileMenuPopup(props: Readonly<IProps>) {
   const isMobile = useIsMobile();
   const { theme } = frontendSettingsService.useFrontendSettings();
   const navigate = useNavigate();
+  const [buyPopupIsOpened, setBuyPopupIsOpened] = useState(false);
+  const currentCourse = courseService.useCurrentCourse();
 
   const mobMenuLessonsList = topicLessons?.map(lesson => (
     <Link
@@ -86,6 +91,14 @@ export default function MobileMenuPopup(props: Readonly<IProps>) {
       Все курсы
     </Link>
   );
+  const buyCourseBtn = (
+      <div
+        className={classes.navBtn}
+        onClick={() => setBuyPopupIsOpened(true)}
+      >
+        Купить полный курс
+      </div>
+  );
   const mobMenuLoginBtn = (
     <div
       className={classes.navBtn}
@@ -114,68 +127,71 @@ export default function MobileMenuPopup(props: Readonly<IProps>) {
   );
 
   return (
-    <Popup
-      close={close}
-      children={startClosingProcess => (
-        <div className={classes.mob + ' isMobile'}>
-          <div className={classes.close} onClick={startClosingProcess}>
-            <Icon icon='Cross' />
-          </div>
-            <div className={classes.mobMenuMain}>
-            <div className={classes.itemsGroup}>
-              {user &&  urlSection.name !== 'Study' &&(
-                <div className={classes.item}>
-                  <div className={classes.userEmail}>{user.email}</div>
-                </div>
-              )}
-              {!user ? null :
-                  urlSection.name === 'Study' ? (<>
-                    <div className={classes.header}><div className={classes.title}>{currentLesson?.topic}</div></div>
-                    {mobMenuLessonsList}
-                  </>) : (<>
-                    {/* <div className={classes.listOptionTitle}>{mobMenuCoursesList?.length ? 'Мои курсы:' : 'У вас пока нет курсов'}</div> */}
-                    {mobMenuCoursesList}
-                  </>)
-                }
+    <>
+      {buyPopupIsOpened && currentCourse && user && <BuyPopup user={user} course={currentCourse} close={() => setBuyPopupIsOpened(false)}/>}
+      <Popup
+        close={close}
+        children={startClosingProcess => (
+          <div className={classes.mob + ' isMobile'}>
+            <div className={classes.close} onClick={startClosingProcess}>
+              <Icon icon='Cross' />
             </div>
-            <div className={classes.itemsGroup}>
-              {isMobile && (
-                <div className={cx({ item: true })} onClick={() => frontendSettingsService.update({ theme: theme === 'light' ? 'dark' : 'light' })}>
-                  <div className={classes.itemTitle}>
-                    <div className={classes.withIcon}>
-                      <span>Темная тема</span>
-                      <Icon icon='Night'/>
+              <div className={classes.mobMenuMain}>
+              <div className={classes.itemsGroup}>
+                {user &&  urlSection.name !== 'Study' &&(
+                  <div className={classes.item}>
+                    <div className={classes.userEmail}>{user.email}</div>
+                  </div>
+                )}
+                {!user ? null :
+                    urlSection.name === 'Study' ? (<>
+                      <div className={classes.header}><div className={classes.title}>{currentLesson?.topic}</div></div>
+                      {mobMenuLessonsList}
+                    </>) : (<>
+                      {/* <div className={classes.listOptionTitle}>{mobMenuCoursesList?.length ? 'Мои курсы:' : 'У вас пока нет курсов'}</div> */}
+                      {mobMenuCoursesList}
+                    </>)
+                  }
+              </div>
+              <div className={classes.itemsGroup}>
+                {isMobile && (
+                  <div className={cx({ item: true })} onClick={() => frontendSettingsService.update({ theme: theme === 'light' ? 'dark' : 'light' })}>
+                    <div className={classes.itemTitle}>
+                      <div className={classes.withIcon}>
+                        <span>Темная тема</span>
+                        <Icon icon='Night'/>
+                      </div>
                     </div>
                   </div>
-                </div>
-              )}
-              {user &&  urlSection.name === 'Profile' && (
-                <div className={cx({ item: true })}>
-                  <div
-                    className={classes.itemTitle}
-                    style={{width: 'max-content'}}
-                    onClick={() => authService.logout().then(() => navigate(URLSections.Home.index))}
-                  >
-                    Выйти из профиля
+                )}
+                {user &&  urlSection.name === 'Profile' && (
+                  <div className={cx({ item: true })}>
+                    <div
+                      className={classes.itemTitle}
+                      style={{width: 'max-content'}}
+                      onClick={() => authService.logout().then(() => navigate(URLSections.Home.index))}
+                    >
+                      Выйти из профиля
+                    </div>
                   </div>
-                </div>
-              )}
-            </div>
-              <div className={classes.mobMenuControls}>
-                {!user ? mobMenuLoginBtn :
-                    {
-                      'Home': mobMenuFirstNotSolvedLessonProfileBtn,
-                      'Course': mobMenuFirstNotSolvedLessonProfileBtn,
-                      'Profile': homeBtn,
-                      'EmptyProfile': homeBtn,
-                      'Study': homeBtn,
-                      'Other': null,
-                    }[urlSection.name]
-                  }
-                </div>
-            </div>
-        </div>
-      )}
-    />
+                )}
+              </div>
+                <div className={classes.mobMenuControls}>
+                  {!user ? mobMenuLoginBtn :
+                      {
+                        'Home': mobMenuFirstNotSolvedLessonProfileBtn,
+                        'Course': mobMenuFirstNotSolvedLessonProfileBtn,
+                        'Profile': buyCourseBtn,
+                        'EmptyProfile': homeBtn,
+                        'Study': buyCourseBtn,
+                        'Other': null,
+                      }[urlSection.name]
+                    }
+                  </div>
+              </div>
+          </div>
+        )}
+      />
+    </>
   );
 }

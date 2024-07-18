@@ -122,12 +122,15 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
             {
               urlSection.name === 'EmptyProfile' ? null :
               (urlSection.name === 'Profile' || urlSection.name === 'Study') ? (
-                <div className={cx({ navBuy: true, navItem: true })} onClick={() => setBuyPopupIsOpened(true)}>
-                  <div className={cx({ buyBtn: true})}>Купить полный курс</div>
-                  {/* {getCourseBaseDiscountAmountPrc(currentCourse?.discount) && (
-                    <div className={classes.buyBadge}>{formatCourseDiscount(getCourseBaseDiscountAmountPrc(currentCourse?.discount)!)}</div>
-                  )} */}
-                </div>
+                isMobile ? null :
+                (
+                  <div className={cx({ navBuy: true, navItem: true })} onClick={() => setBuyPopupIsOpened(true)}>
+                    <div className={cx({ buyBtn: true})}>Купить полный курс</div>
+                    {/* {getCourseBaseDiscountAmountPrc(currentCourse?.discount) && (
+                      <div className={classes.buyBadge}>{formatCourseDiscount(getCourseBaseDiscountAmountPrc(currentCourse?.discount)!)}</div>
+                    )} */}
+                  </div>
+                )
               ) : (
                 <div className={cx({ navLogin: true, navItem: true })}>
                   {user ?

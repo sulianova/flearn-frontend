@@ -3,26 +3,34 @@ import { ReactNode, useCallback, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 import classes from './Popup.module.scss';
+import { BehaviorSubject } from 'rxjs';
 
 const cx = classnames.bind(classes);
 
 export default Popup;
 
 const MODAL_ANIMATION_DURATION = 200;
+const openedPopupsCountBS = new BehaviorSubject(0);
+
 interface IProps {
   close: () => void
   children: (startClosingProcess: () => void) => ReactNode
 }
 
+openedPopupsCountBS.subscribe(count => {
+  if (count > 0) {
+    document.body.style.overflowY = 'hidden';
+  } else {
+    document.body.style.overflowY = '';
+  }
+});
+
 function Popup({ children, close }: Readonly<IProps>) {
   const [state, setState] = useState<null | 'OPENING' | 'OPENED' | 'CLOSING'>(null);
 
   useEffect(() => {
-    document.body.style.overflowY = 'hidden';
-
-    return () => {
-      document.body.style.overflowY = '';
-    };
+    openedPopupsCountBS.next(openedPopupsCountBS.getValue() + 1);
+    return () => openedPopupsCountBS.next(openedPopupsCountBS.getValue() - 1);
   }, []);
 
   useEffect(() => {
