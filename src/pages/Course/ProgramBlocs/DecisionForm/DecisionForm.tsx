@@ -45,7 +45,7 @@ export default function DecisionForm({ course }: IProps) {
   const optionTypes = safeObjectKeys(productOptions).sort((a, b) => optionOrder[a] - optionOrder[b]);
   const optionsNodes = optionTypes.map(type => {
     const option = productOptions[type]!;
-    const { creditPrice, creditWas, discount } = getDiscountedPrice(course.discount, option);
+    const { creditPrice, creditWas, discount } = getDiscountedPrice(option.discount ?? course.discount, option);
     return (
       <div className={cx({ block: true, blockDetails: type === 'OPTIMAL' })} key={type}>
         {type === 'OPTIMAL' && (
