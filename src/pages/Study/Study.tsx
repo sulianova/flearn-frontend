@@ -48,7 +48,7 @@ export default function LessonContainer(props: IProps) {
   }, [courseId, lessonId]);
 
   if (!grandAccessFinished) {
-    return <Fallback.Pending text='Loading lesson'/>;
+    return <Fallback.Pending text='Loading lesson' headerVariant={EPageVariant.LMS}/>;
   }
 
   return <Lesson {...props}/>
@@ -65,12 +65,12 @@ function Lesson({ section }: IProps) {
   const currentCourseAccess = userAccessService.useCurrentCourseAccess();
 
   if (!currentCourse || !currentLesson || !currentCourseAccess || !authedUser) {
-    return <Fallback.Pending text='Loading lesson'/>;
+    return <Fallback.Pending text='Loading lesson' headerVariant={EPageVariant.LMS}/>;
   }
 
   if (!currentLesson.isFree && currentCourseAccess === 'FREE' && authedUser.role === 'user') {
     return (
-      <Fallback.Info>
+      <Fallback.Info headerVariant={EPageVariant.LMS}>
         Это платный урок. Купите курс, чтобы получить доступ.
       </Fallback.Info>
     );

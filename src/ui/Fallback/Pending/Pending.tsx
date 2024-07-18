@@ -5,10 +5,11 @@ import InPageFallback from '../InPageFallback/InPageFallback';
 interface IProps {
   text?: string
   fullPage?: boolean
+  headerVariant?: EPageVariant
 }
 
 export default function Pending(props: IProps) {
-  const { fullPage = true } = props;
+  const { fullPage = true, headerVariant } = props;
   const content = (
     <>
       <Spinner variant='global'/>
@@ -18,7 +19,7 @@ export default function Pending(props: IProps) {
 
   if (fullPage) {
     return (
-      <Page variant={EPageVariant.Fallback} header footer>
+      <Page variant={EPageVariant.Fallback} header={headerVariant ?? true} footer>
         {content}
       </Page>
     );
