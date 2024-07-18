@@ -403,7 +403,6 @@
 
   color: $color-content-inverted-primary-light;
   @include font-20-normal-ui;
-  font-family: $font-family-bold;
 
   border-radius: set-calc($border-radius-10);
   background-color: var(--primary-color);
@@ -439,7 +438,6 @@
 
   color: var(--color-content-primary);
   @include font-20-normal-ui;
-  font-family: $font-family-bold;
 
   border-radius: set-calc($border-radius-16);
   border: 2px solid var(--color-content-background-primary);
