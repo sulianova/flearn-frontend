@@ -1,10 +1,16 @@
 import { i18n } from 'shared';
-import Img from 'ui/Img/Img';
-import Sofi from './SofiUlianova25.jpg'
+
+import { authService } from 'services/auth.service';
+import Link from 'ui/Link/Link';
 
 import classes from './Header.module.scss';
 
-export default function Header() {
+interface IProps {
+  linkToFreeCourse: string
+  onNotAuthedClick: () => void
+}
+
+export default function Header(props: IProps) {
   return (
     <div className={classes.__}>
       <div className={classes.inner}>
@@ -15,19 +21,21 @@ export default function Header() {
           </div>
         </div>
           <div className={classes.actions}>
-              <a
+            {authService.isAuthenticated ? (
+              <Link
                 className={classes.actionsBtn}
-                href='#decision-form'
-                // onClick={() => analyticsService.logEvent({
-                //     type: EAnalyticsEvent.ButtonClicked,
-                //     data: {
-                //       type: 'scroll_to_decision_form_button_clicked',
-                //     },
-                //   })
-                // }
+                to={props.linkToFreeCourse}
               >
                 <div className={classes.text}>{i18n.t('signUp')}</div>
-              </a>
+              </Link>
+            ) : (
+              <div
+                className={classes.actionsBtn}
+                onClick={props.onNotAuthedClick}
+              >
+                <div className={classes.text}>{i18n.t('signUp')}</div>
+              </div>
+            )}
           </div>
       </div>
     </div>

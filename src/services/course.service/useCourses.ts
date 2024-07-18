@@ -5,7 +5,7 @@ import { useMemoize } from 'hooks';
 import type { ICourseData, IFetchCourseProps } from './types/index';
 import type CourseService from '.';
 
-export default function useCourses(this: CourseService, fetchProps: IFetchCourseProps) {
+export default function useCourses(this: CourseService, fetchProps: IFetchCourseProps = {}) {
   const [memoizedFetchProps] = useMemoize(fetchProps, true);
   const [courses, setCourses] = useState<ICourseData[]>([]);
 
