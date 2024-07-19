@@ -50,7 +50,7 @@
 
   backdrop-filter: blur(set-calc($backdrop-filter));
   border-radius: set-calc($border-radius-8);
-  border: set-calc(1) solid var(--border-color);
+  border: 1px solid var(--border-color);
   background-color: var(--color-card);
 
   box-shadow: $shadow-menu;

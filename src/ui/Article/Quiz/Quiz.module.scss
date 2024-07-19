@@ -12,6 +12,8 @@
   position: relative;
   margin: set-calc(40) 0 set-calc(20);
 
+  gap: set-calc(20);
+
   width: set-calc(764);
   left: set-calc(-32);
 
@@ -28,7 +30,7 @@
 
   margin: 0 auto;
 
-  border: set-calc(1) solid var(--color-background-stroke);
+  border: 1px solid var(--color-background-stroke);
   padding: set-calc(32);
   border-radius: set-calc($border-radius-16);
   background-color: var(--color-card);
@@ -39,7 +41,6 @@
 
   @include font-20-normal-paragraph;
   color: var(--color-content-primary);
-  box-shadow: $shadow-medium-default;
 
   @include set-media(md) {
     width: 100%;

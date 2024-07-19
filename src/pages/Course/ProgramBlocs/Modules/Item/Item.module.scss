@@ -133,16 +133,36 @@
 }
 
 .itemArrow {
-  display: none;
+  position: absolute;
+
+  top: set-calc(24);
+  right: set-calc(24);
+
+  width: set-calc(48);
+  height: set-calc(48);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--color-background-glassy-b);
+
+  border-radius: 50%;
+  box-shadow: $shadow-small-default;
+
+  svg {
+    width: set-calc(24);
+    height: set-calc(24);
+    transition: transform $d-hover ease-in-out;
+  }
 
   @include set-media(md) {
-    position: absolute;
     top: set-calc(16);
     right: set-calc(16);
-    display: flex;
-    margin-top: set-calc(8);
 
-    transition: transform $d-hover ease-in-out;
+    margin-top: set-calc(8);
+    background-color: transparent;
+    box-shadow: none;
 
     svg {
       flex-shrink: 0;
@@ -159,33 +179,12 @@
 }
 
 .itemArrowOpened {
-  transform: rotate(180deg);
-}
 
-.bullet {
-  position: absolute;
-  top: set-calc(24);
-  right: set-calc(24);
-
-  width: set-calc(48);
-  height: set-calc(48);
-  align-items: center;
-  border-radius: 50%;
-
-  display: flex;
-  justify-content: center;
-
-  color: var(--color-content-primary-secondary);
-  background: var(--color-background-glassy-b);
-
-  transition: width .3s, margin .3s, min-width .3s, background-color .3s, color .3s, border .3s, background-position 2s ease-out, padding-left .3s;
-
-  @include set-typography(24, 24, 500);
-
-  @include set-media(md) {
-    display: none;
+  svg {
+    transform: rotate(180deg);
   }
 }
+
 
 .meta {
   display: flex;

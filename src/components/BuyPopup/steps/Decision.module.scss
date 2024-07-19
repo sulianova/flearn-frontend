@@ -157,29 +157,27 @@
     color: var(--color-content-inverted-secondary);
   }
 
-  .creditPrice {
-    color: var(--color-content-inverted-primary);
-  }
+  .paymentSummary {
+    .creditPrice {
+      color: var(--color-content-inverted-primary);
+    }
+  
+    .creditWas {
+      color: var(--color-background-glassy-inverted-d);
 
-  .credit {
-    s:after {
-      border-bottom: set-calc(1.5) solid var(--color-background-glassy-inverted-d);
-
-      @include set-media(md) {
-        border-bottom: set-calc(1) solid var(--color-background-glassy-inverted-d);
+      s:after {
+        border-bottom: set-calc(1.5) solid var(--color-background-glassy-inverted-d);
+  
+        @include set-media(md) {
+          border-bottom: set-calc(1) solid var(--color-background-glassy-inverted-d);
+        }
       }
     }
-  }
-
-  .creditWas {
-    color: var(--color-background-glassy-inverted-d);
-  }
-
-  .discount {
-    color: var(--color-accent-promo);
-    font-family: $font-family-bold;
-
-    background-color: $color-accent-promo-background-light;
+  
+    .discountTag {
+      background-color: $color-highlight-yellow;
+      font-family: $font-family-bold;
+    }
   }
 
   .itemIcon {
@@ -221,36 +219,12 @@
   color: var(--color-content-primary);
 }
 
-.discount {
-  position: absolute;
-  top: set-calc(-8);
-  right: set-calc(-80);
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  @include font-18-normal-ui;
-  color: var(--color-content-primary);
-  font-family: $font-family;
-  letter-spacing: 0;
-
-  padding: set-calc(6) set-calc(10);
-  background-color: var(--color-background-glassy-b);
-  border-radius: set-calc(12);
-
-  @include set-media(md) {
-    top: set-calc(-8);
-    right: set-calc(-80);
-  }
-}
-
 .title {
   max-width: set-calc(560);
   word-break: break-word;
   margin: set-calc(24) 0;
 
-  @include font-18-normal-paragraph;
+  @include font-16-normal-paragraph;
   color: var(--color-content-paragraph-secondary);
 }
 
@@ -288,153 +262,8 @@
 }
 
 .itemText {
-  @include font-18-normal-paragraph;
+  @include font-16-normal-paragraph;
   color: var(--color-content-paragraph-secondary);
-}
-
-.buble {
-  position: absolute;
-  right: set-calc(20);
-  top: set-calc(-18);
-  transform: rotate(0);
-
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  z-index: 9;
-
-  border-radius: set-calc($border-radius-large);
-  padding: set-calc(8) set-calc(12);
-  background: $color-gradient-rainbow;
-  background-size: 400% 400%;
-
-  animation: buttonGradient 45s ease infinite;
-  transition: width .3s, margin .3s, min-width .3s, background-color .3s, color .3s, border .3s, background-position 2s ease-out, padding-left .3s, opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
-  
-  color: $color-content-primary-dark;
-  @include font-14-normal-ui;
-  font-family: $font-family-bold;
-
-  @include set-media(md) {
-    right: set-calc(20);
-    top: set-calc(-14);
-    padding: set-calc(8) set-calc(12);
-  }
-}
-
-.credit {
-  padding-top: set-calc(16);
-
-  display: flex;
-  gap: set-calc(32);
-
-  @include set-media(md) {
-    padding-top: 0;
-  }
-
-  s:after {
-    margin-top: 0;
-    border-bottom: set-calc(1.5) solid var(--color-background-glassy-d);
-    content: "";
-    left: set-calc(-2);
-    position: absolute;
-    right: set-calc(-2);
-    top: 50%;
-
-    @include set-media(md) {
-      border-bottom: set-calc(1) solid var(--color-background-glassy-d);
-    }
-  }
-}
-
-.creditWas {
-  width: max-content;
-  margin-bottom: set-calc(4);
-  color: var(--color-background-glassy-d);
-
-  @include font-24-normal-header;
-  letter-spacing: -0.05rem;
-  align-self: flex-end;
-}
-
-.creditPrice {
-  position: relative;
-  @include set-typography(48, 50, 500);
-  font-family: $font-family-bold;
-
-  display: inline-block;
-  letter-spacing: -0.05rem;
-  color: var(--color-content-primary);
-  align-self: flex-end;
-
-  @include set-media(md) {
-    @include set-typography(48, 50, 500);
-  }
-}
-
-.courseInfo {
-  position: relative;
-
-  display: flex;
-  flex-direction: column;
-  align-items: end;
-  padding: 0 0 set-calc(5);
-
-  @include set-media(md) {
-    align-items: start;
-    padding-top:  0;
-    padding-bottom: set-calc(150);
-  }
-}
-
-.btnWrapper {
-  display: none;
-
-  // @include set-media(md) {
-  //   position: fixed;
-
-  //   display: flex;
-  //   justify-content: center;
-  //   align-items: center;
-
-  //   width: 100%;
-  //   bottom: set-calc(0);
-  //   background-color: var(--color-card);
-
-  //   padding: set-calc(16) 0;
-  // }
-}
-
-.btn {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  color: $color-content-inverted-primary-light;
-  @include font-20-normal-ui;
-
-  border-radius: set-calc($border-radius-10);
-  background-color: var(--primary-color);
-  height: set-calc(60);
-  padding: 0 set-calc(32);
-  width: fit-content;
-
-  transition: opacity $d-hover ease, box-shadow $d-hover ease, background-color $d-hover ease, transform 0.15s ease-out;
-  cursor: pointer;
-
-  &:hover {
-    cursor: pointer;
-    box-shadow: $shadow-medium-hovered;
-    background-color: var(--primary-color-hover);
-  }
-
-  @include set-media(md) {
-    height: set-calc(52);
-    width: 100%;
-    border-radius: set-calc($border-radius-10);
-    margin: 0 set-calc(16);
-  }
 }
 
 .cardBtn {
@@ -467,5 +296,75 @@
 
   @include set-media(md) {
     // display: none;
+  }
+}
+
+.paymentSummary {
+  display: flex;
+  justify-content: space-between;
+
+  padding: set-calc(8) 0;
+
+  @include set-media(md) {
+    padding: set-calc(8) 0;
+  }
+}
+
+.discountTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: set-calc(4);
+  margin-top: set-calc(4);
+}
+
+.discountTag {
+  display: inline-block;
+  padding: set-calc(6);
+
+  background: $color-highlight-silver;
+  border-radius: set-calc($border-radius-6);
+  color: $color-content-primary-light;
+
+  @include font-14-normal-ui;
+  font-family: $font-family;
+  text-align: start;
+}
+
+.creditWas {
+  display: block;
+  padding-block: set-calc(4);
+
+  color: var(--color-content-tertiary);
+  @include font-16-normal-ui;
+  margin-top: set-calc(4);
+  white-space: nowrap;
+
+  s:after {
+    margin-top: 0;
+    border-bottom: set-calc(1.5) solid var(--color-content-tertiary);
+    content: "";
+    position: absolute;
+    left: set-calc(-2);
+    right: set-calc(-2);
+    top: 50%;
+
+    @include set-media(md) {
+      border-bottom: set-calc(1) solid var(--color-content-tertiary);
+    }
+  }
+}
+
+.creditPrice {
+  position: relative;
+  @include set-typography(48, 50, 500);
+  font-family: $font-family-bold;
+
+  display: inline-block;
+  letter-spacing: -0.05rem;
+  color: var(--color-content-primary);
+  align-self: flex-end;
+
+  @include set-media(md) {
+    @include set-typography(48, 50, 500);
   }
 }

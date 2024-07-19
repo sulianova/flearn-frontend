@@ -29,19 +29,24 @@ export default function Decision({ course, next }: IProps) {
     const { creditPrice, creditWas, discount } = getDiscountedPrice(course.discount, option);
     return (
       <div className={cx({ block: true, blockDetails: type === 'OPTIMAL', active: false })} key={type}>
-        {/* {type === 'OPTIMAL' && (
-          <div className={classes.buble}>Самый популярный</div>
-        )} */}
         <h2 className={classes.courseName}>
           {t(`options.${type}.caption`)}
-          <span className={classes.discount}>{formatCourseDiscount(discount ?? 0)}</span>
         </h2>
-        <div className={classes.credit}>
-          <div className={classes.creditPrice}>
-            {formatCourseCredit(creditPrice)} &#8381;
-          </div>
-          <s className={classes.creditWas}>{formatCourseCredit(creditWas)} &#8381;</s>
-        </div>
+        <dl className={classes.paymentSummary}>
+          <dt>
+            <div className={classes.creditWas}>
+                <s>{formatCourseCredit(creditWas)}</s>
+              </div>
+            <div className={classes.creditPrice}>
+              {formatCourseCredit(creditPrice)} &#8381;
+            </div>
+          </dt>
+          <dt>
+            <div className={classes.discountTags}>
+              <span className={classes.discountTag}>{`−${discount ?? 0}%`}</span>
+            </div>
+          </dt>
+        </dl>
         <button
           className={classes.cardBtn + ' btn'}
           onClick={() => next(type)}
@@ -69,9 +74,6 @@ export default function Decision({ course, next }: IProps) {
         <div className={classes.wrapper}>
           {optionsNodes}
         </div>
-      </div>
-      <div className={classes.btnWrapper}>
-          <button className={classes.btn + ' btn'}>Перейти к оплате</button>
       </div>
     </>
   );
