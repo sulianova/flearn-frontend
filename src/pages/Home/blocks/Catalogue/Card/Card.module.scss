@@ -135,7 +135,7 @@
   
   display: flex;
   @include set-typography(16, 20, 500);
-  color: var(--color-content-paragraph-primary);
+  color: var(--color-content-tertiary);
 }
 
 .infoText:not(:last-child) {
@@ -151,7 +151,7 @@
   width: set-calc(4);
   height: set-calc(4);
   border-radius: 50%;
-  background-color:  var(--color-content-paragraph-secondary);
+  background-color: var(--color-content-tertiary);
   transform: translate3d(0, -50%, 0);
 }
 
@@ -189,7 +189,7 @@
 
 .description {
   @include set-typography(16, 24, 500);
-  color: var(--color-content-paragraph-secondary);
+  color: var(--color-content-tertiary);
 }
 
 .cardBtn {

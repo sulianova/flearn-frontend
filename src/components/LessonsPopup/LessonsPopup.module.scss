@@ -104,7 +104,7 @@
   font-family: $font-family-bold;
 
   @include set-media(md) {
-    margin: 0 0 set-calc(24);
+    margin: set-calc(50) 0 set-calc(24);
   }
 }
 

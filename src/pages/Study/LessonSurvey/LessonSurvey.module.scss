@@ -20,10 +20,10 @@
 
   margin: 0 auto;
 
-  border: 1px solid var(--color-background-stroke);
+  border: 1px solid var(--border-color);
   padding: set-calc(32);
   border-radius: set-calc($border-radius-16);
-  background-color: var(--color-card);
+  background-color: transparent;
 
   @include font-20-normal-paragraph;
   color: var(--color-content-primary);
@@ -84,8 +84,8 @@
 
   border-radius: set-calc($border-radius-16);
   padding: set-calc(24);
-  border: set-calc(1.2) solid var(--color-background-stroke);
-  background-color: var(--color-background-glassy-b);
+  border: 1px solid var(--border-color);
+  background-color: transparent;
 
   cursor: pointer;
   transition: 0.2s all ease-in-out;
@@ -98,7 +98,10 @@
 
 .card:hover {
   background-color: var(--color-background-glassy-a);
-  box-shadow: $shadow-medium-default;
+
+  @include set-media(md) {
+    background-color: transparent;
+  }
 }
 
 .cardTitle {
@@ -136,7 +139,6 @@
 .active {
   background-color: var(--color-background-inverted-glassy-d);
   border: set-calc(1.2) solid var(--color-content-primary);
-  box-shadow: $shadow-medium-default;
 
   cursor: default;
   pointer-events: none;
@@ -152,7 +154,7 @@
   align-items: start;
 
   border-radius: set-calc($border-radius-12);
-  border: set-calc(1.2) solid var(--color-background-stroke);
+  border: 1px solid var(--border-color);
   background-color: var(--color-background-glassy-b);
 
   margin-bottom: set-calc(4);

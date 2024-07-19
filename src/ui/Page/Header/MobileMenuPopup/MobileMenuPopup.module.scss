@@ -88,7 +88,6 @@ padding: set-calc(16) 0;
   
     display: flex;
     color: var(--color-content-primary);
-    box-shadow: none;
 
     cursor: pointer;
   
@@ -133,7 +132,7 @@ padding: set-calc(16) 0;
   @include font-28-normal-header;
   font-family: $font-family-bold;
 
-  margin: set-calc(10) 0 set-calc(24);
+  margin: set-calc(60) 0 set-calc(24);
 }
 
 .navigationItem {
@@ -327,9 +326,11 @@ padding: set-calc(16) 0;
   display: flex;
   align-items: center;
 
-  color: var(--color-content-primary);
-  @include set-typography(20, 24, 500);
+  color: var(--primary-color);
+  @include set-typography(16, 16, 500);
   font-family: $font-family-bold;
+
+  margin-top: set-calc(2);
 }
 
 .active {

@@ -304,6 +304,7 @@
   justify-content: space-between;
 
   padding: set-calc(8) 0;
+  margin: 0!important;
 
   @include set-media(md) {
     padding: set-calc(8) 0;
@@ -332,11 +333,10 @@
 
 .creditWas {
   display: block;
-  padding-block: set-calc(4);
 
   color: var(--color-content-tertiary);
-  @include font-16-normal-ui;
-  margin-top: set-calc(4);
+  @include font-18-normal-ui;
+  margin: set-calc(5) 0;
   white-space: nowrap;
 
   s:after {
