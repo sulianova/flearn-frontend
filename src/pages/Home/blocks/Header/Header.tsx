@@ -15,7 +15,10 @@ export default function Header(props: IProps) {
     <div className={classes.__}>
       <div className={classes.inner}>
         <div className={classes.headerWrapper}>
-          <h1 className={classes.headerTitle}>{i18n.t('catalogue.title')}</h1>
+          <h1 className={classes.headerTitle}>
+            <span>{i18n.t('catalogue.title1')}</span>
+            <span>{i18n.t('catalogue.title2')}</span>
+          </h1>
           <div className={classes.descriptionWrapper }>
             <div className={classes.description}>{i18n.t('catalogue.description')}</div>
           </div>

@@ -114,11 +114,7 @@
 
   color: var(--color-content-paragraph-primary);
   font-family: $font-family-bold;
-  @include set-typography(18, 20, 500);
-
-  @include set-media(md) {
-    @include set-typography(16, 18, 500)
-  }
+  @include set-typography(14, 16, 500);
 }
 
 .itemSubtitle {

@@ -47,8 +47,7 @@
     flex-direction: row;
     display: flex;
 
-    margin: set-calc(12) 0 set-calc(8);
-    padding: 0 set-calc(16);
+    margin: set-calc(12) 0 0;
 
     width: 100%;
 
@@ -59,9 +58,9 @@
     background-color: transparent;
     box-shadow: none;
 
-    .logo {
-      display: none;
-    }
+    // .logo {
+    //   display: none;
+    // }
   }
 }
 
@@ -73,8 +72,9 @@
   box-shadow: none;
 
   @include set-media(md) {
-    padding: set-calc(12) set-calc($padding-x-mob-page) set-calc(16);
+    padding: 0 set-calc($padding-x-mob-page);
     background-color: transparent;
+    margin-bottom: set-calc(8);
   }
 }
 
@@ -86,7 +86,7 @@
   box-shadow: none;
 
   @include set-media(md) {
-    padding: set-calc(12) set-calc($padding-x-mob-page) set-calc(16);
+    padding: 0 set-calc($padding-x-mob-page);
     background-color: transparent;
   }
 }
@@ -114,6 +114,10 @@
   &:hover {
     cursor: pointer;
     color: var(--primary-color);
+  }
+
+  @include set-media(md) {
+    height: set-calc(30);
   }
 
   span {
@@ -202,7 +206,7 @@
     align-items: center;
     justify-content: center;
 
-    padding: set-calc(12);
+    padding: set-calc(8);
   
     svg {
       width: set-calc(24);
@@ -238,6 +242,7 @@
 
   @include set-media(md) {
     margin-left: auto;
+    height: set-calc(30);
   }
 }
 

@@ -326,7 +326,15 @@ padding: set-calc(16) 0;
   display: flex;
   align-items: center;
 
-  color: var(--primary-color);
+  background: $color-gradient-rainbow;
+  background-size: 400% 400%;
+
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  animation: buttonGradient 45s ease infinite;
+  transition: width .3s, margin .3s, min-width .3s, background-color .3s, color .3s, border .3s, background-position 2s ease-out, padding-left .3s;
+
   @include set-typography(16, 16, 500);
   font-family: $font-family-bold;
 

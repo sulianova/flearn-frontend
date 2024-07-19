@@ -1,10 +1,96 @@
 @import 'styles/index';
 
+.header {
+  position: relative;
+
+  @include is-grid-12;
+  grid-row-gap: 0;
+
+  padding-left: set-calc(100);
+  margin-bottom: set-calc(32);
+
+  @include set-media(md) {
+    position: relative;
+
+    display: block;
+    margin-bottom: set-calc(16);
+    padding: 0 set-calc(16);
+  }
+}
+
+.headerTitle {
+  grid-column: 1 / 7;
+
+  margin-bottom: set-calc(24);
+  @include font-40-normal-header;
+  font-family: $font-family-bold;
+
+  @include set-media(md) {
+    margin-bottom: set-calc(16);
+  }
+}
+
+.headerDesc {
+  grid-column: 1 / 5;
+  margin-right: set-calc(80);
+
+  @include font-20-normal-paragraph;
+
+  @include set-media(md) {
+    margin-right: 0;
+  }
+}
+
+.wrapper {
+  display: flex;
+  gap: set-calc(16);
+
+  @include set-media(md) {
+    gap: set-calc(6);
+    flex-direction: column-reverse;
+  }
+}
+
+.wrapper:not(:first-child) {
+  @include set-media(md) {
+    display: none;
+  }
+}
+.animationWrapper {
+  // width: 100000px;
+  // transform: translateX(0px);
+  // animation: 42.116667s linear infinite marqueeAnimation;
+
+  // gap: set-calc(16);
+
+  // -webkit-backface-visibility: hidden;
+
+  display: flex;
+  flex-direction: row;
+
+  @include set-media(md) {
+    width: 100%;
+    transform: none;
+    animation: none;
+    gap: 8;
+
+    flex-direction: column;
+  }
+}
+
+.spinnerWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: calc(var(--scale)* 400);
+}
+
 .promo{
   position: relative;
   display: flex;
   flex-direction: column;
-  grid-column: span 6;
+  width: set-calc(600);
 
   padding: set-calc(32) set-calc(32);
   border-radius: set-calc($border-radius-medium);
@@ -29,7 +115,6 @@
     min-height: set-calc(350);
     width: 100%;
     border-radius: set-calc(10);
-    margin-bottom: set-calc(6);
 
     &:hover {
       .background {
@@ -55,7 +140,7 @@
   display: flex;
   margin-top: auto;
 
-  color: $color-content-primary-dark;
+  color: var(--color-content-inverted-primary);
 
   .text {
     @include set-typography(20, 26, 500);
@@ -104,28 +189,6 @@
   max-width: set-calc(600);
 
   @include font-40-normal-header;
-  color: $color-content-primary-dark;
+  color: var(--color-content-inverted-primary);
   text-align: left;
-}
-
-.btnWrapper {
-  position: relative;
-}
-
-.wrapper {
-  @include is-grid-12;
-  column-gap: set-calc(16);
-
-  @include set-media(md) {
-    column-gap: set-calc(6);
-    flex-direction: column-reverse;
-  }
-}
-
-.spinnerWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  min-height: calc(var(--scale)* 400);
 }

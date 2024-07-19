@@ -3,6 +3,7 @@ $rem-base: 18px;
 $font-family: Montserrat, sans-serif;
 $font-family-bold: Montserrat-Bold, sans-serif;
 $font-family-highlight: Montserrat-highlight, sans-serif;
+$font-family-italic: Montserrat-Italic, sans-serif;
 $padding-x-desk-page: 16;
 $padding-x-mob-page: 16;
 $padding-xs-mob-page: 8;
@@ -102,15 +103,16 @@ $color-palette-indigo-600: #3c1fa2;
 $color-palette-indigo-500: #452dbd;
 $color-palette-indigo-400: #5627ff;
 $color-palette-indigo-350: #7657ff;
-$color-palette-indigo-300: #9c8cff;
+$color-palette-indigo-300: #9282fa;
+$color-palette-indigo-250: #9c8cff;
 $color-palette-indigo-200: #ede8ff;
 $color-palette-indigo-100: #f7f5ff;
 
 //gradient
-$color-gradient-rainbow: linear-gradient(320deg, #a4dd49, #49c2ff, #b595ff, #49c2ff, #a4dd49, #49c2ff);
+$color-gradient-rainbow: linear-gradient(320deg, #ffe205, #a4dd49, #49c2ff, #b595ff, #49c2ff, #a4dd49, #ffe205);
 
 //theme-light
-$primary-color-light: $color-highlight-violet;
+$primary-color-light: $color-palette-indigo-350;
 $primary-color-hover-light: $color-palette-indigo-300;
 $color-accent-error-light: #f22a2a;
 $color-accent-notice-light: #e67046;
@@ -155,12 +157,12 @@ $border-color-light: rgba(5, 6, 15, .1);
 
 //theme-dark
 $primary-color-dark: $color-palette-indigo-300;
-$primary-color-hover-dark: $color-highlight-violet;
+$primary-color-hover-dark: $color-palette-indigo-350;
 $color-accent-error-dark: #f22a2a;
 $color-accent-notice-dark: #e67046;
 $color-accent-success-dark: #1c9c75;
 $color-accent-warning-dark: #ffb72c;
-$color-accent-promo-dark: $color-highlight-violet;
+$color-accent-promo-dark: $primary-color-dark;
 $color-accent-promo-background-dark: $color-highlight-silver;
 $color-accent-neutral-dark: $color-palette-white-1000;
 $color-accent-neutral-hover-dark: $color-palette-black-300;

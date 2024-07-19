@@ -29,30 +29,38 @@ export default function Catalogue(props: IProps) {
     <>
       <div className={classes.content}>
         <div className={classes.title}>Как это — быть иллюстратором. Бесплатный курс, чтобы попробовать</div>
-        <div className={classes.cardBtn}><span className={classes.text}>Подробнее о курсе</span><span className={classes.icon}><Icon icon='ArrowButton'/></span></div>
+        <div className={classes.cardBtn}><span className={classes.text}>Начать учиться</span><span className={classes.icon}><Icon icon='ArrowButton'/></span></div>
       </div>
       <div className={classes.background + ' bc-color-promo-highlight-yellow'}></div>
     </>
   );
   return (
     <>
-      <div className={classes.wrapper}>
-        {courses.map(course => <Card key={course.id} course={course}/>)}
-        {authService.isAuthenticated ? (
-          <Link
-            className={classes.promo}
-            to={props.linkToFreeCourse}
-          >
-            {promoContent}
-          </Link>
-        ) : (
-          <div
-            className={classes.promo}
-            onClick={props.onNotAuthedClick}
-          >
-            {promoContent}
-          </div>
-        )}
+      <div className={classes.header}>
+        <h2 className={classes.headerTitle}>Курсы по иллюстрации</h2>
+        <div className={classes.headerDesc}>
+
+        </div>
+      </div>
+      <div className={classes.animationWrapper}>
+        <div className={classes.wrapper}>
+          {courses.map(course => <Card key={course.id} course={course}/>)}
+          {authService.isAuthenticated ? (
+            <Link
+              className={classes.promo}
+              to={props.linkToFreeCourse}
+            >
+              {promoContent}
+            </Link>
+          ) : (
+            <div
+              className={classes.promo}
+              onClick={props.onNotAuthedClick}
+            >
+              {promoContent}
+            </div>
+          )}
+        </div>
       </div>
     </>
   );

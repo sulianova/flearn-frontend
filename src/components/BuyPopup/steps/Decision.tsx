@@ -34,11 +34,11 @@ export default function Decision({ course, next }: IProps) {
         </h2>
         <dl className={classes.paymentSummary}>
           <dt>
-            <div className={classes.creditWas}>
-                <s>{formatCourseCredit(creditWas)}</s>
-              </div>
             <div className={classes.creditPrice}>
               {formatCourseCredit(creditPrice)} &#8381;
+            </div>
+            <div className={classes.creditWas}>
+              <s>{formatCourseCredit(creditWas)}</s>
             </div>
           </dt>
           <dt>
@@ -58,6 +58,10 @@ export default function Decision({ course, next }: IProps) {
           <li className={classes.pricingCheckListItem}>
             <div className={classes.itemIcon}><Icon icon='TickInCircle'/></div>
             <div className={classes.itemText}>Чат в телеграмме для студентов</div>
+          </li>
+          <li className={classes.pricingCheckListItem}>
+            <div className={classes.itemIcon}><Icon icon='TickInCircle'/></div>
+            <div className={classes.itemText}>Бессрочный доступ к урокам и упражнениям</div>
           </li>
         </ul>
       </div>

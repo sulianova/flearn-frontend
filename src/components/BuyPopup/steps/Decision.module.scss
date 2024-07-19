@@ -175,8 +175,8 @@
     }
   
     .discountTag {
-      background-color: $color-highlight-yellow;
-      font-family: $font-family-bold;
+      color: var(--color-content-primary);
+      background: var(--color-accent-promo);
     }
   }
 
@@ -196,13 +196,18 @@
 
   .cardBtn {
     color: $color-content-inverted-primary-light;
-    border: 2px solid $primary-color-dark;
-    background-color: $primary-color-dark;
+
+    background: var(--primary-color);
+    background-size: 400% 400%;
+    border: none;
+  
+    // animation: buttonGradient 45s ease infinite;
+    // transition: width .3s, margin .3s, min-width .3s, background-color .3s, color .3s, border .3s, background-position 2s ease-out, padding-left .3s;
   
     &:hover {
       cursor: pointer;
       box-shadow: $shadow-medium-hovered;
-      background-color: $primary-color-hover-dark;
+      background: var(--primary-color-hover);
       border-color: $primary-color-hover-dark;
     }
   }
@@ -248,15 +253,25 @@
 }
 
 .itemIcon {
-  width: set-calc(20);
-  height: set-calc(20);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  color: var(--color-content-primary);
-  margin-bottom: set-calc(2);
+  color: var(--color-content-secondary);
 
   svg {
+    width: set-calc(20);
+    height: set-calc(20);
+
     path {
       fill: var(--color-content-inverted-primary);
+    }
+  }
+
+  @include set-media(md) {
+    svg {
+      width: set-calc(18);
+      height: set-calc(18);
     }
   }
 }
@@ -275,11 +290,11 @@
 
   margin-top: set-calc(32);
 
-  color: var(--color-content-primary);
-  @include font-20-normal-ui;
+  color: var(--color-content-secondary);
+  @include font-18-normal-ui;
 
   border-radius: set-calc($border-radius-16);
-  border: 2px solid var(--color-content-background-primary);
+  border: 1px solid var(--color-content-secondary);
   background-color: transparent;
   height: set-calc(64);
   padding: 0 set-calc(32);
@@ -289,8 +304,7 @@
 
   &:hover {
     cursor: pointer;
-    box-shadow: $shadow-medium-hovered;
-    background-color: var(--color-content-background-primary);
+    background-color: var(--color-content-secondary);
     color: var(--color-content-inverted-primary);
   }
 
@@ -313,21 +327,26 @@
 
 .discountTags {
   display: flex;
+  align-items: end;
+  justify-content: flex-end;
   flex-wrap: wrap;
   gap: set-calc(4);
   margin-top: set-calc(4);
 }
 
 .discountTag {
-  display: inline-block;
-  padding: set-calc(6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  background: $color-highlight-silver;
-  border-radius: set-calc($border-radius-6);
-  color: $color-content-primary-light;
+  padding: 0 set-calc(8);
+  height: set-calc(30);
+
+  background: var(--color-card);
+  border-radius: calc(set-calc(30) / 2);
+  color: var(--color-content-primary);
 
   @include font-14-normal-ui;
-  font-family: $font-family;
   text-align: start;
 }
 
@@ -335,7 +354,7 @@
   display: block;
 
   color: var(--color-content-tertiary);
-  @include font-18-normal-ui;
+  @include font-20-normal-ui;
   margin: set-calc(5) 0;
   white-space: nowrap;
 

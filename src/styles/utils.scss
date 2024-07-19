@@ -149,6 +149,12 @@
   }
 }
 
+@keyframes marqueeAnimation {
+  100% {
+    transform: translateX(-2112px);
+  }
+}
+
 @function set-calc(
   $value,
   $bollean: false,

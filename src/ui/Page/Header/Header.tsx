@@ -78,7 +78,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
          )}
           <div className={classes.nav}>
             <div className={classes.navMob}>
-            {(urlSection.name === 'Profile' || urlSection.name === 'EmptyProfile' || urlSection.name === 'Course') && (
+            {/* {(urlSection.name === 'Profile' || urlSection.name === 'EmptyProfile' || urlSection.name === 'Course') && (
               <div className={classes.userSettingsWrapper}>
                   <Link
                     className={classes.userSettings}
@@ -87,7 +87,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
                     <Icon icon='ArrowButton' />
                   </Link>
               </div>
-            )}
+            )} */}
             {(urlSection.name === 'Study') && (
               <div className={classes.userSettingsWrapper}>
                   <Link

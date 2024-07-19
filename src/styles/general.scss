@@ -20,6 +20,12 @@
   src: url("../assets/fonts/Montserrat.ttf");
 }
 
+@font-face {
+  font-weight: 250;
+  font-family: Montserrat-Italic;
+  src: url("../assets/fonts/Montserrat-Italic.ttf");
+}
+
 html {
   font-family: $font-family;
   font-size: set-calc(18);
