@@ -40,7 +40,7 @@
   text-align: center;
 
   @include set-media(md) {
-    @include set-typography(40, 40, 500);
+    @include set-typography(32, 38, 500);
   }
 }
 
@@ -113,7 +113,7 @@
 
   @include set-media(md) {
     padding-top: set-calc(4);
-    width: 80%;
+    width: 75%;
   }
  }
 

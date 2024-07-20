@@ -34,9 +34,12 @@
 
   z-index: 100;
 
-  padding: set-calc(16);
-  width: set-calc(54);
-  height: set-calc(54);
+  width: set-calc(50);
+  height: set-calc(50);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   cursor: pointer;
   transform: rotate(180deg) translate(0, 0);
@@ -45,18 +48,16 @@
   box-shadow: $shadow-small-default;
 
   color: $color-content-inverted-primary-light;
-  border: 1px solid $color-content-inverted-primary-light;
+  border: 2px solid $color-content-inverted-primary-light;
   background: transparent;
-  // background-size: 400% 400%;
 
-  // animation: buttonGradient 45s ease infinite;
   transition: width .3s, margin .3s, min-width .3s, background-color .3s, color .3s, border .3s, background-position 2s ease-out, padding-left .3s, transform $d-hover ease-in, opacity $d-hover ease-in;
 
 
 
   svg {
-    width: 100%;
-    height: 100%;
+    width: set-calc(24);
+    height: set-calc(24);
     transform: rotate(180deg);
   }
 
@@ -77,9 +78,12 @@
 
   z-index: 100;
 
-  padding: set-calc(16);
-  width: set-calc(54);
-  height: set-calc(54);
+  width: set-calc(50);
+  height: set-calc(50);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   cursor: pointer;
   transform: rotate(180deg) translate(0, 0);
@@ -88,17 +92,14 @@
   box-shadow: $shadow-small-default;
 
   color: $color-content-inverted-primary-light;
-  border: 1px solid $color-content-inverted-primary-light;
+  border: 2px solid $color-content-inverted-primary-light;
   background: transparent;
-  // background: $color-gradient-rainbow;
-  // background-size: 400% 400%;
 
-  // animation: buttonGradient 45s ease infinite;
   transition: width .3s, margin .3s, min-width .3s, background-color .3s, color .3s, border .3s, background-position 2s ease-out, padding-left .3s, transform $d-hover ease-in, opacity $d-hover ease-in;
 
   svg {
-    width: 100%;
-    height: 100%;
+    width: set-calc(24);
+    height: set-calc(24);
   }
 
   &:hover {

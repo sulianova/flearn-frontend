@@ -43,7 +43,7 @@
   @include set-typography(20, 34, 500);
 
   @include set-media(md) {
-    @include set-typography(18, 26, 500);
+    @include set-typography(16, 24, 500);
   }
 }
 

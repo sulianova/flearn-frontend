@@ -31,32 +31,30 @@ function Sidebar() {
     <>
       <div className={classes.__}>
         <aside className={classes.container}>
+        {urlSection.name === 'Study' && (
           <ul className={classes.items}>
-            {urlSection.name === 'Study' && (
-              <li className={classes.item}>
-                <span className={classes.iconWrapper}>
-                  <Link
-                    className={classes.icon}
-                    to={URLSections.Profile.to({ courseId: courseId! })}
-                  >
-                    <Icon icon='Home' />
-                  </Link>
-                </span>
-              </li>
-            )}
-            {urlSection.name === 'Study' && (
-              <li className={classes.item}>
-                <span className={classes.iconWrapper}>
-                <div
-                    className={classes.icon}
-                    onClick={() => setLessonsPopupVisible(v => !v)}
-                  >
-                    <Icon icon='Lessons' />
-                  </div>
-                </span>
-              </li>
-            )}
+            <li className={classes.item}>
+              <span className={classes.iconWrapper}>
+                <Link
+                  className={classes.icon}
+                  to={URLSections.Profile.to({ courseId: courseId! })}
+                >
+                  <Icon icon='Home' />
+                </Link>
+              </span>
+            </li>
+            <li className={classes.item}>
+              <span className={classes.iconWrapper}>
+              <div
+                  className={classes.icon}
+                  onClick={() => setLessonsPopupVisible(v => !v)}
+                >
+                  <Icon icon='Lessons' />
+                </div>
+              </span>
+            </li>
           </ul>
+        )}
           <ul className={classes.items}>
             <li className={classes.item}>
               <span className={classes.iconWrapper}>

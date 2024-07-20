@@ -43,8 +43,7 @@
 
   border-radius: set-calc($border-radius-medium);
   background-color: var(--color-card);
-  border: set-calc(1) solid var(--color-border);
-  box-shadow: $shadow-huge-default;
+  border: 1px solid var(--border-color);
 
   @include set-media(md) {
     min-height: unset;

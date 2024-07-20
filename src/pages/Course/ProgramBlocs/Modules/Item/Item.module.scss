@@ -50,8 +50,7 @@
 
   border-radius: set-calc($border-radius-medium);
   background-color: var(--color-card);
-  border: set-calc(1) solid var(--color-border);
-  box-shadow: $shadow-huge-default;
+  border: 1px solid var(--border-color);
   overflow: hidden;
 
   color: var(--color-content-primary);
@@ -145,7 +144,7 @@
   align-items: center;
   justify-content: center;
 
-  background-color: var(--color-background-glassy-b);
+  background-color: var(--color-background-glassy-a);
 
   border-radius: 50%;
   box-shadow: $shadow-small-default;

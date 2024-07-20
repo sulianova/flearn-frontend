@@ -8,8 +8,7 @@
   margin: set-calc(8) auto 0;
 
   background-color: var(--color-card);
-  border: set-calc(1) solid var(--color-border);
-  box-shadow: $shadow-huge-default;
+  border: 1px solid var(--border-color);
   border-radius: set-calc($border-radius-medium);
 
   @include set-media(md) {
