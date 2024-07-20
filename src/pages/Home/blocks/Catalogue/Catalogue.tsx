@@ -37,7 +37,7 @@ export default function Catalogue(props: IProps) {
   return (
     <>
       <div className={classes.header}>
-        <h2 className={classes.headerTitle}>Курсы по иллюстрации</h2>
+        <h2 className={classes.headerTitle}>Курсы, чтобы начать</h2>
         <div className={classes.headerDesc}>
 
         </div>

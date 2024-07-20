@@ -38,9 +38,8 @@
 
   box-sizing: border-box;
   background-color: var(--color-card);
-  border: set-calc(1) solid var(--color-border);
+  border: set-calc(1) solid var(--border-color);
   text-align: left;
-  box-shadow: $shadow-medium-default;
 
   @include set-media(md) {
     height: auto;
@@ -53,7 +52,6 @@
   &:hover,
   &:focus {
     transform: translateY(set-calc(-4));
-    box-shadow: $shadow-medium-hovered;
 
     .infoItem {
       opacity: 1;

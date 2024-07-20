@@ -74,7 +74,7 @@
   border-radius: set-calc($border-radius-30);
   background-color: var(--color-background-btn);
 
-  color: var(--color-content-inverted-primary);
+  color: $color-content-inverted-primary-light;
   transition: opacity $d-hover ease, box-shadow $d-hover ease, background-color $d-hover ease;
   cursor: pointer;
 

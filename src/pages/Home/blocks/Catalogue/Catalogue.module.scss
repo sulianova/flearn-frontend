@@ -6,7 +6,7 @@
   @include is-grid-12;
   grid-row-gap: 0;
 
-  padding-left: set-calc(100);
+  padding: 0 set-calc(16);
   margin-bottom: set-calc(32);
 
   @include set-media(md) {
@@ -140,7 +140,7 @@
   display: flex;
   margin-top: auto;
 
-  color: var(--color-content-inverted-primary);
+  color: $color-content-inverted-primary-light;
 
   .text {
     @include set-typography(20, 26, 500);
@@ -177,7 +177,7 @@
   box-shadow: $shadow-medium-default;
 
   border-radius: set-calc($border-radius-medium);
-  background: $color-gradient-rainbow;
+  background: var(--color-background-card);
   background-size: 400% 400%;
 
   animation: buttonGradient 45s ease infinite;
@@ -189,6 +189,6 @@
   max-width: set-calc(600);
 
   @include font-40-normal-header;
-  color: var(--color-content-inverted-primary);
+  color: $color-content-inverted-primary-light;
   text-align: left;
 }
