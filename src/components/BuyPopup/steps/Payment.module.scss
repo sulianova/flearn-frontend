@@ -108,37 +108,40 @@
 }
 
 .btn {
+  @include btn;
+  
   position: relative;
+
   display: flex;
   justify-content: center;
   align-items: center;
 
   color: $color-content-inverted-primary-light;
+  font-family: $font-family-medium;
   @include font-20-normal-ui;
 
   border-radius: set-calc($border-radius-12);
   background-color: var(--primary-color);
+
   height: set-calc(60);
   width: 100%;
 
-  transition: background-color $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
-  cursor: pointer;
-
   &:hover {
-    cursor: pointer;
-    box-shadow: $shadow-medium-hovered;
     background-color: var(--primary-color-hover);
+  }
+
+  &:disabled {
+    background: var(--color-background-glassy-c);
+    color: var(--color-content-tertiary);
   }
 
   @include set-media(md) {
     height: set-calc(60);
-  }
-}
 
-.btn:disabled {
-  background: var(--color-background-glassy-c);
-  color: var(--color-content-tertiary);
-  pointer-events: none;
+    &:hover {
+      background-color: var(--primary-color);
+    }
+  }
 }
 
 .paymentCheck {
@@ -269,6 +272,7 @@
   position: relative;
 
   margin-bottom: set-calc(16);
+
   @include font-18-normal-ui;
   font-family: $font-family-bold;
   color: var(--color-content-primary);
@@ -310,16 +314,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
   height: 100%;
 
+  padding: set-calc(12) 0;
+  border-radius: set-calc($border-radius-12);
+
   @include font-14-normal-ui;
+  color: var(--color-content-paragraph-secondary);
+  font-family: $font-family-medium;
   text-align: center;
 
   cursor: pointer;
-  padding: set-calc(12) 0;
-  border-radius: set-calc($border-radius-12);
-  color: var(--color-content-paragraph-secondary);
-  font-family: $font-family-bold;
 }
 
 .checked {

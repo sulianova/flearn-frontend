@@ -82,7 +82,7 @@ export default function Form({ onOrderCreated, course, option }: IProps) {
       >
         <div className={classes.inputWrap}>
           <InputField
-            className={cx2({ input: true, light: true, isError: formData.state.type === 'Error' })}
+            className={cx2({ input: true, isError: formData.state.type === 'Error' })}
             variant='Email'
             value={formData.email}
             onChange={v => setFormData(d => ({ ...d, email: v }))}
@@ -107,7 +107,7 @@ export default function Form({ onOrderCreated, course, option }: IProps) {
         <div className={classes.agreement}>
                     <Link
                       className='link'
-                      // to={URLSections.Static.Oferta.index}
+                      to={URLSections.Static.Oferta.index}
                       target='_blank'
                     >
                       <span className={classes.agreementText}>

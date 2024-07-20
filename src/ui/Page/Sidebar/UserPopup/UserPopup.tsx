@@ -26,14 +26,14 @@ export default function UserPopup({ user, close }: IProps) {
         </div>
       </div>
       <div className={classes.itemsGroup}>
-        <div className={cx({ item: true, itemHoverable: true })}>
+        {/* <div className={cx({ item: true, itemHoverable: true })}>
           <div className={classes.itemTitle}>
             <div className={classes.withIcon}>
               <Icon icon='Portfolio' />
               <span>Анкета</span>
             </div>
           </div>
-        </div>
+        </div> */}
         <div className={cx({ item: true, itemHoverable: true })}>
           <div
             className={classes.itemTitle}

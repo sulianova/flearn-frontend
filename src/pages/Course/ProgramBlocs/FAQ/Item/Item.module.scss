@@ -34,7 +34,7 @@
 
 .itemQuestion {
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: space-between;
 
   padding-bottom: set-calc(20);
@@ -46,32 +46,26 @@
 }
 
 .itemQuestionText {
-  @include font-24-normal-header;
+  @include font-20-normal-paragraph;
   max-width: 80%;
 }
 
 .itemArrow {
-  display: block;
-  margin-top: set-calc(8);
+  display: flex;
+  align-items: start;
+
+  margin-top: set-calc(4);
 
   transition: transform $d-hover ease-in-out;
 
   svg {
-    flex-shrink: 0;
-    display: inline-block;
-    text-align: center;
-    background: 50% no-repeat;
-    background-size: contain;
-    opacity: 0.85;
-
     width: set-calc(24);
     height: set-calc(24);
   }
 
   @include set-media(md) {
-    display: block;
-    margin-top: set-calc(8);
-
+    margin-top: set-calc(4);
+    
     svg {
       width: set-calc(16);
       height: set-calc(16);

@@ -24,27 +24,18 @@
   align-items: center;
   gap: set-calc(16);
 
-  @include set-media(md) {
-    gap: set-calc(16);
-  }
-
   .itemSvg {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: set-calc(56);
-    height: set-calc(56);
+    padding: set-calc(6);
 
-    border-radius: set-calc($border-radius-10);
+    border-radius: set-calc($border-radius-12);
     background-color: var(--color-background-glassy-c);
-    padding: set-calc(10);
 
     svg {
-      height: 100%;
-      align-items: center;
-      justify-content: center;
-  
-      stroke-width: 0;
+      width: set-calc(38);
+      height: set-calc(38);
   
      path {
         fill: var(--color-content-primary);
@@ -52,10 +43,15 @@
     }
 
     @include set-media(md) {
-      width: set-calc(56);
-      height: set-calc(56);
-
+      svg {
+        width: set-calc(30);
+        height: set-calc(30);
+      }
     }
+  }
+
+  @include set-media(md) {
+    gap: set-calc(16);
   }
 }
 

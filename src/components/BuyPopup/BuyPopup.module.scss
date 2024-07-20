@@ -31,25 +31,23 @@
 }
 
 .close {
-  z-index: 1;
+  @include btn;
+
   position: absolute;
+
   top: set-calc(16);
   right: set-calc(16);
 
-  border-radius: set-calc($border-radius-small);
+  display: flex;
+
+  z-index: 1;
+
   padding: set-calc(13);
 
-  display: flex;
   color: var(--color-content-primary);
+  border-radius: set-calc($border-radius-small);
   background-color:  var(--color-background-glassy-b);
 
-  cursor: pointer;
-
-  transition-property: background-color, border-color, box-shadow, color, transform;
-  transition-duration: 0.15s;
-  transition-timing-function: ease-out;
-
-  
   svg {
     width: set-calc(24);
     height: set-calc(24);
@@ -58,54 +56,46 @@
     text-align: center;
     background: 50% no-repeat;
     background-size: contain;
+  }
+
+  &:hover {
+    background-color: var(--color-background-glassy-c);
   }
 
   @include set-media(md) {
     top: 0;
     right: 0;
+
     padding: set-calc(24);
     box-shadow: none;
     background-color: transparent;
-  }
-}
 
-.close:hover {
-  background-color: var(--color-background-glassy-c);
-
-  @include set-media(md) {
-    background-color: transparent;
-  }
-}
-
-.close:active {
-  transform: scale(0.94);
-
-  @include set-media(md) {
-    transform: none;
-    background-color: transparent;
+    &:active,
+    &:hover {
+      transform: none;
+      background-color: transparent;
+    }
   }
 }
 
 .back {
-  z-index: 1;
+  @include btn;
+
   position: absolute;
+
   top: set-calc(16);
   left: set-calc(16);
 
-  border-radius: set-calc($border-radius-small);
+  display: flex;
+
+  z-index: 1;
+
   padding: set-calc(13);
 
-  display: flex;
   color: var(--color-content-primary);
+  border-radius: set-calc($border-radius-small);
   background-color:  var(--color-background-glassy-b);
 
-  cursor: pointer;
-
-  transition-property: background-color, border-color, box-shadow, color, transform;
-  transition-duration: 0.15s;
-  transition-timing-function: ease-out;
-
-  
   svg {
     width: set-calc(24);
     height: set-calc(24);
@@ -114,33 +104,25 @@
     text-align: center;
     background: 50% no-repeat;
     background-size: contain;
-    transform: rotate(0deg);
+  }
+
+  &:hover {
+    background-color: var(--color-background-glassy-c);
   }
 
   @include set-media(md) {
     top: 0;
-    right: unset;
-    left: 0;
+    right: 0;
+
     padding: set-calc(24);
     box-shadow: none;
     background-color: transparent;
-  }
-}
 
-.back:hover {
-  background-color:  var(--color-background-glassy-c);
-
-  @include set-media(md) {
-    background-color: transparent;
-  }
-}
-
-.back:active {
-  transform: scale(0.94);
-
-  @include set-media(md) {
-    transform: none;
-    background-color: transparent;
+    &:active,
+    &:hover {
+      transform: none;
+      background-color: transparent;
+    }
   }
 }
 

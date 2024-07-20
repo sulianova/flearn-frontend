@@ -23,7 +23,7 @@
 
   margin-bottom: set-calc(24);
   @include font-40-normal-header;
-  font-family: $font-family-bold;
+  font-family: $font-family-medium;
 
   @include set-media(md) {
     margin-bottom: set-calc(16);
@@ -135,6 +135,15 @@
   cursor: pointer;
 }
 
+.title {
+  margin-bottom: set-calc(24);
+  max-width: set-calc(600);
+
+  @include font-40-normal-header;
+  color: $color-content-inverted-primary-light;
+  text-align: left;
+}
+
 .cardBtn {
   display: flex;
   margin-top: auto;
@@ -170,23 +179,12 @@
 
   width: 100%;
   height: 100%;
-  
+
   transform-origin: center center;
   overflow: hidden;
 
   border-radius: set-calc($border-radius-medium);
   background: var(--color-background-card);
-  background-size: 400% 400%;
 
-  animation: buttonGradient 45s ease infinite;
   transition: width .3s, margin .3s, min-width .3s, background-color .3s, color .3s, border .3s, background-position 2s ease-out, padding-left .3s, transform $d-hover ease, box-shadow $d-hover ease;
-}
-
-.title {
-  margin-bottom: set-calc(24);
-  max-width: set-calc(600);
-
-  @include font-40-normal-header;
-  color: $color-content-inverted-primary-light;
-  text-align: left;
 }

@@ -61,15 +61,18 @@ padding: set-calc(16) 0;
   display: flex;
   justify-content: center;
   align-items: center;
+
   padding: 0 set-calc(24);
   height: set-calc(62);
+  width: 100%;
 
   border-radius: set-calc($border-radius-16);
   background: var(--primary-color);
-  color: $color-palette-white-1000;
-  width: 100%;
 
   @include set-typography(18, 24, 500);
+  color: $color-palette-white-1000;
+  font-family: $font-family-medium;
+
   touch-action: manipulation;
 }
 
@@ -343,7 +346,7 @@ padding: set-calc(16) 0;
 
 .active {
   background-color: var(--color-background-glassy-c);
-  font-family: $font-family-bold;
+  font-family: $font-family-medium;
 
   .navigationItemTitle {
     color: var(--color-content-primary);

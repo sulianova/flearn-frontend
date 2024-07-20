@@ -18,10 +18,10 @@
 
 .title {
   margin: 0 set-calc(16);
-  @include font-28-normal-header;
+  @include font-24-normal-header;
+  font-family: $font-family-medium;
 
   @include set-media(md) {
-    @include font-32-normal-header;
     margin: 0 set-calc(8);
   }
 }
@@ -45,7 +45,8 @@
 .programTitle {
   margin: 0 0 set-calc(24);
 
-  @include font-28-normal-header;
+  @include font-24-normal-header;
+  font-family: $font-family-medium;
   color: var(--color-content-primary);
 
   @include set-media(md) {
@@ -122,31 +123,32 @@
 }
 
 .currentLessonButton {
+  @include btn;
+
   position: relative;
 
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   gap: set-calc(8);
   min-width: set-calc(180);
 
-  padding-block: set-calc(15);
-  padding-inline: set-calc(24);
-
-  transition-property: background-color, border-color, box-shadow, color, transform;
-  transition-duration: 0.15s;
-  transition-timing-function: ease-out;
+  padding: set-calc(16) set-calc(24);
 
   @include font-18-normal-ui;
   color: var(--color-content-inverted-primary);
-  text-decoration: none;
+  font-family: $font-family-medium;
 
   border-radius: set-calc($border-radius-12);
-  background-color: var(--color-content-background-primary);
-  border: none;
-}
+  background-color: var(--color-accent-neutral);
 
-.currentLessonButton:hover {
-  background-color: var(--color-content-background-secondary);
-  cursor: pointer;
+  &:hover {
+    background-color: var(--color-accent-neutral-hover);
+    cursor: pointer;
+  }
+
+  @include set-media(md) {
+    background-color: var(--color-accent-neutral);
+  }
 }

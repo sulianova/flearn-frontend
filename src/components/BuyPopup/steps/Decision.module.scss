@@ -153,6 +153,7 @@
   .courseName {
     color: var(--color-content-inverted-primary);
   }
+
   .title {
     color: var(--color-content-inverted-secondary);
   }
@@ -163,13 +164,13 @@
     }
   
     .creditWas {
-      color: var(--color-background-glassy-inverted-d);
+      color: var(--color-accent-promo);
 
       s:after {
-        border-bottom: set-calc(1.5) solid var(--color-background-glassy-inverted-d);
+        border-bottom: set-calc(1.5) solid var(--color-accent-promo);
   
         @include set-media(md) {
-          border-bottom: set-calc(1) solid var(--color-background-glassy-inverted-d);
+          border-bottom: set-calc(1) solid var(--color-accent-promo);
         }
       }
     }
@@ -177,6 +178,7 @@
     .discountTag {
       color: var(--color-content-primary);
       background: var(--color-accent-promo);
+      font-family: $font-family-bold;
     }
   }
 
@@ -198,17 +200,18 @@
     color: $color-content-inverted-primary-light;
 
     background: var(--primary-color);
-    background-size: 400% 400%;
     border: none;
-  
-    // animation: buttonGradient 45s ease infinite;
-    // transition: width .3s, margin .3s, min-width .3s, background-color .3s, color .3s, border .3s, background-position 2s ease-out, padding-left .3s;
   
     &:hover {
       cursor: pointer;
-      box-shadow: $shadow-medium-hovered;
       background: var(--primary-color-hover);
-      border-color: $primary-color-hover-dark;
+      border: none;
+    }
+
+    @include set-media(md) {
+      &:hover {
+        background: var(--primary-color);
+      }
     }
   }
 }
@@ -244,7 +247,7 @@
   position: relative;
 
   display: flex;
-  align-items: center;
+  align-items: start;
   gap: set-calc(12);
 }
 
@@ -256,6 +259,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  margin-top: set-calc(2);
 
   color: var(--color-content-secondary);
 
@@ -282,6 +287,8 @@
 }
 
 .cardBtn {
+  @include btn;
+
   position: relative;
 
   display: flex;
@@ -289,27 +296,30 @@
   align-items: center;
 
   margin-top: set-calc(32);
-
-  color: var(--color-content-secondary);
-  @include font-18-normal-ui;
-
-  border-radius: set-calc($border-radius-16);
-  border: 1px solid var(--color-content-secondary);
-  background-color: transparent;
-  height: set-calc(64);
   padding: 0 set-calc(32);
 
-  transition: opacity $d-hover ease, box-shadow $d-hover ease, background-color $d-hover ease, transform 0.15s ease-out, color $d-hover ease,;
-  cursor: pointer;
+  color: var(--color-content-paragraph-secondary);
+  font-family: $font-family-medium;
+  @include font-18-normal-ui;
+
+  height: set-calc(64);
+  background-color: transparent;
+  border-radius: set-calc($border-radius-16);
+  border: 1px solid var(--color-content-paragraph-secondary);
 
   &:hover {
     cursor: pointer;
-    background-color: var(--color-content-secondary);
+    background-color: var(--color-content-paragraph-secondary);
+    border-color: transparent;
     color: var(--color-content-inverted-primary);
   }
 
   @include set-media(md) {
-    // display: none;
+    &:hover {
+      background-color: transparent;
+      border-color: var(--color-content-paragraph-secondary);
+      color: var(--color-content-paragraph-secondary);
+    }
   }
 }
 
@@ -342,9 +352,11 @@
   padding: 0 set-calc(8);
   height: set-calc(30);
 
-  background: var(--color-card);
+  background: var(--color-content-background-secondary);
   border-radius: calc(set-calc(30) / 2);
-  color: var(--color-content-primary);
+  
+  color: var(--color-content-inverted-secondary);
+  font-family: $font-family-medium;
 
   @include font-14-normal-ui;
   text-align: start;
@@ -353,14 +365,14 @@
 .creditWas {
   display: block;
 
-  color: var(--color-content-tertiary);
-  @include font-20-normal-ui;
+  color: var(--color-content-background-secondary);
+  @include font-18-normal-ui;
   margin: set-calc(5) 0;
   white-space: nowrap;
 
   s:after {
     margin-top: 0;
-    border-bottom: set-calc(1.5) solid var(--color-content-tertiary);
+    border-bottom: set-calc(1.5) solid var(--color-content-background-secondary);
     content: "";
     position: absolute;
     left: set-calc(-2);
@@ -368,7 +380,7 @@
     top: 50%;
 
     @include set-media(md) {
-      border-bottom: set-calc(1) solid var(--color-content-tertiary);
+      border-bottom: set-calc(1) solid var(--color-content-background-secondary);
     }
   }
 }

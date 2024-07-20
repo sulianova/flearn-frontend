@@ -268,6 +268,8 @@
 
 //submitBtn
 .submitButton {
+  @include btn;
+
   position: relative;
 
   display: flex;
@@ -290,19 +292,18 @@
 
   border: none;
 
-  transition-property: background-color, border-color, box-shadow, color, transform;
-  transition-duration: 0.15s;
-  transition-timing-function: ease-out;
-}
+  &:hover {
+    background-color: var(--color-accent-neutral-hover);
+  }
+  
+  &:disabled {
+    background-color: var(--color-background-glassy-b);
+    color: var(--color-content-tertiary);
+  }
 
-.submitButton:hover {
-  background-color: var(--color-accent-neutral-hover);
-}
-
-.submitButton:disabled {
-  background-color: var(--color-background-glassy-b);
-  color: var(--color-content-tertiary);
-
-  cursor: default;
-  pointer-events: none;
+  @include set-media(md) {
+    &:hover {
+      background-color: var(--color-accent-neutral);
+    }
+  }
 }

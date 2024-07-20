@@ -62,14 +62,15 @@
 }
 
 .item {
+  @include btn;
+
   position: relative;
 
-  transition: background-color $d-hover ease, transform $d-hover ease;
   border-radius: set-calc($border-radius-8);
+  cursor: pointer;
 
   &:hover {
     background-color: var(--color-background-glassy-b);
-    cursor: pointer;
   }
 
   &:active {

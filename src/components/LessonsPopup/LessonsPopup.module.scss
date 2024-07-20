@@ -24,56 +24,50 @@
 }
 
 .close {
-  z-index: 1;
-  position: absolute;
-  top: 0;
-  right: 0;
+  @include btn;
 
-  border-radius: set-calc($border-radius-small);
-  padding: set-calc(12);
-  margin: set-calc(20);
+  position: absolute;
+
+  top: set-calc(16);
+  right: set-calc(16);
 
   display: flex;
+
+  z-index: 1;
+
+  padding: set-calc(12);
+
   color: var(--color-content-primary);
+  border-radius: set-calc($border-radius-small);
+  background-color:  transparent;
 
-  cursor: pointer;
-
-  transition-property: background-color, border-color, box-shadow, color, transform;
-  transition-duration: $d-hover;
-  transition-timing-function: ease-out;
-
-  
   svg {
     width: set-calc(24);
     height: set-calc(24);
-    fill: none;
+
+    display: inline-block;
+    text-align: center;
+    background: 50% no-repeat;
+    background-size: contain;
+  }
+
+  &:hover {
+    background-color: var(--color-background-glassy-b);
   }
 
   @include set-media(md) {
     top: 0;
     right: 0;
-    border-radius: 50%;
-    padding: set-calc(12);
-    margin: set-calc(12);
+
+    padding: set-calc(24);
     box-shadow: none;
-  }
-}
-
-.close:hover {
-  background-color: var(--color-background-glassy-b);
-
-  @include set-media(md) {
     background-color: transparent;
-  }
-}
 
-.close:active {
-  transform: scale(0.96);
-  background-color: var(--color-background-glassy-c);
-
-  @include set-media(md) {
-    transform: none;
-    background-color: transparent;
+    &:active,
+    &:hover {
+      transform: none;
+      background-color: transparent;
+    }
   }
 }
 
@@ -112,36 +106,41 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   min-height: set-calc(58);
+
   color: var(--color-content-primary);
+
   border-radius: set-calc(8);
+  background-color: transparent;
 
   transition: background-color $d-hover ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--color-background-glassy-b);
+  }
+
+  &:not(:last-child) {
+    margin-bottom: set-calc(4);
+  
+    @include set-media(md) {
+      margin-bottom: 0;
+    }
+  }
 
   @include set-media(md) {
     min-height: set-calc(50);
+
+    &:hover {
+      background-color: transparent;
+    }
   }
-}
-
-.navigationItem:not(:last-child) {
-  margin-bottom: set-calc(4);
-
-  @include set-media(md) {
-    margin-bottom: 0;
-  }
-}
-
-.navigationItem:hover {
-  cursor: pointer;
-  background-color: var(--color-background-glassy-b);
 }
 
 .active {
   background-color: var(--color-background-glassy-b);
-
-  &:hover {
-    cursor: default;
-  }
+  cursor: default;
 }
 
 .navigationItemTitle {

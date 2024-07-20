@@ -32,10 +32,10 @@
 }
 
 @mixin font-18-normal-ui {
-  @include set-typography(18, 20, 500);
+  @include set-typography(18, 24, 500);
 
   @include set-media(md) {
-    @include set-typography(16, 18, 500)
+    @include set-typography(16, 22, 500)
   }
 }
 
@@ -51,7 +51,7 @@
   @include set-typography(20, 21, 500);
 
   @include set-media(md) {
-    @include set-typography(18, 24, 500);
+    @include set-typography(16, 22, 500);
   }
 }
 
@@ -119,14 +119,6 @@
   }
 }
 
-@mixin font-88-normal-header  {
-  @include set-typography(88, 70, 500);
-
-  @include set-media(md) {
-    @include set-typography(48, 44, 500);
-  }
-}
-
 //color
 .color-highlight-violet {
   color: $color-highlight-violet;
@@ -163,21 +155,6 @@
   align-items: center;
   height: set-calc(24);
   justify-content: center;
-}
-
-.btn {
-  transition-property: background-color, border-color, box-shadow, color, transform;
-  transition-duration: 0.15s;
-  transition-timing-function: ease-out;
-}
-
-.btn:disabled {
-  cursor: default;
-  pointer-events: none;
-}
-
-.btn:active {
-  transform: scale(0.96);
 }
 
 //slider

@@ -123,5 +123,9 @@
 
  .videoCardText {
   color: var(--color-content-secondary);
-  @include font-18-normal-paragraph;
+  @include set-typography(18, 24, 500);
+
+  @include set-media(md) {
+    @include set-typography(16, 24, 500)
+  }
  }

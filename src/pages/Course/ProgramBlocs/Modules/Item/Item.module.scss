@@ -66,12 +66,6 @@
 }
 
 .itemCardHoverable:hover {
-  box-shadow: $shadow-medium-hovered;
-  transition: max-height 0.2s  ease-out, box-shadow 0.2s  ease-out;
-
-  // .slideDownClosed {
-  //   max-height: set-calc(56);
-  // }
 
   .slideDownClosed::before {
     content: '';
@@ -81,12 +75,11 @@
     z-index: 1;
     width: 100%;
     height: set-calc(56);
-    background: linear-gradient(180deg, transparent 0%, var(--color-background-glassy-a) 100%);
+    background: linear-gradient(180deg, transparent 0%, var(--color-background-glassy-b) 100%);
     pointer-events: none;
   }
   
   @include set-media(md) {
-    box-shadow: none;
     .slideDownClosed {
       max-height: 0;
 
@@ -159,7 +152,9 @@
     top: set-calc(16);
     right: set-calc(16);
 
-    margin-top: set-calc(8);
+    align-items: start;
+
+    margin-top: set-calc(16);
     background-color: transparent;
     box-shadow: none;
 
@@ -178,7 +173,6 @@
 }
 
 .itemArrowOpened {
-
   svg {
     transform: rotate(180deg);
   }
@@ -188,13 +182,18 @@
 .meta {
   display: flex;
   justify-content: space-between;
-
   @include font-16-normal-ui;
+
+  @include set-media(md) {
+    @include set-typography(13, 16, 500);
+    max-width: 85%;
+  }
 }
 
 .title {
   margin: set-calc(16) 0 set-calc(8);
   @include font-32-normal-header;
+  font-family: $font-family-medium;
   color: var(--color-content-primary);
 }
 

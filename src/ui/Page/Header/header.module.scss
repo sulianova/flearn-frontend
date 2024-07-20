@@ -123,7 +123,7 @@
   span {
     @include set-typography(18, 18, 500);
     color: var(--color-content-inverted-primary);
-    font-family: $font-family-bold;
+    font-family: $font-family-medium;
 
     // background: $color-gradient-rainbow;
     // background-size: 400% 400%;

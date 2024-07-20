@@ -29,67 +29,70 @@
 }
 
 .close {
-  z-index: 1;
+  @include btn;
+
   position: absolute;
+
   top: set-calc(16);
   right: set-calc(16);
 
-  border-radius: set-calc($border-radius-small);
-  background-color: transparent;
-  padding: set-calc(13);
-
   display: flex;
+
+  z-index: 1;
+
+  padding: set-calc(12);
+
   color: var(--color-content-primary);
+  border-radius: set-calc($border-radius-small);
+  background-color:  transparent;
 
-  cursor: pointer;
-
-  transition-property: background-color, border-color, box-shadow, color, transform;
-  transition-duration: 0.15s;
-  transition-timing-function: ease-out;
-  
   svg {
     width: set-calc(24);
     height: set-calc(24);
-    fill: none;
+
+    display: inline-block;
+    text-align: center;
+    background: 50% no-repeat;
+    background-size: contain;
+  }
+
+  &:hover {
+    background-color: var(--color-background-glassy-b);
   }
 
   @include set-media(md) {
-    top: set-calc(12);
-    right: set-calc(12);
-  }
-}
+    top: 0;
+    right: 0;
 
-.close:hover {
-  background-color: var(--color-background-glassy-a);
-
-  @include set-media(md) {
+    padding: set-calc(24);
+    box-shadow: none;
     background-color: transparent;
-  }
-}
 
-.close:active {
-  transform: scale(0.96);
-  background-color: var(--color-background-glassy-b);
-
-  @include set-media(md) {
-    background-color: transparent;
-    transform: none;
+    &:active,
+    &:hover {
+      transform: none;
+      background-color: transparent;
+    }
   }
 }
 
 .header {
-  display: flex;
-  flex-direction: column;
+  margin-right: set-calc(32);
+  max-width: set-calc(700);
+
+  @include set-media(md) {
+    margin-right: set-calc(40);
+  }
 }
 
 .title {
-  margin-bottom: set-calc(24);
-  margin-right: set-calc(40);
-
-  @include font-32-normal-header;
+  margin: 0 0 set-calc(24);
+  @include font-28-normal-header;
+  font-family: $font-family-bold;
 
   @include set-media(md) {
-    margin-bottom: set-calc(16);
+    margin: set-calc(40) 0 set-calc(16);
+    @include set-typography(22, 30, 500);
   }
 }
 

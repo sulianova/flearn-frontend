@@ -124,6 +124,33 @@
   }
 }
 
+@mixin btn {
+  transition-property: all;
+  transition-duration: $d-hover;
+  transition-timing-function: ease-out;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:disabled {
+    cursor: default;
+    pointer-events: none;
+  }
+
+  &:active {
+    transform: scale(0.96);
+  }
+
+  @include set-media(md) {
+    transition-property: none;
+    
+    &:active {
+      transform: none;
+    }
+  }
+}
+
 @mixin keyframes($name) {
   @keyframes #{$name} {
     @content;

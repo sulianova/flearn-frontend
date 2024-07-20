@@ -31,21 +31,22 @@
 }
 
 .button {
+  @include btn;
+
   position: relative;
+
+  display: flex;
   align-items: center;
   justify-content: center;
 
-  padding: set-calc(20) set-calc(24);
   gap: set-calc(8);
+  padding: set-calc(20) set-calc(24);
+
   border-radius: set-calc(8);
   background-color: var(--color-background-btn);
 
   @include font-18-normal-ui;
   color: $color-content-inverted-primary-light;
-
-  transition-property: background-color, border-color, box-shadow, color, transform;
-  transition-duration: 0.15s;
-  transition-timing-function: ease-out;
 
   &:hover {
     background-color: var(--color-background-btn-hover);
@@ -53,5 +54,9 @@
 
   @include set-media(md) {
     width: 100%;
+
+    &:hover {
+      background-color: var(--color-background-btn);
+    }
   }
 }

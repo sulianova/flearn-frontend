@@ -3,10 +3,14 @@
 
 .form {
   position: relative;
+
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-bottom: 0;
+
+  @include set-media(md) {
+    margin-top: set-calc(32);
+  }
 }
 
 .inputWrap {
@@ -106,7 +110,10 @@
 }
 
 .btn {
+  @include btn;
+
   position: relative;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -114,17 +121,29 @@
   color: var(--color-content-inverted-primary);
   @include font-20-normal-ui;
 
-  border-radius: set-calc($border-radius-medium);
-  background-color: var(--color-content-background-secondary);
+  border-radius: set-calc($border-radius-12);
+  background-color: var(--color-background-btn);
+
   padding: set-calc(22) set-calc(60);
   width: 100%;
 
-  transition: background-color $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
   cursor: pointer;
 
   &:hover {
-    cursor: pointer;
-    box-shadow: $shadow-medium-hovered;
-    background-color: var(--color-content-background-primary);
+    background-color: var(--color-background-btn-hover);
+  }
+
+  @include set-media(md) {
+    padding: 0 set-calc(24);
+    margin-top: set-calc(32);
+
+    height: set-calc(62);
+    width: 100%;
+  
+    border-radius: set-calc($border-radius-16);
+    background-color: var(--color-background-btn);
+  
+    @include set-typography(18, 24, 500);
+    touch-action: manipulation;
   }
 }
