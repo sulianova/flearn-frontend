@@ -97,7 +97,6 @@
 
   &:hover {
     .background {
-      box-shadow: $shadow-medium-hovered;
       cursor: pointer;
       transform: scale(1.02);
     }
@@ -174,7 +173,6 @@
   
   transform-origin: center center;
   overflow: hidden;
-  box-shadow: $shadow-medium-default;
 
   border-radius: set-calc($border-radius-medium);
   background: var(--color-background-card);

@@ -9,7 +9,8 @@
 
   @include set-media(md) {
     position: relative;
-    margin: set-calc(16) 0 set-calc(80);
+    min-height: 70vh;
+    margin: set-calc(40) 0 set-calc(80);
   }
 }
 
