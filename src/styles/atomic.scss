@@ -136,6 +136,10 @@
   font-family: $font-family-bold;
 }
 
+.bc-yellow {
+  @include bc-yellow;
+}
+
 //
 .isMobile {
   @include set-media-min(md) {

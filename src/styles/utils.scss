@@ -124,6 +124,10 @@
   }
 }
 
+@mixin bc-yellow {
+  background-color: var(--color-accent-promo);
+}
+
 @mixin btn {
   transition-property: all;
   transition-duration: $d-hover;

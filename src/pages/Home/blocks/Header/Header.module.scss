@@ -41,15 +41,26 @@
 
 .headerTitle {
   margin-bottom: set-calc(40);
-  max-width: 80%;
+  max-width: 70%;
 
-  @include set-typography(90, 90, 500);
+  @include set-typography(90, 100, 500);
   font-family: $font-family-bold;
   text-align: start;
 
-  @include set-media(md) {
+  span {
+    display: inline-block;
 
-    @include set-typography(40, 44, 500);
+    &:not(:first-child) {
+      margin-top: set-calc(20);
+
+      @include set-media(md) {
+        margin-top: set-calc(8);
+      }
+    }
+  }
+
+  @include set-media(md) {
+    @include set-typography(40, 48, 500);
     max-width: 100%;
     margin-bottom: set-calc(16);
   }
@@ -103,11 +114,11 @@
   padding: 0 set-calc(24);
 
   border-radius: set-calc($border-radius-16);
-  background-color: $color-highlight-yellow;
+  background-color: var(--color-accent-neutral);
   box-shadow: $shadow-small-default;
 
   @include font-20-normal-ui;
-  color: $color-content-primary-light;
+  color: var(--color-content-inverted-primary);
   font-family: $font-family-medium;
 
   height: set-calc(64);
@@ -115,6 +126,7 @@
 
   &:hover {
     box-shadow: $shadow-small-hovered;
+    background-color: var(--color-accent-neutral-hover);
   }
 
   &:active {
