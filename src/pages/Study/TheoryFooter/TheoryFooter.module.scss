@@ -43,20 +43,20 @@
   padding: set-calc(20) set-calc(24);
 
   border-radius: set-calc(8);
-  background-color: var(--color-background-btn);
+  background-color: var(--color-accent-neutral);
 
   @include font-18-normal-ui;
-  color: $color-content-inverted-primary-light;
+  color: var(--color-content-inverted-primary);
 
   &:hover {
-    background-color: var(--color-background-btn-hover);
+    background-color: var(--color-accent-neutral-hover);
   }
 
   @include set-media(md) {
     width: 100%;
 
     &:hover {
-      background-color: var(--color-background-btn);
+      background-color: var(--color-accent-neutral);
     }
   }
 }
