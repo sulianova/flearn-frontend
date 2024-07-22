@@ -97,7 +97,7 @@ export interface ILessonGalleryBlock extends ILessonBlock {
   maxHeightPx?: number
 }
 
-export interface ILessonQuestionBlock extends ILessonBlock {
+export interface ILessonQuizBlock extends ILessonBlock {
   type: 'quiz'
   steps: TQuizStep[]
 }
@@ -158,5 +158,5 @@ export interface ILessonButtonBlock extends ILessonBlock {
   content: TText
 }
 
-export type ILessonContentDB = Array<ILessonTextBlock | ILessonQuestionBlock | ILessonQuoteBlock | ILessonTextImportantBlock | ILessonTitleBlock  | ILessonVideoBlock | ILessonImageBlockDB | ILessonGalleryBlockDB | ILessonListBlock | ILessonButtonBlock>;
-export type ILessonContent = Array<ILessonTextBlock | ILessonQuestionBlock | ILessonQuoteBlock | ILessonTextImportantBlock | ILessonTitleBlock  | ILessonVideoBlock | ILessonImageBlock | ILessonGalleryBlock | ILessonListBlock | ILessonButtonBlock>;
+export type ILessonContentDB = Array<ILessonTextBlock | ILessonQuizBlock | ILessonQuoteBlock | ILessonTextImportantBlock | ILessonTitleBlock  | ILessonVideoBlock | ILessonImageBlockDB | ILessonGalleryBlockDB | ILessonListBlock | ILessonButtonBlock>;
+export type ILessonContent = Array<ILessonTextBlock | ILessonQuizBlock | ILessonQuoteBlock | ILessonTextImportantBlock | ILessonTitleBlock  | ILessonVideoBlock | ILessonImageBlock | ILessonGalleryBlock | ILessonListBlock | ILessonButtonBlock>;

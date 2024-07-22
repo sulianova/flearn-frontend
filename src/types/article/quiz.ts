@@ -12,11 +12,11 @@ export interface IQuizSelectStep<T> extends IQuizStep {
     value: T
   } & ({
     shouldBeSelected: true
-    positiveExplanation: TText // user has selected => e.g. 'Yes! Fish can fly. Good job!!!'
-    negativeExplanation: TText // user hasn't selected => e.g. 'Oops. Actualy some fish can fly. Do better job nex time...'
+    positiveExplanation?: TText // user has selected => e.g. 'Yes! Fish can fly. Good job!!!'
+    negativeExplanation?: TText // user hasn't selected => e.g. 'Oops. Actualy some fish can fly. Do better job nex time...'
   } | {
     shouldBeSelected: false
-    negativeExplanation: TText // user hasn't selected => e.g. 'Oops. Actualy mount Everest height is 8,849m and not 8,848m...'
+    negativeExplanation?: TText // user hasn't selected => e.g. 'Oops. Actualy mount Everest height is 8,849m and not 8,848m...'
   })>
 }
 

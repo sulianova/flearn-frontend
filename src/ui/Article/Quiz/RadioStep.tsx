@@ -27,7 +27,7 @@ export default function RadioStep(props: IProps) {
   const [showAnswers, setShowAnswers] = useState(props.isInitialSolvedQuiz);
 
   return (
-    <div className={cx({ wrapper: true, wrapperVisible: visible })}>
+    <div className={cx({ wrapper: true, wrapperVisible: visible, submited: showAnswers })}>
       <form className={classes.content}>
         <div className={classes.quizHeader}>
           {step.title && <div className={classes.quizTitle}><UIText text={step.title}/></div>}
@@ -36,7 +36,14 @@ export default function RadioStep(props: IProps) {
         </div>
         <fieldset className={classes.quizGroup} role='radiogroup'>
           {step.options.map((option, index) => (
-            <Fragment key={index}>
+            <div
+              key={index}
+              className={cx({
+                quizGroupItem: true,
+                shouldBeChecked: option.shouldBeSelected,
+                shouldNotBeChecked: !option.shouldBeSelected,
+              })}
+            >
               <label
                 htmlFor={getId(index)}
                 className={classes.choiceOption}
@@ -44,8 +51,6 @@ export default function RadioStep(props: IProps) {
                 <div className={cx({
                     radio: true,
                     checked: selectedValueIndex === index,
-                    shouldBeChecked: showAnswers && option.shouldBeSelected,
-                    shouldNotBeChecked: showAnswers && !option.shouldBeSelected,
                   })}
                 >
                   <span className={classes.visuallyHidden}>
@@ -53,6 +58,9 @@ export default function RadioStep(props: IProps) {
                       type="radio"
                       id={getId(index)}
                       onClick={() => {
+                        if (showAnswers) {
+                          return;
+                        }
                         setSelectedValueIndex(index);
                       }}
                     />
@@ -65,22 +73,22 @@ export default function RadioStep(props: IProps) {
                   <UIText text={option.value}/>
                 </span>
               </label>
-              {showAnswers && selectedValueIndex === index && option.shouldBeSelected && (
+              {showAnswers && option.shouldBeSelected && option.positiveExplanation && selectedValueIndex === index && (
                 <div className={classes.feedbackShouldBeChecked}>
                   <UIText text={option.positiveExplanation}/>
                 </div>
               )}
-              {showAnswers && selectedValueIndex !== index && option.shouldBeSelected && (
+              {showAnswers && option.shouldBeSelected && option.negativeExplanation && selectedValueIndex !== index && (
                 <div className={classes.feedbackShouldBeChecked}>
                   <UIText text={option.negativeExplanation}/>
                 </div>
               )}
-              {showAnswers && selectedValueIndex === index && !option.shouldBeSelected && (
+              {showAnswers && !option.shouldBeSelected && option.negativeExplanation && selectedValueIndex === index && (
                 <div className={classes.feedbackShouldNotBeChecked}>
                   <UIText text={option.negativeExplanation}/>
                 </div>
               )}
-            </Fragment>
+            </div>
           ))}
         </fieldset>
         {!showAnswers && (

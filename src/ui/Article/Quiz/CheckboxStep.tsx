@@ -29,7 +29,7 @@ export default function CheckboxStep(props: IProps) {
   const [showAnswers, setShowAnswers] = useState(isInitialSolvedQuiz);
 
   return (
-    <div className={cx({ wrapper: true, wrapperVisible: visible })}>
+    <div className={cx({ wrapper: true, wrapperVisible: visible, submited: showAnswers })}>
       <form className={classes.content}>
         <div className={classes.quizHeader}>
           {step.title && <div className={classes.quizTitle}><UIText text={step.title}/></div>}
@@ -38,7 +38,14 @@ export default function CheckboxStep(props: IProps) {
         </div>
         <fieldset className={classes.quizGroup}>
           {step.options.map((option, index) => (
-            <Fragment key={index}>
+            <div
+              key={index}
+              className={cx({
+                quizGroupItem: true,
+                shouldBeChecked: option.shouldBeSelected,
+                shouldNotBeChecked: !option.shouldBeSelected,
+              })}
+            >
               <label
                 htmlFor={getId(index)}
                 className={classes.choiceOption}
@@ -46,8 +53,6 @@ export default function CheckboxStep(props: IProps) {
                 <div className={cx({
                     checkbox: true,
                     checked: selectedValueIndexes.includes(index),
-                    shouldBeChecked: showAnswers && option.shouldBeSelected,
-                    shouldNotBeChecked: showAnswers && !option.shouldBeSelected,
                   })}
                 >
                   <span className={classes.visuallyHidden}>
@@ -55,6 +60,9 @@ export default function CheckboxStep(props: IProps) {
                       type="checkbox"
                       id={getId(index)}
                       onChange={() => {
+                        if (showAnswers) {
+                          return;
+                        }
                         if (!selectedValueIndexes.includes(index)) {
                           setSelectedValueIndexes(v => [...v, index]);
                         } else {
@@ -73,22 +81,22 @@ export default function CheckboxStep(props: IProps) {
                   <UIText text={option.value}/>
                 </span>
               </label>
-              {showAnswers && selectedValueIndexes.includes(index) && option.shouldBeSelected && (
-                <div className={classes.feedbackShouldBeChecked}>
+              {showAnswers && option.shouldBeSelected && option.positiveExplanation && selectedValueIndexes.includes(index) && (
+                <div className={classes.feedback}>
                   <UIText text={option.positiveExplanation}/>
                 </div>
               )}
-              {showAnswers && !selectedValueIndexes.includes(index) && option.shouldBeSelected && (
-                <div className={classes.feedbackShouldBeChecked}>
+              {showAnswers && option.shouldBeSelected && option.negativeExplanation && !selectedValueIndexes.includes(index) && (
+                <div className={classes.feedback}>
                   <UIText text={option.negativeExplanation}/>
                 </div>
               )}
-              {showAnswers && selectedValueIndexes.includes(index) && !option.shouldBeSelected && (
-                <div className={classes.feedbackShouldNotBeChecked}>
+              {showAnswers && !option.shouldBeSelected && option.negativeExplanation && selectedValueIndexes.includes(index) && (
+                <div className={classes.feedback}>
                   <UIText text={option.negativeExplanation}/>
                 </div>
               )}
-            </Fragment>
+            </div>
           ))}
         </fieldset>
         {!showAnswers && (

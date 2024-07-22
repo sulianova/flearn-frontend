@@ -1,16 +1,28 @@
 @import 'styles/index';
 
-.shouldBeChecked {
-  --verdict-color: var(--color-accent-success);
-}
+// .choiceOption {
+//   --color-quiz: var(--color-accent-neutral);
+// }
 
-.shouldNotBeChecked {
-  --verdict-color: var(--color-accent-error);
-}
+// .shouldBeChecked {
+//   --color-quiz: var(--color-accent-success);
+
+//   .choiceOption::before {
+//     opacity: 1;
+//   }
+// }
+
+// .shouldNotBeChecked {
+//   --color-quiz: var(--color-accent-error);
+
+//   .choiceOption::before {
+//     opacity: 1;
+//   }
+// }
 
 .__ {
   position: relative;
-  margin: set-calc(40) 0 set-calc(20);
+  margin: set-calc(40) 0 set-calc(40);
 
   gap: set-calc(20);
 
@@ -18,10 +30,10 @@
   left: set-calc(-32);
 
   @include set-media(md) {
-    margin: set-calc(30) 0 set-calc(16);
+    margin: set-calc(30) 0 set-calc(30);
 
-    width: set-calc(398);
-    left: set-calc(-8);
+    width: set-calc(390);
+    left: set-calc(-12);
   }
 }
 
@@ -65,8 +77,9 @@
 .quizHeader {
   display: flex;
   flex-direction: column;
-
-  margin-bottom: set-calc(16);
+  
+  gap: set-calc(16);
+  margin-bottom: set-calc(20);
 }
 
 .quizTitle {
@@ -78,14 +91,10 @@
   }
 }
 
-
 .quizSubtitle {
   color: var(--color-content-paragraph-primary);
   @include font-18-normal-paragraph;
-
-  margin-bottom: set-calc(20);
 }
-
 
 .quizDescription {
   color: var(--color-content-paragraph-primary);
@@ -95,42 +104,82 @@
 .quizGroup {
   display: flex;
   flex-direction: column;
+  gap: set-calc(16);
 
   margin: 0;
   padding: 0;
   border: 0;
   min-inline-size: auto;
+
+
+}
+
+.quizGroupItem {
+  position: relative;
+
+  --color-quiz: var(--color-accent-neutral);
+}
+
+.quizGroupItem::before {
+  position: absolute;
+  top: set-calc(-2);
+  left: set-calc(-34);
+  width: set-calc(3);
+  height: set-calc(4, true, 100%);
+  content: "";
+  background: var(--color-quiz);
+  opacity: 0;
+
+  @include set-media(md) {
+    left: set-calc(-18);
+  }
+
+  .submited & {
+    opacity: 1;
+  }
+}
+
+.submited .shouldBeChecked {
+  --color-quiz: var(--color-accent-success);
+}
+
+.submited .shouldNotBeChecked {
+  --color-quiz: var(--color-accent-error);
 }
 
 .choiceOption {
   position: relative;
 
   display: flex;
-  align-items: center;
+  align-items: start;
   gap: set-calc(12);
 
-  margin: set-calc(10) 0;
+  margin: set-calc(10) 0 set-calc(12);
 
   border-radius: set-calc(6);
   @include font-18-normal-ui;
 
   cursor: pointer;
+
+  .submited & {
+    cursor: default;
+  }
 }
 
-.choiceOption::after {
-  position: absolute;
-  top: 0;
-  left: 0;
+// .choiceOption::before {
+//   position: absolute;
+//   top: set-calc(-3);
+//   left: set-calc(-34);
+//   width: set-calc(3);
+//   height: set-calc(6, true, 100%);
+//   content: "";
+//   background: var(--color-quiz);
+//   opacity: 0;
 
-  width: 100%;
-  height: 100%;
-  content: "";
-  transition: opacity .2s;
-  pointer-events: none;
-  opacity: 0;
-  border-radius: inherit;
-  background-color: var(--color-quiz);
-}
+//   @include set-media(md) {
+//     left: set-calc(-18);
+//   }
+// }
 
 //check general
 .checked {
@@ -144,7 +193,7 @@
   width: 3px;
   height: calc(100% - 2* 4px);
   content: "";
-  background: var(--verdict-color);
+  background: var(--color-quiz);
 }
 
 .checked .icon {
@@ -188,13 +237,8 @@
 }
 
 //feedback
-.feedbackShouldBeChecked {
-  color: var(--color-accent-success);
-  @include font-16-normal-paragraph;
-}
-
-.feedbackShouldNotBeChecked {
-  color: var(--color-accent-error);
+.feedback {
+  color: var(--color-quiz);
   @include font-16-normal-paragraph;
 }
 
@@ -214,6 +258,10 @@
   box-sizing: border-box;
   cursor: pointer;
 
+  .submited & {
+    cursor: default;
+  }
+
   transition: background-color .2s ease-in-out;
   border-radius: 50%;
   box-shadow: inset 0 0 0 1.5px var(--color-quiz);
@@ -226,6 +274,7 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
+
   overflow: hidden;
   box-sizing: border-box;
 
@@ -233,6 +282,10 @@
   width: set-calc(24);
   height: set-calc(24);
   cursor: pointer;
+
+  .submited & {
+    cursor: default;
+  }
 
   transition: background-color .2s ease-in-out;
   border-radius: set-calc(6);

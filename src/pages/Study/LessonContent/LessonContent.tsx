@@ -59,7 +59,7 @@ export default function LessonContent(props: IProps) {
   const [allQuizesSubmited, setAllQuizesSubmited] = useState(() => lesson.content.filter(b => b.type === 'quiz').length === 0);
   useEffect(() => {
     setAllQuizesSubmited(initialSolvedQuizes >= lesson.content.filter(b => b.type === 'quiz').length);
-  }, [initialSolvedQuizes, lesson]);
+  }, [initialSolvedQuizes, lessonId, userEmail]);
 
   return (
     <>
