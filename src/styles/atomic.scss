@@ -24,7 +24,7 @@
 }
 
 @mixin font-18-normal-paragraph {
-  @include set-typography(18, 28, 500);
+  @include set-typography(18, 32, 500);
 
   @include set-media(md) {
     @include set-typography(16, 24, 500)
@@ -126,6 +126,10 @@
 
 .blue {
   color: var(--primary-color);
+}
+
+.green {
+  color: $color-highlight-green;
 }
 
 .italic {

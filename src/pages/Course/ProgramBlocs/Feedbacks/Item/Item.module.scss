@@ -77,7 +77,7 @@
   padding-left: set-calc(80);
   padding-right: set-calc(40);
   padding-top: set-calc(8);
-  color: $color-highlight-violet;
+  color: var(--primary-color);
 
   @include set-media(md) {
     display: none;

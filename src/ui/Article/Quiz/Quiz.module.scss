@@ -39,7 +39,7 @@
   transform: translateY(100%);
   opacity: 0;
 
-  @include font-20-normal-paragraph;
+  @include font-18-normal-paragraph;
   color: var(--color-content-primary);
 
   @include set-media(md) {
@@ -81,7 +81,7 @@
 
 .quizSubtitle {
   color: var(--color-content-paragraph-primary);
-  @include font-20-normal-paragraph;
+  @include font-18-normal-paragraph;
 
   margin-bottom: set-calc(20);
 }
@@ -89,7 +89,7 @@
 
 .quizDescription {
   color: var(--color-content-paragraph-primary);
-  @include font-20-normal-paragraph;
+  @include font-18-normal-paragraph;
 }
 
 .quizGroup {

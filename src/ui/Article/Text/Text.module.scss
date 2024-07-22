@@ -1,7 +1,7 @@
 @import 'styles/index';
 
 .text {
-  @include font-20-normal-paragraph;
+  @include font-18-normal-paragraph;
   color: var(--color-content-paragraph-primary);
   margin: set-calc(12) 0 set-calc(20);
   

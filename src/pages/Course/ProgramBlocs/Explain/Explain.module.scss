@@ -40,7 +40,7 @@
   text-align: center;
 
   @include set-media(md) {
-    @include set-typography(32, 38, 500);
+    @include set-typography(32, 40, 500);
   }
 }
 
