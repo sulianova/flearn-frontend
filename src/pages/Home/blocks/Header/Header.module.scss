@@ -114,7 +114,7 @@
   padding: 0 set-calc(24);
 
   border-radius: set-calc($border-radius-16);
-  background-color: var(--color-accent-neutral);
+  background-color: var(--color-content-background-secondary);
   box-shadow: $shadow-small-default;
 
   @include font-20-normal-ui;
@@ -126,7 +126,7 @@
 
   &:hover {
     box-shadow: $shadow-small-hovered;
-    background-color: var(--color-accent-neutral-hover);
+    background-color: var(--color-content-background-primary);
   }
 
   &:active {

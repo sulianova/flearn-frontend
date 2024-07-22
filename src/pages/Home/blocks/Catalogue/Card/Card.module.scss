@@ -27,7 +27,7 @@
     }
 
     .cardBtn {
-      background-color: var(--color-content-primary);
+      background-color: var(--color-content-background-primary);
       color: var(--color-content-inverted-primary);
 
       @include btn;
@@ -188,7 +188,7 @@
 
   padding: 0 set-calc(16);
   border-radius: set-calc($border-radius-12);
-  border: 2px solid var(--color-content-primary);
+  border: 2px solid var(--color-content-background-primary);
 
   width: 100%;
   height: set-calc(56);
