@@ -98,6 +98,12 @@ ul {
   list-style: none;
 }
 
+li {
+  display: list-item;
+  text-align: -webkit-match-parent;
+  unicode-bidi: isolate;
+}
+
 input,
 input::placeholder {
   color: inherit;

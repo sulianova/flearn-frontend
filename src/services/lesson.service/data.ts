@@ -721,11 +721,151 @@ const lessonData21: ILessonDataDB = {
       text: [
         {
           tag: 'p',
-          content: 'Добро пожаловать на вводную часть курса «Композиция: как выделить главное». Совсем скоро вы сделаете иллюстрацию к статье. Ну а в начале давайте разберемся, кто такой иллюстратор и чем он занимается.',
+          content: 'Добро пожаловать на вводную часть курса «Композиция: как выделить главное». Совсем скоро вы сделаете свою первую иллюстрацию к статье. Ну а в начале давайте разберемся, кто такой иллюстратор и чем он занимается.',
         },
         {
           tag: 'p',
-          content: 'Иллюстратор помогает компаниям и людям выделиться среди конкурентов, передать настроение бренда, сделать текст нагляднее и проще.',
+          content: 'Иллюстратор помогает компаниям и людям выделиться среди конкурентов, привлечь новую аудиторию, сделать текст нагляднее и проще. Его работы используются в бизнесе, маркетинге, рекламе, издательстве и других сферах, где нужна визуальная коммуникация.',
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Иллюстрации в IT и цифровых продуктах',
+    },
+    {
+      type: 'text',
+      text: 'Иллюстрации в IT помогают улучшить пользовательский опыт, визуализировать данные и передать сложные идеи доступным способом. Вот несколько примеров их применения:',
+    },
+    {
+      type: 'list',
+      items: [
+        [
+          {
+            tag: 'span',
+            content: 'Иконки. ',
+            props: { className: 'bold'},
+          },
+          {
+            tag: 'span',
+            content: 'Представьте, что вы пользуетесь мобильным приложением для доставки еды. На главном экране вы видите иконки разных категорий: пицца, суши, бургеры и т.д. Эти иконки помогают пользователю быстро найти нужный раздел, делая взаимодействие с приложением интуитивно понятным и приятным.',
+          },
+        ],
+        [
+          {
+            tag: 'span',
+            content: 'Инфографика. ',
+            props: { className: 'bold'},
+          },
+          {
+            tag: 'span',
+            content: 'В приложениях для аналитики или финансов инфографика помогает представить сложные данные в наглядной форме. Например, приложение для учета личных финансов может показывать ваши расходы в виде диаграмм и графиков, где каждый сектор или столбец проиллюстрирован соответствующим образом (иконками продуктов, услуг и т.д.)',
+          },
+        ],
+        [
+          {
+            tag: 'span',
+            content: 'Онбординг (первоначальное обучение пользователя). ',
+            props: { className: 'bold'},
+          },
+          {
+            tag: 'span',
+            content: 'Когда вы впервые открываете новое приложение, часто видите серию экранов с объяснением его основных функций. Иллюстрации на этих экранах помогают понять, что и как делать.',
+          },
+        ],
+        [
+          {
+            tag: 'span',
+            content: 'Игровые элементы (геймификация). ',
+            props: { className: 'bold'},
+          },
+          {
+            tag: 'span',
+            content: 'Приложения используют элементы игры для мотивации пользователей. Например, в образовательных приложениях можно встретить интерактивных персонажей, которые помогают проходить обучение, вовлекают в процесс и дают обратную связь.',
+          },
+        ],
+      ]
+    },
+    {
+      type: 'gallery',
+      maxHeightPx: 1_000,
+      images: [
+        {
+          id: 'bayduzha5.webp',
+          alt: 'bayduzha5',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Наташа Байдужа',
+              props: { className: 's-hoverable', target: "_blank", to: 'http://bayduzha.com/' },
+            }
+          ]
+        },
+        {
+          id: 'IvanHaidutski.webp',
+          alt: 'IvanHaidutski',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Ivan Haidutski',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/ivanhaidutski' },
+            }
+          ]
+        },
+        {
+          id: 'MinHeo1.webp',
+          alt: 'MinHeo1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Min Heo',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://minstudio.cargo.site/index' },
+            }
+          ]
+        },
+        {
+          id: 'Vkusvill.webp',
+          alt: 'Vkusvill',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Vkusvill',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://vkusvill.ru/' },
+            }
+          ]
+        },
+        {
+          id: 'AlfaBank.webp',
+          alt: 'AlfaBank',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Alfabank',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://alfabank.ru/' },
+            }
+          ]
+        },
+        {
+          id: 'PaulaCruz2.webp',
+          alt: 'PaulaCruz2',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Paula Cruz',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/paulacruz' },
+            }
+          ]
+        },
+        {
+          id: 'yasno.live.webp',
+          alt: 'yasno.live',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Ясно',
+              props: { className: 's-hoverable', target: "_blank", to: 'ej&utm_term=ясно%20лайв&gad_source=1&gclid=CjwKCAjwqf20BhBwEiwAt7dtdSi3vhYAjsS2MYP_bfWtYmGeJpShiyTYZ1uzOYvELEcATDeVpwOn-RoCQNsQAvD_BwE' },
+            }
+          ]
         },
       ]
     },
