@@ -721,11 +721,34 @@ const lessonData21: ILessonDataDB = {
       text: [
         {
           tag: 'p',
-          content: 'Добро пожаловать на вводную часть курса «Композиция: как выделить главное». Совсем скоро вы сделаете свою первую иллюстрацию к статье. Ну а в начале давайте разберемся, кто такой иллюстратор и чем он занимается.',
+          content: [
+            {
+              tag: 'span',
+              content: 'Добро пожаловать на вводную часть курса ',
+            },
+            {
+              tag: 'span',
+              content: '«Композиция: как выделить главное»! ',
+            },
+            {
+              tag: 'span',
+              content: 'Совсем скоро вы сделаете свою первую иллюстрацию к статье. Ну а в начале давайте разберемся, кто такой иллюстратор и чем он занимается.',
+            }
+          ],
         },
         {
           tag: 'p',
-          content: 'Иллюстратор помогает компаниям и людям выделиться среди конкурентов, привлечь новую аудиторию, сделать текст нагляднее и проще. Его работы используются в бизнесе, маркетинге, рекламе, издательстве и других сферах, где нужна визуальная коммуникация.',
+          content: [
+            {
+              tag: 'span',
+              content: 'Иллюстратор ',
+              props: { className: 'bold'},
+            },
+            {
+              tag: 'span',
+              content: 'помогает компаниям и людям выделиться среди конкурентов, привлечь новую аудиторию, сделать текст нагляднее и проще. Его работы используются в бизнесе, маркетинге, рекламе, издательстве и других сферах, где нужна визуальная коммуникация.',
+            },
+          ]
         },
       ]
     },
@@ -738,57 +761,75 @@ const lessonData21: ILessonDataDB = {
       text: 'Иллюстрации в IT помогают улучшить пользовательский опыт, визуализировать данные и передать сложные идеи доступным способом. Вот несколько примеров их применения:',
     },
     {
-      type: 'list',
-      items: [
-        [
-          {
-            tag: 'span',
-            content: 'Иконки. ',
-            props: { className: 'bold'},
-          },
-          {
-            tag: 'span',
-            content: 'Представьте, что вы пользуетесь мобильным приложением для доставки еды. На главном экране вы видите иконки разных категорий: пицца, суши, бургеры и т.д. Эти иконки помогают пользователю быстро найти нужный раздел, делая взаимодействие с приложением интуитивно понятным и приятным.',
-          },
-        ],
-        [
-          {
-            tag: 'span',
-            content: 'Инфографика. ',
-            props: { className: 'bold'},
-          },
-          {
-            tag: 'span',
-            content: 'В приложениях для аналитики или финансов инфографика помогает представить сложные данные в наглядной форме. Например, приложение для учета личных финансов может показывать ваши расходы в виде диаграмм и графиков, где каждый сектор или столбец проиллюстрирован соответствующим образом (иконками продуктов, услуг и т.д.)',
-          },
-        ],
-        [
-          {
-            tag: 'span',
-            content: 'Онбординг (первоначальное обучение пользователя). ',
-            props: { className: 'bold'},
-          },
-          {
-            tag: 'span',
-            content: 'Когда вы впервые открываете новое приложение, часто видите серию экранов с объяснением его основных функций. Иллюстрации на этих экранах помогают понять, что и как делать.',
-          },
-        ],
-        [
-          {
-            tag: 'span',
-            content: 'Игровые элементы (геймификация). ',
-            props: { className: 'bold'},
-          },
-          {
-            tag: 'span',
-            content: 'Приложения используют элементы игры для мотивации пользователей. Например, в образовательных приложениях можно встретить интерактивных персонажей, которые помогают проходить обучение, вовлекают в процесс и дают обратную связь.',
-          },
-        ],
-      ]
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Иконки. ',
+              props: { className: 'bold'},
+            },
+            {
+              tag: 'span',
+              content: 'Представьте, что вы пользуетесь мобильным приложением для доставки еды. На главном экране вы видите иконки разных категорий: пицца, суши, бургеры и т.д. Эти иконки помогают пользователю быстро найти нужный раздел, делая взаимодействие с приложением интуитивно понятным и приятным.',
+            }
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Инфографика. ',
+              props: { className: 'bold'},
+            },
+            {
+              tag: 'span',
+              content: 'В приложениях для аналитики или финансов инфографика помогает представить сложные данные в наглядной форме. Например, приложение для учета личных финансов может показывать ваши расходы в виде диаграмм и графиков, где каждый сектор или столбец проиллюстрирован соответствующим образом (иконками продуктов, услуг и т.д.)',
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Онбординг (первоначальное обучение пользователя). ',
+              props: { className: 'bold'},
+            },
+            {
+              tag: 'span',
+              content: 'Когда вы впервые открываете новое приложение, часто видите серию экранов с объяснением его основных функций. Иллюстрации на этих экранах помогают понять, что и как делать.',
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Игровые элементы (геймификация). ',
+              props: { className: 'bold'},
+            },
+            {
+              tag: 'span',
+              content: 'Приложения используют элементы игры для мотивации пользователей. Например, в образовательных приложениях можно встретить интерактивных персонажей, которые помогают проходить обучение, вовлекают в процесс и дают обратную связь.',
+            },
+          ]
+        },
+      ],
     },
     {
       type: 'gallery',
-      maxHeightPx: 1_000,
+      maxHeightPx: 900,
       images: [
         {
           id: 'bayduzha5.webp',
@@ -835,13 +876,13 @@ const lessonData21: ILessonDataDB = {
           ]
         },
         {
-          id: 'AlfaBank.webp',
-          alt: 'AlfaBank',
+          id: 'PaulaCruz1.webp',
+          alt: 'PaulaCruz1',
           caption: [
             {
               tag: 'a',
-              content: 'Alfabank',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://alfabank.ru/' },
+              content: 'Paula Cruz',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/paulacruz' },
             }
           ]
         },
@@ -853,17 +894,6 @@ const lessonData21: ILessonDataDB = {
               tag: 'a',
               content: 'Paula Cruz',
               props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/paulacruz' },
-            }
-          ]
-        },
-        {
-          id: 'yasno.live.webp',
-          alt: 'yasno.live',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Ясно',
-              props: { className: 's-hoverable', target: "_blank", to: 'ej&utm_term=ясно%20лайв&gad_source=1&gclid=CjwKCAjwqf20BhBwEiwAt7dtdSi3vhYAjsS2MYP_bfWtYmGeJpShiyTYZ1uzOYvELEcATDeVpwOn-RoCQNsQAvD_BwE' },
             }
           ]
         },
@@ -879,8 +909,140 @@ const lessonData21: ILessonDataDB = {
     },
     {
       type: 'gallery',
-      maxHeightPx: 3_000,
+      maxHeightPx: 4_900,
       images: [
+        {
+          id: 'AmandaLobos4.webp',
+          alt: 'AmandaLobos4',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Amanda Lobos',
+              props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
+            }
+          ]
+        },
+        {
+          id: 'AmandaLobos5.webp',
+          alt: 'AmandaLobos5',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Amanda Lobos',
+              props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
+            }
+          ]
+        },
+        {
+          id: 'AmandaLobos6.webp',
+          alt: 'AmandaLobos6',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Amanda Lobos',
+              props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
+            }
+          ]
+        },
+        {
+          id: 'AmandaLobos7.webp',
+          alt: 'AmandaLobos7',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Amanda Lobos',
+              props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
+            }
+          ]
+        },
+        {
+          id: 'AmandaLobos8.webp',
+          alt: 'AmandaLobos8',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Amanda Lobos',
+              props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
+            }
+          ]
+        },
+        {
+          id: 'AmandaLobos9.webp',
+          alt: 'AmandaLobos9',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Amanda Lobos',
+              props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
+            }
+          ]
+        },
+        {
+          id: 'AmandaLobos10.webp',
+          alt: 'AmandaLobos10',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Amanda Lobos',
+              props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
+            }
+          ]
+        },
+        {
+          id: 'okchizh3.webp',
+          alt: 'okchizh3',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Юля Чиж',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://okchizh.art/' },
+            }
+          ]
+        },
+        {
+          id: 'okchizh1.webp',
+          alt: 'okchizh1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Юля Чиж',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://okchizh.art/' },
+            }
+          ]
+        },
+        {
+          id: 'StevenWilson1.webp',
+          alt: 'StevenWilson1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Steven Wilson',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/stevenwilsonstudio' },
+            }
+          ]
+        },
+        {
+          id: 'StevenWilson2.webp',
+          alt: 'StevenWilson2',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Steven Wilson',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/stevenwilsonstudio' },
+            }
+          ]
+        },
+        {
+          id: 'StevenWilson3.webp',
+          alt: 'StevenWilson3',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Steven Wilson',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/stevenwilsonstudio' },
+            }
+          ]
+        },
         {
           id: 'ETolsma2.webp',
           alt: 'ETolsma2',
@@ -889,6 +1051,17 @@ const lessonData21: ILessonDataDB = {
               tag: 'a',
               content: 'E. Tolsma',
               props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/ellistolsma' },
+            }
+          ]
+        },
+        {
+          id: 'yasno.live.webp',
+          alt: 'yasno.live',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Ясно',
+              props: { className: 's-hoverable', target: "_blank", to: 'ej&utm_term=ясно%20лайв&gad_source=1&gclid=CjwKCAjwqf20BhBwEiwAt7dtdSi3vhYAjsS2MYP_bfWtYmGeJpShiyTYZ1uzOYvELEcATDeVpwOn-RoCQNsQAvD_BwE' },
             }
           ]
         },
@@ -1032,8 +1205,96 @@ const lessonData21: ILessonDataDB = {
     },
     {
       type: 'gallery',
-      maxHeightPx: 2_300,
+      maxHeightPx: 3_500,
       images: [
+        {
+          id: 'BeyaRebai1.webp',
+          alt: 'BeyaRebai1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Beya Rebai',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.beyarebai.com/' },
+            }
+          ]
+        },
+        {
+          id: 'okchizh3.webp',
+          alt: 'okchizh3',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Юля Чиж',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://okchizh.art/' },
+            }
+          ]
+        },
+        {
+          id: 'okchizh7.webp',
+          alt: 'okchizh7',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Юля Чиж',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://okchizh.art/' },
+            }
+          ]
+        },
+        {
+          id: 'okchizh8.webp',
+          alt: 'okchizh8',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Юля Чиж',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://okchizh.art/' },
+            }
+          ]
+        },
+        {
+          id: 'unskilledworker1.webp',
+          alt: 'unskilledworker1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Unskilled Worker',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://unskilledworker.co.uk/work/' },
+            }
+          ]
+        },
+        {
+          id: 'unskilledworker2.webp',
+          alt: 'unskilledworker2',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Unskilled Worker',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://unskilledworker.co.uk/work/' },
+            }
+          ]
+        },
+        {
+          id: 'unskilledworker3.webp',
+          alt: 'unskilledworker3',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Unskilled Worker',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://unskilledworker.co.uk/work/' },
+            }
+          ]
+        },
+        {
+          id: 'unskilledworker4.webp',
+          alt: 'unskilledworker4',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Unskilled Worker',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://unskilledworker.co.uk/work/' },
+            }
+          ]
+        },
         {
           id: 'SusannaRumiz5.webp',
           alt: 'SusannaRumiz5',
@@ -1042,17 +1303,6 @@ const lessonData21: ILessonDataDB = {
               tag: 'a',
               content: 'Susanna Rumiz',
               props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/susannarumiz/projects' },
-            }
-          ]
-        },
-        {
-          id: 'NickLiefhebber3.webp',
-          alt: 'NickLiefhebber3',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Nick Liefhebber',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/Liefhebber' },
             }
           ]
         },
@@ -1123,17 +1373,6 @@ const lessonData21: ILessonDataDB = {
           ]
         },
         {
-          id: 'okchizh3.webp',
-          alt: 'okchizh3',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Юля Чиж',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://okchizh.art/' },
-            }
-          ]
-        },
-        {
           id: 'projectswatches1.webp',
           alt: 'projectswatches1',
           caption: [
@@ -1174,104 +1413,137 @@ const lessonData21: ILessonDataDB = {
     },
     {
       type: 'gallery',
-      maxHeightPx: 1_300,
+      maxHeightPx: 1_400,
       images: [
         {
-          id: 'bayduzha1.webp',
-          alt: 'bayduzha1',
+          id: 'GoogleDoodle1.webp',
+          alt: 'GoogleDoodle1',
           caption: [
             {
               tag: 'a',
-              content: 'Наташа Байдужа',
-              props: { className: 'key-link', target: "_blank", to: 'http://bayduzha.com/' },
+              content: 'Google Doodles',
+              props: { className: 'key-link', target: "_blank", to: 'https://doodles.google/' },
             }
           ]
         },
         {
-          id: 'bayduzha4.webp',
-          alt: 'bayduzha4',
+          id: 'airbnb.webp',
+          alt: 'airbnb',
           caption: [
             {
               tag: 'a',
-              content: 'Наташа Байдужа',
-              props: { className: 'key-link', target: "_blank", to: 'http://bayduzha.com/' },
+              content: 'airbnb',
+              props: { className: 'key-link', target: "_blank", to: 'https://ru.airbnb.com/giftcards' },
             }
           ]
         },
         {
-          id: 'AmandaLobos4.webp',
-          alt: 'AmandaLobos4',
+          id: 'ShukaDesign1.webp',
+          alt: 'ShukaDesign1',
           caption: [
             {
               tag: 'a',
-              content: 'Amanda Lobos',
-              props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
+              content: 'Shuka Design',
+              props: { className: 'key-link', target: "_blank", to: 'http://shuka.design' },
             }
           ]
         },
         {
-          id: 'AmandaLobos5.webp',
-          alt: 'AmandaLobos5',
+          id: 'ShukaDesign2.webp',
+          alt: 'ShukaDesign2',
           caption: [
             {
               tag: 'a',
-              content: 'Amanda Lobos',
-              props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
+              content: 'Shuka Design',
+              props: { className: 'key-link', target: "_blank", to: 'http://shuka.design' },
             }
           ]
         },
         {
-          id: 'AmandaLobos6.webp',
-          alt: 'AmandaLobos6',
+          id: 'ShukaDesign3.webp',
+          alt: 'ShukaDesign3',
           caption: [
             {
               tag: 'a',
-              content: 'Amanda Lobos',
-              props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
+              content: 'Shuka Design',
+              props: { className: 'key-link', target: "_blank", to: 'http://shuka.design' },
             }
           ]
         },
         {
-          id: 'AmandaLobos7.webp',
-          alt: 'AmandaLobos7',
+          id: 'ShukaDesign4.webp',
+          alt: 'ShukaDesign4',
           caption: [
             {
               tag: 'a',
-              content: 'Amanda Lobos',
-              props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
+              content: 'Shuka Design',
+              props: { className: 'key-link', target: "_blank", to: 'http://shuka.design' },
             }
           ]
         },
         {
-          id: 'AmandaLobos8.webp',
-          alt: 'AmandaLobos8',
+          id: 'ShukaDesign8.webp',
+          alt: 'ShukaDesign8',
           caption: [
             {
               tag: 'a',
-              content: 'Amanda Lobos',
-              props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
+              content: 'Shuka Design',
+              props: { className: 'key-link', target: "_blank", to: 'http://shuka.design' },
             }
           ]
         },
         {
-          id: 'AmandaLobos9.webp',
-          alt: 'AmandaLobos9',
+          id: 'ShukaDesign9.webp',
+          alt: 'ShukaDesign9',
           caption: [
             {
               tag: 'a',
-              content: 'Amanda Lobos',
-              props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
+              content: 'Shuka Design',
+              props: { className: 'key-link', target: "_blank", to: 'http://shuka.design' },
             }
           ]
         },
         {
-          id: 'AmandaLobos10.webp',
-          alt: 'AmandaLobos10',
+          id: 'naitori4.webp',
+          alt: 'naitori4',
           caption: [
             {
               tag: 'a',
-              content: 'Amanda Lobos',
-              props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
+              content: 'naitori',
+              props: { className: 'key-link', target: "_blank", to: 'https://naitori.ru/#next' },
+            }
+          ]
+        },
+        {
+          id: 'headspace1.webp',
+          alt: 'headspace1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Headspace',
+              props: { className: 'key-link', target: "_blank", to: 'https://organizations.headspace.com/employers?origin=nav&_gl=1*9e6e41*_gcl_au*NDUyNTQ1MTU3LjE3MjE3NDU2MjY.*FPAU*NDUyNTQ1MTU3LjE3MjE3NDU2MjY.' },
+            }
+          ]
+        },
+        {
+          id: 'headspace2.webp',
+          alt: 'headspace2',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Headspace',
+              props: { className: 'key-link', target: "_blank", to: 'https://organizations.headspace.com/employers?origin=nav&_gl=1*9e6e41*_gcl_au*NDUyNTQ1MTU3LjE3MjE3NDU2MjY.*FPAU*NDUyNTQ1MTU3LjE3MjE3NDU2MjY.' },
+            }
+          ]
+        },
+        {
+          id: 'duolingo.webp',
+          alt: 'duolingo',
+          caption: [
+            {
+              tag: 'a',
+              content: 'duolingo',
+              props: { className: 'key-link', target: "_blank", to: 'https://ru.duolingo.com' },
             }
           ]
         },
@@ -1283,8 +1555,30 @@ const lessonData21: ILessonDataDB = {
     },
     {
       type: 'gallery',
-      maxHeightPx: 2_300,
+      maxHeightPx: 2_500,
       images: [
+        {
+          id: 'mors.webp',
+          alt: 'mors',
+          caption: [
+            {
+              tag: 'a',
+              content: 'МОРС',
+              props: { className: 's-hoverable'},
+            }
+          ]
+        },
+        {
+          id: 'NastyaChernish.webp',
+          alt: 'NastyaChernish',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Настя Черныш',
+              props: { className: 's-hoverable' },
+            }
+          ]
+        },
         {
           id: 'ETolsma3.webp',
           alt: 'ETolsma3',
@@ -1744,17 +2038,6 @@ const lessonData21: ILessonDataDB = {
               tag: 'a',
               content: 'Ilya Milstein',
               props: { className: 's-hoverable', target: "_blank", to: 'https://www.ilyamilstein.com/' },
-            }
-          ]
-        },
-        {
-          id: 'okchizh1.webp',
-          alt: 'okchizh1',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Юля Чиж',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://okchizh.art/' },
             }
           ]
         },
