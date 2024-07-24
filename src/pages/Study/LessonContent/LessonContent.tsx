@@ -40,12 +40,12 @@ export default function LessonContent(props: IProps) {
   const courseId = course.id;
   const lessonId = lesson.id;
   const userEmail = user.email;
-  const quizeSubmit = useCallback((quizIndex: number) => {
-    userCourseProgressService.saveLessonQuizeProgress({ courseId, lessonId, userEmail, quizIndex })
+  const onUnlockBlock = useCallback((unlockedBlocks: number) => {
+    userCourseProgressService.saveLessonProgress({ courseId, lessonId, userEmail, unlockedBlocks })
       .catch(_err => { /* do nothing */});
   }, [courseId, lessonId, userEmail]);
 
-  const initialSolvedQuizes = useMemo(() => {
+  const initiallyUlockedBlocks = useMemo(() => {
     const lessonProgress = progress[lessonId];
     if (!lessonProgress) {
       return 0;
@@ -56,10 +56,10 @@ export default function LessonContent(props: IProps) {
     return lessonProgress.solvedQuizesAmount ?? 0;
   }, [courseId, lessonId, userEmail]);
 
-  const [allQuizesSubmited, setAllQuizesSubmited] = useState(() => lesson.content.filter(b => b.type === 'quiz').length === 0);
+  const [allQuizesSubmited, setAllQuizesSubmited] = useState(() => lesson.content.filter(b => b.type === 'quiz' || b.type === 'chat').length === 0);
   useEffect(() => {
-    setAllQuizesSubmited(initialSolvedQuizes >= lesson.content.filter(b => b.type === 'quiz').length);
-  }, [initialSolvedQuizes, lessonId, userEmail]);
+    setAllQuizesSubmited(initiallyUlockedBlocks >= lesson.content.filter(b => b.type === 'quiz' || b.type === 'chat').length);
+  }, [initiallyUlockedBlocks, lessonId, userEmail]);
 
   return (
     <>
@@ -75,9 +75,9 @@ export default function LessonContent(props: IProps) {
         <Article
           blocks={lesson.content}
           handlers={handlers}
-          initialSolvedQuizes={initialSolvedQuizes}
-          onQuizeSubmit={quizeSubmit}
-          onLastQuizSubmit={() => setAllQuizesSubmited(true)}
+          initiallyUlockedBlocks={initiallyUlockedBlocks}
+          onUnlockBlock={onUnlockBlock}
+          onAllBlocksUnlocked={() => setAllQuizesSubmited(true)}
         />
         {allQuizesSubmited && (
           <LessonSurvey

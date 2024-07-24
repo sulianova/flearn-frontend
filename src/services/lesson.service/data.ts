@@ -635,6 +635,52 @@ const lessonData15: ILessonDataDB = {
       type: 'text',
       text: 'Креативность — такой же навык, как композиция или работа с цветом. Её мы будем прокачивать на протяжении всего обучения — на практике и с обратной связью.'
     },
+    // {
+    //   type: 'chat',
+    //   chat: {
+    //     blocks: [
+    //       {
+    //         showThisBlockButtonContent: '',
+    //         messages: [
+    //           {
+    //             sender: { name: 'Saul Goodman', isSelf: false },
+    //             content: 'Вы хотите участвовать в розыгрыше?'
+    //           },
+    //         ],
+    //       },
+    //       {
+    //         showThisBlockButtonContent: 'Да, конечно!',
+    //         messages: [
+    //           {
+    //             sender: { isSelf: true },
+    //             content: 'Да, конечно!'
+    //           },
+    //           {
+    //             sender: { isSelf: true },
+    //             content: 'Что мне надо для этого сделать?'
+    //           },
+    //           {
+    //             sender: { name: 'Saul Goodman', isSelf: false },
+    //             content: 'Купите текилу Сафиро Аньэхо'
+    //           },
+    //         ],
+    //       },
+    //       {
+    //         showThisBlockButtonContent: 'А какой приз?',
+    //         messages: [
+    //           {
+    //             sender: { isSelf: true },
+    //             content: 'А какой приз?'
+    //           },
+    //           {
+    //             sender: { name: 'Saul Goodman', isSelf: false },
+    //             content: 'Пробка от Сафиро Аньэхо'
+    //           },
+    //         ],
+    //       },
+    //     ],
+    //   },
+    // },
     {
       type: 'title',
       title: 'А что если я не справлюсь с нагрузкой?'

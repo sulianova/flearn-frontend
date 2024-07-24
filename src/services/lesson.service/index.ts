@@ -6,6 +6,7 @@ import { userCourseProgressService } from 'services/userCourseProgress.service';
 import { userAccessService } from 'services/userAccess.service';
 import { userService } from 'services/user.service';
 import { localFilesServise } from 'services/localFiles.service';
+import { localStorageService } from 'services/localStorage.service';
 
 import { getData } from './data';
 import { ECommonErrorTypes } from 'types';
@@ -25,12 +26,13 @@ class LessonService {
   public useCurrentLesson = useCurrentLesson;
   public useNextLesson = useNextLesson;
   public useCourseLessons = useCourseLessons;
-  public sourceBS = new BehaviorSubject<TSource>('remote');
+  public sourceBS: BehaviorSubject<TSource>;
 
   constructor() {
+    this.sourceBS = new BehaviorSubject<TSource>(localStorageService.get(this._lsSourceKey) ?? 'remote');
     this.initCurrentAndNextLessonBS();
     this.initCourseLessonsRawBS();
-    this.initCourseLessonsBS();
+    this.initCourseLessonsBS()
   }
 
   public getLessonBS(props: IFetchLessonsProps) {
@@ -132,6 +134,7 @@ class LessonService {
 
   public changeSource(source: TSource) {
     this.sourceBS.next(source);
+    localStorageService.set(this._lsSourceKey, source);
   }
 
   protected errorToType(error: Error): TLessonError {
@@ -279,6 +282,7 @@ class LessonService {
     ).subscribe(refetch);
   }
 
+  protected _lsSourceKey = 'LessonServiceSource';
   protected _lessonS = new Subject<TActionS>();
   protected _currentLessonBS = new BehaviorSubject<ILessonData | null>(null);
   protected _nextLessonBS = new BehaviorSubject<ILessonData | null>(null);

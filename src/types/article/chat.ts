@@ -1,20 +1,24 @@
 import type { TText } from 'ui/Text/types';
 
-export interface ISender {
-  isYou: boolean
-  name: string
-}
+export type TChatSender =
+  | {
+    isSelf: true
+  }
+  | {
+    isSelf: false
+    name: string
+  };
 
-export interface IMessage {
-  sender: ISender
+export interface IChatMessage {
+  sender: TChatSender
   content: TText
 }
 
-export interface IMessageBlock {
+export interface IChatBlock {
   showThisBlockButtonContent: TText
-  messages: IMessage[]
+  messages: IChatMessage[]
 }
 
 export interface IChat {
-  blocks: IMessageBlock
+  blocks: IChatBlock[]
 }

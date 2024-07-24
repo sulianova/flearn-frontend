@@ -43,15 +43,15 @@ class UserCourseProgressService {
     }
   }
 
-  public async saveLessonQuizeProgress(params: { courseId: string, userEmail: string, lessonId: string, quizIndex: number }) {
+  public async saveLessonProgress(params: { courseId: string, userEmail: string, lessonId: string, unlockedBlocks: number}) {
     try {
-      const { courseId, userEmail, lessonId, quizIndex } = params;
+      const { courseId, userEmail, lessonId, unlockedBlocks } = params;
       const progress = await dataService.userCourseProgress.get(courseId, userEmail).catch(_err => null) ?? {};
       const newProgress: TUserCourseProgress = {
         ...progress,
         [lessonId]: {
           solved: false,
-          solvedQuizesAmount: quizIndex + 1,
+          solvedQuizesAmount: unlockedBlocks,
           lastSolvedAt: new Date(),
         },
       };

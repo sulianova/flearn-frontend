@@ -11,6 +11,7 @@ import TextImportant from './TextImportant/TextImportant';
 import Title from './Title/Title';
 import Video from './Video/Video';
 import Button from './Button/Button';
+import Chat from './Chat/Chat';
 
 import './Article.scss';
 
@@ -30,37 +31,39 @@ Article.Button = Button;
 interface IProps {
   blocks: IArticleContent
   handlers: TArticleHandlers
-  initialSolvedQuizes: number
-  onLastQuizSubmit: () => void
-  onQuizeSubmit: (quizeIndex: number) => void
+  initiallyUlockedBlocks: number
+  onUnlockBlock: (unlockedBlocksCount: number) => void
+  onAllBlocksUnlocked: () => void
 }
 
 function Article(props: IProps) {
-  const { blocks, handlers, initialSolvedQuizes, onQuizeSubmit, onLastQuizSubmit } = props;
-  const [visibleQuizIndex, setVisibleQuizIndex] = useState(initialSolvedQuizes); // from 0 - length. If index === length => all quizes are submited
-  const quizBlocks = blocks.filter(b => b.type === 'quiz');
-  const lastVisibleQuizBlock = quizBlocks.at(visibleQuizIndex);
+  const { blocks, handlers, initiallyUlockedBlocks, onUnlockBlock, onAllBlocksUnlocked } = props;
+  const [lastVisibleLockingBlockIndex, setLastVisibleLockingBlockIndex] = useState(initiallyUlockedBlocks);
+  const lockingBlocks = blocks.filter(b => b.type === 'quiz' || b.type === 'chat');
+  const lastVisibleLockingBlock = lockingBlocks.at(lastVisibleLockingBlockIndex);
   const lastVisibleBlockIndex =
-    !lastVisibleQuizBlock
+    !lastVisibleLockingBlock
       ? blocks.length - 1
-      : blocks.findIndex(b => b === lastVisibleQuizBlock);
+      : blocks.findIndex(b => b === lastVisibleLockingBlock);
   const visibleBlocks = blocks.slice(0, lastVisibleBlockIndex + 1);
-  const submitQuiz = useCallback(() => {
-    onQuizeSubmit(visibleQuizIndex);
-    const nextIndex = visibleQuizIndex + 1;
-    setVisibleQuizIndex(nextIndex);
-    if (nextIndex === quizBlocks.length) {
-      onLastQuizSubmit();
+
+  const lockingBlocksLength = lockingBlocks.length;
+  const unlockNextBlock = useCallback(() => {
+    const nextIndex = lastVisibleLockingBlockIndex + 1;
+    onUnlockBlock(nextIndex);
+    setLastVisibleLockingBlockIndex(nextIndex);
+    if (nextIndex === lockingBlocksLength) {
+      onAllBlocksUnlocked();
     }
-  }, [quizBlocks, visibleQuizIndex, onLastQuizSubmit]);
+  }, [lockingBlocksLength, lastVisibleLockingBlockIndex, onAllBlocksUnlocked]);
 
   return visibleBlocks.map((block, index) =>
     <Fragment key={index}>
       {renderBlock({
         block,
         handlers,
-        submitQuiz,
-        isInitialSolvedQuiz: quizBlocks.findIndex(b => b === block) < initialSolvedQuizes,
+        unlockNextBlock,
+        isInitiallyUlocked: lockingBlocks.findIndex(b => b === block) < initiallyUlockedBlocks,
       })}
     </Fragment>
   );
@@ -69,10 +72,10 @@ function Article(props: IProps) {
 function renderBlock(params: {
   block: IArticleContent[number]
   handlers: TArticleHandlers
-  submitQuiz: () => void
-  isInitialSolvedQuiz: boolean
+  unlockNextBlock: () => void
+  isInitiallyUlocked: boolean
 }) {
-  const { block, handlers, submitQuiz, isInitialSolvedQuiz } = params;
+  const { block, handlers, unlockNextBlock, isInitiallyUlocked } = params;
   switch(block.type) {
     case 'title':
       return (<Title {...block}/>);
@@ -85,7 +88,7 @@ function renderBlock(params: {
     case 'quote':
       return (<Quote {...block}/>);
     case 'quiz':
-      return (<Quiz {...block} onSubmit={submitQuiz} isInitialSolvedQuiz={isInitialSolvedQuiz}/>);
+      return (<Quiz {...block} onSubmit={unlockNextBlock} isInitialSolvedQuiz={isInitiallyUlocked}/>);
     case 'video':
       return (<Video {...block}/>);
     case 'image':
@@ -93,6 +96,8 @@ function renderBlock(params: {
     case 'gallery':
       return (<Gallery {...block}/>);
     case 'button':
-      return (<Button {...block} handlers={handlers}/>)
+      return (<Button {...block} handlers={handlers}/>);
+    case 'chat':
+      return (<Chat {...block} onSubmit={unlockNextBlock} isInitiallyUlocked={isInitiallyUlocked}/>);
   }
 }
