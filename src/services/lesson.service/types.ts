@@ -11,9 +11,17 @@ export interface IFetchLessonsProps extends ILessonFilter {}
 
 export type TSource = 'remote' | 'local';
 
-export type TCourseLessonsBSDependencies = {
+export type TCourseLessonsRawBSDependencies = {
   source: TSource
   section: TURLSectionObj
+}
+
+export type TCourseLessonsRawBSValue = {
+  lessons: Array<ILessonData> | null
+  dependencies: TCourseLessonsRawBSDependencies | null
+}
+
+export type TCourseLessonsBSDependencies = {
   authedUser: IUserData | null
   courseAccess: TAccess | null
 }
