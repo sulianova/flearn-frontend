@@ -17,7 +17,7 @@ import useCurrentLesson from './useCurrentLesson';
 import useNextLesson from './useNextLesson';
 import useCourseLessons from './useCourseLessons';
 
-export type { ILessonData, TActionS, ILessonDataDB, TLessonState, IFetchLessonsProps } from './types';
+export type { ILessonData, TActionS, ILessonDataDB, IFetchLessonsProps } from './types';
 
 class LessonService {
   public useLessons = useLessons;

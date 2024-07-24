@@ -14,8 +14,8 @@ export function dateFR2DB(date: Date): string {
   // ].join('-');
 }
 
-type TGetImageUrlArgs = ArgumentTypes<typeof firebaseService.getImageURL>;
-export async function addImageSrc<T extends { id: string }>(data: T, getImageProps: TGetImageUrlArgs[0]): Promise<T & { src: string }> {
+export type TGetImageUrlProps = ArgumentTypes<typeof firebaseService.getImageURL>[0];
+export async function addImageSrc<T extends { id: string }>(data: T, getImageProps: TGetImageUrlProps): Promise<T & { src: string }> {
   return {
     ...data,
     src: (await firebaseService.getImageURL(getImageProps)) ?? '',

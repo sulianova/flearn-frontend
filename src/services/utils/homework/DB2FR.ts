@@ -1,6 +1,7 @@
 import { dataService } from 'services/data.service';
 import type { IHomeworkData, IHomeworkDataDB } from 'services/homework.service';
 import type { ArgumentTypes } from 'types';
+import { articleDB2FR } from '../article';
 
 export async function homeworkDataDB2FR(homeworkDB: IHomeworkDataDB): Promise<IHomeworkData> {
   const { courseId, lessonId, userId } = homeworkDB;
@@ -9,7 +10,7 @@ export async function homeworkDataDB2FR(homeworkDB: IHomeworkDataDB): Promise<IH
   return {
     ...homeworkDB,
     images,
-    review: await reviewDB2FR(homeworkDB),
+    review: homeworkDB.review ? await articleDB2FR(homeworkDB.review, { courseId, folder: lessonId, variant: `homeworks/${userId}` }) : undefined,
   };
 }
 
@@ -21,16 +22,3 @@ async function addImageSrc<T extends { id: string }>(imageDataDB: T, props: TGet
   };
 }
 
-export async function reviewDB2FR(homeworkDB: IHomeworkDataDB) {
-  const { courseId, lessonId, userId, review } = homeworkDB;
-  if (!review) {
-    return review;
-  }
-
-  return Promise.all(review.map(async block =>
-    block.type !== 'image' ? block : {
-      ...block,
-      imageData: await addImageSrc(block.imageData, { courseId, lessonId, userId, imageId: block.imageData.id }),
-    }
-  ));
-}

@@ -1,6 +1,9 @@
 import type { TText } from 'ui/Text/Text';
-import { TQuizStep } from './quiz';
 
+import type { IChat } from './chat';
+import type { TQuizStep } from './quiz';
+
+export type * from './chat';
 export type * from './quiz';
 
 export interface IArticleBlock {
@@ -63,11 +66,18 @@ export interface IArticleImageBlockDB extends IArticleBlock {
     alt: string
     caption?: TText
   }
+  size?: 'LARGE'
 }
 
 export interface IArticleGalleryBlock extends IArticleBlock {
   type: 'gallery'
-  images: Array<{ src: string, alt: string, caption?: TText }>
+  images: Array<{ id: string, src: string, alt: string, caption?: TText }>
+  maxHeightPx?: number
+}
+
+export interface IArticleGalleryBlockDB extends IArticleBlock {
+  type: 'gallery'
+  images: Array<{ id: string, alt: string, caption?: TText }>
   maxHeightPx?: number
 }
 
@@ -82,6 +92,11 @@ export interface IArticleQuizBlock extends IArticleBlock {
   steps: TQuizStep[]
 }
 
+export interface IArticleChatBlock extends IArticleBlock {
+  type: 'chat'
+  chat: IChat
+}
+
 export type TArticleBlocks =
   | IArticleQuizBlock
   | IArticleGalleryBlock
@@ -92,11 +107,12 @@ export type TArticleBlocks =
   | IArticleTextImportantBlock
   | IArticleTitleBlock
   | IArticleVideoBlock
-  | IArticleButtonBlock;
+  | IArticleButtonBlock
+  | IArticleChatBlock;
 
 export type TArticleBlocksDB =
   | IArticleQuizBlock
-  | IArticleGalleryBlock
+  | IArticleGalleryBlockDB
   | IArticleImageBlockDB
   | IArticleQuoteBlock
   | IArticleTextBlock
@@ -104,7 +120,8 @@ export type TArticleBlocksDB =
   | IArticleTextImportantBlock
   | IArticleTitleBlock
   | IArticleVideoBlock
-  | IArticleButtonBlock;
+  | IArticleButtonBlock
+  | IArticleChatBlock;
 
 export type IArticleContent = TArticleBlocks[];
 export type IArticleContentDB = TArticleBlocksDB[];

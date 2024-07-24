@@ -127,7 +127,7 @@ export class FirebaseService {
     }
   }
 
-  public async getImageURL(props: { courseId: string, folder: TLessonId | 'landing', imageId: string, variant?: 'images' | 'homeworks' }) {
+  public async getImageURL(props: { courseId: string, folder: TLessonId | 'landing', imageId: string, variant?: 'images' | 'homeworks' | string }) {
     try {
       const { courseId, folder, imageId, variant = 'images' } = props;
       const path = `${courseId}/${folder}/${variant}/${imageId}`;

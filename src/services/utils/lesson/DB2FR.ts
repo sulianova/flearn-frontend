@@ -1,53 +1,10 @@
-import { addImageSrc } from '../shared';
+import type { ILessonData, ILessonDataDB } from 'services/lesson.service/types';
 
-import type {
-  ILessonContent,
-  ILessonContentDB,
-  ILessonData,
-  ILessonDataDB,
-  ILessonGalleryBlock,
-  ILessonGalleryBlockDB,
-  ILessonImageBlock,
-  ILessonImageBlockDB
-} from 'services/lesson.service/types';
+import { articleDB2FR } from '../article';
 
 export async function lessonDataDB2FR(lessonDB: ILessonDataDB): Promise<ILessonData> {
   return {
     ...lessonDB,
-    content: await lessonContencDB2FR(lessonDB.content, lessonDB.courseId, lessonDB.id),
+    content: await articleDB2FR(lessonDB.content, { courseId: lessonDB.courseId, folder: lessonDB.id }),
   };
-}
-
-export async function lessonContencDB2FR(contentDB: ILessonContentDB, courseId: string, lessonId: string) {
-  const contentFR: ILessonContent = await Promise.all(
-    contentDB.map(c => {
-      switch(c.type) {
-        case 'image':
-          return lessonImageBlockDB2FR(c, courseId, lessonId);
-        case 'gallery':
-          return lessonGalleryBlockDB2FR(c, courseId, lessonId);
-        default:
-          return c;
-      }
-    }
-  ));
-
-  return contentFR;
-}
-
-export async function lessonImageBlockDB2FR(imageBlockDB: ILessonImageBlockDB, courseId: string, lessonId: string) {
-  const imageBlockFR: ILessonImageBlock = {
-    ...imageBlockDB,
-    imageData: await addImageSrc(imageBlockDB.imageData, { courseId, folder: lessonId, imageId: imageBlockDB.imageData.id }),
-  };
-  return imageBlockFR;
-}
-
-export async function lessonGalleryBlockDB2FR(imageBlockDB: ILessonGalleryBlockDB, courseId: string, lessonId: string) {
-  const galleryBlockFR: ILessonGalleryBlock =
-  {
-    ...imageBlockDB,
-    images: await Promise.all(imageBlockDB.images.map(image => addImageSrc(image, { courseId, folder: lessonId, imageId: image.id }))),
-  };
-  return galleryBlockFR;
 }

@@ -2,7 +2,6 @@ import { BehaviorSubject, CompletionObserver, ErrorObserver, NextObserver, Subje
 
 import { dataService } from 'services/data.service';
 import { userService, type IUserData } from 'services/user.service';
-import { reviewDB2FR } from 'services/utils/homework';
 
 import type { IFetchHomeworksProps, IHomeworkData, IHomeworkDataWPopulate, TActionS } from './types';
 import { getReview } from './data';
@@ -10,6 +9,7 @@ import useHomeworks from './useHomeworks';
 import { emailService } from 'services/email.service';
 import { courseService } from 'services/course.service';
 import { lessonService } from 'services/lesson.service';
+import { articleDB2FR } from 'services/utils/article';
 
 export * from './types';
 
@@ -237,8 +237,9 @@ class HomeworkService {
       if (props.reviewSource === 'local') {
         reviewMap = new Map();
         for (const homework of homeworksData) {
+          const { courseId, lessonId, userId } = homework;
           const review = getReview({ homeworkId: homework.id });
-          reviewMap.set(homework.id, review && await reviewDB2FR({ ...homework, review }));
+          reviewMap.set(homework.id, review && await articleDB2FR(review, { courseId, folder: lessonId, variant: `homeworks/${userId}` }));
         }
       }
 
