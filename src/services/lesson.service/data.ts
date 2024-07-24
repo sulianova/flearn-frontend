@@ -955,8 +955,19 @@ const lessonData21: ILessonDataDB = {
     },
     {
       type: 'gallery',
-      maxHeightPx: 4_900,
+      maxHeightPx: 5_200,
       images: [
+        {
+          id: 'SummerSymphiny.webp',
+          alt: 'SummerSymphiny',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Summer Symphiny',
+              props: { className: 'key-link'},
+            }
+          ]
+        },
         {
           id: 'AmandaLobos4.webp',
           alt: 'AmandaLobos4',
@@ -1601,8 +1612,30 @@ const lessonData21: ILessonDataDB = {
     },
     {
       type: 'gallery',
-      maxHeightPx: 2_500,
+      maxHeightPx: 2_800,
       images: [
+        {
+          id: 'benjerry.webp',
+          alt: 'benjerry',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Ben & Jerry',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.benjerry.com/' },
+            }
+          ]
+        },
+        {
+          id: 'MooFree.webp',
+          alt: 'MooFree',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Moo Free',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.moofreechocolates.com/' },
+            }
+          ]
+        },
         {
           id: 'mors.webp',
           alt: 'mors',
@@ -1776,8 +1809,19 @@ const lessonData21: ILessonDataDB = {
     },
     {
       type: 'gallery',
-      maxHeightPx: 1_500,
+      maxHeightPx: 1_750,
       images: [
+        {
+          id: 'SebastianCuri1.webp',
+          alt: 'SebastianCuri1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Sebastian Curi',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/sebastiancuri' },
+            }
+          ]
+        },
         {
           id: 'ETolsma1.webp',
           alt: 'ETolsma1',
@@ -1889,8 +1933,85 @@ const lessonData21: ILessonDataDB = {
     },
     {
       type: 'gallery',
-      maxHeightPx: 900,
+      maxHeightPx: 1_900,
       images: [
+        {
+          id: 'creamsoda1.webp',
+          alt: 'creamsoda1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Cream Soda',
+              props: { className: 's-hoverable' },
+            }
+          ]
+        },
+        {
+          id: 'creamsoda2.webp',
+          alt: 'creamsoda2',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Cream Soda',
+              props: { className: 's-hoverable' },
+            }
+          ]
+        },
+        {
+          id: 'BillieEilish.webp',
+          alt: 'BillieEilish',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Billie Eilish',
+              props: { className: 's-hoverable' },
+            }
+          ]
+        },
+        {
+          id: 'Monetochka.webp',
+          alt: 'Monetochka',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Монеточка, Раскраски для взрослых',
+              props: { className: 's-hoverable' },
+            }
+          ]
+        },
+        {
+          id: 'RobertFisher.webp',
+          alt: 'RobertFisher',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Nirvana - "Nevermind"',
+              props: { className: 's-hoverable' },
+            }
+          ]
+        },
+        {
+          id: 'stormstudiosdesign.webp',
+          alt: 'stormstudiosdesign',
+          caption: [
+            {
+              tag: 'a',
+              content: 'stormstudiosdesign',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.stormstudiosdesign.com/#/203933/' },
+            }
+          ]
+        },
+        {
+          id: 'PaoloTorres.webp',
+          alt: 'PaoloTorres',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Paolo Torres',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/knotpaolo' },
+            }
+          ]
+        },
         {
           id: ' EllaMezule1.webp',
           alt: ' EllaMezule1',
@@ -1943,22 +2064,110 @@ const lessonData21: ILessonDataDB = {
     },
     {
       type: 'gallery',
-      maxHeightPx: 1_100,
+      maxHeightPx: 2_900,
       images: [
         {
-          id: 'AmandaLobos13.webp',
-          alt: 'AmandaLobos13',
+          id: 'aplusabooks2.webp',
+          alt: 'aplusabooks2',
           caption: [
             {
               tag: 'a',
-              content: 'Amanda Lobos',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
+              content: 'А + А',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://aplusabooks.ru/' },
             }
           ]
         },
         {
-          id: 'AmandaLobos12.webp',
-          alt: 'AmandaLobos12',
+          id: 'aplusabooks1.webp',
+          alt: 'aplusabooks1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'А + А',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://aplusabooks.ru/' },
+            }
+          ]
+        },
+        {
+          id: 'samokatbook1.webp',
+          alt: 'samokatbook1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Самокат',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://samokatbook.ru/' },
+            }
+          ]
+        },
+        {
+          id: 'samokatbook2.webp',
+          alt: 'samokatbook2',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Самокат',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://samokatbook.ru/' },
+            }
+          ]
+        },
+        {
+          id: 'samokatbook3.webp',
+          alt: 'samokatbook3',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Самокат',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://samokatbook.ru/' },
+            }
+          ]
+        },
+        {
+          id: 'polyandria4.webp',
+          alt: 'polyandria4',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Поляндрия',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://polyandria.ru/noage/' },
+            }
+          ]
+        },
+        {
+          id: 'polyandria3.webp',
+          alt: 'polyandria3',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Поляндрия',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://polyandria.ru/noage/' },
+            }
+          ]
+        },
+        {
+          id: 'polyandria1.webp',
+          alt: 'polyandria1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Поляндрия',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://polyandria.ru/noage/' },
+            }
+          ]
+        },
+        {
+          id: 'polyandria.webp',
+          alt: 'polyandria',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Поляндрия',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://polyandria.ru/noage/' },
+            }
+          ]
+        },
+        {
+          id: 'AmandaLobos13.webp',
+          alt: 'AmandaLobos13',
           caption: [
             {
               tag: 'a',
