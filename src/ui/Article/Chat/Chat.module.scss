@@ -128,7 +128,7 @@
 
   &:hover {
     .icon {
-      background-color: $color-highlight-sky;
+      background-color: var(--primary-color);
       color: $color-content-inverted-primary-light;
     }
   }
