@@ -47,6 +47,14 @@
   }
 }
 
+@mixin font-20-normal-article {
+  @include set-typography(20, 34, 500);
+
+  @include set-media(md) {
+    @include set-typography(18, 30, 500);
+  }
+}
+
 @mixin font-20-normal-ui {
   @include set-typography(20, 21, 500);
 
@@ -132,12 +140,12 @@
   color: $color-highlight-green;
 }
 
-.italic {
-  font-family: $font-family-italic;
+.font-light {
+  font-family: $font-family-light;
 }
 
 .bold {
-  font-family: $font-family-bold;
+  font-family: $font-family-article-bold;
 }
 
 .bc-yellow {

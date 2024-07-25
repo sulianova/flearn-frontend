@@ -19,14 +19,15 @@
   align-items: center;
   justify-content: center;
 
-  padding: set-calc(20) set-calc(24);
   gap: set-calc(8);
+
+  padding: set-calc(20) set-calc(24);
+  border: 1px solid $color-content-inverted-primary-dark;
   border-radius: set-calc($border-radius-30);
   background-color: $color-highlight-yellow;
 
   @include font-18-normal-ui;
   color: $color-content-inverted-primary-dark;
-  font-family: $font-family-medium;
 
   transition-property: background-color, border-color, box-shadow, color, transform;
   transition-duration: 0.15s;

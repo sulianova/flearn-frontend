@@ -12,9 +12,9 @@
 .title {
   margin-bottom: set-calc(40);
   
-  @include  font-40-normal-header;
+  @include  font-56-normal-header;
   color: var(--color-content-primary);
-  font-family: $font-family-bold;
+  font-family: $font-family-article-bold;
   
   @include set-media(md) {
     margin-bottom: set-calc(20);

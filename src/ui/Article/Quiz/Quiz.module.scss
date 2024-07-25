@@ -1,25 +1,5 @@
 @import 'styles/index';
 
-// .choiceOption {
-//   --color-quiz: var(--color-accent-neutral);
-// }
-
-// .shouldBeChecked {
-//   --color-quiz: var(--color-accent-success);
-
-//   .choiceOption::before {
-//     opacity: 1;
-//   }
-// }
-
-// .shouldNotBeChecked {
-//   --color-quiz: var(--color-accent-error);
-
-//   .choiceOption::before {
-//     opacity: 1;
-//   }
-// }
-
 .__ {
   position: relative;
   margin: set-calc(40) 0 set-calc(40);
@@ -42,7 +22,7 @@
 
   margin: 0 auto;
 
-  border: 1px solid var(--color-background-stroke);
+  border: 1px solid var(--border-color);
   padding: set-calc(32);
   border-radius: set-calc($border-radius-16);
   background-color: var(--color-card);
@@ -80,6 +60,8 @@
   
   gap: set-calc(16);
   margin-bottom: set-calc(20);
+
+  font-family: $font-family-article;
 }
 
 .quizTitle {
@@ -93,18 +75,20 @@
 
 .quizSubtitle {
   color: var(--color-content-paragraph-primary);
-  @include font-18-normal-paragraph;
+  @include font-20-normal-article;
 }
 
 .quizDescription {
   color: var(--color-content-paragraph-primary);
-  @include font-18-normal-paragraph;
+  @include font-20-normal-article;
 }
 
 .quizGroup {
   display: flex;
   flex-direction: column;
   gap: set-calc(16);
+
+  font-family: $font-family-article;
 
   margin: 0;
   padding: 0;
@@ -157,7 +141,7 @@
   margin: set-calc(10) 0 set-calc(12);
 
   border-radius: set-calc(6);
-  @include font-18-normal-ui;
+  @include font-20-normal-ui;
 
   cursor: pointer;
 
@@ -165,21 +149,6 @@
     cursor: default;
   }
 }
-
-// .choiceOption::before {
-//   position: absolute;
-//   top: set-calc(-3);
-//   left: set-calc(-34);
-//   width: set-calc(3);
-//   height: set-calc(6, true, 100%);
-//   content: "";
-//   background: var(--color-quiz);
-//   opacity: 0;
-
-//   @include set-media(md) {
-//     left: set-calc(-18);
-//   }
-// }
 
 //check general
 .checked {
@@ -239,7 +208,7 @@
 //feedback
 .feedback {
   color: var(--color-quiz);
-  @include font-16-normal-paragraph;
+  @include font-18-normal-paragraph;
 }
 
 //radio

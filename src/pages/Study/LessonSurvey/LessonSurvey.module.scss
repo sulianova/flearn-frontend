@@ -25,7 +25,7 @@
   border-radius: set-calc($border-radius-16);
   background-color: transparent;
 
-  @include font-20-normal-paragraph;
+  @include font-20-normal-article;
   color: var(--color-content-primary);
 
   @include set-media(md) {
@@ -52,18 +52,21 @@
 .surveyTitle {
   margin-bottom: set-calc(16);
   @include font-28-normal-header;
+  font-family: $font-family-article;
 }
 
 .surveySubtitle {
   color: var(--color-content-paragraph-primary);
-  @include font-20-normal-paragraph;
+  @include font-20-normal-article;
+  font-family: $font-family-article;
 
   margin-bottom: set-calc(20);
 }
 
 .surveyDescription {
   color: var(--color-content-paragraph-primary);
-  @include font-20-normal-paragraph;
+  @include font-20-normal-article;
+  font-family: $font-family-article;
 }
 
 .cards {
@@ -105,7 +108,8 @@
 }
 
 .cardTitle {
-  @include font-20-normal-paragraph;
+  @include font-20-normal-article;
+  font-family: $font-family-article;
 
   margin-bottom: set-calc(12);
   white-space: pre-wrap;
@@ -119,7 +123,8 @@
 
 .cardSubtitle {
   position: relative;
-  @include font-18-normal-ui;
+  @include font-18-normal-paragraph;
+  font-family: $font-family-article;
 
   white-space: pre-wrap;
   text-align: left;
@@ -163,7 +168,7 @@
 
   cursor: pointer;
 
-  @include font-18-normal-ui;
+  @include font-20-normal-article;
 
   @include set-media(md) {
     padding: set-calc(24) set-calc(16);
@@ -339,4 +344,5 @@
 
 .successScreenTitle {
   @include font-28-normal-header;
+  font-family: $font-family-article;
 }

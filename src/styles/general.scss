@@ -3,6 +3,12 @@
 }
 
 @font-face {
+  font-weight: 250;
+  font-family: Montserrat-Light;
+  src: url("../assets/fonts/Montserrat.ttf");
+}
+
+@font-face {
   font-weight: 450;
   font-family: Montserrat;
   src: url("../assets/fonts/Montserrat.ttf");
@@ -11,7 +17,7 @@
 @font-face {
   font-family: Montserrat-Medium;
   font-weight: 600;
-  src: url("../assets/fonts/Montserrat.ttf");
+  src: url("../assets/fonts//Montserrat.ttf");
 }
 
 @font-face {
@@ -21,9 +27,15 @@
 }
 
 @font-face {
-  font-weight: 250;
-  font-family: Montserrat-Italic;
-  src: url("../assets/fonts/Montserrat.ttf");
+  font-weight: 380;
+  font-family: Commissioner;
+  src: url("../assets/fonts/Commissioner.ttf");
+}
+
+@font-face {
+  font-weight: 700;
+  font-family: Commissioner-Bold;
+  src: url("../assets/fonts/Commissioner.ttf");
 }
 
 html {

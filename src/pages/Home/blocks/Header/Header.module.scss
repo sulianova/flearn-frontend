@@ -83,7 +83,7 @@
 
   color: var(--color-content-paragraph-primary);
   text-align: start;
-  @include set-typography(24, 32, 500);
+  @include set-typography(24, 36, 500);
 
   @include set-media(md) {
     @include font-20-normal-paragraph;
