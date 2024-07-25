@@ -1,9 +1,14 @@
+import classNames from 'classnames/bind';
 import { useState } from 'react';
 import { userService } from 'services/user.service';
 
 import type { IArticleChatBlock } from 'types';
 import Text from 'ui/Text/Text';
+import Icon from 'ui/Icon/Icon';
 
+import classes from './Chat.module.scss';
+
+const cx = classNames.bind(classes);
 interface IProps extends Omit<IArticleChatBlock, 'type'> {
   isInitiallyUlocked: boolean
   onSubmit: () => void
@@ -15,30 +20,43 @@ export default function Chat(props: IProps) {
   const [lastVisibleBlockIndex, setLastVisibleBlockIndex] = useState(isInitiallyUlocked ? chat.blocks.length : 0); // from 0 to length. Index === length => all blocks are visible
   const visibleBlocks = chat.blocks.slice(0, lastVisibleBlockIndex + 1);
   const firstHiddenBlock = chat.blocks.at(lastVisibleBlockIndex + 1);
+  const visibleBlocksMessages = visibleBlocks.flatMap(b => b.messages);
 
   return (
-    <div>
-      <div>
-        {visibleBlocks.flatMap(b => b.messages).map((m, index) => (
-          <div key={index}>
-            {`${m.sender.isSelf ? (authedUser?.displayName ?? 'You') : m.sender.name}: `}
-            <Text text={m.content}/>
-          </div>
-        ))}
-      </div>
-      {firstHiddenBlock && (
-        <button
-          onClick={() => {
-            const nextIndex = lastVisibleBlockIndex + 1;
-            setLastVisibleBlockIndex(nextIndex);
-            if (nextIndex + 1 === chat.blocks.length) {
-              onSubmit();
-            }
-          }}
-        >
-          <Text text={firstHiddenBlock.showThisBlockButtonContent}/>
-        </button>
+    <>
+      { visibleBlocksMessages.length > 0 && (
+        <div className={classes.dialog}>
+          {visibleBlocksMessages.map((m, index) => (
+            <div key={index} className={cx({ messagesStack: true, messagesStack_SideRight: m.sender.isSelf })}>
+              <div className={classes.messagesStack_Content}>
+                <div className={classes.message}>
+                  <div className={classes.bubble}>
+                    <div className={classes.messageAuthor}>{`${m.sender.isSelf ? (authedUser?.displayName ?? 'You') : m.sender.name}`}</div>
+                    <div className={classes.messageText}><Text text={m.content}/></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       )}
-    </div>
+      {firstHiddenBlock && (
+        <div className={classes.btnWrapper}>
+          <button
+            className={classes.button}
+            onClick={() => {
+              const nextIndex = lastVisibleBlockIndex + 1;
+              setLastVisibleBlockIndex(nextIndex);
+              if (nextIndex + 1 === chat.blocks.length) {
+                onSubmit();
+              }
+            }}
+          >
+            <Text text={firstHiddenBlock.showThisBlockButtonContent}/>
+            <div className={classes.icon}><Icon icon='Send'/></div>
+          </button>
+        </div>
+      )}
+    </>
   );
 }

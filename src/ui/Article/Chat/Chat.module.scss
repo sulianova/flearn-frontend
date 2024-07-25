@@ -1,0 +1,177 @@
+@import 'styles/index';
+
+.dialog {
+  margin: set-calc(40) 0 set-calc(60);
+}
+
+.messagesStack {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  margin: set-calc(40) 0 set-calc(20);
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.messagesStack_SideRight {
+  flex-direction: row-reverse;
+
+  .messagesStack_Content {
+    align-items: flex-end;
+  } 
+
+  .bubble {
+    background: var(--primary-color);
+  }
+
+  .messageAuthor {
+    right: 0;
+    left: unset;
+  }
+
+  .messageText {
+    color: $color-content-inverted-primary-light;
+  }
+}
+
+.messagesStack_Content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.message {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  max-width: 70%;
+}
+
+.bubble {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  padding: set-calc(10) set-calc(16);
+  border-radius: set-calc($border-radius-16);
+  background: var(--color-background-glassy-c);
+
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+}
+
+.messageAuthor {
+  position: absolute;
+  bottom: calc(100% + 2px);
+  left: 0;
+
+  white-space: nowrap;
+  color: var(--color-content-tertiary);
+  font-family: $font-family-article;
+  @include set-typography(16, 28, 500);
+}
+
+.messageText {
+  @include set-typography(20, 28, 500);
+  font-family: $font-family-article;
+  color: var(--color-content-primary);
+
+  word-break: break-word;
+
+  @include set-media(md) {
+    @include set-typography(18, 24, 500);
+  }
+}
+
+.btnWrapper {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: set-calc(40) 0 set-calc(20);
+ 
+  @include set-media(md) {
+    margin: set-calc(30) 0 set-calc(16);
+  }
+}
+
+.button {
+  @include btn;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: set-calc(20);
+
+  padding: set-calc(10) set-calc(16);
+  padding-left: set-calc(32);
+  border-radius: set-calc($border-radius-30);
+  background: var(--color-background-glassy-c);
+
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+
+  @include set-typography(20, 28, 500);
+  color: var(--color-content-primary);
+  font-family: $font-family-article;
+  text-align: start;
+
+  &:hover {
+    .icon {
+      background-color: $color-highlight-sky;
+      color: $color-content-inverted-primary-light;
+    }
+  }
+
+  @include set-media(md) {
+    max-width: 100%;
+    @include set-typography(18, 24, 500);
+
+    &:hover {
+      .icon {
+        background-color: var(--primary-color);
+        color: var(--color-content-inverted-primary);
+      }
+    }
+  }
+}
+
+.icon {
+  @include btn;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  align-self: self-end;
+
+  border-radius: 50%;
+  background-color: var(--color-content-primary);
+  color: var(--color-content-inverted-primary);
+  
+  width: set-calc(32);
+  height: set-calc(32);
+
+  svg {
+    display: flex;
+    vertical-align: middle;
+
+    stroke-width: 1.5;
+    flex-shrink: 0;
+
+    width: set-calc(32);
+    height: set-calc(32);
+  }
+}

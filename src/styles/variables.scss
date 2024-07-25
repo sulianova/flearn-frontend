@@ -66,6 +66,7 @@ $color-highlight-green: #a4dd49;
 $color-highlight-sky: #49c2ff;
 $color-highlight-pink: #ffa2e2;
 $color-highlight-violet: #b595ff;
+$color-highlight-blue: rgb(56, 33, 232);
 
 
 
@@ -78,20 +79,11 @@ $color-highlight-blue-lagoon: #ddf5f5;
 $color-highlight-misty-rose: #ffe3e3;
 $color-highlight-peach-puff: #fedfc2;
 
-//color-palette-blue
-$color-palette-blue-900: rgb(0, 47, 154);
-$color-palette-blue-700: rgb(0, 62, 203);
-$color-palette-blue-500: rgb(0, 87, 255);
-$color-palette-blue-400: rgb(98, 146, 255);
-$color-palette-blue-300: rgb(191, 210, 255);
-$color-palette-blue-200: rgb(222, 232, 255);
-$color-palette-blue-100: rgb(245, 248, 255);
-
 //color-palette-indigo
 $color-palette-indigo-1000: #090029;
-$color-palette-indigo-600: #3c1fa2;
+$color-palette-indigo-600: #382a85;
 $color-palette-indigo-500: #452dbd;
-$color-palette-indigo-400: #5627ff;
+$color-palette-indigo-400: #513deb;
 $color-palette-indigo-350: #7657ff;
 $color-palette-indigo-300: #9282fa;
 $color-palette-indigo-250: #9c8cff;
@@ -102,8 +94,8 @@ $color-palette-indigo-100: #f7f5ff;
 $color-gradient-rainbow: linear-gradient(320deg, #ede8ff, #9c8cff, #9282fa, #5627ff, #9c8cff);
 
 //theme-light
-$primary-color-light: $color-palette-indigo-300;
-$primary-color-hover-light: $color-palette-indigo-350;
+$primary-color-light: $color-palette-indigo-400;
+$primary-color-hover-light: $color-highlight-blue;
 $color-accent-error-light:#db2323;
 $color-accent-notice-light: #f26e30;
 $color-accent-success-light: #30b83d;
@@ -176,7 +168,7 @@ $color-content-inverted-primary-dark:  $color-palette-black-900;
 $color-content-inverted-secondary-dark: $color-palette-black-600;
 $color-content-primary-dark: $color-palette-black-50;
 $color-content-secondary-dark: $color-palette-black-300;
-$color-content-tertiary-dark: $color-palette-black-500;
+$color-content-tertiary-dark: $color-palette-black-400;
 $color-content-background-primary-dark: $color-palette-black-100;
 $color-content-background-secondary-dark: $color-palette-black-200;
 $color-content-background-tertiary-dark: $color-palette-black-700;

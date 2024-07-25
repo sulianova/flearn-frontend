@@ -39,3 +39,4 @@ export * from './SmallCross';
 export * from './Refresh';
 export * from './TickInCircle';
 export * from './Composition';
+export * from './Send';
