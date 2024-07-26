@@ -761,7 +761,7 @@ const lessonData21: ILessonDataDB = {
             messages: [],
           },
           {
-            showThisBlockButtonContent: 'Ясно) А можете показать иллюстраций?',
+            showThisBlockButtonContent: 'Ясно) А можете показать примеры?',
             messages: [
               {
                 sender: { isSelf: true },

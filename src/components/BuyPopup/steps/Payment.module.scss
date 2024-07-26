@@ -161,7 +161,7 @@
     color: var(--color-content-secondary);
 
     span {
-      @include font-14-normal-paragraph;
+      @include font-14-normal-ui;
     }
 
     svg {
@@ -284,7 +284,7 @@
 
 .optionDescription {
   padding: set-calc(16) set-calc(8) 0;
-  @include font-14-normal-paragraph;
+  @include font-14-normal-ui;
 
   width: 80%;
 
