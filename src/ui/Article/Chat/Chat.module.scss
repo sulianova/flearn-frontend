@@ -1,5 +1,9 @@
 @import 'styles/index';
 
+.contentExpander~* {
+  @include contentExpander;
+}
+
 .dialog {
   margin: set-calc(40) 0 set-calc(60);
 }
@@ -23,7 +27,7 @@
   } 
 
   .bubble {
-    background: var(--primary-color);
+    background: $color-highlight-violet;
   }
 
   .messageAuthor {
@@ -49,6 +53,10 @@
   display: flex;
   align-items: flex-end;
   max-width: 70%;
+
+  @include set-media(md) {
+    max-width: 90%;
+  }
 }
 
 .bubble {
@@ -59,7 +67,7 @@
 
   padding: set-calc(10) set-calc(16);
   border-radius: set-calc($border-radius-16);
-  background: var(--color-background-glassy-c);
+  background: var(--color-background-glassy-b);
 
   text-rendering: geometricPrecision;
   -webkit-font-smoothing: antialiased;
@@ -71,7 +79,7 @@
   left: 0;
 
   white-space: nowrap;
-  color: var(--color-content-tertiary);
+  color: var(--color-content-secondary);
   font-family: $font-family-article;
   @include set-typography(16, 28, 500);
 }
@@ -112,11 +120,12 @@
   justify-content: space-between;
 
   gap: set-calc(20);
+  width: 100%;
 
   padding: set-calc(10) set-calc(16);
   padding-left: set-calc(32);
   border-radius: set-calc($border-radius-30);
-  background: var(--color-background-glassy-c);
+  background: var(--color-background-glassy-b);
 
   text-rendering: geometricPrecision;
   -webkit-font-smoothing: antialiased;
@@ -128,13 +137,13 @@
 
   &:hover {
     .icon {
-      background-color: var(--primary-color);
+      background-color: $color-highlight-violet;
       color: $color-content-inverted-primary-light;
     }
   }
 
   @include set-media(md) {
-    max-width: 100%;
+    width: 100%;
     @include set-typography(18, 24, 500);
 
     &:hover {

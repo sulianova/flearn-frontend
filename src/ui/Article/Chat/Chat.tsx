@@ -24,6 +24,11 @@ export default function Chat(props: IProps) {
 
   return (
     <>
+      {!firstHiddenBlock && (
+        <div className={cx({ btnWrapper: true, contentExpander: true})}>
+          <button className={cx({ hiddenButton: true })}/>
+        </div>
+      )}
       { visibleBlocksMessages.length > 0 && (
         <div className={classes.dialog}>
           {visibleBlocksMessages.map((m, index) => (
@@ -41,9 +46,9 @@ export default function Chat(props: IProps) {
         </div>
       )}
       {firstHiddenBlock && (
-        <div className={classes.btnWrapper}>
+        <div className={cx({ btnWrapper: true, contentExpander: true})}>
           <button
-            className={classes.button}
+            className={cx({ button: true})}
             onClick={() => {
               const nextIndex = lastVisibleBlockIndex + 1;
               setLastVisibleBlockIndex(nextIndex);

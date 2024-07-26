@@ -72,7 +72,7 @@ function LessonSurvey<Survey extends TSurvey>(props: IProps<Survey>) {
 
   if (fetchedAnswers && isSuccess) {
     return (
-      <div className={classes.__}>
+      <div className={cx({ __: true, contentExpander: true})}>
         <div className={classes.wrapper}>
           <div className={classes.content}>
             <div className={classes.successScreen}>
@@ -85,8 +85,8 @@ function LessonSurvey<Survey extends TSurvey>(props: IProps<Survey>) {
   }
 
   return (
-    <div className={classes.__}>
-      <div className={classes.wrapper}>
+    <div className={cx({ __: true, contentExpander: true})}>
+      <div className={cx({ wrapper: true})}>
         <div className={classes.content}>
           {step.type === 'SELECT' && step.variant === 'RADIO' && (
             <SelectRadioStep

@@ -59,22 +59,21 @@ $color-palette-white-900-a: rgba(255, 255, 255, 0.8);
 $color-palette-white-1000: #ffffff;
 
 //color-promo-highlight
-$color-highlight-greenish: rgb(226, 255, 45);
 $color-highlight-yellow: #ffe205;
 $color-highlight-yellow-hover:#ffce00;
 $color-highlight-green: #a4dd49;
 $color-highlight-sky: #49c2ff;
 $color-highlight-pink: #ffa2e2;
 $color-highlight-violet: #b595ff;
-$color-highlight-blue: rgb(56, 33, 232);
-
-
+$color-highlight-blue: #436eff;
 
 $color-highlight-silver: #edf2f7;
 $color-highlight-gold: #fcf6c5;;
 
-$color-highlight-neon: #ece2fc;
-$color-highlight-mint: #d1ffd5;
+$color-highlight-neon: #e9e1fa;
+$color-highlight-mint: #f0ffd9;
+$color-highlight-dust: #fffad2;
+
 $color-highlight-blue-lagoon: #ddf5f5;
 $color-highlight-misty-rose: #ffe3e3;
 $color-highlight-peach-puff: #fedfc2;
@@ -95,7 +94,7 @@ $color-gradient-rainbow: linear-gradient(320deg, #ede8ff, #9c8cff, #9282fa, #562
 
 //theme-light
 $primary-color-light: $color-palette-indigo-400;
-$primary-color-hover-light: $color-highlight-blue;
+$primary-color-hover-light: $color-palette-indigo-350;
 $color-accent-error-light:#db2323;
 $color-accent-notice-light: #f26e30;
 $color-accent-success-light: #30b83d;

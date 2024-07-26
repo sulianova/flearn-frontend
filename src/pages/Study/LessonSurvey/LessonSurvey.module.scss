@@ -15,6 +15,10 @@
   }
 }
 
+.contentExpander~* {
+  @include contentExpander;
+}
+
 .wrapper {
   position: relative;
 
@@ -51,8 +55,12 @@
 }
 .surveyTitle {
   margin-bottom: set-calc(16);
-  @include font-28-normal-header;
-  font-family: $font-family-article;
+  @include set-typography(26, 28, 500);
+  font-family: $font-family-article-bold;
+
+  @include set-media(md) {
+    @include set-typography(22, 24, 500);
+  }
 }
 
 .surveySubtitle {
@@ -168,7 +176,12 @@
 
   cursor: pointer;
 
-  @include font-20-normal-article;
+  @include font-18-normal-paragraph;
+
+  span,
+  p {
+    @include font-18-normal-paragraph;
+  }
 
   @include set-media(md) {
     padding: set-calc(24) set-calc(16);
@@ -226,6 +239,8 @@
   justify-content: center;
   align-items: center;
 
+  margin: set-calc(4);
+
   min-width: set-calc(24);
   width: set-calc(24);
   height: set-calc(24);
@@ -237,6 +252,10 @@
   transition: background-color .2s ease-in-out;
   border-radius: 50%;
   box-shadow: inset 0 0 0 1.5px var(--color-accent-neutral);
+
+  @include set-media(md) {
+
+  }
 }
 
 //checkbox 
@@ -246,8 +265,11 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
+
   overflow: hidden;
   box-sizing: border-box;
+
+  margin: set-calc(4);
 
   min-width: set-calc(24);
   width: set-calc(24);

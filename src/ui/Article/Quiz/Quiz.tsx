@@ -1,3 +1,4 @@
+import classNames from 'classnames/bind';
 import { useCallback, useState } from 'react';
 
 import { IArticleQuizBlock } from 'types';
@@ -6,6 +7,8 @@ import RadioStep from './RadioStep';
 import CheckboxStep from './CheckboxStep';
 
 import classes from './Quiz.module.scss';
+
+const cx = classNames.bind(classes);
 interface IProps extends Omit<IArticleQuizBlock, 'type'> {
   onSubmit: () => void
   isInitialSolvedQuiz: boolean
@@ -24,7 +27,7 @@ export default function Quiz(props: IProps) {
   }, [currentStepIndex, steps, onSubmit]);
 
   return (
-    <div className={classes.__}>
+    <div className={cx({ __: true, contentExpander: true})}>
       {steps.map((step, index) => {
         if (step.type === 'SELECT' && step.variant === 'RADIO') {
           return (

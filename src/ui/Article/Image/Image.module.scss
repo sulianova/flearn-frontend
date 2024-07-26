@@ -16,8 +16,8 @@
 
   @include set-media(md) {
     margin: set-calc(30) 0 set-calc(16);
-    width: set-calc(398);
-    left: set-calc(-8);
+    width: set-calc(390);
+    left: set-calc(-12);
   }
 }
 
@@ -28,8 +28,8 @@
 .image {
   position: relative;
 
-  box-shadow: $shadow-medium-default;
-  border-radius: set-calc($border-radius-10);
+  border-radius: set-calc($border-radius-20);
+  border: 1px solid var(--border-color);
   background-color: var(--color-background-alternate);
   overflow: hidden;
 }

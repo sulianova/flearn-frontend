@@ -155,6 +155,13 @@
   }
 }
 
+@mixin contentExpander {
+  animation: theoryFragmentAppearance .3s;
+  animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 0.1);
+  animation-delay: .3s;
+  animation-fill-mode: backwards;
+}
+
 @mixin keyframes($name) {
   @keyframes #{$name} {
     @content;
@@ -183,6 +190,17 @@
 @keyframes marqueeAnimation {
   100% {
     transform: translateX(-2112px);
+  }
+}
+
+@keyframes theoryFragmentAppearance{
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
   }
 }
 

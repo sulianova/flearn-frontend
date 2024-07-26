@@ -17,6 +17,10 @@
   }
 }
 
+.contentExpander~* {
+  @include contentExpander;
+}
+
 .wrapper {
   position: relative;
 
