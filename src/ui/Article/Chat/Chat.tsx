@@ -29,7 +29,7 @@ export default function Chat(props: IProps) {
           <button className={cx({ hiddenButton: true })}/>
         </div>
       )}
-      {visibleBlocks.map((b, i) => (
+      { visibleBlocks.map((b, i) => (
         <div key={i} className={cx({ dialog: true, contentExpander: true})}>
           {b.messages.map((m, j) => (
             <div key={j} className={cx({ messagesStack: true, messagesStack_SideRight: m.sender.isSelf })}>
