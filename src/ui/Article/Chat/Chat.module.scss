@@ -5,10 +5,10 @@
 }
 
 .dialog {
-  margin: set-calc(40) 0 set-calc(60);
+  margin: set-calc(40) 0;
 
   @include set-media(md) {
-    margin: set-calc(40) 0 set-calc(30);
+    margin: set-calc(40) 0;
   }
 }
 
@@ -106,7 +106,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  margin: set-calc(40) 0 set-calc(20);
+
+  @include set-media(md) {
+    margin: set-calc(30) 0 set-calc(16);
+  }
 }
+
+// .hiddenButton {
+//   margin: 0 0;
+// }
 
 .button {
   position: relative;
@@ -115,7 +125,6 @@
   align-items: center;
   justify-content: space-between;
 
-  margin: set-calc(40) 0 set-calc(20);
   gap: set-calc(20);
   width: 100%;
 
@@ -148,7 +157,6 @@
 
   @include set-media(md) {
     width: 100%;
-    margin: set-calc(30) 0 set-calc(16);
 
     @include set-typography(18, 24, 500);
 

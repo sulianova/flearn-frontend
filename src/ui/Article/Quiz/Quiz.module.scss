@@ -2,7 +2,7 @@
 
 .__ {
   position: relative;
-  margin: set-calc(40) 0 set-calc(40);
+  margin: set-calc(40) 0 set-calc(20);
 
   gap: set-calc(20);
 
@@ -10,7 +10,7 @@
   left: set-calc(-32);
 
   @include set-media(md) {
-    margin: set-calc(30) 0 set-calc(40);
+    margin: set-calc(30) 0 set-calc(16);
 
     width: set-calc(390);
     left: set-calc(-12);
