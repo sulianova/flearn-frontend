@@ -10,7 +10,7 @@
   left: set-calc(-32);
 
   @include set-media(md) {
-    margin: set-calc(30) 0 set-calc(30);
+    margin: set-calc(30) 0 set-calc(40);
 
     width: set-calc(390);
     left: set-calc(-12);
@@ -90,6 +90,10 @@
 .quizDescription {
   color: var(--color-content-paragraph-primary);
   @include font-20-normal-article;
+}
+
+.quizImage {
+  width: 100%;
 }
 
 .quizGroup {

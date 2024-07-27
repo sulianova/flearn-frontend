@@ -41,7 +41,8 @@ const cx = classnames.bind(classes);
             });
           }}
         >
-          {<UIImage src={imageData.src} alt={imageData.alt} className={cx({ opacityZero: Boolean(openedImage) })}/>}
+          {<UIImage src={imageData.src} alt={imageData.alt}/>}
+          {/* {<UIImage src={imageData.src} alt={imageData.alt} className={cx({ opacityZero: Boolean(openedImage) })}/>} */}
         </div>
         {imageData.caption && <div className={classes.imageCaption}><UIText text={imageData.caption}/></div>}
       </div>

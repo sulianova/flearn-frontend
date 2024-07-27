@@ -35,6 +35,7 @@ export default function CheckboxStep(props: IProps) {
           {step.title && <div className={classes.quizTitle}><UIText text={step.title}/></div>}
           {step.subtitle && <div className={classes.quizSubtitle}><UIText text={step.subtitle}/></div>}
           {step.description && <div className={classes.quizDescription}><UIText text={step.description}/></div>}
+          {/* {step.image && (<UIImage src={imageData.src} alt={imageData.alt} className={cx({quizImage: true })}/>)} */}
         </div>
         <fieldset className={classes.quizGroup}>
           {step.options.map((option, index) => (

@@ -5,6 +5,8 @@ import type {
   IArticleGalleryBlockDB,
   IArticleImageBlock,
   IArticleImageBlockDB,
+  IArticleQuizBlock,
+  IArticleQuizBlockDB
 } from 'types';
 
 import { addImageSrc, type TGetImageUrlProps } from '../shared';
@@ -14,9 +16,9 @@ export async function articleDB2FR(contentDB: IArticleContentDB, getImageProps: 
     contentDB.map(c => {
       switch(c.type) {
         case 'image':
-          return lessonImageBlockDB2FR(c, getImageProps);
+          return articleImageBlockDB2FR(c, getImageProps);
         case 'gallery':
-          return lessonGalleryBlockDB2FR(c, getImageProps);
+          return articleGalleryBlockDB2FR(c, getImageProps);
         default:
           return c;
       }
@@ -26,7 +28,7 @@ export async function articleDB2FR(contentDB: IArticleContentDB, getImageProps: 
   return contentFR;
 }
 
-export async function lessonImageBlockDB2FR(imageBlockDB: IArticleImageBlockDB, getImageProps: Omit<TGetImageUrlProps, 'imageId'>) {
+export async function articleImageBlockDB2FR(imageBlockDB: IArticleImageBlockDB, getImageProps: Omit<TGetImageUrlProps, 'imageId'>) {
   const imageBlockFR: IArticleImageBlock = {
     ...imageBlockDB,
     imageData: await addImageSrc(imageBlockDB.imageData, { ...getImageProps, imageId: imageBlockDB.imageData.id }),
@@ -34,11 +36,20 @@ export async function lessonImageBlockDB2FR(imageBlockDB: IArticleImageBlockDB, 
   return imageBlockFR;
 }
 
-export async function lessonGalleryBlockDB2FR(imageBlockDB: IArticleGalleryBlockDB, getImageProps: Omit<TGetImageUrlProps, 'imageId'>) {
+export async function articleGalleryBlockDB2FR(imageBlockDB: IArticleGalleryBlockDB, getImageProps: Omit<TGetImageUrlProps, 'imageId'>) {
   const galleryBlockFR: IArticleGalleryBlock =
   {
     ...imageBlockDB,
     images: await Promise.all(imageBlockDB.images.map(image => addImageSrc(image, { ...getImageProps, imageId: image.id }))),
   };
   return galleryBlockFR;
+}
+
+export async function articleQuizeBlockDB2FR(blockDB: IArticleQuizBlockDB, getImageProps: Omit<TGetImageUrlProps, 'imageId'>) {
+  const blockFR: IArticleQuizBlock =
+  {
+    ...blockDB,
+    steps: await Promise.all(blockDB.steps.map(s => s.image ? ({ ...s, image: addImageSrc(s.image, { ...getImageProps, imageId: s.image.id })}) : s)),
+  };
+  return blockFR;
 }

@@ -1,10 +1,23 @@
 import type { TText } from 'ui/Text/Text';
 
 import type { IChat } from './chat';
-import type { TQuizStep } from './quiz';
+import type { TQuizStep, TQuizStepDB } from './quiz';
 
 export type * from './chat';
 export type * from './quiz';
+
+export interface IImageData {
+  id: string
+  src: string
+  alt: string
+  caption?: TText
+}
+
+export interface IImageDataDB {
+  id: string
+  alt: string
+  caption?: TText
+}
 
 export interface IArticleBlock {
   factoid?: TText
@@ -50,22 +63,13 @@ export interface IArticleVideoBlock extends IArticleBlock {
 
 export interface IArticleImageBlock extends IArticleBlock {
   type: 'image'
-  imageData: {
-    id: string
-    src: string
-    alt: string
-    caption?: TText
-  }
+  imageData: IImageData
   size?: 'LARGE'
 }
 
 export interface IArticleImageBlockDB extends IArticleBlock {
   type: 'image'
-  imageData: {
-    id: string
-    alt: string
-    caption?: TText
-  }
+  imageData: IImageDataDB
   size?: 'LARGE'
 }
 
@@ -92,6 +96,11 @@ export interface IArticleQuizBlock extends IArticleBlock {
   steps: TQuizStep[]
 }
 
+export interface IArticleQuizBlockDB extends IArticleBlock {
+  type: 'quiz'
+  steps: TQuizStepDB[]
+}
+
 export interface IArticleChatBlock extends IArticleBlock {
   type: 'chat'
   chat: IChat
@@ -111,7 +120,7 @@ export type TArticleBlocks =
   | IArticleChatBlock;
 
 export type TArticleBlocksDB =
-  | IArticleQuizBlock
+  | IArticleQuizBlockDB
   | IArticleGalleryBlockDB
   | IArticleImageBlockDB
   | IArticleQuoteBlock

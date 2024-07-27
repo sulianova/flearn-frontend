@@ -1,12 +1,21 @@
 import type { TText } from 'ui/Text/types';
+import type { IImageData, IImageDataDB } from '.';
 
-export interface IQuizStep {
+export interface IQuizStepCommon {
   title?: TText
   subtitle?: TText
   description?: TText
+  image?: IImageData
 }
 
-export interface IQuizSelectStep<T> extends IQuizStep {
+export interface IQuizStepCommonDB {
+  title?: TText
+  subtitle?: TText
+  description?: TText
+  image?: IImageDataDB
+}
+
+export interface IQuizSelectStep<T> {
   type: 'SELECT'
   options: Array<{
     value: T
@@ -20,11 +29,19 @@ export interface IQuizSelectStep<T> extends IQuizStep {
   })>
 }
 
-export interface IQuizRadioStep extends IQuizSelectStep<TText> {
+export interface IQuizRadioStep extends IQuizStepCommon, IQuizSelectStep<TText> {
   variant: 'RADIO'
 }
 
-export interface IQuizCheckboxStep extends IQuizSelectStep<TText> {
+export interface IQuizRadioStepDB extends IQuizStepCommonDB, IQuizSelectStep<TText> {
+  variant: 'RADIO'
+}
+
+export interface IQuizCheckboxStep extends IQuizStepCommon, IQuizSelectStep<TText> {
+  variant: 'CHECKBOX'
+}
+
+export interface IQuizCheckboxStepDB extends IQuizStepCommonDB, IQuizSelectStep<TText> {
   variant: 'CHECKBOX'
 }
 
@@ -32,6 +49,14 @@ export type TQuizStep =
   | IQuizRadioStep
   | IQuizCheckboxStep;
 
+export type TQuizStepDB =
+  | IQuizRadioStepDB
+  | IQuizCheckboxStepDB;
+
 export interface IQuize {
   steps: TQuizStep[]
+}
+
+export interface IQuizeDB {
+  steps: TQuizStepDB[]
 }
