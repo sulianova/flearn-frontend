@@ -111,8 +111,6 @@
 }
 
 .button {
-  @include btn;
-
   position: relative;
 
   display: flex;
@@ -125,20 +123,27 @@
   padding: set-calc(10) set-calc(16);
   padding-left: set-calc(32);
   border-radius: set-calc($border-radius-30);
-  background: var(--color-background-glassy-b);
+  background: var(--color-accent-promo);
 
   text-rendering: geometricPrecision;
   -webkit-font-smoothing: antialiased;
+
+  transition: all $d-hover ease;
 
   @include set-typography(20, 28, 500);
   color: var(--color-content-primary);
   font-family: $font-family-article;
   text-align: start;
 
+  box-shadow: $shadow-small-default;
+
   &:hover {
+    box-shadow: $shadow-small-hovered;
+
     .icon {
-      background-color: $color-highlight-violet;
+      background-color: $color-content-primary-light;
       color: $color-content-inverted-primary-light;
+      border-color: $color-content-primary-light;
     }
   }
 
@@ -147,9 +152,11 @@
     @include set-typography(18, 24, 500);
 
     &:hover {
+      box-shadow: $shadow-small-default;
+
       .icon {
-        background-color: var(--primary-color);
-        color: var(--color-content-inverted-primary);
+        background-color: transparent;
+        color: var(--color-content-primary);
       }
     }
   }
@@ -167,8 +174,9 @@
   align-self: self-end;
 
   border-radius: 50%;
-  background-color: var(--color-content-primary);
-  color: var(--color-content-inverted-primary);
+  border: 1px solid  var(--color-content-primary);
+  background-color: transparent;
+  color: var(--color-content-primary);
   
   width: set-calc(32);
   height: set-calc(32);

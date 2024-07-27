@@ -20,13 +20,13 @@
   flex-direction: column;
   
   padding: set-calc(32);
-  background: $color-highlight-neon;
+  background: $color-highlight-violet;
   border: set-calc(1) solid var(--color-border);
   border-radius: set-calc($border-radius-medium);
 
   @include font-20-normal-article;
-  font-family: $font-family-article;
-  color: $color-content-primary-light;
+  font-family: $font-family-article-light;
+  color: $color-content-inverted-primary-light;
 
   @include set-media(md) {
     padding: set-calc(12);

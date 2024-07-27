@@ -769,11 +769,11 @@ const lessonData21: ILessonDataDB = {
             messages: [],
           },
           {
-            showThisBlockButtonContent: 'Ясно) А можете показать примеры?',
+            showThisBlockButtonContent: 'Ясно) А можешь показать примеры?',
             messages: [
               {
                 sender: { isSelf: true },
-                content: 'Ясно) А можете показать примеры?'
+                content: 'Ясно) А можешь показать примеры?'
               },
               {
                 sender: { name: 'Соня Ульянова', isSelf: false },
@@ -848,6 +848,25 @@ const lessonData21: ILessonDataDB = {
             }
           ]
         },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'Vkusvill.webp',
+        alt: 'Vkusvill',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Vkusvill',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://vkusvill.ru/' },
+          }
+        ]
+      },
+    },
+    {
+      type: 'text',
+      text: [
         {
           tag: 'p',
           content: [
@@ -862,6 +881,25 @@ const lessonData21: ILessonDataDB = {
             }
           ]
         },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'PaulaCruz1.webp',
+        alt: 'PaulaCruz1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Paula Cruz',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/paulacruz' },
+          }
+        ]
+      },
+    },
+    {
+      type: 'text',
+      text: [
         {
           tag: 'p',
           content: [
@@ -876,6 +914,25 @@ const lessonData21: ILessonDataDB = {
             }
           ]
         },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'IvanHaidutski.webp',
+        alt: 'IvanHaidutski',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Ivan Haidutski',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/ivanhaidutski' },
+          }
+        ]
+      },
+    },
+    {
+      type: 'text',
+      text: [
         {
           tag: 'p',
           content: [
@@ -890,6 +947,25 @@ const lessonData21: ILessonDataDB = {
             }
           ]
         },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'MinHeo1.webp',
+        alt: 'MinHeo1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Min Heo',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://minstudio.cargo.site/index' },
+          }
+        ]
+      },
+    },
+    {
+      type: 'text',
+      text: [
         {
           tag: 'p',
           content: [
@@ -907,76 +983,116 @@ const lessonData21: ILessonDataDB = {
       ],
     },
     {
-      type: 'gallery',
-      maxHeightPx: 900,
-      images: [
+      type: 'image',
+      imageData: {
+        id: 'dropbox.webp',
+        alt: 'dropbox',
+        caption: [
+          {
+            tag: 'a',
+            content: 'DropBox',
+            props: { className: 's-hoverable' },
+          }
+        ]
+      },
+    },
+    {
+      type: 'chat',
+      chat: {
+        blocks: [
+          {
+            showThisBlockButtonContent: '',
+            messages: [
+              {
+                sender: { name: 'Соня Ульянова', isSelf: false },
+                content: 'Вот вроде и все. Дальше будет пара вопросов, чтобы закрепить материал. Готовы?'
+              },
+            ],
+          },
+          {
+            showThisBlockButtonContent: 'Ага) Давай вопросы!',
+            messages: [
+              {
+                sender: { isSelf: true },
+                content: 'Ага) Давай вопросы!'
+              }
+            ],
+          },
+        ]
+      }
+    },
+    {
+      type: 'quiz',
+      steps: [
         {
-          id: 'bayduzha5.webp',
-          alt: 'bayduzha5',
-          caption: [
+          type: 'SELECT',
+          variant: 'RADIO',
+          title: '1/2. Почему важно учитывать пользовательский опыт при создании иллюстраций?',
+          options: [
             {
-              tag: 'a',
-              content: 'Наташа Байдужа',
-              props: { className: 's-hoverable', target: "_blank", to: 'http://bayduzha.com/' },
-            }
-          ]
+              value: 'Чтобы иллюстрации выглядели профессионально.',
+              shouldBeSelected: false,
+            },
+            {
+              value: 'Чтобы приложение было интуитивно понятным и удобным.',
+              shouldBeSelected: true,
+            },
+            {
+              value: 'Чтобы уменьшить количество иллюстраций в приложении.',
+              shouldBeSelected: false,
+            },
+          ],
         },
         {
-          id: 'IvanHaidutski.webp',
-          alt: 'IvanHaidutski',
-          caption: [
+          type: 'SELECT',
+          variant: 'CHECKBOX',
+          title: '2/2. Зачем разрабочики приложений используют иллюстрации в интерфейсе? Выберите все верные варианты ответа.',
+          description: 'Иллюстрации…',
+          options: [
             {
-              tag: 'a',
-              content: 'Ivan Haidutski',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/ivanhaidutski' },
-            }
-          ]
-        },
-        {
-          id: 'MinHeo1.webp',
-          alt: 'MinHeo1',
-          caption: [
+              value: 'улучшают производительность приложения.',
+              shouldBeSelected: false,
+            },
             {
-              tag: 'a',
-              content: 'Min Heo',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://minstudio.cargo.site/index' },
-            }
-          ]
-        },
-        {
-          id: 'Vkusvill.webp',
-          alt: 'Vkusvill',
-          caption: [
+              value: 'помогают пользователям лучше ориентироваться в приложении.',
+              shouldBeSelected: true,
+            },
             {
-              tag: 'a',
-              content: 'Vkusvill',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://vkusvill.ru/' },
-            }
-          ]
-        },
-        {
-          id: 'PaulaCruz1.webp',
-          alt: 'PaulaCruz1',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Paula Cruz',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/paulacruz' },
-            }
-          ]
-        },
-        {
-          id: 'PaulaCruz2.webp',
-          alt: 'PaulaCruz2',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Paula Cruz',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/paulacruz' },
-            }
-          ]
+              value: 'заменяют текстовые инструкции наглядными визуальными образами.',
+              shouldBeSelected: true,
+            },
+          ],
         },
       ]
+    },
+    {
+      type: 'chat',
+      chat: {
+        blocks: [
+          {
+            showThisBlockButtonContent: '',
+            messages: [
+              {
+                sender: { name: 'Соня Ульянова', isSelf: false },
+                content: 'Итак, теперь мы разобрались с тем, как иллюстрации улучшают мобильные приложения. Готовы продолжить?'
+              },
+            ],
+          },
+          {
+            showThisBlockButtonContent: 'Да, конечно! Давай посмотрим, где еще нужны иллюстрации.',
+            messages: [
+              {
+                sender: { isSelf: true },
+                content: 'Да, конечно! Давай посмотрим, где еще нужны иллюстрации.'
+              },
+              {
+                sender: { name: 'Соня Ульянова', isSelf: false },
+                content: 'Супер, тогда переходим к иллюстрациям в рекламе.'
+              },
+            ],
+          },
+        ]
+      }
     },
     {
       type: 'title',
@@ -984,11 +1100,201 @@ const lessonData21: ILessonDataDB = {
     },
     {
       type: 'text',
-      text: 'Иллюстрацию используют для особых случаев: запуска новых кампаний, праздников и коллабораций. Иллюстрации помогают привлечь новую аудиторию и вновь заинтересовать старую.',
+      text: 'Иллюстрации помогают привлечь внимание, быстро донести сообщение и создать эмоциональную связь с потенциальными клиентами. Давайте посмотрим на несколько примеров.',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Помогают отстроиться от конкурентов. ',
+              props: { className: 'bold'},
+            },
+            {
+              tag: 'span',
+              content: 'Иллюстрации создают уникальный визуальный стиль, который выделяет бренд среди конкурентов. Например, L\'Occitane использует яркие иллюстрации на упаковке, чтобы подчеркнуть индивидуальность. Такой подход помогает бренду запомниться и привлечь внимание клиентов.',
+            }
+          ]
+        },
+      ],
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'StevenWilson3.webp',
+        alt: 'StevenWilson3',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Steven Wilson',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/stevenwilsonstudio' },
+          }
+        ]
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Усиливают бренд. ',
+              props: { className: 'bold'},
+            },
+            {
+              tag: 'span',
+              content: 'Иллюстрации создают приятные визуальные ассоциации с продуктом. Например, Mickey Mouse – один из самых узнаваемых маскотов в мире. Его образ вызывает улыбку и усиливает эмоциональную связь с брендом.',
+            }
+          ]
+        },
+      ],
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ZaraMickeyMouse2.webp',
+        alt: 'ZaraMickeyMouse2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Футболка с Mickey Mouse в Zara',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.zara.com/rs/sr/majica-mickey-mouse---disney-p07878778.html' },
+          }
+        ]
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Привлекают внимание. ',
+              props: { className: 'bold'},
+            },
+            {
+              tag: 'span',
+              content: 'Объявления с картинками привлекают внимание гораздо быстрее, чем текст. Например, афиши для музыкальных фестивалей или выставок часто используют яркие иллюстрации, чтобы задать настроение и создать запоминающееся впечатление у зрителей.',
+            }
+          ]
+        },
+      ],
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AmandaLobos4.webp',
+        alt: 'AmandaLobos4',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Amanda Lobos',
+            props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
+          }
+        ]
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Помогают с принятием решений. ',
+              props: { className: 'bold'},
+            },
+            {
+              tag: 'span',
+              content: 'Иллюстрации помогают людям быстрее решать, покупать ли продукт. Например, в рекламе психологических услуг картинки могут показать, как работает терапия, и помочь понять, подходит ли она вам.',
+            }
+          ]
+        },
+      ],
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'yasno.live.webp',
+        alt: 'yasno.live',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Реклама психологических услуг Ясно',
+            props: { className: 's-hoverable', target: "_blank", to: 'ej&utm_term=ясно%20лайв&gad_source=1&gclid=CjwKCAjwqf20BhBwEiwAt7dtdSi3vhYAjsS2MYP_bfWtYmGeJpShiyTYZ1uzOYvELEcATDeVpwOn-RoCQNsQAvD_BwE' },
+          }
+        ]
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Объясняют сложные идеи. ',
+              props: { className: 'bold'},
+            },
+            {
+              tag: 'span',
+              content: 'Иллюстрации помогают легче понять сложную информацию. Например, медицинские компании используют картинки, чтобы показать, как действует лекарство или как работает медицинский прибор. Такие картинки помогают людям лучше понять продукт и его преимущества.',
+            }
+          ]
+        },
+      ],
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'SusannaRumiz3.webp',
+        alt: 'SusannaRumiz3',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Промоматериалы для Komoot. Приложение, чтобы спланировать маршрут и устроить хайкинг',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/susannarumiz/projects' },
+          }
+        ]
+      },
+    },
+    {
+      type: 'chat',
+      chat: {
+        blocks: [
+          {
+            showThisBlockButtonContent: '',
+            messages: [
+              {
+                sender: { name: 'Соня Ульянова', isSelf: false },
+                content: 'Это все, что я хотела рассказать об иллюстрациях в рекламе. А теперь давайте немного попрактикуемся. Готовы?'
+              },
+            ],
+          },
+          {
+            showThisBlockButtonContent: 'Да, давай практиковаться!)',
+            messages: [
+              {
+                sender: { isSelf: true },
+                content: 'Да, давай практиковаться!)'
+              }
+            ],
+          },
+        ]
+      }
     },
     {
       type: 'gallery',
-      maxHeightPx: 5_200,
+      maxHeightPx: 4_700,
       images: [
         {
           id: 'SummerSymphiny.webp',
@@ -998,28 +1304,6 @@ const lessonData21: ILessonDataDB = {
               tag: 'a',
               content: 'Summer Symphiny',
               props: { className: 'key-link'},
-            }
-          ]
-        },
-        {
-          id: 'AmandaLobos4.webp',
-          alt: 'AmandaLobos4',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Amanda Lobos',
-              props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
-            }
-          ]
-        },
-        {
-          id: 'AmandaLobos5.webp',
-          alt: 'AmandaLobos5',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Amanda Lobos',
-              props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
             }
           ]
         },
@@ -1123,17 +1407,6 @@ const lessonData21: ILessonDataDB = {
           ]
         },
         {
-          id: 'StevenWilson3.webp',
-          alt: 'StevenWilson3',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Steven Wilson',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/stevenwilsonstudio' },
-            }
-          ]
-        },
-        {
           id: 'ETolsma2.webp',
           alt: 'ETolsma2',
           caption: [
@@ -1141,28 +1414,6 @@ const lessonData21: ILessonDataDB = {
               tag: 'a',
               content: 'E. Tolsma',
               props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/ellistolsma' },
-            }
-          ]
-        },
-        {
-          id: 'yasno.live.webp',
-          alt: 'yasno.live',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Ясно',
-              props: { className: 's-hoverable', target: "_blank", to: 'ej&utm_term=ясно%20лайв&gad_source=1&gclid=CjwKCAjwqf20BhBwEiwAt7dtdSi3vhYAjsS2MYP_bfWtYmGeJpShiyTYZ1uzOYvELEcATDeVpwOn-RoCQNsQAvD_BwE' },
-            }
-          ]
-        },
-        {
-          id: 'SusannaRumiz3.webp',
-          alt: 'SusannaRumiz3',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Susanna Rumiz',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/susannarumiz/projects' },
             }
           ]
         },

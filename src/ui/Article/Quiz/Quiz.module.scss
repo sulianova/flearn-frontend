@@ -22,6 +22,7 @@
 }
 
 .wrapper {
+  display: none;
   position: relative;
 
   margin: 0 auto;
@@ -29,10 +30,9 @@
   border: 1px solid var(--border-color);
   padding: set-calc(32);
   border-radius: set-calc($border-radius-16);
-  background-color: var(--color-card);
+  background-color: transparent;
 
-  transition: opacity 0.15s ease, transform 0.15s ease;
-  transform: translateY(100%);
+  transition: opacity $d-fade ease;
   opacity: 0;
 
   @include font-18-normal-paragraph;
@@ -43,8 +43,13 @@
     padding: set-calc(16);
   }
 
+  &:not(:last-child) {
+    margin-bottom: set-calc(30);
+  }
+
   &Visible {
-    transform: translateY(0);
+    display: block;
+    @include contentExpander;
     opacity: 1;
   }
 }
@@ -69,11 +74,11 @@
 }
 
 .quizTitle {
-  margin-bottom: set-calc(16);
-  @include font-28-normal-header;
+  @include set-typography(24, 32, 500);
+  font-family: $font-family-article-bold;
 
   @include set-media(md) {
-    @include set-typography(28, 32, 500);
+    @include set-typography(20, 28, 500);
   }
 }
 
@@ -90,7 +95,7 @@
 .quizGroup {
   display: flex;
   flex-direction: column;
-  gap: set-calc(16);
+  gap: set-calc(12);
 
   font-family: $font-family-article;
 
@@ -140,14 +145,19 @@
 
   display: flex;
   align-items: start;
+
   gap: set-calc(12);
 
   margin: set-calc(10) 0 set-calc(12);
 
   border-radius: set-calc(6);
-  @include font-20-normal-ui;
+  @include set-typography(20, 28, 500);
 
   cursor: pointer;
+
+  @include set-media(md) {
+    @include set-typography(18, 24, 500);
+  }
 
   .submited & {
     cursor: default;
@@ -223,6 +233,8 @@
   justify-content: center;
   align-items: center;
 
+  margin: set-calc(4);
+
   min-width: set-calc(24);
   width: set-calc(24);
   height: set-calc(24);
@@ -247,6 +259,8 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
+
+  margin: set-calc(4);
 
   overflow: hidden;
   box-sizing: border-box;

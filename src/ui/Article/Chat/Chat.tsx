@@ -29,8 +29,24 @@ export default function Chat(props: IProps) {
           <button className={cx({ hiddenButton: true })}/>
         </div>
       )}
-      { visibleBlocksMessages.length > 0 && (
-        <div className={classes.dialog}>
+      {visibleBlocks.map((b, i) => (
+        <div key={i} className={cx({ dialog: true, contentExpander: true})}>
+          {b.messages.map((m, j) => (
+            <div key={j} className={cx({ messagesStack: true, messagesStack_SideRight: m.sender.isSelf })}>
+              <div className={classes.messagesStack_Content}>
+                <div className={classes.message}>
+                  <div className={classes.bubble}>
+                    <div className={classes.messageAuthor}>{`${m.sender.isSelf ? (authedUser?.displayName ?? 'You') : m.sender.name}`}</div>
+                    <div className={classes.messageText}><Text text={m.content}/></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      ))}
+      {/* { visibleBlocksMessages.length > 0 && (
+        <div className={cx({ dialog: true, contentExpander: true})}>
           {visibleBlocksMessages.map((m, index) => (
             <div key={index} className={cx({ messagesStack: true, messagesStack_SideRight: m.sender.isSelf })}>
               <div className={classes.messagesStack_Content}>
@@ -44,7 +60,7 @@ export default function Chat(props: IProps) {
             </div>
           ))}
         </div>
-      )}
+      )} */}
       {firstHiddenBlock && (
         <div className={cx({ btnWrapper: true, contentExpander: true})}>
           <button
