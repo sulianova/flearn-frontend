@@ -1293,6 +1293,82 @@ const lessonData21: ILessonDataDB = {
       }
     },
     {
+      type: 'quiz',
+      steps: [
+        {
+          type: 'SELECT',
+          variant: 'RADIO',
+          title: '1/2. Перед вами реклама Adidas. Подумайте, на какую группу людей она ориентирована.',
+          image: {
+            id: 'adidas1.webp',
+            alt: 'adidas1',
+          },
+          options: [
+            {
+              value: 'Любят спортивный стиль и всегда в курсе новых моделей кроссовок.',
+              shouldBeSelected: false,
+            },
+            {
+              value: 'Студенты из Азии, которые интересуются современным искусством и музыкой.',
+              shouldBeSelected: true,
+            },
+            {
+              value: 'Профессионально занимаются спортом.',
+              shouldBeSelected: false,
+            },
+          ],
+        },
+        {
+          type: 'SELECT',
+          variant: 'RADIO',
+          title: '2/2. Перед вами реклама Adidas. Подумайте, на какую группу людей она ориентирована.',
+          image: {
+            id: 'adidas3.webp',
+            alt: 'adidas3',
+          },
+          options: [
+            {
+              value: 'Любят вечеринки и музыкальные фестивали, возраст до 35 лет.',
+              shouldBeSelected: true,
+            },
+            {
+              value: 'Не одеваются в Adidas, но следят за релизами эксклюзивных коллекций кроссовок,  возраст до 30 лет.',
+              shouldBeSelected: false,
+            },
+            {
+              value: 'Раньше профессионально занимались спортом, средний возраст — 45-60 лет.',
+              shouldBeSelected: false,
+            },
+          ],
+        },
+      ]
+    },
+    {
+      type: 'chat',
+      chat: {
+        blocks: [
+          {
+            showThisBlockButtonContent: '',
+            messages: [
+              {
+                sender: { name: 'Соня Ульянова', isSelf: false },
+                content: 'Отлично! Я подобрала еще несколько иллюстраций для вдохновения. Смотрим?'
+              },
+            ],
+          },
+          {
+            showThisBlockButtonContent: 'Да, я как раз хотел(а) спросить, где можно посмотреть еще примеры!',
+            messages: [
+              {
+                sender: { isSelf: true },
+                content: 'Да, я как раз хотел(а) спросить, где можно посмотреть еще примеры!'
+              }
+            ],
+          },
+        ]
+      }
+    },
+    {
       type: 'gallery',
       maxHeightPx: 4_700,
       images: [
