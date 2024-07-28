@@ -168,6 +168,8 @@
   @include set-media(md) {
     width: 100%;
 
+    padding-left: set-calc(20);
+
     @include set-typography(18, 24, 500);
 
     &:hover {
