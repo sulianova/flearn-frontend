@@ -153,8 +153,8 @@ function Step(step: Omit<ISurveyStep, 'type'> & { children: ReactNode }) {
   return (
     <>
       <div className={classes.surveyHeader}>
-        {step.title && <div className={classes.surveyTitle}>{step.title}</div>}
         {step.subtitle && <div className={classes.surveySubtitle}>{step.subtitle}</div>}
+        {step.title && <div className={classes.surveyTitle}>{step.title}</div>}
         {step.description && <div className={classes.surveyDescription}>{step.description}</div>}
       </div>
       {step.children}

@@ -24,6 +24,8 @@
 
   margin: 0 auto;
 
+  @include contentExpander;
+
   border: 1px solid var(--border-color);
   padding: set-calc(32);
   border-radius: set-calc($border-radius-16);
@@ -50,13 +52,15 @@
 .surveyHeader {
   display: flex;
   flex-direction: column;
+  gap: set-calc(20);
 
   margin-bottom: set-calc(16);
 }
 .surveyTitle {
-  margin-bottom: set-calc(16);
   @include set-typography(26, 28, 500);
   font-family: $font-family-article-bold;
+
+  margin-bottom: set-calc(20);
 
   @include set-media(md) {
     @include set-typography(22, 24, 500);
@@ -65,10 +69,14 @@
 
 .surveySubtitle {
   color: var(--color-content-paragraph-primary);
-  @include font-20-normal-article;
+  @include set-typography(20, 30, 500);
   font-family: $font-family-article;
 
   margin-bottom: set-calc(20);
+
+  @include set-media(md) {
+    @include set-typography(18, 24, 500);
+  }
 }
 
 .surveyDescription {
@@ -163,28 +171,30 @@
 }
 
 .surveyAnswer {
+  position: relative;
+
   display: flex;
   align-items: start;
 
-  border-radius: set-calc($border-radius-12);
-  border: 1px solid var(--border-color);
-  background-color: var(--color-background-glassy-b);
+  gap: set-calc(12);
 
-  margin-bottom: set-calc(4);
-  padding: set-calc(24);
-  gap: set-calc(8);
+  margin: set-calc(10) 0 set-calc(12);
+  border-radius: set-calc($border-radius-8);
 
+  @include set-typography(20, 28, 500);
+  font-family: $font-family-article;
   cursor: pointer;
-
-  @include font-18-normal-paragraph;
 
   span,
   p {
-    @include font-18-normal-paragraph;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: inherit;
   }
 
   @include set-media(md) {
-    padding: set-calc(24) set-calc(16);
+    @include set-typography(18, 24, 500);
   }
 }
 

@@ -23,6 +23,16 @@
   }
 }
 
+.messagesStack:not(.messagesStack_SideRight) + .messagesStack {
+
+  margin-top: set-calc(20);
+
+  .messageAuthor {
+    display: none;
+  }
+}
+
+
 .messagesStack_SideRight {
   flex-direction: row-reverse;
 
@@ -83,20 +93,20 @@
   left: 0;
 
   white-space: nowrap;
-  color: var(--color-content-tertiary);
+  color: var(--color-content-paragraph-secondary);
   font-family: $font-family-article;
   @include set-typography(16, 28, 500);
 }
 
 .messageText {
-  @include set-typography(20, 28, 500);
+  @include set-typography(18, 26, 500);
   font-family: $font-family-article;
   color: var(--color-content-primary);
 
   word-break: break-word;
 
   @include set-media(md) {
-    @include set-typography(18, 24, 500);
+    @include set-typography(18, 26, 500);
   }
 }
 

@@ -25,13 +25,46 @@ const lessonData11: ILessonDataDB = {
   isFree: true,
   content: [
     {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Добро пожаловать в бесплатный блок! Мы рады, что вы с нами. Совсем скоро вы погрузитесь в интерактивный учебник и создадите ваш первый проект. Но сначала расскажем, как всё устроено.',
-        },
-      ]
+      type: 'chat',
+      chat: {
+        blocks: [
+          {
+            showThisBlockButtonContent: '',
+            messages: [
+              {
+                sender: { name: 'Соня Ульянова', isSelf: false },
+                content: 'Привет! Добро пожаловать в бесплатный блок.  Меня зовут Соня, я иллюстратор и автор обучающих программ в flearn.'
+              },
+            ],
+          },
+          {
+            showThisBlockButtonContent: 'Привет!',
+            messages: [
+              {
+                sender: { isSelf: true },
+                content: 'Привет!'
+              },
+              {
+                sender: { name: 'Соня Ульянова', isSelf: false },
+                content: 'Я буду помогать разбираться с теорией и задавать уточняющие вопросы, чтобы убедиться, что мы правильно друг друга поняли)'
+              },
+              {
+                sender: { name: 'Соня Ульянова', isSelf: false },
+                content: 'Совсем скоро вы погрузитесь в интерактивный учебник и создадите ваш первый проект. Но сначала расскажу, как всё устроено. Начинаем?'
+              },
+            ],
+          },
+          {
+            showThisBlockButtonContent: 'Да, давай)',
+            messages: [
+              {
+                sender: { isSelf: true },
+                content: 'Да, давай)'
+              }
+            ],
+          },
+        ]
+      }
     },
     // {
     //   type: 'quiz',
@@ -55,30 +88,6 @@ const lessonData11: ILessonDataDB = {
     //         {
     //           value: 'Some can',
     //           shouldBeSelected: false,
-    //           negativeExplanation: 'Are you dumb???',
-    //         },
-    //       ],
-    //     },
-    //     {
-    //       type: 'SELECT',
-    //       variant: 'CHECKBOX',
-    //       title: 'Can turtles fly?',
-    //       options: [
-    //         {
-    //           value: 'Yes',
-    //           shouldBeSelected: false,
-    //           negativeExplanation: 'Are you dumb???',
-    //         },
-    //         {
-    //           value: 'No',
-    //           shouldBeSelected: true,
-    //           positiveExplanation: 'Good job!',
-    //           negativeExplanation: 'Are you dumb???',
-    //         },
-    //         {
-    //           value: 'Some can',
-    //           shouldBeSelected: true,
-    //           positiveExplanation: 'Good job!',
     //           negativeExplanation: 'Are you dumb???',
     //         },
     //       ],
@@ -91,64 +100,41 @@ const lessonData11: ILessonDataDB = {
     },
     {
       type: 'text',
-      text: 'Вводный курс — это возможность прожить один день из жизни иллюстратора. Вы узнаете, как он рассуждает и какие задачи решает, а ещё — попробуете самостоятельно нарисовать иллюстрацию для рекламного баннера. Баннер — отличная проверка того, умеет ли иллюстратор управлять вниманием пользователя, ведь условия его существования — дефицит этого самого внимания.'
+      text: 'Вводный курс — это возможность прожить один день из жизни иллюстратора. Вы узнаете, как он рассуждает и какие задачи решает, а ещё — попробуете самостоятельно нарисовать иллюстрацию для рекламного баннера.'
+    },
+    {
+      type: 'chat',
+      chat: {
+        blocks: [
+          {
+            showThisBlockButtonContent: '',
+            messages: [
+            ],
+          },
+          {
+            showThisBlockButtonContent: 'Мы будем рисовать иллюстрацию для баннера?',
+            messages: [
+              {
+                sender: { isSelf: true },
+                content: 'Мы будем рисовать иллюстрацию для баннера?'
+              },
+              {
+                sender: {  name: 'Соня Ульянова', isSelf: false },
+                content: 'Ага) Баннер — отличная проверка того, умеет ли иллюстратор управлять вниманием пользователя, ведь условия его существования — дефицит этого самого внимания.'
+              },
+              {
+                sender: {  name: 'Соня Ульянова', isSelf: false },
+                content: 'В конце вводной части вы можете выполнить самостоятельный проект и получить по нему обратную связь — совсем как на платном курсе. Но бесплатно.'
+              },
+            ],
+          },
+        ]
+      }
     },
     {
       type: 'title',
       title: 'Платный курс'
     },
-    // {
-    //   type: 'quiz',
-    //   steps: [
-    //     {
-    //       type: 'SELECT',
-    //       variant: 'RADIO',
-    //       title: 'Can fish fly?',
-    //       options: [
-    //         {
-    //           value: 'Yes',
-    //           shouldBeSelected: false,
-    //           negativeExplanation: 'Are you dumb???',
-    //         },
-    //         {
-    //           value: 'No',
-    //           shouldBeSelected: true,
-    //           positiveExplanation: 'Good job!',
-    //           negativeExplanation: 'Are you dumb???',
-    //         },
-    //         {
-    //           value: 'Some can',
-    //           shouldBeSelected: false,
-    //           negativeExplanation: 'Are you dumb???',
-    //         },
-    //       ],
-    //     },
-    //     {
-    //       type: 'SELECT',
-    //       variant: 'CHECKBOX',
-    //       title: 'Can turtles fly?',
-    //       options: [
-    //         {
-    //           value: 'Yes',
-    //           shouldBeSelected: false,
-    //           negativeExplanation: 'Are you dumb???',
-    //         },
-    //         {
-    //           value: 'No',
-    //           shouldBeSelected: true,
-    //           positiveExplanation: 'Good job!',
-    //           negativeExplanation: 'Are you dumb???',
-    //         },
-    //         {
-    //           value: 'Some can',
-    //           shouldBeSelected: true,
-    //           positiveExplanation: 'Good job!',
-    //           negativeExplanation: 'Are you dumb???',
-    //         },
-    //       ],
-    //     },
-    //   ],
-    // },
     {
       type: 'text',
       text: [
@@ -158,31 +144,6 @@ const lessonData11: ILessonDataDB = {
         },
       ]
     },
-            // {
-    //   type: 'quiz',
-    //   steps: [
-    //     {
-    //       type: 'SELECT',
-    //       variant: 'RADIO',
-    //       title: 'Can fish fly?',
-    //       options: [
-    //         {
-    //           value: 'Yes',
-    //           shouldBeSelected: false,
-    //           negativeExplanation: 'Are you dumb???',
-    //         },
-    //         {
-    //           value: 'No',
-    //           shouldBeSelected: true,
-    //           positiveExplanation: 'Good job!',
-    //           negativeExplanation: 'Are you dumb???',
-    //         },
-    //         {
-    //           value: 'Some can',
-    //           shouldBeSelected: false,
-    //           negativeExplanation: 'Are you dumb???',
-    //         },
-    //       ],
     {
       type: 'quiz',
       steps: [
@@ -219,7 +180,30 @@ const lessonData11: ILessonDataDB = {
     {
       type: 'text',
       text: 'В ознакомительном модуле мы ответим на все эти вопросы. Если волнует хотя бы один из них, советуем остаться, чтобы расставить все точки над i.'
-    }
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Кстати, мы рассказываем про обучение в flearn не только в учебнике. У нас есть '
+            },
+            {
+              tag: 'a',
+              content: 'телеграм-канал',
+              props: { className: 'key-link', target: "_blank", to: 'https://t.me/sofiulyanova' },
+            },
+            {
+              tag: 'span',
+              content: ' для всех, кто хочет развиваться в сфере иллюстрации. В нем мы публикуем анонсы мероприятий, интересные факты об учебе и иллюстрации в целом.'
+            }
+          ]
+        },
+      ]
+    },
   ],
 
     // 0: {
@@ -294,35 +278,133 @@ const lessonData12: ILessonDataDB = {
       ]
     },
     {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Программа платного обучения длится 2 месяца. Обучение на платной программе будет сложным, но интересным. Больше теории, больше практики, больше самостоятельности. К концу учёбы в вашем портфолио появится серия иллюстраций для медиа.'
-        },
-        {
-          tag: 'p',
-          content: 'Мы не оставим вас с теорией и практикой один на один. Вместе с учебником вы получите доступ в чат студентов школы — телеграм-чат, где можно общаться с сокурсниками, обсуждать проекты и теорию, делиться интересными материалами, помогать друг другу советами.'
-        },
-        {
-          tag: 'p',
-          content: [
-            {
-              tag: 'span',
-              content: 'Кстати, мы рассказываем про обучение в flearn не только в учебнике. У нас есть '
-            },
-            {
-              tag: 'a',
-              content: 'телеграм-канал',
-              props: { className: 'key-link', target: "_blank", to: 'https://t.me/sofiulyanova' },
-            },
-            {
-              tag: 'span',
-              content: ' для всех, кто хочет развиваться в сфере иллюстрации. В нем мы публикуем анонсы мероприятий, интересные факты об учебе и иллюстрации в целом.'
-            }
-          ]
-        },
-      ]
+      type: 'chat',
+      chat: {
+        blocks: [
+          {
+            showThisBlockButtonContent: '',
+            messages: [
+            ],
+          },
+          {
+            showThisBlockButtonContent: 'Что значит «учебник»? Придётся много читать?',
+            messages: [
+              {
+                sender: { isSelf: true },
+                content: 'Что значит «учебник»? Придётся много читать?'
+              },
+              {
+                sender: { name: 'Соня Ульянова', isSelf: false },
+                content: 'Не совсем. Учебник — это не «только тексты», мы сделали его интерактивным. В нём вы сможете проходить квизы, выполнять мини-проекты для отработки навыков и расширять кругозор в игровом формате.'
+              },
+            ],
+          },
+        ]
+      }
+    },
+    {
+      type: 'chat',
+      chat: {
+        blocks: [
+          {
+            showThisBlockButtonContent: '',
+            messages: [
+            ],
+          },
+          {
+            showThisBlockButtonContent: 'А кто написал учебник?',
+            messages: [
+              {
+                sender: { isSelf: true },
+                content: 'А кто написал учебник?'
+              },
+              {
+                sender: { name: 'Соня Ульянова', isSelf: false },
+                content: 'Я вместе с другими экспертами из индустрии. Мы постоянно обновляем и дополняем его с учётом актуальных трендов в иллюстрации.'
+              },
+            ],
+          },
+        ]
+      }
+    },
+    {
+      type: 'chat',
+      chat: {
+        blocks: [
+          {
+            showThisBlockButtonContent: '',
+            messages: [
+            ],
+          },
+          {
+            showThisBlockButtonContent: 'С учебником — понятно) Расскажи про тарифы. Я правильно понимаю, что можно выбрать вариант "самостоятельно" или "с обратной связью"?',
+            messages: [
+              {
+                sender: { isSelf: true },
+                content: 'С учебником — понятно) Расскажи про тарифы. Я правильно понимаю, что можно выбрать вариант "самостоятельно" или "с обратной связью"?'
+              },
+              {
+                sender: { name: 'Соня Ульянова', isSelf: false },
+                content: 'Да, все так.'
+              },
+            ],
+          },
+        ]
+      }
+    },
+    {
+      type: 'chat',
+      chat: {
+        blocks: [
+          {
+            showThisBlockButtonContent: '',
+            messages: [
+            ],
+          },
+          {
+            showThisBlockButtonContent: 'Подскажи, если я выберу учиться самостоятельно, я буду учиться совсем один?',
+            messages: [
+              {
+                sender: { isSelf: true },
+                content: 'Подскажи, если я выберу учиться самостоятельно, я буду учиться совсем один?'
+              },
+              {
+                sender: { name: 'Соня Ульянова', isSelf: false },
+                content: 'Мы не оставим вас с теорией и практикой один на один.'
+              },
+              {
+                sender: { name: 'Соня Ульянова', isSelf: false },
+                content: 'Вместе с учебником вы получите доступ в чат студентов школы — телеграм-чат, где можно общаться с сокурсниками, обсуждать проекты и теорию, делиться интересными материалами, помогать друг другу советами.'
+              },
+            ]
+          },
+        ]
+      }
+    },
+    {
+      type: 'chat',
+      chat: {
+        blocks: [
+          {
+            showThisBlockButtonContent: '',
+            messages: [
+            ],
+          },
+          {
+            showThisBlockButtonContent: 'Звучит неплохо) А если в процессе я пойму, что мне не хватает обратной связи, можно будет поменять тариф?',
+            messages: [
+              {
+                sender: { isSelf: true },
+                content: 'Звучит неплохо) А если в процессе я пойму, что мне не хватает обратной связи, можно будет поменять тариф?'
+              },
+              {
+                sender: { name: 'Соня Ульянова', isSelf: false },
+                content: 'Да, конечно) Если захотите сменить тариф, напишите об этом куратору программы. В следующем уроке как раз расскажу, кто такой куратор и как с ним связаться)'
+              },
+            ],
+          },
+        ]
+      }
     },
   ],
   survey: {
@@ -408,21 +490,13 @@ const lessonData13: ILessonDataDB = {
           content: 'Команда сопровождения будет с вами в течение всего обучения, её задача — поддерживать вас и помогать. Вы сможете задать любой вопрос по программе или просто поделиться переживаниями. '
         },
       ]
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'А сейчас у нас к вам пара вопросов — и сразу продолжим. Вопросы займут 1–2 минуты.',
-        }
-      ]
     }
   ],
   survey: {
     0: {
       type: 'SELECT',
       variant: 'RADIO',
+      subtitle: 'А сейчас у нас к вам пара вопросов — и сразу продолжим. Вопросы займут 1–2 минуты.',
       title: '1/4. У вас есть опыт работы или учёбы по специальности «Иллюстратор»?',
       options: [
         'Нет, впервые знакомлюсь с профессией',
@@ -729,6 +803,7 @@ const lessonData21: ILessonDataDB = {
             {
               tag: 'span',
               content: '«Композиция: как выделить главное»! ',
+              props: { className: 'bold'},
             },
             {
               tag: 'span',
@@ -769,11 +844,11 @@ const lessonData21: ILessonDataDB = {
             messages: [],
           },
           {
-            showThisBlockButtonContent: 'Ясно) А можешь показать примеры?',
+            showThisBlockButtonContent: 'А можешь показать на примере?',
             messages: [
               {
                 sender: { isSelf: true },
-                content: 'Ясно) А можешь показать примеры?'
+                content: 'А можешь показать на примере?'
               },
               {
                 sender: { name: 'Соня Ульянова', isSelf: false },
@@ -1074,7 +1149,7 @@ const lessonData21: ILessonDataDB = {
             messages: [
               {
                 sender: { name: 'Соня Ульянова', isSelf: false },
-                content: 'Итак, теперь мы разобрались с тем, как иллюстрации улучшают мобильные приложения. Готовы продолжить?'
+                content: 'Мы разобрались с тем, как иллюстрации улучшают мобильные приложения. Готовы продолжить?'
               },
             ],
           },
@@ -1352,7 +1427,7 @@ const lessonData21: ILessonDataDB = {
             messages: [
               {
                 sender: { name: 'Соня Ульянова', isSelf: false },
-                content: 'Отлично! Я подобрала еще несколько иллюстраций для вдохновения. Смотрим?'
+                content: 'Отлично! Я подобрала еще несколько примеров того, как иллюстрации используются в рекламе. Смотрим?'
               },
             ],
           },
@@ -1370,7 +1445,7 @@ const lessonData21: ILessonDataDB = {
     },
     {
       type: 'gallery',
-      maxHeightPx: 4_700,
+      maxHeightPx: 4_300,
       images: [
         {
           id: 'SummerSymphiny.webp',
@@ -1424,28 +1499,6 @@ const lessonData21: ILessonDataDB = {
               tag: 'a',
               content: 'Amanda Lobos',
               props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
-            }
-          ]
-        },
-        {
-          id: 'AmandaLobos10.webp',
-          alt: 'AmandaLobos10',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Amanda Lobos',
-              props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
-            }
-          ]
-        },
-        {
-          id: 'okchizh3.webp',
-          alt: 'okchizh3',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Юля Чиж',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://okchizh.art/' },
             }
           ]
         },
@@ -1615,6 +1668,31 @@ const lessonData21: ILessonDataDB = {
           ]
         },
       ]
+    },
+    {
+      type: 'chat',
+      chat: {
+        blocks: [
+          {
+            showThisBlockButtonContent: '',
+            messages: [
+              {
+                sender: { name: 'Соня Ульянова', isSelf: false },
+                content: 'Отлично! Я подобрала еще несколько примеров того, как иллюстрации используются в рекламе. Смотрим?'
+              },
+            ],
+          },
+          {
+            showThisBlockButtonContent: 'Да, я как раз хотел(а) спросить, где можно посмотреть еще примеры!',
+            messages: [
+              {
+                sender: { isSelf: true },
+                content: 'Да, я как раз хотел(а) спросить, где можно посмотреть еще примеры!'
+              }
+            ],
+          },
+        ]
+      }
     },
     {
       type: 'title',

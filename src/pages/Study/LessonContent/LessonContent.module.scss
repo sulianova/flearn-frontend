@@ -3,7 +3,8 @@
 ._ {
   width: set-calc(700);
   position: relative;
-
+  height: max-content;
+  
   @include set-media(md) {
     width: 100%;
   }
