@@ -1119,13 +1119,10 @@ const lessonData21: ILessonDataDB = {
     {
       type: 'list',
       items: [
-        'IT и цифровых продуктах;',
+        'цифровых продуктах;',
         'рекламе;',
-        'продуктах;',
-        'айдентике;',
         'упаковке;',
         'оформлении пространств;',
-        'обложках альбомов или подкастов;',
         'книгах и журналах.'
       ]
     }
@@ -1316,6 +1313,118 @@ const lessonData22: ILessonDataDB = {
       },
     },
     {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Делают бренд узнаваемым. ',
+          props: {className: ' bold'}
+        },
+        {
+          tag: 'span',
+          content: 'Например, у Duolingo, платформы для изучения английского, есть главный персонаж — зеленый совенок. Этот совенок делает бренд легко узнаваемым и запоминающимся, а также придает компании дружелюбный и доступный вид.'
+        }
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'duolingo.webp',
+        alt: 'duolingo',
+        caption: [
+          {
+            tag: 'a',
+            content: 'duolingo',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://ru.duolingo.com' },
+          }
+        ]
+      }
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Создают эмоциональную связь с аудиторией. ',
+          props: {className: ' bold'}
+        },
+        {
+          tag: 'span',
+          content: 'Headspace использует яркие и простые иллюстрации, чтобы сделать медитацию доступной и приятной. Картинки помогают создать расслабляющую атмосферу и настроить пользователя на позитивный лад. Дизайнеры выбрали минималистичный стиль, чтобы медитация казалась интересной и привлекательной для широкой аудитории.'
+        }
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'headspace2.webp',
+        alt: 'headspace2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Headspace',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://organizations.headspace.com/employers?origin=nav&_gl=1*9e6e41*_gcl_au*NDUyNTQ1MTU3LjE3MjE3NDU2MjY.*FPAU*NDUyNTQ1MTU3LjE3MjE3NDU2MjY.' },
+          }
+        ]
+      }
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Транслируют эмоции и настроение. ',
+          props: {className: ' bold'}
+        },
+        {
+          tag: 'span',
+          content: 'Например, компания Airbnb использует иллюстрации, чтобы создать дух путешествий и открытий. Иллюстраторы выбирают яркие, насыщенные цвета, чтобы вызвать у пользователей чувство приключения и исследовательского духа.'
+        }
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'airbnb.webp',
+        alt: 'airbnb',
+        caption: [
+          {
+            tag: 'a',
+            content: 'airbnb',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://ru.airbnb.com/giftcards' },
+          }
+        ]
+      }
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Усиливают коммуникацию с брендом. ',
+          props: {className: ' bold'}
+        },
+        {
+          tag: 'span',
+          content: 'Google Doodles – это временные изменения логотипа Google, которые отражают важные события, праздники и юбилеи. Художники вдохновляются культурными событиями и историческими личностями, создавая уникальные и узнаваемые образы.'
+        }
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'GoogleDoodle2.webp',
+        alt: 'GoogleDoodle2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Google Doodles',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://doodles.google/' },
+          }
+        ]
+      }
+    },
+    {
       type: 'chat',
       chat: {
         blocks: [
@@ -1381,6 +1490,136 @@ const lessonData22: ILessonDataDB = {
               shouldBeSelected: true,
             },
           ],
+        },
+      ]
+    },
+    {
+      type: 'chat',
+      chat: {
+        blocks: [
+          {
+            showThisBlockButtonContent: '',
+            messages: [
+              {
+                sender: { name: 'Соня Ульянова', isSelf: false },
+                content: 'Отлично! Я подобрала еще несколько примеров того, как иллюстрации используются в IT. Смотрим?'
+              },
+            ],
+          },
+          {
+            showThisBlockButtonContent: 'Да, конечно!',
+            messages: [
+              {
+                sender: { isSelf: true },
+                content: 'Да, конечно!'
+              }
+            ],
+          },
+        ]
+      }
+    },
+    {
+      type: 'gallery',
+      maxHeightPx: 900,
+      images: [
+        {
+          id: 'headspace1.webp',
+          alt: 'headspace1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Headspace',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://organizations.headspace.com/employers?origin=nav&_gl=1*9e6e41*_gcl_au*NDUyNTQ1MTU3LjE3MjE3NDU2MjY.*FPAU*NDUyNTQ1MTU3LjE3MjE3NDU2MjY.' },
+            }
+          ]
+        },
+        {
+          id: 'GoogleDoodle1.webp',
+          alt: 'GoogleDoodle1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Google Doodles',
+              props: { className: 'key-link', target: "_blank", to: 'https://doodles.google/' },
+            }
+          ]
+        },
+        {
+          id: 'ShukaDesign1.webp',
+          alt: 'ShukaDesign1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Shuka Design',
+              props: { className: 'key-link', target: "_blank", to: 'http://shuka.design' },
+            }
+          ]
+        },
+        {
+          id: 'ShukaDesign2.webp',
+          alt: 'ShukaDesign2',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Shuka Design',
+              props: { className: 'key-link', target: "_blank", to: 'http://shuka.design' },
+            }
+          ]
+        },
+        {
+          id: 'ShukaDesign3.webp',
+          alt: 'ShukaDesign3',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Shuka Design',
+              props: { className: 'key-link', target: "_blank", to: 'http://shuka.design' },
+            }
+          ]
+        },
+        {
+          id: 'ShukaDesign4.webp',
+          alt: 'ShukaDesign4',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Shuka Design',
+              props: { className: 'key-link', target: "_blank", to: 'http://shuka.design' },
+            }
+          ]
+        },
+        {
+          id: 'ShukaDesign8.webp',
+          alt: 'ShukaDesign8',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Shuka Design',
+              props: { className: 'key-link', target: "_blank", to: 'http://shuka.design' },
+            }
+          ]
+        },
+        {
+          id: 'ShukaDesign9.webp',
+          alt: 'ShukaDesign9',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Shuka Design',
+              props: { className: 'key-link', target: "_blank", to: 'http://shuka.design' },
+            }
+          ]
+        },
+        {
+          id: 'naitori4.webp',
+          alt: 'naitori4',
+          caption: [
+            {
+              tag: 'a',
+              content: 'naitori',
+              props: { className: 'key-link', target: "_blank", to: 'https://naitori.ru/#next' },
+            }
+          ]
         },
       ]
     },
@@ -2296,272 +2535,13 @@ const lessonData24: ILessonDataDB = {
 }
 
 const lessonData25: ILessonDataDB = {
-  id: 'Branding_kyid68',
-  courseId: 'how-to-draw',
-  title: 'Брендинг',
-  type: 'Theory',
-  topic: 'Про профессию иллюстратора',
-  topicOrder: 2,
-  orderInTopic: 5,
-  duration: {
-    unit: 'minutes',
-    value: 10
-  },
-  isFree: true,
-  content: [
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'span',
-          content: 'Айдентика ',
-          props: {className: ' bold'}
-        },
-        {
-          tag: 'span',
-          content: '— это совокупность визуальных элементов, которые формируют облик компании. В неё входят логотипы, цвета, шрифты и изображения, которые помогают создать уникальный и узнаваемый стиль. Иллюстрации занимают особое место в этом наборе, и вот почему.'
-        }
-      ]
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'span',
-          content: 'Делают бренд узнаваемым. ',
-          props: {className: ' bold'}
-        },
-        {
-          tag: 'span',
-          content: 'Например, у Duolingo, платформы для изучения английского, есть главный персонаж — зеленый совенок. Этот совенок делает бренд легко узнаваемым и запоминающимся, а также придает компании дружелюбный и доступный вид.'
-        }
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'duolingo.webp',
-        alt: 'duolingo',
-        caption: [
-          {
-            tag: 'a',
-            content: 'duolingo',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://ru.duolingo.com' },
-          }
-        ]
-      }
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'span',
-          content: 'Создают эмоциональную связь с аудиторией. ',
-          props: {className: ' bold'}
-        },
-        {
-          tag: 'span',
-          content: 'Headspace использует яркие и простые иллюстрации, чтобы сделать медитацию доступной и приятной. Картинки помогают создать расслабляющую атмосферу и настроить пользователя на позитивный лад. Дизайнеры выбрали минималистичный стиль, чтобы медитация казалась интересной и привлекательной для широкой аудитории.'
-        }
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'headspace2.webp',
-        alt: 'headspace2',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Headspace',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://organizations.headspace.com/employers?origin=nav&_gl=1*9e6e41*_gcl_au*NDUyNTQ1MTU3LjE3MjE3NDU2MjY.*FPAU*NDUyNTQ1MTU3LjE3MjE3NDU2MjY.' },
-          }
-        ]
-      }
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'span',
-          content: 'Транслируют эмоции и настроение. ',
-          props: {className: ' bold'}
-        },
-        {
-          tag: 'span',
-          content: 'Например, компания Airbnb использует иллюстрации, чтобы создать дух путешествий и открытий. Иллюстраторы выбирают яркие, насыщенные цвета, чтобы вызвать у пользователей чувство приключения и исследовательского духа.'
-        }
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'airbnb.webp',
-        alt: 'airbnb',
-        caption: [
-          {
-            tag: 'a',
-            content: 'airbnb',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://ru.airbnb.com/giftcards' },
-          }
-        ]
-      }
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'span',
-          content: 'Усиливают коммуникацию с брендом. ',
-          props: {className: ' bold'}
-        },
-        {
-          tag: 'span',
-          content: 'Google Doodles – это временные изменения логотипа Google, которые отражают важные события, праздники и юбилеи. Художники вдохновляются культурными событиями и историческими личностями, создавая уникальные и узнаваемые образы.'
-        }
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'GoogleDoodle2.webp',
-        alt: 'GoogleDoodle2',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Google Doodles',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://doodles.google/' },
-          }
-        ]
-      }
-    },
-    {
-      type: 'gallery',
-      maxHeightPx: 900,
-      images: [
-        {
-          id: 'headspace1.webp',
-          alt: 'headspace1',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Headspace',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://organizations.headspace.com/employers?origin=nav&_gl=1*9e6e41*_gcl_au*NDUyNTQ1MTU3LjE3MjE3NDU2MjY.*FPAU*NDUyNTQ1MTU3LjE3MjE3NDU2MjY.' },
-            }
-          ]
-        },
-        {
-          id: 'GoogleDoodle1.webp',
-          alt: 'GoogleDoodle1',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Google Doodles',
-              props: { className: 'key-link', target: "_blank", to: 'https://doodles.google/' },
-            }
-          ]
-        },
-        {
-          id: 'ShukaDesign1.webp',
-          alt: 'ShukaDesign1',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Shuka Design',
-              props: { className: 'key-link', target: "_blank", to: 'http://shuka.design' },
-            }
-          ]
-        },
-        {
-          id: 'ShukaDesign2.webp',
-          alt: 'ShukaDesign2',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Shuka Design',
-              props: { className: 'key-link', target: "_blank", to: 'http://shuka.design' },
-            }
-          ]
-        },
-        {
-          id: 'ShukaDesign3.webp',
-          alt: 'ShukaDesign3',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Shuka Design',
-              props: { className: 'key-link', target: "_blank", to: 'http://shuka.design' },
-            }
-          ]
-        },
-        {
-          id: 'ShukaDesign4.webp',
-          alt: 'ShukaDesign4',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Shuka Design',
-              props: { className: 'key-link', target: "_blank", to: 'http://shuka.design' },
-            }
-          ]
-        },
-        {
-          id: 'ShukaDesign8.webp',
-          alt: 'ShukaDesign8',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Shuka Design',
-              props: { className: 'key-link', target: "_blank", to: 'http://shuka.design' },
-            }
-          ]
-        },
-        {
-          id: 'ShukaDesign9.webp',
-          alt: 'ShukaDesign9',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Shuka Design',
-              props: { className: 'key-link', target: "_blank", to: 'http://shuka.design' },
-            }
-          ]
-        },
-        {
-          id: 'naitori4.webp',
-          alt: 'naitori4',
-          caption: [
-            {
-              tag: 'a',
-              content: 'naitori',
-              props: { className: 'key-link', target: "_blank", to: 'https://naitori.ru/#next' },
-            }
-          ]
-        },
-        {
-          id: 'headspace2.webp',
-          alt: 'headspace2',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Headspace',
-              props: { className: 'key-link', target: "_blank", to: 'https://organizations.headspace.com/employers?origin=nav&_gl=1*9e6e41*_gcl_au*NDUyNTQ1MTU3LjE3MjE3NDU2MjY.*FPAU*NDUyNTQ1MTU3LjE3MjE3NDU2MjY.' },
-            }
-          ]
-        },
-      ]
-    },
-  ]
-}
-
-const lessonData26: ILessonDataDB = {
   id: 'Packaging_80wfHs',
   courseId: 'how-to-draw',
   title: 'Упаковка',
   type: 'Theory',
   topic: 'Про профессию иллюстратора',
   topicOrder: 2,
-  orderInTopic: 6,
+  orderInTopic: 5,
   duration: {
     unit: 'minutes',
     value: 10
@@ -2819,14 +2799,14 @@ const lessonData26: ILessonDataDB = {
   ]
 }
 
-const lessonData27: ILessonDataDB = {
+const lessonData26: ILessonDataDB = {
   id: 'Murals_V2hxRJ',
   courseId: 'how-to-draw',
   title: 'Оформление пространств',
   type: 'Theory',
   topic: 'Про профессию иллюстратора',
   topicOrder: 2,
-  orderInTopic: 7,
+  orderInTopic: 6,
   duration: {
     unit: 'minutes',
     value: 10
@@ -2990,191 +2970,14 @@ const lessonData27: ILessonDataDB = {
   ]
 }
 
-const lessonData28: ILessonDataDB = {
-  id: 'AlbomCovers_gBZthb',
-  courseId: 'how-to-draw',
-  title: 'Облажки альбомов, подкастов',
-  type: 'Theory',
-  topic: 'Про профессию иллюстратора',
-  topicOrder: 2,
-  orderInTopic: 8,
-  duration: {
-    unit: 'minutes',
-    value: 10
-  },
-  isFree: true,
-  content: [
-    {
-      type: 'text',
-      text: 'Обложка альбома или подкаста — это первое, что видит слушатель. Это как витрина магазина: если она привлекательная, человек захочет зайти внутрь. Хорошая обложка может рассказать о настроении музыки или подкаста, привлечь внимание и выделить среди других. Давайте рассмотрим несколько примеров и разберемся, как это работает.'
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'span',
-          content: 'Усиливают эмоциональную связь со слушателями. ',
-          props: {className: ' bold'}
-        },
-        {
-          tag: 'span',
-          content: 'Простота и минимализм в иллюстрациях к альбомам подчеркивают искренность и душевность музыки Монеточки, что находит отклик у слушателей, ценящих простоту и глубину.'
-        }
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'Monetochka.webp',
-        alt: 'Monetochka',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Монеточка, Раскраски для взрослых',
-            props: { className: 's-hoverable' },
-          }
-        ]
-      }
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'span',
-          content: 'Задают настроение. ',
-          props: {className: ' bold'}
-        },
-        {
-          tag: 'span',
-          content: 'Billie Eilish - "When We All Fall Asleep, Where Do We Go?". Обложку разработал Кенни Бенжамин. Страшноватый и загадочный образ певицы на обложке сразу привлекает внимание и намекает на необычное содержание альбома.'
-        }
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'BillieEilish.webp',
-        alt: 'BillieEilish',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Billie Eilish',
-            props: { className: 's-hoverable' },
-          }
-        ]
-      }
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'span',
-          content: 'Создают бренд. ',
-          props: {className: ' bold'}
-        },
-        {
-          tag: 'span',
-          content: 'Обложка альбома "The Dark Side of the Moon" группы Pink Floyd, созданная иллюстратором Storm Thorgerson, — это один из самых известных примеров графического дизайна в музыке. Простой, но мощный образ призмы, преломляющей свет, сразу же запоминается и становится символом целого поколения. Эта иллюстрация демонстрирует, как минимализм может быть невероятно эффективным.'
-        }
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'stormstudiosdesign.webp',
-        alt: 'stormstudiosdesign',
-        caption: [
-          {
-            tag: 'a',
-            content: 'stormstudiosdesign',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.stormstudiosdesign.com/#/203933/' },
-          }
-        ]
-      }
-    },
-    {
-      type: 'gallery',
-      maxHeightPx: 1_400,
-      images: [
-        {
-          id: 'creamsoda1.webp',
-          alt: 'creamsoda1',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Cream Soda',
-              props: { className: 's-hoverable' },
-            }
-          ]
-        },
-        {
-          id: 'creamsoda2.webp',
-          alt: 'creamsoda2',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Cream Soda',
-              props: { className: 's-hoverable' },
-            }
-          ]
-        },
-        {
-          id: 'PaoloTorres.webp',
-          alt: 'PaoloTorres',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Paolo Torres',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/knotpaolo' },
-            }
-          ]
-        },
-        {
-          id: ' EllaMezule1.webp',
-          alt: 'EllaMezule1',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Jazz music band "Anders Bast & The Bast\'ards" album',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://music.yandex.ru/album/14889733/track/80939520' },
-            }
-          ]
-        },
-        {
-          id: 'EllaMezule2.webp',
-          alt: 'EllaMezule2',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Swedish contemporary folk band\'s Trio Rop album',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://music.yandex.ru/album/14889733/track/80939520' },
-            }
-          ]
-        },
-        {
-          id: 'OlgaRodzik.webp',
-          alt: 'OlgaRodzik',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Сингл “Вимкни телефон”, Tvorchi',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/gallery/157088495/TVORCHI' },
-            }
-          ]
-        },
-      ]
-    },
-  ]
-}
-
-const lessonData29: ILessonDataDB = {
+const lessonData27: ILessonDataDB = {
   id: 'Editorial_K8Bu8i',
   courseId: 'how-to-draw',
   title: 'Книги и журналы',
   type: 'Theory',
   topic: 'Про профессию иллюстратора',
   topicOrder: 2,
-  orderInTopic: 9,
+  orderInTopic: 7,
   duration: {
     unit: 'minutes',
     value: 10
@@ -3378,14 +3181,14 @@ const lessonData29: ILessonDataDB = {
   ]
 }
 
-const lessonData210: ILessonDataDB = {
+const lessonData28: ILessonDataDB = {
   id: 'CommercialIllustratorSummary_CV9ZUs',
   courseId: 'how-to-draw',
   title: 'Итоги модуля',
   type: 'Theory',
   topic: 'Про профессию иллюстратора',
   topicOrder: 2,
-  orderInTopic: 10,
+  orderInTopic: 8,
   duration: {
     unit: 'minutes',
     value: 5
@@ -12807,8 +12610,6 @@ export const allLessons = [
   lessonData26,
   lessonData27,
   lessonData28,
-  lessonData29,
-  lessonData210,
   lessonData32,
   lessonData41,
   lessonData42,

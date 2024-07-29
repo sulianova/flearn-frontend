@@ -56,6 +56,7 @@
 
 .wrapper {
   display: flex;
+  flex-direction: row-reverse;
   justify-content: center;
   grid-gap: set-calc(16);
   padding: set-calc(24) 0 0;
