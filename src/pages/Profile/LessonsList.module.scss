@@ -99,8 +99,12 @@
 .title {
   margin: 0;
 
-  @include font-20-normal-paragraph;
   color: var(--color-content-primary);
+  @include set-typography(20, 30, 500);
+
+  @include set-media(md) {
+    @include set-typography(16, 24, 500);
+  }
 }
 
 .info {

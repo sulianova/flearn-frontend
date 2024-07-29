@@ -20,7 +20,7 @@ const lessonData11: ILessonDataDB = {
   orderInTopic: 1,
   duration: {
     unit: 'minutes',
-    value: 10
+    value: 5
   },
   isFree: true,
   content: [
@@ -64,11 +64,11 @@ const lessonData11: ILessonDataDB = {
             ],
           },
           {
-            showThisBlockButtonContent: 'Супер) Расскажи, что меня ждем в бесплатном блоке.',
+            showThisBlockButtonContent: 'Супер) Расскажи, что меня ждет в бесплатном блоке.',
             messages: [
               {
                 sender: { isSelf: true },
-                content: 'Супер) Расскажи, что меня ждем в бесплатном блоке.'
+                content: 'Супер) Расскажи, что меня ждет в бесплатном блоке.'
               }
             ],
           },
@@ -278,7 +278,7 @@ const lessonData12: ILessonDataDB = {
   orderInTopic: 2,
   duration: {
     unit: 'minutes',
-    value: 10
+    value: 5
   },
   isFree: true,
   content: [
@@ -298,6 +298,22 @@ const lessonData12: ILessonDataDB = {
         'выполнять мини-проекты и сдавать финальные задания на проверку;',
         'получать персональную и бережную обратную связь от ревьюера и вносить правки.'
       ]
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Чтобы было понятнее, чем большие платные программы отличаются от вводного курса, мы нарисовали эту схему:'
+        }
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'Comparison.png',
+        alt: 'Comparison',
+      }
     },
     {
       type: 'chat',
@@ -598,7 +614,7 @@ const lessonData14: ILessonDataDB = {
   orderInTopic: 4,
   duration: {
     unit: 'minutes',
-    value: 15
+    value: 5
   },
   isFree: true,
   content: [
@@ -837,14 +853,14 @@ const lessonData14: ILessonDataDB = {
 const lessonData15: ILessonDataDB = {
   id: 'FAQ_Xs0Qb5',
   courseId: 'how-to-draw',
-  title: 'Часто задаваемые вопросы (и ответы на них)',
+  title: 'Частые вопросы (и ответы на них)',
   type: 'Theory',
   topic: 'Как устроено обучение',
   topicOrder: 1,
   orderInTopic: 5,
   duration: {
     unit: 'minutes',
-    value: 15
+    value: 5
   },
   isFree: true,
   content: [
@@ -858,7 +874,7 @@ const lessonData15: ILessonDataDB = {
     },
     {
       type: 'title',
-      title: 'Что если я недостаточно творческий и креативный человек?'
+      title: 'Что если я недостаточно творческий и креативный?'
     },
     {
       type: 'text',
@@ -890,15 +906,57 @@ const lessonData15: ILessonDataDB = {
       text: [
         {
           tag: 'p',
-          content: 'В курс входят уроки и практические задания — всё, что поможет усвоить знания на практике. За каждым курсом стоит большая команда, которая следит за качеством материалов и постоянно их дополняет.'
+          content: [
+            {
+              tag: 'span',
+              content: 'В курс входят'
+            },
+            {
+              tag: 'span',
+              content: ' уроки и практические задания ',
+              props: {className: ' bold'}
+            },
+            {
+              tag: 'span',
+              content: '— всё, что поможет усвоить знания на практике. За каждым курсом стоит большая команда, которая следит за качеством материалов и постоянно их дополняет.'
+            }
+          ]
         },
         {
           tag: 'p',
-          content: 'Но пройти этот путь до конца будет сложно без поддержки, поэтому в стоимость курса входит работа команды сопровождения. Это куратор, который в процессе обучения готов ответить на любые вопросы и ревьюеры, которые дают обратную связь по проектам и помогают довести их до уровня портфолио.'
+          content: [
+            {
+              tag: 'span',
+              content: 'В стоимость курса входит'
+            },
+            {
+              tag: 'span',
+              content: ' работа команды сопровождения. ',
+              props: {className: ' bold'}
+            },
+            {
+              tag: 'span',
+              content: 'Это куратор, который в процессе обучения готов ответить на любые вопросы и ревьюеры, которые дают обратную связь по проектам и помогают довести их до уровня портфолио.'
+            }
+          ]
         },
         {
           tag: 'p',
-          content: 'Кроме того, в стоимость курса входит бессрочное использование интерактивного учебника. Мы следим за трендами в индустрии и постоянно его обновляем.'
+          content: [
+            {
+              tag: 'span',
+              content: 'Кроме того, в стоимость курса входит'
+            },
+            {
+              tag: 'span',
+              content: ' бессрочное использование интерактивного учебника. ',
+              props: {className:' bold'}
+            },
+            {
+              tag: 'span',
+              content: 'Мы следим за трендами в индустрии и постоянно его обновляем.'
+            }
+          ],
         }
       ]
     },
@@ -928,22 +986,22 @@ const lessonData15: ILessonDataDB = {
 }
 
 const lessonData21: ILessonDataDB = {
-  id: 'CommercialIllustratorTasks_2Q1wTR',
+  id: 'CommercialIllustrator_2Q1wTR',
   courseId: 'how-to-draw',
-  title: 'Какие задачи решает иллюстратор',
+  title: 'Кто такой иллюстратор и чем он занимается',
   type: 'Theory',
-  topic: 'Как это — быть иллюстратором',
+  topic: 'Про профессию иллюстратора',
   topicOrder: 2,
   orderInTopic: 1,
   duration: {
-    unit: 'hours',
-    value: 1
+    unit: 'minutes',
+    value: 5
   },
   isFree: true,
   content: [
     {
       type: 'textImportant',
-      text: 'В конце бесплатного модуля вы сможете сдать на проверку свой самостоятельный проект. Воспользуйтесь этой возможностью, чтобы получить обратную связь от ревьюера и увидеть, как работает команда сопровождения в flearn.',
+      text: 'В конце бесплатного модуля вы сможете сдать на проверку свой самостоятельный проект. Не упустите возможность получить обратную связь от ревьюера и узнать, как работает команда сопровождения в flearn.',
     },
     {
       type: 'text',
@@ -962,17 +1020,9 @@ const lessonData21: ILessonDataDB = {
             },
             {
               tag: 'span',
-              content: 'Совсем скоро вы сделаете свою первую иллюстрацию для рекламного баннера.',
+              content: 'Совсем скоро вы сделаете свою первую иллюстрацию для рекламного баннера. Но для начала давайте узнаем, кто такой иллюстратор и чем он занимается.',
             }
           ],
-        },
-        {
-          tag: 'p',
-          content: 'Баннер — отличная проверка того, умеет ли иллюстратор управлять вниманием пользователя. Ведь люди редко специально изучают баннеры, чаще всего они просто случайно на них натыкаются. Для взаимодействия с ним достаточно нескольких секунд. Баннер либо зацепит, либо нет.',
-        },
-        {
-          tag: 'p',
-          content: 'Как привлечь внимание и слёту передать суть? С этим иллюстратору помогают правила композиции, о которых мы поговорим на вводной части курса. Но для начала давайте узнаем, кто такой иллюстратор и чем он занимается.',
         },
         {
           tag: 'p',
@@ -984,10 +1034,14 @@ const lessonData21: ILessonDataDB = {
             },
             {
               tag: 'span',
-              content: 'помогает компаниям и людям выделиться среди конкурентов, привлечь новую аудиторию, сделать текст нагляднее и проще. Его работы используются в бизнесе, маркетинге, рекламе, издательстве и других сферах, где важна визуальная коммуникация.',
+              content: 'помогает компаниям и людям выделиться среди конкурентов, привлечь новую аудиторию, сделать текст нагляднее и проще.',
             },
           ]
         },
+        {
+          tag: 'p',
+          content: 'Работы иллюстраторов можно увидеть в книгах, журналах, на обложках альбомов, в рекламе, а также в цифровых продуктах, таких как веб-сайты и приложения. Главная задача иллюстратора — передать идеи, эмоции и информацию через изображения.'
+        }
       ]
     },
     {
@@ -1007,63 +1061,98 @@ const lessonData21: ILessonDataDB = {
               },
               {
                 sender: { name: 'Соня Ульянова', isSelf: false },
-                content: 'Конечно! Давайте начнем с того, как иллюстрации используются  в IT и цифровых продуктах.'
+                content: 'Конечно!'
               },
             ],
           },
-          // {
-          //   showThisBlockButtonContent: '',
-          //   messages: [
-          //     {
-          //       sender: { name: 'Saul Goodman', isSelf: false },
-          //       content: 'Вы хотите участвовать в розыгрыше?'
-          //     },
-          //   ],
-          // },
-          // {
-          //   showThisBlockButtonContent: 'Да, конечно!',
-          //   messages: [
-          //     {
-          //       sender: { isSelf: true },
-          //       content: 'Да, конечно!'
-          //     },
-          //     {
-          //       sender: { isSelf: true },
-          //       content: 'Что мне надо для этого сделать?'
-          //     },
-          //     {
-          //       sender: { name: 'Saul Goodman', isSelf: false },
-          //       content: 'Купите текилу Сафиро Аньэхо'
-          //     },
-          //   ],
-          // },
-          // {
-          //   showThisBlockButtonContent: 'А какой приз?',
-          //   messages: [
-          //     {
-          //       sender: { isSelf: true },
-          //       content: 'А какой приз?'
-          //     },
-          //     {
-          //       sender: { name: 'Saul Goodman', isSelf: false },
-          //       content: 'Пробка от Сафиро Аньэхо'
-          //     },
-          //   ],
-          // },
         ],
       },
     },
     {
       type: 'title',
-      title: 'Иллюстрации в IT и цифровых продуктах',
+      title: 'Пример из упаковки продуктов'
     },
     {
       type: 'text',
-      text: 'Иллюстрации в IT могут значительно улучшить пользовательский опыт, помочь визуализировать данные и сделать сложные идеи понятными и доступными. Вот несколько примеров их использования.',
+      text: 'Malika Favr известна своими минималистичными и яркими работами. Её иллюстрации часто используются в рекламных плакатах и упаковке продуктов, чтобы привлечь внимание своей уникальной стилистикой.'
     },
+    {
+      type: 'image',
+      imageData: {
+        id: 'sephora1.webp',
+        alt: 'sephora1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Malika Favr для Sephora',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.malikafavre.com/' },
+          }
+        ]
+      },
+    },
+    {
+      type: 'title',
+      title: 'Пример из книжкой иллюстрации'
+    },
+    {
+      type: 'text',
+      text: 'Возьмём, например, книгу от издательства Поляндрия «Моё босоногое племя. Прощай, бетон!» Иллюстратор, Стефан Николе, придумал иллюстрации, которые помогают детям и взрослым лучше понять и почувствовать сюжет книги. Его рисунки не только дополняют текст, но и создают особую атмосферу, увлекая читателя.'
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'polyandria1.webp',
+        alt: 'polyandria1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Поляндрия',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://polyandria.ru/catalog/novinki/moye-bosonogoe-plemya-proshchay-beton/' },
+          }
+        ]
+      },
+    },
+    {
+      type: 'text',
+      text: 'Дальше мы подробнее посмотрим, как иллюстрации используются в'
+    },
+    {
+      type: 'list',
+      items: [
+        'IT и цифровых продуктах;',
+        'рекламе;',
+        'продуктах;',
+        'айдентике;',
+        'упаковке;',
+        'оформлении пространств;',
+        'обложках альбомов или подкастов;',
+        'книгах и журналах.'
+      ]
+    }
+  ]
+}
+
+const lessonData22: ILessonDataDB = {
+  id: 'IT_fed4TU',
+  courseId: 'how-to-draw',
+  title: 'Цифровые продукты',
+  type: 'Theory',
+  topic: 'Про профессию иллюстратора',
+  topicOrder: 2,
+  orderInTopic: 2,
+  duration: {
+    unit: 'minutes',
+    value: 10
+  },
+  isFree: true,
+  content: [
     {
       type: 'text',
       text: [
+        {
+          tag: 'p',
+          content: 'Иллюстрации в IT могут значительно улучшить пользовательский опыт, помочь визуализировать данные и сделать сложные идеи понятными и доступными. Вот несколько примеров их использования.'
+        },
         {
           tag: 'p',
           content: [
@@ -1075,7 +1164,7 @@ const lessonData21: ILessonDataDB = {
             {
               tag: 'span',
               content: 'Представьте, что вы пользуетесь мобильным приложением для доставки еды. На главном экране вы видите иконки разных категорий: пицца, суши, бургеры и т.д. Эти иконки помогают пользователю быстро найти нужный раздел, делая взаимодействие с приложением интуитивно понятным и приятным.',
-            }
+            },
           ]
         },
       ]
@@ -1324,10 +1413,23 @@ const lessonData21: ILessonDataDB = {
         ]
       }
     },
-    {
-      type: 'title',
-      title: 'Иллюстрации в рекламе',
-    },
+  ]
+}
+
+const lessonData23: ILessonDataDB = {
+  id: 'Marketing_28EO3M',
+  courseId: 'how-to-draw',
+  title: 'Реклама',
+  type: 'Theory',
+  topic: 'Про профессию иллюстратора',
+  topicOrder: 2,
+  orderInTopic: 3,
+  duration: {
+    unit: 'minutes',
+    value: 10
+  },
+  isFree: true,
+  content: [
     {
       type: 'text',
       text: 'Иллюстрации помогают привлечь внимание, быстро донести сообщение и создать эмоциональную связь с потенциальными клиентами. Давайте посмотрим на несколько примеров.',
@@ -1426,7 +1528,7 @@ const lessonData21: ILessonDataDB = {
           {
             tag: 'a',
             content: 'Amanda Lobos',
-            props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
           }
         ]
       },
@@ -1587,11 +1689,11 @@ const lessonData21: ILessonDataDB = {
             ],
           },
           {
-            showThisBlockButtonContent: 'Да, я как раз хотел(а) спросить, где можно посмотреть еще примеры!',
+            showThisBlockButtonContent: 'Да, конечно!',
             messages: [
               {
                 sender: { isSelf: true },
-                content: 'Да, я как раз хотел(а) спросить, где можно посмотреть еще примеры!'
+                content: 'Да, конечно!'
               }
             ],
           },
@@ -1824,64 +1926,208 @@ const lessonData21: ILessonDataDB = {
         },
       ]
     },
-    // {
-    //   type: 'chat',
-    //   chat: {
-    //     blocks: [
-    //       {
-    //         showThisBlockButtonContent: '',
-    //         messages: [
-    //           {
-    //             sender: { name: 'Соня Ульянова', isSelf: false },
-    //             content: 'Отлично! Я подобрала еще несколько примеров того, как иллюстрации используются в рекламе. Смотрим?'
-    //           },
-    //         ],
-    //       },
-    //       {
-    //         showThisBlockButtonContent: 'Да, я как раз хотел(а) спросить, где можно посмотреть еще примеры!',
-    //         messages: [
-    //           {
-    //             sender: { isSelf: true },
-    //             content: 'Да, я как раз хотел(а) спросить, где можно посмотреть еще примеры!'
-    //           }
-    //         ],
-    //       },
-    //     ]
-    //   }
-    // },
+  ]
+}
+
+const lessonData24: ILessonDataDB = {
+  id: 'Products_303ES4',
+  courseId: 'how-to-draw',
+  title: 'Коллаборации',
+  type: 'Theory',
+  topic: 'Про профессию иллюстратора',
+  topicOrder: 2,
+  orderInTopic: 4,
+  duration: {
+    unit: 'minutes',
+    value: 10
+  },
+  isFree: true,
+  content: [
+    {
+      type: 'chat',
+      chat: {
+        blocks: [
+          {
+            showThisBlockButtonContent: '',
+            messages: [
+              {
+                sender: { name: 'Соня Ульянова', isSelf: false },
+                content: 'Иллюстраторы рисуют не только для рекламных компаний. Бывает так, что совместная работа иллюстратора и компании переходит в нечто большее.'
+              },
+              {
+                sender: { name: 'Соня Ульянова', isSelf: false },
+                content: 'Так появляются лимитированные линейки.'
+              },
+            ],
+          },
+          {
+            showThisBlockButtonContent: 'Звучит интересно. Покажешь примеры?',
+            messages: [
+              {
+                sender: { isSelf: true },
+                content: 'Звучит интересно. Покажешь примеры?'
+              },
+              {
+                sender: { name: 'Соня Ульянова', isSelf: false },
+                content: 'Конечно)'
+              },
+            ],
+          },
+        ]
+      }
+    },
     {
       type: 'title',
       title: 'Иллюстрации для продуктов',
     },
     {
-      type: 'gallery',
-      maxHeightPx: 3_500,
-      images: [
+      type: 'text',
+      text: 'Когда бренды и иллюстраторы работают вместе, они могут создавать уникальные и запоминающиеся продукты. Эти совместные проекты дают иллюстраторам новые возможности для творчества и развития. Давайте посмотрим несколько примеров таких коллабораций.'
+    },
+    {
+      type: 'text',
+      text: [
         {
-          id: 'BeyaRebai1.webp',
-          alt: 'BeyaRebai1',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Beya Rebai',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://www.beyarebai.com/' },
-            }
-          ]
+          tag: 'span',
+          content: 'Привлекают новую аудиторию. ',
+          props: {className: 'bold'}
         },
+        {
+          tag: 'span',
+          content: 'Gucci часто работает с иллюстраторами, чтобы создавать уникальные коллекции. Один из самых запоминающихся проектов был с британской художницей Unskilled Worker. Она стала известна благодаря своим необычным и ярким портретам. В результате их сотрудничества появилась линия одежды и аксессуаров с красочными иллюстрациями, которые помогли привлечь новую аудиторию.'
+        }
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'unskilledworker3.webp',
+        alt: 'unskilledworker3',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Unskilled Worker',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://unskilledworker.co.uk/work/' },
+          }
+        ]
+      }
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Повышают популярность в соц.сетях. ',
+          props: {className: 'bold'}
+        },
+        {
+          tag: 'span',
+          content: 'Известные бренды, как Coca-Cola, работают с художниками, чтобы создать брендированные стикеры для соц. сетей. Эти стикеры могут быть на тему праздников, новых продуктов или акций компании. Они не только привлекают внимание к бренду, но и побуждают людей делиться ими с друзьями, что повышает популярность бренда.'
+        }
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'okchizh7.webp',
+        alt: 'okchizh7',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Юля Чиж',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://okchizh.art/' },
+          }
+        ]
+      }
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Стимулируют людей чаще покупать продукты. ',
+          props: {className: 'bold'}
+        },
+        {
+          tag: 'span',
+          content: 'Starbucks часто работает с иллюстраторами, чтобы создавать уникальные дизайны для своих подарочных карт. Каждый сезон или праздник может быть представлен новой серией карт с оригинальными рисунками. Эти карты становятся не только практичным подарком, но и предметом коллекционирования, что побуждает людей покупать их снова и снова.'
+        }
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'BeyaRebai1.webp',
+        alt: 'BeyaRebai1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Beya Rebai',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.beyarebai.com/' },
+          }
+        ]
+      }
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Создают эмоциональную связь. ',
+          props: {className: 'bold'}
+        },
+        {
+          tag: 'span',
+          content: 'Disney часто работает с дизайнерами и иллюстраторами, чтобы вместе создавать уникальные украшения. Например, вместе с Pandora они сделали коллекцию бижутерии с персонажами из известных мультфильмов Disney. Рисунки и иллюстрации любимых персонажей создают настроение, которые особенно радует фанатов.'
+        }
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'pandora.jpg',
+        alt: 'pandora',
+        caption: [
+          {
+            tag: 'a',
+            content: 'DISNEY X PANDORA',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.pandorashop.rs/rs/proizvodi/disney-collection' },
+          }
+        ]
+      }
+    },
+    {
+      type: 'chat',
+      chat: {
+        blocks: [
+          {
+            showThisBlockButtonContent: '',
+            messages: [
+              {
+                sender: { name: 'Соня Ульянова', isSelf: false },
+                content: 'Про продукты все) Я подобрала еще несколько примеров для вдохновения. Смотрим?'
+              },
+            ],
+          },
+          {
+            showThisBlockButtonContent: 'Конечно!',
+            messages: [
+              {
+                sender: { isSelf: true },
+                content: 'Конечно!'
+              }
+            ],
+          },
+        ]
+      }
+    },
+    {
+      type: 'gallery',
+      maxHeightPx: 2_900,
+      images: [
         {
           id: 'okchizh3.webp',
           alt: 'okchizh3',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Юля Чиж',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://okchizh.art/' },
-            }
-          ]
-        },
-        {
-          id: 'okchizh7.webp',
-          alt: 'okchizh7',
           caption: [
             {
               tag: 'a',
@@ -1915,17 +2161,6 @@ const lessonData21: ILessonDataDB = {
         {
           id: 'unskilledworker2.webp',
           alt: 'unskilledworker2',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Unskilled Worker',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://unskilledworker.co.uk/work/' },
-            }
-          ]
-        },
-        {
-          id: 'unskilledworker3.webp',
-          alt: 'unskilledworker3',
           caption: [
             {
               tag: 'a',
@@ -2057,14 +2292,164 @@ const lessonData21: ILessonDataDB = {
         },
       ]
     },
+  ]
+}
+
+const lessonData25: ILessonDataDB = {
+  id: 'Branding_kyid68',
+  courseId: 'how-to-draw',
+  title: 'Брендинг',
+  type: 'Theory',
+  topic: 'Про профессию иллюстратора',
+  topicOrder: 2,
+  orderInTopic: 5,
+  duration: {
+    unit: 'minutes',
+    value: 10
+  },
+  isFree: true,
+  content: [
     {
-      type: 'title',
-      title: 'Иллюстрации для айдентики',
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Айдентика ',
+          props: {className: ' bold'}
+        },
+        {
+          tag: 'span',
+          content: '— это совокупность визуальных элементов, которые формируют облик компании. В неё входят логотипы, цвета, шрифты и изображения, которые помогают создать уникальный и узнаваемый стиль. Иллюстрации занимают особое место в этом наборе, и вот почему.'
+        }
+      ]
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Делают бренд узнаваемым. ',
+          props: {className: ' bold'}
+        },
+        {
+          tag: 'span',
+          content: 'Например, у Duolingo, платформы для изучения английского, есть главный персонаж — зеленый совенок. Этот совенок делает бренд легко узнаваемым и запоминающимся, а также придает компании дружелюбный и доступный вид.'
+        }
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'duolingo.webp',
+        alt: 'duolingo',
+        caption: [
+          {
+            tag: 'a',
+            content: 'duolingo',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://ru.duolingo.com' },
+          }
+        ]
+      }
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Создают эмоциональную связь с аудиторией. ',
+          props: {className: ' bold'}
+        },
+        {
+          tag: 'span',
+          content: 'Headspace использует яркие и простые иллюстрации, чтобы сделать медитацию доступной и приятной. Картинки помогают создать расслабляющую атмосферу и настроить пользователя на позитивный лад. Дизайнеры выбрали минималистичный стиль, чтобы медитация казалась интересной и привлекательной для широкой аудитории.'
+        }
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'headspace2.webp',
+        alt: 'headspace2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Headspace',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://organizations.headspace.com/employers?origin=nav&_gl=1*9e6e41*_gcl_au*NDUyNTQ1MTU3LjE3MjE3NDU2MjY.*FPAU*NDUyNTQ1MTU3LjE3MjE3NDU2MjY.' },
+          }
+        ]
+      }
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Транслируют эмоции и настроение. ',
+          props: {className: ' bold'}
+        },
+        {
+          tag: 'span',
+          content: 'Например, компания Airbnb использует иллюстрации, чтобы создать дух путешествий и открытий. Иллюстраторы выбирают яркие, насыщенные цвета, чтобы вызвать у пользователей чувство приключения и исследовательского духа.'
+        }
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'airbnb.webp',
+        alt: 'airbnb',
+        caption: [
+          {
+            tag: 'a',
+            content: 'airbnb',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://ru.airbnb.com/giftcards' },
+          }
+        ]
+      }
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Усиливают коммуникацию с брендом. ',
+          props: {className: ' bold'}
+        },
+        {
+          tag: 'span',
+          content: 'Google Doodles – это временные изменения логотипа Google, которые отражают важные события, праздники и юбилеи. Художники вдохновляются культурными событиями и историческими личностями, создавая уникальные и узнаваемые образы.'
+        }
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'GoogleDoodle2.webp',
+        alt: 'GoogleDoodle2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Google Doodles',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://doodles.google/' },
+          }
+        ]
+      }
     },
     {
       type: 'gallery',
-      maxHeightPx: 1_400,
+      maxHeightPx: 900,
       images: [
+        {
+          id: 'headspace1.webp',
+          alt: 'headspace1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Headspace',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://organizations.headspace.com/employers?origin=nav&_gl=1*9e6e41*_gcl_au*NDUyNTQ1MTU3LjE3MjE3NDU2MjY.*FPAU*NDUyNTQ1MTU3LjE3MjE3NDU2MjY.' },
+            }
+          ]
+        },
         {
           id: 'GoogleDoodle1.webp',
           alt: 'GoogleDoodle1',
@@ -2073,17 +2458,6 @@ const lessonData21: ILessonDataDB = {
               tag: 'a',
               content: 'Google Doodles',
               props: { className: 'key-link', target: "_blank", to: 'https://doodles.google/' },
-            }
-          ]
-        },
-        {
-          id: 'airbnb.webp',
-          alt: 'airbnb',
-          caption: [
-            {
-              tag: 'a',
-              content: 'airbnb',
-              props: { className: 'key-link', target: "_blank", to: 'https://ru.airbnb.com/giftcards' },
             }
           ]
         },
@@ -2165,17 +2539,6 @@ const lessonData21: ILessonDataDB = {
           ]
         },
         {
-          id: 'headspace1.webp',
-          alt: 'headspace1',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Headspace',
-              props: { className: 'key-link', target: "_blank", to: 'https://organizations.headspace.com/employers?origin=nav&_gl=1*9e6e41*_gcl_au*NDUyNTQ1MTU3LjE3MjE3NDU2MjY.*FPAU*NDUyNTQ1MTU3LjE3MjE3NDU2MjY.' },
-            }
-          ]
-        },
-        {
           id: 'headspace2.webp',
           alt: 'headspace2',
           caption: [
@@ -2186,60 +2549,117 @@ const lessonData21: ILessonDataDB = {
             }
           ]
         },
+      ]
+    },
+  ]
+}
+
+const lessonData26: ILessonDataDB = {
+  id: 'Packaging_80wfHs',
+  courseId: 'how-to-draw',
+  title: 'Упаковка',
+  type: 'Theory',
+  topic: 'Про профессию иллюстратора',
+  topicOrder: 2,
+  orderInTopic: 6,
+  duration: {
+    unit: 'minutes',
+    value: 10
+  },
+  isFree: true,
+  content: [
+    {
+      type: 'text',
+      text: 'Упаковка — первое, что видит клиент, и от того, насколько она привлекательна и понятна, зависит решение о покупке. Давайте посмотрим, как это работает.'
+    },
+    {
+      type: 'text',
+      text: [
         {
-          id: 'duolingo.webp',
-          alt: 'duolingo',
-          caption: [
-            {
-              tag: 'a',
-              content: 'duolingo',
-              props: { className: 'key-link', target: "_blank", to: 'https://ru.duolingo.com' },
-            }
-          ]
+          tag: 'span',
+          content: 'Привлекают внимание. ',
+          props: {className: ' bold'}
         },
+        {
+          tag: 'span',
+          content: 'Представьте себе полки в магазине, полные товаров. Задача иллюстратора – сделать так, чтобы покупатель обратил внимание именно на ваш продукт. Например, летом 2024 сеть магазинов "Вкусвилл" вместе с фестивалем для иллюстраторов "Морс" провели конкурс для художников. Им нужно было придумать иллюстрации для упаковок напитка "Морс". В результате в магазинах появились яркие и запоминающиеся баночки, которые сразу бросались в глаза покупателям.'
+        }
       ]
     },
     {
-      type: 'title',
-      title: 'Иллюстрации для упаковки',
+      type: 'image',
+      imageData: {
+        id: 'mors.webp',
+        alt: 'mors',
+        caption: [
+          {
+            tag: 'a',
+            content: 'МОРС',
+            props: { className: 's-hoverable'},
+          }
+        ]
+      }
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Объясняют особенности продукта. ',
+          props: {className: ' bold'}
+        },
+        {
+          tag: 'span',
+          content: 'Компания "Moo Free" делает вкусный веганский шоколад и хочет, чтобы их упаковка понравилась и детям, и взрослым. Поэтому они пригласили иллюстратора Сандру Дикманн, которая нарисовала яркие и забавные картинки с животными. Эти иллюстрации не только привлекают внимание детей, но и ясно показывают, что шоколад не содержит молока и подходит для людей с аллергией. Благодаря таким картинкам, покупатели сразу понимают, что это веселый и безопасный продукт для всей семьи.'
+        }
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'MooFree.webp',
+        alt: 'MooFree',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Moo Free',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.moofreechocolates.com/' },
+          }
+        ]
+      }
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Усиливают связь с брендом. ',
+          props: {className: ' bold'}
+        },
+        {
+          tag: 'span',
+          content: 'Компания "Ben & Jerry\'s" известна своим креативным подходом к упаковке мороженого. Художник Вуди Джексон создал узнаваемые иллюстрации коров и сельской местности для их упаковок. Эти изображения не только создают ощущение деревенской простоты и натуральности, но и подчёркивают философию компании — использовать качественные и экологически чистые ингредиенты. Когда покупатель видит упаковку "Ben & Jerry\'s", он сразу понимает, что этот продукт произведён с заботой о природе.'
+        }
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'benjerry.webp',
+        alt: 'benjerry',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Ben & Jerry',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.benjerry.com/' },
+          }
+        ]
+      }
     },
     {
       type: 'gallery',
-      maxHeightPx: 2_800,
+      maxHeightPx: 2_400,
       images: [
-        {
-          id: 'benjerry.webp',
-          alt: 'benjerry',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Ben & Jerry',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://www.benjerry.com/' },
-            }
-          ]
-        },
-        {
-          id: 'MooFree.webp',
-          alt: 'MooFree',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Moo Free',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://www.moofreechocolates.com/' },
-            }
-          ]
-        },
-        {
-          id: 'mors.webp',
-          alt: 'mors',
-          caption: [
-            {
-              tag: 'a',
-              content: 'МОРС',
-              props: { className: 's-hoverable'},
-            }
-          ]
-        },
         {
           id: 'NastyaChernish.webp',
           alt: 'NastyaChernish',
@@ -2396,25 +2816,87 @@ const lessonData21: ILessonDataDB = {
         },
       ]
     },
+  ]
+}
+
+const lessonData27: ILessonDataDB = {
+  id: 'Murals_V2hxRJ',
+  courseId: 'how-to-draw',
+  title: 'Оформление пространств',
+  type: 'Theory',
+  topic: 'Про профессию иллюстратора',
+  topicOrder: 2,
+  orderInTopic: 7,
+  duration: {
+    unit: 'minutes',
+    value: 10
+  },
+  isFree: true,
+  content: [
     {
-      type: 'title',
-      title: 'Иллюстрации для оформления пространств',
+      type: 'text',
+      text: 'Му́рал – это изображение, созданное прямо на поверхности стены или потолка. Му́ралы могут быть нарисованы внутри зданий, например, в офисах, школах или ресторанах, а могут украшать фасады домов, стены гаражей и другие наружные поверхности.'
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Создают атмосферу. ',
+          props: {className: ' bold'}
+        },
+        {
+          tag: 'span',
+          content: 'Starbucks любят украшать свои помещения яркими муралами. Один из известных художников, с которым они работали, — Rohan Dahotre. Его работы можно найти по всему миру, и каждая из них уникальна. Например, в Индии он создал огромный мурал с изображением местной флоры и фауны. Этот мурал не только привлекает внимание прохожих, но и создаёт неповторимую атмосферу для посетителей кафе.'
+        }
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'RohanDahotre1.webp',
+        alt: 'RohanDahotre1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Rohan Dahotre',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/RohanSharadDahotre' },
+          }
+        ]
+      }
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Привлекают внимание. ',
+          props: {className: ' bold'}
+        },
+        {
+          tag: 'span',
+          content: 'Летний фестиваль в Буэнос-Айресе под названием «Amor de Verano» каждый год устраивает выставки, концерты и мастер-классы. В 2018 году они пригласили художника Себастьяна Кури, чтобы он создал для них особый образ. Вместе со своей командой Себастьян нарисовал огромную фреску, которая покрыла весь фасад здания. Эти иллюстрации должны были привлечь внимание к фестивалю и создать атмосферу юной, наивной влюбленности.'
+        }
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'SebastianCuri1.webp',
+        alt: 'SebastianCuri1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Sebastian Curi',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/sebastiancuri' },
+          }
+        ]
+      }
     },
     {
       type: 'gallery',
-      maxHeightPx: 1_750,
+      maxHeightPx: 1_550,
       images: [
-        {
-          id: 'SebastianCuri1.webp',
-          alt: 'SebastianCuri1',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Sebastian Curi',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/sebastiancuri' },
-            }
-          ]
-        },
         {
           id: 'ETolsma1.webp',
           alt: 'ETolsma1',
@@ -2451,17 +2933,6 @@ const lessonData21: ILessonDataDB = {
         {
           id: 'RohanDahotre2.webp',
           alt: 'RohanDahotre2',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Rohan Dahotre',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/RohanSharadDahotre' },
-            }
-          ]
-        },
-        {
-          id: 'RohanDahotre1.webp',
-          alt: 'RohanDahotre1',
           caption: [
             {
               tag: 'a',
@@ -2516,17 +2987,114 @@ const lessonData21: ILessonDataDB = {
         },
       ]
     },
+  ]
+}
+
+const lessonData28: ILessonDataDB = {
+  id: 'AlbomCovers_gBZthb',
+  courseId: 'how-to-draw',
+  title: 'Облажки альбомов, подкастов',
+  type: 'Theory',
+  topic: 'Про профессию иллюстратора',
+  topicOrder: 2,
+  orderInTopic: 8,
+  duration: {
+    unit: 'minutes',
+    value: 10
+  },
+  isFree: true,
+  content: [
     {
-      type: 'title',
-      title: 'Иллюстрации для обложек альбомов или подкастов',
+      type: 'text',
+      text: 'Обложка альбома или подкаста — это первое, что видит слушатель. Это как витрина магазина: если она привлекательная, человек захочет зайти внутрь. Хорошая обложка может рассказать о настроении музыки или подкаста, привлечь внимание и выделить среди других. Давайте рассмотрим несколько примеров и разберемся, как это работает.'
     },
     {
       type: 'text',
-      text: 'Дизайн обложки — визуальный ключ к музыке. Это изображение создаёт первое впечатление об альбоме и сопровождает слушателей на каждом этапе пути. Обложка — это обещание эмоций, которые человек получит от музыки, и шанс мгновенно привлечь внимание.',
+      text: [
+        {
+          tag: 'span',
+          content: 'Усиливают эмоциональную связь со слушателями. ',
+          props: {className: ' bold'}
+        },
+        {
+          tag: 'span',
+          content: 'Простота и минимализм в иллюстрациях к альбомам подчеркивают искренность и душевность музыки Монеточки, что находит отклик у слушателей, ценящих простоту и глубину.'
+        }
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'Monetochka.webp',
+        alt: 'Monetochka',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Монеточка, Раскраски для взрослых',
+            props: { className: 's-hoverable' },
+          }
+        ]
+      }
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Задают настроение. ',
+          props: {className: ' bold'}
+        },
+        {
+          tag: 'span',
+          content: 'Billie Eilish - "When We All Fall Asleep, Where Do We Go?". Обложку разработал Кенни Бенжамин. Страшноватый и загадочный образ певицы на обложке сразу привлекает внимание и намекает на необычное содержание альбома.'
+        }
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'BillieEilish.webp',
+        alt: 'BillieEilish',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Billie Eilish',
+            props: { className: 's-hoverable' },
+          }
+        ]
+      }
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Создают бренд. ',
+          props: {className: ' bold'}
+        },
+        {
+          tag: 'span',
+          content: 'Обложка альбома "The Dark Side of the Moon" группы Pink Floyd, созданная иллюстратором Storm Thorgerson, — это один из самых известных примеров графического дизайна в музыке. Простой, но мощный образ призмы, преломляющей свет, сразу же запоминается и становится символом целого поколения. Эта иллюстрация демонстрирует, как минимализм может быть невероятно эффективным.'
+        }
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'stormstudiosdesign.webp',
+        alt: 'stormstudiosdesign',
+        caption: [
+          {
+            tag: 'a',
+            content: 'stormstudiosdesign',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.stormstudiosdesign.com/#/203933/' },
+          }
+        ]
+      }
     },
     {
       type: 'gallery',
-      maxHeightPx: 1_900,
+      maxHeightPx: 1_400,
       images: [
         {
           id: 'creamsoda1.webp',
@@ -2551,50 +3119,6 @@ const lessonData21: ILessonDataDB = {
           ]
         },
         {
-          id: 'BillieEilish.webp',
-          alt: 'BillieEilish',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Billie Eilish',
-              props: { className: 's-hoverable' },
-            }
-          ]
-        },
-        {
-          id: 'Monetochka.webp',
-          alt: 'Monetochka',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Монеточка, Раскраски для взрослых',
-              props: { className: 's-hoverable' },
-            }
-          ]
-        },
-        {
-          id: 'RobertFisher.webp',
-          alt: 'RobertFisher',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Nirvana - "Nevermind"',
-              props: { className: 's-hoverable' },
-            }
-          ]
-        },
-        {
-          id: 'stormstudiosdesign.webp',
-          alt: 'stormstudiosdesign',
-          caption: [
-            {
-              tag: 'a',
-              content: 'stormstudiosdesign',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://www.stormstudiosdesign.com/#/203933/' },
-            }
-          ]
-        },
-        {
           id: 'PaoloTorres.webp',
           alt: 'PaoloTorres',
           caption: [
@@ -2607,7 +3131,7 @@ const lessonData21: ILessonDataDB = {
         },
         {
           id: ' EllaMezule1.webp',
-          alt: ' EllaMezule1',
+          alt: 'EllaMezule1',
           caption: [
             {
               tag: 'a',
@@ -2638,26 +3162,84 @@ const lessonData21: ILessonDataDB = {
             }
           ]
         },
+      ]
+    },
+  ]
+}
+
+const lessonData29: ILessonDataDB = {
+  id: 'Editorial_K8Bu8i',
+  courseId: 'how-to-draw',
+  title: 'Книги и журналы',
+  type: 'Theory',
+  topic: 'Про профессию иллюстратора',
+  topicOrder: 2,
+  orderInTopic: 9,
+  duration: {
+    unit: 'minutes',
+    value: 10
+  },
+  isFree: true,
+  content: [
+    {
+      type: 'text',
+      text: [
         {
-          id: 'AdaZielinska1.webp',
-          alt: 'AdaZielińska1',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Polish Jazz Bend Bled',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/gallery/136226431/BLED-Visual-Identity' },
-            }
-          ]
+          tag: 'span',
+          content: 'Привлекают внимание. ',
+          props: {className: ' bold'}
         },
+        {
+          tag: 'span',
+          content: 'Например, обложка книги «Там гораздо лучше», Виолен Беро — арт-объект, который сначала цепляет формой, а потом содержанием.'
+        }
       ]
     },
     {
-      type: 'title',
-      title: 'Иллюстрации для книг',
+      type: 'image',
+      imageData: {
+        id: 'polyandria4.webp',
+        alt: 'polyandria4',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Поляндрия',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://polyandria.ru/noage/' },
+          }
+        ]
+      }
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Помогают создать имидж книги и издательства. ',
+          props: {className: ' bold'}
+        },
+        {
+          tag: 'span',
+          content: 'Иллюстрации на обложках книг делают их особенными и легко узнаваемыми. Например, книги серии NoAge x Есть смысл, сделанные вместе с издательством «Есть смысл», объединены в концептуальную серию. Благодаря этому их сразу можно заметить на полке и отличить от других книг NoAge. У этих книг мягкая обложка с клапанами, которые закрывают лицевую сторону и название книги. Штрихкод растянут от лицевой сторонки до края задней, что нарушает ожидание читателя.'
+        }
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'polyandria3.webp',
+        alt: 'polyandria3',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Поляндрия',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://polyandria.ru/noage/' },
+          }
+        ]
+      }
     },
     {
       type: 'gallery',
-      maxHeightPx: 2_900,
+      maxHeightPx: 2_600,
       images: [
         {
           id: 'aplusabooks2.webp',
@@ -2711,17 +3293,6 @@ const lessonData21: ILessonDataDB = {
               tag: 'a',
               content: 'Самокат',
               props: { className: 's-hoverable', target: "_blank", to: 'https://samokatbook.ru/' },
-            }
-          ]
-        },
-        {
-          id: 'polyandria4.webp',
-          alt: 'polyandria4',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Поляндрия',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://polyandria.ru/noage/' },
             }
           ]
         },
@@ -2804,103 +3375,34 @@ const lessonData21: ILessonDataDB = {
         },
       ]
     },
-    {
-      type: 'title',
-      title: 'Иллюстрации для медиа',
-    },
-    {
-      type: 'gallery',
-      maxHeightPx: 1_600,
-      images: [
-        {
-          id: 'AsahiNagata8.webp',
-          alt: 'AsahiNagata8',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Asahi Nagata',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/nagataae6d8' },
-            }
-          ]
-        },
-        {
-          id: 'StudioZwupp5.webp',
-          alt: 'StudioZwupp5',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Studio Zwupp',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zwupp' },
-            }
-          ]
-        },
-        {
-          id: 'IlyaMilstein10.webp',
-          alt: 'IlyaMilstein10',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Ilya Milstein',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://www.ilyamilstein.com/' },
-            }
-          ]
-        },
-        {
-          id: 'IlyaMilstein8.webp',
-          alt: 'IlyaMilstein8',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Ilya Milstein',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://www.ilyamilstein.com/' },
-            }
-          ]
-        },
-        {
-          id: 'IlyaMilstein4.webp',
-          alt: 'IlyaMilstein4',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Ilya Milstein',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://www.ilyamilstein.com/' },
-            }
-          ]
-        },
-        {
-          id: 'IlyaMilstein3.webp',
-          alt: 'IlyaMilstein3',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Ilya Milstein',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://www.ilyamilstein.com/' },
-            }
-          ]
-        },
-        {
-          id: 'IlyaMilstein6.webp',
-          alt: 'IlyaMilstein6',
-          caption: [
-            {
-              tag: 'a',
-              content: 'Ilya Milstein',
-              props: { className: 's-hoverable', target: "_blank", to: 'https://www.ilyamilstein.com/' },
-            }
-          ]
-        },
-      ]
-    }
   ]
 }
 
-const lessonData22: ILessonDataDB = {
+const lessonData210: ILessonDataDB = {
+  id: 'CommercialIllustratorSummary_CV9ZUs',
+  courseId: 'how-to-draw',
+  title: 'Итоги модуля',
+  type: 'Theory',
+  topic: 'Про профессию иллюстратора',
+  topicOrder: 2,
+  orderInTopic: 10,
+  duration: {
+    unit: 'minutes',
+    value: 5
+  },
+  isFree: true,
+  content: [
+
+  ]
+}
+
+const lessonData32: ILessonDataDB = {
   id: 'WorkSteps_fawKxs',
   courseId: 'how-to-draw',
   title: 'Этапы работы над иллюстрацией',
   type: 'Theory',
-  topic: 'Как это — быть иллюстратором',
-  topicOrder: 2,
+  topic: 'Рисуем иллюстрацию для баннера',
+  topicOrder: 3,
   orderInTopic: 2,
   duration: {
     unit: 'hours',
@@ -2936,13 +3438,13 @@ const lessonData22: ILessonDataDB = {
   ]
 }
 
-const lessonData31: ILessonDataDB = {
+const lessonData41: ILessonDataDB = {
   id: 'DrawingExercises_h3dx7k',
   courseId: 'how-to-draw',
   title: 'Упражнения, чтобы разрисоваться',
   type: 'Theory',
   topic: 'Линия',
-  topicOrder: 3,
+  topicOrder: 4,
   orderInTopic: 1,
   duration: {
     unit: 'hours',
@@ -3339,13 +3841,13 @@ const lessonData31: ILessonDataDB = {
   ],
 };
 
-const lessonData32: ILessonDataDB = {
+const lessonData42: ILessonDataDB = {
   id: 'LineIntroduction_gBpaFa',
   courseId: 'how-to-draw',
   title: 'Линия: знакомство',
   type: 'Theory',
   topic: 'Линия',
-  topicOrder: 3,
+  topicOrder: 4,
   orderInTopic: 2,
   duration: {
     unit: 'hours',
@@ -3951,13 +4453,13 @@ const lessonData32: ILessonDataDB = {
   ]
 }
 
-const lessonData33: ILessonDataDB = {
+const lessonData43: ILessonDataDB = {
   id: 'LineShape_RY7PQ3',
   courseId: 'how-to-draw',
   title: 'Линия: как рисовать объемно',
   type: 'Theory',
   topic: 'Линия',
-  topicOrder: 3,
+  topicOrder: 4,
   orderInTopic: 3,
   duration: {
     unit: 'hours',
@@ -4168,13 +4670,13 @@ const lessonData33: ILessonDataDB = {
   ]
 }
 
-const lessonData34: ILessonDataDB = {
+const lessonData44: ILessonDataDB = {
   id: 'HowToDrawSimilarPicture_bah4tw',
   courseId: 'how-to-draw',
   title: 'Как рисовать похоже',
   type: 'Theory',
   topic: 'Линия',
-  topicOrder: 3,
+  topicOrder: 4,
   orderInTopic: 4,
   duration: {
     unit: 'hours',
@@ -4498,13 +5000,13 @@ const lessonData34: ILessonDataDB = {
   ],
 };
 
-const lessonData35: ILessonDataDB = {
+const lessonData45: ILessonDataDB = {
   id: 'HowToDrawSimilarPictureLine_t6qrnq',
   courseId: 'how-to-draw',
   title: 'Как рисовать похоже. Линия',
   type: 'Theory',
   topic: 'Линия',
-  topicOrder: 3,
+  topicOrder: 4,
   orderInTopic: 5,
   duration: {
     unit: 'hours',
@@ -4742,13 +5244,13 @@ const lessonData35: ILessonDataDB = {
   ],
 };
 
-const lessonData41: ILessonDataDB = {
+const lessonData51: ILessonDataDB = {
   id: 'HowToDrawSimilarPictureLine_t6qrnq_Practice_iqln35',
   courseId: 'how-to-draw',
   title: 'Практика первой недели',
   type: 'Practice',
   topic: 'Линия: Практика',
-  topicOrder: 4,
+  topicOrder: 5,
   orderInTopic: 1,
   duration: {
     unit: 'hours',
@@ -5115,13 +5617,13 @@ const lessonData41: ILessonDataDB = {
   ]
 }
 
-const lessonData51: ILessonDataDB = {
+const lessonData61: ILessonDataDB = {
   id: 'DifferencesLineSpot_W4baHU',
   courseId: 'how-to-draw',
   title: 'Про разницу между линией и пятном',
   type: 'Theory',
   topic: 'Пятно',
-  topicOrder: 5,
+  topicOrder: 6,
   orderInTopic: 1,
   duration: {
     unit: 'hours',
@@ -5251,13 +5753,13 @@ const lessonData51: ILessonDataDB = {
   ]
 }
 
-const lessonData52: ILessonDataDB = {
+const lessonData62: ILessonDataDB = {
   id: 'SpotIntroduction_R4vzDr',
   courseId: 'how-to-draw',
   title: 'Пятно: знакомство',
   type: 'Theory',
   topic: 'Пятно',
-  topicOrder: 5,
+  topicOrder: 6,
   orderInTopic: 2,
   duration: {
     unit: 'hours',
@@ -6022,13 +6524,13 @@ const lessonData52: ILessonDataDB = {
   ]
 }
 
-const lessonData53: ILessonDataDB = {
+const lessonData63: ILessonDataDB = {
   id: 'HowToDrawSimilarPictureSpot_p6hXtt',
   courseId: 'how-to-draw',
   title: 'Как рисовать похоже. Пятно',
   type: 'Theory',
   topic: 'Пятно',
-  topicOrder: 5,
+  topicOrder: 6,
   orderInTopic: 3,
   duration: {
     unit: 'hours',
@@ -6179,13 +6681,13 @@ const lessonData53: ILessonDataDB = {
   ]
 }
 
-const lessonData54: ILessonDataDB = {
+const lessonData64: ILessonDataDB = {
   id: 'SpotShape_dftUrH',
   courseId: 'how-to-draw',
   title: 'Как рисовать объемно. Пятно',
   type: 'Theory',
   topic: 'Пятно',
-  topicOrder: 5,
+  topicOrder: 6,
   orderInTopic: 4,
   duration: {
     unit: 'hours',
@@ -6279,13 +6781,13 @@ const lessonData54: ILessonDataDB = {
   ]
 }
 
-const lessonData61: ILessonDataDB = {
+const lessonData71: ILessonDataDB = {
   id: 'SpotPractice_kfKAEY',
   courseId: 'how-to-draw',
   title: 'Практика второй недели',
   type: 'Practice',
   topic: 'Пятно: Практика',
-  topicOrder: 6,
+  topicOrder: 7,
   orderInTopic: 1,
   duration: {
     unit: 'hours',
@@ -6656,13 +7158,13 @@ const lessonData61: ILessonDataDB = {
   ]
 }
 
-const lessonData71: ILessonDataDB = {
+const lessonData81: ILessonDataDB = {
   id: 'LineAndSpot_jr2WYu',
   courseId: 'how-to-draw',
   title: 'Линия и пятно: как совмещать',
   type: 'Theory',
   topic: 'Линия и пятно',
-  topicOrder: 7,
+  topicOrder: 8,
   orderInTopic: 1,
   duration: {
     unit: 'hours',
@@ -7261,13 +7763,13 @@ const lessonData71: ILessonDataDB = {
   ]
 }
 
-const lessonData72: ILessonDataDB = {
+const lessonData82: ILessonDataDB = {
   id: 'ContrastNuance_9rP6Yl',
   courseId: 'how-to-draw',
   title: 'Как выделить главное: контраст, нюанс',
   type: 'Theory',
   topic: 'Линия и пятно',
-  topicOrder: 7,
+  topicOrder: 8,
   orderInTopic: 2,
   duration: {
     unit: 'hours',
@@ -7450,13 +7952,13 @@ const lessonData72: ILessonDataDB = {
   ]
 }
 
-const lessonData81: ILessonDataDB = {
+const lessonData91: ILessonDataDB = {
   id: 'LineSpotPractice_L8A8Jk',
   courseId: 'how-to-draw',
   title: 'Практика третьей недели',
   type: 'Practice',
   topic: 'Линия и пятно: Практика',
-  topicOrder: 8,
+  topicOrder: 9,
   orderInTopic: 1,
   duration: {
     unit: 'hours',
@@ -12299,20 +12801,29 @@ export const allLessons = [
   lessonData15,
   lessonData21,
   lessonData22,
-  lessonData31,
+  lessonData23,
+  lessonData24,
+  lessonData25,
+  lessonData26,
+  lessonData27,
+  lessonData28,
+  lessonData29,
+  lessonData210,
   lessonData32,
-  lessonData33,
-  lessonData34,
-  lessonData35,
   lessonData41,
+  lessonData42,
+  lessonData43,
+  lessonData44,
+  lessonData45,
   lessonData51,
-  lessonData52,
-  lessonData53,
-  lessonData54,
   lessonData61,
+  lessonData62,
+  lessonData63,
+  lessonData64,
   lessonData71,
-  lessonData72,
   lessonData81,
+  lessonData82,
+  lessonData91,
   lessonDataFYS0,
   lessonDataFYS1,
   lessonDataFYS2,

@@ -100,6 +100,7 @@
     position: relative;
     max-width: set-calc(calc(-2 * var(--image-image-min-padding-scaled)), true, 100vw);
     max-height: set-calc(calc(-3 * var(--image-image-min-padding-scaled)), true, 100vh);
+    background: var(--color-card); 
 
     touch-action: none;
     pointer-events: none;

@@ -4,7 +4,7 @@
   position: relative;
 
   margin: set-calc(12) 0 set-calc(20);
-  margin-left: set-calc(32);
+  margin-left: set-calc(48);
   
   color: var(--color-content-paragraph-primary);
   @include  font-20-normal-article;
@@ -12,7 +12,7 @@
 
   @include set-media(md) {
     margin: set-calc(16) 0 set-calc(8);
-    margin-left: set-calc(24);
+    margin-left: set-calc(36);
   }
 }
 
@@ -36,15 +36,15 @@
 .__ .item::before {
   position: absolute;
   top: set-calc(-2);
-  left: set-calc(-20);
-  width: set-calc(20);
-  font-size: set-calc(32);
+  left: set-calc(-30);
+  width: set-calc(30);
+  font-size: set-calc(24);
   content: "•";
 
   @include set-media(md) {
     top: set-calc(-1);
-    left: set-calc(-16);
-    width: set-calc(16);
-    font-size: set-calc(24);
+    left: set-calc(-24);
+    width: set-calc(24);
+    font-size: set-calc(20);
   }
 }

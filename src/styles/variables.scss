@@ -134,7 +134,7 @@ $color-content-paragraph-primary-light: $color-palette-black-900-a;
 $color-content-paragraph-secondary-light: $color-palette-black-600-a;
 $color-background-btn-light: $color-palette-black-700;
 $color-background-btn-hover-light: $color-palette-black-900;
-$color-background-card-light: $color-content-background-primary-light;
+$color-background-card-light: $color-palette-black-700;
 
 $border-color-light: rgba(5, 6, 15, .1);
 
@@ -178,7 +178,7 @@ $color-content-paragraph-primary-dark: $color-palette-black-300;
 $color-content-paragraph-secondary-dark: $color-palette-black-400;
 $color-background-btn-dark: $primary-color-dark;
 $color-background-btn-hover-dark: $primary-color-hover-dark;
-$color-background-card-dark: $color-palette-indigo-350;
+$color-background-card-dark: $primary-color-dark;
 
 $border-color-dark: hsla(0, 0%, 100%, .1);
 
