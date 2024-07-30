@@ -27,11 +27,11 @@
 }
 
 .headerTitle {
-  grid-column: 4 / -4;
+  grid-column: 1 / 7;
 
   margin-bottom: set-calc(24);
   @include font-56-normal-header;
-  font-family: $font-family-medium;
+  font-family: $font-family-bold;
 
   @include set-media(md) {
     margin-bottom: set-calc(16);
@@ -39,7 +39,7 @@
 }
 
 .headerDesc {
-  grid-column: 4 / -4;
+  grid-column: 1 / 7;
   margin-right: set-calc(80);
 
   @include font-20-normal-paragraph;

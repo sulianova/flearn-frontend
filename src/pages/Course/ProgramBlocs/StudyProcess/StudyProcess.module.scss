@@ -23,7 +23,7 @@
 
 .headerTitle {
   @include font-56-normal-header;
-  font-family: $font-family-medium;
+  font-family: $font-family-bold;
 }
 
 .list {
@@ -68,7 +68,8 @@
 }
 
 .title {
-  @include font-32-normal-header;
+  @include font-24-normal-header;
+  font-family: $font-family-medium;
   color: var(--color-content-primary);
   margin-bottom: set-calc(20);
 
@@ -79,8 +80,8 @@
 
 .desc {
   padding-right: set-calc(32);
-  @include font-18-normal-paragraph;
-  color: var(--color-content-paragraph-secondary);
+  @include font-18-normal-ui;
+  color: var(--color-content-paragraph-primary);
 
   p {
     font-size: inherit;

@@ -49,7 +49,7 @@ export interface IArticleQuoteBlock extends IArticleBlock {
 
 export interface IArticleTextImportantBlock extends IArticleBlock {
   type: 'textImportant'
-  text: string
+  text: TText
 }
 
 export interface IArticleVideoBlock extends IArticleBlock {

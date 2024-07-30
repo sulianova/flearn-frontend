@@ -12,7 +12,7 @@
 }
 
 @mixin font-16-normal-ui {
-  @include set-typography(16, 16, 500);
+  @include set-typography(16, 18, 500);
 
   @include set-media(md) {
     @include set-typography(14, 16, 500)
@@ -28,7 +28,7 @@
 }
 
 @mixin font-18-normal-ui {
-  @include set-typography(18, 24, 500);
+  @include set-typography(18, 26, 500);
 
   @include set-media(md) {
     @include set-typography(16, 22, 500)

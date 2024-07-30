@@ -7,7 +7,6 @@
 
   @include set-media(md) {
     padding-bottom: set-calc(12);
-    // border-bottom: solid set-calc(1) var(--color-background-stroke);
   }
 }
 
@@ -31,16 +30,13 @@
   justify-content: space-between;
   align-items: center;
   
-  @include font-28-normal-header;
+  @include font-24-normal-header;
+  font-family: $font-family-medium;
 }
 
 .subsectionDescription {
-  @include font-18-normal-paragraph;
+  @include font-18-normal-ui;
   color: var(--color-content-paragraph-primary);
-
-  @include set-media(md) {
-    color: var(--color-content-paragraph-secondary);
-  }
 }
 
 .hiddenButton {

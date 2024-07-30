@@ -6,42 +6,122 @@
   position: relative;
   margin: set-calc(20) 0 set-calc(40);
 
-  width: set-calc(764);
-  left: set-calc(-32);
+  width: set-calc(824);
+  left: set-calc(-62);
 
   @include set-media(md) {
     margin: set-calc(30) 0 set-calc(30);
-    width: set-calc(390);
-    left: set-calc(-12);
+    width: set-calc(366);
+    left: 0;
   };
 }
 .textImportantWrapper {
-  display: flex;
-  flex-direction: column;
+  position: relative;
   
-  padding: set-calc(32);
-  background: var(--color-background-card);
-  border: set-calc(1) solid var(--color-border);
-  border-radius: set-calc($border-radius-medium);
-
-  @include font-20-normal-article;
-  font-family: $font-family-article;
-  color: $color-content-inverted-primary-light;
-
-  @include set-media(md) {
-    padding: set-calc(12);
-    border-radius: set-calc($border-radius-14);
-  }
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .textImportantWrapper > *:not(:last-child) {
-  margin: set-calc(20) 0 set-calc(16);
-
-  @include set-media(md) {
-    margin: set-calc(20) 0 set-calc(16);
-  }
+  margin-top: set-calc(20);
+  margin-bottom: set-calc(16);
 }
 
 .textImportantWrapper > *:first-child {
   margin-top: 0;
+}
+
+.quoteMark {
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  font-family: $font-family-bold;
+  @include set-typography(80, 80, 500);
+  color: $color-highlight-violet;
+
+  width: set-calc(46);
+
+  @include set-media(md) {
+    position: absolute;
+
+    top: 50%;
+    left: set-calc(-20);
+    width: unset;
+
+    -webkit-transform: translateY(-60%);
+    -ms-transform: translateY(-60%);
+    transform: translateY(-60%);
+
+    @include set-typography(60, 60, 500);
+    z-index: 10;
+  }
+}
+
+.quoteMark:last-of-type {
+
+  @include set-media(md) {
+    left: unset;
+    right: set-calc(-20);
+  }
+}
+
+.quoteText {
+  position: relative;
+
+  padding: set-calc(32) set-calc(40);
+  margin: 0 set-calc(16);
+
+  background: var(--color-background-highlighted);
+  border-radius: set-calc($border-radius-30);
+
+  @include set-typography(20, 30, 500);
+  font-family: $font-family-article;
+  color: var(--color-content-primary);
+
+  p,
+  span {
+    @include set-typography(20, 30, 500);
+    font-family: $font-family-article;
+    color: var(--color-content-primary);
+
+    @include set-media(md) {  
+      @include set-typography(16, 24, 500);
+    }
+  }
+
+  text-align: center;
+  overflow-wrap: break-word;
+
+  @include set-media(md) {
+    margin: 0 0;
+    padding: set-calc(20);
+    border-radius: set-calc($border-radius-20);
+
+    @include set-typography(16, 24, 500);
+  }
+}
+
+.quoteSub {
+  position: absolute;
+
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+
+  background-color:$color-highlight-violet;
+  border-radius: 50% set-calc($border-radius-30) 50% set-calc($border-radius-30);
+  z-index: -1;
+
+  translate: none;
+  rotate: none;
+  scale: none;
+  transform: rotate(-5deg);
+
+  @include set-media(md) {
+    border-radius: 50% set-calc($border-radius-20) 50% set-calc($border-radius-20);
+  }
 }

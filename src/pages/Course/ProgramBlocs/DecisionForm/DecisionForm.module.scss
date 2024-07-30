@@ -2,40 +2,59 @@
 
 .header {
   position: relative;
-  padding-bottom: set-calc(48);
+  display: flex;
+  justify-content: center;
+
+  margin-bottom: set-calc(32);
   padding-left: set-calc(16);
 
   @include set-media(md) {
-    position: relative;
-    padding-bottom: 0;
+    margin-bottom: 0;
     padding-left: set-calc(8);
   }
 }
 
 .headerTitle {
   @include font-56-normal-header;
-  font-family: $font-family-medium;
+  font-family: $font-family-bold;
+  text-align: center;
+
+  @include set-media(md) {
+    text-align: start;
+  }
 }
 
 .commonFlowRow {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: set-calc(40);
+
   @include set-media(md) {
-    position: relative;
+    gap: 0;
   }
 }
 
 .wrapper {
-  display: grid;
-  grid-gap: set-calc($s-gap);
-  grid-template-columns: repeat(12, minmax(0, 1fr));
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+
+  gap: set-calc(16);
 
   @include set-media(md) {
     position: relative;
     display: flex;
     flex-direction: column;
 
+    gap: set-calc(12);
+
     width: set-calc(16, true, 100%);
-    left: set-calc(-8);
-    padding: set-calc(48) set-calc(8) set-calc(16);
+    padding: set-calc(24) set-calc(16);
 
     scrollbar-width: none;
     overflow-y: hidden;
@@ -53,47 +72,71 @@
   flex-direction: column;
   justify-content: space-between;
 
-  grid-column: span 6;
-  width: 100%;
-  min-width: min(380px, 80vw);
+  width: min(380px, 80vw);
 
   padding: set-calc(24);
-  border-radius: set-calc($border-radius-large);
-  background: $color-card-light;
+  background-color: var(--color-card);
 
-  transition: width .3s, margin .3s, min-width .3s, background-color .3s, color .3s, border .3s, background-position 2s ease-out, padding-left .3s;
+  box-shadow: 0 0 0 2px $color-palette-black-200, 0 2px 0 2px $color-palette-black-200;
+  border-radius: set-calc($border-radius-30);
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
 
   @include set-media(md) {
-    border-radius: set-calc($border-radius-medium);
     padding: set-calc(16);
+    border-radius: set-calc($border-radius-20);
+    flex-grow: 1;
+
+    min-width: 100%;
+    min-height: unset;
   }
 }
 
-.titleWrapper{
-  display: flex;
-  flex-direction: column;
+.block:active {
+  box-shadow: 0 0 0 2px $color-palette-black-600;
+  transform: translate3d(0, 2px, 0);
+}
 
-  margin-bottom: set-calc(16);
+.active {
+  background-color: $color-card-light;
+  box-shadow: 0 0 0 2px var(--color-accent-promo), 0 2px 0 2px var(--color-accent-promo);
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
 
-  @include set-media(md) {
-    margin-bottom: set-calc(80);
+  .courseName {
+    color: $color-content-primary-light;
+  }
+  .title  {
+    color: $color-content-paragraph-secondary-light;
+  }
+  .credit {
+    s:after {
+      border-bottom: set-calc(1.5) solid $color-background-glassy-d-light;
+      @include set-media(md) {
+        border-bottom: set-calc(1) solid $color-background-glassy-d-light;
+      }
+    }
+  }
+  
+  .creditPrice {
+    color: $color-content-primary-light;
+  }
+  
+  .discount {
+    background: $color-background-glassy-b-light;
+    color: $color-content-primary-light;
   }
 }
 
 .courseName {
+  position: relative;
+
   margin-bottom: set-calc(8);
+  width: max-content;
 
-  @include font-16-normal-paragraph;
-  color: $color-content-paragraph-secondary-light;
-}
-
-.title {
-  max-width: set-calc(560);
-  word-break: break-word;
-
-  @include font-24-normal-header;
-  color: $color-content-primary-light;
-  font-family: $font-family-medium;
+  @include font-18-normal-paragraph;
+  font-family: $font-family-bold;
+  color: var(--color-content-primary);
 }
 
 .buble {
@@ -109,15 +152,10 @@
 
   border-radius: set-calc($border-radius-large);
   padding: set-calc(10) set-calc(15);
-  background: $color-gradient-rainbow;
-  background-size: 400% 400%;
-
-  animation: buttonGradient 45s ease infinite;
-  transition: width .3s, margin .3s, min-width .3s, background-color .3s, color .3s, border .3s, background-position 2s ease-out, padding-left .3s, opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
+  background: $color-highlight-violet;
   
   color: $color-content-primary-dark;
-
-  @include font-18-normal-ui;
+  @include font-16-normal-ui;
 
   @include set-media(md) {
     right: set-calc(20);
@@ -126,90 +164,148 @@
   }
 }
 
-.credit {
-  margin-top: auto;
-
-  padding-top: set-calc(32);
-  margin-bottom: set-calc(24);
-
+.paymentSummary {
   display: flex;
-  flex: 1;
-  flex-direction: column;
+  justify-content: space-between;
+
+  margin: set-calc(8) 0;
+  margin: 0!important;
+
+  @include set-media(md) {
+    margin: set-calc(8) 0;
+  }
+}
+
+.discountTags {
+  display: flex;
+  align-items: end;
   justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: set-calc(4);
+  margin-top: set-calc(4);
+}
+
+.discountTag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0 set-calc(8);
+  height: set-calc(30);
+
+  background: var(--color-accent-promo-background);
+  border-radius: calc(set-calc(30) / 2);
+  
+  color: var(--color-content-primary);
+  font-family: $font-family-medium;
+
+  @include font-14-normal-ui;
+  text-align: start;
+}
+
+.creditWas {
+  display: block;
+
+  color: var(--color-content-tertiary);
+  @include font-18-normal-ui;
+  margin: set-calc(5) 0;
+  white-space: nowrap;
 
   s:after {
     margin-top: 0;
-    border-bottom: set-calc(1.5) solid $color-palette-black-300-a;
+    border-bottom: set-calc(1.5) solid var(--color-content-tertiary);
     content: "";
-    left: set-calc(-2);
     position: absolute;
+    left: set-calc(-2);
     right: set-calc(-2);
     top: 50%;
 
     @include set-media(md) {
-      border-bottom: set-calc(1) solid $color-palette-black-300-a;
+      border-bottom: set-calc(1) solid var(--color-content-tertiary);
     }
   }
 }
 
-.creditWas {
-  @include font-24-normal-header;
-  color: $color-palette-black-300-a;
-  letter-spacing: -0.05rem;
-
-  margin-bottom: set-calc(4);
-  width: max-content;
-}
-
 .creditPrice {
   position: relative;
-  @include set-typography(56, 60, 500);
+  @include set-typography(48, 50, 500);
+  font-family: $font-family-bold;
 
   display: inline-block;
-  letter-spacing: -0.2rem;
-  color: $color-content-primary-light;
+  letter-spacing: -0.05rem;
+  color: var(--color-content-primary);
+  align-self: flex-end;
 
   @include set-media(md) {
-    @include set-typography(48, 48, 500);
+    @include set-typography(36, 40, 500);
   }
 }
 
-.discount {
-  position: absolute;
-  top: set-calc(-28);
+.title {
+  max-width: set-calc(560);
+  word-break: break-word;
+  margin: set-calc(24) 0;
 
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  @include font-18-normal-ui;
-  letter-spacing: 0;
-
-  background: $color-background-glassy-b-light;
-
-  padding: set-calc(8) set-calc(16);
-  border-radius: set-calc($border-radius-large);
-
+  @include font-16-normal-paragraph;
+  color: var(--color-content-tertiary);
 
   @include set-media(md) {
-    right: set-calc(160);
-    top: set-calc(-34);
+    display: none;
   }
 }
 
-.courseInfo {
+.pricingCheckList {
+  flex: 1;
+  display: block;
+  padding-left: 0;
+  list-style: none;
+
+  @include set-media(md) {
+    display: none;
+  }
+}
+
+.pricingCheckListItem {
   position: relative;
 
   display: flex;
-  flex-direction: column;
-  align-items: end;
-  padding: 0 0 set-calc(5);
+  align-items: start;
+  gap: set-calc(12);
+}
+
+.pricingCheckListItem:not(:last-child) {
+  margin-bottom: set-calc(16);
+}
+
+.itemIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: set-calc(2);
+
+  color: var(--color-content-tertiary);
+
+  svg {
+    width: set-calc(20);
+    height: set-calc(20);
+
+    path {
+      fill: var(--color-content-inverted-primary);
+    }
+  }
 
   @include set-media(md) {
-    align-items: start;
-    padding-top:  0;
-    padding-bottom: set-calc(150);
+    svg {
+      width: set-calc(18);
+      height: set-calc(18);
+    }
   }
+}
+
+.itemText {
+  @include font-16-normal-paragraph;
+  color: var(--color-content-tertiary);
 }
 
 .btn {
@@ -221,26 +317,38 @@
   justify-content: center;
   align-items: center;
 
-  height: set-calc(60);
-  padding: 0 set-calc(60);
+  height: set-calc(80);
+  padding: 0 set-calc(100);
   width: fit-content;
 
   @include font-20-normal-ui;
-  color: $color-palette-white-1000;
+  color: var(--color-content-primary);
   font-family: $font-family-medium;
 
-  border-radius: set-calc($border-radius-16);
-  background-color: $color-background-btn-light;
+  border-radius: calc(set-calc(80) / 2);
+  background-color: var(--color-accent-promo);
   cursor: pointer;
 
+  box-shadow: $shadow-small-default;
+
   &:hover {
-    background-color: $color-background-btn-hover-light;
+    box-shadow: $shadow-small-hovered;
+  }
+
+  &:active {
+    box-shadow: $shadow-small-pressed;
   }
 
   @include set-media(md) {
+    width: 100%;
+    height: set-calc(60);
+
+    padding: 0 0;
+    border-radius: calc(set-calc(60) / 2);
+
     &:hover,
     &:active {
-      background-color: $color-background-btn-light;
+      box-shadow: $shadow-small-default;
     }
   }
 }
