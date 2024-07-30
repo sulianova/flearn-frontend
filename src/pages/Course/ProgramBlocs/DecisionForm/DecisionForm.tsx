@@ -80,27 +80,27 @@ export default function DecisionForm({ course }: IProps) {
             <div className={classes.itemText}>Бессрочный доступ к урокам и упражнениям</div>
           </li>
         </ul>
-        {/* <button
+        <button
           onClick={() => user ? handleSubmit({ course, user, productType: type, navigate, setState }) : setPopupOption(type)}
-          className={classes.btn}
+          className={cx({ btn: true})}
         >
           {state.type === 'Idle' && 'начать учиться'}
           {state.type === 'Pending' && <Icon icon='Spinner' />}
           {state.type === 'Error' && state.error}
-        </button> */}
+        </button>
       </div>
     );
   })
 
   return (
-    <>
+    <div className={classes.__}>
       <div className={classes.header}>
-        <h2 className={classes.headerTitle}>Попробуйте бесплатно — выбрать формат можно позже</h2>
+        <h2 className={classes.headerTitle}>Начните учиться бесплатно — выбрать формат курса можно позже</h2>
       </div>
       <div className={classes.commonFlowRow}>
-        <div className={classes.wrapper} id='decision-form'>
+        {/* <div className={classes.wrapper} id='decision-form'>
           {optionsNodes}
-        </div>
+        </div> */}
         <button
           className={classes.btn}
         >
@@ -116,7 +116,7 @@ export default function DecisionForm({ course }: IProps) {
           close={() => setPopupOption(null)}
         />
       )}
-    </>
+    </div>
   );
 }
 

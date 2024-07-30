@@ -15,7 +15,7 @@ export default function Course() {
   }
 
   return (
-    <Page variant={EPageVariant.WEB} header footer={EFooter.Big} currentCourse={course}>
+    <Page variant={EPageVariant.WEB} header footer={false} currentCourse={course}>
       <ProgramIntro course={course}/>
       <ProgramBlocks course={course} />
     </Page>

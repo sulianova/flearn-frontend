@@ -3,11 +3,11 @@
 .item {
   position: relative;
 
-  grid-column: 1 / 7;
+  grid-column: 4 / -4;
   padding: set-calc(24);
   border-radius: set-calc($border-radius-30);
-  background-color: var(--color-card);
-  border: 1px solid var(--border-color);
+  background-color: $color-card-dark;
+  border: 1px solid $border-color-dark;
   cursor: pointer;
 
   display: flex;
@@ -47,6 +47,7 @@
 
 .itemQuestionText {
   @include font-20-normal-paragraph;
+  color: $color-content-primary-dark;
   font-family: $font-family-medium;
   max-width: 80%;
 }
@@ -56,6 +57,7 @@
   align-items: start;
 
   margin-top: set-calc(4);
+  color: $color-content-primary-dark;
 
   transition: transform $d-hover ease-in-out;
 
@@ -91,7 +93,7 @@
 .itemAnswerText {
   margin-right: set-calc(48);
   @include font-18-normal-ui;
-  color: var(--color-content-paragraph-primary);
+  color: $color-content-paragraph-primary-dark;
 
   @include set-media(md) {
     margin: set-calc(20) 0 set-calc(20) 0;

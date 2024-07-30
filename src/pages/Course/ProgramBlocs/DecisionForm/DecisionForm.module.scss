@@ -1,26 +1,46 @@
 @import 'styles/index';
 
+.__ {
+  @include is-beige;
+  background-color:  $color-background-default-dark;
+  border-top: 1px solid $border-color-dark;
+  padding: set-calc(100) 0;
+
+  border-radius: set-calc(100) set-calc(100) 0 0;
+
+  @include set-media(md) {
+    padding: set-calc(64) set-calc(8) set-calc(64);
+
+    border-radius: set-calc(50) set-calc(50) 0 0;
+  }
+}
+
 .header {
   position: relative;
   display: flex;
   justify-content: center;
 
-  margin-bottom: set-calc(32);
+  width: 60%;
+
+  margin: 0 auto set-calc(150);
+
   padding-left: set-calc(16);
 
   @include set-media(md) {
-    margin-bottom: 0;
+    margin: 0 auto set-calc(80);
     padding-left: set-calc(8);
+
+    width: 100%;
   }
 }
 
 .headerTitle {
-  @include font-56-normal-header;
-  font-family: $font-family-bold;
+  @include set-typography(36, 48, 500);
+  color: $color-content-inverted-primary-light;
   text-align: center;
 
   @include set-media(md) {
-    text-align: start;
+    @include set-typography(20, 32, 500);
   }
 }
 
@@ -31,9 +51,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+
+  margin: 0 auto;
+  width: 70%;
+
   gap: set-calc(40);
 
   @include set-media(md) {
+    width: 100%;
     gap: 0;
   }
 }
@@ -317,38 +343,63 @@
   justify-content: center;
   align-items: center;
 
-  height: set-calc(80);
-  padding: 0 set-calc(100);
-  width: fit-content;
+  height: set-calc(120);
+  width: 100%;
 
-  @include font-20-normal-ui;
-  color: var(--color-content-primary);
-  font-family: $font-family-medium;
+  z-index: 1;
 
-  border-radius: calc(set-calc(80) / 2);
-  background-color: var(--color-accent-promo);
+  @include set-typography(44, 44, 500);
+  color: $color-content-primary-light;
+  font-family: $font-family-bold;
+
+  border-radius: calc(set-calc(120) / 2);
+  background-color: $color-accent-promo-light;
+  // box-shadow: 0 0 0 22px $color-content-primary-light, 0 0 0 28px $color-accent-inverted-promo-light;
+
   cursor: pointer;
 
-  box-shadow: $shadow-small-default;
-
   &:hover {
-    box-shadow: $shadow-small-hovered;
-  }
+    // box-shadow: 0 0 0 10px $color-content-primary-light, 0 0 0 14px $color-accent-inverted-promo-light;
 
-  &:active {
-    box-shadow: $shadow-small-pressed;
+    &:not([href])::before {
+      opacity: 1;
+    }
   }
 
   @include set-media(md) {
-    width: 100%;
     height: set-calc(60);
+
+    @include set-typography(20, 20, 500);
 
     padding: 0 0;
     border-radius: calc(set-calc(60) / 2);
 
     &:hover,
     &:active {
-      box-shadow: $shadow-small-default;
+      box-shadow: none;
+
+      &:not([href])::before {
+        opacity: 0;
+      }
     }
   }
+}
+
+.btn:not([href])::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  -webkit-transition: opacity .8s;
+  -o-transition: opacity .8s;
+  transition: opacity .8s;
+  border-radius: 100px;
+  border: 0;
+  background: -o-radial-gradient(50% 50%, 60% 2336.38%, $color-accent-promo-light 0, #fff 100%), $color-accent-promo-light;
+  background: radial-gradient(60% 2336.38% at 50% 50%, $color-accent-promo-light 0, #fff 100%), $color-accent-promo-light;
+  opacity: 0;
+  will-change: opacity;
 }
