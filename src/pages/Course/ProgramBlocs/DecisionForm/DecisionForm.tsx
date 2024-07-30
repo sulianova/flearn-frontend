@@ -29,68 +29,68 @@ type TState =
   | { type: 'Error', error: string };
 
 const t = formatI18nT('courseLanding.form');
-const optionOrder = {
-  OPTIMAL: 1,
-  BASE: 2,
-  EXTENDED: 3,
-};
+// const optionOrder = {
+//   OPTIMAL: 1,
+//   BASE: 2,
+//   EXTENDED: 3,
+// };
 
 export default function DecisionForm({ course }: IProps) {
-  const { type, productOptions } = course;
+  // const { type, productOptions } = course;
   const navigate = useNavigate();
   const [state, setState] = useState<TState>({ type: 'Idle' });
   const [popupOption, setPopupOption] = useState<keyof ICourseData['productOptions'] | null>(null);
   const user = userService.useAuthedUser();
 
-  const optionTypes = safeObjectKeys(productOptions).sort((a, b) => optionOrder[a] - optionOrder[b]);
-  const optionsNodes = optionTypes.map(type => {
-    const option = productOptions[type]!;
-    const { creditPrice, creditWas, discount } = getDiscountedPrice(option.discount ?? course.discount, option);
-    return (
-      <div className={cx({ block: true, blockDetails: type === 'OPTIMAL', active: false })} key={type}>
-        {/* {type === 'OPTIMAL' && (
-          <div className={classes.buble}>самый популярный</div>
-        )} */}
-        <h2 className={classes.courseName}>
-          {t(`options.${type}.caption`)}
-        </h2>
-        <dl className={classes.paymentSummary}>
-          <dt>
-            <div className={classes.creditPrice}>
-              {formatCourseCredit(creditPrice)} &#8381;
-            </div>
-            <div className={classes.creditWas}>
-              <s>{formatCourseCredit(creditWas)}</s>
-            </div>
-          </dt>
-          <dt>
-            <div className={classes.discountTags}>
-              <span className={classes.discountTag}>{`−${discount ?? 0}%`}</span>
-            </div>
-          </dt>
-        </dl>
-        <h3 className={classes.title}>{t(`options.${type}.title`)}</h3>
-        <ul className={classes.pricingCheckList}>
-          <li className={classes.pricingCheckListItem}>
-            <div className={classes.itemIcon}><Icon icon='TickInCircle'/></div>
-            <div className={classes.itemText}>Чат в телеграмме для студентов</div>
-          </li>
-          <li className={classes.pricingCheckListItem}>
-            <div className={classes.itemIcon}><Icon icon='TickInCircle'/></div>
-            <div className={classes.itemText}>Бессрочный доступ к урокам и упражнениям</div>
-          </li>
-        </ul>
-        <button
-          onClick={() => user ? handleSubmit({ course, user, productType: type, navigate, setState }) : setPopupOption(type)}
-          className={cx({ btn: true})}
-        >
-          {state.type === 'Idle' && 'начать учиться'}
-          {state.type === 'Pending' && <Icon icon='Spinner' />}
-          {state.type === 'Error' && state.error}
-        </button>
-      </div>
-    );
-  })
+  // const optionTypes = safeObjectKeys(productOptions).sort((a, b) => optionOrder[a] - optionOrder[b]);
+  // const optionsNodes = optionTypes.map(type => {
+  //   const option = productOptions[type]!;
+  //   const { creditPrice, creditWas, discount } = getDiscountedPrice(option.discount ?? course.discount, option);
+  //   return (
+  //     <div className={cx({ block: true, blockDetails: type === 'OPTIMAL', active: false })} key={type}>
+  //       {/* {type === 'OPTIMAL' && (
+  //         <div className={classes.buble}>самый популярный</div>
+  //       )} */}
+  //       <h2 className={classes.courseName}>
+  //         {t(`options.${type}.caption`)}
+  //       </h2>
+  //       <dl className={classes.paymentSummary}>
+  //         <dt>
+  //           <div className={classes.creditPrice}>
+  //             {formatCourseCredit(creditPrice)} &#8381;
+  //           </div>
+  //           <div className={classes.creditWas}>
+  //             <s>{formatCourseCredit(creditWas)}</s>
+  //           </div>
+  //         </dt>
+  //         <dt>
+  //           <div className={classes.discountTags}>
+  //             <span className={classes.discountTag}>{`−${discount ?? 0}%`}</span>
+  //           </div>
+  //         </dt>
+  //       </dl>
+  //       <h3 className={classes.title}>{t(`options.${type}.title`)}</h3>
+  //       <ul className={classes.pricingCheckList}>
+  //         <li className={classes.pricingCheckListItem}>
+  //           <div className={classes.itemIcon}><Icon icon='TickInCircle'/></div>
+  //           <div className={classes.itemText}>Чат в телеграмме для студентов</div>
+  //         </li>
+  //         <li className={classes.pricingCheckListItem}>
+  //           <div className={classes.itemIcon}><Icon icon='TickInCircle'/></div>
+  //           <div className={classes.itemText}>Бессрочный доступ к урокам и упражнениям</div>
+  //         </li>
+  //       </ul>
+  //       <button
+  //         onClick={() => user ? handleSubmit({ course, user, productType: type, navigate, setState }) : setPopupOption(type)}
+  //         className={cx({ btn: true})}
+  //       >
+  //         {state.type === 'Idle' && 'начать учиться'}
+  //         {state.type === 'Pending' && <Icon icon='Spinner' />}
+  //         {state.type === 'Error' && state.error}
+  //       </button>
+  //     </div>
+  //   );
+  // })
 
   return (
     <div className={classes.__}>
@@ -102,6 +102,7 @@ export default function DecisionForm({ course }: IProps) {
           {optionsNodes}
         </div> */}
         <button
+          onClick={() => user ? handleSubmit({ course, user, productType: 'OPTIMAL', navigate, setState }) : setPopupOption('OPTIMAL')}
           className={classes.btn}
         >
           {state.type === 'Idle' && 'Начать учиться бесплатно'}
