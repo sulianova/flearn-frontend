@@ -95,7 +95,7 @@ export default function DecisionForm({ course }: IProps) {
   return (
     <div className={classes.__}>
       <div className={classes.header}>
-        <h2 className={classes.headerTitle}>Начните учиться бесплатно — выбрать формат курса можно позже</h2>
+        <h2 className={classes.headerTitle}>Начните учиться бесплатно — выбрать формат: «самостоятельно» или «с обратной связью» — можно позже</h2>
       </div>
       <div className={classes.commonFlowRow}>
         {/* <div className={classes.wrapper} id='decision-form'>

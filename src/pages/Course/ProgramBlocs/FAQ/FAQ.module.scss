@@ -3,7 +3,7 @@
 .wrapper {
   @include is-beige;
   background-color:  $color-background-default-dark;
-  padding: set-calc(100) 0 set-calc(64);
+  padding: set-calc(50) 0 set-calc(24);
 
   @include set-media(md) {
     padding: set-calc(64) set-calc(8) set-calc(64);
@@ -19,13 +19,13 @@
   align-items: center;
 
   width: 100%;
-  margin: 0 auto set-calc(32);
+  margin: set-calc(32) auto 0;
 
   @include set-media(md) {
     align-items: start;
 
     width: 100%;
-    margin: 0 0 set-calc(16);
+    margin: set-calc(16) 0 0;
   }
 }
 
@@ -44,11 +44,16 @@
 
 .headerDesc {
 
-  @include font-20-normal-paragraph;
+  @include font-18-normal-paragraph;
   color: $color-content-primary-dark;
+  font-family: $font-family-light;
   text-align: center;
 
   width: 100%;
+
+  a {
+    font-family: $font-family-regulary;
+  }
 
   @include set-media(md) {
     width: 100%;
@@ -59,15 +64,17 @@
   position: relative;
   left: 0;
 
-  display: grid;
-  grid-gap: 0;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+
+  width: 48%;
 
   @include set-media(md) {
     position: relative;
 
     display: flex;
     flex-direction: column;
+    width: 100%;
   }
 }

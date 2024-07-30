@@ -301,33 +301,41 @@
     pointer-events: none;
   
   .itemCard {
-    background: var(--color-accent-promo-background);
+    background: $color-highlight-violet;
     background-size: 400% 400%;
   
     animation: buttonGradient 45s ease infinite;
     transition: width .3s, margin .3s, min-width .3s, background-color .3s, color .3s, border .3s, background-position 2s ease-out, padding-left .3s;
 
     [data-subsection] {
-      color: var(--color-content-primary);
+      color: $color-content-inverted-primary-light;
     }
 
     .tag {
-      background-color: var(--color-accent-promo);
+      background-color: $color-accent-promo-dark;
+      color: $color-content-inverted-primary-light;
+      font-family: $font-family-regulary;
+    }
+
+    .title {
+      font-family: $font-family-bold;
     }
 
     .description {
-      color: var(--color-content-primary);
+      color: $color-content-inverted-primary-light;
+      font-family: $font-family-regulary;
     }
 
     .subsections,
     .projectsDescription,
     .title,
     .meta {
-      color: var(--color-content-primary);
+      color: $color-content-inverted-primary-light;
     }
 
     .meta {
       max-width: 100%;
+      font-family: $font-family-regulary;
     }
   }
 
@@ -352,8 +360,8 @@
 
   @include font-18-normal-ui;
 
-  color: var(--color-content-inverted-primary);
-  background: var(--color-content-background-primary);
+  color: $color-content-inverted-primary-dark;
+  background: $color-content-background-primary-dark;
 
   transition: width .3s, margin .3s, min-width .3s, background-color .3s, color .3s, border .3s, background-position 2s ease-out, padding-left .3s, opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
   

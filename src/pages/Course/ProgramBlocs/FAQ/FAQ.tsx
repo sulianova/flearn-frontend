@@ -17,6 +17,11 @@ interface IProps {
 function FAQ({ faq }: IProps) {
   return (
     <div className={classes.wrapper}>
+      <div className={classes.list}>
+        {faq.map(({ question, answer }, index) => (
+          <Item key={index} faq={{ question, answer }}/>
+        ))}
+      </div>
       <div className={classes.header}>
         {/* <h2 className={classes.headerTitle}>{t('headerTitle')}</h2> */}
         <div className={classes.headerDesc}>
@@ -26,11 +31,6 @@ function FAQ({ faq }: IProps) {
           </Link>
           {t('headerDesc3')}
         </div>
-      </div>
-      <div className={classes.list}>
-        {faq.map(({ question, answer }, index) => (
-          <Item key={index} faq={{ question, answer }}/>
-        ))}
       </div>
     </div>
   );

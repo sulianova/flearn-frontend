@@ -46,8 +46,7 @@
   box-shadow: $shadow-small-default;
 
   color: $color-content-inverted-primary-light;
-  border: 2px solid $color-content-inverted-primary-light;
-  background: transparent;
+  background: $color-highlight-violet;
 
   transition: width .3s, margin .3s, min-width .3s, background-color .3s, color .3s, border .3s, background-position 2s ease-out, padding-left .3s, transform $d-hover ease-in, opacity $d-hover ease-in;
 
@@ -88,8 +87,7 @@
   box-shadow: $shadow-small-default;
 
   color: $color-content-inverted-primary-light;
-  border: 2px solid $color-content-inverted-primary-light;
-  background: transparent;
+  background: $color-highlight-violet;
 
   transition: width .3s, margin .3s, min-width .3s, background-color .3s, color .3s, border .3s, background-position 2s ease-out, padding-left .3s, transform $d-hover ease-in, opacity $d-hover ease-in;
 
