@@ -55,7 +55,7 @@ const courseDB1: ICourseDataDB = {
         text: 'познакомитесь с инструментами иллюстратора: линия, пятно, цвет',
       },
       {
-        icon: 'Sketching',
+        icon: 'Lightning',
         text: 'узнаете, как выделять главное в рисунке'
       },
       {

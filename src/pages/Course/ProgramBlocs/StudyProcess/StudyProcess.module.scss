@@ -24,6 +24,7 @@
 .headerTitle {
   @include font-56-normal-header;
   font-family: $font-family-bold;
+  color: $color-highlight-violet;
 }
 
 .list {
@@ -51,19 +52,19 @@
 }
 
 .caption {
-  @include font-16-normal-ui;
-  color: var(--color-content-primary);
+  @include font-14-normal-ui;
+  color: $color-content-primary-light;
   text-transform: lowercase;
 
-  margin-bottom: set-calc(16);
+  margin-bottom: set-calc(6);
   width: max-content;
 
-  background-color: var(--color-background-glassy-c);
-  padding: set-calc(8) set-calc(12);
-  border-radius: set-calc($border-radius-20);
+  background-color:  $color-highlight-neon;
+  padding: set-calc(4) set-calc(12);
+  border-radius: set-calc($border-radius-16);
 
   @include set-media(md) {
-    padding: set-calc(8) set-calc(12);
+    padding: set-calc(4) set-calc(10);
   }
 }
 

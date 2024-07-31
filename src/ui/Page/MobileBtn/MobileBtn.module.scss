@@ -33,15 +33,11 @@
   align-items: center;
   justify-content: center;
 
-  background: $color-gradient-rainbow;
-  background-size: 400% 400%;
-
-  animation: buttonGradient 45s ease infinite;
-  transition: width .3s, margin .3s, min-width .3s, background-color .3s, color .3s, border .3s, background-position 2s ease-out, padding-left .3s;
+  background: $color-highlight-yellow;
   box-shadow: $shadow-small-default;
 
   @include font-20-normal-ui ;
-  color: $color-palette-white-1000;
+  color: $color-content-primary-light;
   font-family: $font-family-medium;
 
   border-radius: set-calc($border-radius-16);

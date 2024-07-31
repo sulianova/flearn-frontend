@@ -7,7 +7,7 @@
 .cards {
   display: grid;
   grid-gap: set-calc(8);
-  grid-template-columns: 5fr 6fr;
+  grid-template-columns: 4fr 6fr;
   grid-template-areas: "explain-intro explain-video";
 
   @include set-media(md) {
@@ -21,13 +21,15 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  gap: set-calc(16);
 
   overflow: hidden;
-  padding: 0 set-calc(16) set-calc(16);
+  padding: 0 set-calc(16);
   border-radius: set-calc($border-radius-medium);
 
   @include set-media(md) {
-    padding: 0 set-calc(16) set-calc(24);
+    padding: 0 0;
+    gap: set-calc(8);
   }
 }
 
@@ -35,13 +37,34 @@
   position: relative;
   z-index: 2;
 
-  @include set-typography(58, 64, 500);
-  font-family: $font-family-medium;
+  @include set-typography(24, 32, 500);
+  font-family: $font-family-regulary;
+  color: var(--color-content-inverted-primary);
   white-space: pre-line;
-  text-align: center;
+
+
+  background-color: $color-highlight-violet;
+  border-radius: set-calc($border-radius-20);
+  padding: set-calc(32);
 
   @include set-media(md) {
-    @include set-typography(32, 40, 500);
+    padding: set-calc(16);
+    @include set-typography(18, 24, 500);
+  }
+}
+
+.introCardQuote:last-of-type {
+  padding: set-calc(16);
+
+  background-color: transparent;
+  width: 60%;
+
+  color: $color-highlight-violet;
+  @include set-typography(20, 30, 500);
+  font-family: $font-family-regulary;
+
+  @include set-media(md) {
+    display: none;
   }
 }
 
@@ -51,23 +74,8 @@
 
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  align-items: end;
-}
-
-.videoCardContainer {
-  position: relative;
-  margin-bottom: set-calc(16);
-  flex-grow: 1;
-  flex-shrink: 1;
-  width: 100%;
-  max-height: set-calc(1000);
-
-  @include set-media(md) {
-    margin-bottom: set-calc(14);
-    max-height: unset;
-    height: set-calc(550);
-  }
+  justify-content: start;
+  align-items: start;
 }
 
 .buble {
@@ -82,18 +90,32 @@
   z-index: 9;
 
   @include font-20-normal-ui;
+  color: var(--color-content-inverted-primary);
+  font-family: $font-family-regulary;
 
   padding: set-calc(12) set-calc(18);
   border-radius: set-calc($border-radius-large);
-  background: var(--color-content-primary);
-  color: var(--color-content-inverted-primary);
-  backdrop-filter: blur(set-calc($backdrop-filter));
+  background-color: $color-highlight-violet;
 
   @include set-media(md) {
+    display: none;
     padding: set-calc(8) set-calc(12);
     transform: rotate(0deg);
     right: set-calc(-4);
     top: set-calc(525);
+  }
+}
+
+.videoCardContainer {
+  position: relative;
+  flex-grow: 1;
+  flex-shrink: 1;
+  width: 100%;
+  max-height: set-calc(800);
+
+  @include set-media(md) {
+    max-height: unset;
+    height: set-calc(350);
   }
 }
 
@@ -106,27 +128,16 @@
 }
 
 .videoCardDesc {
-  border-radius: set-calc($border-radius-medium);
-  margin-bottom: auto;
-  width: 70%;
-  text-align: right;
-  padding-right: set-calc(8);
+  display: none;
 
   @include set-media(md) {
-    padding-top: set-calc(4);
-    width: 75%;
+    display: block;
+
+    padding: set-calc(16) set-calc(8) 0;
+    width: 100%;
+
+    @include set-typography(18, 24, 500);
+    color: $color-highlight-violet;
+    font-family: $font-family-regulary;
   }
- }
-
- .videoCardTitle {
-  padding-bottom: set-calc(4);
- }
-
- .videoCardText {
-  color: var(--color-content-secondary);
-  @include set-typography(18, 24, 500);
-
-  @include set-media(md) {
-    @include set-typography(16, 24, 500)
-  }
- }
+}

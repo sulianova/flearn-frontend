@@ -28,21 +28,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: set-calc(6);
+    padding: set-calc(12);
 
     border-radius: set-calc($border-radius-12);
-    background-color: var(--color-background-glassy-c);
+    background-color: var(--color-background-glassy-b);
 
     svg {
-      width: set-calc(38);
-      height: set-calc(38);
+      width: set-calc(32);
+      height: set-calc(32);
   
      path {
-        fill: var(--color-content-primary);
+        fill: $color-highlight-violet;
       }
     }
 
     @include set-media(md) {
+      padding: set-calc(10);
+
       svg {
         width: set-calc(30);
         height: set-calc(30);

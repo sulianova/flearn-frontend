@@ -156,7 +156,7 @@
   height: set-calc(80);
 
   border-radius: calc(set-calc(80) / 2);
-  background: var(--color-accent-promo);
+  background: $color-accent-promo-light;
 
   @include set-media(md) {
     display: none;
@@ -166,7 +166,7 @@
 
   .text {
     @include font-20-normal-ui;
-    color: var(--color-content-primary);
+    color: $color-content-primary-light;
     font-family: $font-family-medium;
   }
 
@@ -188,8 +188,8 @@
   transition: opacity .8s;
   border-radius: 100px;
   border: 0;
-  background: -o-radial-gradient(50% 50%, 60% 2336.38%, var(--color-accent-promo) 0, var(--color-content-inverted-primary) 100%), var(--color-accent-promo);
-  background: radial-gradient(60% 2336.38% at 50% 50%, var(--color-accent-promo) 0, var(--color-content-inverted-primary) 100%), var(--color-accent-promo);
+  background: -o-radial-gradient(50% 50%, 60% 2336.38%, $color-accent-promo-light 0, $white 100%), $color-accent-promo-light;
+  background: radial-gradient(60% 2336.38% at 50% 50%, $color-accent-promo-light 0, $white 100%), $color-accent-promo-light;
   opacity: 0;
   will-change: opacity;
 }

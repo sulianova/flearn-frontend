@@ -9,7 +9,7 @@
   border-radius: set-calc(100) set-calc(100) 0 0;
 
   @include set-media(md) {
-    padding: set-calc(64) set-calc(8) set-calc(64);
+    padding: set-calc(32) set-calc(8) 0;
 
     border-radius: set-calc(50) set-calc(50) 0 0;
   }
@@ -27,7 +27,7 @@
   padding-left: set-calc(16);
 
   @include set-media(md) {
-    margin: 0 auto set-calc(80);
+    margin: 0 auto set-calc(40);
     padding-left: set-calc(8);
 
     width: 100%;
@@ -40,7 +40,7 @@
   text-align: center;
 
   @include set-media(md) {
-    @include set-typography(20, 32, 500);
+    @include set-typography(20, 30, 500);
   }
 }
 
@@ -370,6 +370,7 @@
     height: set-calc(60);
 
     @include set-typography(20, 20, 500);
+    font-family: $font-family-medium;
 
     padding: 0 0;
     border-radius: calc(set-calc(60) / 2);
