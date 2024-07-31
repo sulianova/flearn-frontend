@@ -134,31 +134,13 @@ function Profile(props: IProps) {
               <div className={classes.program}>
                 <div className={classes.programTitle}>Модули</div>
                   <div className={classesList.wrapper}>
-                    {[...freeGroupes, ...payableGroupes].map((group, index) => {
-                      const totalDurationMinutes = group.lessons.reduce((acc, l) => acc + durationToMinutes(l.duration), 0);
-                      return (
-                        <div key={index} className={classesList.itemWrapper} onClick={() => setOpenedTopic(group.topic)}>
-                          <div className={classesList.item}>
-                            <div className={classesList.imageWrapper}/>
-                            <div className={classesList.itemBody}>
-                              <div className={classesList.itemBodyContainer}>
-                                <div className={classesList.titleContainer}>
-                                  <h2 className={classesList.title}>
-                                    {group.topic}
-                                  </h2>
-                                </div>
-                              </div>
-                              <div className={classesList.info}>
-                                <div className={classesList.infoMain}>
-                                  <span className={classesList.infoItem}>{i18n.t('lesson.p', { count: group.lessons.length })}</span>
-                                  <span className={classesList.infoItem}>{`≈ ${Math.round(totalDurationMinutes / 6) / 10} ч  `}</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      );
-                    })}
+                    {[...freeGroupes, ...payableGroupes].map((group, index) => (
+                      <TopicCard
+                        key={index}
+                        group={group}
+                        setOpenedTopic={setOpenedTopic}
+                      />
+                    ))}
                 </div>
               </div>
             ) : (
@@ -166,61 +148,25 @@ function Profile(props: IProps) {
                 <div className={classes.program}>
                   <div className={classes.programTitle}>Доступно сейчас и бесплатно</div>
                     <div className={classesList.wrapper}>
-                      {freeGroupes.map((group, index) => {
-                        const totalDurationMinutes = group.lessons.reduce((acc, l) => acc + durationToMinutes(l.duration), 0);
-                        return (
-                          <div key={index} className={classesList.itemWrapper} onClick={() => setOpenedTopic(group.topic)}>
-                            <div className={classesList.item}>
-                              <div className={classesList.imageWrapper}/>
-                              <div className={classesList.itemBody}>
-                                <div className={classesList.itemBodyContainer}>
-                                  <div className={classesList.titleContainer}>
-                                    <h2 className={classesList.title}>
-                                      {group.topic}
-                                    </h2>
-                                  </div>
-                                </div>
-                                <div className={classesList.info}>
-                                  <div className={classesList.infoMain}>
-                                    <span className={classesList.infoItem}>{i18n.t('lesson.p', { count: group.lessons.length })}</span>
-                                    <span className={classesList.infoItem}>{`≈ ${Math.round(totalDurationMinutes / 6) / 10} ч  `}</span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        );
-                      })}
+                      {freeGroupes.map((group, index) => (
+                        <TopicCard
+                          key={index}
+                          group={group}
+                          setOpenedTopic={setOpenedTopic}
+                        />
+                      ))}
                   </div>
                 </div>
                 <div className={classes.program}>
                   <div className={classes.programTitle}>Будет доступно после оплаты</div>
                     <div className={classesList.wrapper}>
-                      {payableGroupes.map((group, index) => {
-                        const totalDurationMinutes = group.lessons.reduce((acc, l) => acc + durationToMinutes(l.duration), 0);
-                        return (
-                          <div key={index} className={classesList.itemWrapper} onClick={() => setOpenedTopic(group.topic)}>
-                            <div className={classesList.item}>
-                              <div className={classesList.imageWrapper}/>
-                              <div className={classesList.itemBody}>
-                                <div className={classesList.itemBodyContainer}>
-                                  <div className={classesList.titleContainer}>
-                                    <h2 className={classesList.title}>
-                                      {group.topic}
-                                    </h2>
-                                  </div>
-                                </div>
-                                <div className={classesList.info}>
-                                  <div className={classesList.infoMain}>
-                                    <span className={classesList.infoItem}>{i18n.t('lesson.p', { count: group.lessons.length })}</span>
-                                    <span className={classesList.infoItem}>{`≈ ${Math.round(totalDurationMinutes / 6) / 10} ч  `}</span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        );
-                      })}
+                      {payableGroupes.map((group, index) => (
+                        <TopicCard
+                          key={index}
+                          group={group}
+                          setOpenedTopic={setOpenedTopic}
+                        />
+                      ))}
                   </div>
                 </div>
               </>
@@ -248,4 +194,34 @@ function Profile(props: IProps) {
 
 function durationToMinutes(duration: { unit: 'minutes' | 'hours', value: number }) {
   return (duration.unit === 'hours' ? 60 : 1) * duration.value;
+}
+
+function TopicCard(props: { group: IGroup, setOpenedTopic: (topic: string) => void }) {
+  const { group, setOpenedTopic } = props;
+  const totalDurationMinutes = group.lessons.reduce((acc, l) => acc + durationToMinutes(l.duration), 0);
+  const totalDurationStr = totalDurationMinutes >= 60
+    ? `${Math.round(totalDurationMinutes / 6) / 10} ч`
+    : `${Math.round(totalDurationMinutes)} м`;
+  return (
+    <div className={classesList.itemWrapper} onClick={() => setOpenedTopic(group.topic)}>
+      <div className={classesList.item}>
+        <div className={classesList.imageWrapper}/>
+        <div className={classesList.itemBody}>
+          <div className={classesList.itemBodyContainer}>
+            <div className={classesList.titleContainer}>
+              <h2 className={classesList.title}>
+                {group.topic}
+              </h2>
+            </div>
+          </div>
+          <div className={classesList.info}>
+            <div className={classesList.infoMain}>
+              <span className={classesList.infoItem}>{i18n.t('lesson.p', { count: group.lessons.length })}</span>
+              <span className={classesList.infoItem}>{`≈ ${totalDurationStr}  `}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
