@@ -11,7 +11,7 @@
   padding: set-calc(48) set-calc(24) set-calc(24);
   border-radius: set-calc($border-radius-medium);
   border: set-calc(1) solid var(--color-border);
-  background: var(--color-content-background-primary);
+  background: $color-highlight-violet;
 
   color: $matt-white;
 
