@@ -15,6 +15,10 @@
     width: set-calc(390);
     left: set-calc(-12);
   }
+
+  img {
+    cursor: zoom-in;
+  }
 }
 
 .contentExpander~* {
