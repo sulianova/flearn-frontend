@@ -44,6 +44,7 @@ export default function CheckboxStep(props: IProps) {
               key={index}
               className={cx({
                 quizGroupItem: true,
+                highlight: option.shouldBeSelected || selectedValueIndexes.includes(index),
                 shouldBeChecked: option.shouldBeSelected,
                 shouldNotBeChecked: !option.shouldBeSelected,
               })}

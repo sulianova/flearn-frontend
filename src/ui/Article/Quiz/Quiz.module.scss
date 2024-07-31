@@ -131,17 +131,17 @@
   @include set-media(md) {
     left: set-calc(-18);
   }
-
-  .submited & {
-    opacity: 1;
-  }
 }
 
-.submited .shouldBeChecked {
+.submited .highlight.quizGroupItem::before {
+  opacity: 1;
+}
+
+.submited .highlight.shouldBeChecked {
   --color-quiz: var(--color-accent-success);
 }
 
-.submited .shouldNotBeChecked {
+.submited .highlight.shouldNotBeChecked {
   --color-quiz: var(--color-accent-error);
 }
 

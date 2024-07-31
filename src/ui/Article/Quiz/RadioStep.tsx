@@ -42,6 +42,7 @@ export default function RadioStep(props: IProps) {
               key={index}
               className={cx({
                 quizGroupItem: true,
+                highlight: option.shouldBeSelected || selectedValueIndex === index,
                 shouldBeChecked: option.shouldBeSelected,
                 shouldNotBeChecked: !option.shouldBeSelected,
               })}
