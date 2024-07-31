@@ -94,6 +94,7 @@ function Lesson({ section }: IProps) {
         )}
         {section === 'task' &&
           (<LessonContent
+            key={`${courseId}-${lessonId}-${authedUser.email}`}
             course={currentCourse}
             courseAccess={currentCourseAccess}
             lesson={currentLesson}

@@ -56,10 +56,10 @@ export default function LessonContent(props: IProps) {
     return lessonProgress.solvedQuizesAmount ?? 0;
   }, [courseId, lessonId, userEmail]);
 
-  const [allQuizesSubmited, setAllQuizesSubmited] = useState(() => lesson.content.filter(b => b.type === 'quiz' || b.type === 'chat').length === 0);
+  const [allQuizesSubmited, setAllQuizesSubmited] = useState(() => initiallyUlockedBlocks >= lesson.content.filter(b => b.type === 'quiz' || b.type === 'chat').length);
   useEffect(() => {
     setAllQuizesSubmited(initiallyUlockedBlocks >= lesson.content.filter(b => b.type === 'quiz' || b.type === 'chat').length);
-  }, [initiallyUlockedBlocks, lessonId, userEmail]);
+  }, [initiallyUlockedBlocks, lesson.content]);
 
   return (
     <>
@@ -73,6 +73,7 @@ export default function LessonContent(props: IProps) {
       <div className={classes._}>
         <h1 className={classes.title}>{lesson.title}</h1>
         <Article
+          key={lessonId}
           blocks={lesson.content}
           handlers={handlers}
           initiallyUlockedBlocks={initiallyUlockedBlocks}
