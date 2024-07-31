@@ -53,13 +53,13 @@
 
 .caption {
   @include font-14-normal-ui;
-  color: $color-content-primary-light;
+  color: var(--color-content-primary);
   text-transform: lowercase;
 
   margin-bottom: set-calc(6);
   width: max-content;
 
-  background-color:  $color-highlight-neon;
+  background-color:  var(--color-accent-promo-background);
   padding: set-calc(4) set-calc(12);
   border-radius: set-calc($border-radius-16);
 

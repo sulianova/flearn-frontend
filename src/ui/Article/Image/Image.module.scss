@@ -47,6 +47,10 @@
   object-fit: contain;
   object-position: top left;
   cursor: zoom-in;
+
+  @include set-media(md) {
+    width: 100%;
+  }
 }
 
 .imageCaption {
