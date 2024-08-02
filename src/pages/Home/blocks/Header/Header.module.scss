@@ -12,7 +12,7 @@
   @include set-media(md) {
     position: relative;
 
-    min-height: unset;
+    min-height: 80vh;
     margin: set-calc(40) 0 set-calc(20);
   }
 }
@@ -100,7 +100,7 @@
   justify-content: start;
 
   @include set-media(md) {
-    display: none;
+    width: 100%;
   }
 }
 
