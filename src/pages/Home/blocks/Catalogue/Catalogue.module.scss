@@ -1,5 +1,13 @@
 @import 'styles/index';
 
+.__ {
+  padding-top: set-calc(100);
+
+  @include set-media(md) {
+    padding-top: set-calc(64);
+  }
+}
+
 .header {
   position: relative;
 
@@ -7,22 +15,22 @@
   grid-row-gap: 0;
 
   padding: 0 set-calc(16);
-  margin-bottom: set-calc(16);
+  margin-bottom: set-calc(32);
 
   @include set-media(md) {
     position: relative;
 
     display: block;
-    margin-bottom: set-calc(16);
+    margin-bottom: set-calc(24);
     padding: 0 set-calc(16);
   }
 }
 
 .headerTitle {
   grid-column: 1 / 7;
+  margin-bottom: set-calc(16);
 
-  margin-bottom: set-calc(24);
-  @include font-56-normal-header;
+  @include font-40-normal-header;
   font-family: $font-family-medium;
 
   @include set-media(md) {
@@ -31,14 +39,9 @@
 }
 
 .headerDesc {
-  grid-column: 1 / 5;
-  margin-right: set-calc(80);
+  grid-column: 1 / 7;
 
   @include font-20-normal-paragraph;
-
-  @include set-media(md) {
-    margin-right: 0;
-  }
 }
 
 .wrapper {

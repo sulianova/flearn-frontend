@@ -35,15 +35,15 @@ export default function Catalogue(props: IProps) {
     </>
   );
   return (
-    <>
-      {/* <div className={classes.header}>
-        <h2 className={classes.headerTitle}>Курсы, чтобы начать</h2>
-        <div className={classes.headerDesc}></div>
-      </div> */}
+    <div className={classes.__}>
+      <div className={classes.header}>
+        <h2 className={classes.headerTitle}>Курсы</h2>
+        <div className={classes.headerDesc}>Интерактивные уроки для ежедневной практики. Развивают насмотренность, помогают оставаться в форме.</div>
+      </div>
       <div className={classes.animationWrapper}>
         <div className={classes.wrapper}>
           {courses.map(course => <Card key={course.id} course={course}/>)}
-          {authService.isAuthenticated ? (
+          {/* {authService.isAuthenticated ? (
             <Link
               className={classes.promo}
               to={props.linkToFreeCourse}
@@ -57,9 +57,9 @@ export default function Catalogue(props: IProps) {
             >
               {promoContent}
             </div>
-          )}
+          )} */}
         </div>
       </div>
-    </>
+    </div>
   );
 }

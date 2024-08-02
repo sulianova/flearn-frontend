@@ -22,7 +22,7 @@ export default function Card({ course }: Readonly<IProps>) {
         {/* <div className={classes.cardIcon}><Icon icon='Composition'/></div> */}
         <div className={classes.info}>
           <h3 className={classes.title}>{course.title}</h3>
-          {/* <div className={classes.description}>{course.introDescription}</div> */}
+          <div className={classes.description}>{course.introDescription}</div>
           <div className={classes.infoText}>
             <p>
               {i18n.t('catalogue.card.info', {

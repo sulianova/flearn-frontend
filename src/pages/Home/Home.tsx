@@ -25,16 +25,16 @@ export default function Home() {
   const onNotAuthedClick = () => setPopupVisible(true);
 
   const blocks = [
+    <Catalogue
+    key='catalogue'
+    linkToFreeCourse={linkToFreeCourse}
+    onNotAuthedClick={onNotAuthedClick}
+  />,
     <Career
     key='career'
     linkToFreeCourse={linkToFreeCourse}
     onNotAuthedClick={onNotAuthedClick}
   />,
-    <Catalogue
-      key='catalogue'
-      linkToFreeCourse={linkToFreeCourse}
-      onNotAuthedClick={onNotAuthedClick}
-    />,
     // <RequestConsultationBanner key='requestConsultationBanner'/>,
   ];
 
