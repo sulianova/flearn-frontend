@@ -46,7 +46,7 @@
   gap: set-calc(16);
 
   @include set-media(md) {
-    gap: set-calc(6);
+    gap: set-calc(10);
     flex-direction: column-reverse;
   }
 }
