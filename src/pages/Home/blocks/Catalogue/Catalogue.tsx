@@ -36,12 +36,10 @@ export default function Catalogue(props: IProps) {
   );
   return (
     <>
-      <div className={classes.header}>
+      {/* <div className={classes.header}>
         <h2 className={classes.headerTitle}>Курсы, чтобы начать</h2>
-        <div className={classes.headerDesc}>
-
-        </div>
-      </div>
+        <div className={classes.headerDesc}></div>
+      </div> */}
       <div className={classes.animationWrapper}>
         <div className={classes.wrapper}>
           {courses.map(course => <Card key={course.id} course={course}/>)}

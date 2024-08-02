@@ -3,23 +3,27 @@
 .__ {
   display: flex;
   flex-direction: column;
-
+  min-height: 80vh;
+  
   overflow: visible;
-  margin: set-calc(32) set-calc(16) set-calc(200);
+  margin: set-calc(32) set-calc(16) set-calc(100);
 
 
   @include set-media(md) {
     position: relative;
-    min-height: 60vh;
-    margin: set-calc(24) 0 0;
+
+    min-height: unset;
+    margin: set-calc(40) 0 set-calc(20);
   }
 }
 
 .inner {
   position: relative;
+
   display: flex;
   flex-direction: column;
   align-items: start;
+  justify-content: space-between;
 
   width: 100%;
 
@@ -91,14 +95,12 @@
 }
 
 .actions {
-  grid-area: actions;
   display: flex;
   flex-wrap: wrap;
   justify-content: start;
 
   @include set-media(md) {
-    flex-direction: row-reverse;
-    width: 100%;
+    display: none;
   }
 }
 
@@ -111,17 +113,17 @@
   align-items: center;
   justify-content: center;
 
-  padding: 0 set-calc(48);
+  padding: 0 set-calc(80);
 
-  border-radius: set-calc($border-radius-30);
-  background-color: var(--color-accent-promo);
+  border-radius: set-calc($border-radius-16);
+  background-color: $color-highlight-yellow;
   box-shadow: $shadow-small-default;
 
   @include font-20-normal-ui;
-  color: var(--color-content-primary);
+  color: $color-content-primary-light;
   font-family: $font-family-medium;
 
-  height: set-calc(64);
+  height: set-calc(80);
   width: 100%;
 
   &:hover {

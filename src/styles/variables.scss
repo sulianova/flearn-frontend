@@ -92,7 +92,7 @@ $color-palette-indigo-200: #ede8ff;
 $color-palette-indigo-100: #f7f5ff;
 
 //gradient
-$color-gradient-rainbow: linear-gradient(320deg, #ede8ff, #9c8cff, #9282fa, #5627ff, #9c8cff);
+$color-gradient-rainbow: linear-gradient(320deg, #ffa2e2, #9c8cff, #9282fa, #5627ff, #49c2ff);
 
 //theme-light
 $primary-color-light: $color-palette-indigo-300;
@@ -236,6 +236,7 @@ $border-radius-14: 14;
 $border-radius-16: 16;
 $border-radius-20: 20;
 $border-radius-30: 30;
+$border-radius-50: 50;
 
 //opacity
 $opacity-100: 0.06;

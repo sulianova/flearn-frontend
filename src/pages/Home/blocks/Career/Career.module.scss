@@ -1,20 +1,21 @@
 @import 'styles/index';
 
-.__ {
-  // margin: set-calc(60) 0 set-calc(70) set-calc(40);
-  // width: 80%;
+.wrapper {
+  position: relative;
 
-  // @include set-media(md) {
-  //   margin: set-calc(30) 0 set-calc(40) set-calc(8);
-  //   width: 96%;
-  // }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  padding: set-calc(48) set-calc(24);
+.card {
+  position: relative;
 
-  // background-color: var(--color-card);
-  // border: set-calc(1) solid  var(--color-border);
-  // box-shadow: $shadow-huge-default;
-  // border-radius: set-calc($border-radius-medium);
+  margin: 0 auto;
+  padding: set-calc(64);
+
+  background-color: $color-highlight-violet;
+  border-radius: set-calc($border-radius-30);
 
   display: flex;
   flex-direction: column;
@@ -22,26 +23,99 @@
   align-items: center;
 
   @include set-media(md) {
-    padding: set-calc(32) set-calc(16);
-
-    // border: set-calc(1) solid var(--color-border);
+    padding: set-calc(24);
+    border-radius: set-calc($border-radius-20);
   }
 }
 
 .title {
-  @include set-typography(56, 58, 500);
+  @include font-56-normal-header;
+  font-family: $font-family-bold;
+  text-align: center;
 
   transition: opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
-  background: $color-gradient-rainbow;
-  background-size: 400% 400%;
+  color: var(--color-content-primary);
 
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  margin-bottom: set-calc(60);
+  width: 60%;
+  // background: $color-gradient-rainbow;
+  // background-size: 400% 400%;
 
-  animation: buttonGradient 45s ease infinite;
-  transition: width .3s, margin .3s, min-width .3s, background-color .3s, color .3s, border .3s, background-position 2s ease-out, padding-left .3s;
+  // -webkit-text-fill-color: transparent;
+  // background-clip: text;
+
+  // animation: buttonGradient 45s ease infinite;
+  // transition: width .3s, margin .3s, min-width .3s, background-color .3s, color .3s, border .3s, background-position 2s ease-out, padding-left .3s;
 
   @include set-media(md) {
-    @include set-typography(36, 40, 500);
+    @include font-40-normal-header;
+    width: 100%;
+    margin-bottom: set-calc(40);
   }
+}
+
+.actions {
+  grid-area: actions;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+
+  @include set-media(md) {
+    flex-direction: row-reverse;
+    width: 100%;
+  }
+}
+
+.actionsBtn {
+  @include btn;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 1;
+  padding: 0 set-calc(64);
+  height: set-calc(80);
+
+  border-radius: calc(set-calc(80) / 2);
+  background: $color-accent-promo-light;
+  border: 2px solid $color-content-primary-light;
+
+  @include set-media(md) {
+    padding: 0 0;
+    width: 100%;
+    height: set-calc(60);
+    border: 1px solid $color-content-primary-light;
+  }
+
+  .text {
+    @include font-20-normal-ui;
+    color: $color-content-primary-light;
+    font-family: $font-family-medium;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+}
+
+.actionsBtn::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  -webkit-transition: opacity .8s;
+  -o-transition: opacity .8s;
+  transition: opacity .8s;
+  border-radius: 100px;
+  border: 0;
+  background: -o-radial-gradient(50% 50%, 60% 2336.38%, $color-accent-promo-light 0, $white 100%), $color-accent-promo-light;
+  background: radial-gradient(60% 2336.38% at 50% 50%, $color-accent-promo-light 0, $white 100%), $color-accent-promo-light;
+  opacity: 0;
+  will-change: opacity;
 }

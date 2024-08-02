@@ -157,11 +157,13 @@
 
   border-radius: calc(set-calc(80) / 2);
   background: $color-accent-promo-light;
+  border: 2px solid $color-content-primary-light;
 
   @include set-media(md) {
     display: none;
     margin: 0 0 set-calc(4) 0;
     flex: 1 1 max-content;
+    border: 1px solid $color-content-primary-light;
   }
 
   .text {

@@ -3,13 +3,9 @@
 .section {
   display: block;
   position: relative;
-  margin-top: set-calc(16);
+  margin-bottom: set-calc(24);
 
   @include set-media(md) {
-    margin-top: set-calc(10);
+    margin-bottom: set-calc(16);
   }
-}
-
-.section:first-child {
-  padding-top: 0;
 }

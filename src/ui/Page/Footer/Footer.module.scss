@@ -5,10 +5,10 @@
   display: flex;
   flex-direction: column;
   padding: 0 set-calc($padding-x-desk-page) set-calc(32);
-  margin-top: set-calc(16);
+  margin-top: set-calc(24);
 
   @include set-media(md) {
-    margin-top: set-calc(8);
+    margin-top: set-calc(16);
     padding: 0 set-calc(16) set-calc(16);
     grid-gap: set-calc(24);
   }
@@ -44,10 +44,10 @@
 }
 
 .colItem {
-  @include font-16-normal-ui;
+  @include font-14-normal-ui;
 
   &:not(:last-child) {
-    margin-bottom: set-calc(6);
+    margin-bottom: set-calc(4);
   }
 
   @include set-media(md) {
