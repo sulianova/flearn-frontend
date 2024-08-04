@@ -80,16 +80,25 @@
 }
 
 .cardIcon {
-  flex-shrink: 0;
-  display: block;
-  width: set-calc(88);
-  height: set-calc(88);
+  display: flex;
+  flex-grow: 2;
 
-  margin-bottom: set-calc(20);
+  width: set-calc(100);
+  height: set-calc(100);
+  order: 2;
+
+  margin: 0 auto;
   
   @include set-media(md) {
-    width: set-calc(66);
-    height: set-calc(66);
+    order: 1;
+    justify-content: flex-start;
+    align-items: start;
+
+    margin: 0 0;
+    margin-bottom: set-calc(20);
+
+    width: set-calc(96);
+    height: set-calc(96);
   }
 }
 
@@ -103,8 +112,11 @@
 
   z-index: 100;
 
+  order: 1;
+
   @include set-media(md) {
     align-items: start;
+    order: 2;
   }
 }
 
@@ -116,7 +128,7 @@
   color: var(--color-content-primary);
   font-family: $font-family-bold;
 
-  margin-bottom: set-calc(126);
+  margin-bottom: set-calc(12);
 
   @include set-media(md) {
     @include set-typography(18, 22, 500);
@@ -196,6 +208,8 @@
 
   width: 100%;
   height: set-calc(56);
+
+  order: 3;
 
   @include set-media(md) {
     display: none;
