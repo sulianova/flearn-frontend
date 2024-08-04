@@ -158,8 +158,18 @@ export default function MobileMenuPopup(props: Readonly<IProps>) {
                   <div className={cx({ item: true })} onClick={() => frontendSettingsService.update({ theme: theme === 'light' ? 'dark' : 'light' })}>
                     <div className={classes.itemTitle}>
                       <div className={classes.withIcon}>
-                        <span>Темная тема</span>
-                        <Icon icon='Night'/>
+                        {theme === 'dark' ?
+                          (<>
+                            <span>Светлая тема</span>
+                            <Icon icon="Day"/>
+                          </>
+                          )
+                        : (
+                          <>
+                            <span>Темная тема</span>
+                            <Icon icon="Night"/>
+                          </>
+                          )}
                       </div>
                     </div>
                   </div>

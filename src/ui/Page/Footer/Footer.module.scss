@@ -19,6 +19,7 @@
   padding: set-calc(32) 0 0;
 
   @include set-media(md) {
+    gap: set-calc(10);
     padding-top: 0;
   }
 }
@@ -118,6 +119,8 @@
   grid-row: 1;
   margin-bottom: set-calc(16);
 
+  color: var(--color-content-paragraph-secondary);
+  font-family: $font-family-regulary;
 
   @include set-media(md) {
     margin-bottom: set-calc(8);
@@ -128,7 +131,11 @@
   grid-column: 1 / 2;
   grid-row: 2;
 
+  font-family: $font-family-regulary;
+  color: var(--color-content-paragraph-secondary);
+
   @include set-media(md) {
+    display: none;
     margin-bottom: set-calc(8);
   }
 }
@@ -137,6 +144,8 @@
   grid-column: 2 / 3;
   grid-row: 2;
 
+  font-family: $font-family-regulary;
+  color: var(--color-content-paragraph-secondary);
 
   @include set-media(md) {
     margin-bottom: set-calc(16);
@@ -151,30 +160,33 @@
   justify-content: end;
 
   @include set-media(md) {
+    margin-top: set-calc(10);
     justify-content: start;
+  }
+
+  a {
+    display: block;
+    background-color: transparent;
+    border-radius: set-calc($border-radius-6);
   }
 
   svg {
     display: block;
     fill: var(--color-content-background-secondary);
-    height: set-calc(24);
+    height: set-calc(26);
+
+    transition: fill $d-hover ease;
 
     &:hover {
       fill: var(--primary-color);
     }
 
     @include set-media(md) {
-      height: set-calc(24);
+      height: set-calc(28);
     }
-  }
-
-  a {
-    height: auto;
-    width: auto;
-    background-image: none;
   }
 }
 
 .socialLink:not(:last-child) {
-  margin-right: set-calc(10);
+  margin-right: set-calc(16);
 }

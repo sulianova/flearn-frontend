@@ -1,37 +1,15 @@
 @import 'styles/index';
 
 .__ {
-  @include is-beige;
-  background-color: var(--color-background-default);
-
   display: flex;
   flex-direction: column;
 
-  padding-top: set-calc(100);
-  padding-bottom: set-calc(100);
+  margin: set-calc(32) set-calc(24) set-calc(100);
 
   @include set-media(md) {
-    padding-top: set-calc(64);
-    padding-bottom: set-calc(64);
+    margin: set-calc(40) 0 set-calc(80);
   }
 }
-
-// .__ {
-//   display: flex;
-//   flex-direction: column;
-//   min-height: 80vh;
-  
-//   overflow: visible;
-//   margin: set-calc(32) set-calc(16) set-calc(100);
-
-
-//   @include set-media(md) {
-//     position: relative;
-
-//     min-height: unset;
-//     margin: set-calc(40) 0 set-calc(80);
-//   }
-// }
 
 .inner {
   position: relative;
@@ -126,9 +104,9 @@
   align-items: center;
   justify-content: center;
 
-  padding: 0 set-calc(80);
+  padding: 0 set-calc(40);
 
-  border-radius: set-calc($border-radius-16);
+  border-radius: set-calc($border-radius-20);
   background-color: $color-highlight-yellow;
   box-shadow: $shadow-small-default;
 

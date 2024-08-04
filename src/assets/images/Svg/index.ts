@@ -40,3 +40,4 @@ export * from './Refresh';
 export * from './TickInCircle';
 export * from './Composition';
 export * from './Send';
+export * from './Day';
