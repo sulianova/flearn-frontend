@@ -14,7 +14,7 @@ export default function Career(props: IProps) {
   return (
     <div className={classes.wrappeer}>
       <div className={classes.card}>
-        <span className={classes.title}>Рисуйте по 5 минут в день и следите за прогрессом</span>
+        <span className={classes.title}>Рисуйте по 5 минут в день, чтобы заметить результат</span>
         <div className={classes.actions}>
             {authService.isAuthenticated ? (
               <Link

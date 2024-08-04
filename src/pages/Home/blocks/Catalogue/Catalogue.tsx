@@ -43,21 +43,6 @@ export default function Catalogue(props: IProps) {
       <div className={classes.animationWrapper}>
         <div className={classes.wrapper}>
           {courses.map(course => <Card key={course.id} course={course}/>)}
-          {/* {authService.isAuthenticated ? (
-            <Link
-              className={classes.promo}
-              to={props.linkToFreeCourse}
-            >
-              {promoContent}
-            </Link>
-          ) : (
-            <div
-              className={classes.promo}
-              onClick={props.onNotAuthedClick}
-            >
-              {promoContent}
-            </div>
-          )} */}
         </div>
       </div>
     </div>
