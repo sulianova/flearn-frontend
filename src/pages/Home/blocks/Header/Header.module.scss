@@ -1,13 +1,48 @@
 @import 'styles/index';
 
 .__ {
+  position: relative;
   display: flex;
-  flex-direction: column;
 
-  margin: set-calc(32) set-calc(24) set-calc(100);
+  margin: set-calc(32) set-calc(100) set-calc(100);
 
   @include set-media(md) {
-    margin: set-calc(40) 0 set-calc(80);
+    flex-direction: column;
+
+    margin: 0 0 set-calc(80);
+  }
+}
+
+.imgWrapper {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 50%;
+
+  svg {
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
+
+    aspect-ratio: auto 640 / 435;
+    width: set-calc(640);
+
+    path {
+      stroke-width: set-calc(0.8);
+
+      @include set-media(md) {
+        stroke-width: set-calc(1.5);
+      }
+    }
+  }
+
+  @include set-media(md) {
+    position: absolute;
+    bottom: set-calc(100);
+    left: 25%;
   }
 }
 
@@ -17,11 +52,12 @@
   display: flex;
   flex-direction: column;
   align-items: start;
-  justify-content: space-between;
 
-  width: 100%;
+  width: 50%;
 
   @include set-media(md) {
+    width: 100%;
+
     padding: 0 set-calc(16);
   }
 }
@@ -35,10 +71,9 @@
 }
 
 .headerTitle {
-  margin-bottom: set-calc(40);
-  max-width: 70%;
+  margin: set-calc(60) 0 set-calc(30);
 
-  @include set-typography(90, 100, 500);
+  @include set-typography(60, 64, 500);
   font-family: $font-family-bold;
   text-align: start;
 
@@ -56,8 +91,7 @@
 
   @include set-media(md) {
     @include set-typography(40, 48, 500);
-    max-width: 100%;
-    margin-bottom: set-calc(16);
+    margin: set-calc(24) 0 set-calc(16);
   }
 }
 
@@ -69,7 +103,7 @@
   @include set-media(md) {
     display: flex;
     flex-direction: column;
-    margin-bottom: set-calc(180);
+    margin-bottom: set-calc(280);
   }
 }
 
@@ -78,7 +112,8 @@
 
   color: var(--color-content-paragraph-primary);
   text-align: start;
-  @include set-typography(24, 36, 500);
+  @include set-typography(20, 32, 500);
+  font-family: $font-family-regulary;
 
   @include set-media(md) {
     @include font-20-normal-paragraph;
@@ -104,7 +139,7 @@
   align-items: center;
   justify-content: center;
 
-  padding: 0 set-calc(40);
+  padding: 0 set-calc(20);
 
   border-radius: set-calc($border-radius-20);
   background-color: $color-highlight-yellow;
@@ -114,7 +149,7 @@
   color: $color-content-primary-light;
   font-family: $font-family-medium;
 
-  height: set-calc(80);
+  height: set-calc(70);
   width: 100%;
 
   &:hover {

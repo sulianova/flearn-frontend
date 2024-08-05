@@ -1,8 +1,9 @@
 import { ECommonErrorTypes, TStateState } from 'types';
+import type { TIcon } from 'ui/Icon/Icon';
 import type { TText } from 'ui/Text/Text';
 
-import { ICourseDataContent, TImageDataAdjustable } from './contentFR';
-import { ICourseDataContentDB, TImageDataAdjustableDB } from './contentDB';
+import type { ICourseDataContent, TImageDataAdjustable } from './contentFR';
+import type { ICourseDataContentDB, TImageDataAdjustableDB } from './contentDB';
 
 export * from './contentCommon';
 export * from './contentDB';
@@ -28,6 +29,10 @@ interface ICourseDataCommon {
   title: string
   level: 'beginner' | 'intermediate' | 'advanced'
   telegramLink: string
+  icon: {
+    icon: TIcon
+    color?: string
+  }
 }
 
 export interface ICourseProductOption {

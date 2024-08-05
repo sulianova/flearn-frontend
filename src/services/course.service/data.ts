@@ -17,6 +17,9 @@ const courseDB1: ICourseDataDB = {
     unit: 'week',
     value: 4,
   },
+  icon: {
+    icon: 'Composition',
+  },
   homeworksNumber: 3,
   level: 'beginner',
   discount: {
@@ -283,6 +286,9 @@ const courseDB2: ICourseDataDB = {
   duration: {
     unit: 'day',
     value: 10,
+  },
+  icon: {
+    icon: 'Style',
   },
   homeworksNumber: 1,
   feild: 'Иллюстрация',

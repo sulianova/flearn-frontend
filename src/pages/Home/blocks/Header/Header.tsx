@@ -2,6 +2,7 @@ import { i18n } from 'shared';
 
 import { authService } from 'services/auth.service';
 import Link from 'ui/Link/Link';
+import Icon from 'ui/Icon/Icon';
 
 import classes from './Header.module.scss';
 
@@ -17,7 +18,6 @@ export default function Header(props: IProps) {
         <div className={classes.headerWrapper}>
           <h1 className={classes.headerTitle}>
             <span >{i18n.t('catalogue.title1')}</span>
-            <span className='font-light bc-yellow'>{i18n.t('catalogue.title2')}</span>
           </h1>
           <div className={classes.descriptionWrapper }>
             <div className={classes.description}>{i18n.t('catalogue.description')}</div>
@@ -40,6 +40,9 @@ export default function Header(props: IProps) {
               </div>
             )}
           </div>
+      </div>
+      <div className={classes.imgWrapper}>
+        <div className={classes.cardIcon}><Icon icon='Composition'/></div>
       </div>
     </div>
   );

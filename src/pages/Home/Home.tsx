@@ -47,7 +47,12 @@ export default function Home() {
           close={() => setPopupVisible(false)}
         />
       }
-      <Page variant={EPageVariant.WEB} header footer={EFooter.Default}>
+      <Page
+        variant={EPageVariant.WEB}
+        header
+        footer={EFooter.Default}
+        backgroundColor='var(--color-background-default)'
+      >
         <Header
           linkToFreeCourse={linkToFreeCourse}
           onNotAuthedClick={onNotAuthedClick}

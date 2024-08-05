@@ -197,11 +197,14 @@
 
 .title {
   margin: set-calc(12) 0 set-calc(16);
-  @include font-32-normal-header;
+
+  @include set-typography(28, 40, 500);
   font-family: $font-family-medium;
-  color: var(--color-content-primary);
+  color: var(--color-content-paragraph-primary);
 
   @include set-media(md) {
+    @include set-typography(20, 24, 500);
+
     margin: set-calc(8) 0 set-calc(16);
   }
 }
