@@ -36,7 +36,7 @@ export default function Card({ course }: Readonly<IProps>) {
             </p>
           </div>
         </div>
-        <div className={classes.cardBtn}>Подробнее о курсе</div>
+        <div className={classes.cardBtn}>Подробнее</div>
       </div>
       <div className={classes.background}>
       </div>

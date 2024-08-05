@@ -2,7 +2,7 @@
 
 .__ {
   @include is-beige;
-  background-color: var(--color-background-default);
+  background-color: var(--color-background-alternate);
 
   display: flex;
   flex-direction: column;
@@ -43,7 +43,7 @@
   margin-bottom: set-calc(16);
 
   @include font-40-normal-header;
-  font-family: $font-family-medium;
+  font-family: $font-family-bold;
 
   @include set-media(md) {
     margin-bottom: set-calc(16);
