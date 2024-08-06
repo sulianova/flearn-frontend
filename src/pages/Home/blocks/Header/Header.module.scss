@@ -105,7 +105,6 @@
   color: var(--color-content-paragraph-primary);
   text-align: start;
   @include set-typography(20, 32, 500);
-  font-family: $font-family-regulary;
 
   @include set-media(md) {
     @include font-20-normal-paragraph;
