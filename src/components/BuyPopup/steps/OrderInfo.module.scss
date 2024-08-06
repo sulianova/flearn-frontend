@@ -3,7 +3,6 @@
 .wrapper {
   display: flex;
   gap: set-calc($s-gap);
-  padding: set-calc(24) 0 0;
   justify-content: center;
 
   @include set-media(md) {
@@ -13,7 +12,6 @@
 
     width: set-calc(390);
     left: set-calc(12);
-    padding: set-calc(48) 0 set-calc(16);
   }
 }
 
@@ -23,13 +21,14 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
 
   width: set-calc(500);
-  padding: set-calc(24);
+  padding: 0 set-calc(24);
 
   @include set-media(md) {
     border-radius: set-calc($border-radius-medium);
-    padding: set-calc(16);
+    padding: set-calc(16) set-calc(16);
 
     min-height: unset;
     width: 100%;
@@ -37,36 +36,55 @@
 }
 
 .title {
-  margin-bottom: set-calc(16);
+  margin-bottom: set-calc(32);
   
   word-break: break-word;
   @include font-32-normal-header;
   color: var(--color-content-primary);
   font-family: $font-family-bold;
+  text-align: center;
   
   @include set-media(md) {
     margin-bottom: set-calc(16);
   }
 }
 
-.description {
-  padding: set-calc(16) 0 set-calc(80);
+.imageWrapper {
+  display: flex;
+  flex: 1 1;
+  align-items: center;
+  justify-content: center;
 
+  margin-bottom: set-calc(40);
+  width: 90%;
+
+  @include set-media(md) {
+    margin-bottom: set-calc(40);
+    width: 70%;
+  }
+
+  svg {
+    width: 100%;
+  }
+}
+
+.description {
   p {
-    @include font-18-normal-paragraph;
+    @include set-typography(18, 28, 500);
+    text-align: center;
+
+    @include set-media(md) {
+      @include set-typography(16, 24, 500)
+    }
   }
 
   p:not(:last-child) {
-    margin-bottom: set-calc(16);
+    margin-bottom: set-calc(20);
 
     span {
       font-family: inherit;
       font-size: inherit;
       font-weight: inherit;
     }
-  }
-
-  @include set-media(md) {
-    padding: set-calc(16) 0 set-calc(60);
   }
 }

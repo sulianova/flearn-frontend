@@ -32,6 +32,35 @@ export default function Decision({ course, next }: IProps) {
         <h2 className={classes.courseName}>
           {t(`options.${type}.caption`)}
         </h2>
+        <h3 className={classes.title}>{t(`options.${type}.title`)}</h3>
+        <ul className={classes.pricingCheckList}>
+          <li className={classes.pricingCheckListItem}>
+            <div className={classes.itemIcon}><Icon icon='TickInCircle'/></div>
+            <div className={classes.itemText}>Бессрочный доступ к учебнику</div>
+          </li>
+          <li className={classes.pricingCheckListItem}>
+            <div className={classes.itemIcon}><Icon icon='TickInCircle'/></div>
+            <div className={classes.itemText}>Телеграм-чат студентов</div>
+          </li>
+          <li className={classes.pricingCheckListItem}>
+            <div className={classes.itemIcon}><Icon icon='TickInCircle'/></div>
+            <div className={classes.itemText}>Поддержка куратора</div>
+          </li>
+          {
+            type === 'OPTIMAL' && (
+              <>
+              <li className={classes.pricingCheckListItem}>
+                <div className={classes.itemIcon}><Icon icon='TickInCircle'/></div>
+                <div className={classes.itemText}>Телеграм-чат с преподавателем</div>
+              </li>
+              <li className={classes.pricingCheckListItem}>
+                <div className={classes.itemIcon}><Icon icon='TickInCircle'/></div>
+                <div className={classes.itemText}>Индивидуальная обратная связь</div>
+              </li>
+              </>
+            )
+          }
+        </ul>
         <dl className={classes.paymentSummary}>
           <dt>
             <div className={classes.creditPrice}>
@@ -53,17 +82,6 @@ export default function Decision({ course, next }: IProps) {
         >
           Перейти к оплате
         </button>
-        <h3 className={classes.title}>{t(`options.${type}.title`)}</h3>
-        <ul className={classes.pricingCheckList}>
-          <li className={classes.pricingCheckListItem}>
-            <div className={classes.itemIcon}><Icon icon='TickInCircle'/></div>
-            <div className={classes.itemText}>Чат в телеграмме для студентов</div>
-          </li>
-          <li className={classes.pricingCheckListItem}>
-            <div className={classes.itemIcon}><Icon icon='TickInCircle'/></div>
-            <div className={classes.itemText}>Бессрочный доступ к урокам и упражнениям</div>
-          </li>
-        </ul>
       </div>
     );
   });
@@ -72,8 +90,8 @@ export default function Decision({ course, next }: IProps) {
     <>
       <div className={classes.commonFlowRow}>
         <div className={classes.header}>
-          <div className={classes.headerTitle}>Выберите то, что больше подходит</div>
-          <div className={classes.headerDescription}>Добавить обратную связь можно позже, когда поймете, что она нужна</div>
+          {/* <div className={classes.headerTitle}></div> */}
+          <div className={classes.headerDescription}>Выберите то, что больше подходит. Добавить обратную связь можно позже, когда поймете, что она нужна</div>
         </div>
         <div className={classes.wrapper}>
           {optionsNodes}

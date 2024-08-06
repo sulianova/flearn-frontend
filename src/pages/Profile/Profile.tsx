@@ -201,7 +201,7 @@ function TopicCard(props: { group: IGroup, setOpenedTopic: (topic: string) => vo
   const totalDurationMinutes = group.lessons.reduce((acc, l) => acc + durationToMinutes(l.duration), 0);
   const totalDurationStr = totalDurationMinutes >= 60
     ? `${Math.round(totalDurationMinutes / 6) / 10} ч`
-    : `${Math.round(totalDurationMinutes)} м`;
+    : `${Math.round(totalDurationMinutes)} мин`;
   return (
     <div className={classesList.itemWrapper} onClick={() => setOpenedTopic(group.topic)}>
       <div className={classesList.item}>

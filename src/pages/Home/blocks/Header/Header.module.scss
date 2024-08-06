@@ -6,7 +6,7 @@
   justify-content: center;
   align-items: center;
 
-  margin: 0 set-calc(100) set-calc(100);
+  margin: set-calc(40) set-calc(100) set-calc(100);
 
   @include set-media(md) {
     flex-direction: column;
@@ -23,6 +23,11 @@
   align-items: center;
 
   width: 50%;
+
+  @include set-media(md) {
+    width: 70%;
+    z-index: -100;
+  }
 
   svg {
     max-width: 100%;
@@ -43,7 +48,7 @@
 
   @include set-media(md) {
     position: absolute;
-    bottom: set-calc(100);
+    bottom: set-calc(90);
     left: 25%;
   }
 }

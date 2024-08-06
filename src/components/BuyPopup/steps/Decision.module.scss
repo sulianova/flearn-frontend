@@ -6,9 +6,8 @@
   justify-content: center;
   align-items: center;
 
-  margin-top: set-calc(24);
   @include set-media(md) {
-    margin-top: set-calc(32);
+    margin-top: set-calc(24);
   }
 }
 
@@ -18,12 +17,14 @@
 
   padding-bottom: set-calc(24);
 
-  @include font-56-normal-header;
+  @include set-typography(56, 60, 500);
   font-family: $font-family-bold;
   text-align: center;
 
   @include set-media(md) {
     padding-bottom: set-calc(16);
+
+    @include set-typography(28, 32, 500);
   }
 }
 
@@ -31,14 +32,17 @@
   position: relative;
 
   margin-bottom: set-calc(40);
-  max-width: set-calc(600);
+  max-width: set-calc(800);
 
-  @include font-20-normal-paragraph;
+  @include set-typography(24, 36, 500);
   color: var(--color-content-paragraph-primary);
   text-align: center;
 
   @include set-media(md) {
     margin-bottom: set-calc(16);
+    width: 85%;
+
+    @include set-typography(14, 18, 500);
   }
 }
 
@@ -83,12 +87,13 @@
 
   width: min(380px, 80vw);
 
-  padding: set-calc(32);
-  background-color: var(--color-background-glassy-c);
+  padding: set-calc(40);
+  background-color: var(--color-card);
   border-radius: set-calc($border-radius-large);
+  border: 1px solid var(--border-color);
 
   @include set-media(md) {
-    padding: set-calc(24);
+    padding: set-calc(32);
     flex-grow: 1;
 
     min-width: 100%;
@@ -157,6 +162,7 @@
 
   .title {
     color: var(--color-content-inverted-secondary);
+    font-family: $font-family-regular;
   }
 
   .paymentSummary {
@@ -179,28 +185,28 @@
     .discountTag {
       color: $color-content-inverted-primary-light;
       background: $color-highlight-violet;
-      font-family: $font-family-bold;
     }
   }
 
   .itemIcon {
-    color: var(--color-content-inverted-primary);
+    color: $color-highlight-violet;
 
     svg {
       path {
-        fill: var(--color-content-primary);
+        fill: $color-content-inverted-primary-light;
       }
     }
   }
 
   .itemText {
     color: var(--color-content-inverted-secondary);
+    font-family: $font-family-regular;
   }
 
   .cardBtn {
     color: $color-content-inverted-primary-light;
 
-    background: var(--primary-color);
+    background: $color-highlight-violet;
     border: none;
   
     &:hover {
@@ -220,20 +226,20 @@
 .courseName {
   position: relative;
 
-  margin-bottom: set-calc(8);
+  margin-bottom: set-calc(32);
   width: max-content;
 
-  @include font-18-normal-paragraph;
+  @include font-28-normal-header;
   font-family: $font-family-bold;
   color: var(--color-content-primary);
 }
 
 .title {
-  max-width: set-calc(560);
+  max-width: 95%;
   word-break: break-word;
-  margin: set-calc(24) 0;
+  margin: 0 0 set-calc(16);
 
-  @include font-16-normal-paragraph;
+  @include set-typography(14, 20, 500);
   color: var(--color-content-paragraph-secondary);
 }
 
@@ -283,7 +289,7 @@
 }
 
 .itemText {
-  @include font-16-normal-paragraph;
+  @include set-typography(14, 20, 500);
   color: var(--color-content-paragraph-secondary);
 }
 
@@ -296,12 +302,11 @@
   justify-content: center;
   align-items: center;
 
-  margin-top: set-calc(32);
   padding: 0 set-calc(32);
 
   color: var(--color-content-paragraph-secondary);
   font-family: $font-family-medium;
-  @include font-18-normal-ui;
+  @include font-16-normal-ui;
 
   height: set-calc(64);
   background-color: transparent;
@@ -310,7 +315,7 @@
 
   &:hover {
     cursor: pointer;
-    background-color: var(--color-content-paragraph-secondary);
+    background-color: var(--color-content-background-primary);
     border-color: transparent;
     color: var(--color-content-inverted-primary);
   }
@@ -328,11 +333,10 @@
   display: flex;
   justify-content: space-between;
 
-  padding: set-calc(8) 0;
-  margin: 0!important;
+  margin: set-calc(60) 0 set-calc(20);
 
   @include set-media(md) {
-    padding: set-calc(8) 0;
+
   }
 }
 
@@ -342,7 +346,6 @@
   justify-content: flex-end;
   flex-wrap: wrap;
   gap: set-calc(4);
-  margin-top: set-calc(4);
 }
 
 .discountTag {
@@ -367,7 +370,7 @@
   display: block;
 
   color: var(--color-content-background-secondary);
-  @include font-18-normal-ui;
+  @include set-typography(16, 22, 500);
   margin: set-calc(5) 0;
   white-space: nowrap;
 
@@ -388,15 +391,11 @@
 
 .creditPrice {
   position: relative;
-  @include set-typography(48, 50, 500);
+  @include set-typography(28, 28, 500);
   font-family: $font-family-bold;
 
   display: inline-block;
   letter-spacing: -0.05rem;
   color: var(--color-content-primary);
   align-self: flex-end;
-
-  @include set-media(md) {
-    @include set-typography(48, 50, 500);
-  }
 }

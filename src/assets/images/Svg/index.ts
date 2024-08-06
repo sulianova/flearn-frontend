@@ -42,3 +42,6 @@ export * from './Composition';
 export * from './Send';
 export * from './Day';
 export * from './Style';
+export * from './Creative';
+export * from './Error404';
+export * from './Paid';
