@@ -67,12 +67,12 @@
   cursor: pointer;
   
   @include set-media(md) {
-    position: relative;
+    flex: 0 0;
 
     padding: set-calc(24);
     gap: set-calc(8);
 
-    width: set-calc(300);
+    width: set-calc(280);
   }
 }
 
@@ -113,7 +113,10 @@
     justify-content: flex-start;
     align-items: start;
 
-    margin-bottom: set-calc(20);
+    width: set-calc(80);
+    aspect-ratio: auto 80 / 80;
+
+    margin-bottom: set-calc(10);
   }
 }
 
@@ -147,7 +150,7 @@
     justify-content: center;
     width: 100%;
 
-    @include set-typography(14, 20, 500);
+    @include set-typography(13, 18, 500);
     color: var(--color-content-paragraph-secondary);
 
     margin-bottom: set-calc(12);
@@ -168,7 +171,7 @@
 
   p {
     position: relative;
-    @include set-typography(14, 20, 500);
+    @include set-typography(13, 18, 500);
   }
 
   p:not(:last-child) {
