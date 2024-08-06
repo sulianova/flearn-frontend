@@ -157,7 +157,7 @@
 
   border-radius: calc(set-calc(80) / 2);
   background: $color-accent-promo-light;
-  border: 2px solid $color-content-primary-light;
+  border: 1.5px solid $color-content-primary-light;
 
   @include set-media(md) {
     display: none;
