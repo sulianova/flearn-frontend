@@ -11,41 +11,35 @@
 .card {
   position: relative;
 
-  margin: 0 auto;
-  padding: set-calc(64);
-
-  background-color: $color-highlight-violet;
-  border-radius: set-calc($border-radius-30);
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
+  width: 70%;
+  margin: 0 auto;
+  padding: set-calc(80);
+
+  background-color: var(--color-content-background-primary);
+  border-radius: set-calc($border-radius-50);
+
   @include set-media(md) {
     padding: set-calc(24);
     border-radius: set-calc($border-radius-20);
+
+    width: 100%;
   }
 }
 
 .title {
-  @include font-56-normal-header;
+  @include set-typography(42, 50, 500);
   font-family: $font-family-bold;
   text-align: center;
 
   transition: opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
-  color: var(--color-content-primary);
+  color: var(--color-content-inverted-primary);
 
   margin-bottom: set-calc(60);
-  width: 68%;
-  // background: $color-gradient-rainbow;
-  // background-size: 400% 400%;
-
-  // -webkit-text-fill-color: transparent;
-  // background-clip: text;
-
-  // animation: buttonGradient 45s ease infinite;
-  // transition: width .3s, margin .3s, min-width .3s, background-color .3s, color .3s, border .3s, background-position 2s ease-out, padding-left .3s;
 
   @include set-media(md) {
     @include font-40-normal-header;
@@ -76,18 +70,16 @@
   justify-content: center;
 
   z-index: 1;
-  padding: 0 set-calc(64);
+  padding: 0 set-calc(24);
   height: set-calc(80);
 
-  border-radius: calc(set-calc(80) / 2);
+  border-radius: set-calc($border-radius-16);
   background: $color-accent-promo-light;
-  border: 2px solid $color-content-primary-light;
 
   @include set-media(md) {
     padding: 0 0;
     width: 100%;
     height: set-calc(60);
-    border: 1px solid $color-content-primary-light;
   }
 
   .text {
@@ -112,7 +104,7 @@
   -webkit-transition: opacity .8s;
   -o-transition: opacity .8s;
   transition: opacity .8s;
-  border-radius: 100px;
+  border-radius: set-calc($border-radius-16);
   border: 0;
   background: -o-radial-gradient(50% 50%, 60% 2336.38%, $color-accent-promo-light 0, $white 100%), $color-accent-promo-light;
   background: radial-gradient(60% 2336.38% at 50% 50%, $color-accent-promo-light 0, $white 100%), $color-accent-promo-light;
