@@ -67,7 +67,7 @@ $color-highlight-green: #a4dd49;
 $color-highlight-sky: #49c2ff;
 $color-highlight-pink: #ffa2e2;
 $color-highlight-violet: #b595ff;
-$color-highlight-blue: #436eff;
+$color-highlight-blue: #3b12cc;
 
 $color-highlight-silver: #edf2f7;
 $color-highlight-gold: #fcf6c5;;
@@ -87,15 +87,15 @@ $color-palette-indigo-500: #452dbd;
 $color-palette-indigo-400: #513deb;
 $color-palette-indigo-350: #7657ff;
 $color-palette-indigo-300: #9282fa;
-$color-palette-indigo-250: #9c8cff;
+$color-palette-indigo-250: #b595ff;
 $color-palette-indigo-200: #ede8ff;
 $color-palette-indigo-100: #f7f5ff;
 
 //gradient
-$color-gradient-rainbow: linear-gradient(320deg, #ffa2e2, #9c8cff, #9282fa, #5627ff, #49c2ff);
+$color-gradient-rainbow: linear-gradient(320deg, #ffa2e2, #b595ff, #9282fa, #5627ff, #49c2ff);
 
 //theme-light
-$primary-color-light: $color-palette-indigo-300;
+$primary-color-light: $color-palette-indigo-400;
 $primary-color-hover-light: $color-palette-indigo-350;
 $color-accent-error-light:#db2323;
 $color-accent-notice-light: #f26e30;
@@ -140,13 +140,13 @@ $color-background-card-light: $color-palette-black-700;
 $border-color-light: rgba(5, 6, 15, .1);
 
 //theme-dark
-$primary-color-dark: $color-palette-indigo-300;
+$primary-color-dark: $color-palette-indigo-250;
 $primary-color-hover-dark: $color-palette-indigo-350;
 $color-accent-error-dark: #db2323;
 $color-accent-notice-dark: #f26e30;
-$color-accent-success-dark: #30b83d;
+$color-accent-success-dark: #4ecc5a;
 $color-accent-warning-dark: $color-highlight-yellow;
-$color-accent-promo-dark:  $primary-color-dark;
+$color-accent-promo-dark: $color-highlight-violet;
 $color-accent-inverted-promo-dark: $color-highlight-yellow;
 $color-accent-promo-background-dark: $color-palette-white-200-a;
 $color-accent-neutral-dark: $color-palette-white-1000;
@@ -161,7 +161,7 @@ $color-background-glassy-inverted-a-dark: $color-palette-black-50-a;
 $color-background-glassy-inverted-b-dark: $color-palette-black-100-a;
 $color-background-glassy-inverted-c-dark: $color-palette-black-200-a;
 $color-background-glassy-inverted-d-dark: $color-palette-black-300-a;
-$color-background-highlighted-dark:$color-palette-black-600; //#404959;
+$color-background-highlighted-dark: $color-palette-black-600; //#404959;
 $color-background-overlay-dark: $color-palette-black-800-a;
 $color-background-stroke-dark: rgba(255, 255, 255, 0.2);
 $color-border-dark: hsla(0, 0%, 100%, .1);

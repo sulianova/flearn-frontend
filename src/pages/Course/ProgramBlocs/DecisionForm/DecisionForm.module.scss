@@ -178,7 +178,7 @@
 
   border-radius: set-calc($border-radius-large);
   padding: set-calc(10) set-calc(15);
-  background: $color-highlight-violet;
+  background: var(--primary-color);
   
   color: $color-content-primary-dark;
   @include font-16-normal-ui;

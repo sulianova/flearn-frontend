@@ -42,7 +42,7 @@ export default function Header(props: IProps) {
           </div>
       </div>
       <div className={classes.imgWrapper}>
-        <Icon icon='Chill'/>
+        {/* <Icon icon='Creative'/> */}
       </div>
     </div>
   );

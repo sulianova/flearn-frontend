@@ -43,7 +43,7 @@
   white-space: pre-line;
 
 
-  background-color: $color-highlight-violet;
+  background-color: var(--primary-color);
   border-radius: set-calc($border-radius-20);
   padding: set-calc(32);
 
@@ -59,7 +59,7 @@
   background-color: transparent;
   width: 60%;
 
-  color: $color-highlight-violet;
+  color: var(--primary-color);
   @include set-typography(20, 30, 500);
   font-family: $font-family-regular;
 
@@ -95,7 +95,7 @@
 
   padding: set-calc(12) set-calc(18);
   border-radius: set-calc($border-radius-large);
-  background-color: $color-highlight-violet;
+  background-color: var(--primary-color);
 
   @include set-media(md) {
     display: none;
@@ -137,7 +137,7 @@
     width: 100%;
 
     @include set-typography(18, 24, 500);
-    color: $color-highlight-violet;
+    color: var(--primary-color);
     font-family: $font-family-regular;
   }
 }

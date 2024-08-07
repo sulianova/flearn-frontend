@@ -217,7 +217,7 @@
 
     @include set-media(md) {
       &:hover {
-        background: var(--primary-color);
+        background: $color-highlight-violet;
       }
     }
   }

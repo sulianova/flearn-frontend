@@ -304,7 +304,7 @@
     pointer-events: none;
   
   .itemCard {
-    background: $color-highlight-violet;
+    background: var(--primary-color);
     background-size: 400% 400%;
   
     animation: buttonGradient 45s ease infinite;
@@ -315,7 +315,7 @@
     }
 
     .tag {
-      background-color: $color-accent-promo-dark;
+      background-color: $color-palette-indigo-300;
       color: $color-content-inverted-primary-light;
     }
 

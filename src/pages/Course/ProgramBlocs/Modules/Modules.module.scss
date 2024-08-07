@@ -11,7 +11,7 @@
 
   @include font-56-normal-header;
   font-family: $font-family-bold;
-  color: $color-highlight-violet;
+  color: var(--primary-color);
 
   @include set-media(md) {
     padding-left: set-calc(8);

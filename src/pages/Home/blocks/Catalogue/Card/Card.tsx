@@ -19,9 +19,9 @@ export default function Card({ course }: Readonly<IProps>) {
       className={classes.__}
       to={URLSections.Course.to({ courseId: course.id })}>
       <div className={classes.content}>
-        {/* <div className={classes.cardIcon}>
+        <div className={classes.cardIcon}>
           <Icon {...course.icon}/>
-        </div> */}
+        </div>
         <div className={classes.info}>
           <h3 className={classes.title}>{course.title}</h3>
           <div className={classes.description}>{course.introDescription}</div>

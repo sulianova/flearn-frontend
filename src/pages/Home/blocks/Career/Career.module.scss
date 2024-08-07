@@ -20,7 +20,7 @@
   margin: 0 auto;
   padding: set-calc(80);
 
-  background-color: var(--color-content-background-primary);
+  background-color: var(--primary-color);
   border-radius: set-calc($border-radius-50);
 
   @include set-media(md) {
@@ -33,26 +33,27 @@
 
 .title {
   @include set-typography(42, 50, 500);
-  font-family: $font-family-bold;
+  font-family: $font-family-medium;
   text-align: center;
 
-  transition: opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
-  color: var(--color-content-inverted-primary);
+  width: 80%;
 
-  margin-bottom: set-calc(60);
+  transition: opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
+  color: $color-content-inverted-primary-light;
+
+  margin-bottom: set-calc(80);
 
   @include set-media(md) {
-    @include font-40-normal-header;
-    width: 100%;
+    @include font-28-normal-header;
+    width: 90%;
     margin-bottom: set-calc(40);
   }
 }
 
 .actions {
-  grid-area: actions;
   display: flex;
   flex-wrap: wrap;
-  justify-content: start;
+  justify-content: center;
 
   @include set-media(md) {
     flex-direction: row-reverse;
@@ -74,40 +75,44 @@
   height: set-calc(80);
 
   border-radius: set-calc($border-radius-16);
-  background: $color-accent-promo-light;
+  border: 2px solid  $color-content-inverted-primary-light;
 
   @include set-media(md) {
-    padding: 0 0;
-    width: 100%;
     height: set-calc(60);
+
+    border-width: 1px;
   }
 
   .text {
     @include font-20-normal-ui;
-    color: $color-content-primary-light;
+    color: $color-content-inverted-primary-light;
     font-family: $font-family-medium;
   }
 
-  &:hover::before {
-    opacity: 1;
+  &:hover {
+    background: $color-content-inverted-primary-light;
+
+    .text {
+      color: var(--primary-color);
+    }
   }
 }
 
-.actionsBtn::before {
-  position: absolute;
-  content: "";
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-  -webkit-transition: opacity .8s;
-  -o-transition: opacity .8s;
-  transition: opacity .8s;
-  border-radius: set-calc($border-radius-16);
-  border: 0;
-  background: -o-radial-gradient(50% 50%, 60% 2336.38%, $color-accent-promo-light 0, $white 100%), $color-accent-promo-light;
-  background: radial-gradient(60% 2336.38% at 50% 50%, $color-accent-promo-light 0, $white 100%), $color-accent-promo-light;
-  opacity: 0;
-  will-change: opacity;
-}
+// .actionsBtn::before {
+//   position: absolute;
+//   content: "";
+//   top: 0;
+//   right: 0;
+//   bottom: 0;
+//   left: 0;
+//   z-index: -1;
+//   -webkit-transition: opacity .8s;
+//   -o-transition: opacity .8s;
+//   transition: opacity .8s;
+//   border-radius: set-calc($border-radius-16);
+//   border: 0;
+//   background: -o-radial-gradient(50% 50%, 60% 2336.38%, $color-accent-promo-light 0, $white 100%), $color-accent-promo-light;
+//   background: radial-gradient(60% 2336.38% at 50% 50%, $color-accent-promo-light 0, $white 100%), $color-accent-promo-light;
+//   opacity: 0;
+//   will-change: opacity;
+// }
