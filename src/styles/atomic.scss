@@ -1,0 +1,198 @@
+//fonts
+@mixin font-14-normal-ui {
+  @include set-typography(14, 16, 500);
+} 
+
+@mixin font-16-normal-paragraph {
+  @include set-typography(16, 20, 500);
+
+  @include set-media(md) {
+    @include set-typography(14, 18, 500)
+  }
+}
+
+@mixin font-16-normal-ui {
+  @include set-typography(16, 18, 500);
+
+  @include set-media(md) {
+    @include set-typography(14, 16, 500)
+  }
+}
+
+@mixin font-18-normal-paragraph {
+  @include set-typography(18, 32, 500);
+
+  @include set-media(md) {
+    @include set-typography(16, 24, 500)
+  }
+}
+
+@mixin font-18-normal-ui {
+  @include set-typography(18, 26, 500);
+
+  @include set-media(md) {
+    @include set-typography(16, 22, 500)
+  }
+}
+
+@mixin font-20-normal-paragraph {
+  @include set-typography(20, 34, 500);
+
+  @include set-media(md) {
+    @include set-typography(16, 24, 500);
+  }
+}
+
+@mixin font-20-normal-article {
+  @include set-typography(20, 34, 500);
+
+  @include set-media(md) {
+    @include set-typography(18, 30, 500);
+  }
+}
+
+@mixin font-20-normal-ui {
+  @include set-typography(20, 21, 500);
+
+  @include set-media(md) {
+    @include set-typography(16, 22, 500);
+  }
+}
+
+@mixin font-24-normal-header {
+  @include set-typography(24, 32, 500);
+
+  @include set-media(md) {
+    @include set-typography(20, 24, 500);
+  }
+}
+
+@mixin font-24-normal-ui {
+  @include set-typography(24, 24, 500);
+
+  @include set-media(md) {
+    @include set-typography(20, 20, 500);
+  }
+}
+
+@mixin font-28-normal-header {
+  @include set-typography(28, 32, 500);
+
+  @include set-media(md) {
+    @include set-typography(24, 28, 500);
+  }
+}
+
+@mixin font-32-normal-header  {
+  @include set-typography(32, 34, 500);
+
+  @include set-media(md) {
+    @include set-typography(26, 28, 500);
+  }
+}
+
+@mixin font-36-normal-header  {
+  @include set-typography(36, 38, 500);
+
+  @include set-media(md) {
+    @include set-typography(24, 28, 500);
+  }
+}
+
+@mixin font-40-normal-header {
+  @include set-typography(40, 46, 500);
+
+  @include set-media(md) {
+    @include set-typography(30, 36, 500);
+  }
+}
+
+@mixin font-56-normal-header  {
+  @include set-typography(56, 60, 500);
+
+  @include set-media(md) {
+    @include set-typography(40, 42, 500);
+  }
+}
+
+@mixin font-70-normal-header  {
+  @include set-typography(70, 66, 500);
+
+  @include set-media(md) {
+    @include set-typography(40, 40, 500);
+  }
+}
+
+//color
+.color-highlight-violet {
+  color: $color-highlight-violet;
+}
+
+.blue {
+  color: var(--primary-color);
+}
+
+.green {
+  color: $color-highlight-green;
+}
+
+.font-light {
+  font-family: $font-family-light;
+}
+
+.bold {
+  font-family: $font-family-article-bold;
+}
+
+.bc-yellow {
+  @include bc-yellow;
+}
+
+//
+.isMobile {
+  @include set-media-min(md) {
+    display: none;
+  }
+}
+
+.isDesktop {
+  @include set-media(md) {
+    display: none!important;
+  }
+}
+
+//button
+.btnIcon {
+  display: inline-flex;
+  align-items: center;
+  height: set-calc(24);
+  justify-content: center;
+}
+
+//slider
+.slide-right-enter, .slide-right-exit-active {
+  transform: translateX(-100%);
+}
+
+.slide-left-enter, .slide-left-exit-active {
+  transform: translateX(100%);
+}
+
+.slide-right-enter, .slide-right-exit, .slide-right-enter-active, .slide-right-exit-active,
+.slide-left-enter,
+.slide-left-exit,
+.slide-left-enter-active,
+.slide-left-exit-active {
+  will-change: transform;
+}
+
+.slide-right-enter-active,
+.slide-left-enter-active {
+  transition: transform 0.65s cubic-bezier(0.2, 1, 0.3, 1);
+  transition-delay: 0.1s;
+  transform: translateX(0);
+}
+.slide-right-exit,
+.slide-left-exit {
+  transform: translateX(0);
+}

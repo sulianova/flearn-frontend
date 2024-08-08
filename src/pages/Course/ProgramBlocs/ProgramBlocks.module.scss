@@ -1,0 +1,24 @@
+@import 'styles/index';
+
+._ {
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  display: block;
+  position: relative;
+  margin-top: set-calc(100);
+
+  @include set-media(md) {
+    margin-top: set-calc(64);
+  }
+}
+
+.item:first-child {
+  margin-top: 0;
+}
+
+.item:last-child {
+  margin-top: 0;
+}

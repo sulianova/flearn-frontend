@@ -1,0 +1,98 @@
+@import 'styles/index';
+
+.selectMenu {
+  position: absolute;
+  right: 0;
+  z-index: 1000;
+
+  overflow: hidden;
+  box-sizing: border-box;
+  min-width: set-calc(320);
+  max-height: 80vh;
+
+  padding: 0;
+  margin-block-start: set-calc(16);
+  border-radius: set-calc($border-radius-10);
+  background:  var(--color-card);
+  border: 1px solid var(--border-color);
+
+  transition: background-color $d-hover ease;
+  backdrop-filter: blur(set-calc($backdrop-filter));
+  box-shadow: $shadow-menu;
+}
+
+.scrollableDefault {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.contentWrapper {
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 100%;
+  max-width: inherit;
+  height: 100%;
+  min-height: 100%;
+  max-height: 80vh;
+}
+
+.contentContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  box-sizing: content-box !important;
+
+  scrollbar-width: set-calc(1);
+  min-width: 100%;
+  max-width: inherit;
+  min-height: 100%;
+  max-height: inherit;
+}
+
+.content {
+  width: auto;
+  padding: set-calc(8);
+  flex-grow: 1;
+  flex-shrink: 0;
+  height: max-content;
+}
+
+.listItems {
+  display: flex;
+  flex-direction: column;
+  gap: set-calc(4);
+}
+
+.listOptionTitle {
+  padding: set-calc(10) set-calc(10) set-calc(16);
+
+  @include font-16-normal-ui;
+  font-family: $font-family-medium;
+  color: var(--color-content-secondary);
+}
+
+.listOption {
+  display: block;
+  padding: set-calc(12) set-calc(12);
+  color: var(--color-content-primary);
+  border-radius: set-calc($border-radius-10);
+  transition: background-color 0.3s;
+  cursor: pointer;
+  background-color: transparent;
+
+  @include font-18-normal-ui;
+
+  &:hover {
+    background-color: var(--color-background-glassy-c);
+  }
+}
+
+.active {
+  background-color: var(--color-background-glassy-b);
+}

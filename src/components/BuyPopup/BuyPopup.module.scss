@@ -1,0 +1,201 @@
+@import 'styles/index';
+
+.__ {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+
+  color: var(--color-content-primary);
+  background-color: var(--color-background-alternate);
+
+  padding: set-calc(16) set-calc(16) set-calc(32);
+  min-height: 100vh;
+  min-width: 100vw;
+
+  @include set-media(md) {
+    display: flex;
+    flex-direction: column;
+
+    padding: 0;
+    border-radius: 0;
+
+    width: 100%;
+    height: 100vh;
+    height: -moz-available;
+    height: -webkit-fill-available;
+    height: fill-available;
+  }
+}
+
+.close {
+  @include btn;
+
+  position: absolute;
+
+  top: set-calc(16);
+  right: set-calc(16);
+
+  display: flex;
+
+  z-index: 1;
+
+  padding: set-calc(13);
+
+  color: var(--color-content-primary);
+  border-radius: set-calc($border-radius-small);
+  background-color:  var(--color-background-glassy-b);
+
+  svg {
+    width: set-calc(24);
+    height: set-calc(24);
+
+    display: inline-block;
+    text-align: center;
+    background: 50% no-repeat;
+    background-size: contain;
+  }
+
+  &:hover {
+    background-color: var(--color-background-glassy-c);
+  }
+
+  @include set-media(md) {
+    top: 0;
+    right: 0;
+
+    padding: set-calc(24);
+    box-shadow: none;
+    background-color: transparent;
+
+    &:active,
+    &:hover {
+      transform: none;
+      background-color: transparent;
+    }
+  }
+}
+
+.back {
+  @include btn;
+
+  position: absolute;
+
+  top: set-calc(16);
+  left: set-calc(16);
+
+  display: flex;
+
+  z-index: 1;
+
+  padding: set-calc(13);
+
+  color: var(--color-content-primary);
+  border-radius: set-calc($border-radius-small);
+  background-color:  var(--color-background-glassy-b);
+
+  svg {
+    width: set-calc(24);
+    height: set-calc(24);
+
+    display: inline-block;
+    text-align: center;
+    background: 50% no-repeat;
+    background-size: contain;
+  }
+
+  &:hover {
+    background-color: var(--color-background-glassy-c);
+  }
+
+  @include set-media(md) {
+    top: 0;
+    right: 0;
+
+    padding: set-calc(24);
+    box-shadow: none;
+    background-color: transparent;
+
+    &:active,
+    &:hover {
+      transform: none;
+      background-color: transparent;
+    }
+  }
+}
+
+.body {
+  flex: 1 1;
+  width: 100%;
+
+  @include set-media(md) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+.header {
+  padding: 0 set-calc(16) set-calc(40);
+  display: flex;
+
+  @include set-media(md) {
+    padding: set-calc(12) set-calc(12) set-calc(12);
+  }
+}
+
+.stepWidget {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  column-gap: set-calc(8);
+  justify-content: center;
+
+  @include set-media(md) {
+    column-gap: set-calc(4);
+    padding-top: set-calc(8);
+  }
+}
+
+.stepWidgetItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 set-calc(16);
+  border-radius: set-calc($border-radius-large);
+  background-color: var(--color-background-glassy-b);
+  color: var(--color-content-tertiary);
+  height: set-calc(30);
+
+  @include font-16-normal-ui;
+
+  @include set-media(md) {
+    padding: 0 0;
+    height: set-calc(30);
+    width: set-calc(30);
+    border-radius: 50%;
+  }
+
+  &Mob {
+    display: none;
+    @include set-media(md) {
+      display: flex;
+    }
+  }
+
+  &Desk {
+    display: flex;
+    @include set-media(md) {
+      display: none;
+    }
+  }
+}
+
+.active {
+  background-color: var(--color-content-background-primary);
+  color: var(--color-content-inverted-primary);
+  border: none;
+}

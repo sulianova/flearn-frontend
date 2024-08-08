@@ -1,0 +1,53 @@
+@import 'styles/index';
+
+._ {
+  position: absolute;
+  top: 0;
+  right: set-calc($padding-x-desk-page);
+  height: 100vh;
+}
+
+.stickyBtnStaff {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  justify-content: flex-end;
+  opacity: 1;
+
+  position: absolute;
+  top: 80%;
+  min-height: calc(var(--page-height, 100vh) - 76vh);
+  width: 0;
+  z-index: 9999;
+}
+
+.stickyBtnShaftInner {
+  position: sticky;
+  bottom: set-calc(24);
+  right: 0;
+
+  align-items: flex-start;
+  display: flex;
+  justify-content: flex-end;
+  }
+
+.stickyBtn {
+  background: hsl(107,94%,35%);
+  height: set-calc(48);
+  padding: set-calc(8) set-calc(24);
+  bottom: set-calc(8);
+  color: var(--color-content-inverted-primary);
+  border-radius: set-calc(8);
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.stickyBtn:hover {
+  background: hsl(107,94%,29%);
+}
+
+.stickyBtn:not(:last-child) {
+  margin-right: set-calc(4);
+}

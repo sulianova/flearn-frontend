@@ -1,0 +1,95 @@
+@import 'styles/index';
+
+.__ {
+  display: none;
+
+  @include set-media(md) {
+    position: fixed;
+
+    bottom: set-calc(18);
+    left: 0;
+    right: 0;
+    z-index: 600;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: transparent;
+    transition: .3s ease;
+    will-change: transform;
+  }
+}
+
+.btnLink {
+  position: fixed;
+
+  right: set-calc(16);
+  bottom: 0;
+
+  width: max-content;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: $color-highlight-yellow;
+  box-shadow: $shadow-small-default;
+
+  @include font-20-normal-ui ;
+  color: $color-content-primary-light;
+  font-family: $font-family-medium;
+
+  border-radius: set-calc($border-radius-16);
+  padding: set-calc(10) set-calc(24);
+  height: set-calc(62);
+}
+
+.btnWrapperLeft {
+  position: fixed;
+
+  left: set-calc(16);
+  bottom: 0;
+
+  display: flex;
+  gap: set-calc(6);
+}
+
+.btnWrapperRight {
+  position: fixed;
+
+  right: set-calc(16);
+  bottom: 0;
+
+  display: flex;
+  flex-direction: column-reverse;
+  gap: set-calc(6);
+}
+
+.settings {
+  display: flex;
+  justify-content: center;
+
+  align-self: flex-end;
+
+  padding: set-calc(15);
+  transition: transform 0.15s ease-in;
+  opacity: 1;
+
+  color: $color-content-inverted-primary-light;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  box-shadow: $shadow-small-default;
+
+  svg {
+    display: inline-block;
+    text-align: center;
+
+    background: 50% no-repeat;
+    background-size: contain;
+    width: set-calc(24);
+    height: set-calc(24);
+
+    fill: $color-content-inverted-primary-light;
+  }
+}

@@ -1,0 +1,242 @@
+@import 'styles/index';
+
+.__ {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+
+  color: var(--color-content-primary);
+
+  padding: set-calc(32);
+  width: set-calc(560);
+  min-height: set-calc(600);
+
+  @include set-media(md) {
+    display: flex;
+    flex-direction: column;
+
+    min-height: auto;
+    padding: set-calc(24) set-calc(16) set-calc(16);
+    width: 100%;
+  }
+}
+
+.close {
+  @include btn;
+
+  position: absolute;
+
+  top: set-calc(16);
+  right: set-calc(16);
+
+  display: flex;
+
+  z-index: 1;
+
+  padding: set-calc(12);
+
+  color: var(--color-content-primary);
+  border-radius: set-calc($border-radius-small);
+  background-color:  transparent;
+
+  svg {
+    width: set-calc(24);
+    height: set-calc(24);
+
+    display: inline-block;
+    text-align: center;
+    background: 50% no-repeat;
+    background-size: contain;
+  }
+
+  &:hover {
+    background-color: var(--color-background-glassy-b);
+  }
+
+  @include set-media(md) {
+    top: 0;
+    right: 0;
+
+    padding: set-calc(24);
+    box-shadow: none;
+    background-color: transparent;
+
+    &:active,
+    &:hover {
+      transform: none;
+      background-color: transparent;
+    }
+  }
+}
+
+.body {
+  flex-grow: 1;
+  flex-shrink: 0;
+  width: 100%;
+  height: -moz-max-content;
+  height: max-content;
+
+  @include set-media(md) {
+    margin-bottom: set-calc(24);
+  }
+}
+
+.header {
+  margin: 0 set-calc(40) 0 set-calc(16);
+  max-width: set-calc(700);
+
+  @include set-media(md) {
+    margin: 0 set-calc(40) 0 set-calc(16);
+  }
+}
+
+.title {
+  margin: 0 0 set-calc(32);
+  @include font-28-normal-header;
+  font-family: $font-family-bold;
+
+  @include set-media(md) {
+    margin: set-calc(50) 0 set-calc(24);
+  }
+}
+
+.navigationItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  min-height: set-calc(58);
+
+  color: var(--color-content-primary);
+
+  border-radius: set-calc(8);
+  background-color: transparent;
+
+  transition: background-color $d-hover ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--color-background-glassy-b);
+  }
+
+  &:not(:last-child) {
+    margin-bottom: set-calc(4);
+  
+    @include set-media(md) {
+      margin-bottom: 0;
+    }
+  }
+
+  @include set-media(md) {
+    min-height: set-calc(50);
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
+}
+
+.active {
+  background-color: var(--color-background-glassy-b);
+  cursor: default;
+}
+
+.navigationItemTitle {
+  display: inline-flex;
+  margin: 0;
+  padding: set-calc(8) set-calc(16);
+  color: var(--color-content-primary);
+
+  @include set-typography(18, 24, 500);
+
+  span {
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  @include set-media(md) {
+    padding: set-calc(10) set-calc(16) set-calc(10) set-calc(10);
+  }
+}
+
+.navigationItemIndex {
+  display: inline-flex;
+  box-sizing: border-box;
+  min-width: set-calc(38);
+  padding-right: set-calc(16);
+  justify-content: flex-end;
+
+  @include set-media(md) {
+    min-width: set-calc(24);
+    padding: 0;
+    justify-content: flex-start;
+  }
+}
+
+.navigationItemInfo {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  flex-shrink: 0;
+  margin-right: set-calc(8);
+}
+
+.infoItem {
+  white-space: nowrap;
+  color: var(--color-content-primary);
+}
+
+.infoIcon {
+  width: set-calc(24);
+  height: set-calc(24);
+  transition: opacity 0.1s;
+  opacity: 0;
+  color: var(--color-content-primary);
+
+  svg {
+    display: inline-block;
+    text-align: center;
+    background: 50% no-repeat;
+    background-size: contain;
+  }
+
+  @include set-media(md) {
+    opacity: 1;
+  }
+}
+
+.itemStatus {
+  width: set-calc(24);
+  height: set-calc(24);
+  display: flex;
+  box-sizing: border-box;
+}
+
+.solved {
+  .infoIcon {
+    opacity: 1;
+  }
+}
+
+.disabled {
+  cursor: default;
+  opacity: 0.5;
+
+  &:hover {
+    opacity: 1;
+
+    .infoIcon {
+      opacity: 1;
+    }
+  }
+
+  @include set-media(md) {
+    opacity: 0.5;
+  
+    .infoIcon {
+      opacity: 0.2;
+    }
+  }
+}

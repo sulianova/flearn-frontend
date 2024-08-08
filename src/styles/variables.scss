@@ -1,0 +1,347 @@
+@use "sass:math";
+$rem-base: 18px;
+$font-family-light: Montserrat-Light, sans-serif;
+$font-family: Montserrat, sans-serif;
+$font-family-regular: Montserrat-Regular, sans-serif;
+$font-family-medium: Montserrat-Medium, sans-serif;
+$font-family-bold: Montserrat-Bold, sans-serif;
+$font-family-article-light: Commissioner-Light, sans-serif;
+$font-family-article: Commissioner, sans-serif;
+$font-family-article-bold: Commissioner-Bold, sans-serif;
+$padding-x-desk-page: 16;
+$padding-x-mob-page: 16;
+$padding-xs-mob-page: 8;
+$s-gap: 8;
+$mobile-gap: 6;
+
+$white: #fff;
+$black: #000000;
+
+$matt-white: #EDEDED;
+$matt-white_hover: #E0E0E0;
+$matt-black: #181818;
+$matt-black_hover: #303030;
+
+//color-palette-black
+$color-palette-black-25: #fdfcfc;
+$color-palette-black-50: #f5f5f5;
+$color-palette-black-100: #f0f0f0;
+$color-palette-black-200: #e0e0e0;
+$color-palette-black-300: #bfbfbf;
+$color-palette-black-400: #b4b2b2;
+$color-palette-black-450: #808080;
+$color-palette-black-500: rgb(76, 76, 76);
+$color-palette-black-600: #2e2e2e;
+$color-palette-black-700: #262626;
+$color-palette-black-800: #1c1c1c;
+$color-palette-black-900: #161616;
+$color-palette-black-950: #121212;
+$color-palette-black-1000: #000000;
+$color-palette-black-25-a: rgba(0, 0, 0, 0.015);
+$color-palette-black-50-a: rgba(0, 0, 0, 0.03);
+$color-palette-black-100-a: rgba(0, 0, 0, 0.06);
+$color-palette-black-200-a: rgba(0, 0, 0, 0.12);
+$color-palette-black-300-a: rgba(0, 0, 0, 0.25);
+$color-palette-black-500-a: rgba(0, 0, 0, 0.5);
+$color-palette-black-600-a: rgba(0, 0, 0, 0.6);
+$color-palette-black-700-a: rgba(0, 0, 0, 0.7);
+$color-palette-black-800-a: rgba(0, 0, 0, 0.8);
+$color-palette-black-900-a: rgba(0, 0, 0, 0.9);
+
+//color-palette-white
+$color-palette-white-25-a: rgba(0, 0, 0, 0.015);
+$color-palette-white-50-a: rgba(255, 255, 255, 0.03);
+$color-palette-white-100-a: rgba(255, 255, 255, 0.06);
+$color-palette-white-200-a: rgba(255, 255, 255, 0.12);
+$color-palette-white-300-a: rgba(255, 255, 255, 0.25);
+$color-palette-white-500-a: rgba(255, 255, 255, 0.5);
+$color-palette-white-700-a: rgba(255, 255, 255, 0.65);
+$color-palette-white-800-a: rgba(255, 255, 255, 0.75);
+$color-palette-white-900-a: rgba(255, 255, 255, 0.8);
+$color-palette-white-1000: #ffffff;
+
+//color-promo-highlight
+$color-highlight-yellow: #ffe205;
+$color-highlight-yellow-hover:#ffce00;
+$color-highlight-green: #a4dd49;
+$color-highlight-sky: #49c2ff;
+$color-highlight-pink: #ffa2e2;
+$color-highlight-violet: #b595ff;
+$color-highlight-blue: rgb(41, 134, 242);
+
+$color-highlight-silver: #edf2f7;
+$color-highlight-gold: #fcf6c5;;
+
+$color-highlight-neon: #e9e1fa;
+$color-highlight-mint: #f0ffd9;
+$color-highlight-dust: #fffad2;
+
+$color-highlight-blue-lagoon: #ddf5f5;
+$color-highlight-misty-rose: #ffe3e3;
+$color-highlight-peach-puff: #fedfc2;
+
+//color-palette-indigo
+$color-palette-indigo-1000: #090029;
+$color-palette-indigo-600: #382a85;
+$color-palette-indigo-550: #3b12cc;
+$color-palette-indigo-500: #452dbd;
+$color-palette-indigo-400: #513deb;
+$color-palette-indigo-350: #7657ff;
+$color-palette-indigo-300: #9282fa;
+$color-palette-indigo-250: #b595ff;
+$color-palette-indigo-200: #ede8ff;
+$color-palette-indigo-100: #f7f5ff;
+
+//gradient
+$color-gradient-rainbow: linear-gradient(320deg, #ffa2e2, #b595ff, #9282fa, #5627ff, #49c2ff);
+
+//theme-light
+$primary-color-light: $color-palette-indigo-400;
+$primary-color-hover-light: $color-palette-indigo-350;
+$color-accent-error-light:#db2323;
+$color-accent-notice-light: #f26e30;
+$color-accent-success-light: #30b83d;
+$color-accent-warning-light: $color-highlight-yellow;
+$color-accent-promo-light: $color-highlight-yellow;
+$color-accent-inverted-promo-light: $color-highlight-violet;
+$color-accent-promo-background-light: $color-palette-black-100-a;
+$color-accent-neutral-light: $color-palette-black-700;
+$color-accent-neutral-hover-light: $black;
+$color-background-alternate-light: $color-palette-black-50;
+$color-background-default-light: $color-palette-white-1000;
+$color-background-glassy-a-light: $color-palette-black-25-a;
+$color-background-glassy-b-light: $color-palette-black-50-a;
+$color-background-glassy-c-light: $color-palette-black-100-a;
+$color-background-glassy-d-light: $color-palette-black-200-a;
+$color-background-glassy-inverted-a-light: $color-palette-white-50-a;
+$color-background-glassy-inverted-b-light: $color-palette-white-100-a;
+$color-background-glassy-inverted-c-light: $color-palette-white-200-a;
+$color-background-glassy-inverted-d-light: $color-palette-white-300-a;
+$color-background-highlighted-light: $color-palette-black-50; //#edf1f8;
+$color-background-overlay-light: $color-palette-black-700-a;
+$color-background-active-light: rgba(0, 0, 0, 0.03);
+$color-background-stroke-light: rgba(0, 0, 0, 0.2);
+$color-border-light: $color-palette-white-1000;
+$color-card-glassy-light: $color-palette-white-700-a;
+$color-card-light: $color-palette-black-25;
+$color-content-inverted-primary-light: $color-palette-black-25;
+$color-content-inverted-secondary-light: $color-palette-black-200;
+$color-content-primary-light: $color-palette-black-700;
+$color-content-secondary-light: $color-palette-black-500;
+$color-content-tertiary-light: $color-palette-black-400;
+$color-content-background-primary-light: $color-palette-black-800;
+$color-content-background-secondary-light: $color-palette-black-700;
+$color-content-background-tertiary-light: $color-palette-black-300;
+$color-content-paragraph-primary-light: $color-palette-black-900-a;
+$color-content-paragraph-secondary-light: $color-palette-black-600-a;
+$color-background-btn-light: $color-palette-black-700;
+$color-background-btn-hover-light: $color-palette-black-900;
+$color-background-card-light: $color-palette-black-700;
+
+$border-color-light: rgba(5, 6, 15, .1);
+
+//theme-dark
+$primary-color-dark: $color-palette-indigo-250;
+$primary-color-hover-dark: $color-palette-indigo-350;
+$color-accent-error-dark: #db2323;
+$color-accent-notice-dark: #f26e30;
+$color-accent-success-dark: #4ecc5a;
+$color-accent-warning-dark: $color-highlight-yellow;
+$color-accent-promo-dark: $color-highlight-violet;
+$color-accent-inverted-promo-dark: $color-highlight-yellow;
+$color-accent-promo-background-dark: $color-palette-white-200-a;
+$color-accent-neutral-dark: $color-palette-white-1000;
+$color-accent-neutral-hover-dark: $color-palette-black-300;
+$color-background-default-dark: $color-palette-black-800;
+$color-background-alternate-dark: $color-palette-black-900;
+$color-background-glassy-a-dark: $color-palette-white-50-a;
+$color-background-glassy-b-dark: $color-palette-white-100-a;
+$color-background-glassy-c-dark: $color-palette-white-200-a;
+$color-background-glassy-d-dark: $color-palette-white-300-a;
+$color-background-glassy-inverted-a-dark: $color-palette-black-50-a;
+$color-background-glassy-inverted-b-dark: $color-palette-black-100-a;
+$color-background-glassy-inverted-c-dark: $color-palette-black-200-a;
+$color-background-glassy-inverted-d-dark: $color-palette-black-300-a;
+$color-background-highlighted-dark: $color-palette-black-600; //#404959;
+$color-background-overlay-dark: $color-palette-black-800-a;
+$color-background-stroke-dark: rgba(255, 255, 255, 0.2);
+$color-border-dark: hsla(0, 0%, 100%, .1);
+$color-card-glassy-dark: rgba(15,15,15,0.7);
+$color-card-dark: $color-palette-black-700;
+$color-content-inverted-primary-dark:  $color-palette-black-900;
+$color-content-inverted-secondary-dark: $color-palette-black-600;
+$color-content-primary-dark: $color-palette-black-50;
+$color-content-secondary-dark: $color-palette-black-300;
+$color-content-tertiary-dark: $color-palette-black-400;
+$color-content-background-primary-dark: $color-palette-black-100;
+$color-content-background-secondary-dark: $color-palette-black-200;
+$color-content-background-tertiary-dark: $color-palette-black-700;
+$color-content-paragraph-primary-dark: $color-palette-black-300;
+$color-content-paragraph-secondary-dark: $color-palette-black-400;
+$color-background-btn-dark: $color-palette-indigo-300;
+$color-background-btn-hover-dark: $color-palette-indigo-350;
+$color-background-card-dark: $primary-color-dark;
+
+$border-color-dark: hsla(0, 0%, 100%, .1);
+
+//links
+$link: var(--color-content-primary);
+$link-visited: var(--color-content-secondary);
+
+$browsers: ('-o-transition', '-moz-transition', '-ms-transition', '-webkit-transition', '');
+
+$breakpoints: (
+  xxs: 319.98px,
+  xs: 374.98px,
+  sm: 575.98px,
+  md: 767.98px,
+  lg: 991.98px,
+  xl: 1199.98px,
+);
+
+//duration
+$d-hover: 0.25s;
+$d-expansion: 0.5s;
+$d-collapse: calc($d-expansion / 3);
+$d-zoom: .3s;
+$d-fade: 100ms;
+$modal-animation-duration: 200ms;
+
+//shadow
+$shadow-small-default: 0 0 1px 1px rgba(0, 0, 0, .02), 0 .3px .5px rgba(0, 0, 0, .1), 0 2px 4px rgba(0, 0, 0, .2);
+$shadow-small-hovered: 0 0 1px 1px rgba(0, 0, 0, .02), 0 .4px .8px rgba(0, 0, 0, .1), 0 3px 6px rgba(0, 0, 0, .2);
+$shadow-small-pressed: 0 0 1px 1px rgba(0, 0, 0, .02), 0 .3px .5px rgba(0, 0, 0, .1), 0 2px 4px rgba(0, 0, 0, .2);
+$shadow-medium-hovered: 0px 2px 32px 6px rgba(36, 36, 36, 0.07);
+$shadow-medium-default: 0px 1px 12px 2px rgba(36, 36, 36, 0.07);
+$shadow-medium-pressed: 0px 1px 8px rgba(36, 36, 36, 0.07);
+$shadow-huge-default: 4px 15px 24px -8px rgba(36, 36, 36, .02);
+// $shadow-icon: 0 3px 5px rgba(0, 0, 0, .1);
+$shadow-popup: 0 2px 10px 0 rgba(0, 0, 0, .3);
+$shadow-menu: 0px 2px 17px 2px rgba(0, 0, 0, 0.1);
+
+//filter
+$backdrop-filter: 20;
+
+//border
+$border-radius-small: 6;
+$border-radius-medium: 20;
+$border-radius-large: 30;
+
+$border-radius-4: 4;
+$border-radius-5: 5;
+$border-radius-6: 6;
+$border-radius-8: 8;
+$border-radius-10: 10;
+$border-radius-12: 12;
+$border-radius-14: 14;
+$border-radius-16: 16;
+$border-radius-20: 20;
+$border-radius-30: 30;
+$border-radius-50: 50;
+
+//opacity
+$opacity-100: 0.06;
+$opacity-200: 0.15;
+$opacity-300: 0.3;
+$opacity-400: 0.6;
+$opacity-500: 0.8;
+$opacity-600: 0.85;
+$opacity-700: 0.9;
+$opacity-800: 0.95;
+
+//z-index
+$z-index-100: 100;
+$z-index-200: 200;
+$z-index-300: 300;
+$z-index-400: 400;
+$z-index-500: 500;
+
+// CSS
+:root {
+  // theme light
+  --primary-color-light: #{$primary-color-light};
+  --primary-color-hover-light: #{$primary-color-hover-light};
+  --color-accent-error-light: #{$color-accent-error-light};
+  --color-accent-notice-light: #{$color-accent-notice-light};
+  --color-accent-success-light: #{$color-accent-success-light};
+  --color-accent-warning-light: #{$color-accent-warning-light};
+  --color-accent-promo-light: #{$color-accent-promo-light};
+  --color-accent-inverted-promo-light: #{$color-accent-inverted-promo-light};
+  --color-accent-promo-background-light: #{$color-accent-promo-background-light};
+  --color-accent-neutral-light: #{$color-accent-neutral-light};
+  --color-accent-neutral-hover-light: #{$color-accent-neutral-hover-light};
+  --color-background-alternate-light: #{$color-background-alternate-light};
+  --color-background-default-light: #{$color-background-default-light};
+  --color-background-glassy-a-light: #{$color-background-glassy-a-light};
+  --color-background-glassy-b-light: #{$color-background-glassy-b-light};
+  --color-background-glassy-c-light: #{$color-background-glassy-c-light};
+  --color-background-glassy-d-light: #{$color-background-glassy-d-light};
+  --color-background-glassy-inverted-a-light: #{$color-background-glassy-inverted-a-light};
+  --color-background-glassy-inverted-b-light: #{$color-background-glassy-inverted-b-light};
+  --color-background-glassy-inverted-c-light: #{$color-background-glassy-inverted-c-light};
+  --color-background-glassy-inverted-d-light: #{$color-background-glassy-inverted-d-light};
+  --color-background-highlighted-light: #{$color-background-highlighted-light};
+  --color-background-overlay-light: #{$color-background-overlay-light};
+  --color-background-active-light: #{$color-background-active-light};
+  --color-background-stroke-light: #{$color-background-stroke-light};
+  --color-border-light: #{$color-border-light};
+  --color-card-light: #{$color-card-light};
+  --color-card-glassy-light: #{$color-card-glassy-light};
+  --border-color-light: #{$border-color-light};
+  --color-content-inverted-primary-light: #{$color-content-inverted-primary-light};
+  --color-content-inverted-secondary-light: #{$color-content-inverted-secondary-light};
+  --color-content-primary-light: #{$color-content-primary-light};
+  --color-content-secondary-light: #{$color-content-secondary-light};
+  --color-content-tertiary-light: #{$color-content-tertiary-light};
+  --color-content-background-primary-light: #{$color-content-background-primary-light};
+  --color-content-background-secondary-light: #{$color-content-background-secondary-light};
+  --color-content-background-tertiary-light: #{$color-content-background-tertiary-light};
+  --color-content-paragraph-primary-light: #{$color-content-paragraph-primary-light};
+  --color-content-paragraph-secondary-light: #{$color-content-paragraph-secondary-light};
+  --color-background-btn-light: #{$color-background-btn-light};
+  --color-background-btn-hover-light: #{$color-background-btn-hover-light};
+  --color-background-card-light: #{$color-background-card-light};
+
+  // theme dark
+  --primary-color-dark: #{$primary-color-dark};
+  --primary-color-hover-dark: #{$primary-color-hover-dark};
+  --color-accent-error-dark: #{$color-accent-error-dark};
+  --color-accent-notice-dark: #{$color-accent-notice-dark};
+  --color-accent-success-dark: #{$color-accent-success-dark};
+  --color-accent-warning-dark: #{$color-accent-warning-dark};
+  --color-accent-promo-dark: #{$color-accent-promo-dark};
+  --color-accent-inverted-promo-dark: #{$color-accent-inverted-promo-dark};
+  --color-accent-promo-background-dark: #{$color-accent-promo-background-dark};
+  --color-accent-neutral-dark: #{$color-accent-neutral-dark};
+  --color-accent-neutral-hover-dark: #{$color-accent-neutral-hover-dark};
+  --color-background-default-dark: #{$color-background-default-dark};
+  --color-background-alternate-dark: #{$color-background-alternate-dark};
+  --color-background-glassy-a-dark: #{$color-background-glassy-a-dark};
+  --color-background-glassy-b-dark: #{$color-background-glassy-b-dark};
+  --color-background-glassy-c-dark: #{$color-background-glassy-c-dark};
+  --color-background-glassy-d-dark: #{$color-background-glassy-d-dark};
+  --color-background-glassy-inverted-a-dark: #{$color-background-glassy-inverted-a-dark};
+  --color-background-glassy-inverted-b-dark: #{$color-background-glassy-inverted-b-dark};
+  --color-background-glassy-inverted-c-dark: #{$color-background-glassy-inverted-c-dark};
+  --color-background-glassy-inverted-d-dark: #{$color-background-glassy-inverted-d-dark};
+  --color-background-highlighted-dark: #{$color-background-highlighted-dark};
+  --color-background-overlay-dark: #{$color-background-overlay-dark};
+  --color-background-stroke-dark: #{$color-background-stroke-dark};
+  --color-border-dark: #{$color-border-dark};
+  --color-card-dark: #{$color-card-dark};
+  --color-card-glassy-dark: #{$color-card-glassy-dark};
+  --border-color-dark: #{$border-color-dark};
+  --color-content-inverted-primary-dark: #{$color-content-inverted-primary-dark};
+  --color-content-inverted-secondary-dark: #{$color-content-inverted-secondary-dark};
+  --color-content-primary-dark: #{$color-content-primary-dark};
+  --color-content-secondary-dark: #{$color-content-secondary-dark};
+  --color-content-tertiary-dark: #{$color-content-tertiary-dark};
+  --color-content-background-primary-dark: #{$color-content-background-primary-dark};
+  --color-content-background-secondary-dark: #{$color-content-background-secondary-dark};
+  --color-content-background-tertiary-dark: #{$color-content-background-tertiary-dark};
+  --color-content-paragraph-primary-dark: #{$color-content-paragraph-primary-dark};
+  --color-content-paragraph-secondary-dark: #{$color-content-paragraph-secondary-dark};
+  --color-background-btn-dark: #{$color-background-btn-dark};
+  --color-background-btn-hover-dark: #{$color-background-btn-hover-dark};
+  --color-background-card-dark: #{$color-background-card-dark};
+}

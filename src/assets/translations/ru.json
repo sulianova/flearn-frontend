@@ -1,0 +1,356 @@
+{
+  "signUp": "Начать учиться бесплатно",
+  "inputName": {
+    "placeholder": "Имя"
+  },
+  "inputPhone": {
+    "placeholder": "+78888888888"
+  },
+  "inputEmail": {
+    "placeholder": "Email"
+  },
+  "logo": "flearn",
+  "logoLong": "freedom to learn",
+  "header": {
+    "my": "мoe обучение",
+    "logo": "flearn",
+    "freeZone": "бесплатно",
+    "catalogue": "все курсы",
+    "login": {
+      "signIn": "Войти",
+      "profile": "Профиль"
+    }
+  },
+  "footer": {
+      "referencesCatalogue": "Курсы",
+      "referencesBooks": "Рекомендуемые книги",
+      "referencesFreeZone": "Бесплатные материалы",
+      "referencesReviews": "Отзывы студентов",
+      "socialTelegram": {
+        "title": "Telegram",
+        "link": "https://t.me/sofiulyanova"
+      },
+      "socialYoutube": {
+        "title": "YouTube",
+        "link": "https://www.youtube.com/@sofiulyanova/featured"
+      },
+      "socialDzen": {
+        "title": "Dzen",
+        "link": "https://dzen.ru/sofiulyanova"
+      },
+      "socialVk": {
+        "title": "Vk",
+        "link": "https://vk.com/sofiulyanova_art"
+      },
+      "socialInstagram": {
+        "title": "Instagram",
+        "link": "https://www.instagram.com/sofiulyanova"
+      },
+      "socialTiktok": {
+        "title": "Tiktok",
+        "link": "https://www.tiktok.com/@sofiulyanova"
+      },
+      "documentsPrivacyPolicy": {
+        "title": "Политика конфидициальности"
+      },
+      "documentsTermsOfUse": {
+        "title": "Оферта и Договор"
+      },
+      "creatorDesign": {
+        "title": "Дизайн и разработка",
+        "name": "Sofi Ulyanova",
+        "link": "https://github.com/sulianova"
+      },
+      "creatorFrontend": {
+        "title": "Разработка",
+        "name": "Vladimir Fyodorov",
+        "link": "https://github.com/VladimirFyodorov"
+      },
+      "copyright": "© 2023-2024 flearn",
+      "email": "ulianova.sofia@gmail.com",
+      "emailTo": "mailto:ulianova.sofia@gmail.com",
+      "emailComment": "Пишите, разберемся!"
+  },
+  "my": {
+    "profile": {
+      "title": "Профиль",
+      "courseGroupTitle":"Ваши онлайн-курсы",
+      "startDate": "Старт {{date}}",
+      "endDate": "Доступ до {{date}}",
+      "noCoursesFallback": {
+        "title": "У вас пока нет онлайн-курсов",
+        "suggestionLink": "Посетите главную страницу",
+        "suggestionRest": ", чтобы выбрать курс"
+      }
+    },
+    "settings": {
+      "title": "Настройки"
+    }
+  },
+  "courseLanding": {
+      "programIntro" : {
+        "free": "Бесплатно",
+        "datesInfoLabel": "с нуля"
+      },
+      "form": {
+          "subtitle": "Выберите почту, с которой будете учиться",
+          "subtitle2": "На почту {{email}} отправили ссылку для входа",
+          "courseName": "{{courseName}}: обучение с сопровождением",
+          "emailCaption": "Адрес, к которому хотите привязать курс. Если у вас есть профиль с другими курсами, используйте адрес оттуда.",
+          "emailCaption2": "Пройдите бесплатную вводную часть за 7 дней и получите дополнительную скидку 10% на курс с обратной связью!",
+          "agreement": "Оферта и договор",
+          "orderIsCreated": {
+            "free=false": "Пройдите бесплатную вводную часть за 7 дней и получите дополнительную скидку 10% на полный курс ;)",
+            "free=true": "Пройдите бесплатную вводную часть за 7 дней и получите дополнительную скидку 10% на полный курс ;)"
+          },
+          "options": {
+            "BASE": {
+              "caption": "Самостоятельно",
+              "title": "Будете учиться без дедлайнов, но не сможете напрямую общаться с экспертами"
+            },
+            "OPTIMAL": {
+              "caption": "С обратной связью",
+              "title": "Получите поддержку и обратную связь, но будете учиться с дедлайнами"
+            },
+            "EXTENDED": {
+              "caption": "Расшириный",
+              "title": "То же самое, что и в формате с обратной связью + 10 ревью-сессий по разбору личного проета"
+            }
+          }
+      },
+      "studentsResults": {
+        "title": "Что получится в результате"
+      },
+      "description": {
+        "title": {
+          "course": "Этот курс для тех, кто",
+          "intensive": "Этот интенсив для тех, кто",
+          "webinar": "Вебинар подойдeт тем, кто"
+        }
+      },
+      "prizes": {
+        "title": {
+          "course": "Подарки для участников курса",
+          "intensive": "Подарки для участников интенсива",
+          "webinar": "Подарки для участников вебинара"
+        }
+      },
+      "discountBanner": {
+        "description1": "Скидка ",
+        "description2": " действует ",
+        "description3": "{{days}} {{day}} {{hours}}:{{minutes}}:{{seconds}}"
+      },
+      "explain": {
+        "headerTitle": "Любой может научиться иллюстрации",
+        "introCardQuote0": "«Чтобы рисовать, необязательно иметь релевантный опыт или творческие способности. У меня не было академического образования, когда я начала рисовать.",
+        "videoCardTitle": "Автор курсов – София Ульянова",
+        "videoCardText": "Соня Ульянова, иллюстратор, преподаватель. Закончила курс Виктора Меламеда по иллюстрации в БВШД",
+        "introCardQuote": "Я училась на курсах,  которые казались мне интересными, постепенно собирая свой личный набор инструментов.»"
+      },
+      "faq": {
+        "headerTitle": "Ответы на вопросы",
+        "headerDesc1": "Если у вас остались вопросы по курсу, ",
+        "headerDesc2": "напишите мне в телеграме,",
+        "headerDesc3": " и я помогу разобраться.",
+        "creatorLink": "https://t.me/ulianova_sofia"
+      },
+      "teacherGallery": {
+        "title": "Рисунки преподавателя"
+      },
+      "modules": {
+        "title": "Программа",
+        "listItemLabelText": "Проект в портфолио",
+        "videosNumber": {
+          "p_one": "{{count}} видео-урок",
+          "p_few": "{{count}} видео-урока",
+          "p_many": "{{count}} видео-уроков",
+          "p_other": "{{count}} видео-уроков"
+        },
+        "homeworksNumber": {
+          "p_one": "{{count}} задание",
+          "p_few": "{{count}} задания",
+          "p_many": "{{count}} заданий",
+          "p_other": "{{count}} заданий"
+        },
+        "duration": {
+          "day": {
+            "p_one": "{{count}} учебный день",
+            "p_few": "{{count}} учебных дня",
+            "p_many": "{{count}} учебных дней",
+            "p_other": "{{count}} учебных дней"
+          },
+          "week": {
+            "p_one": "{{count}} учебная неделя",
+            "p_few": "{{count}} учебные недели",
+            "p_many": "{{count}} учебных недель",
+            "p_other": "{{count}} учебных недель"
+          }
+        },
+        "feedback": "индивидуальная обратная связь по дз",
+        "chat": "телеграм-чат для общения в группе"
+      },
+      "promo": {
+        "cardTitle": "Больше о курсе в коротком видео"
+      },
+      "studentsWorks": {
+        "title": "Примеры работ с курса"
+      },
+      "feedback": {
+        "title": "Отзывы участников"
+      },
+      "studyProcess": {
+        "headerTitle": "Как мы учим"
+      },
+      "About": {
+        "title": {
+          "course": "Что будет на курсе",
+          "intensive": "Что будет на интенсиве",
+          "webinar": "Что будет на вебинаре"
+        }
+      }
+  },
+  "courseLessons": {
+    "subTitle": {
+      "course": "Каждый понедельник здесь появляются ссылки на учебные материалы, тесты и задания курса.",
+      "intensive": "Ссылки на учебные материалы, тесты и задания интенсива.",
+      "webinar": "Ссылки на учебные материалы, тесты и задания вебинара."
+    },
+    "linksAbout": "Об обучении на курсе",
+    "linksTelegram": "Чат для студентов в Телеграме",
+    "lecture": "Лекция",
+    "homework": "Задание",
+    "webinar": "Вебинар",
+    "results": "Итоги",
+    "courseNotStartedYet": {
+      "course": "Доступ к материалам откроется {{minStartDate}}. Переходите в телеграм-чат, в группе будет вся дальнейшая информация по курсу.",
+      "intensive": "Доступ к материалам откроется {{minStartDate}}. Переходите в телеграм-чат, в группе будет вся дальнейшая информация по интенсиву.",
+      "webinar": "Доступ к материалам откроется {{minStartDate}}. Переходите в телеграм-чат, в группе будет вся дальнейшая информация по вебинару."
+    }
+  },
+  "courseLesson": {
+    "navTabsPractice": "Задание",
+    "navTabsResults": "Ревью",
+    "navToLessons": "Все уроки",
+    "uploadDeadline": "Дедлайн: {{date}}\u00A0по\u00A0Мск",
+    "resultsDeadline": "Публикация итогов: {{date}}",
+    "uploadBtn": "Загрузить работу",
+    "myWorkLinkTitle": "Моя работа",
+    "editTitle": "Редактировать...",
+    "upload": {
+      "fieldsTitle": "Отправьте ссылку на ваше задание",
+      "filesTitle": "Файлы",
+      "filesBtn": "Добавить",
+      "submitBtn": "Отправить",
+      "submitDescription": "до дедлайна, чтобы получить обратную связь",
+      "addCaption": "Добавить описание",
+      "contentInputLabel": "Ссылка",
+      "contentTextareaLabel": "Описание",
+      "contentTextareaPlaceholder": "Описание работы",
+      "filesEmpty1": "Загрузите файлы",
+      "filesEmpty2": "Картинка должна весить меньше 3 мб"
+    },
+    "homework": {
+      "title": "Описание"
+    },
+    "review": {
+      "title": "Ответ преподавателя"
+    },
+    "works": {
+      "ownTitle": "Моя работа",
+      "emptyPreviewDescription": "Вы не загрузили работу до дедлайна",
+      "listTitle.noWorks.false": "Работы других студентов",
+      "listTitle.noWorks.true": "Другие студенты не загрузили свои работы",
+      "showMoreBtn": "показать больше",
+      "showLessBtn": "свернуть"
+    },
+    "fallback": {
+      "lessonNotStartedYet": "Этот урок пока не начался. Он начнётся {{startDate}}, будем вас ждать",
+      "noResults": "Извиняемся за задержку результатов, мы их активно проверяем. Если задержка более дня, напишите, пожалуйста, в телеграм-чат курса"
+    }
+  },
+  "catalogue": {
+    "title1": "Учебник иллюстратора",
+    "description": "Поможет развить насмотренность и получить навыки, нужные для старта в профессии",
+    "card": {
+      "info": "С нуля"
+    }
+  },
+  "day": {
+    "p_one": "день",
+    "p_few": "дня",
+    "p_many": "дней",
+    "p_other": "дней"
+  },
+  "week": {
+    "p_one": "неделя",
+    "p_few": "недели",
+    "p_many": "недель",
+    "p_other": "недель"
+  },
+  "duration": {
+    "week": "{{count}} $t(week.p, {\"count\": {{count}} })",
+    "day": "{{count}} $t(day.p, {\"count\": {{count}} })"
+  },
+  "emails": {
+    "WelcomeToCourse": {
+      "subject": {
+        "course": "Вы начали курс \"{{title}}\"",
+        "intensive": "Вы начали обучение на интенсиве \"{{title}}\"",
+        "webinar": "Вы начали обучение на вебинаре \"{{title}}\""
+      }
+    },
+    "WelcomeToPaidCourse": {
+      "subject": {
+        "course": "Подтверждение записи на курс \"{{title}}\"",
+        "intensive": "Подтверждение записи на интенсив \"{{title}}\"",
+        "webinar": "Подтверждение записи на вебинар \"{{title}}\""
+      }
+    },
+    "DiscontSolveFreeLessonsInWeek": {
+      "subject": {
+        "course": "DiscontSolveFreeLessonsInWeekSubject",
+        "intensive": "DiscontSolveFreeLessonsInWeekSubject",
+        "webinar": "DiscontSolveFreeLessonsInWeekSubject"
+      }
+    },
+    "HomeworkSentForReview": {
+      "subject": {
+        "course": "HomeworkSentForReviewSubject",
+        "intensive": "HomeworkSentForReviewSubject",
+        "webinar": "HomeworkSentForReviewSubject"
+      }
+    },
+    "HomeworkReviewed": {
+      "subject": {
+        "course": "HomeworkReviewedSubject",
+        "intensive": "HomeworkReviewedSubject",
+        "webinar": "HomeworkReviewedSubject"
+      }
+    },
+    "HomeworkSentForReviewToReviewer": {
+      "subject": {
+        "course": "HomeworkSentForReviewToReviewerSubject",
+        "intensive": "HomeworkSentForReviewToReviewerSubject",
+        "webinar": "HomeworkSentForReviewToReviewerSubject"
+      }
+    },
+    "HomeworkReviewedToReviewer": {
+      "subject": {
+        "course": "HomeworkReviewedToReviewerSubject",
+        "intensive": "HomeworkReviewedToReviewerSubject",
+        "webinar": "HomeworkReviewedToReviewerSubject"
+      }
+    }
+  },
+  "courseType": {
+    "course": "курс",
+    "intensive": "интенсив",
+    "webinar": "вебинар"
+  },
+  "lesson": {
+    "p_one": "{{count}} урок",
+    "p_few": "{{count}} урока",
+    "p_many": "{{count}} уроков",
+    "p_other": "{{count}} уроков"
+  }
+}

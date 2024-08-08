@@ -1,0 +1,313 @@
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-weight: 250;
+  font-family: Montserrat-Light;
+  src: url("../assets/fonts/Montserrat.ttf");
+}
+
+@font-face {
+  font-weight: 450;
+  font-family: Montserrat;
+  src: url("../assets/fonts/Montserrat.ttf");
+}
+
+@font-face {
+  font-weight: 500;
+  font-family: Montserrat-Regular;
+  src: url("../assets/fonts/Montserrat.ttf");
+}
+
+@font-face {
+  font-family: Montserrat-Medium;
+  font-weight: 600;
+  src: url("../assets/fonts//Montserrat.ttf");
+}
+
+@font-face {
+  font-family: Montserrat-Bold;
+  font-weight: 700;
+  src: url("../assets/fonts/Montserrat.ttf");
+}
+
+@font-face {
+  font-weight: 280;
+  font-family: Commissioner-Light;
+  src: url("../assets/fonts/Commissioner.ttf");
+}
+
+@font-face {
+  font-weight: 380;
+  font-family: Commissioner;
+  src: url("../assets/fonts/Commissioner.ttf");
+}
+
+@font-face {
+  font-weight: 700;
+  font-family: Commissioner-Bold;
+  src: url("../assets/fonts/Commissioner.ttf");
+}
+
+html {
+  font-family: $font-family;
+  font-size: set-calc(18);
+  line-height: set-calc(28);
+  font-weight: 500;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+
+  scroll-behavior: smooth;
+
+  ::-webkit-scrollbar {
+    background: transparent;
+    width: 0;
+  }
+}
+
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+button {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
+  color: var(--color-content-primary);
+}
+
+h1 {
+  @include set-typography(88, 96, 500);
+  letter-spacing: -.01rem;
+
+  @include set-media(md) {
+    @include set-typography(48, 52, 500)
+  }
+}
+
+h2 {
+  @include set-typography(56, 61, 500);
+  letter-spacing: -.01rem;
+
+  @include set-media(md) {
+    @include set-typography(40, 44, 500)
+  }
+}
+
+h3 {
+  @include set-typography(48, 55.2, 500);
+
+  @include set-media(md) {
+    @include set-typography(32, 36.8, 500);
+  }
+}
+
+p {
+  @include set-typography(24, 32, 500);
+
+  @include set-media(md) {
+    @include set-typography(20, 28, 500)
+  }
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  display: list-item;
+  text-align: -webkit-match-parent;
+  unicode-bidi: isolate;
+}
+
+input,
+input::placeholder {
+  color: inherit;
+  font-family: $font-family;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color $d-hover, color $d-hover, opacity $d-hover;
+  -o-transition: background-color $d-hover, color $d-hover, opacity $d-hover;
+  -moz-transition: background-color $d-hover, color $d-hover, opacity $d-hover;
+  -ms-transition: background-color $d-hover, color $d-hover, opacity $d-hover;
+  -webkit-: background-color $d-hover, color $d-hover, opacity $d-hover;
+}
+
+button {
+  word-spacing: set-calc(1);
+  border: none;
+  padding: 0;
+  background: none;
+  outline: none;
+
+  font-family: $font-family;
+
+  cursor: pointer;
+  transition: color $d-hover,background-color $d-hover,opacity $d-hover;
+  -o-transition: color $d-hover,background-color $d-hover,opacity $d-hover;
+  -moz-transition: color $d-hover,background-color $d-hover,opacity $d-hover;
+  -ms-transition: color $d-hover,background-color $d-hover,opacity $d-hover;
+  -webkit-transition: color $d-hover,background-color $d-hover,opacity $d-hover;
+
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+s {
+  position: relative;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.inline-link {
+  transition: color $d-hover ease-out 0s;
+  -o-transition: color $d-hover ease-out 0s;
+  -moz-transition: color $d-hover ease-out 0s;
+  -ms-transition: color $d-hover ease-out 0s;
+  -webkit-transition: color $d-hover ease-out 0s;
+
+  cursor: pointer;
+
+  &:hover {
+    color: var(--primary-color);
+  }
+
+  &:active {
+    color: var(--primary-color);
+  }
+
+  &-text {
+    display: inline;
+    vertical-align: top;
+    color: inherit;
+  }
+  
+  &-arrow {
+    display: inline-block;
+    vertical-align: top;
+    line-height: set-calc(28);
+    margin-left: set-calc(6);
+
+    @include set-media(md) {
+      line-height: set-calc(22);
+    }
+  }
+
+  &-arrow-left {
+    display: inline-block;
+    vertical-align: top;
+    line-height: set-calc(28);
+    margin-right: set-calc(6);
+
+    @include set-media(md) {
+      line-height: set-calc(22);
+    }
+  }
+}
+
+.s-hoverable {
+  cursor: pointer;
+  transition: color $d-hover ease-out 0.1s;
+  -o-transition: color $d-hover ease-out 0.1s;
+  -moz-transition: color $d-hover ease-out 0.1s;
+  -ms-transition: color $d-hover ease-out 0.1s;
+  -webkit-transition: color $d-hover ease-out 0.1s;
+
+  &:hover {
+    color: var(--primary-color);
+  }
+}
+
+.key-link {
+  color: var(--primary-color);
+  transition: color $d-hover ease-out 0.1s;
+  -o-transition: color $d-hover ease-out 0.1s;
+  -moz-transition: color $d-hover ease-out 0.1s;
+  -ms-transition: color $d-hover ease-out 0.1s;
+  -webkit-transition: color $d-hover ease-out 0.1s;
+  cursor: pointer;
+
+  width: fit-content;
+
+  &:hover {
+    color: var(--primary-color-hover);
+  }
+}
+
+.link {
+  color: $link;
+  width: fit-content;
+  transition: color $d-hover ease-out 0.1s;
+  -o-transition: color $d-hover ease-out 0.1s;
+  -moz-transition: color $d-hover ease-out 0.1s;
+  -ms-transition: color $d-hover ease-out 0.1s;
+  -webkit-transition: color $d-hover ease-out 0.1s;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--primary-color);
+  }
+}
+
+.nav-link {
+  transition: color $d-hover ease-out 0.1s;
+  -o-transition: color $d-hover ease-out 0.1s;
+  -moz-transition: color $d-hover ease-out 0.1s;
+  -ms-transition: color $d-hover ease-out 0.1s;
+  -webkit-transition: color $d-hover ease-out 0.1s;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--primary-color);
+  }
+
+  &:active {
+    color: var(--primary-color);
+  }
+
+  &-text {
+    display: inline;
+    vertical-align: top;
+    color: inherit;
+  }
+  
+  &-arrow {
+    display: inline-block;
+    vertical-align: top;
+    line-height: set-calc(28);
+    margin-left: set-calc(6);
+
+    @include set-media(md) {
+      line-height: set-calc(22);
+    }
+  }
+
+  &-arrow-left {
+    display: inline-block;
+    vertical-align: top;
+    line-height: set-calc(28);
+    margin-right: set-calc(6);
+
+    @include set-media(md) {
+      line-height: set-calc(22);
+    }
+  }
+}
+
+.isActive {
+  color: var(--primary-color) !important;
+}

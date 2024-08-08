@@ -1,0 +1,229 @@
+@import 'styles/index';
+
+.inner {
+  position: relative;
+
+  @include is-grid-4;
+  gap: 0;
+  min-height: set-calc(600);
+  overflow: hidden;
+
+  padding: set-calc(48) set-calc(24) set-calc(24);
+  border-radius: set-calc($border-radius-medium);
+  border: set-calc(1) solid var(--color-border);
+  background: var(--primary-color);
+
+  color: $matt-white;
+
+  @include set-media(md) {
+    min-height: 70vh;
+    color: var(--color-content-primary);
+
+    padding: set-calc(16) set-calc(16) set-calc(16);
+    border: set-calc(1) solid var(--color-border);
+  }
+}
+
+.info {
+  position: relative;
+  grid-column: span 4;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include set-media(md) {
+    padding: 0 0 0;
+    align-items: center;
+  }
+}
+
+.topContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-bottom: set-calc(24);
+
+  @include set-media(md) {
+    justify-content: flex-start;
+    flex-direction: column;
+    margin-bottom: 0;
+  }
+}
+
+.bottomContent {
+  align-items: flex-end;
+  width: 100%;
+  max-width: 100%;
+}
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  margin-bottom: set-calc(16);
+
+  & > div:not(:last-child) {
+    margin-right: set-calc(4);
+  }
+
+  @include set-media(md) {
+    margin: set-calc(4) 0 set-calc(16);
+    justify-content: flex-start;
+  }
+}
+
+.categoriesItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include font-18-normal-ui;
+  color: var(--color-content-inverted-primary);
+
+  padding: 0 set-calc(12);
+  height: set-calc(30);
+  background-color: transparent;
+  
+  border-radius: set-calc($border-radius-large);
+  border: 1px solid var(--color-content-inverted-primary);
+
+  @include set-media(md) {
+    border: 1.5px solid var(--color-content-inverted-primary);
+    height: set-calc(30);
+    padding: 0 set-calc(12);
+  }
+}
+
+.title {
+  @include set-typography(100, 100, 500);
+  margin-bottom: set-calc(24);
+  
+  color: var(--color-content-inverted-primary);
+  font-family: $font-family-bold;
+  text-align: center;
+
+  @include set-media(md) {
+    @include set-typography(48, 54, 500);
+    margin-bottom: set-calc(16);
+  }
+}
+
+.block {
+  margin-bottom: set-calc(16);
+
+  @include set-typography(28, 36, 500);
+  color: var(--color-content-inverted-primary);
+
+  max-width: 70%;
+
+  white-space: pre-line;
+  text-align: center;
+
+  @include set-media(md) {
+    margin: 0 0 set-calc(16);
+    @include set-typography(18, 24, 500);
+
+    max-width: 100%;
+  }
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  @include set-media(md) {
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.actionsBtn {
+  @include btn;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 1;
+  padding: 0 set-calc(64);
+  height: set-calc(80);
+
+  border-radius: calc(set-calc(80) / 2);
+  background: $color-accent-promo-light;
+
+  @include set-media(md) {
+    display: none;
+    margin: 0 0 set-calc(4) 0;
+    flex: 1 1 max-content;
+  }
+
+  .text {
+    @include font-20-normal-ui;
+    color: $color-content-primary-light;
+    font-family: $font-family-medium;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+}
+
+.actionsBtn::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  -webkit-transition: opacity .8s;
+  -o-transition: opacity .8s;
+  transition: opacity .8s;
+  border-radius: 100px;
+  border: 0;
+  background: -o-radial-gradient(50% 50%, 60% 2336.38%, $color-accent-promo-light 0, $white 100%), $color-accent-promo-light;
+  background: radial-gradient(60% 2336.38% at 50% 50%, $color-accent-promo-light 0, $white 100%), $color-accent-promo-light;
+  opacity: 0;
+  will-change: opacity;
+}
+
+.cover {
+  grid-column: span 2;
+  position: relative;
+
+  display: block;
+  align-self: stretch;
+  justify-self: stretch;
+  border-radius: set-calc($border-radius-medium);
+  overflow: hidden;
+  max-height: set-calc(600);
+
+  // &:before {
+  //   content: "";
+  //   position: absolute;
+  //   inset: 0;
+
+  //   @include set-media(md) {
+  //     background: transparent;
+  //   }
+  // }
+
+  @include set-media(md) {
+    position: relative;
+    width: 100%;
+    padding-left: 0;
+  }
+}
+
+.cover img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: set-calc($border-radius-medium);
+}

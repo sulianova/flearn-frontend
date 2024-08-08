@@ -1,0 +1,65 @@
+@import 'styles/index';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  padding-bottom: set-calc(32);
+  @include font-70-normal-header;
+
+  @include set-media(md) {
+    padding-bottom: set-calc(24);
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.listItem {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  grid-column-gap: set-calc($s-gap);
+
+  @include set-media(md) {
+    display: block;
+  }
+}
+
+.listItemCard {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: set-calc(32);
+  min-height: set-calc(330);
+  border-radius: set-calc($border-radius-medium);
+  background-color: var(--color-background-default);
+  color: var(--color-content-background-primary);
+
+  @include set-media(md) {
+    min-height: set-calc(230);
+    padding: set-calc(16);
+    
+    &:not(:last-child) {
+      margin-bottom: set-calc(8);
+    }
+  }
+}
+
+.listItemTitle {
+  margin-bottom: set-calc(32);
+  @include font-36-normal-header;
+}
+
+.listItemContent {
+  @include font-18-normal-paragraph;
+  margin-top: set-calc(80);
+
+  @include set-media(md) {
+    margin-top: set-calc(32);
+  }
+}

@@ -1,0 +1,24 @@
+@import 'styles/index';
+
+.wrapper {
+  display: block;
+}
+
+.title {
+  @include font-56-normal-header;
+  font-family: $font-family-bold;
+  color: var(--primary-color);
+  
+  padding-bottom: set-calc(32);
+  padding-left: set-calc(16);
+
+  @include set-media(md) {
+    padding-bottom: set-calc(16);
+    padding-left: set-calc(8);
+    padding-right: set-calc(8);
+  }
+}
+
+.list {
+  @include is-grid-4
+}

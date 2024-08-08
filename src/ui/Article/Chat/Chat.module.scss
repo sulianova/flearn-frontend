@@ -1,0 +1,215 @@
+@import 'styles/index';
+
+.contentExpander~* {
+  @include contentExpander;
+}
+
+.dialog {
+  margin: set-calc(40) 0;
+
+  @include set-media(md) {
+    margin: set-calc(40) 0;
+  }
+}
+
+.messagesStack {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  margin: set-calc(40) 0 set-calc(20);
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.messagesStack:not(.messagesStack_SideRight) + .messagesStack {
+
+  margin-top: set-calc(20);
+
+  .messageAuthor {
+    display: none;
+  }
+}
+
+
+.messagesStack_SideRight {
+  flex-direction: row-reverse;
+
+  .messagesStack_Content {
+    align-items: flex-end;
+  } 
+
+  .bubble {
+    background: $color-highlight-violet;
+  }
+
+  .messageAuthor {
+    right: 0;
+    left: unset;
+  }
+
+  .messageText {
+    color: $color-content-inverted-primary-light;
+  }
+}
+
+.messagesStack_Content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.message {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  max-width: 70%;
+
+  @include set-media(md) {
+    max-width: 90%;
+  }
+}
+
+.bubble {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  padding: set-calc(10) set-calc(16);
+  border-radius: set-calc($border-radius-16);
+  background: var(--color-background-glassy-b);
+
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+}
+
+.messageAuthor {
+  position: absolute;
+  bottom: calc(100% + 2px);
+  left: 0;
+
+  white-space: nowrap;
+  color: var(--color-content-paragraph-secondary);
+  font-family: $font-family-article;
+  @include set-typography(16, 28, 500);
+}
+
+.messageText {
+  @include set-typography(18, 26, 500);
+  font-family: $font-family-article;
+  color: var(--color-content-primary);
+
+  word-break: break-word;
+
+  @include set-media(md) {
+    @include set-typography(18, 26, 500);
+  }
+}
+
+.btnWrapper {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: set-calc(40) 0 set-calc(20);
+
+  @include set-media(md) {
+    margin: set-calc(30) 0 set-calc(16);
+  }
+}
+
+// .hiddenButton {
+//   margin: 0 0;
+// }
+
+.button {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: set-calc(20);
+  width: 100%;
+
+  padding: set-calc(10) set-calc(16);
+  padding-left: set-calc(32);
+  border-radius: set-calc($border-radius-30);
+  background: var(--color-accent-promo);
+
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+
+  transition: all $d-hover ease;
+
+  @include set-typography(20, 28, 500);
+  color: var(--color-content-primary);
+  font-family: $font-family-article;
+  text-align: start;
+
+  box-shadow: $shadow-small-default;
+
+  &:hover {
+    box-shadow: $shadow-small-hovered;
+
+    .icon {
+      background-color: $color-content-primary-light;
+      color: $color-content-inverted-primary-light;
+      border-color: $color-content-primary-light;
+    }
+  }
+
+  @include set-media(md) {
+    width: 100%;
+
+    padding-left: set-calc(20);
+
+    @include set-typography(18, 24, 500);
+
+    &:hover {
+      box-shadow: $shadow-small-default;
+
+      .icon {
+        background-color: transparent;
+        color: var(--color-content-primary);
+      }
+    }
+  }
+}
+
+.icon {
+  @include btn;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  align-self: self-end;
+
+  border-radius: 50%;
+  border: 1px solid  var(--color-content-primary);
+  background-color: transparent;
+  color: var(--color-content-primary);
+  
+  width: set-calc(32);
+  height: set-calc(32);
+
+  svg {
+    display: flex;
+    vertical-align: middle;
+
+    stroke-width: 1.5;
+    flex-shrink: 0;
+
+    width: set-calc(32);
+    height: set-calc(32);
+  }
+}

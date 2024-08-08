@@ -1,0 +1,358 @@
+@import 'styles/index';
+
+.__ {
+  position: relative;
+  margin: set-calc(40) 0 set-calc(20);
+
+  gap: set-calc(20);
+
+  width: set-calc(764);
+  left: set-calc(-32);
+
+  @include set-media(md) {
+    margin: set-calc(30) 0 set-calc(16);
+
+    width: set-calc(390);
+    left: set-calc(-12);
+  }
+
+  img {
+    cursor: zoom-in;
+  }
+}
+
+.contentExpander~* {
+  @include contentExpander;
+}
+
+.wrapper {
+  display: none;
+  position: relative;
+
+  margin: 0 auto;
+
+  border: 1px solid var(--border-color);
+  padding: set-calc(32);
+  border-radius: set-calc($border-radius-20);
+  background-color: transparent;
+
+  transition: opacity $d-fade ease;
+  opacity: 0;
+
+  @include font-18-normal-paragraph;
+  color: var(--color-content-primary);
+
+  @include set-media(md) {
+    width: 100%;
+    padding: set-calc(16);
+  }
+
+  &:not(:last-child) {
+    margin-bottom: set-calc(30);
+  }
+
+  &Visible {
+    display: block;
+    @include contentExpander;
+    opacity: 1;
+  }
+}
+
+.content {
+  display: block;
+}
+
+.quiz {
+  display: flex;
+  flex-direction: column;
+}
+
+.quizHeader {
+  display: flex;
+  flex-direction: column;
+  
+  gap: set-calc(16);
+  margin-bottom: set-calc(20);
+
+  font-family: $font-family-article;
+}
+
+.quizTitle {
+  @include set-typography(24, 32, 500);
+  font-family: $font-family-article-bold;
+
+  @include set-media(md) {
+    @include set-typography(20, 28, 500);
+  }
+}
+
+.quizSubtitle {
+  color: var(--color-content-paragraph-primary);
+  @include font-20-normal-article;
+}
+
+.quizDescription {
+  color: var(--color-content-paragraph-primary);
+  @include font-20-normal-article;
+}
+
+.quizImage {
+  width: 100%;
+  border-radius: set-calc($border-radius-20);
+}
+
+.quizGroup {
+  display: flex;
+  flex-direction: column;
+  gap: set-calc(12);
+
+  font-family: $font-family-article;
+
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-inline-size: auto;
+
+
+}
+
+.quizGroupItem {
+  position: relative;
+
+  --color-quiz: var(--color-accent-neutral);
+}
+
+.quizGroupItem::before {
+  position: absolute;
+  top: set-calc(-2);
+  left: set-calc(-34);
+  width: set-calc(3);
+  height: set-calc(4, true, 100%);
+  content: "";
+  background: var(--color-quiz);
+  opacity: 0;
+
+  @include set-media(md) {
+    left: set-calc(-18);
+  }
+}
+
+.submited .highlight.quizGroupItem::before {
+  opacity: 1;
+}
+
+.submited .highlight.shouldBeChecked {
+  --color-quiz: var(--color-accent-success);
+}
+
+.submited .highlight.shouldNotBeChecked {
+  --color-quiz: var(--color-accent-error);
+}
+
+.choiceOption {
+  position: relative;
+
+  display: flex;
+  align-items: start;
+
+  gap: set-calc(12);
+
+  margin: set-calc(10) 0 set-calc(12);
+
+  border-radius: set-calc($border-radius-8);
+  @include set-typography(20, 28, 500);
+
+  cursor: pointer;
+
+  @include set-media(md) {
+    @include set-typography(18, 24, 500);
+  }
+
+  .submited & {
+    cursor: default;
+  }
+}
+
+//check general
+.checked {
+  background-color: var(--color-quiz);
+}
+
+.cheched::before {
+  position: absolute;
+  top: 4px;
+  left: -1px;
+  width: 3px;
+  height: calc(100% - 2* 4px);
+  content: "";
+  background: var(--color-quiz);
+}
+
+.checked .icon {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.visuallyHidden {
+  position: absolute;
+  overflow: hidden;
+
+  clip: rect(0, 0, 0, 0);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+
+  width: 1px;
+  height: 1px;
+
+  margin: 0 -1px -1px 0;
+  padding: 0;
+  white-space: nowrap;
+  border: 0;
+}
+
+.icon {
+  z-index: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: transform .2s ease-in-out, opacity .2s ease-in-out;
+  transform: scale(0);
+  opacity: 0;
+  color: var(--color-content-inverted-primary);
+
+  svg {
+    width: set-calc(24);
+    height: set-calc(24);
+  }
+}
+
+//feedback
+.feedback {
+  color: var(--color-quiz);
+  @include font-18-normal-paragraph;
+}
+
+//radio
+.radio {
+  position: relative;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: set-calc(4);
+
+  min-width: set-calc(24);
+  width: set-calc(24);
+  height: set-calc(24);
+
+  overflow: hidden;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  .submited & {
+    cursor: default;
+  }
+
+  transition: background-color .2s ease-in-out;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1.5px var(--color-quiz);
+}
+
+//checkbox 
+.checkbox {
+  position: relative;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: set-calc(4);
+
+  overflow: hidden;
+  box-sizing: border-box;
+
+  min-width: set-calc(24);
+  width: set-calc(24);
+  height: set-calc(24);
+  cursor: pointer;
+
+  .submited & {
+    cursor: default;
+  }
+
+  transition: background-color .2s ease-in-out;
+  border-radius: set-calc(6);
+  box-shadow: inset 0 0 0 1.5px var(--color-quiz);
+}
+
+.checkbox::after,
+.checkbox::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  border-radius: inherit;
+}
+
+.checkboxWithMovementAnimation::before {
+  opacity: 0;
+  transition: transform .4s ease-in-out, opacity .3s ease-in-out .05s;
+  transform: translate(-100%, 100%);
+  border-radius: inherit;
+
+  background-color: var(--color-quiz);
+}
+
+.checked .checkboxWithMovementAnimation::before {
+  opacity: 1;
+  transition: opacity .4s ease-in-out;
+  transform: none;
+}
+
+//submitBtn
+.submitButton {
+  @include btn;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: set-calc(20);
+  min-width: set-calc(180);
+
+  @include font-18-normal-ui;
+
+  padding: set-calc(20) set-calc(24);
+  border-radius: set-calc($border-radius-8);
+  gap: set-calc(8);
+
+  cursor: pointer;
+
+  background-color: var(--color-accent-neutral);
+  color: var(--color-content-inverted-primary);
+
+  border: none;
+
+  &:hover {
+    background-color: var(--color-accent-neutral-hover);
+  }
+  
+  &:disabled {
+    background-color: var(--color-background-glassy-b);
+    color: var(--color-content-tertiary);
+  }
+
+  @include set-media(md) {
+    &:hover {
+      background-color: var(--color-accent-neutral);
+    }
+  }
+}

@@ -1,0 +1,184 @@
+@import 'styles/index';
+
+.__ {
+  position: relative;
+
+  display: block;
+  @include is-beige;
+}
+
+.__:hover {
+  .backwardButton {
+    transform: translate(150%, 0) rotate(180deg);
+
+    &:hover {
+      transform: translate(150%, 0) rotate(180deg) scale(1.05);
+    }
+  }
+
+  .forwardButton {
+    transform: translate(-150%, 0) rotate(180deg);
+    &:hover {
+      transform: translate(-150%, 0) rotate(180deg) scale(1.05);
+    }
+  }
+}
+
+.backwardButton {
+  position: absolute;
+  top: 50%;
+  left: set-calc(-56);
+  box-sizing: border-box;
+
+  z-index: 100;
+
+  width: set-calc(50);
+  height: set-calc(50);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+  transform: rotate(180deg) translate(0, 0);
+
+  border-radius: 50%;
+  box-shadow: $shadow-small-default;
+
+  color: $color-content-inverted-primary-light;
+  background: var(--primary-color);
+
+  transition: width .3s, margin .3s, min-width .3s, background-color .3s, color .3s, border .3s, background-position 2s ease-out, padding-left .3s, transform $d-hover ease-in, opacity $d-hover ease-in;
+
+  svg {
+    width: set-calc(24);
+    height: set-calc(24);
+    transform: rotate(180deg);
+  }
+
+  &:hover {
+    transform: rotate(180deg) scale(1.05);
+  }
+
+  @include set-media(md) {
+    display: none;
+  }
+}
+
+.forwardButton {
+  position: absolute;
+  top: 50%;
+  right: set-calc(-56);
+  box-sizing: border-box;
+
+  z-index: 100;
+
+  width: set-calc(50);
+  height: set-calc(50);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+  transform: rotate(180deg) translate(0, 0);
+
+  border-radius: 50%;
+  box-shadow: $shadow-small-default;
+
+  color: $color-content-inverted-primary-light;
+  background: var(--primary-color);
+
+  transition: width .3s, margin .3s, min-width .3s, background-color .3s, color .3s, border .3s, background-position 2s ease-out, padding-left .3s, transform $d-hover ease-in, opacity $d-hover ease-in;
+
+  svg {
+    width: set-calc(24);
+    height: set-calc(24);
+  }
+
+  &:hover {
+    transform: rotate(180deg) scale(1.05, 1.05);
+  }
+
+  @include set-media(md) {
+    display: none;
+  }
+}
+
+.title {
+  @include font-56-normal-header;
+  font-family: $font-family-bold;
+  color:  var(--primary-color);
+  
+  padding-bottom: set-calc(32);
+  padding-left: set-calc(16);
+
+  @include set-media(md) {
+    padding-bottom: set-calc(16);
+    padding-left: set-calc(8);
+    padding-right: set-calc(8);
+  }
+}
+
+.commonFlowRow {
+  @include set-media(md) {
+    position: relative;
+  }
+}
+
+.list {
+  position: relative;
+
+  display: flex;
+  flex-flow: row nowrap;
+  gap: set-calc(4);
+
+  scrollbar-color: none;
+  scrollbar-width: 0;
+  overflow-x: visible;
+
+  scroll-behavior: smooth;
+  scroll-snap-type: block;
+  direction: ltr;
+
+  width: set-calc(16, true, 100%);
+  left: set-calc(-8);
+
+  @include set-media(md) {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    overflow-x: scroll;
+
+    width: set-calc(16, true, 100%);
+    left: set-calc(-8);
+    padding: 0 set-calc(8);
+  }
+}
+
+.item {
+  display: flex;
+  margin-right: set-calc(4);
+
+  min-width: 35%;
+  border-radius: set-calc($border-radius-medium);
+
+  aspect-ratio: 1 / 1.5;
+  text-align: center; 
+
+  @include set-media(md) {
+    min-width: min(410px, 90vw);
+  }
+}
+
+.item:not(:last-child) {
+  margin-right: 0;
+}
+
+.item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  border-radius: set-calc($border-radius-medium);
+}

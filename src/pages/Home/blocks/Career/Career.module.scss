@@ -1,0 +1,118 @@
+@import 'styles/index';
+
+.wrapper {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 70%;
+  margin: 0 auto;
+  padding: set-calc(80);
+
+  background-color: var(--primary-color);
+  border-radius: set-calc($border-radius-50);
+
+  @include set-media(md) {
+    padding: set-calc(32);
+    border-radius: set-calc($border-radius-30);
+
+    width: 100%;
+  }
+}
+
+.title {
+  @include set-typography(42, 50, 500);
+  font-family: $font-family-medium;
+  text-align: center;
+
+  width: 80%;
+
+  transition: opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
+  color: $color-content-inverted-primary-light;
+
+  margin-bottom: set-calc(80);
+
+  @include set-media(md) {
+    @include font-28-normal-header;
+    width: 90%;
+    margin-bottom: set-calc(40);
+  }
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  @include set-media(md) {
+    flex-direction: row-reverse;
+    width: 100%;
+  }
+}
+
+.actionsBtn {
+  @include btn;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 1;
+  padding: 0 set-calc(24);
+  height: set-calc(80);
+
+  border-radius: set-calc($border-radius-16);
+  border: 2px solid  $color-content-inverted-primary-light;
+
+  @include set-media(md) {
+    height: set-calc(60);
+
+    border-width: 1px;
+  }
+
+  .text {
+    @include font-20-normal-ui;
+    color: $color-content-inverted-primary-light;
+    font-family: $font-family-medium;
+  }
+
+  &:hover {
+    background: $color-content-inverted-primary-light;
+
+    .text {
+      color: var(--primary-color);
+    }
+  }
+}
+
+// .actionsBtn::before {
+//   position: absolute;
+//   content: "";
+//   top: 0;
+//   right: 0;
+//   bottom: 0;
+//   left: 0;
+//   z-index: -1;
+//   -webkit-transition: opacity .8s;
+//   -o-transition: opacity .8s;
+//   transition: opacity .8s;
+//   border-radius: set-calc($border-radius-16);
+//   border: 0;
+//   background: -o-radial-gradient(50% 50%, 60% 2336.38%, $color-accent-promo-light 0, $white 100%), $color-accent-promo-light;
+//   background: radial-gradient(60% 2336.38% at 50% 50%, $color-accent-promo-light 0, $white 100%), $color-accent-promo-light;
+//   opacity: 0;
+//   will-change: opacity;
+// }

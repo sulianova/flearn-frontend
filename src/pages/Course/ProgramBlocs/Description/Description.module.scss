@@ -1,0 +1,33 @@
+@import 'styles/index';
+
+.wrapper {
+  padding-top: 0;
+
+  @include set-media(md) {
+    padding-top: 0;
+  }
+}
+
+.header {
+  position: relative;
+  padding-bottom: set-calc(32);
+  padding-left: set-calc(16);
+
+  @include set-media(md) {
+    position: relative;
+    padding-bottom: set-calc(16);
+    padding-right: set-calc(8);
+    padding-left: set-calc(8);
+  }
+}
+
+.headerTitle {
+  @include font-56-normal-header;
+  font-family: $font-family-bold;
+  color: var(--primary-color);
+}
+
+.list {
+  @include is-grid-3;
+  gap: set-calc(8);
+}

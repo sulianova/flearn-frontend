@@ -1,0 +1,300 @@
+@import 'styles/index';
+
+._ {
+  width: set-calc(700);
+  position: relative;
+
+  @include set-media(md) {
+    width: 100%;
+  }
+}
+
+.wrapper {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: set-calc(1.3) solid var(--color-background-stroke);
+  border-radius: set-calc($border-radius-medium);
+  z-index: 100;
+  margin-top: set-calc(64);
+  width: set-calc(764);
+  left: set-calc(-32);
+  padding: set-calc(32);
+
+
+  @include set-media(md) {
+    width: set-calc(398);
+    left: set-calc(-16);
+    padding: set-calc(24) set-calc(16);
+  }
+}
+
+.title {
+  margin-bottom: set-calc(16);
+  width: 100%;
+
+  @include font-18-normal-paragraph;
+  text-align: center;
+
+  @include set-media(md) {
+    order: 2;
+  }
+}
+
+.link {
+  margin-bottom: set-calc(16);
+  width: 100%;
+
+  @include font-18-normal-paragraph;
+  text-align: center;
+  color: var(--primary-color);
+
+  @include set-media(md) {
+    order: 3;
+  }
+}
+
+.linkForm {
+  position: relative;
+  width: 100%;
+  display: flex;
+
+  @include set-media(md) {
+    order: 3;
+    flex-direction: column;
+  }
+}
+
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0 set-calc(16) 0 0;
+  padding: set-calc(4) set-calc(24);
+  border-radius: set-calc(15);
+  width: 100%;
+
+  color: var(--color-accent-error);
+  white-space: pre-line;
+  text-align: center;
+}
+
+.submit {
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  justify-content: end;
+
+  @include set-media(md) {
+    width: 100%;
+  }
+}
+
+.submitBtn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  min-width: set-calc(132);
+
+  user-select: none;
+  transition-timing-function: ease-in-out;
+  transition-duration: .1s;
+  transition-property: transform, background-color, border-color, color;
+  border: none;
+  outline: none;
+  height: set-calc(50);
+  padding: set-calc(16);
+
+
+  color: var(--color-content-inverted-primary);
+  @include font-16-normal-ui;
+
+  background: var(--color-content-background-secondary);
+  border-radius: set-calc($border-radius-8);
+  cursor: pointer;
+
+  transition: background-color $d-hover ease-in-out, color ease-in-out $d-hover;
+
+  @include set-media(md) {
+    width: 100%;
+    height: unset;
+    padding: set-calc(20) set-calc(24);
+  }
+}
+
+.submitBtn:hover {
+  background-color: var(--color-content-background-primary);
+}
+
+.isDisabled {
+  color: var(--color-content-tertiary);
+  background: var(--color-background-glassy-a);
+
+  pointer-events: none;
+}
+
+.statusProgress {
+  display: flex;
+  width: 100%;
+  margin-top: set-calc(28);
+
+  @include set-media(md) {
+    order: 1;
+    justify-content: center;
+    gap: set-calc(6);
+    margin-top: 0;
+    margin-bottom: set-calc(24);
+  }
+}
+
+.statusProgress > * {
+  flex: 1 0 auto;
+
+  @include set-media(md) {
+    flex: 0 0 0;
+  }
+}
+
+.statusProgress > * + * {
+  margin-top: 0;
+  margin-left: set-calc(4);
+
+  @include set-media(md) {
+    margin-left: 0;
+  }
+}
+
+.statusProgressStep {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: set-calc(32);
+
+  @include set-media(md) {
+    height: max-content;
+  }
+}
+
+.statusProgressStepLine {
+  position: relative;
+  top: auto;
+  left: 0;
+
+  display: block;
+  align-self: center;
+  flex: 1 1 auto;
+  width: 100%;
+  height: set-calc(4);
+  margin-left: 0;
+  border-radius: set-calc(2) 0 0 set-calc(2);
+  background-color: $color-palette-black-200;
+
+  @include set-media(md) {
+    display: none;
+  }
+}
+
+.statusProgressStepContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  gap: set-calc(2);
+  margin-left: 0;
+  padding-right: set-calc(10);
+  transform: translate(-50%, -50%);
+
+  @include set-media(md) {
+    position: relative;
+    padding-right: 0;
+    transform: none;
+    top: 0;
+    left: 0;
+  }
+}
+
+.statusProgressStepContentLabel {
+  display: inline-block;
+  padding: set-calc(4) set-calc(12);
+
+  border-radius: set-calc(100);
+  background-color: $color-palette-black-200;
+  color: $color-palette-black-900;
+  white-space: nowrap;
+
+  @include font-16-normal-ui;
+
+  @include set-media(md) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    padding: 0 0;
+    width: set-calc(32);
+    height: set-calc(32);
+    border-radius: 50%;
+  }
+}
+
+.progressStepArrow {
+  color: $color-palette-black-200;
+
+  svg {
+    width: set-calc(10);
+    height: set-calc(12);
+  }
+
+  @include set-media(md) {
+    display: none;
+  }
+}
+
+.finishIconWrapper {
+  display: block;
+  flex: 0 1 auto;
+}
+
+.finishIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  padding: 0 0;
+  width: set-calc(32);
+  height: set-calc(32);
+  border-radius: 50%;
+
+  color: $color-palette-black-900;
+  background-color:  $color-palette-black-200;
+
+  svg {
+    width: set-calc(32);
+    height: set-calc(32);
+  }
+}
+
+.active {
+  .statusProgressStepLine {
+    background-color: var(--primary-color);
+  }
+
+  .statusProgressStepContentLabel {
+    background-color: var(--primary-color);
+    color: $color-palette-white-1000;
+  }
+
+  .progressStepArrow {
+    color: var(--primary-color);
+  }
+
+  .finishIcon {
+    color: $color-palette-white-1000;
+    background-color: var(--primary-color);
+  }
+ }

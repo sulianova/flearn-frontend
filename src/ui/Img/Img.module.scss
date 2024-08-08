@@ -1,0 +1,22 @@
+@import 'styles/index';
+
+.Hidden {
+  visibility: hidden;
+}
+
+.Placeholder {
+  background-color: var(--color-background-glassy-c);
+  min-height: set-calc(200);
+}
+
+@media (min-width: map-get($breakpoints, md)) {
+  .Mobile {
+    display: none !important;
+  }
+}
+
+@include set-media(md) {
+  .Desktop {
+    display: none !important;
+  }
+}

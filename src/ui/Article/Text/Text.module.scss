@@ -1,0 +1,33 @@
+@import 'styles/index';
+
+.text {
+  @include font-20-normal-article;
+  font-family: $font-family-article;
+  color: var(--color-content-paragraph-primary);
+  
+  margin: set-calc(12) 0 set-calc(20);
+  
+  @include set-media(md) {
+    margin: set-calc(12) 0 set-calc(20);
+  }
+
+  p {
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: inherit;
+  }
+
+  span {
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: inherit;
+  }
+
+  p {
+    margin: set-calc(12) 0 set-calc(20);
+  
+    @include set-media(md) {
+      margin: set-calc(12) 0 set-calc(20);
+    }
+  }
+}

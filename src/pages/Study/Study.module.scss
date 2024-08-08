@@ -1,0 +1,14 @@
+@import 'styles/index';
+
+.__{
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 100%;
+  align-items: center;
+  width: 100%;
+  margin: 0 0 set-calc(52);
+
+  @include set-media(md) {
+    margin: set-calc(16) 0 set-calc(24);
+  }
+}

@@ -1,0 +1,23 @@
+@import 'styles/index';
+
+._ {
+  width: set-calc(700);
+  position: relative;
+  height: max-content;
+  
+  @include set-media(md) {
+    width: 100%;
+  }
+}
+
+.title {
+  margin-bottom: set-calc(40);
+  
+  @include  font-56-normal-header;
+  color: var(--color-content-primary);
+  font-family: $font-family-article-bold;
+  
+  @include set-media(md) {
+    margin-bottom: set-calc(20);
+  }
+}

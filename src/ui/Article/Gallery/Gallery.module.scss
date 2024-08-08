@@ -1,0 +1,108 @@
+@import 'styles/index';
+
+.list {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: start;
+  justify-content: flex-start;
+
+  gap: set-calc(4);
+
+  max-height: set-calc(var(--gallery-max-height, 2000));
+
+  width: set-calc(1568);
+  left: set-calc(-434);
+  margin: set-calc(40) 0 set-calc(100);
+
+  @include set-media(md) {
+    margin: set-calc(30) 0 set-calc(16);
+    width: set-calc(390);
+    left: set-calc(-12);
+    max-height: max-content;
+
+    gap: set-calc(6);
+  }
+}
+
+.item {
+  position: relative;
+  height: 100%;
+  width: set-calc(-4, true, 33.3333333%);
+  border-radius: set-calc($border-radius-10);
+
+  @include set-media(md) {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.item:hover .overlay,
+.item:hover .overlayCaption {
+  opacity: 1;
+  cursor: zoom-in;
+}
+
+.item img {
+  position: relative;
+  box-shadow: $shadow-medium-default;
+  border-radius: set-calc($border-radius-10);
+
+  vertical-align: middle;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  background-color: $color-palette-white-1000;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+  background-color: var(--color-background-overlay);
+  border-radius: set-calc($border-radius-10);
+  transition: opacity $d-hover ease;
+  color: var(--color-background-default);
+}
+
+.overlayCaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+
+  z-index: 100;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: opacity $d-hover ease;
+  color: var(--color-background-default);
+}
+
+.itemCaption {
+  @include font-14-normal-ui;
+  color: $color-palette-white-1000;
+  text-transform: uppercase;
+}
+
+.itemCaption:hover {
+
+  a {
+    pointer-events: none;
+  }
+}

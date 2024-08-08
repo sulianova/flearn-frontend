@@ -1,0 +1,120 @@
+@import 'styles/index';
+
+.__ {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: set-calc(764);
+  left: set-calc(-32);
+
+  opacity: 1;
+  transition: opacity $d-hover ease-in-out;
+
+  margin: set-calc(40) 0 set-calc(20);
+
+  @include set-media(md) {
+    margin: set-calc(30) 0 set-calc(16);
+    width: set-calc(390);
+    left: set-calc(-12);
+  }
+}
+
+.opacityZero {
+  opacity: 0;
+}
+
+.image {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: set-calc($border-radius-20);
+  border: 1px solid var(--border-color);
+  background-color: var(--color-card);
+  overflow: hidden;
+}
+
+.image img {
+  display: block;
+  max-height: set-calc(600);
+
+  object-fit: contain;
+  object-position: top left;
+  cursor: zoom-in;
+
+  @include set-media(md) {
+    width: 100%;
+  }
+}
+
+.imageCaption {
+  @include font-16-normal-paragraph;
+  color: var(--color-content-paragraph-primary);
+  text-align: center;
+
+  max-width: set-calc(700);
+
+  margin-top: set-calc(8);
+  margin-bottom: set-calc(16);
+}
+
+.imageCaption > * {
+  @include font-16-normal-paragraph;
+  text-align: center;
+}
+
+.large {
+  width: set-calc(1568);
+  left: set-calc(-434);
+
+  align-items: end;
+
+  margin: set-calc(8) 0;
+
+  .imageCaption {
+    text-transform: uppercase;
+
+    position: absolute;
+    bottom: set-calc(16);
+    right: set-calc(16);
+
+    transition: background-color $d-hover ease-out;
+
+    margin-top: 0;
+    padding: set-calc(8) set-calc(12);
+    background-color: $color-palette-white-900-a;
+    border-radius: set-calc($border-radius-30);
+    backdrop-filter: blur(set-calc($backdrop-filter));
+
+    @include set-media(md) {
+      bottom: set-calc(4);
+      right: set-calc(4);
+    }
+
+    &:hover {
+      background-color: $color-palette-white-1000;
+      cursor: pointer;
+
+      a {
+        color: var(--primary-color);
+      }
+    }
+  }
+
+  @include set-media(md) {
+    position: relative;
+    margin: set-calc(6) 0;
+    width: set-calc(398);
+    left: set-calc(-8);
+  }
+
+  .image img {
+    max-height: unset;
+  }
+}

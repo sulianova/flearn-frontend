@@ -1,0 +1,15 @@
+@import 'styles/index';
+
+.title {
+  margin: set-calc(40) 0 set-calc(12);
+
+  @include set-typography(26, 28, 500);
+  color: var(--color-content-primary);
+  font-family: $font-family-article-bold;
+
+  @include set-media(md) {
+    margin: set-calc(40) 0 set-calc(12);
+
+    @include set-typography(22, 24, 500);
+  }
+}

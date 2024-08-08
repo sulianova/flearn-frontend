@@ -1,0 +1,76 @@
+@import 'styles/index';
+
+._ {
+  padding-bottom: set-calc(16);
+
+  text-align: left;
+
+  border-bottom: set-calc(2) solid rgb(196 196 196 / 45% );
+}
+
+.content {
+  position: relative;
+
+  display: flex;
+
+  label {
+    width: set-calc(210);
+    margin-right: set-calc(4);
+
+    color: $grey-inactive;
+
+    @include set-media(md) {
+      display: none;
+    }
+  }
+
+  textarea {
+    grid-area: 1 / 1 / 2 / 2;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+    color: var(--color-content-background-primary);
+    font: inherit;
+
+    background: none;
+    border: none;
+    outline: none;
+
+    resize: none;
+  }
+
+  textarea::placeholder {
+    color: $grey;
+
+    @include set-typography(18, 24, 500);
+
+    @include set-media(md) {
+      @include set-typography(16, 22, 500);
+    }
+  }
+}
+
+.contentInner {
+  display: grid;
+  flex: 1;
+  max-width: set-calc(-210, true, 100%);
+  overflow: hidden;
+
+  @include font-18-normal-paragraph;
+
+  @include set-media(md) {
+    min-width: 100%;
+  }
+}
+
+.contentInner::after {
+  grid-area: 1 / 1 / 2 / 2;
+  padding: 0;
+
+  white-space: pre-wrap;
+
+  visibility: hidden;
+
+  content: attr(data-replicated-value) ' ';
+}

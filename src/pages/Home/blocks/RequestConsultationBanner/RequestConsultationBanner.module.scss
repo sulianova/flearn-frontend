@@ -1,0 +1,91 @@
+@import 'styles/index';
+
+.__ {
+  background-color: var(--color-card);
+  border: 1px solid var(--border-color);
+  border-radius: set-calc($border-radius-medium);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  padding: set-calc(48) set-calc(32);
+
+  @include set-media(md) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    min-height: set-calc(300);
+    padding: set-calc(24) set-calc(16);
+  }
+}
+
+.contentTitle {
+  color: var(--color-content-primary);
+  font-family: $font-family-medium;
+  
+  margin-bottom: set-calc(48);
+
+  @include font-40-normal-header;
+  text-align: center;
+
+  @include set-media(md) {
+    @include font-32-normal-header;
+    text-align: start;
+  }
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: set-calc(8);
+  margin-top: set-calc(24);
+
+  @include set-media(md) {
+    justify-content: flex-end;
+    align-items: start;
+  }
+}
+
+.button {
+  @include btn;
+  
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: max-content;
+  height: set-calc(60);
+  
+  padding: set-calc(0) set-calc(24);
+  border-radius: set-calc($border-radius-30);
+  background-color: var(--color-background-btn);
+
+
+  @include font-18-normal-ui;
+  color: $color-content-inverted-primary-light;
+  font-family: $font-family-medium;
+
+  @include set-media(md) {
+    height: set-calc(48);
+  }
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: $shadow-medium-hovered;
+    background-color: var(--color-background-btn-hover);
+  }
+
+  &:active {
+    box-shadow: $shadow-medium-pressed;
+  }
+}

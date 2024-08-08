@@ -1,0 +1,138 @@
+@import 'styles/index';
+
+.modal {
+  z-index: 1001;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  display: flex;
+  visibility: visible;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  background: var(--color-background-overlay);
+  opacity: 0;
+
+  transition: opacity 0.2s ease-out;
+
+  @include set-media(md) {
+    background: var(--color-background-overlay);
+    opacity: 0;
+    
+    transition: opacity 0.3s ease-out;
+  }
+}
+
+.modalContentWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  @include set-media(md) {
+    max-height: 100vh;
+    max-height: -moz-available;
+    max-height: -webkit-fill-available;
+    max-height: fill-available;
+  
+    overflow: scroll;
+    
+    display: flex;
+    font-display: column;
+    justify-content: flex-end;
+
+    top: unset;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+
+    transform: none;
+  }
+}
+
+.modalContent {
+  position: relative;
+  margin: set-calc(10);
+
+  color: var(--color-content-primary);
+
+  background-color: var(--color-card);
+  border-radius: set-calc($border-radius-medium);
+  border: set-calc(1) solid var(--color-border);
+  backdrop-filter: blur(set-calc($backdrop-filter));
+  box-shadow: $shadow-popup;
+
+  opacity: 0;
+
+  transform: translateY(50px) scale(0.98);
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+
+  overflow: hidden;
+
+  @include set-media(md) {
+    width: 100%;
+    height: max-content;
+    margin: 0;
+
+    opacity: 0;
+
+    transform: translateY(100%) scale(1);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+
+    border-top-right-radius: set-calc($border-radius-medium);
+    border-top-left-radius: set-calc($border-radius-medium);
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+.modal_AnimationEnter {
+  .overlay {
+    opacity: 1;
+  }
+
+  .modalContent {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  
+    @include set-media(md) {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+  }
+}
+
+
+.modal_AnimationExit {
+
+  .overlay {
+    transition: opacity 0.2s ease-in;
+    opacity: 0;
+  }
+
+  .modalContent {
+    transition: opacity 0.2s ease-in, transform 0.2s ease-in;
+    transform: translateY(50px) scale(0.98);
+  
+    opacity: 0;
+  
+    @include set-media(md) {
+      transition: opacity 0.3s ease-in, transform 0.3s ease-in;
+      transform: translateY(100%) scale(1);
+  
+      opacity: 1;
+    }
+  }
+}

@@ -1,0 +1,334 @@
+@import 'styles/index';
+
+.paymentWrapper {
+  display: flex;
+  gap: set-calc($s-gap);
+  justify-content: center;
+  flex-grow: 1;
+
+  padding: set-calc(24) 0 0;
+
+  @include set-media(md) {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+
+    width: set-calc(390);
+    left: set-calc(12);
+    padding: set-calc(16) 0 set-calc(16);
+  }
+}
+
+.paymentBlock {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: set-calc(450);
+  border-radius: set-calc($border-radius-large);
+
+  @include set-media(md) {
+    border-radius: set-calc($border-radius-medium);
+    padding: set-calc(16);
+
+    width: 100%;
+  }
+}
+
+.headerWrapper{
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  max-width: set-calc(560);
+  margin-bottom: set-calc(20);
+
+  word-break: break-word;
+  @include font-32-normal-header;
+  color: var(--color-content-primary);
+  font-family: $font-family-bold;
+  text-align: center;
+
+  @include set-media(md) {
+    margin-bottom: set-calc(16);
+  }
+}
+
+.benefits {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  margin-bottom: set-calc(32);
+  gap: set-calc(16);
+
+  @include set-media(md) {
+    margin-bottom: set-calc(20);
+  }
+}
+
+.benefitsItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.itemIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    flex-shrink: 0;
+    width: set-calc(16);
+    height: set-calc(16);
+    border-radius: 50%;
+    color: var(--primary-color);
+
+    path {
+      fill: $color-content-inverted-primary-light;
+    }
+  }
+}
+
+.itemText {
+  margin-left: set-calc(8);
+  color: var(--color-content-paragraph-secondary);
+  @include font-14-normal-ui;
+}
+
+.bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.btn {
+  @include btn;
+  
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: $color-content-inverted-primary-light;
+  font-family: $font-family-medium;
+  @include font-20-normal-ui;
+
+  border-radius: set-calc($border-radius-12);
+  background-color: var(--primary-color);
+
+  height: set-calc(60);
+  width: 100%;
+
+  &:hover {
+    background-color: var(--primary-color-hover);
+  }
+
+  &:disabled {
+    background: var(--color-background-glassy-c);
+    color: var(--color-content-tertiary);
+  }
+
+  @include set-media(md) {
+    height: set-calc(60);
+
+    &:hover {
+      background-color: var(--primary-color);
+    }
+  }
+}
+
+.paymentCheck {
+  position: relative;
+  display: block;
+  margin: set-calc(20) set-calc(8) set-calc(32);
+
+  input {
+    display: none;
+  }
+
+  label {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    cursor: pointer;
+    color: var(--color-content-secondary);
+
+    span {
+      @include font-14-normal-ui;
+    }
+
+    svg {
+      position: relative;
+      display: block;
+      width: set-calc(16);
+      height: set-calc(16);
+      margin-right: set-calc(8);
+
+      path {
+        fill: none;
+      }
+
+      rect {
+        fill: var(--color-background-glassy-c);
+      }
+    }
+  }
+  
+  input:checked + label {
+    rect {
+      fill: var(--primary-color);
+    }
+
+    path {
+      fill: var(--color-content-inverted-primary);
+    }
+  }
+}
+
+.paymentSummary {
+  display: flex;
+
+  padding: set-calc(20) 0;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+
+  margin: 0!important;
+
+  @include set-media(md) {
+    padding: set-calc(16) 0;
+  }
+}
+
+.paymentSummaryText {
+  @include font-18-normal-ui;
+  font-family: $font-family-bold;
+}
+
+.paymentSummary > :last-child {
+  margin: 0 0 0 auto;
+  text-align: end;
+}
+
+.paymentSummaryTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: set-calc(4);
+  margin-top: set-calc(4);
+}
+
+.paymentSummaryTag {
+  display: inline-block;
+  padding: set-calc(4);
+
+  background: $color-accent-promo-light;
+  border-radius: set-calc($border-radius-4);
+  color: $color-content-primary-light;
+
+  @include font-14-normal-ui;
+  text-align: start;
+}
+
+.paymentSummaryCreditWas {
+  display: block;
+  padding-block: set-calc(4);
+
+  color: var(--color-content-tertiary);
+  @include font-16-normal-ui;
+  margin-top: set-calc(4);
+  white-space: nowrap;
+
+  s:after {
+    margin-top: 0;
+    border-bottom: set-calc(1.5) solid var(--color-content-tertiary);
+    content: "";
+    position: absolute;
+    left: set-calc(-2);
+    right: set-calc(-2);
+    top: 50%;
+
+    @include set-media(md) {
+      border-bottom: set-calc(1) solid var(--color-content-tertiary);
+    }
+  }
+}
+
+.paymentOptions {
+  padding: set-calc(20) 0 set-calc(80);
+  border-top: 1px solid var(--border-color);
+
+  @include set-media(md) {
+    padding: set-calc(16) 0 set-calc(16);
+  }
+}
+
+.paymentOptionsTitle {
+  position: relative;
+
+  margin-bottom: set-calc(16);
+
+  @include font-18-normal-ui;
+  font-family: $font-family-bold;
+  color: var(--color-content-primary);
+
+  @include set-media(md) {
+    margin-bottom:set-calc(8);
+  }
+}
+
+.optionDescription {
+  padding: set-calc(16) set-calc(8) 0;
+  @include font-14-normal-ui;
+
+  width: 80%;
+
+  a {
+    color: var(--primary-color);
+  }
+
+  @include set-media(md) {
+    padding: set-calc(16) set-calc(8) 0;
+
+    width: 100%;
+  }
+}
+
+.groupToggleOptions {
+  display: flex;
+  padding: set-calc(2);
+  border-radius: set-calc($border-radius-12);
+  background-color: var(--color-background-glassy-b);
+}
+
+.groupToggleOption {
+  width: 50%;
+}
+
+.groupToggleLabel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100%;
+
+  padding: set-calc(12) 0;
+  border-radius: set-calc($border-radius-12);
+
+  @include font-14-normal-ui;
+  color: var(--color-content-paragraph-secondary);
+  font-family: $font-family-medium;
+  text-align: center;
+
+  cursor: pointer;
+}
+
+.checked {
+  background-color: var(--color-content-inverted-primary);
+  cursor: default;
+}

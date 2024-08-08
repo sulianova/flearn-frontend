@@ -1,0 +1,215 @@
+@use "sass:math";
+@use "sass:list";
+@use "sass:map";
+@use "sass:meta";
+@use "sass:string";
+
+@function px-to-rem($list) {
+  $rem-list: ();
+
+  @each $value in $list {
+    $rem-value: math.div($value, $rem-base) * 1rem;
+    $rem-value-rounded: math.div(math.round($rem-value * 1000), 1000);
+    $rem-list: append($rem-list, $rem-value-rounded);
+  }
+
+  @return #{$rem-list};
+}
+
+@mixin set-typography(
+  $font-size,
+  $line-height: $font-size,
+  $font-weight: 500,
+  $text-transform: inherit
+) {
+  font-weight: $font-weight;
+  font-size: calc(var(--scale)*$font-size);
+  line-height: calc(var(--scale)*$line-height);
+  text-transform: $text-transform;
+}
+
+@mixin set-media($type) {
+  @media (max-width: map-get($breakpoints, $type)) {
+    @content;
+  }
+}
+
+@mixin set-media-min($type) {
+  @media (min-width: map-get($breakpoints, $type)) {
+    @content;
+  }
+}
+
+@mixin add-scale {
+  :root {
+     --scale: 100vw/1600;
+  }
+}
+
+@mixin add-scale-md {
+  :root {
+     --scale: 100vw/414;
+  }
+}
+
+@include add-scale;
+
+@include set-media(md) {
+  @include add-scale-md;
+}
+
+@mixin is-beige {
+  position: relative;
+  background-color: transparent;
+  color: var(--color-content-primary);
+
+  left: set-calc(-$padding-x-desk-page);
+  width: set-calc(2 * $padding-x-desk-page, true, 100%);
+  padding: set-calc(0) set-calc(24);
+
+  @include set-media(md) {
+    display: block;
+
+    left: set-calc(-$padding-xs-mob-page);
+    width: set-calc(2 * $padding-xs-mob-page, true, 100%);
+    padding: set-calc($padding-xs-mob-page) set-calc($padding-xs-mob-page);
+  }
+}
+
+@mixin is-grid-2 {
+  display: grid;
+  grid-gap: set-calc($s-gap);
+  grid-template-columns: repeat(2,minmax(0,1fr));
+
+  @include set-media(md) {
+    display: flex;
+    flex-direction: column;
+    grid-gap: set-calc($mobile-gap);
+  }
+}
+
+@mixin is-grid-3 {
+  display: grid;
+  grid-gap: set-calc($s-gap);
+  grid-template-columns: repeat(3,minmax(0,1fr));
+
+  @include set-media(md) {
+    display: flex;
+    flex-direction: column;
+    grid-gap: set-calc($mobile-gap);
+  }
+}
+
+@mixin is-grid-4 {
+  display: grid;
+  grid-gap: set-calc($s-gap);
+  grid-template-columns: repeat(4,minmax(0,1fr));
+
+  @include set-media(md) {
+    display: flex;
+    flex-direction: column;
+    grid-gap: set-calc($mobile-gap);
+  }
+}
+
+@mixin is-grid-12 {
+  display: grid;
+  grid-gap: set-calc($s-gap);
+  grid-template-columns: repeat(12,minmax(0,1fr));
+
+  @include set-media(md) {
+    display: flex;
+    flex-direction: column;
+    grid-gap: set-calc($mobile-gap);
+  }
+}
+
+@mixin bc-yellow {
+  background-color: var(--color-accent-promo-background);
+}
+
+@mixin btn {
+  transition-property: all;
+  transition-duration: $d-hover;
+  transition-timing-function: ease-out;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:disabled {
+    cursor: default;
+    pointer-events: none;
+  }
+
+  &:active {
+    transform: scale(0.96);
+  }
+
+  @include set-media(md) {
+    transition-property: none;
+    
+    &:active {
+      transform: none;
+    }
+  }
+}
+
+@mixin contentExpander {
+  animation: theoryFragmentAppearance .3s;
+  animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 0.1);
+  animation-delay: .3s;
+  animation-fill-mode: backwards;
+}
+
+@mixin keyframes($name) {
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+@mixin apply-to-all($mixin, $list) {
+  @each $element in $list {
+    @include meta.apply($mixin, $element);
+  }
+}
+
+@keyframes buttonGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes marqueeAnimation {
+  100% {
+    transform: translateX(-2112px);
+  }
+}
+
+@keyframes theoryFragmentAppearance{
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@function set-calc(
+  $value,
+  $bollean: false,
+  $value2: 0%
+  ) {
+    @if $bollean {
+      @return calc($value2 + var(--scale) * $value);
+    } @else { @return calc(var(--scale) * $value) }
+}

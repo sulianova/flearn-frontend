@@ -1,0 +1,25 @@
+@import 'styles/index';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  margin-bottom: set-calc(32);
+
+  @include set-media(md) {
+    margin-bottom: set-calc(24);
+  }
+}
+
+.title {
+  padding-bottom: set-calc(24);
+  @include font-70-normal-header;
+}
+
+.desc {
+  padding-bottom: set-calc(32);
+  @include font-18-normal-paragraph;
+  max-width: set-calc(600);
+}

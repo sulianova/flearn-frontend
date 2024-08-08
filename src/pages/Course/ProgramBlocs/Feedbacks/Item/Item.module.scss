@@ -1,0 +1,87 @@
+@import 'styles/index';
+
+._ {
+  grid-column: span 4;
+  align-items: start;
+  padding-left: set-calc(16);
+
+  @include is-grid-12;
+
+  @include set-media(md) {
+    align-items: start;
+    flex-direction: column-reverse;
+    padding-left: set-calc(0);
+  }
+}
+
+._:not(:last-child) {
+  padding-bottom: set-calc(24);
+
+  @include set-media(md) {
+    padding-bottom: set-calc(32);
+  }
+}
+
+.feedbackAuthor {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  grid-column: span 2;
+
+  @include font-18-normal-paragraph;
+  padding-top: set-calc(8);
+
+  span {
+    font-family: $font-family-bold;
+  }
+
+  @include set-media(md) {
+    padding-top: set-calc(8);
+    padding-left: set-calc(16);
+  }
+}
+
+.feedbackQuote {
+  grid-column: 3 / 9;
+
+  border-radius: set-calc($border-radius-medium);
+  background-color: var(--color-card);
+  border: 1px solid var(--border-color);
+
+  @include font-18-normal-paragraph;
+  color: var(--color-content-paragraph-primary);
+  padding: set-calc(24);
+
+  overflow: hidden;
+
+  p {
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+  }
+
+  p:not(:last-child) {
+    padding-bottom: set-calc(16);
+  }
+
+  @include set-media(md) {
+    padding: set-calc(16);
+  }
+}
+
+.feedbackExcerpt {
+  grid-column: 9 / -1;
+
+  @include set-typography(26, 36, 500);
+  padding-left: set-calc(80);
+  padding-right: set-calc(40);
+  padding-top: set-calc(8);
+
+  color: var(--primary-color);
+  font-family: $font-family-regular;
+
+  @include set-media(md) {
+    display: none;
+  }
+}

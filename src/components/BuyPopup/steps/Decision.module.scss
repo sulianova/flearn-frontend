@@ -1,0 +1,401 @@
+@import 'styles/index';
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @include set-media(md) {
+    margin-top: set-calc(24);
+  }
+}
+
+
+.headerTitle {
+  position: relative;
+
+  padding-bottom: set-calc(24);
+
+  @include set-typography(56, 60, 500);
+  font-family: $font-family-bold;
+  text-align: center;
+
+  @include set-media(md) {
+    padding-bottom: set-calc(16);
+
+    @include set-typography(28, 32, 500);
+  }
+}
+
+.headerDescription {
+  position: relative;
+
+  margin-bottom: set-calc(40);
+  max-width: set-calc(800);
+
+  @include set-typography(24, 36, 500);
+  color: var(--color-content-paragraph-primary);
+  text-align: center;
+
+  @include set-media(md) {
+    margin-bottom: set-calc(16);
+    width: 85%;
+
+    @include set-typography(14, 18, 500);
+  }
+}
+
+.commonFlowRow {
+  @include set-media(md) {
+    position: relative;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: 0 set-calc(16) set-calc(16);
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  grid-gap: set-calc(16);
+  padding: set-calc(24) 0 0;
+
+  @include set-media(md) {
+    position: relative;
+
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    width: set-calc(16, true, 100%);
+    left: set-calc(-8);
+    padding: set-calc(32) set-calc(8) set-calc(16);
+  }
+}
+
+.block {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: min(380px, 80vw);
+
+  padding: set-calc(40);
+  background-color: var(--color-card);
+  border-radius: set-calc($border-radius-large);
+  border: 1px solid var(--border-color);
+
+  @include set-media(md) {
+    padding: set-calc(32);
+    flex-grow: 1;
+
+    min-width: 100%;
+    min-height: unset;
+
+    // box-shadow: 0 0 0 2px $color-palette-black-200, 0 2px 0 2px $color-palette-black-200;
+    border-radius: set-calc($border-radius-medium);
+    // background-color: var(--color-card);
+    // -webkit-tap-highlight-color: transparent;
+    // cursor: pointer;
+
+    transition: box-shadow $d-hover ease-in, background-color $d-hover ease-in;
+  }
+}
+
+// .block:active {
+//   @include set-media(md) {
+//     box-shadow: 0 0 0 2px $color-palette-black-600;
+//     transform: translate3d(0, 2px, 0);
+//   }
+// }
+
+// .active {
+//   @include set-media(md) {
+//     background-color: $color-palette-indigo-100;
+//     box-shadow: 0 0 0 2px var(--primary-color), 0 2px 0 2px var(--primary-color);
+//     -webkit-tap-highlight-color: transparent;
+//     cursor: pointer;
+  
+//     .courseName {
+//       color: $color-content-primary-light;
+//     }
+//     .title  {
+//       color: $color-content-paragraph-secondary-light;
+//     }
+//     .credit {
+//       s:after {
+//         border-bottom: set-calc(1.5) solid $color-background-glassy-d-light;
+//         @include set-media(md) {
+//           border-bottom: set-calc(1) solid $color-background-glassy-d-light;
+//         }
+//       }
+//     }
+    
+//     .creditWas {
+//       color: $color-background-glassy-d-light;
+//     }
+    
+//     .creditPrice {
+//       color: $color-content-primary-light;
+//     }
+    
+//     .discount {
+//       background: $color-background-glassy-b-light;
+//       color: $color-content-primary-light;
+//     }
+//   }
+// }
+
+.block:first-child {
+  background-color: var(--color-content-background-primary);
+
+  .courseName {
+    color: var(--color-content-inverted-primary);
+  }
+
+  .title {
+    color: var(--color-content-inverted-secondary);
+    font-family: $font-family-regular;
+  }
+
+  .paymentSummary {
+    .creditPrice {
+      color: var(--color-content-inverted-primary);
+    }
+  
+    .creditWas {
+      color: $color-highlight-violet;
+
+      s:after {
+        border-bottom: set-calc(1.5) solid $color-highlight-violet;
+  
+        @include set-media(md) {
+          border-bottom: set-calc(1) solid $color-highlight-violet;
+        }
+      }
+    }
+  
+    .discountTag {
+      color: $color-content-inverted-primary-light;
+      background: $color-highlight-violet;
+    }
+  }
+
+  .itemIcon {
+    color: $color-highlight-violet;
+
+    svg {
+      path {
+        fill: $color-content-inverted-primary-light;
+      }
+    }
+  }
+
+  .itemText {
+    color: var(--color-content-inverted-secondary);
+    font-family: $font-family-regular;
+  }
+
+  .cardBtn {
+    color: $color-content-inverted-primary-light;
+
+    background: $color-highlight-violet;
+    border: none;
+  
+    &:hover {
+      cursor: pointer;
+      background: var(--primary-color-hover);
+      border: none;
+    }
+
+    @include set-media(md) {
+      &:hover {
+        background: $color-highlight-violet;
+      }
+    }
+  }
+}
+
+.courseName {
+  position: relative;
+
+  margin-bottom: set-calc(32);
+  width: max-content;
+
+  @include font-28-normal-header;
+  font-family: $font-family-bold;
+  color: var(--color-content-primary);
+}
+
+.title {
+  max-width: 95%;
+  word-break: break-word;
+  margin: 0 0 set-calc(16);
+
+  @include set-typography(14, 20, 500);
+  color: var(--color-content-paragraph-secondary);
+}
+
+.pricingCheckList {
+  flex: 1;
+  display: block;
+  padding-left: 0;
+  list-style: none;
+}
+
+.pricingCheckListItem {
+  position: relative;
+
+  display: flex;
+  align-items: start;
+  gap: set-calc(12);
+}
+
+.pricingCheckListItem:not(:last-child) {
+  margin-bottom: set-calc(16);
+}
+
+.itemIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: set-calc(2);
+
+  color: var(--color-content-secondary);
+
+  svg {
+    width: set-calc(20);
+    height: set-calc(20);
+
+    path {
+      fill: var(--color-content-inverted-primary);
+    }
+  }
+
+  @include set-media(md) {
+    svg {
+      width: set-calc(18);
+      height: set-calc(18);
+    }
+  }
+}
+
+.itemText {
+  @include set-typography(14, 20, 500);
+  color: var(--color-content-paragraph-secondary);
+}
+
+.cardBtn {
+  @include btn;
+
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0 set-calc(32);
+
+  color: var(--color-content-paragraph-secondary);
+  font-family: $font-family-medium;
+  @include font-16-normal-ui;
+
+  height: set-calc(64);
+  background-color: transparent;
+  border-radius: set-calc($border-radius-16);
+  border: 1px solid var(--color-content-paragraph-secondary);
+
+  &:hover {
+    cursor: pointer;
+    background-color: var(--color-content-background-primary);
+    border-color: transparent;
+    color: var(--color-content-inverted-primary);
+  }
+
+  @include set-media(md) {
+    &:hover {
+      background-color: transparent;
+      border-color: var(--color-content-paragraph-secondary);
+      color: var(--color-content-paragraph-secondary);
+    }
+  }
+}
+
+.paymentSummary {
+  display: flex;
+  justify-content: space-between;
+
+  margin: set-calc(60) 0 set-calc(20);
+
+  @include set-media(md) {
+
+  }
+}
+
+.discountTags {
+  display: flex;
+  align-items: end;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: set-calc(4);
+}
+
+.discountTag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0 set-calc(8);
+  height: set-calc(30);
+
+  background: var(--color-content-background-secondary);
+  border-radius: calc(set-calc(30) / 2);
+  
+  color: var(--color-content-inverted-secondary);
+  font-family: $font-family-medium;
+
+  @include font-14-normal-ui;
+  text-align: start;
+}
+
+.creditWas {
+  display: block;
+
+  color: var(--color-content-background-secondary);
+  @include set-typography(16, 22, 500);
+  margin: set-calc(5) 0;
+  white-space: nowrap;
+
+  s:after {
+    margin-top: 0;
+    border-bottom: set-calc(1.5) solid var(--color-content-background-secondary);
+    content: "";
+    position: absolute;
+    left: set-calc(-2);
+    right: set-calc(-2);
+    top: 50%;
+
+    @include set-media(md) {
+      border-bottom: set-calc(1) solid var(--color-content-background-secondary);
+    }
+  }
+}
+
+.creditPrice {
+  position: relative;
+  @include set-typography(28, 28, 500);
+  font-family: $font-family-bold;
+
+  display: inline-block;
+  letter-spacing: -0.05rem;
+  color: var(--color-content-primary);
+  align-self: flex-end;
+}

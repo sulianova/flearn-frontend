@@ -1,0 +1,64 @@
+@import 'styles/index';
+
+.__ {
+  @include is-grid-3;
+  grid-gap: set-calc($s-gap);
+
+  padding: set-calc(24);
+  margin: set-calc(8) auto 0;
+
+  background-color: var(--color-card);
+  border: 1px solid var(--border-color);
+  border-radius: set-calc($border-radius-medium);
+
+  @include set-media(md) {
+    margin: set-calc(6) auto 0;
+    row-gap: set-calc(20);
+    padding: set-calc(16);
+  }
+}
+
+.item {
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+  gap: set-calc(16);
+
+  .itemSvg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: set-calc(12);
+
+    border-radius: set-calc($border-radius-12);
+    background-color: var(--color-background-glassy-b);
+
+    svg {
+      width: set-calc(32);
+      height: set-calc(32);
+  
+     path {
+        fill: var(--primary-color);
+      }
+    }
+
+    @include set-media(md) {
+      padding: set-calc(10);
+
+      svg {
+        width: set-calc(30);
+        height: set-calc(30);
+      }
+    }
+  }
+
+  @include set-media(md) {
+    gap: set-calc(16);
+  }
+}
+
+.itemText {
+  @include font-18-normal-ui;
+  color: var(--color-content-paragraph-primary);
+  max-width: set-calc(350);
+}

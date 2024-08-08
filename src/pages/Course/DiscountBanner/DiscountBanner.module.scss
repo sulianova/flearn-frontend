@@ -1,0 +1,42 @@
+@import 'styles/index';
+
+._ {
+  display: none;
+
+  @include set-media(md) {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: set-calc(8) 0 set-calc(32);
+
+    left: set-calc(-$padding-x-mob-page);
+    width: set-calc(32, true, 100%);
+    padding: set-calc($padding-x-mob-page) set-calc($padding-x-mob-page) set-calc($padding-x-mob-page * 2);
+    border-top: set-calc(2) solid $black-new;
+    border-bottom: set-calc(2) solid $black-new;
+    cursor: pointer;
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+}
+
+.title {
+  @include font-20-normal-paragraph;
+
+  @include set-media(md) {
+    padding-bottom: set-calc(8);
+  }
+}
+
+.descriptionWrapper {
+  position: relative;
+  z-index: 2;
+  color: $black;
+  white-space: pre-line;
+
+  @include font-20-normal-paragraph;
+}
+
+.count {
+  @include font-20-normal-paragraph;
+  color: $blue;
+}

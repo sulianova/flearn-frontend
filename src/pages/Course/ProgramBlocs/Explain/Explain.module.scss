@@ -1,0 +1,143 @@
+@import 'styles/index';
+
+.wrapper {
+  padding: 0;
+}
+
+.cards {
+  display: grid;
+  grid-gap: set-calc(8);
+  grid-template-columns: 4fr 6fr;
+  grid-template-areas: "explain-intro explain-video";
+
+  @include set-media(md) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.introCard {
+  grid-area: explain-intro;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: set-calc(16);
+
+  overflow: hidden;
+  padding: 0 set-calc(16);
+  border-radius: set-calc($border-radius-medium);
+
+  @include set-media(md) {
+    padding: 0 0;
+    gap: set-calc(8);
+  }
+}
+
+.introCardQuote {
+  position: relative;
+  z-index: 2;
+
+  @include set-typography(24, 32, 500);
+  font-family: $font-family-regular;
+  color: var(--color-content-inverted-primary);
+  white-space: pre-line;
+
+
+  background-color: var(--primary-color);
+  border-radius: set-calc($border-radius-20);
+  padding: set-calc(32);
+
+  @include set-media(md) {
+    padding: set-calc(16);
+    @include set-typography(18, 24, 500);
+  }
+}
+
+.introCardQuote:last-of-type {
+  padding: set-calc(16);
+
+  background-color: transparent;
+  width: 60%;
+
+  color: var(--primary-color);
+  @include set-typography(20, 30, 500);
+  font-family: $font-family-regular;
+
+  @include set-media(md) {
+    display: none;
+  }
+}
+
+.videoCard {
+  grid-area: explain-video;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+}
+
+.buble {
+  position: absolute;
+  right: set-calc(20);
+  top: set-calc(-30);
+  transform: rotate(4deg);
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 9;
+
+  @include font-20-normal-ui;
+  color: var(--color-content-inverted-primary);
+  font-family: $font-family-regular;
+
+  padding: set-calc(12) set-calc(18);
+  border-radius: set-calc($border-radius-large);
+  background-color: var(--primary-color);
+
+  @include set-media(md) {
+    display: none;
+    padding: set-calc(8) set-calc(12);
+    transform: rotate(0deg);
+    right: set-calc(-4);
+    top: set-calc(525);
+  }
+}
+
+.videoCardContainer {
+  position: relative;
+  flex-grow: 1;
+  flex-shrink: 1;
+  width: 100%;
+  max-height: set-calc(800);
+
+  @include set-media(md) {
+    max-height: unset;
+    height: set-calc(350);
+  }
+}
+
+.videoCardContainer img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-radius: set-calc($border-radius-medium);
+}
+
+.videoCardDesc {
+  display: none;
+
+  @include set-media(md) {
+    display: block;
+
+    padding: set-calc(16) set-calc(8) 0;
+    width: 100%;
+
+    @include set-typography(18, 24, 500);
+    color: var(--primary-color);
+    font-family: $font-family-regular;
+  }
+}

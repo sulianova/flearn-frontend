@@ -1,0 +1,126 @@
+@import 'styles/index';
+
+.__ {
+  z-index: 600;
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  bottom: 0;
+
+  height: 100vh;
+
+  transition: transform 450ms, box-shadow 0.2s;
+  transition-timing-function: cubic-bezier(0.06, 0.45, 0, 1);
+
+  @include set-media(md) {
+    display: none;
+  }
+}
+
+.container {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  bottom: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: set-calc(10) set-calc(16);
+  height: 100%;
+}
+
+.items {
+  position: fixed;
+
+  top: set-calc(10);
+  left: set-calc(16);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: set-calc(4);
+
+  flex-grow: 1;
+  list-style: none;
+  padding: set-calc(4);
+
+  backdrop-filter: blur(set-calc($backdrop-filter));
+  border-radius: set-calc($border-radius-8);
+  border: 1px solid var(--border-color);
+  background-color: var(--color-card);
+}
+
+.items:last-child {
+  position: fixed;
+
+  top: unset;
+  bottom: set-calc(24);
+}
+
+.item {
+  @include btn;
+
+  position: relative;
+
+  border-radius: set-calc($border-radius-8);
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--color-background-glassy-b);
+  }
+
+  &:active {
+    background-color: var(--color-background-glassy-c);
+
+    .icon {
+      transform: scale(0.96);
+    }
+  }
+}
+
+.iconWrapper {
+  position: relative;
+  display: block;
+  overflow: inherit;
+
+  width: set-calc(52);
+  height: set-calc(52);
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  border-radius: 50%;
+  transition: background-color $d-hover ease, transform $d-hover ease;
+
+  height: 100%;
+  width: 100%;
+
+  svg {
+    display: inline-block;
+    text-align: center;
+    background: 50% no-repeat;
+    background-size: contain;
+    width: set-calc(24);
+    height: set-calc(24);
+
+    path {
+      fill: var(--color-content-primary);
+    }
+  }
+
+  @include set-media(md) {
+    display: none;
+  }
+}
+
+.open {
+  z-index: 10000;
+}

@@ -1,0 +1,133 @@
+@import 'styles/index';
+
+.wrapper {
+  padding-top: 0;
+
+  @include set-media(md) {
+    padding-top: 0;
+  }
+}
+
+.header {
+  position: relative;
+
+  padding-bottom: set-calc(32);
+  padding-left: set-calc(16);
+
+  @include set-media(md) {
+    position: relative;
+    padding-bottom: set-calc(16);
+    padding-left: set-calc(8);
+  }
+}
+
+.headerTitle {
+  @include font-56-normal-header;
+  font-family: $font-family-bold;
+  color: var(--primary-color);
+}
+
+.list {
+  @include is-grid-3;
+  gap: set-calc(8);
+}
+
+.item {
+  grid-column: span 1;
+  background-color: var(--color-card);
+  border: 1px solid var(--border-color);
+  padding: set-calc(24);
+  border-radius: set-calc($border-radius-medium);
+
+  @include set-media(md) {
+    display: flex;
+    flex-direction: column;
+    padding: set-calc(16);
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.caption {
+  @include font-14-normal-ui;
+  color: var(--color-content-primary);
+  text-transform: lowercase;
+
+  margin-bottom: set-calc(6);
+  width: max-content;
+
+  background-color:  var(--color-accent-promo-background);
+  padding: set-calc(4) set-calc(12);
+  border-radius: set-calc($border-radius-16);
+
+  @include set-media(md) {
+    padding: set-calc(4) set-calc(10);
+  }
+}
+
+.title {
+  @include font-24-normal-header;
+  font-family: $font-family-medium;
+  color: var(--color-content-primary);
+  margin-bottom: set-calc(20);
+
+  @include set-media(md) {
+    margin-bottom: set-calc(16);
+  }
+}
+
+.desc {
+  padding-right: set-calc(32);
+  @include font-18-normal-ui;
+  color: var(--color-content-paragraph-primary);
+
+  p {
+    font-size: inherit;
+    line-height: inherit;
+    font-family: inherit;
+  }
+
+  p:not(:last-child) {
+    padding-bottom: set-calc(16);
+  }
+
+  @include set-media(md) {
+    padding-right: 0;
+  }
+}
+
+.desc:not(:last-child) {
+  padding-bottom: set-calc(48);
+
+  @include set-media(md) {
+    padding-bottom: set-calc(24);
+  }
+}
+
+.videoCard {
+  grid-column: 7 / 12;
+  position: relative;
+
+  overflow: hidden;
+  border-radius: set-calc(10);
+
+  @include set-media(md) {
+    height: 100%;
+  }
+}
+
+.videoCardContainer {
+  position: relative;
+  border-radius: set-calc($border-radius-medium);
+  overflow: hidden;
+}
+
+.videoCardContainer img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}

@@ -1,0 +1,52 @@
+@import 'styles/index';
+
+.wrapper {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: set-calc(40) 0 set-calc(20);
+ 
+  @include set-media(md) {
+    margin: set-calc(30) 0 set-calc(16);
+  }
+}
+
+.button {
+  @include btn;
+  
+  position: relative;
+  align-items: center;
+  justify-content: center;
+
+  gap: set-calc(8);
+
+  padding: set-calc(16) set-calc(32);
+  border-radius: set-calc($border-radius-30);
+  background-color: $color-highlight-yellow;
+
+  @include font-18-normal-ui;
+  color: $color-content-inverted-primary-dark;
+  font-family: $font-family-medium;
+
+  box-shadow: $shadow-small-default;
+
+  &:hover {
+    box-shadow: $shadow-small-hovered;
+  }
+
+  &:active {
+    box-shadow: $shadow-small-pressed;
+  }
+
+  @include set-media(md) {
+    width: 100%;
+
+    &:hover,
+    &:active {
+      box-shadow: $shadow-small-default;
+    }
+  }
+}
