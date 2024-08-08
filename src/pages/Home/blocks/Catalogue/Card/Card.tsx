@@ -10,6 +10,7 @@ import Icon from 'ui/Icon/Icon';
 import classes from './Card.module.scss';
 import { useState } from 'react';
 import { emailService } from 'services/email.service';
+import { userService } from 'services/user.service';
 
 interface IProps {
   course: ICourseCardInfo
@@ -63,6 +64,7 @@ export default function Card({ course }: Readonly<IProps>) {
         emailService.sendEmail({
           type: emailService.EEmail.WantToBuyDummyCourse,
           course,
+          requester: userService.authedUser ?? undefined,
         })
       }}
     >
