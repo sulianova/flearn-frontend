@@ -351,6 +351,13 @@
         "intensive": "Есть запрос на интенсив \"{{title}}\"",
         "webinar": "Есть запрос на вебинар \"{{title}}\""
       }
+    },
+    "WelcomeToDummyCourse": {
+      "subject": {
+        "course": "Вы оставили заявку на курс \"{{title}}\"",
+        "intensive": "Вы оставили заявку на интенсив \"{{title}}\"",
+        "webinar": "Вы оставили заявку на вебинар \"{{title}}\""
+      }
     }
   },
   "courseType": {

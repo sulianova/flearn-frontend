@@ -109,7 +109,7 @@ class CourseService {
   public async _fetch(props: IFetchCourseProps) {
     try {
       const source = this.sourceBS.getValue();
-      if (source === 'local' && props.ids) {
+      if (source === 'local' && !props.userId) {
         const courseLocalDBs = getData(props.ids);
         return Promise.all(courseLocalDBs.map(courseLocalDB => localFilesServise.Course.localToFR(courseLocalDB)));
       }

@@ -1,20 +1,15 @@
-import type { ICourseCardInfo, ICourseData } from 'services/course.service';
-import type { ILessonData } from 'services/lesson.service';
+import type { ICourseCardInfo } from 'services/course.service';
 
 import { i18n } from 'shared/translations';
-import { URLSections } from 'router';
 
-import Button from './components/Button';
 import Card from './components/Card';
-import JoinTelegramCard from './components/JoinTelegramCard';
 import Layout from './components/Layout';
-import { IEmailContact } from '../types';
-import { IUserData } from 'services/user.service';
+import type { IEmailContact } from '../types';
 
 export interface IWantToBuyDummyCourseEmailProps {
   to: IEmailContact
   course: ICourseCardInfo
-  requester?: IUserData
+  requester?: { email: string, displayName?: string | null }
 }
 
 WantToBuyDummyCourse.getSubject = function(props: IWantToBuyDummyCourseEmailProps) {
@@ -48,7 +43,10 @@ export default function WantToBuyDummyCourse(props: IWantToBuyDummyCourseEmailPr
               <tr>
                 <td align="left" style={{ fontFamily: 'Helvetica,Arial,sans-serif', fontSize:16, lineHeight: '20px', color: '#000000' }}>
                   <span>
-                    {`Запросил юзер "${requester.displayName}" (${requester.email})`}
+                    {requester.displayName
+                      ? `Запросил юзер "${requester.displayName}" (${requester.email})`
+                      : `Запросил юзер ${requester.email}`
+                    }
                   </span>
                 </td>
               </tr>

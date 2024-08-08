@@ -13,6 +13,8 @@ import Link from 'ui/Link/Link';
 import classes from './ProgramIntro.module.scss';
 import SignupToCoursePopup from '../../../components/SignupToCoursePopup/SignupToCoursePopup';
 import { analyticsService } from 'services/analytics.service';
+import { emailService } from 'services/email.service';
+import { userService } from 'services/user.service';
 
 export default ProgramIntro;
 
@@ -26,6 +28,7 @@ function ProgramIntro({ course }: IProps) {
   const { id: courseId, startDate, duration } = course;
   const firstLesson = lessonService.useLessons({ courseId, topicOrder: 1, orderInTopic: 1 }).at(0);
   const [popupVisible, setPopupVisible] = useState(false);
+  const [isInterested, setIsInterested] = useState(false);
 
   const labels = [
     t('datesInfoLabel', { 
@@ -57,7 +60,44 @@ function ProgramIntro({ course }: IProps) {
                 </div>
             <div className={classes.bottomContent}>
               <div className={classes.actions}>
-                {authService.isAuthenticated && firstLesson ? (
+                {!authService.isAuthenticated || (!course.isUnderDevelopment && !firstLesson) ? (
+                    <div
+                      className={classes.actionsBtn}
+                      onClick={() => setPopupVisible(true)}
+                    >
+                      <div className={classes.text}>{i18n.t('signUp')}</div>
+                    </div>
+                  )
+                  : !course.isUnderDevelopment ? (
+                    <Link
+                      className={classes.actionsBtn}
+                      onClick={() => analyticsService.logEvent({ type: analyticsService.event.ButtonClickedStartStudy })}
+                      to={URLSections.Study.to({ courseId, lessonId: firstLesson!.id })}
+                    >
+                      <div className={classes.text}>{i18n.t('signUp')}</div>
+                    </Link>
+                  )
+                  : isInterested ? (
+                    <div className={classes.actionsBtn}>
+                      <div className={classes.text}>{'Учли!'}</div>
+                    </div>
+                  ) : (
+                    <div
+                      className={classes.actionsBtn}
+                      onClick={() => {
+                        setIsInterested(true);
+                        emailService.sendEmail({
+                          type: emailService.EEmail.WantToBuyDummyCourse,
+                          course: { isDummy: false, ...course },
+                          requester: userService.authedUser ?? undefined,
+                        });
+                      }}
+                    >
+                      <div className={classes.text}>{'Мне интересно'}</div>
+                    </div>
+                  )
+                }
+                {/* {authService.isAuthenticated && firstLesson ? (
                   <Link
                     className={classes.actionsBtn}
                     onClick={() => analyticsService.logEvent({ type: analyticsService.event.ButtonClickedStartStudy })}
@@ -72,7 +112,7 @@ function ProgramIntro({ course }: IProps) {
                   >
                     <div className={classes.text}>{i18n.t('signUp')}</div>
                   </div>
-                )}
+                )} */}
               </div>
             </div>
         </div>

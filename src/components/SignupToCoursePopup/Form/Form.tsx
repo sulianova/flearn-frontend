@@ -141,12 +141,25 @@ async function submit(props: {
       chosenProductOptionType: option,
     }).catch(_err => { /* do nothing */});
 
-    await userAccessService.add(course.id, formData.email, 'FREE');
-    await emailService.sendEmail({
-      type: emailService.EEmail.WelcomeToCourse,
-      to: { email: formData.email },
-      course,
-    });
+    if (course.isUnderDevelopment) {
+      await emailService.sendEmail({
+        type: emailService.EEmail.WantToBuyDummyCourse,
+        course: { isDummy: false, ...course },
+        requester: { email: formData.email },
+      });
+      await emailService.sendEmail({
+        type: emailService.EEmail.WelcomeToDummyCourse,
+        to: { email: formData.email },
+        course: course,
+      });
+    } else {
+      await userAccessService.add(course.id, formData.email, 'FREE');
+      await emailService.sendEmail({
+        type: emailService.EEmail.WelcomeToCourse,
+        to: { email: formData.email },
+        course,
+      });
+    }
     analyticsService.logEvent({ type: analyticsService.event.GenerateLead });
     setFormData(d => ({ ...d, state: { type: 'Success' } }));
   } catch (e) {

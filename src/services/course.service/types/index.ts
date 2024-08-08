@@ -19,6 +19,7 @@ export interface IFetchCourseProps {
 interface ICourseDataCommon {
   id: string
   type: 'course' | 'intensive' | 'webinar'
+  isUnderDevelopment: boolean
   duration: {
     unit: 'day' | 'week'
     value: number
