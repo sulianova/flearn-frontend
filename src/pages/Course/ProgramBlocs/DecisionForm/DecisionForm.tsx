@@ -25,7 +25,8 @@ interface IProps {
 
 type TState =
   | { type: 'Idle' }
-  |  { type: 'Pending' }
+  | { type: 'Pending' }
+  | { type: 'Success' }
   | { type: 'Error', error: string };
 
 const t = formatI18nT('courseLanding.form');
@@ -102,19 +103,26 @@ export default function DecisionForm({ course }: IProps) {
           {optionsNodes}
         </div> */}
         <button
+          disabled={state.type === 'Success'}
           onClick={() => user ? handleSubmit({ course, user, productType: 'OPTIMAL', navigate, setState }) : setPopupOption('OPTIMAL')}
           className={classes.btn}
         >
-          {state.type === 'Idle' && 'Начать учиться бесплатно'}
+          {state.type === 'Idle' && (course.isUnderDevelopment ? 'Оставить заявку' : 'Начать учиться бесплатно')}
           {state.type === 'Pending' && <Icon icon='Spinner' />}
           {state.type === 'Error' && state.error}
+          {state.type === 'Success' && course.isUnderDevelopment && 'Заявка оставлена'}
         </button>
       </div>
       {popupOption && (
         <SignupToCoursePopup
           course={course}
           option={popupOption}
-          close={() => setPopupOption(null)}
+          close={() => {
+            setPopupOption(null);
+            if (course.isUnderDevelopment) {
+              setState({ type: 'Success' });
+            }
+          }}
         />
       )}
     </div>
@@ -138,19 +146,35 @@ async function handleSubmit(props: {
       chosenProductOptionType: productType,
     }).catch(_err => { /* do nothing */ });
 
-    await userAccessService.add(course.id, user.email, 'FREE');
-    await emailService.sendEmail({
-      type: emailService.EEmail.WelcomeToCourse,
-      to: { email: user.email },
-      course,
-    });
-    analyticsService.logEvent({ type: analyticsService.event.ButtonClickedStartStudy });
-    const firstLesson = (await lessonService.fetch({ courseId: course.id, topicOrder: 1, orderInTopic: 1 })).at(0);
-    if (firstLesson) {
-      navigate(URLSections.Study.to({ courseId: course.id, lessonId: firstLesson.id }));
+    if (course.isUnderDevelopment) {
+      await emailService.sendEmail({
+        type: emailService.EEmail.WantToBuyDummyCourse,
+        course: { isDummy: false, ...course },
+        requester: user,
+      });
+      await emailService.sendEmail({
+        type: emailService.EEmail.WelcomeToDummyCourse,
+        to: user,
+        course: course,
+      });
     } else {
-      navigate(URLSections.Profile.to({ courseId: course.id }));
+      await userAccessService.add(course.id, user.email, 'FREE');
+      await emailService.sendEmail({
+        type: emailService.EEmail.WelcomeToCourse,
+        to: { email: user.email },
+        course,
+      });
+
+      const firstLesson = (await lessonService.fetch({ courseId: course.id, topicOrder: 1, orderInTopic: 1 })).at(0);
+      if (firstLesson) {
+        navigate(URLSections.Study.to({ courseId: course.id, lessonId: firstLesson.id }));
+      } else {
+        navigate(URLSections.Profile.to({ courseId: course.id }));
+      }
     }
+
+    setState({ type: 'Success' });
+    analyticsService.logEvent({ type: analyticsService.event.ButtonClickedStartStudy });
   } catch (error) {
     setState({ type: 'Error', error: String(error) });
     console.log('Failed to handle submit of the decision form', { error, props });

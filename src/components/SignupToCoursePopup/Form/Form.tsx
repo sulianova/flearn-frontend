@@ -50,7 +50,7 @@ export default function Form({ onOrderCreated, course, option }: IProps) {
     }
   }, [formData, onOrderCreated]);
 
-  if (orderIsCreated) {
+  if (orderIsCreated && !course.isUnderDevelopment) {
     return (
       <button
         className={classes.btn}
@@ -72,6 +72,10 @@ export default function Form({ onOrderCreated, course, option }: IProps) {
         Начать учиться
       </button>
     );
+  }
+
+  if (orderIsCreated && course.isUnderDevelopment) {
+    return null;
   }
 
   return (

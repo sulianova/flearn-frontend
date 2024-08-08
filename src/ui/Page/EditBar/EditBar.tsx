@@ -15,7 +15,6 @@ export default function EditBar() {
 
   if (
     urlSection.name === 'Other'
-    || urlSection.name === 'Home'
     || urlSection.name === 'EmptyProfile'
     || envService.dataMode !== 'EDIT'
     || (urlSection.name === 'Course' && !courseId)
@@ -25,6 +24,12 @@ export default function EditBar() {
   }
 
   const [source, toggleSource, upload, uploadTitle] = ({
+    'Home': [
+      courseSource,
+      () => courseService.changeSource(courseSource === 'local' ? 'remote' : 'local'),
+      undefined,
+      undefined,
+    ],
     'Course': [
       courseSource,
       () => courseService.changeSource(courseSource === 'local' ? 'remote' : 'local'),

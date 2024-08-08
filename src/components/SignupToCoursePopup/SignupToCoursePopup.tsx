@@ -30,8 +30,8 @@ export default function SignupToCoursePopup(props: Readonly<IProps>) {
             <Icon icon='Cross'/>
           </div>
           <div className={classes.header}>
-            <div className={classes.title}>{t(orderEmail ? 'subtitle2' : 'subtitle', { email: orderEmail })}</div>
-            <div className={classes.caption}>{t(orderEmail ? 'emailCaption2' : 'emailCaption')}</div>
+            <div className={classes.title}>{t(!orderEmail ? 'subtitle' : !course.isUnderDevelopment ? 'subtitle2' : 'subtitle3', { email: orderEmail })}</div>
+            <div className={classes.caption}>{t(!orderEmail ? 'emailCaption' : !course.isUnderDevelopment ? 'emailCaption2' : 'emailCaption3')}</div>
           </div>
             <Form
               course={course}

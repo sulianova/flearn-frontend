@@ -44,7 +44,12 @@ function ProgramIntro({ course }: IProps) {
         <SignupToCoursePopup
           course={course}
           option={'OPTIMAL'}
-          close={() => setPopupVisible(false)}
+          close={() => {
+            setPopupVisible(false);
+            if (course.isUnderDevelopment) {
+              setIsInterested(true);
+            }
+          }}
         />
       }
       <div className={classes.inner} id='program-intro'>
@@ -60,12 +65,19 @@ function ProgramIntro({ course }: IProps) {
                 </div>
             <div className={classes.bottomContent}>
               <div className={classes.actions}>
-                {!authService.isAuthenticated || (!course.isUnderDevelopment && !firstLesson) ? (
+                {isInterested ? (
+                    <div className={classes.actionsBtn}>
+                      <div className={classes.text}>{'Заявка оставлена'}</div>
+                    </div>
+                  )
+                  : !authService.isAuthenticated || (!course.isUnderDevelopment && !firstLesson) ? (
                     <div
                       className={classes.actionsBtn}
                       onClick={() => setPopupVisible(true)}
                     >
-                      <div className={classes.text}>{i18n.t('signUp')}</div>
+                      <div className={classes.text}>
+                        {course.isUnderDevelopment ? 'Оставить заявку' : i18n.t('signUp')}
+                      </div>
                     </div>
                   )
                   : !course.isUnderDevelopment ? (
@@ -77,11 +89,7 @@ function ProgramIntro({ course }: IProps) {
                       <div className={classes.text}>{i18n.t('signUp')}</div>
                     </Link>
                   )
-                  : isInterested ? (
-                    <div className={classes.actionsBtn}>
-                      <div className={classes.text}>{'Учли!'}</div>
-                    </div>
-                  ) : (
+                  : (
                     <div
                       className={classes.actionsBtn}
                       onClick={() => {
@@ -93,7 +101,7 @@ function ProgramIntro({ course }: IProps) {
                         });
                       }}
                     >
-                      <div className={classes.text}>{'Мне интересно'}</div>
+                      <div className={classes.text}>{'Оставить заявку'}</div>
                     </div>
                   )
                 }
