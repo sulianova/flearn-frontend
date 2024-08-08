@@ -272,7 +272,11 @@
     "title1": "Учебник иллюстратора",
     "description": "Поможет развить насмотренность и получить навыки, нужные для старта в профессии",
     "card": {
-      "info": "С нуля"
+      "info": {
+        "beginner": "С нуля",
+        "intermediate": "С опытом",
+        "advanced": "Профессионалам"
+      }
     }
   },
   "day": {
@@ -339,6 +343,13 @@
         "course": "HomeworkReviewedToReviewerSubject",
         "intensive": "HomeworkReviewedToReviewerSubject",
         "webinar": "HomeworkReviewedToReviewerSubject"
+      }
+    },
+    "WantToBuyDummyCourse": {
+      "subject": {
+        "course": "Есть запрос на курс \"{{title}}\"",
+        "intensive": "Есть запрос на интенсив \"{{title}}\"",
+        "webinar": "Есть запрос на вебинар \"{{title}}\""
       }
     }
   },

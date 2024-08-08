@@ -7,7 +7,7 @@ import { firebaseService } from 'services/firebase.service';
 import { lessonService } from 'services/lesson.service';
 
 import { EEmail } from './types';
-import type { IEmail, IEmailContact, TCommonProps, TSendEmailProps } from './types';
+import type { IEmail, IEmailContact, TCommonProps, TSendEmailProps, TWantToBuyDummyCourseProps } from './types';
 import type {
   TWelcomeToCourseProps,
   TWelcomeToPaidCourseProps,
@@ -25,6 +25,7 @@ import HomeworkSentForReview from './emails/HomeworkSentForReview';
 import HomeworkSentForReviewToReviewer from './emails/HomeworkSentForReviewToReviewer';
 import HomeworkReviewed from './emails/HomeworkReviewed';
 import HomeworkReviewedToReviewer from './emails/HomeworkReviewedToReviewer';
+import WantToBuyDummyCourse from './emails/WantToBuyDummyCourse';
 
 class EmailService {
   public EEmail = EEmail;
@@ -64,7 +65,9 @@ class EmailService {
         return `${props.type}-${props.course.id}-${props.lesson.id}-${props.to.email}-${id}`;
       case this.EEmail.HomeworkSentForReviewToReviewer:
       case this.EEmail.HomeworkReviewedToReviewer:
-          return `${props.type}-${props.course.id}-${props.lesson.id}-${props.homeworkUser.email}-${id}`;
+        return `${props.type}-${props.course.id}-${props.lesson.id}-${props.homeworkUser.email}-${id}`;
+      case this.EEmail.WantToBuyDummyCourse:
+        return `${props.type}-${props.course.id}-${id}`;
       default:
         throw new Error('Unknown email type');
     }
@@ -86,6 +89,8 @@ class EmailService {
         return this.getHomeworkSentForReviewToReviewerEmail(props);
       case EEmail.HomeworkReviewedToReviewer:
         return this.getHomeworkReviewedToReviewerEmail(props);
+      case EEmail.WantToBuyDummyCourse:
+        return this.getWantToBuyDummyCourseEmail(props);
       default:
         throw new Error('Unknown email type');
     }
@@ -123,6 +128,10 @@ class EmailService {
 
   private getHomeworkReviewedToReviewerEmail(props: THomeworkReviewedToReviewerProps): IEmail {
     return this.getEmailObjectFromComponent(HomeworkReviewedToReviewer, { ...props, to: this.reviewerContact });
+  }
+
+  private getWantToBuyDummyCourseEmail(props: TWantToBuyDummyCourseProps): IEmail {
+    return this.getEmailObjectFromComponent(WantToBuyDummyCourse, { ...props, to: this.reviewerContact });
   }
 
   private getEmailObjectFromComponent<T>(

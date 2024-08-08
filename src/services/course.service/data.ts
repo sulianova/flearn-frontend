@@ -1,4 +1,4 @@
-import { ICourseDataDB } from './types/index';
+import type { ICourseCardInfo, ICourseData, ICourseDataDB } from './types/index';
 
 export function getData(courseIds: string[]) {
   return courseIds
@@ -540,4 +540,24 @@ const courseDB2: ICourseDataDB = {
 export const allCourses = [
   courseDB1,
   courseDB2
+];
+
+const courseDummy1: ICourseCardInfo = {
+  isDummy: true,
+  id: 'course-dummy',
+  title: 'Another course',
+  type: 'course',
+  level: 'intermediate',
+  icon: {
+    icon: 'Creative',
+  },
+  duration: {
+    value: 2,
+    unit: 'day',
+  },
+  introDescription: 'Another course about something',
+};
+
+export const dummyCourses = [
+  courseDummy1,
 ];

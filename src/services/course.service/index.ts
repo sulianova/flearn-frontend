@@ -15,6 +15,7 @@ import { userAccessService } from 'services/userAccess.service';
 import { locationService } from 'services/location.service';
 
 export * from './types/index';
+export { dummyCourses } from './data';
 
 class CourseService {
   public useCourses = useCourses;

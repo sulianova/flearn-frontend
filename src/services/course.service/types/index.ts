@@ -112,3 +112,9 @@ export type TActionBS =
   | null
   | { courses: ICourseData[] }
   | MyError;
+
+
+export type ICourseCardInfo =
+  Pick<ICourseData, 'id'| 'type' | 'level' | 'icon' | 'title' | 'introDescription' | 'duration' >
+  & { isDummy: boolean }
+;

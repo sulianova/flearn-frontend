@@ -5,6 +5,7 @@ import type { IHomeworkSentForReviewProps } from './emails/HomeworkSentForReview
 import type { IHomeworkReviewedProps } from './emails/HomeworkReviewed';
 import type { IHomeworkSentForReviewToReviewerProps } from './emails/HomeworkSentForReviewToReviewer';
 import type { IHomeworkReviewedToReviewerProps } from './emails/HomeworkReviewedToReviewer';
+import { IWantToBuyDummyCourseEmailProps } from './emails/WantToBuyDummyCourse';
 
 export interface IEmailContact {
   email: string
@@ -26,6 +27,7 @@ export enum EEmail {
   HomeworkReviewed = 'HomeworkReviewed',
   HomeworkSentForReviewToReviewer = 'HomeworkSentForReviewToReviewer',
   HomeworkReviewedToReviewer = 'HomeworkReviewedToReviewer',
+  WantToBuyDummyCourse = 'WantToBuyDummyCourse',
 }
 
 
@@ -40,7 +42,8 @@ export type TSendEmailProps =
   | THomeworkSentForReviewProps
   | THomeworkSentForReviewToReviewerProps
   | THomeworkReviewedProps
-  | THomeworkReviewedToReviewerProps;
+  | THomeworkReviewedToReviewerProps
+  | TWantToBuyDummyCourseProps
 
 export type TWelcomeToCourseProps =
   & Omit<IWelcomeToCourseEmailProps, 'firstLesson'>
@@ -82,4 +85,10 @@ export type THomeworkReviewedToReviewerProps =
   Omit<IHomeworkReviewedToReviewerProps, 'to'>
   & {
     type: EEmail.HomeworkReviewedToReviewer
+  };
+
+export type TWantToBuyDummyCourseProps =
+  Omit<IWantToBuyDummyCourseEmailProps, 'to'>
+  & {
+    type: EEmail.WantToBuyDummyCourse
   };
