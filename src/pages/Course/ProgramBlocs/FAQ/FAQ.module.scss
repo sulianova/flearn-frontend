@@ -43,7 +43,6 @@
 }
 
 .headerDesc {
-
   @include font-18-normal-paragraph;
   color: $color-content-primary-dark;
   font-family: $font-family-light;
@@ -53,6 +52,13 @@
 
   a {
     font-family: $font-family-regular;
+    color: $primary-color-dark;
+
+    transition: all $d-hover ease;
+  }
+
+  a:hover {
+    color: $primary-color-hover-dark;
   }
 
   @include set-media(md) {

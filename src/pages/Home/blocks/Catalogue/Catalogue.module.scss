@@ -7,16 +7,13 @@
   display: flex;
   flex-direction: column;
 
-  padding-top: set-calc(100);
-  padding-bottom: set-calc(100);
-  border-radius: set-calc($border-radius-50);
+  padding-top: set-calc(80);
+  padding-bottom: set-calc(80);
+  border-radius: 0;
 
   @include set-media(md) {
     padding-top: set-calc(40);
     padding-bottom: set-calc(20);
-    border-radius: 0;
-    border-top-left-radius: set-calc($border-radius-30);
-    border-bottom-left-radius: set-calc($border-radius-30);
   }
 }
 
