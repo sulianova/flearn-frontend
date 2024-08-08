@@ -6,7 +6,7 @@
   justify-content: center;
   align-items: center;
 
-  margin: set-calc(40) set-calc(40) set-calc(100);
+  margin: set-calc(40) set-calc(100) set-calc(100);
 
   @include set-media(md) {
     flex-direction: column;
