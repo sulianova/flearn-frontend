@@ -50,6 +50,9 @@
     "tslint-react": "^5.0.0",
     "typescript": "^5.5.3"
   },
+  "overrides": {
+    "typescript": "^5.5.3"
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
