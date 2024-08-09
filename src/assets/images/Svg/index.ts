@@ -45,4 +45,4 @@ export * from './Style';
 export * from './Creative';
 export * from './Error404';
 export * from './Paid';
-export * from './Chill';
+export * from './Color';

@@ -80,7 +80,10 @@
 .listOption {
   display: block;
   padding: set-calc(12) set-calc(12);
+
   color: var(--color-content-primary);
+  font-family: $font-family;
+
   border-radius: set-calc($border-radius-10);
   transition: background-color 0.3s;
   cursor: pointer;

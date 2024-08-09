@@ -24,7 +24,6 @@
 .headerTitle {
   @include font-56-normal-header;
   font-family: $font-family-bold;
-  color: var(--primary-color);
 }
 
 .list {

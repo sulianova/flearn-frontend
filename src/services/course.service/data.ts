@@ -818,7 +818,7 @@ const courseDummy1: ICourseCardInfo = {
   type: 'course',
   level: 'beginner',
   icon: {
-    icon: 'Style',
+    icon: 'Color',
   },
   duration: {
     value: 2,

@@ -97,13 +97,13 @@
 
 .cardIcon {
   width: set-calc(100);
-  aspect-ratio: auto 100 / 100;
+  aspect-ratio: auto 1;
   order: 1;
 
   margin-bottom: set-calc(30);
 
   svg path {
-    stroke-width: 1.5px;
+    stroke-width: 1px;
   }
   
   @include set-media(md) {
@@ -111,8 +111,8 @@
     justify-content: flex-start;
     align-items: start;
 
-    width: set-calc(100);
-    aspect-ratio: auto 100 / 100;
+    width: set-calc(64);
+    aspect-ratio: auto 1;
 
     margin-bottom: set-calc(10);
   }

@@ -144,7 +144,7 @@
 
   @include font-20-normal-ui;
   color: $color-content-primary-light;
-  font-family: $font-family-medium;
+  font-family: $font-family-regular;
 
   height: set-calc(70);
   width: 100%;
@@ -160,7 +160,6 @@
 
   @include set-media(md) {
     @include font-20-normal-ui;
-    font-family: $font-family-medium;
 
     margin-bottom: set-calc(4);
     padding: set-calc(0) set-calc(24);

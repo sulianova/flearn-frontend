@@ -108,7 +108,6 @@
 .title {
   @include font-56-normal-header;
   font-family: $font-family-bold;
-  color:  var(--primary-color);
   
   padding-bottom: set-calc(32);
   padding-left: set-calc(16);
