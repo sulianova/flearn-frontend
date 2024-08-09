@@ -3,7 +3,7 @@
 .__ {
   @include is-beige;
   background-color:  $color-background-default-dark;
-  border-top: 1px solid $border-color-dark;
+  border-top: 1px solid $color-border-dark;
   padding: set-calc(100) 0;
 
   border-radius: set-calc(100) set-calc(100) 0 0;

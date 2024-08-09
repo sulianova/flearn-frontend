@@ -814,17 +814,17 @@ export const allCourses = [
 const courseDummy1: ICourseCardInfo = {
   isDummy: true,
   id: 'course-dummy',
-  title: 'Another course',
+  title: 'Цвет: как выделить главное',
   type: 'course',
-  level: 'intermediate',
+  level: 'beginner',
   icon: {
-    icon: 'Creative',
+    icon: 'Style',
   },
   duration: {
     value: 2,
     unit: 'day',
   },
-  introDescription: 'Another course about something',
+  introDescription: 'Научитесь управлять цветом и выделять главное в рисунке',
 };
 
 export const dummyCourses = [

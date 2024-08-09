@@ -28,7 +28,7 @@
   position: relative;
   padding: set-calc(24);
   background: var(--color-card);
-  border: set-calc(1) solid var(--border-color);
+  border: set-calc(1) solid var(--color-border);
   border-radius: set-calc($border-radius-medium);
 
   @include set-media(md) {

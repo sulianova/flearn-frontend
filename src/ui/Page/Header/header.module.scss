@@ -12,10 +12,11 @@
   justify-content: center;
   align-items: center;
 
-  @include set-typography(14, 14, 500);
+  @include set-typography(16, 16, 500);
+  font-family: $font-family-regular;
+  color: var(--color-content-inverted-primary);
 
   @include set-media(md) {
-    @include font-18-normal-ui;
     transition: top 0.5s, transform 0.5s;
   }
 }
@@ -26,7 +27,7 @@
   justify-content: space-between;
   align-items: center;
 
-  height: set-calc(42);
+  height: set-calc(50);
 
   padding: 0;
   margin: set-calc(10) set-calc($padding-x-desk-page);
@@ -102,11 +103,11 @@
   align-items: center;
   justify-content: center;
 
-  height: set-calc(32);
+  height: set-calc(40);
   max-width: fit-content;
 
   padding: 0 set-calc(16);
-  border-radius: set-calc($border-radius-30);
+  border-radius: calc(set-calc(40) / 2);
   background-color: var(--color-content-background-primary);
 
   transition: background-color $d-hover ease;
@@ -114,10 +115,6 @@
   &:hover {
     cursor: pointer;
     color: var(--primary-color);
-  }
-
-  @include set-media(md) {
-    height: set-calc(30);
   }
 
   span {
@@ -164,6 +161,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  height: set-calc(40);
 }
 
 .navItem:not(:first-child) {
@@ -224,15 +223,13 @@
   align-items: center;
   justify-content: center;
 
-  padding: 0 set-calc(24);
-  color: var(--color-content-primary);
-  text-transform: uppercase;
+  padding: 0 set-calc(16);
+  color: var(--color-content-inverted-primary);
     
-  border: 1px solid var(--color-content-primary);
-  border-radius: set-calc($border-radius-30);
+  border-radius: set-calc($border-radius-10);
+  background-color: var(--primary-color);
 
   width: max-content;
-  height: set-calc(32);
 
   transition: color $d-hover ease, opacity $d-hover ease, border-color  $d-hover ease;
   
@@ -242,7 +239,6 @@
 
   @include set-media(md) {
     margin-left: auto;
-    height: set-calc(30);
   }
 }
 
@@ -258,17 +254,15 @@
   align-items: center;
   justify-content: center;
 
-  padding: 0 set-calc(24);
+  padding: 0 set-calc(16);
 
   color: $color-content-primary-light;
-  text-transform: uppercase;
     
   background: $color-highlight-yellow;
-  border: 1px solid $color-content-primary-light;
-  border-radius: set-calc($border-radius-30);
+  border-radius: set-calc($border-radius-10);
 
   width: max-content;
-  height: set-calc(32);
+  height: 100%;
 
   transition: width .3s, margin .3s, min-width .3s, background-color .3s, color .3s, border .3s, background-position 2s ease-out, padding-left .3s, opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
   
@@ -298,15 +292,12 @@
   align-items: center;
   justify-content: center;
 
-  padding: 0 set-calc(24);
+  padding: 0 set-calc(16);
   color: var(--color-content-primary);
-  text-transform: uppercase;
     
-  border: 1px solid var(--color-content-primary);
-  border-radius: set-calc($border-radius-30);
+  border-radius: set-calc($border-radius-10);
 
   width: max-content;
-  height: set-calc(32);
 
   gap: set-calc(4);
 

@@ -28,7 +28,7 @@ body.light {
   --color-border: var(--color-border-light);
   --color-card: var(--color-card-light);
   --color-card-glassy: var(--color-card-glassy-light);
-  --border-color: var(--border-color-light);
+  --border: var(--border-light);
   --color-content-inverted-primary: var(--color-content-inverted-primary-light);
   --color-content-inverted-secondary: var(--color-content-inverted-secondary-light);
   --color-content-primary: var(--color-content-primary-light);
@@ -74,7 +74,7 @@ body.dark {
   --color-border: var(--color-border-dark);
   --color-card: var(--color-card-dark);
   --color-card-glassy: var(--color-card-glassy-dark);
-  --border-color: var(--border-color-dark);
+  --border: var(--border-dark);
   --color-content-inverted-primary: var(--color-content-inverted-primary-dark);
   --color-content-inverted-secondary: var(--color-content-inverted-secondary-dark);
   --color-content-primary: var(--color-content-primary-dark);

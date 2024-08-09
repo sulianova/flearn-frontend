@@ -26,7 +26,7 @@
 
   @include contentExpander;
 
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border);
   padding: set-calc(32);
   border-radius: set-calc($border-radius-16);
   background-color: transparent;
@@ -103,7 +103,7 @@
 
   border-radius: set-calc($border-radius-16);
   padding: set-calc(24);
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border);
   background-color: transparent;
 
   cursor: pointer;

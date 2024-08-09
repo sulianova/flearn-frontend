@@ -65,9 +65,10 @@ $color-highlight-yellow: #ffe205;
 $color-highlight-yellow-hover:#ffce00;
 $color-highlight-green: #a4dd49;
 $color-highlight-sky: #49c2ff;
-$color-highlight-pink: #ffa2e2;
+$color-highlight-pink: #FFA4E6; //#ffa2e2;
+$color-highlight-pink-hover: #FA85DC; 
 $color-highlight-violet: #b595ff;
-$color-highlight-blue: rgb(41, 134, 242);
+$color-highlight-blue: #3f96fc;
 
 $color-highlight-silver: #edf2f7;
 $color-highlight-gold: #fcf6c5;;
@@ -76,7 +77,7 @@ $color-highlight-neon: #e9e1fa;
 $color-highlight-mint: #f0ffd9;
 $color-highlight-dust: #fffad2;
 
-$color-highlight-blue-lagoon: #ddf5f5;
+$color-highlight-aquamarine: #d3f5ff;
 $color-highlight-misty-rose: #ffe3e3;
 $color-highlight-peach-puff: #fedfc2;
 
@@ -92,12 +93,19 @@ $color-palette-indigo-250: #b595ff;
 $color-palette-indigo-200: #ede8ff;
 $color-palette-indigo-100: #f7f5ff;
 
+$color-palette-blue-400: #656AED;
+$color-palette-blue-300: #9CA0F5;
+$color-palette-blue-200: #DADBFB;
+$color-palette-blue-100: #AAAAC7;
+
+
+
 //gradient
 $color-gradient-rainbow: linear-gradient(320deg, #ffa2e2, #b595ff, #9282fa, #5627ff, #49c2ff);
 
 //theme-light
-$primary-color-light: $color-palette-indigo-400;
-$primary-color-hover-light: $color-palette-indigo-350;
+$primary-color-light: $color-palette-indigo-250;
+$primary-color-hover-light: $color-palette-indigo-300;
 $color-accent-error-light:#db2323;
 $color-accent-notice-light: #f26e30;
 $color-accent-success-light: #30b83d;
@@ -118,12 +126,12 @@ $color-background-glassy-inverted-b-light: $color-palette-white-100-a;
 $color-background-glassy-inverted-c-light: $color-palette-white-200-a;
 $color-background-glassy-inverted-d-light: $color-palette-white-300-a;
 $color-background-highlighted-light: $color-palette-black-50; //#edf1f8;
-$color-background-overlay-light: $color-palette-black-700-a;
+$color-background-overlay-light: $color-palette-black-500-a;
 $color-background-active-light: rgba(0, 0, 0, 0.03);
 $color-background-stroke-light: rgba(0, 0, 0, 0.2);
 $color-border-light: $color-palette-white-1000;
 $color-card-glassy-light: $color-palette-white-700-a;
-$color-card-light: $color-palette-black-25;
+$color-card-light: $color-palette-white-1000;
 $color-content-inverted-primary-light: $color-palette-black-25;
 $color-content-inverted-secondary-light: $color-palette-black-200;
 $color-content-primary-light: $color-palette-black-700;
@@ -138,7 +146,7 @@ $color-background-btn-light: $color-palette-black-700;
 $color-background-btn-hover-light: $color-palette-black-900;
 $color-background-card-light: $color-palette-black-700;
 
-$border-color-light: rgba(5, 6, 15, .1);
+$border-light: rgba(5, 6, 15, .1);
 
 //theme-dark
 $primary-color-dark: $color-palette-indigo-250;
@@ -163,7 +171,7 @@ $color-background-glassy-inverted-b-dark: $color-palette-black-100-a;
 $color-background-glassy-inverted-c-dark: $color-palette-black-200-a;
 $color-background-glassy-inverted-d-dark: $color-palette-black-300-a;
 $color-background-highlighted-dark: $color-palette-black-600; //#404959;
-$color-background-overlay-dark: $color-palette-black-800-a;
+$color-background-overlay-dark: $color-palette-black-500-a;
 $color-background-stroke-dark: rgba(255, 255, 255, 0.2);
 $color-border-dark: hsla(0, 0%, 100%, .1);
 $color-card-glassy-dark: rgba(15,15,15,0.7);
@@ -182,7 +190,7 @@ $color-background-btn-dark: $color-palette-indigo-300;
 $color-background-btn-hover-dark: $color-palette-indigo-350;
 $color-background-card-dark: $primary-color-dark;
 
-$border-color-dark: hsla(0, 0%, 100%, .1);
+$border-dark: hsla(0, 0%, 100%, .1);
 
 //links
 $link: var(--color-content-primary);
@@ -220,7 +228,7 @@ $shadow-popup: 0 2px 10px 0 rgba(0, 0, 0, .3);
 $shadow-menu: 0px 2px 17px 2px rgba(0, 0, 0, 0.1);
 
 //filter
-$backdrop-filter: 20;
+$backdrop-filter: 10;
 
 //border
 $border-radius-small: 6;
@@ -287,7 +295,7 @@ $z-index-500: 500;
   --color-border-light: #{$color-border-light};
   --color-card-light: #{$color-card-light};
   --color-card-glassy-light: #{$color-card-glassy-light};
-  --border-color-light: #{$border-color-light};
+  --border-light: #{$border-light};
   --color-content-inverted-primary-light: #{$color-content-inverted-primary-light};
   --color-content-inverted-secondary-light: #{$color-content-inverted-secondary-light};
   --color-content-primary-light: #{$color-content-primary-light};
@@ -330,7 +338,7 @@ $z-index-500: 500;
   --color-border-dark: #{$color-border-dark};
   --color-card-dark: #{$color-card-dark};
   --color-card-glassy-dark: #{$color-card-glassy-dark};
-  --border-color-dark: #{$border-color-dark};
+  --border-dark: #{$border-dark};
   --color-content-inverted-primary-dark: #{$color-content-inverted-primary-dark};
   --color-content-inverted-secondary-dark: #{$color-content-inverted-secondary-dark};
   --color-content-primary-dark: #{$color-content-primary-dark};

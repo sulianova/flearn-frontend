@@ -103,7 +103,7 @@
   margin-bottom: set-calc(30);
 
   svg path {
-    stroke-width: set-calc(1);
+    stroke-width: 1.5px;
   }
   
   @include set-media(md) {
@@ -233,8 +233,8 @@
   transform-origin: center center;
   overflow: hidden;
 
-  border: 1px solid var(--border-color);
-  border-radius: set-calc($border-radius-medium);
+  border: 1px solid var(--color-border);
+  border-radius: set-calc($border-radius-20);
   background: var(--color-card);
 
   transition: transform $d-hover ease, box-shadow $d-hover ease;

@@ -123,6 +123,7 @@
 
   @include set-media(md) {
     width: 100%;
+    justify-content: center;
   }
 }
 
@@ -150,6 +151,7 @@
 
   &:hover {
     box-shadow: $shadow-small-hovered;
+    background-color: $color-highlight-yellow-hover;
   }
 
   &:active {
@@ -164,10 +166,9 @@
     padding: set-calc(0) set-calc(24);
 
     border-width: 1px;
-    border-radius: calc(set-calc(60) / 2);
 
-    width: 100%;
     height: set-calc(60);
+    width: max-content;
 
     &:hover {
       box-shadow: $shadow-small-default;

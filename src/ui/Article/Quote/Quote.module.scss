@@ -16,7 +16,7 @@
 }
 .quoteWrapper {
   padding: set-calc(32);
-  border: set-calc(1.5) solid var(--border-color);
+  border: set-calc(1.5) solid var(--border);
   border-radius: set-calc($border-radius-medium);
 
   display: flex;

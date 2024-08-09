@@ -25,6 +25,8 @@
   background: var(--color-background-overlay);
   opacity: 0;
 
+  backdrop-filter: blur(set-calc($backdrop-filter));
+
   transition: opacity 0.2s ease-out;
 
   @include set-media(md) {

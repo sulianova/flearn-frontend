@@ -50,7 +50,7 @@
 
   backdrop-filter: blur(set-calc($backdrop-filter));
   border-radius: set-calc($border-radius-8);
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border);
   background-color: var(--color-card);
 }
 

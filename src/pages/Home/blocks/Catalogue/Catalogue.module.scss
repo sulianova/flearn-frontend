@@ -77,7 +77,7 @@
 
 .wrapper {
   display: flex;
-  gap: set-calc(16);
+  gap: set-calc(20);
 
   @include set-media(md) {
     position: relative;

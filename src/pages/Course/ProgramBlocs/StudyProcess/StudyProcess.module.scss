@@ -35,7 +35,7 @@
 .item {
   grid-column: span 1;
   background-color: var(--color-card);
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--color-border);
   padding: set-calc(24);
   border-radius: set-calc($border-radius-medium);
 

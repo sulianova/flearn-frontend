@@ -196,8 +196,8 @@
   display: flex;
 
   padding: set-calc(20) 0;
-  border-top: 1px solid var(--border-color);
-  border-bottom: 1px solid var(--border-color);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 
   margin: 0!important;
 
@@ -261,7 +261,7 @@
 
 .paymentOptions {
   padding: set-calc(20) 0 set-calc(80);
-  border-top: 1px solid var(--border-color);
+  border-top: 1px solid var(--border);
 
   @include set-media(md) {
     padding: set-calc(16) 0 set-calc(16);

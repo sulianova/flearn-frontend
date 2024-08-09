@@ -38,7 +38,7 @@
 
   box-sizing: border-box;
   background-color: var(--color-card);
-  border: set-calc(1) solid var(--border-color);
+  border: set-calc(1) solid var(--color-border);
   text-align: left;
 
   @include set-media(md) {
