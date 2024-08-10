@@ -34,7 +34,7 @@
   border-radius: set-calc($border-radius-30);
 
   @include set-media(md) {
-    padding: set-calc(48) set-calc(32);
+    padding: set-calc(56) set-calc(24);
     border-radius: 0;
 
     width: 100%;
@@ -55,7 +55,7 @@
 
   @include set-media(md) {
     @include font-28-normal-header;
-    width: 90%;
+    width: 100%;
     margin-bottom: set-calc(40);
   }
 }
@@ -89,6 +89,7 @@
 
   @include set-media(md) {
     height: set-calc(60);
+    width: 100%;
 
     border-width: 1px;
   }

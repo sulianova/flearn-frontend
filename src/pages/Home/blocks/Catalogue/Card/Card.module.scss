@@ -67,10 +67,10 @@
   cursor: pointer;
   
   @include set-media(md) {
-    padding: set-calc(24);
+    padding: set-calc(20);
     gap: set-calc(8);
 
-    width: set-calc(250);
+    width: set-calc(220);
   }
 }
 
