@@ -35,7 +35,7 @@
 
 .headerTitle {
   grid-column: 1 / 7;
-  margin-bottom: set-calc(32);
+  margin-bottom: set-calc(24);
 
   @include font-56-normal-header;
   font-family: $font-family-bold;

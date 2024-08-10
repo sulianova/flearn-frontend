@@ -16,7 +16,7 @@
 
 .cards {
   display: grid;
-  grid-gap: set-calc(8);
+  grid-gap: set-calc(16);
   grid-template-columns: 4fr 6fr;
   grid-template-areas: "explain-intro explain-video";
 
@@ -34,11 +34,9 @@
   gap: set-calc(16);
 
   overflow: hidden;
-  padding: 0 set-calc(16);
   border-radius: set-calc($border-radius-medium);
 
   @include set-media(md) {
-    padding: 0 0;
     gap: set-calc(8);
   }
 }
