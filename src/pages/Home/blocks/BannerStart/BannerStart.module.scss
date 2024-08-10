@@ -43,7 +43,7 @@
 
 .title {
   @include set-typography(42, 50, 500);
-  font-family: $font-family-medium;
+  font-family: $font-family-bold;
   text-align: center;
 
   width: 80%;
@@ -54,9 +54,9 @@
   margin-bottom: set-calc(80);
 
   @include set-media(md) {
-    @include font-28-normal-header;
+    @include set-typography(32, 40, 500);
     width: 100%;
-    margin-bottom: set-calc(40);
+    margin-bottom: set-calc(30);
   }
 }
 
@@ -87,13 +87,6 @@
   border-radius: set-calc($border-radius-16);
   border: 2px solid  $color-content-inverted-primary-light;
 
-  @include set-media(md) {
-    height: set-calc(60);
-    width: 100%;
-
-    border-width: 1px;
-  }
-
   .text {
     @include font-20-normal-ui;
     color: $color-content-inverted-primary-light;
@@ -105,6 +98,21 @@
 
     .text {
       color: var(--primary-color);
+    }
+  }
+
+  @include set-media(md) {
+    height: set-calc(60);
+    width: 100%;
+
+    border-width: 1px;
+
+    &:hover {
+      background: transparent;
+  
+      .text {
+        color: $color-content-inverted-primary-light;
+      }
     }
   }
 }

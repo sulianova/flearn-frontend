@@ -22,10 +22,6 @@
       transform: scale(1.02);
     }
 
-    .description {
-      opacity: 1;
-    }
-
     .cardBtn {
       background-color: var(--color-content-background-primary);
       color: var(--color-content-inverted-primary);
@@ -36,7 +32,7 @@
 
   @include set-media(md) {
     width: unset;
-    min-height: set-calc(300);
+    min-height: set-calc(320);
 
     .background {
       box-shadow: none!important;
@@ -46,6 +42,13 @@
     .preview {
       box-shadow: none!important;
       transform: scale(1,1)!important;
+    }
+
+    &:hover {
+      .cardBtn {
+        background-color: transparent;
+        color: var(--color-content-primary);
+      }
     }
   }
 }
@@ -70,7 +73,7 @@
     padding: set-calc(20);
     gap: set-calc(8);
 
-    width: set-calc(220);
+    width: set-calc(250);
   }
 }
 
@@ -112,6 +115,7 @@
     width: set-calc(64);
     aspect-ratio: auto 1;
 
+    margin-top: set-calc(10);
     margin-bottom: set-calc(10);
   }
 }

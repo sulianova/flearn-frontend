@@ -14,7 +14,7 @@ export default function BannerStart(props: IProps) {
   return (
     <div data-bcalternate className={classes.wrapper}>
       <div className={classes.card}>
-        <span className={classes.title}>Улучшайте навыки, тренируясь по 5 минут в день</span>
+        <span className={classes.title}>Улучшайте навыки, тренируясь по 5&#160;минут в&#160;день</span>
         <div className={classes.actions}>
             {authService.isAuthenticated ? (
               <Link
