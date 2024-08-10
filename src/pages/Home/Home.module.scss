@@ -9,7 +9,7 @@
   margin-bottom: set-calc(100);
 
   @include set-media(md) {
-    margin-bottom: set-calc(64);
+    margin-bottom: set-calc(80);
   }
 }
 
@@ -17,4 +17,8 @@
   @include set-media(md) {
     margin-bottom: set-calc(24);
   }
+}
+
+.section:has([data-bcalternate]) {
+  margin-bottom: 0;
 }

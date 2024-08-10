@@ -1,26 +1,35 @@
 @import 'styles/index';
 
 .__ {
-  background-color: var(--color-card);
-  border: 1px solid var(--border);
-  border-radius: set-calc($border-radius-medium);
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 0 set-calc(200);
+
+  @include set-media(md) {
+    margin: 0 0;
+  }
 }
 
 .content {
-  padding: set-calc(48) set-calc(32);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background-color: var(--color-card);
+  border: 1.3px solid var(--border);
+  border-radius: set-calc($border-radius-30);
+  padding: set-calc(32) set-calc(32);
+
+  width: 100%;
 
   @include set-media(md) {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
+    width: 100%;
     min-height: set-calc(300);
-    padding: set-calc(24) set-calc(16);
+    padding: set-calc(24) set-calc(24);
+
+    border-radius: set-calc($border-radius-20);
   }
 }
 
@@ -34,7 +43,7 @@
   text-align: center;
 
   @include set-media(md) {
-    @include font-32-normal-header;
+    @include set-typography(26, 32, 500);
     text-align: start;
   }
 }

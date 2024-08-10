@@ -46,3 +46,5 @@ export * from './Creative';
 export * from './Error404';
 export * from './Paid';
 export * from './Color';
+export * from './RocketLaunch';
+export * from './Infinity';

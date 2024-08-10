@@ -76,8 +76,8 @@
   transition: transform 0.15s ease-in;
   opacity: 1;
 
-  color: $color-content-inverted-primary-light;
-  background-color: var(--primary-color);
+  color: var(--color-content-inverted-primary);
+  background-color: var(--color-content-background-primary);
   border-radius: 50%;
   box-shadow: $shadow-small-default;
 

@@ -8,10 +8,12 @@ import SignupToCoursePopup from 'components/SignupToCoursePopup/SignupToCoursePo
 import Page, { EFooter, EPageVariant } from 'ui/Page/Page';
 
 import Catalogue from './blocks/Catalogue/Catalogue';
-import Career from './blocks/Career/Career';
+import  BannerStart from './blocks/BannerStart/BannerStart'
 import Header from './blocks/Header/Header';
 import RequestConsultationBanner from './blocks/RequestConsultationBanner/RequestConsultationBanner';
-// import Career from './blocks/Career/Career';
+import StudyProcess from './blocks/StudyProcess/StudyProcess';
+import FAQ from './blocks/FAQ/FAQ';
+import Explain from './blocks/Explain/Explain';
 
 import classes from './Home.module.scss';
 
@@ -25,16 +27,23 @@ export default function Home() {
   const onNotAuthedClick = () => setPopupVisible(true);
 
   const blocks = [
+    <StudyProcess 
+    key='studyProcess'
+    />,
+    <Explain 
+    key='explain'
+    />,
     <Catalogue
     key='catalogue'
     linkToFreeCourse={linkToFreeCourse}
     onNotAuthedClick={onNotAuthedClick}
-  />,
-    <Career
-    key='career'
+    />,
+    < BannerStart
+    key='bannerStart'
     linkToFreeCourse={linkToFreeCourse}
     onNotAuthedClick={onNotAuthedClick}
-  />,
+    />,
+    <FAQ key='faq'/>,
     // <RequestConsultationBanner key='requestConsultationBanner'/>,
   ];
 

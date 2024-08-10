@@ -3,16 +3,16 @@ import { i18n } from 'shared';
 import { authService } from 'services/auth.service';
 import Link from 'ui/Link/Link';
 
-import classes from './Career.module.scss'; 
+import classes from './BannerStart.module.scss'; 
 
 interface IProps {
   linkToFreeCourse: string
   onNotAuthedClick: () => void
 }
 
-export default function Career(props: IProps) {
+export default function BannerStart(props: IProps) {
   return (
-    <div className={classes.wrappeer}>
+    <div data-bcalternate className={classes.wrapper}>
       <div className={classes.card}>
         <span className={classes.title}>Улучшайте навыки, тренируясь по 5 минут в день</span>
         <div className={classes.actions}>

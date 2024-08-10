@@ -11,7 +11,6 @@ import classes from './ProgramBlocks.module.scss';
 import Promo from './Promo/Promo';
 import StudentResults from './StudentResults/StudentResults';
 import StudentsWorks from './StudentsWorks/StudentsWorks';
-import StudyProcess from './StudyProcess/StudyProcess';
 import Feedback from './Feedback/Feedback';
 
 import type { ICourseData } from 'services/course.service';
@@ -33,12 +32,10 @@ export default function ProgramBlocks({ course }: IProps) {
     studentsWorks,
     faq,
     feedbacks,
-    studyProcess,
   } = course.content;
   const blocks: JSX.Element[] = [
     about && about.length && <About key='about' type={course.type} about={about}/>,
     description && <Description key='description' type={course.type} description={description}/>,
-    studyProcess && studyProcess.length && <StudyProcess key='studyProcess' studyProcess={studyProcess}/>,
     prizes && prizes.length && <Prizes key='prizes' type={course.type} prizes={prizes}/>,
     modules && <Modules key='modules' modules={modules}/>,
     studentResults && <StudentResults key='studentResults' studentResults={studentResults}/>,

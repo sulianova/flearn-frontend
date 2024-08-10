@@ -51,6 +51,7 @@
     margin: set-calc(12) 0 0;
 
     width: 100%;
+    height: set-calc(40);
 
     grid-gap: set-calc(16);
     border: none;
@@ -108,29 +109,19 @@
 
   padding: 0 set-calc(16);
   border-radius: calc(set-calc(40) / 2);
-  background-color: var(--color-content-background-primary);
+  // background-color: var(--color-content-background-primary);
 
   transition: background-color $d-hover ease;
   
   &:hover {
     cursor: pointer;
-    color: var(--primary-color);
   }
 
   span {
-    @include set-typography(18, 18, 500);
-    color: var(--color-content-inverted-primary);
-    font-family: $font-family-medium;
-
-    // background: $color-gradient-rainbow;
-    // background-size: 400% 400%;
-
-    // -webkit-text-fill-color: transparent;
-    // background-clip: text;
-  
-    // animation: buttonGradient 45s ease infinite;
-    transition: width .3s, margin .3s, min-width .3s, background-color .3s, color .3s, border .3s, background-position 2s ease-out, padding-left .3s, opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
-  }
+    @include set-typography(22, 22, 500);
+    color: var(--color-content-primary);
+    font-family: $font-family-bold;
+}
 
   svg {
     margin-top: set-calc(4);
@@ -224,10 +215,12 @@
   justify-content: center;
 
   padding: 0 set-calc(16);
-  color: var(--color-content-inverted-primary);
     
   border-radius: set-calc($border-radius-10);
-  background-color: var(--primary-color);
+  background-color: transparent;
+
+  border: 1px solid var(--color-content-primary);
+  color: var(--color-content-primary);
 
   width: max-content;
 
@@ -239,10 +232,6 @@
 
   @include set-media(md) {
     margin-left: auto;
-    background-color: transparent;
-
-    border: 1px solid var(--primary-color);
-    color: var(--primary-color);
   }
 }
 

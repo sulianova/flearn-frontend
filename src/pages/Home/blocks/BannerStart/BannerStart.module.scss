@@ -1,11 +1,22 @@
 @import 'styles/index';
 
 .wrapper {
+  @include is-beige;
+  background-color: var(--color-background-default);
+  background-image: linear-gradient(180deg, var(--color-background-default) 6%, var(--color-background-alternate) 30%);
+
   position: relative;
 
   display: flex;
   justify-content: center;
   align-items: center;
+
+  padding: set-calc(80) set-calc(200) 0;
+
+  @include set-media(md) {
+    margin: 0 0;
+    padding: 0 0;
+  }
 }
 
 .card {
@@ -16,17 +27,15 @@
   justify-content: center;
   align-items: center;
 
-  width: 70%;
-  margin: 0 auto;
   padding: set-calc(80);
+  width: 100%;
 
-  // background-color: var(--primary-color);
   background: var(--primary-color);
-  border-radius: set-calc($border-radius-50);
+  border-radius: set-calc($border-radius-30);
 
   @include set-media(md) {
-    padding: set-calc(32);
-    border-radius: set-calc($border-radius-30);
+    padding: set-calc(48) set-calc(32);
+    border-radius: 0;
 
     width: 100%;
   }

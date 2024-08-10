@@ -31,7 +31,7 @@ export default function Card({ course }: Readonly<IProps>) {
             {i18n.t(`catalogue.card.info.${course.level}`)}
           </p>
           <p>
-            15 упражнений
+            15 уроков
           </p>
         </div>
       </div>

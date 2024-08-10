@@ -3,10 +3,9 @@
 .__ {
   position: relative;
   display: flex;
-  justify-content: center;
   align-items: center;
 
-  margin: set-calc(40) set-calc(100) set-calc(100);
+  margin: set-calc(40) set-calc(200) set-calc(100);
 
   @include set-media(md) {
     flex-direction: column;
