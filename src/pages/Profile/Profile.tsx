@@ -21,10 +21,9 @@ import classes from './Profile.module.scss';
 
 const cx = classnames.bind(classesList);
 
-interface IGroup {
-  topic: string
-  topicOrder: number
+interface IGroup extends Pick<ILessonData, 'topic' | 'topicOrder' | 'topicIcon'> {  
   isFree: boolean
+  solved: boolean
   lessons: (ILessonData & { solved: boolean, canBeAccessed: boolean })[]
 }
 
@@ -73,12 +72,15 @@ function Profile(props: IProps) {
           acc.set(key, {
             topic: lessonData.topic,
             topicOrder: lessonData.topicOrder,
+            topicIcon: lessonData.topicIcon,
             isFree: lessonData.isFree,
+            solved: lessonData.solved,
             lessons: [lessonData],
           })
         } else {
           const group = acc.get(key)!;
           group.isFree = group.isFree && lessonData.isFree;
+          group.solved = group.solved && lessonData.solved;
           group.lessons.push(lessonData);
           group.lessons.sort((a, b) => a.orderInTopic - b.orderInTopic);
         }
@@ -210,7 +212,7 @@ function TopicCard(props: { group: IGroup, setOpenedTopic: (topic: string) => vo
       <div className={classesList.item}>
         <div className={classesList.imageWrapper}>
           <div className={classesList.image}>
-          <Icon icon='FAQ'/>
+            <Icon icon={group.topicIcon}/>
           </div>
         </div>
         <div className={classesList.itemBody}>
@@ -228,7 +230,7 @@ function TopicCard(props: { group: IGroup, setOpenedTopic: (topic: string) => vo
             </div>
           </div>
         </div>
-        <div className={cx({ itemStatus: true, solved: false })}>
+        <div className={cx({ itemStatus: true, solved: group.solved })}>
           <Icon icon='Tick'/>
         </div>
       </div>

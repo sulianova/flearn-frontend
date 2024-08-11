@@ -17,6 +17,7 @@ const lessonData11: ILessonDataDB = {
   type: 'Theory',
   topic: 'Как устроено обучение',
   topicOrder: 1,
+  topicIcon: 'FAQ',
   orderInTopic: 1,
   duration: {
     unit: 'minutes',
@@ -195,6 +196,7 @@ const lessonData12: ILessonDataDB = {
   type: 'Theory',
   topic: 'Как устроено обучение',
   topicOrder: 1,
+  topicIcon: 'FAQ',
   orderInTopic: 2,
   duration: {
     unit: 'minutes',
@@ -348,6 +350,7 @@ const lessonData13: ILessonDataDB = {
   type: 'Theory',
   topic: 'Как устроено обучение',
   topicOrder: 1,
+  topicIcon: 'FAQ',
   orderInTopic: 3,
   duration: {
     unit: 'minutes',
@@ -531,6 +534,7 @@ const lessonData14: ILessonDataDB = {
   type: 'Theory',
   topic: 'Как устроено обучение',
   topicOrder: 1,
+  topicIcon: 'FAQ',
   orderInTopic: 4,
   duration: {
     unit: 'minutes',
@@ -735,7 +739,8 @@ const lessonData32: ILessonDataDB = {
   title: 'Этапы работы над иллюстрацией',
   type: 'Theory',
   topic: 'Рисуем иллюстрацию для баннера',
-  topicOrder: 3,
+  topicOrder: 2,
+  topicIcon: 'Lesson',
   orderInTopic: 2,
   duration: {
     unit: 'hours',
@@ -778,6 +783,7 @@ const lessonData41: ILessonDataDB = {
   type: 'Theory',
   topic: 'Линия',
   topicOrder: 4,
+  topicIcon: 'Lesson',
   orderInTopic: 1,
   duration: {
     unit: 'hours',
@@ -1181,6 +1187,7 @@ const lessonData42: ILessonDataDB = {
   type: 'Theory',
   topic: 'Линия',
   topicOrder: 4,
+  topicIcon: 'Lesson',
   orderInTopic: 2,
   duration: {
     unit: 'hours',
@@ -1793,6 +1800,7 @@ const lessonData43: ILessonDataDB = {
   type: 'Theory',
   topic: 'Линия',
   topicOrder: 4,
+  topicIcon: 'Lesson',
   orderInTopic: 3,
   duration: {
     unit: 'hours',
@@ -2010,6 +2018,7 @@ const lessonData44: ILessonDataDB = {
   type: 'Theory',
   topic: 'Линия',
   topicOrder: 4,
+  topicIcon: 'Lesson',
   orderInTopic: 4,
   duration: {
     unit: 'hours',
@@ -2340,6 +2349,7 @@ const lessonData45: ILessonDataDB = {
   type: 'Theory',
   topic: 'Линия',
   topicOrder: 4,
+  topicIcon: 'Lesson',
   orderInTopic: 5,
   duration: {
     unit: 'hours',
@@ -2584,6 +2594,7 @@ const lessonData46: ILessonDataDB = {
   type: 'Theory',
   topic: 'Линия',
   topicOrder: 4,
+  topicIcon: 'Lesson',
   orderInTopic: 6,
   duration: {
     unit: 'minutes',
@@ -2830,6 +2841,7 @@ const lessonData51: ILessonDataDB = {
   type: 'Practice',
   topic: 'Линия: Практика',
   topicOrder: 5,
+  topicIcon: 'Lesson',
   orderInTopic: 1,
   duration: {
     unit: 'hours',
@@ -3203,6 +3215,7 @@ const lessonData61: ILessonDataDB = {
   type: 'Theory',
   topic: 'Пятно',
   topicOrder: 6,
+  topicIcon: 'Lesson',
   orderInTopic: 1,
   duration: {
     unit: 'hours',
@@ -3339,6 +3352,7 @@ const lessonData62: ILessonDataDB = {
   type: 'Theory',
   topic: 'Пятно',
   topicOrder: 6,
+  topicIcon: 'Lesson',
   orderInTopic: 2,
   duration: {
     unit: 'hours',
@@ -4110,6 +4124,7 @@ const lessonData63: ILessonDataDB = {
   type: 'Theory',
   topic: 'Пятно',
   topicOrder: 6,
+  topicIcon: 'Lesson',
   orderInTopic: 3,
   duration: {
     unit: 'hours',
@@ -4267,6 +4282,7 @@ const lessonData64: ILessonDataDB = {
   type: 'Theory',
   topic: 'Пятно',
   topicOrder: 6,
+  topicIcon: 'Lesson',
   orderInTopic: 4,
   duration: {
     unit: 'hours',
@@ -4367,6 +4383,7 @@ const lessonData71: ILessonDataDB = {
   type: 'Practice',
   topic: 'Пятно: Практика',
   topicOrder: 7,
+  topicIcon: 'Lesson',
   orderInTopic: 1,
   duration: {
     unit: 'hours',
@@ -4744,6 +4761,7 @@ const lessonData81: ILessonDataDB = {
   type: 'Theory',
   topic: 'Линия и пятно',
   topicOrder: 8,
+  topicIcon: 'Lesson',
   orderInTopic: 1,
   duration: {
     unit: 'hours',
@@ -5349,6 +5367,7 @@ const lessonData82: ILessonDataDB = {
   type: 'Theory',
   topic: 'Линия и пятно',
   topicOrder: 8,
+  topicIcon: 'Lesson',
   orderInTopic: 2,
   duration: {
     unit: 'hours',
@@ -5538,6 +5557,7 @@ const lessonData91: ILessonDataDB = {
   type: 'Practice',
   topic: 'Линия и пятно: Практика',
   topicOrder: 9,
+  topicIcon: 'Lesson',
   orderInTopic: 1,
   duration: {
     unit: 'hours',
@@ -5839,6 +5859,7 @@ const lessonDataFYS11: ILessonDataDB = {
   type: 'Theory',
   topic: 'Как устроено обучение',
   topicOrder: 1,
+  topicIcon: 'FAQ',
   orderInTopic: 1,
   duration: {
     unit: 'minutes',
@@ -5956,6 +5977,7 @@ const lessonDataFYS12: ILessonDataDB = {
   type: 'Theory',
   topic: 'Как устроено обучение',
   topicOrder: 1,
+  topicIcon: 'FAQ',
   orderInTopic: 2,
   duration: {
     unit: 'minutes',
@@ -6109,6 +6131,7 @@ const lessonDataFYS13: ILessonDataDB = {
   type: 'Theory',
   topic: 'Как устроено обучение',
   topicOrder: 1,
+  topicIcon: 'FAQ',
   orderInTopic: 3,
   duration: {
     unit: 'minutes',
@@ -6292,6 +6315,7 @@ const lessonDataFYS14: ILessonDataDB = {
   type: 'Theory',
   topic: 'Как устроено обучение',
   topicOrder: 1,
+  topicIcon: 'FAQ',
   orderInTopic: 4,
   duration: {
     unit: 'minutes',
@@ -6486,6 +6510,7 @@ const lessonDataFYS21: ILessonDataDB = {
   type: 'Theory',
   topic: 'Иллюстрация как профессия',
   topicOrder: 2,
+  topicIcon: 'Lesson',
   orderInTopic: 1,
   duration: {
     unit: 'minutes',
@@ -6630,6 +6655,7 @@ const lessonDataFYS22: ILessonDataDB = {
   type: 'Theory',
   topic: 'Иллюстрация как профессия',
   topicOrder: 2,
+  topicIcon: 'Lesson',
   orderInTopic: 2,
   duration: {
     unit: 'minutes',
@@ -7156,6 +7182,7 @@ const lessonDataFYS23: ILessonDataDB = {
   type: 'Theory',
   topic: 'Иллюстрация как профессия',
   topicOrder: 2,
+  topicIcon: 'Lesson',
   orderInTopic: 3,
   duration: {
     unit: 'minutes',
@@ -7669,6 +7696,7 @@ const lessonDataFYS24: ILessonDataDB = {
   type: 'Theory',
   topic: 'Иллюстрация как профессия',
   topicOrder: 2,
+  topicIcon: 'Lesson',
   orderInTopic: 4,
   duration: {
     unit: 'minutes',
@@ -8035,6 +8063,7 @@ const lessonDataFYS25: ILessonDataDB = {
   type: 'Theory',
   topic: 'Иллюстрация как профессия',
   topicOrder: 2,
+  topicIcon: 'Lesson',
   orderInTopic: 5,
   duration: {
     unit: 'minutes',
@@ -8300,6 +8329,7 @@ const lessonDataFYS26: ILessonDataDB = {
   type: 'Theory',
   topic: 'Иллюстрация как профессия',
   topicOrder: 2,
+  topicIcon: 'Lesson',
   orderInTopic: 6,
   duration: {
     unit: 'minutes',
@@ -8471,6 +8501,7 @@ const lessonDataFYS27: ILessonDataDB = {
   type: 'Theory',
   topic: 'Иллюстрация как профессия',
   topicOrder: 2,
+  topicIcon: 'Lesson',
   orderInTopic: 7,
   duration: {
     unit: 'minutes',
@@ -8682,6 +8713,7 @@ const lessonDataFYS28: ILessonDataDB = {
   type: 'Theory',
   topic: 'Иллюстрация как профессия',
   topicOrder: 2,
+  topicIcon: 'Lesson',
   orderInTopic: 8,
   duration: {
     unit: 'minutes',
@@ -8700,6 +8732,7 @@ const lessonDataFYS3: ILessonDataDB = {
   type: 'Theory',
   topic: 'Что такое иллюстрация, серия, стиль',
   topicOrder: 3,
+  topicIcon: 'Lesson',
   orderInTopic: 1,
   duration: {
     unit: 'hours',
@@ -10028,6 +10061,7 @@ const lessonDataFYS4: ILessonDataDB = {
   type: 'Theory',
   topic: 'Литературный сюжет: что рисовать',
   topicOrder: 4,
+  topicIcon: 'Lesson',
   orderInTopic: 1,
   duration: {
     unit: 'hours',
@@ -11193,6 +11227,7 @@ const lessonDataFYS5: ILessonDataDB = {
   type: 'Theory',
   topic: 'Пластический сюжет: как рисовать',
   topicOrder: 5,
+  topicIcon: 'Lesson',
   orderInTopic: 1,
   duration: {
     unit: 'hours',
@@ -12898,6 +12933,7 @@ const lessonDataFYS6: ILessonDataDB = {
   type: 'Practice',
   topic: 'Финальное задание',
   topicOrder: 6,
+  topicIcon: 'Lesson',
   orderInTopic: 1,
   duration: {
     unit: 'hours',

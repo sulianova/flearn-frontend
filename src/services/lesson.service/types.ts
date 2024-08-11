@@ -5,6 +5,7 @@ import { IUserData } from 'services/user.service';
 import { TAccess } from 'services/userAccess.service';
 import { ECommonErrorTypes } from 'types';
 import type { IArticleContent, IArticleContentDB } from 'types';
+import { TIcon } from 'ui/Icon/Icon';
 
 interface ILessonDataCommon {
   id: string
@@ -13,6 +14,7 @@ interface ILessonDataCommon {
   type: 'Theory' | 'Practice'
   topic: string
   topicOrder: number
+  topicIcon: TIcon
   orderInTopic: number
   duration: {
     unit: 'minutes' | 'hours'

@@ -11,10 +11,13 @@ import classes from './Item.module.scss';
 
 const cx = classNames.bind(classes);
 
-export default Item;
+export interface IProps {
+  question: string
+  answer: string
+}
 
-
-function Item() {
+export default function Item(props: IProps) {
+  const { question, answer } = props;
   const [isExpanded, setIsExpanded] = useState(false);
   const [height, setHeight] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
@@ -31,7 +34,7 @@ function Item() {
       >
         <div className={classes.itemQuestion}>
           <div className={classes.itemQuestionText}>
-            Как проходит онлайн обучение
+            {question}
           </div>
           <div className={cx({ itemArrow: true, itemArrowExpended: isExpanded })}>
             <Icon icon='SubsectionArrow'/>
@@ -43,7 +46,7 @@ function Item() {
           className={cx({ itemAnswer: true, itemAnswerExpanded: isExpanded })}
         >
           <div className={classes.itemAnswerText}>
-            Всю информацию и практические задания мы собрали в интерактивном учебнике. Проходить его можно в любое удобное время, с компьютера или с телефона. Вопросы, возникающие по ходу задаем в любое время в телеграмм-канале — раз в сутки преподаватель отвечает на них.
+            {answer}
           </div>
         </div>
       </div>

@@ -20,14 +20,18 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  gap: set-calc(40);
+  gap: set-calc(64);
+
+  @include set-media(md) {
+    gap: set-calc(40);
+  }
 
 }
 
 .program {
   position: relative;
 
-  width: set-calc(700);
+  width: set-calc(680);
 
   @include set-media(md) {
     width: 100%;
@@ -51,7 +55,6 @@
   display: flex;
 
   width: set-calc(320);
-  aspect-ratio: auto 1;
 
   svg {
     width: set-calc(176);
@@ -98,6 +101,7 @@
 
 .description {
   @include font-20-normal-paragraph;
+  color: var(--color-content-secondary);
   font-family: $font-family-regular;
   max-width: set-calc(700);
 
