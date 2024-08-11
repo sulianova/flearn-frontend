@@ -1,3 +1,4 @@
+import classnames from 'classnames/bind';
 import { useMemo, useState } from 'react';
 
 import { formatI18nT, i18n } from 'shared';
@@ -13,9 +14,12 @@ import LessonsPopup from 'components/LessonsPopup/LessonsPopup';
 import Link from 'ui/Link/Link';
 import Page, { EPageVariant } from 'ui/Page/Page';
 import Fallback from 'ui/Fallback';
+import Icon from 'ui/Icon/Icon';
 
 import classesList from './LessonsList.module.scss';
 import classes from './Profile.module.scss';
+
+const cx = classnames.bind(classesList);
 
 interface IGroup {
   topic: string
@@ -91,48 +95,47 @@ function Profile(props: IProps) {
 
   return (
     <>
-      <Page variant={EPageVariant.LMS} header footer>
+      <Page 
+        variant={EPageVariant.LMS}
+        header
+        footer
+        backgroundColor='var(--color-background-default)'
+      >
         <div className={classes.profilePage}>
-          <div className={classes.title}>{currentCourse.title}</div>
           <div className={classes.profilePageContent}>
-            {firstNotSolvedLesson ? (
-              <div className={classes.currentLesson}>
-                <div className={classes.currentLessonWrapper}>
-                  <div className={classes.currentLessonReminder}>
-                    {/* <div className={classes.currentLessonSubtitle}>
-                      <div className={classes.currentLessonSubtitleIndex}>{firstNotSolvedLesson.orderInTopic}.</div>
-                      <span>{firstNotSolvedLesson.title}</span>
-                    </div> */}
-                    <div className={classes.currentLessonTitle}>
-                      {firstNotSolvedLesson.topic}
-                    </div>
-                    <div className={classes.currentLessonDetails}></div>
-                    <div>
-                      {!firstNotSolvedLesson.isFree && currentCourseAccess === 'FREE' && authedUser.role === 'user' ? (
-                        <div
-                          className={classes.currentLessonButton}
-                          onClick={() => setBuyCoursePopupIsOpened(true)}
-                        >
-                          Купить
-                        </div>
-                      ) : (
-                        <Link
-                          className={classes.currentLessonButton}
-                          to={URLSections.Study.to({ courseId: currentCourse.id, lessonId: firstNotSolvedLesson.id })}
-                        >
-                          Учиться
-                        </Link>
-                      )}
-                    </div>
-                  </div>
-                </div>
+            <div className={classes.programWrapper}>
+              <div className={classes.programBody}>
+                <div className={classes.title}>{currentCourse.title}</div>
+                <div className={classes.description}>{currentCourse.introDescription}</div>
+                {firstNotSolvedLesson ? (
+                        <div>
+                        {!firstNotSolvedLesson.isFree && currentCourseAccess === 'FREE' && authedUser.role === 'user' ? (
+                          <div
+                            className={classes.currentLessonButton}
+                            onClick={() => setBuyCoursePopupIsOpened(true)}
+                          >
+                            Купить
+                          </div>
+                        ) : (
+                          <Link
+                            className={classes.currentLessonButton}
+                            to={URLSections.Study.to({ courseId: currentCourse.id, lessonId: firstNotSolvedLesson.id })}
+                          >
+                            Учиться
+                          </Link>
+                        )}
+                      </div>
+                ) : (
+                  <div>Реклама</div>
+                )}
               </div>
-            ) : (
-              <div>Реклама</div>
-            )}
+              <div className={classes.programImage}>
+                <Icon {...currentCourse.icon}/>
+              </div>
+            </div>
             {(currentCourseAccess !== 'FREE' || authedUser.role === 'support') ? (
               <div className={classes.program}>
-                <div className={classes.programTitle}>Модули</div>
+                <div className={classes.subTitle}>Модули</div>
                   <div className={classesList.wrapper}>
                     {[...freeGroupes, ...payableGroupes].map((group, index) => (
                       <TopicCard
@@ -146,7 +149,7 @@ function Profile(props: IProps) {
             ) : (
               <>
                 <div className={classes.program}>
-                  <div className={classes.programTitle}>Доступно сейчас и бесплатно</div>
+                  <div className={classes.subTitle}>Доступно сейчас и бесплатно</div>
                     <div className={classesList.wrapper}>
                       {freeGroupes.map((group, index) => (
                         <TopicCard
@@ -158,7 +161,7 @@ function Profile(props: IProps) {
                   </div>
                 </div>
                 <div className={classes.program}>
-                  <div className={classes.programTitle}>Будет доступно после оплаты</div>
+                  <div className={classes.subTitle}>Будет доступно после оплаты</div>
                     <div className={classesList.wrapper}>
                       {payableGroupes.map((group, index) => (
                         <TopicCard
@@ -205,7 +208,11 @@ function TopicCard(props: { group: IGroup, setOpenedTopic: (topic: string) => vo
   return (
     <div className={classesList.itemWrapper} onClick={() => setOpenedTopic(group.topic)}>
       <div className={classesList.item}>
-        <div className={classesList.imageWrapper}/>
+        <div className={classesList.imageWrapper}>
+          <div className={classesList.image}>
+          <Icon icon='FAQ'/>
+          </div>
+        </div>
         <div className={classesList.itemBody}>
           <div className={classesList.itemBodyContainer}>
             <div className={classesList.titleContainer}>
@@ -217,9 +224,12 @@ function TopicCard(props: { group: IGroup, setOpenedTopic: (topic: string) => vo
           <div className={classesList.info}>
             <div className={classesList.infoMain}>
               <span className={classesList.infoItem}>{i18n.t('lesson.p', { count: group.lessons.length })}</span>
-              <span className={classesList.infoItem}>{`≈ ${totalDurationStr}  `}</span>
+              <span className={classesList.infoItem}>{`${totalDurationStr}  `}</span>
             </div>
           </div>
+        </div>
+        <div className={cx({ itemStatus: true, solved: false })}>
+          <Icon icon='Tick'/>
         </div>
       </div>
     </div>

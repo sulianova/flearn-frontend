@@ -1,9 +1,14 @@
 @import 'styles/index';
 
 .wrapper {
-  @include is-grid-3;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   gap: set-calc(16);
+
+  @include set-media(md) {
+    gap: set-calc(8);
+  }
 }
 
 .wrapper:not(:last-child) {
@@ -11,7 +16,6 @@
 }
 
 .itemWrapper {
-  grid-column: span 1;
   position: relative;
 
   display: flex;
@@ -20,13 +24,15 @@
 
 .item {
   position: relative;
+
   display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  height: set-calc(360);
+  align-items: center;
+  height: set-calc(100);
   width: 100%;
 
-  padding: 0;
+  gap: set-calc(20);
+
+  padding: set-calc(20);
   margin: 0;
   border: none;
 
@@ -38,11 +44,14 @@
 
   box-sizing: border-box;
   background-color: var(--color-card);
-  border: set-calc(1) solid var(--color-border);
+  border: 1px solid var(--border);
   text-align: left;
 
   @include set-media(md) {
-    height: auto;
+    gap: set-calc(16);
+    height: set-calc(110);
+
+    padding: set-calc(16);
     
     .infoItem {
       opacity: 1;
@@ -64,46 +73,71 @@
   }
 }
 
-.listDate {
-  margin-bottom: set-calc(8);
-  
-  @include set-media(md) {
-    margin-bottom: set-calc(4);
-  }
-}
-
 .itemBody {
   box-sizing: border-box;
   position: relative;
+
   display: flex;
   flex: 1;
   flex-direction: column;
   width: 100%;
 
   text-align: left;
-  padding: set-calc(16);
   cursor: pointer;
+}
+
+.itemStatus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+  width: set-calc(24);
+  height: set-calc(24);
+
+  border-radius: 50%;
+  background-color: var(--color-background-glassy-d);
+
+  svg {
+    width: set-calc(24);
+    height: set-calc(24);
+    color: var(--color-content-inverted-primary);
+  }
+}
+
+.solved {
+  background-color: var(--primary-color);
 }
 
 .itemBodyContainer {
   display: flex;
   flex: 1;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+
+  @include set-media(md) {
+    justify-content: start;
+    flex: 0;
+  }
 }
 
 .titleContainer {
-  height: set-calc(78);
+  margin-bottom: set-calc(10);
+
+  @include set-media(md) {
+    margin-bottom: set-calc(8);
+  }
 }
 
 .title {
   margin: 0;
 
   color: var(--color-content-primary);
-  @include set-typography(20, 30, 500);
+  font-family: $font-family-medium;
+  @include set-typography(18, 28, 500);
 
   @include set-media(md) {
-    @include set-typography(16, 24, 500);
+    @include set-typography(18, 22, 500);
   }
 }
 
@@ -117,10 +151,6 @@
   display: flex;
   flex: 1;
   flex-wrap: wrap;
-
-  @include set-media(md) {
-    display: none;
-  }
 }
 
 .infoItem {
@@ -131,48 +161,53 @@
   margin-right: set-calc(4);
 
   transition: opacity 0.3s;
-  opacity: 0;
+  opacity: 1;
 
-  @include font-16-normal-ui;
-  color: var(--color-content-tertiary);
+  @include font-14-normal-ui;
+  color: var(--color-content-secondary);
+}
 
-  // &:not(:first-child)::before {
-  //   position: absolute;
-  //   left: set-calc(-10);
-  //   display: block;
-  //   width: set-calc(3);
-  //   height: set-calc(3);
-  //   content: "";
-  //   border-radius: 50%;
-  //   background: var(--color-content-tertiary);
-  // }
+.infoItem:not(:last-child) {
+  text-align: center;
+  margin-right: set-calc(20);
+}
+
+.infoItem:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: set-calc(-10);
+  top: 50%;
+
+  width: set-calc(3);
+  height: set-calc(3);
+  border-radius: 50%;
+  background-color: var(--color-content-paragraph-secondary);
+  transform: translate3d(0, -50%, 0);
 }
 
 .imageWrapper {
-  overflow: hidden;
-  width: 100%;
-  height: set-calc(180);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   cursor: pointer;
-
-  @include set-media(md) {
-    height: auto;
-    width: 45%;
-    min-width: 45%;
-  }
 }
 
 .image {
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-  color: var(--primary-color);
-  background: $color-palette-white-1000;
-  border-radius: set-calc(8) set-calc(8) 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  svg {
-    width: 100%;
-    height: 100%;
+  width: set-calc(48);
+  aspect-ratio: auto 1;
+
+  svg path {
+    stroke-width: 1px;
+  }
+  
+  @include set-media(md) {
+    width: set-calc(48);
+    aspect-ratio: auto 1;
   }
 }
 

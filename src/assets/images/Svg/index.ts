@@ -48,3 +48,5 @@ export * from './Paid';
 export * from './Color';
 export * from './RocketLaunch';
 export * from './Infinity';
+export * from './Lesson';
+export * from './FAQ';

@@ -165,7 +165,7 @@
   align-items: center;
   width: 100%;
 
-  color: var(--color-content-paragraph-secondary);
+  color: var(--color-content-secondary);
   text-align: center;
 
   p {
@@ -188,7 +188,7 @@
     width: set-calc(3);
     height: set-calc(3);
     border-radius: 50%;
-    background-color: var(--color-content-paragraph-secondary);
+    background-color: var(--color-content-secondary);
     transform: translate3d(0, -50%, 0);
   }
 
