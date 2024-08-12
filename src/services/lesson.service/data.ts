@@ -740,7 +740,7 @@ const lessonData32: ILessonDataDB = {
   type: 'Theory',
   topic: 'Рисуем иллюстрацию для баннера',
   topicOrder: 2,
-  topicIcon: 'Lesson',
+  topicIcon: 'Banner',
   orderInTopic: 2,
   duration: {
     unit: 'hours',
