@@ -66,7 +66,7 @@
   @include set-media(md) {
     position: absolute;
     top: 0;
-    right: 0;
+    right: set-calc(8);
 
     width: set-calc(72);
     aspect-ratio: auto 1;
@@ -84,18 +84,22 @@
   display: flex;
   flex-direction: column;
   flex: 1 1;
+
+  @include set-media(md) {
+    margin: 0 set-calc(8);
+  }
 }
 
 .title {
   @include font-56-normal-header;
-  font-family: $font-family-medium;
+  font-family: $font-family-bold;
   max-width: set-calc(700);
 
   margin: 0 0 set-calc(24);
 
   @include set-media(md) {
     @include set-typography(32, 38, 500);
-    margin: 0 set-calc(90) set-calc(16) set-calc(8);
+    margin: 0 set-calc(90) set-calc(16) 0;
   }
 }
 
@@ -105,10 +109,55 @@
   font-family: $font-family-regular;
   max-width: set-calc(700);
 
-  margin: 0 0 set-calc(40);
+  margin: 0 0 set-calc(20);
 
   @include set-media(md) {
-    margin: 0 set-calc(8) set-calc(20);
+    margin: 0 0 set-calc(20);
+  }
+}
+
+.metaData {
+  display: flex;
+  flex-wrap: wrap;
+
+  margin-bottom: set-calc(32);
+}
+
+.metaData_Item {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--color-content-secondary);
+
+  &:not(:last-child) {
+    margin-right: set-calc(16);
+  }
+
+  &Text {
+    
+    @include set-typography(14, 18, 500);
+    color: inherit;
+    white-space: nowrap;
+  }
+
+  &Icon {
+
+    display: flex;
+
+    width: set-calc(16);
+    height: set-calc(18);
+
+    margin-right: set-calc(4);
+
+    svg {
+      width: set-calc(14);
+
+      color: inherit;
+      fill: currentColor;
+    }
   }
 }
 
@@ -139,7 +188,8 @@
   }
 
   @include set-media(md) {
-    width: 100%;
+    width: set-calc(16, true, 100%);
+    left: set-calc(-8);
 
     &:hover {
       background-color: var(--primary-color);
@@ -150,8 +200,8 @@
 .subTitle {
   margin: 0 0 set-calc(24);
 
-  @include font-24-normal-header;
-  font-family: $font-family-medium;
+  @include font-28-normal-header;
+  font-family: $font-family-bold;
   color: var(--color-content-primary);
 
   @include set-media(md) {

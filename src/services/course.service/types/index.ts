@@ -24,6 +24,13 @@ interface ICourseDataCommon {
     unit: 'day' | 'week'
     value: number
   }
+  metaData: {
+    lessonsDuration: {
+      unit: 'minute' | 'hour'
+      value: number
+    }
+    lessonsAmount: number
+  }
   homeworksNumber: number
   feild: 'Иллюстрация' | 'Adobe'
   tags?: string[]

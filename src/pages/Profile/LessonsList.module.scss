@@ -43,7 +43,7 @@
   border-radius: set-calc($border-radius-medium);
 
   box-sizing: border-box;
-  background-color: var(--color-card);
+  background-color: transparent;
   border: 1px solid var(--border);
   text-align: left;
 
@@ -198,14 +198,7 @@
   justify-content: center;
   align-items: center;
 
-  width: set-calc(48);
-  aspect-ratio: auto 1;
-
-  svg path {
-    stroke-width: 1px;
-  }
-  
-  @include set-media(md) {
+  svg {
     width: set-calc(48);
     aspect-ratio: auto 1;
   }

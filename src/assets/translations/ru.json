@@ -281,6 +281,18 @@
       }
     }
   },
+  "minute": {
+    "p_one": "минута",
+    "p_few": "минуты",
+    "p_many": "минут",
+    "p_other": "минут"
+  },
+  "hour": {
+    "p_one": "час",
+    "p_few": "часа",
+    "p_many": "часов",
+    "p_other": "часов"
+  },
   "day": {
     "p_one": "день",
     "p_few": "дня",
@@ -294,8 +306,10 @@
     "p_other": "недель"
   },
   "duration": {
-    "week": "{{count}} $t(week.p, {\"count\": {{count}} })",
-    "day": "{{count}} $t(day.p, {\"count\": {{count}} })"
+    "minute": "{{count}} $t(minute.p, {\"count\": {{count}} })",
+    "hour": "{{count}} $t(hour.p, {\"count\": {{count}} })",
+    "day": "{{count}} $t(day.p, {\"count\": {{count}} })",
+    "week": "{{count}} $t(week.p, {\"count\": {{count}} })"
   },
   "emails": {
     "WelcomeToCourse": {

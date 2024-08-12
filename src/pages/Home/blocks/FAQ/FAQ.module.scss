@@ -10,14 +10,14 @@
   padding: set-calc(80) set-calc(200);
   border-radius: 0;
 
-  border-bottom-left-radius: set-calc(50);
-  border-bottom-right-radius: set-calc(50);
+  border-bottom-left-radius: set-calc($border-radius-50);
+  border-bottom-right-radius: set-calc($border-radius-50);
 
   @include set-media(md) {
     padding: set-calc(64) set-calc(8);
 
-    border-bottom-left-radius: set-calc(30);
-    border-bottom-right-radius: set-calc(30);
+    border-bottom-left-radius: set-calc($border-radius-30);
+    border-bottom-right-radius: set-calc($border-radius-30);
   }
 }
 

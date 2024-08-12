@@ -10,7 +10,9 @@ export function getData(courseIds?: string[]) {
     .filter(course => course !== undefined);
 }
 
-const courseDB1: ICourseDataDB = {
+type TCourseDataDBWithoutMeta = Omit<ICourseDataDB, 'metaData'>;
+
+const courseDB1: TCourseDataDBWithoutMeta = {
   id: 'how-to-draw',
   type: 'course',
   isUnderDevelopment: false,
@@ -281,7 +283,7 @@ const courseDB1: ICourseDataDB = {
   },
 }
 
-const courseDB2: ICourseDataDB = {
+const courseDB2: TCourseDataDBWithoutMeta = {
   id: 'finding-your-style',
   type: 'intensive',
   isUnderDevelopment: false,
@@ -543,7 +545,7 @@ const courseDB2: ICourseDataDB = {
   }
 }
 
-const courseDB3: ICourseDataDB = {
+const courseDB3: TCourseDataDBWithoutMeta = {
   id: 'another-course',
   type: 'intensive',
   isUnderDevelopment: true,

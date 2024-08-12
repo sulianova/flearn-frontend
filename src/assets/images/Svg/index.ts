@@ -50,3 +50,6 @@ export * from './RocketLaunch';
 export * from './Infinity';
 export * from './Lesson';
 export * from './FAQ';
+export * from './Lessons';
+export * from './Level';
+export * from './Time';

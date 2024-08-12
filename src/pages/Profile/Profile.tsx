@@ -109,6 +109,24 @@ function Profile(props: IProps) {
               <div className={classes.programBody}>
                 <div className={classes.title}>{currentCourse.title}</div>
                 <div className={classes.description}>{currentCourse.introDescription}</div>
+                <div className={classes.metaData}>
+                  <div className={classes.metaData_Item}>
+                    <div className={classes.metaData_ItemIcon}><Icon icon='Level'/></div>
+                    <span className={classes.metaData_ItemText}>{i18n.t(`catalogue.card.info.${currentCourse.level}`)}</span>
+                  </div>
+                  <div className={classes.metaData_Item}>
+                    <div className={classes.metaData_ItemIcon}><Icon icon='Time'/></div>
+                    <span className={classes.metaData_ItemText}>
+                      {i18n.t(`duration.${currentCourse.metaData.lessonsDuration.unit}`, { count: currentCourse.metaData.lessonsDuration.value })}
+                    </span>
+                  </div>
+                  <div className={classes.metaData_Item}>
+                    <div className={classes.metaData_ItemIcon}><Icon icon='Start'/></div>
+                    <span className={classes.metaData_ItemText}>
+                      {i18n.t('lesson.p', { count: currentCourse.metaData.lessonsAmount })}
+                    </span>
+                  </div>
+                </div>
                 {firstNotSolvedLesson ? (
                         <div>
                         {!firstNotSolvedLesson.isFree && currentCourseAccess === 'FREE' && authedUser.role === 'user' ? (

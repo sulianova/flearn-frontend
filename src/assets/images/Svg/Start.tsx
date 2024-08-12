@@ -1,9 +1,5 @@
 export function Start() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
-      <rect width="48" height="48" fill="none"/>
-      <path d="M31.6,23.28l-10.64-6.14c-.67-.38-1.5.1-1.5.87v12.29c0,.77.83,1.25,1.5.87l10.64-6.14c.67-.38.67-1.35,0-1.73Z"/>
-      <path d="M24,7c9.37,0,17,7.63,17,17s-7.63,17-17,17S7,33.37,7,24,14.63,7,24,7M24,4C12.95,4,4,12.95,4,24s8.95,20,20,20,20-8.95,20-20S35.05,4,24,4h0Z"/>
-    </svg>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 14"><polygon points="10.5 7 1.5 1.77 1.5 12.23 10.5 7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><rect x="0" y="0" width="12" height="14" fill="none" stroke-width="0"/></svg>
   );
 }

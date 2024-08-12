@@ -13,6 +13,8 @@ import useUserCourses from './useUserCourses';
 import { authService } from 'services';
 import { userAccessService } from 'services/userAccess.service';
 import { locationService } from 'services/location.service';
+import { lessonService } from 'services/lesson.service';
+import { getCourseMeta } from './utils';
 
 export * from './types/index';
 export { dummyCourses } from './data';
@@ -87,7 +89,8 @@ class CourseService {
       if (!courseLocalDB) {
         throw new Error('No local course data');
       }
-      const courseLocal = await localFilesServise.Course.localToFR(courseLocalDB);
+      const metaData = await getCourseMeta(id);
+      const courseLocal = await localFilesServise.Course.localToFR({ ...courseLocalDB, metaData });
       await dataService.course.set(courseLocal.id, courseLocal);
     } catch (error) {
       console.log('Failed to upload course');
@@ -111,7 +114,14 @@ class CourseService {
       const source = this.sourceBS.getValue();
       if (source === 'local' && !props.userId) {
         const courseLocalDBs = getData(props.ids);
-        return Promise.all(courseLocalDBs.map(courseLocalDB => localFilesServise.Course.localToFR(courseLocalDB)));
+        const metaData: ICourseData['metaData'] = {
+          lessonsAmount: 0,
+          lessonsDuration: {
+            unit: 'minute',
+            value: 0,
+          },
+        };
+        return Promise.all(courseLocalDBs.map(courseLocalDB => localFilesServise.Course.localToFR({ ...courseLocalDB!, metaData })));
       }
       return await dataService.course.getAll({ ids: props.ids, userId: props.userId });
     } catch (error) {
