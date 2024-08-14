@@ -831,7 +831,7 @@ const courseDummy1: ICourseCardInfo = {
 
 const courseDummy2: ICourseCardInfo = {
   isDummy: true,
-  id: 'course-dummy',
+  id: 'course-dummy2',
   title: 'Психология цвета',
   type: 'course',
   level: 'beginner',
