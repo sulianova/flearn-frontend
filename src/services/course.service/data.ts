@@ -829,6 +829,23 @@ const courseDummy1: ICourseCardInfo = {
   introDescription: 'Научитесь управлять цветом и выделять главное в рисунке',
 };
 
+const courseDummy2: ICourseCardInfo = {
+  isDummy: true,
+  id: 'course-dummy',
+  title: 'Психология цвета',
+  type: 'course',
+  level: 'beginner',
+  icon: {
+    icon: 'ColorEye',
+  },
+  duration: {
+    value: 2,
+    unit: 'day',
+  },
+  introDescription: 'Научитесь управлять цветом и выделять главное в рисунке',
+};
+
 export const dummyCourses = [
   courseDummy1,
+  courseDummy2
 ];
