@@ -43,6 +43,7 @@ body.light {
   --color-background-btn-hover: var(--color-background-btn-hover-light);
   --color-background-card: var(--color-background-card-light);
   --color-quiz: var(--color-quiz-light);
+  --shadow-solid-small: var(--shadow-solid-small-light);
 }
 
 body.dark {
@@ -89,4 +90,5 @@ body.dark {
   --color-background-btn-hover: var(--color-background-btn-hover-dark);
   --color-background-card: var(--color-background-card-dark);
   --color-quiz: var(--color-quiz-dark);
+  --shadow-solid-small: var(--shadow-solid-small-dark);
 }

@@ -228,7 +228,7 @@
 
   
   &:hover {
-    box-shadow: $shadow-solid-small;
+    box-shadow: var(--shadow-solid-small);
     transform: translateY(-4px);
   }
 
@@ -269,7 +269,7 @@
   height: 100%;
   
   &:hover {
-    box-shadow: $shadow-solid-small;
+    box-shadow: $shadow-solid-small-light;
     transform: translateY(-2px);
   }
 

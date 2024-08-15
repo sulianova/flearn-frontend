@@ -51,14 +51,14 @@
   margin-top: set-calc(24);
 
   @include font-18-normal-paragraph;
-  color: var(--color-content-primary);
-  font-family: $font-family-light;
+  color: var(--color-content-paragraph-primary);
+  font-family: $font-family;
   text-align: center;
 
   width: 100%;
 
   a {
-    font-family: $font-family-regular;
+    font-family: $font-family-medium;
     color: var(--primary-color);
 
     transition: all $d-hover ease;

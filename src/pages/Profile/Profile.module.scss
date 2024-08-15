@@ -169,9 +169,9 @@
   justify-content: center;
 
   gap: set-calc(8);
-  min-width: set-calc(150);
+  min-width: set-calc(160);
 
-  padding: set-calc(8) set-calc(10);
+  padding: set-calc(8) set-calc(16);
 
   @include font-18-normal-ui;
   color: $color-content-inverted-primary-light;

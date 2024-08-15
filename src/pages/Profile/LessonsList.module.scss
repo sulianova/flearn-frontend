@@ -23,6 +23,8 @@
 }
 
 .item {
+  @include btn;
+  
   position: relative;
 
   display: flex;
@@ -61,6 +63,8 @@
   &:hover,
   &:focus {
     transform: translateY(set-calc(-4));
+    box-shadow: var(--shadow-solid-small);
+    border-color: var(--color-content-primary);
 
     .infoItem {
       opacity: 1;

@@ -131,7 +131,7 @@
 }
 
 .itemHoverable:hover {
-  background-color: var(--color-background-glassy-b);
+  background-color: var(--color-background-glassy-c);
 
   @include set-media(md) {
     background-color: transparent;
@@ -139,7 +139,7 @@
 }
 
 .itemHoverable:active {
-  background-color: var(--color-background-glassy-a);
+  background-color: var(--color-background-glassy-b);
 
   @include set-media(md) {
     background-color: transparent;

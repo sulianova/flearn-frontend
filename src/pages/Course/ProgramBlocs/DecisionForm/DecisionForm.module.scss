@@ -350,7 +350,7 @@
 
   @include set-typography(54, 54, 500);
   color: $color-content-primary-light;
-  font-family: $font-family-highlight-medium;
+  font-family: $font-family-bold;
 
   border-radius: calc(set-calc(150) / 2);
   background-color: $color-accent-promo-light;
@@ -370,6 +370,7 @@
     height: set-calc(60);
 
     @include set-typography(18, 18, 500);
+    font-family: $font-family-medium;
 
     padding: 0 0;
     border-radius: calc(set-calc(60) / 2);

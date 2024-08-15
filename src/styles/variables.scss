@@ -147,6 +147,7 @@ $color-content-paragraph-secondary-light: $color-palette-black-600-a;
 $color-background-btn-light: $color-palette-black-700;
 $color-background-btn-hover-light: $color-palette-black-900;
 $color-background-card-light: $color-palette-black-700;
+$shadow-solid-small-light: 0 1px 0 0 $color-content-primary-light, 0 1.5px 0 0 $color-content-primary-light, 0 2px 0 0 $color-content-primary-light, 0 2.5px 0 0 $color-content-primary-light, 0 3px 0 0 $color-content-primary-light, 0 3.5px 0 0 $color-content-primary-light, 0 4px 0 0 $color-content-primary-light, 0 4.5px 0 0 $color-content-primary-light;
 
 $border-light: rgba(5, 6, 15, .1);
 
@@ -191,6 +192,7 @@ $color-content-paragraph-secondary-dark: $color-palette-black-400;
 $color-background-btn-dark: $color-palette-indigo-300;
 $color-background-btn-hover-dark: $color-palette-indigo-350;
 $color-background-card-dark: $primary-color-dark;
+$shadow-solid-small-dark: 0 1px 0 0 $color-content-primary-dark, 0 1.5px 0 0 $color-content-primary-dark, 0 2px 0 0 $color-content-primary-dark, 0 2.5px 0 0 $color-content-primary-dark, 0 3px 0 0 $color-content-primary-dark, 0 3.5px 0 0 $color-content-primary-dark, 0 4px 0 0 $color-content-primary-dark, 0 4.5px 0 0 $color-content-primary-dark;
 
 $border-dark: hsla(0, 0%, 100%, .1);
 
@@ -219,7 +221,6 @@ $modal-animation-duration: 200ms;
 
 //shadow
 $shadow-solid: 0 1px 0 0 $color-content-primary-light, 0 2px 0 0 $color-content-primary-light, 0 3px 0 0 $color-content-primary-light, 0 4px 0 0 $color-content-primary-light, 0 5px 0 0 $color-content-primary-light, 0 6px 0 0 $color-content-primary-light, 0 7px 0 0 $color-content-primary-light, 0 8px 0 0 $color-content-primary-light;
-$shadow-solid-small: 0 1px 0 0 $color-content-primary-light, 0 1.5px 0 0 $color-content-primary-light, 0 2px 0 0 $color-content-primary-light, 0 2.5px 0 0 $color-content-primary-light, 0 3px 0 0 $color-content-primary-light, 0 3.5px 0 0 $color-content-primary-light, 0 4px 0 0 $color-content-primary-light, 0 4.5px 0 0 $color-content-primary-light;
 $shadow-small-default: 0 0 1px 1px rgba(0, 0, 0, .02), 0 .3px .5px rgba(0, 0, 0, .1), 0 2px 4px rgba(0, 0, 0, .2);
 $shadow-small-hovered: 0 0 1px 1px rgba(0, 0, 0, .02), 0 .4px .8px rgba(0, 0, 0, .1), 0 3px 6px rgba(0, 0, 0, .2);
 $shadow-small-pressed: 0 0 1px 1px rgba(0, 0, 0, .02), 0 .3px .5px rgba(0, 0, 0, .1), 0 2px 4px rgba(0, 0, 0, .2);
@@ -313,6 +314,7 @@ $z-index-500: 500;
   --color-background-btn-light: #{$color-background-btn-light};
   --color-background-btn-hover-light: #{$color-background-btn-hover-light};
   --color-background-card-light: #{$color-background-card-light};
+  --shadow-solid-small-light: #{$shadow-solid-small-light};
 
   // theme dark
   --primary-color-dark: #{$primary-color-dark};
@@ -356,4 +358,5 @@ $z-index-500: 500;
   --color-background-btn-dark: #{$color-background-btn-dark};
   --color-background-btn-hover-dark: #{$color-background-btn-hover-dark};
   --color-background-card-dark: #{$color-background-card-dark};
+  --shadow-solid-small-dark: #{$shadow-solid-small-dark};
 }

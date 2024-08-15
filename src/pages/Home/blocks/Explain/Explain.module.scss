@@ -23,6 +23,8 @@
   @include set-media(md) {
     display: flex;
     flex-direction: column;
+
+    grid-gap: set-calc(8);
   }
 }
 

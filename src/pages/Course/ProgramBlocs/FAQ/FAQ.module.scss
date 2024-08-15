@@ -45,13 +45,13 @@
 .headerDesc {
   @include font-18-normal-paragraph;
   color: $color-content-primary-dark;
-  font-family: $font-family-light;
+  font-family: $font-family;
   text-align: center;
 
   width: 100%;
 
   a {
-    font-family: $font-family-regular;
+    font-family: $font-family-medium;
     color: $primary-color-dark;
 
     transition: all $d-hover ease;
