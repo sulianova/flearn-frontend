@@ -48,12 +48,12 @@
   @include font-14-normal-ui;
 
   &:not(:last-child) {
-    margin-bottom: set-calc(4);
+    margin-bottom: set-calc(6);
   }
 
   @include set-media(md) {
     &:not(:last-child) {
-      margin-bottom: set-calc(2);
+      margin-bottom: set-calc(4);
     }
   }
 

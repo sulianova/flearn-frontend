@@ -136,7 +136,7 @@
     padding: set-calc(16) set-calc(8) 0;
     width: 100%;
 
-    @include set-typography(18, 24, 500);
+    @include set-typography(16, 22, 500);
     color: var(--primary-color);
     font-family: $font-family-regular;
   }

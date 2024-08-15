@@ -88,7 +88,7 @@
   box-shadow: none;
 
   @include set-media(md) {
-    padding: 0 set-calc($padding-x-mob-page);
+    padding: 0 set-calc(24);
     background-color: transparent;
   }
 }
@@ -107,7 +107,7 @@
   height: set-calc(40);
   max-width: fit-content;
 
-  padding: 0 set-calc(16);
+  padding: 0 0;
   border-radius: calc(set-calc(40) / 2);
   // background-color: var(--color-content-background-primary);
 
@@ -120,7 +120,7 @@
   span {
     @include set-typography(22, 22, 500);
     color: var(--color-content-primary);
-    font-family: $font-family-bold;
+    font-family: $font-family-highlight-bold;
 }
 
   svg {
@@ -202,12 +202,14 @@
       width: set-calc(24);
       height: set-calc(24);
   
-      fill: var(--color-content-primary);
+      color: var(--color-content-paragraph-primary);
     }
   }
 }
 
 .navLogin {
+  @include btn;
+
   position: relative;
 
   display: flex;
@@ -224,14 +226,19 @@
 
   width: max-content;
 
-  transition: color $d-hover ease, opacity $d-hover ease, border-color  $d-hover ease;
   
   &:hover {
-    cursor: pointer;
+    box-shadow: $shadow-solid-small;
+    transform: translateY(-4px);
   }
 
   @include set-media(md) {
     margin-left: auto;
+
+    &:hover {
+      box-shadow: $shadow-small-default;
+      transform: none;
+    }
   }
 }
 
@@ -241,6 +248,8 @@
 }
 
 .buyBtn {
+  @include btn;
+
   position: relative;
 
   display: flex;
@@ -250,30 +259,25 @@
   padding: 0 set-calc(16);
 
   color: $color-content-primary-light;
+  font-family: $font-family-highlight-medium;
+  @include set-typography(15, 15, 500);
     
   background: $color-highlight-yellow;
-  border-radius: set-calc($border-radius-10);
+  border-radius: calc(set-calc(40) / 2);
 
   width: max-content;
   height: 100%;
-
-  transition: width .3s, margin .3s, min-width .3s, background-color .3s, color .3s, border .3s, background-position 2s ease-out, padding-left .3s, opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
   
   &:hover {
-    cursor: pointer;
-    background: $color-highlight-yellow-hover;
-  }
-
-  &:active {
-    transition-duration: .05s;
-    transition-property: transform;
-    transform: translateY(1px) scale(.995);
+    box-shadow: $shadow-solid-small;
+    transform: translateY(-2px);
   }
 
   @include set-media(md) {
     &:hover,
     &:active {
       transform: none;
+      box-shadow: none;
     }
   }
 }

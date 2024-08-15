@@ -40,7 +40,7 @@
 
   display: flex;
 
-  z-index: 1;
+  z-index: 200;
 
   padding: set-calc(13);
 
@@ -88,7 +88,7 @@
 
   display: flex;
 
-  z-index: 1;
+  z-index: 200;
 
   padding: set-calc(13);
 
@@ -130,6 +130,8 @@
   flex: 1 1;
   width: 100%;
 
+  overflow-y: scroll;
+
   @include set-media(md) {
     display: flex;
     flex-direction: column;
@@ -138,8 +140,19 @@
 }
 
 .header {
-  padding: 0 set-calc(16) set-calc(40);
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -ms-sticky;
+  position: -o-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+
+  z-index: 100;
+
   display: flex;
+  padding: 0 set-calc(16) set-calc(40);
+  background-color: var(--color-background-alternate);
 
   @include set-media(md) {
     padding: set-calc(12) set-calc(12) set-calc(12);

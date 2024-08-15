@@ -91,9 +91,11 @@
   border: 1px solid var(--color-content-inverted-primary);
 
   @include set-media(md) {
-    border: 1.5px solid var(--color-content-inverted-primary);
-    height: set-calc(30);
-    padding: 0 set-calc(12);
+    border: 1px solid var(--color-content-inverted-primary);
+    height: set-calc(28);
+    padding: 0 set-calc(10);
+
+    @include font-16-normal-ui;
   }
 }
 
@@ -102,11 +104,11 @@
   margin-bottom: set-calc(24);
   
   color: var(--color-content-inverted-primary);
-  font-family: $font-family-bold;
+  font-family: $font-family-highlight-bold;
   text-align: center;
 
   @include set-media(md) {
-    @include set-typography(48, 54, 500);
+    @include set-typography(40, 48, 500);
     margin-bottom: set-calc(16);
   }
 }
@@ -162,36 +164,23 @@
     display: none;
     margin: 0 0 set-calc(4) 0;
     flex: 1 1 max-content;
+
+    &:hover {
+      box-shadow: $shadow-small-default;
+      transform: none;
+    }
   }
 
   .text {
     @include font-20-normal-ui;
     color: $color-content-primary-light;
-    font-family: $font-family-medium;
+    font-family: $font-family-highlight-medium;
   }
 
-  &:hover::before {
-    opacity: 1;
+  &:hover {
+    box-shadow: $shadow-solid;
+    transform: translateY(-8px);
   }
-}
-
-.actionsBtn::before {
-  position: absolute;
-  content: "";
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-  -webkit-transition: opacity .8s;
-  -o-transition: opacity .8s;
-  transition: opacity .8s;
-  border-radius: 100px;
-  border: 0;
-  background: -o-radial-gradient(50% 50%, 60% 2336.38%, $color-accent-promo-light 0, $white 100%), $color-accent-promo-light;
-  background: radial-gradient(60% 2336.38% at 50% 50%, $color-accent-promo-light 0, $white 100%), $color-accent-promo-light;
-  opacity: 0;
-  will-change: opacity;
 }
 
 .cover {

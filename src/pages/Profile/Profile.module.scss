@@ -48,6 +48,7 @@
 
   @include set-media(md) {
     flex-direction: column;
+    padding-bottom: set-calc(10);
   }
 }
 
@@ -91,28 +92,28 @@
 }
 
 .title {
-  @include font-56-normal-header;
+  @include set-typography(40, 40, 500);
   font-family: $font-family-bold;
   max-width: set-calc(700);
 
   margin: 0 0 set-calc(24);
 
   @include set-media(md) {
-    @include set-typography(32, 38, 500);
+    @include set-typography(32, 36, 500);
     margin: 0 set-calc(90) set-calc(16) 0;
   }
 }
 
 .description {
-  @include font-20-normal-paragraph;
+  @include font-18-normal-ui;
   color: var(--color-content-secondary);
   font-family: $font-family-regular;
   max-width: set-calc(700);
 
-  margin: 0 0 set-calc(20);
+  margin: 0 0 set-calc(16);
 
   @include set-media(md) {
-    margin: 0 0 set-calc(20);
+    margin: 0 0 set-calc(16);
   }
 }
 
@@ -138,7 +139,7 @@
 
   &Text {
     
-    @include set-typography(14, 18, 500);
+    @include set-typography(13, 18, 500);
     color: inherit;
     white-space: nowrap;
   }
@@ -168,15 +169,15 @@
   justify-content: center;
 
   gap: set-calc(8);
-  min-width: set-calc(180);
+  min-width: set-calc(150);
 
-  padding: set-calc(16) set-calc(24);
+  padding: set-calc(8) set-calc(10);
 
   @include font-18-normal-ui;
   color: $color-content-inverted-primary-light;
   font-family: $font-family-medium;
 
-  border-radius: set-calc($border-radius-12);
+  border-radius: set-calc($border-radius-8);
   background-color: var(--primary-color);
 
   &:hover {
@@ -185,6 +186,8 @@
   }
 
   @include set-media(md) {
+    padding: set-calc(16) set-calc(10);
+
     width: set-calc(16, true, 100%);
     left: set-calc(-8);
 
@@ -197,7 +200,7 @@
 .subTitle {
   margin: 0 0 set-calc(24);
 
-  @include font-28-normal-header;
+  @include font-24-normal-header;
   font-family: $font-family-bold;
   color: var(--color-content-primary);
 

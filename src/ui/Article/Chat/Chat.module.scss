@@ -153,10 +153,9 @@
   font-family: $font-family-article;
   text-align: start;
 
-  box-shadow: $shadow-small-default;
-
   &:hover {
-    box-shadow: $shadow-small-hovered;
+    box-shadow: $shadow-solid-small;
+    transform: translateY(-4px);
 
     .icon {
       background-color: $color-content-primary-light;
@@ -173,7 +172,8 @@
     @include set-typography(18, 24, 500);
 
     &:hover {
-      box-shadow: $shadow-small-default;
+      box-shadow: none;
+      transform: none;
 
       .icon {
         background-color: transparent;

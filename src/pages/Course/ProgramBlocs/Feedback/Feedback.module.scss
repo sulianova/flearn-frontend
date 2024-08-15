@@ -23,11 +23,11 @@
 
 .headerTitle {
   @include font-56-normal-header;
-  font-family: $font-family-bold;
-  padding-left: set-calc(16);
+  font-family: $font-family-highlight-bold;
+  padding: 0 set-calc(16);
 
   @include set-media(md) {
-    padding-left: set-calc(8);
+    padding: 0 set-calc(8);
   }
 }
 

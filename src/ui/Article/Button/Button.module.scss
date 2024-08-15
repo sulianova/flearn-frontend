@@ -29,16 +29,11 @@
 
   @include font-18-normal-ui;
   color: $color-content-inverted-primary-dark;
-  font-family: $font-family-medium;
-
-  box-shadow: $shadow-small-default;
+  font-family: $font-family-highlight-medium;
 
   &:hover {
-    box-shadow: $shadow-small-hovered;
-  }
-
-  &:active {
-    box-shadow: $shadow-small-pressed;
+    box-shadow: $shadow-solid-small;
+    transform: translateY(-4px);
   }
 
   @include set-media(md) {
@@ -46,7 +41,8 @@
 
     &:hover,
     &:active {
-      box-shadow: $shadow-small-default;
+      box-shadow: none;
+      transform: none;
     }
   }
 }

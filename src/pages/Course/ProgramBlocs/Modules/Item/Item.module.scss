@@ -185,6 +185,7 @@
   align-items: end;
 
   @include font-16-normal-ui;
+  color: var(--color-content-paragraph-primary);
 
   @include set-media(md) {
     @include set-typography(13, 16, 500);
@@ -196,14 +197,14 @@
 }
 
 .title {
-  margin: set-calc(12) 0 set-calc(16);
+  margin: set-calc(8) 0 set-calc(16);
 
   @include set-typography(28, 40, 500);
   font-family: $font-family-medium;
-  color: var(--color-content-paragraph-primary);
+  color: var(--color-content-primary);
 
   @include set-media(md) {
-    @include set-typography(20, 24, 500);
+    @include set-typography(24, 28, 500);
 
     margin: set-calc(8) 0 set-calc(16);
   }
@@ -241,16 +242,16 @@
   justify-content: center;
 
   padding: 0 set-calc(16);
-  height: set-calc(40);
+  height: set-calc(38);
 
-  border-radius: calc(set-calc(40) / 2);
+  border-radius: calc(set-calc(38) / 2);
   background-color: var(--color-background-glassy-b);
 
   @include font-16-normal-ui;
   color: var(--color-content-primary);
 
   @include set-media(md) {
-    padding: set-calc(8) set-calc(12);
+    padding: set-calc(4) set-calc(10);
   }
 }
 
@@ -315,8 +316,8 @@
     }
 
     .tag {
-      background-color: $color-background-glassy-c-dark;
-      color: $color-content-inverted-primary-light;
+      background-color: $color-background-glassy-a-dark;
+      color: $color-content-paragraph-primary-dark;
     }
 
     .title {
@@ -324,7 +325,7 @@
     }
 
     .description {
-      color: $color-content-inverted-primary-light;
+      color: $color-content-paragraph-primary-dark;
     }
 
     .subsections,
@@ -335,6 +336,7 @@
     }
 
     .meta {
+      color: $color-content-paragraph-primary-dark;
       max-width: 100%;
     }
   }
@@ -355,10 +357,10 @@
   gap: set-calc(4);
 
   padding: 0 set-calc(16);
-  height: set-calc(40);
-  border-radius: calc(set-calc(40) / 2);
+  height: set-calc(38);
+  border-radius: calc(set-calc(38) / 2);
 
-  @include font-18-normal-ui;
+  @include font-16-normal-ui;
 
   color: $color-content-inverted-primary-dark;
   background: $color-highlight-yellow;
@@ -377,7 +379,12 @@
   }
 
   @include set-media(md) {
-    padding: set-calc(8) set-calc(12);
+    padding: set-calc(4) set-calc(10);
+
+    svg {
+      width: set-calc(18);
+      height: set-calc(18);
+    }
   }
 }
 

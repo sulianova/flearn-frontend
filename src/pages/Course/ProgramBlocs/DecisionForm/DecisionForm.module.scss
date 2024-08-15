@@ -11,7 +11,7 @@
   @include set-media(md) {
     padding: set-calc(32) set-calc(8) 0;
 
-    border-radius: set-calc(50) set-calc(50) 0 0;
+    border-radius: set-calc(40) set-calc(40) 0 0;
   }
 }
 
@@ -350,7 +350,7 @@
 
   @include set-typography(54, 54, 500);
   color: $color-content-primary-light;
-  font-family: $font-family-bold;
+  font-family: $font-family-highlight-medium;
 
   border-radius: calc(set-calc(150) / 2);
   background-color: $color-accent-promo-light;
@@ -369,8 +369,7 @@
   @include set-media(md) {
     height: set-calc(60);
 
-    @include set-typography(20, 20, 500);
-    font-family: $font-family-medium;
+    @include set-typography(18, 18, 500);
 
     padding: 0 0;
     border-radius: calc(set-calc(60) / 2);
