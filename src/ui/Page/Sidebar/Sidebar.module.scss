@@ -62,25 +62,16 @@
   position: relative;
 
   border-radius: set-calc($border-radius-8);
-  border: 1px solid var(--color-background-glassy-d);
   backdrop-filter: blur(set-calc($backdrop-filter));
+  background-color: transparent;
   cursor: pointer;
 
   &:hover {
-    box-shadow: var(--shadow-solid-small);
-    border-color: var(--color-content-primary);
-    transform: translateY(-4px);
-    background-color: var(--color-card);
-
-    .icon path {
-      fill: var(--color-content-primary);
-    }
+    background-color: var(--color-background-glassy-b);
   }
 
   &:active {
-    .icon {
-      // transform: scale(0.96);
-    }
+    background-color: var(--color-background-glassy-c);
   }
 }
 
@@ -114,7 +105,7 @@
     height: set-calc(24);
 
     path {
-      fill: var(--color-background-glassy-d);
+      fill: var(--color-content-primary);
     }
   }
 
