@@ -34,7 +34,7 @@
   border-radius: set-calc($border-radius-30);
 
   @include set-media(md) {
-    padding: set-calc(56) set-calc(24);
+    padding: set-calc(56) set-calc(16);
     border-radius: 0;
 
     width: 100%;
@@ -42,21 +42,21 @@
 }
 
 .title {
-  @include set-typography(42, 50, 500);
-  font-family: $font-family-bold;
+  @include set-typography(42, 52, 500);
+  font-family: $font-family-regular;
   text-align: center;
 
   width: 80%;
 
   transition: opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
-  color: $color-content-inverted-primary-light;
+  color: var(--color-content-inverted-primary);
 
   margin-bottom: set-calc(80);
 
   @include set-media(md) {
-    @include set-typography(32, 40, 500);
+    @include set-typography(24, 30, 500);
     width: 100%;
-    margin-bottom: set-calc(30);
+    margin-bottom: set-calc(50);
   }
 }
 
@@ -85,16 +85,16 @@
   height: set-calc(80);
 
   border-radius: set-calc($border-radius-16);
-  border: 2px solid  $color-content-inverted-primary-light;
+  border: 2px solid  var(--color-content-inverted-primary);
 
   .text {
     @include font-20-normal-ui;
-    color: $color-content-inverted-primary-light;
+    color: var(--color-content-inverted-primary);
     font-family: $font-family-medium;
   }
 
   &:hover {
-    background: $color-content-inverted-primary-light;
+    background: var(--color-content-inverted-primary);
 
     .text {
       color: var(--primary-color);
