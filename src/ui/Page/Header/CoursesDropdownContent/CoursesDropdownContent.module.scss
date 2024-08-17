@@ -12,12 +12,11 @@
 
   padding: 0;
   margin-block-start: set-calc(16);
-  border-radius: set-calc($border-radius-10);
+  border-radius: set-calc($border-radius-16);
   background:  var(--color-card);
   border: 1px solid var(--border);
 
   transition: background-color $d-hover ease;
-  backdrop-filter: blur(set-calc($backdrop-filter));
   box-shadow: $shadow-menu;
 }
 
@@ -57,7 +56,7 @@
 
 .content {
   width: auto;
-  padding: set-calc(8);
+  padding: set-calc(20);
   flex-grow: 1;
   flex-shrink: 0;
   height: max-content;
@@ -66,30 +65,30 @@
 .listItems {
   display: flex;
   flex-direction: column;
-  gap: set-calc(4);
+  gap: set-calc(6);
 }
 
 .listOptionTitle {
-  padding: set-calc(10) set-calc(10) set-calc(16);
+  padding: set-calc(8) set-calc(12);
 
-  @include font-16-normal-ui;
+  @include font-14-normal-ui;
   font-family: $font-family-medium;
   color: var(--color-content-secondary);
+  text-transform: uppercase;
 }
 
 .listOption {
   display: block;
-  padding: set-calc(12) set-calc(12);
-
-  color: var(--color-content-primary);
-  font-family: $font-family;
+  padding: set-calc(12);
 
   border-radius: set-calc($border-radius-10);
   transition: background-color 0.3s;
   cursor: pointer;
   background-color: transparent;
 
-  @include font-18-normal-ui;
+  @include font-16-normal-ui;
+  color: var(--color-content-primary);
+  font-family: $font-family-regular;
 
   &:hover {
     background-color: var(--color-background-glassy-c);

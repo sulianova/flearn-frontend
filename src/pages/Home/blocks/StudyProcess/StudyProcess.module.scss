@@ -10,7 +10,7 @@
   padding: set-calc(80) set-calc(200);
 
   @include set-media(md) {
-    padding: set-calc(64) set-calc(8) 0;
+    padding: set-calc(64) set-calc($padding-xs-mob-page) 0;
   }
 }
 
@@ -23,7 +23,7 @@
   @include set-media(md) {
     position: relative;
     margin-bottom: set-calc(20);
-    padding-left: set-calc(16);
+    padding-left: set-calc($padding-xs-mob-page);
   }
 }
 

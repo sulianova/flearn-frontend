@@ -27,7 +27,7 @@ export default function CoursesDropdownContent({ courses, lastStudiedCourse, clo
             <div className={classes.content}>
               <div className={classes.listItems}>
                 <div className={classes.listOptionTitle}>
-                  Проходите бесплатную часть
+                  Бесплатная часть
                 </div>
                 {
                   !courses ? <Spinner variant='local'/>

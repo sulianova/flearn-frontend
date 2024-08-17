@@ -100,7 +100,7 @@ function Profile(props: IProps) {
       <Page 
         variant={EPageVariant.LMS}
         header
-        footer
+        footer={false}
         backgroundColor='var(--color-background-default)'
       >
         <div className={classes.profilePage}>

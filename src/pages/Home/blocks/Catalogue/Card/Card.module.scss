@@ -25,8 +25,6 @@
     .cardBtn {
       background-color: var(--color-content-background-primary);
       color: var(--color-content-inverted-primary);
-
-      @include btn;
     }
   }
 
@@ -144,17 +142,6 @@
   display: none;
 
   text-align: center;
-
-  // @include set-media(md) {
-  //   display: flex;
-  //   justify-content: center;
-  //   width: 100%;
-
-  //   @include set-typography(13, 18, 500);
-  //   color: var(--color-content-paragraph-secondary);
-
-  //   margin-bottom: set-calc(12);
-  // }
 }
 
 .infoText {
@@ -198,11 +185,8 @@
 }
 
 .cardBtn {
-  z-index: -1;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include btn;
+  @include button-small;
 
   margin-top: auto;
 
@@ -210,18 +194,13 @@
   color: var(--color-content-primary);
   font-family: $font-family-medium;
 
-  padding: 0 set-calc(16);
-  border-radius: set-calc($border-radius-12);
   border: 2px solid var(--color-content-background-primary);
 
   width: 100%;
-  height: set-calc(56);
 
   order: 3;
 
   @include set-media(md) {
-    padding: 0 set-calc(16);
-    height: set-calc(44);
   }
 }
 

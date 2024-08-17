@@ -8,6 +8,8 @@
   min-height: set-calc(600);
   overflow: hidden;
 
+  margin-top: set-calc(16);
+
   padding: set-calc(48) set-calc(24) set-calc(24);
   border-radius: set-calc($border-radius-medium);
   border: set-calc(1) solid var(--color-border);
@@ -16,6 +18,8 @@
   color: $matt-white;
 
   @include set-media(md) {
+    margin-top: set-calc(8);
+
     min-height: 70vh;
     color: var(--color-content-primary);
 
@@ -100,7 +104,7 @@
 }
 
 .title {
-  @include set-typography(100, 100, 500);
+  @include set-typography(88, 92, 500);
   margin-bottom: set-calc(24);
   
   color: var(--color-content-inverted-primary);
@@ -178,7 +182,7 @@
   }
 
   &:hover {
-    box-shadow: $shadow-solid;
+    box-shadow: $shadow-solid-small-light;
     transform: translateY(-8px);
   }
 }

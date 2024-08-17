@@ -1,5 +1,8 @@
 export function Time() {
   return (
-    <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polyline points="12 6.01 12 12 16.38 16.58" fill="none" stroke="#5f6368" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/><path d="M12,2c5.51,0,10,4.49,10,10s-4.39,10-10,10S2,17.61,2,12,6.39,2,12,2M12,0C5.25,0,0,5.4,0,12s5.25,12,12,12,12-5.4,12-12S18.6,0,12,0h0Z" fill="currentColor" stroke-width="0"/><rect width="24" height="24" fill="none" stroke-width="0"/></svg>
+    <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M18 30C24.6274 30 30 24.6274 30 18C30 11.3726 24.6274 6 18 6C11.3726 6 6 11.3726 6 18C6 24.6274 11.3726 30 18 30ZM18 33C26.2843 33 33 26.2843 33 18C33 9.71573 26.2843 3 18 3C9.71573 3 3 9.71573 3 18C3 26.2843 9.71573 33 18 33Z" fill="currentColor"/>
+    <path d="M18 10.5C17.1716 10.5 16.5 11.1716 16.5 12V19.5C16.5 20.3284 17.1716 21 18 21H24C24.8284 21 25.5 20.3284 25.5 19.5C25.5 18.6716 24.8284 18 24 18H19.5V12C19.5 11.1716 18.8284 10.5 18 10.5Z" fill="currentColor"/>
+    </svg>
   );
 }

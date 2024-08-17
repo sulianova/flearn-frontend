@@ -14,7 +14,7 @@
   border-bottom-right-radius: set-calc($border-radius-50);
 
   @include set-media(md) {
-    padding: set-calc(64) set-calc(8);
+    padding: set-calc(64) set-calc($padding-xs-mob-page);
 
     border-bottom-left-radius: set-calc($border-radius-30);
     border-bottom-right-radius: set-calc($border-radius-30);
@@ -43,7 +43,7 @@
 
     width: 100%;
     margin: 0 0 set-calc(20);
-    padding: 0 set-calc(16);
+    padding: 0 set-calc($padding-xs-mob-page);
   }
 }
 

@@ -48,7 +48,7 @@
 
   @include set-media(md) {
     flex-direction: column;
-    padding-bottom: set-calc(10);
+    padding-bottom: set-calc(20);
   }
 }
 
@@ -139,7 +139,7 @@
 
   &Text {
     
-    @include set-typography(13, 18, 500);
+    @include set-typography(13, 20, 500);
     color: inherit;
     white-space: nowrap;
   }
@@ -147,11 +147,10 @@
   &Icon {
 
     display: flex;
-
     margin-right: set-calc(6);
 
     svg {
-      width: set-calc(18);
+      width: set-calc(20);
 
       color: inherit;
       fill: currentColor;
@@ -161,6 +160,7 @@
 
 .currentLessonButton {
   @include btn;
+  @include button-small;
 
   position: relative;
 
@@ -171,13 +171,10 @@
   gap: set-calc(8);
   min-width: set-calc(160);
 
-  padding: set-calc(8) set-calc(16);
-
   @include font-18-normal-ui;
   color: $color-content-inverted-primary-light;
   font-family: $font-family-medium;
 
-  border-radius: set-calc($border-radius-8);
   background-color: var(--primary-color);
 
   &:hover {
@@ -186,8 +183,6 @@
   }
 
   @include set-media(md) {
-    padding: set-calc(16) set-calc(10);
-
     width: set-calc(16, true, 100%);
     left: set-calc(-8);
 

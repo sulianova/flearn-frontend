@@ -6,7 +6,6 @@
   top: 0;
   z-index: 500;
   width: 100%;
-  transition: transform .5s;
 
   display: flex;
   justify-content: center;
@@ -15,107 +14,56 @@
   @include set-typography(16, 16, 500);
   font-family: $font-family-regular;
   color: var(--color-content-inverted-primary);
-
-  @include set-media(md) {
-    transition: top 0.5s, transform 0.5s;
-  }
 }
 
 .desk {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  height: set-calc(50);
-
-  padding: 0;
-  margin: set-calc(10) set-calc($padding-x-desk-page);
-  transition: transform 0.15s ease-out, backdrop-filter $d-hover ease-out;
-
-  width: 40%;
-
-  background-color: var(--color-card);
-  border: set-calc(1) solid var(--color-border);
-  border-radius: set-calc($border-radius-30);
-
-  box-shadow: $shadow-medium-default;
-
   @include is-grid-12;
+  width: 100%;
   gap: 0;
 
+  height: set-calc(64);
+
   @include set-media(md) {
-    flex-direction: row;
+    position: relative;
     display: flex;
-
-    margin: set-calc(12) 0 0;
-
-    width: 100%;
-    height: set-calc(40);
+    flex-direction: row;
+  
+    justify-content: space-between;
+    align-items: center;
 
     grid-gap: set-calc(16);
-    border: none;
-    border-radius: 0;
-
-    background-color: transparent;
-    box-shadow: none;
-
-    // .logo {
-    //   display: none;
-    // }
   }
 }
 
 .deskPaddingWEB {
-  width: 100%;
-  background-color: transparent;
-  border: none;
-  backdrop-filter: none;
-  box-shadow: none;
+  background-color: var(--color-background-default);
+  padding: set-calc(12) set-calc($padding-x-desk-page);
 
   @include set-media(md) {
-    padding: 0 set-calc($padding-x-mob-page);
-    background-color: transparent;
-    margin-bottom: set-calc(8);
+    padding: set-calc(12) set-calc($padding-xs-mob-page) set-calc(8);
   }
 }
 
 .deskPaddingLMS {
-  width: 100%;
-  background-color: transparent;
-  border: none;
-  backdrop-filter: none;
-  box-shadow: none;
+  padding: set-calc(12) set-calc($padding-xs-desk-page);
 
   @include set-media(md) {
-    padding: 0 set-calc(24);
-    background-color: transparent;
+    padding: set-calc(12) set-calc(24);
   }
 }
 
-.logo {
-  grid-column: span 4;
-}
-
 .logoWrapper {
+  grid-column: span 4;
+
+  @include btn;
+
   position: relative;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  height: set-calc(40);
   max-width: fit-content;
-
-  padding: 0 0;
-  border-radius: calc(set-calc(40) / 2);
-  // background-color: var(--color-content-background-primary);
-
-  transition: background-color $d-hover ease;
-  
-  &:hover {
-    cursor: pointer;
-  }
 
   span {
     @include set-typography(22, 22, 500);
@@ -124,9 +72,8 @@
 }
 
   svg {
-    margin-top: set-calc(4);
-    width: set-calc(56);
-    height: set-calc(56);
+    width: set-calc(36);
+    height: set-calc(36);
 
     path {
       fill: currentColor;
@@ -139,7 +86,7 @@
   position: relative;
 
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: end;
 
   @include set-media(md) {
@@ -149,18 +96,14 @@
 }
 
 .navItem {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+   height: 100%;
 
-  height: set-calc(40);
-}
-
-.navItem:not(:first-child) {
-  margin-left: set-calc(8);
-
-  @include set-media(md) {
+   &:not(:first-child) {
     margin-left: set-calc(8);
+  
+    @include set-media(md) {
+      margin-left: set-calc(8);
+    }
   }
 }
 
@@ -209,35 +152,23 @@
 
 .navLogin {
   @include btn;
+  @include button-extra-small;
 
-  position: relative;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 0 set-calc(16);
-    
-  border-radius: set-calc($border-radius-10);
-  background-color: transparent;
-
-  border: 1px solid var(--color-content-primary);
-  color: var(--color-content-primary);
+  background-color: var(--primary-color);
+  color: $color-content-inverted-primary-light;
+  font-family: $font-family-medium;
 
   width: max-content;
 
-  
   &:hover {
-    box-shadow: var(--shadow-solid-small);
-    transform: translateY(-4px);
+    background-color: var(--primary-color-hover);
   }
 
   @include set-media(md) {
     margin-left: auto;
 
     &:hover {
-      box-shadow: $shadow-small-default;
-      transform: none;
+      background-color: var(--primary-color);
     }
   }
 }
@@ -249,35 +180,20 @@
 
 .buyBtn {
   @include btn;
-
-  position: relative;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 0 set-calc(16);
+  @include button-extra-small;
 
   color: $color-content-primary-light;
-  font-family: $font-family-highlight-medium;
-  @include set-typography(15, 15, 500);
-    
-  background: $color-highlight-yellow;
-  border-radius: calc(set-calc(40) / 2);
+  background-color: $color-highlight-yellow;
 
   width: max-content;
-  height: 100%;
-  
+
   &:hover {
-    box-shadow: $shadow-solid-small-light;
-    transform: translateY(-2px);
+    background-color: $color-highlight-yellow-hover;
   }
 
   @include set-media(md) {
-    &:hover,
-    &:active {
-      transform: none;
-      box-shadow: none;
+    &:hover {
+      background-color: $color-highlight-yellow;
     }
   }
 }
@@ -291,22 +207,14 @@
 
   padding: 0 set-calc(16);
   color: var(--color-content-primary);
-    
-  border-radius: set-calc($border-radius-10);
 
   width: max-content;
-
   gap: set-calc(4);
 
   transition: all $d-hover ease;
   
-  &:hover {
-    cursor: pointer;
-
-    .selectToggleIcon {
-      svg {
-      }
-    }
+  .selectToggleIcon svg {
+    fill: currentColor;
   }
 
   @include set-media(md) {
@@ -340,45 +248,12 @@
     background-size: contain;
 
     fill: var(--color-content-primary);
-
-    transition: transform 200ms;
   }
 }
 
 .selectToggleIsOpened {
   svg {
     transform: rotate(180deg);
-  }
-}
-
-
-.humburger {
-  display: none;
-
-  @include set-media(md) {
-    position: absolute;
-    top: set-calc(8);
-    right: set-calc(16);
-    z-index: 300;
-
-    display: inline-flex;
-    justify-content: center;
-
-    padding: set-calc(6);
-    transition: transform 0.15s ease-in;
-    opacity: 1;
-
-    color: var(--color-content-primary);
-    border-radius: set-calc($border-radius-6);
-
-    svg {
-      display: inline-block;
-      text-align: center;
-      background: 50% no-repeat;
-      background-size: contain;
-      width: set-calc(24);
-      height: set-calc(24);
-    }
   }
 }
 

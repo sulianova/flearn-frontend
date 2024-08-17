@@ -22,6 +22,7 @@
 }
 
 .btnLink {
+  @include button-xl;
   position: fixed;
 
   right: set-calc(16);
@@ -38,11 +39,8 @@
 
   @include font-20-normal-ui ;
   color: $color-content-primary-light;
-  font-family: $font-family-highlight-medium;
+  font-family: $font-family-medium;
 
-  border-radius: set-calc($border-radius-16);
-  padding: set-calc(10) set-calc(24);
-  height: set-calc(62);
 }
 
 .btnWrapperLeft {

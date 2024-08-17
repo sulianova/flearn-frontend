@@ -68,26 +68,14 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
       <div className={headerClass}>
         <div className={cx({ desk: true, [`deskPadding${variant}`]: true })}>
          {(urlSection.name !== 'Study') && (
-          <div className={classes.logo}>
             <div className={classes.logoWrapper}>
               <Link to={URLSections.Home.index}>
                 <span>{t('logo')}</span>
               </Link>
             </div>
-          </div>
          )}
           <div className={classes.nav}>
             <div className={classes.navMob}>
-            {/* {(urlSection.name === 'Profile' || urlSection.name === 'EmptyProfile' || urlSection.name === 'Course') && (
-              <div className={classes.userSettingsWrapper}>
-                  <Link
-                    className={classes.userSettings}
-                    to={URLSections.Home.index}
-                  >
-                    <Icon icon='ArrowButton' />
-                  </Link>
-              </div>
-            )} */}
             {(urlSection.name === 'Study') && (
               <div className={classes.userSettingsWrapper}>
                   <Link
@@ -111,7 +99,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
                 children={({ open, close, opened }) => {
                   currentCloseCourseDropdown.current = close;
                   return (
-                    <div className={cx({ navContent: true, navItem: true, selectToggleIsOpened: opened })} onClick={opened ? close : open}>
+                    <div className={cx({ navContent: true, navItem: true, selectToggleIsOpened: opened }) + ' s-hoverable'} onClick={opened ? close : open}>
                       <span className={classes.selectToggleContent}>Мои курсы</span>
                       <span className={classes.selectToggleIcon}><Icon icon='SelectToggleIcon'/></span>
                     </div>
@@ -132,18 +120,15 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
                   </div>
                 )
               ) : (
-                <div className={cx({ navLogin: true, navItem: true })}>
+                <>
                   {user ?
-                    (<Link to={URLSections.Profile.to({ courseId: lastStudiedCourse?.id ?? 'how-to-draw' })}>{t('login.profile')}</Link>)
+                    (<Link className={cx({ navLogin: true, navItem: true })} to={URLSections.Profile.to({ courseId: lastStudiedCourse?.id ?? 'how-to-draw' })}>{t('login.profile')}</Link>)
                     : (<div onClick={() => authService.authenticate()}>{t('login.signIn')}</div>)
                   }
-                </div>
+                </>
               )
             }
           </div>
-          {/* <div className={cx({ humburger: true})} >
-            <Icon icon='List'/>
-          </div> */}
           </div>
       </div>
       

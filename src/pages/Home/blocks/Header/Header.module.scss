@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
 
-  margin: set-calc(40) set-calc(200) set-calc(100);
+  margin: set-calc(40) 0 set-calc(100);
 
   @include set-media(md) {
     flex-direction: column;
@@ -64,7 +64,7 @@
   @include set-media(md) {
     width: 100%;
 
-    padding: 0 set-calc(16);
+    padding: 0 set-calc($padding-xs-mob-page);
   }
 }
 
@@ -83,10 +83,7 @@
   font-family: $font-family-highlight-bold;
   text-align: start;
 
-  width: 60%;
-
   @include set-media(md) {
-    width: 100%;
 
     @include set-typography(36, 40, 500);
     margin: set-calc(24) 0 set-calc(16);
@@ -130,43 +127,23 @@
 
 .actionsBtn {
   @include btn;
-
-  position: relative;
-  
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 0 set-calc(32);
-
-  border-radius: calc(set-calc(70) / 2);
-  background-color: $color-highlight-yellow;
+  @include button-xl;
 
   @include font-18-normal-ui;
   color: $color-content-primary-light;
-  font-family: $font-family-highlight-medium;
+  font-family: $font-family-medium;
 
-  height: set-calc(70);
   width: 100%;
+  background-color: $color-highlight-yellow;
 
   &:hover {
-    box-shadow: $shadow-solid;
-    transform: translateY(-4px);
+    background-color: $color-highlight-yellow-hover;
   }
 
   @include set-media(md) {
-    @include font-18-normal-ui;
-
     margin-bottom: set-calc(4);
-    padding: set-calc(0) set-calc(24);
-
-    border-width: 1px;
-
-    height: set-calc(60);
-
     &:hover {
-      box-shadow: $shadow-small-default;
-      transform: none;
+      background-color: $color-highlight-yellow;
     }
   }
 }

@@ -24,6 +24,7 @@
 
 .item {
   @include btn;
+  @include shadow-solid;
   
   position: relative;
 
@@ -35,44 +36,24 @@
   gap: set-calc(20);
 
   padding: set-calc(20);
-  margin: 0;
-  border: none;
 
   cursor: pointer;
-  transition-property: transform, box-shadow;
-  transition-timing-function: ease;
-  transition-duration: 0.2s;
-  border-radius: set-calc($border-radius-medium);
+  border-radius: set-calc($border-radius-20);
 
-  box-sizing: border-box;
-  background-color: transparent;
   border: 1px solid var(--border);
   text-align: left;
+
+  &:hover {
+    border-color: var(--color-content-paragraph-primary);
+  }
 
   @include set-media(md) {
     gap: set-calc(16);
     height: set-calc(110);
-
     padding: set-calc(16);
-    
-    .infoItem {
-      opacity: 1;
-    }
-  }
 
-  &:hover,
-  &:focus {
-    transform: translateY(set-calc(-4));
-    box-shadow: var(--shadow-solid-small);
-    border-color: var(--color-content-primary);
-
-    .infoItem {
-      opacity: 1;
-    }
-
-    @include set-media(md) {
-      box-shadow: none;
-      transform: none;
+    &:hover {
+      border-color: var(--border);
     }
   }
 }
