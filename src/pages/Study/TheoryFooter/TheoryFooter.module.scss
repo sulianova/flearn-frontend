@@ -32,17 +32,8 @@
 
 .button {
   @include btn;
+  @include button-xl;
 
-  position: relative;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  gap: set-calc(8);
-  padding: set-calc(20) set-calc(24);
-
-  border-radius: set-calc(8);
   background-color: var(--color-background-btn);
 
   @include font-18-normal-ui;

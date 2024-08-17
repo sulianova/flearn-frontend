@@ -16,24 +16,16 @@
 
 .button {
   @include btn;
-  
-  position: relative;
-  align-items: center;
-  justify-content: center;
+  @include button-xl;
 
-  gap: set-calc(8);
-
-  padding: set-calc(16) set-calc(32);
-  border-radius: set-calc($border-radius-30);
   background-color: $color-highlight-yellow;
 
   @include font-18-normal-ui;
   color: $color-content-inverted-primary-dark;
-  font-family: $font-family-highlight-medium;
+  font-family: $font-family-medium;
 
   &:hover {
-    box-shadow: $shadow-solid-small-light;
-    transform: translateY(-4px);
+    background-color: $color-highlight-yellow-hover;
   }
 
   @include set-media(md) {
@@ -41,8 +33,7 @@
 
     &:hover,
     &:active {
-      box-shadow: none;
-      transform: none;
+      background-color: $color-highlight-yellow;
     }
   }
 }

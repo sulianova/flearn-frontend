@@ -318,28 +318,15 @@
 //submitBtn
 .submitButton {
   @include btn;
-
-  position: relative;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include button-xl;
 
   margin-top: set-calc(20);
   min-width: set-calc(180);
 
   @include font-18-normal-ui;
 
-  padding: set-calc(20) set-calc(24);
-  border-radius: set-calc($border-radius-8);
-  gap: set-calc(8);
-
-  cursor: pointer;
-
   background-color: var(--color-accent-neutral);
   color: var(--color-content-inverted-primary);
-
-  border: none;
 
   &:hover {
     background-color: var(--color-accent-neutral-hover);

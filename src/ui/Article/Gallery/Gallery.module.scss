@@ -13,9 +13,9 @@
 
   max-height: set-calc(var(--gallery-max-height, 2000));
 
-  width: set-calc(1568);
-  left: set-calc(-434);
-  margin: set-calc(40) 0 set-calc(100);
+  width: set-calc(1524);
+  left: set-calc(-420);
+  margin: set-calc(40) set-calc(8) set-calc(100);
 
   @include set-media(md) {
     margin: set-calc(30) 0 set-calc(16);

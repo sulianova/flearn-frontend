@@ -6,7 +6,7 @@
   flex-direction: column;
   width: 100%;
   max-width: set-calc(1080);
-  margin: set-calc(24) auto set-calc(52) 0;
+  margin: set-calc(64) auto set-calc(52) 0;
 
   @include set-media(md) {
     left: set-calc(-$padding-xs-mob-page);
