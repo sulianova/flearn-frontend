@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
 
-  margin: set-calc(40) 0 set-calc(100);
+  margin: set-calc(100) 0 set-calc(100);
 
   @include set-media(md) {
     flex-direction: column;
