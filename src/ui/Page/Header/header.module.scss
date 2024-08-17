@@ -42,21 +42,19 @@
     @include button-small;
   }
 
-  .logoWrapper svg {
-    height: set-calc(40);
-  }
-
   @include set-media(md) {
-    padding: set-calc(12) set-calc($padding-xs-mob-page) set-calc(8);
+    padding: set-calc(12) set-calc($padding-xs-mob-page);
+
+    .navContent,
+    .navLogin {
+      @include button-extra-small;
+    }
   }
 }
 
 .deskPaddingLMS {
   padding: set-calc(12) set-calc(24);
   background-color: transparent;
-
-  border-bottom: 1px solid transparent;
-  transition: border-color .2s cubic-bezier(.25,.01,.25,1) 0s;
 
   .navContent,
   .navLogin {
@@ -69,7 +67,7 @@
 
   @include set-media(md) {
     background-color: var(--color-background-default);
-    padding: set-calc(12) set-calc(24);
+    padding: set-calc(12) set-calc($padding-xs-mob-page);
 
     .logoWrapper {
       display: flex;
@@ -94,6 +92,10 @@
     font-family: $font-family-highlight-bold;
 
     margin-top: set-calc(4);
+
+    @include set-media(md) {
+      @include set-typography(20, 20, 500);
+    }
   }
 
   svg {
