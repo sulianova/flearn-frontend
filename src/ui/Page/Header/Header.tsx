@@ -68,11 +68,10 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
       <div className={headerClass}>
         <div className={cx({ desk: true, [`deskPadding${variant}`]: true })}>
          {(urlSection.name !== 'Study') && (
-            <div className={classes.logoWrapper}>
-              <Link to={URLSections.Home.index}>
-                <span>{t('logo')}</span>
-              </Link>
-            </div>
+            <Link className={classes.logoWrapper} to={URLSections.Home.index}>
+              <Icon icon='Logo'/>
+              <div>{t('logo')}</div>
+            </Link>
          )}
           <div className={classes.nav}>
             <div className={classes.navMob}>

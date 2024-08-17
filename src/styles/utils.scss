@@ -182,14 +182,6 @@
   border-radius: set-calc($border-radius-10);
 }
 
-@mixin button-medium {
-  gap: set-calc(4);
-
-  padding: 0 set-calc(16);
-  height: set-calc(64);
-  border-radius: set-calc($border-radius-16);
-}
-
 @mixin button-xl {
   gap: set-calc(4);
   height: set-calc(64);

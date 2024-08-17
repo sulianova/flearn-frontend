@@ -15,8 +15,8 @@
   width: set-calc(250);
   padding: set-calc(8);
 
-  border-radius: set-calc($border-radius-10);
-  background-color: var(--color-card);
+  border-radius: set-calc($border-radius-16);
+  background:  var(--color-card);
   border: 1px solid var(--border);
   box-shadow: $shadow-menu;
 }
@@ -99,11 +99,7 @@
   height: auto;
 
   color: var(--color-content-paragraph-primary);
-  @include set-typography(18, 20, 500);
-
-  @include set-media(md) {
-    @include set-typography(16, 18, 500)
-  }
+  @include font-16-normal-ui;
 }
 
 .userName {

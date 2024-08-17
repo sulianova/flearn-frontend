@@ -1,11 +1,11 @@
 {
   "short_name": "flearn",
-  "name": "Freedom to Learn the Arts",
+  "name": "Freedom to Learn",
   "icons": [
     {
-      "src": "Sofi.png",
+      "src": "Logo.svg",
       "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/png"
+      "type": "svg"
     }
   ],
   "start_url": ".",

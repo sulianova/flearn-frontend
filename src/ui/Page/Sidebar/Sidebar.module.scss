@@ -2,7 +2,7 @@
 
 .__ {
   z-index: 600;
-  position: fixed;
+  position: sticky;
 
   top: 0;
   left: 0;
@@ -19,55 +19,107 @@
 }
 
 .container {
-  position: fixed;
-
-  top: 0;
-  left: 0;
-  bottom: 0;
+  position: relative;
 
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  padding: set-calc(10) set-calc(16);
+  background-color: var(--color-background-alternate);
+
+  padding: set-calc(12) set-calc(4);
   height: 100%;
 }
 
-.items {
-  position: fixed;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-  top: set-calc(10);
-  left: set-calc(4);
+  padding: 0 set-calc(10);
+  margin-bottom: set-calc(24);
+
+  cursor: pointer;
+
+  svg {
+    position: relative;
+
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    -webkit-tap-highlight-color: transparent;
+    width: set-calc(32);
+    height: set-calc(32);
+
+    transition: transform .2s cubic-bezier(.25,.01,.25,1) 0s;
+  }
+}
+
+.itemsSeparator {
+  position: relative;
+
+  display: flex;
+  align-items: flex-start;
+
+  padding: 0 set-calc(10);
+  margin: set-calc(12) 0;
+
+  min-height: set-calc(16);
+  min-width: set-calc(22);
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  &::after {
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 0;
+
+    width: set-calc(-20, true, 100%);
+    min-width: set-calc(22);
+    height: 1px;
+    background-color: var(--border);
+  }
+
+  &:first-of-type {
+    display: none;
+  }
+}
+
+.items {
+  position: relative;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: set-calc(10);
+  gap: set-calc(2);
 
-  flex-grow: 1;
+  // flex-grow: 1;
+  flex-shrink: 0;
   list-style: none;
-  padding: set-calc(4);
 }
 
-.items:last-child {
-  position: fixed;
-
-  top: unset;
-  bottom: set-calc(24);
-}
+// .items:last-child {
+//   margin-top: auto;
+//   justify-content: end;
+// }
 
 .item {
   @include btn;
 
   position: relative;
 
-  border-radius: set-calc($border-radius-8);
-  backdrop-filter: blur(set-calc($backdrop-filter));
+  border-radius: set-calc($border-radius-10);
   background-color: transparent;
   cursor: pointer;
 
   &:hover {
     background-color: var(--color-background-glassy-b);
+
+    svg path {
+      fill: var(--color-content-primary);
+    }
   }
 
   &:active {
@@ -80,8 +132,8 @@
   display: block;
   overflow: inherit;
 
-  width: set-calc(52);
-  height: set-calc(52);
+  width: set-calc(40);
+  height: set-calc(40);
 }
 
 .icon {
@@ -90,7 +142,6 @@
   flex-direction: column;
   justify-content: center;
 
-  border-radius: 50%;
   transition: background-color $d-hover ease, transform $d-hover ease;
 
   height: 100%;
@@ -101,11 +152,11 @@
     text-align: center;
     background: 50% no-repeat;
     background-size: contain;
-    width: set-calc(24);
-    height: set-calc(24);
+    width: set-calc(22);
+    height: set-calc(22);
 
     path {
-      fill: var(--color-content-primary);
+      fill: var(--color-content-secondary);
     }
   }
 

@@ -31,6 +31,12 @@ function Sidebar() {
     <>
       <div className={classes.__}>
         <aside className={classes.container}>
+          <Link
+            className={classes.header}
+            to={URLSections.Home.index}
+          >
+            <Icon icon='Logo' />
+          </Link>
         {urlSection.name === 'Study' && (
           <ul className={classes.items}>
             <li className={classes.item}>
@@ -55,6 +61,7 @@ function Sidebar() {
             </li>
           </ul>
         )}
+        <ul className={classes.itemsSeparator}></ul>
           <ul className={classes.items}>
             <li className={classes.item}>
               <span className={classes.iconWrapper}>
@@ -66,7 +73,7 @@ function Sidebar() {
                 </div>
               </span>
             </li>
-            {urlSection.name === 'Profile' && (
+            {(urlSection.name !== 'Course') && (urlSection.name !== 'Home') && (
               <Tippy
                 interactive
                 placement='left-end'

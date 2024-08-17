@@ -130,20 +130,20 @@
   @include button-xl;
 
   @include font-18-normal-ui;
-  color: $color-content-primary-light;
+  color: $color-content-inverted-primary-light;
   font-family: $font-family-medium;
 
   width: 100%;
-  background-color: $color-highlight-yellow;
+  background-color: var(--primary-color);
 
   &:hover {
-    background-color: $color-highlight-yellow-hover;
+    background-color: var(--primary-color-hover);
   }
 
   @include set-media(md) {
     margin-bottom: set-calc(4);
     &:hover {
-      background-color: $color-highlight-yellow;
+      background-color: var(--primary-color);
     }
   }
 }

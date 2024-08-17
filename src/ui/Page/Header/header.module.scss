@@ -21,8 +21,6 @@
   width: 100%;
   gap: 0;
 
-  height: set-calc(64);
-
   @include set-media(md) {
     position: relative;
     display: flex;
@@ -38,6 +36,15 @@
 .deskPaddingWEB {
   background-color: var(--color-background-default);
   padding: set-calc(12) set-calc($padding-x-desk-page);
+  
+  .navContent,
+  .navLogin {
+    @include button-small;
+  }
+
+  .logoWrapper svg {
+    height: set-calc(40);
+  }
 
   @include set-media(md) {
     padding: set-calc(12) set-calc($padding-xs-mob-page) set-calc(8);
@@ -45,39 +52,52 @@
 }
 
 .deskPaddingLMS {
-  padding: set-calc(12) set-calc($padding-xs-desk-page);
+  padding: set-calc(12) set-calc(24);
+  background-color: var(--color-background-default);
+
+  border-bottom: 1px solid transparent;
+  transition: border-color .2s cubic-bezier(.25,.01,.25,1) 0s;
+
+  .navContent,
+  .navLogin {
+    @include button-extra-small;
+  }
+
+  .logoWrapper {
+    display: none;
+  }
 
   @include set-media(md) {
     padding: set-calc(12) set-calc(24);
+
+    .logoWrapper {
+      display: flex;
+    }
   }
 }
 
 .logoWrapper {
-  grid-column: span 4;
-
-  @include btn;
+  grid-column: 1 / 5;
 
   position: relative;
 
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
 
-  max-width: fit-content;
+  cursor: pointer;
 
-  span {
+  div {
     @include set-typography(22, 22, 500);
     color: var(--color-content-primary);
     font-family: $font-family-highlight-bold;
-}
+
+    margin-top: set-calc(4);
+  }
 
   svg {
-    width: set-calc(36);
     height: set-calc(36);
-
-    path {
-      fill: currentColor;
-    }
+    padding: 0 set-calc(8) 0 set-calc(4);
   }
 }
 
