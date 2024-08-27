@@ -27,6 +27,9 @@
 
   background-color: var(--color-background-glassy-b);
 
+  border-top-right-radius: set-calc($border-radius-16);
+  border-bottom-right-radius: set-calc($border-radius-16);
+
   padding: set-calc(12) set-calc(4);
   height: 100%;
 }
@@ -79,7 +82,7 @@
     width: set-calc(-20, true, 100%);
     min-width: set-calc(22);
     height: 1px;
-    background-color: var(--border);
+    background-color: var(--color-background-glassy-d);
   }
 
   &:first-of-type {

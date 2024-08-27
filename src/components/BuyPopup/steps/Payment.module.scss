@@ -284,9 +284,7 @@
 
 .optionDescription {
   padding: set-calc(16) set-calc(8) 0;
-  @include font-14-normal-ui;
-
-  width: 80%;
+  @include set-typography(14, 22, 500);
 
   a {
     color: var(--primary-color);
