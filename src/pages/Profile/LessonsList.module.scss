@@ -44,7 +44,7 @@
   text-align: left;
 
   &:hover {
-    border-color: var(--color-content-paragraph-primary);
+    border-color: var(--border);
   }
 
   @include set-media(md) {
@@ -86,12 +86,12 @@
   svg {
     width: set-calc(24);
     height: set-calc(24);
-    color: $color-content-inverted-primary-light;
+    color: var(--color-content-inverted-primary);
   }
 }
 
 .solved {
-  background-color: var(--primary-color);
+  background-color: var(--color-accent-success);
 }
 
 .itemBodyContainer {

@@ -148,9 +148,9 @@ $color-content-paragraph-secondary-light: $color-palette-black-600-a;
 $color-background-btn-light: $color-palette-black-700;
 $color-background-btn-hover-light: $color-palette-black-900;
 $color-background-card-light: $color-palette-black-700;
-$shadow-solid-small-light: 0 1px 0 0 $color-content-paragraph-primary-light, 0 1.5px 0 0 $color-content-paragraph-primary-light, 0 2px 0 0 $color-content-paragraph-primary-light, 0 2.5px 0 0 $color-content-paragraph-primary-light, 0 3px 0 0 $color-content-paragraph-primary-light, 0 3.5px 0 0 $color-content-paragraph-primary-light, 0 4px 0 0 $color-content-paragraph-primary-light, 0 4.5px 0 0 $color-content-paragraph-primary-light;
 
-$border-light: rgba(5, 6, 15, .1);
+$border-light: $color-palette-black-200; //rgba(5, 6, 15, .1);
+$shadow-solid-small-light: 0 1px 0 0 $border-light, 0 1.5px 0 0 $border-light, 0 2px 0 0 $border-light, 0 2.5px 0 0 $border-light, 0 3px 0 0 $border-light, 0 3.5px 0 0 $border-light, 0 4px 0 0 $border-light, 0 4.5px 0 0 $border-light;
 
 //theme-dark
 $primary-color-dark: $color-palette-indigo-250;
@@ -193,9 +193,9 @@ $color-content-paragraph-secondary-dark: $color-palette-black-400;
 $color-background-btn-dark: $color-palette-indigo-300;
 $color-background-btn-hover-dark: $color-palette-indigo-350;
 $color-background-card-dark: $primary-color-dark;
-$shadow-solid-small-dark: 0 1px 0 0 $color-content-paragraph-primary-dark, 0 1.5px 0 0 $color-content-paragraph-primary-dark, 0 2px 0 0 $color-content-paragraph-primary-dark, 0 2.5px 0 0 $color-content-paragraph-primary-dark, 0 3px 0 0 $color-content-paragraph-primary-dark, 0 3.5px 0 0 $color-content-paragraph-primary-dark, 0 4px 0 0 $color-content-paragraph-primary-dark, 0 4.5px 0 0 $color-content-paragraph-primary-dark;
 
-$border-dark: hsla(0, 0%, 100%, .1);
+$border-dark: $color-palette-black-500; // hsla(0, 0%, 100%, .1);
+$shadow-solid-small-dark: 0 1px 0 0 $border-dark, 0 1.5px 0 0 $border-dark, 0 2px 0 0 $border-dark, 0 2.5px 0 0 $border-dark, 0 3px 0 0 $border-dark, 0 3.5px 0 0 $border-dark, 0 4px 0 0 $border-dark, 0 4.5px 0 0 $border-dark;
 
 //links
 $link: var(--color-content-primary);
@@ -232,7 +232,7 @@ $shadow-popup: 0 2px 10px 0 rgba(0, 0, 0, .3);
 $shadow-menu: 0 10px 48px $color-palette-black-200-a;
 
 //filter
-$backdrop-filter: 10;
+$backdrop-filter: 5;
 
 //border
 $border-radius-small: 6;

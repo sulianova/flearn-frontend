@@ -25,10 +25,10 @@
   flex-direction: column;
   align-items: center;
 
-  background-color: var(--color-background-glassy-b);
+  background-color: var(--color-background-alternate);
 
-  border-top-right-radius: set-calc($border-radius-16);
-  border-bottom-right-radius: set-calc($border-radius-16);
+  border-top-right-radius: set-calc($border-radius-10);
+  border-bottom-right-radius: set-calc($border-radius-10);
 
   padding: set-calc(12) set-calc(4);
   height: 100%;
@@ -103,10 +103,10 @@
   list-style: none;
 }
 
-// .items:last-child {
-//   margin-top: auto;
-//   justify-content: end;
-// }
+.items:last-child {
+  margin-top: auto;
+  justify-content: end;
+}
 
 .item {
   @include btn;
