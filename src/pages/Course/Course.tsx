@@ -2,7 +2,7 @@ import { courseService } from 'services/course.service';
 
 import Page, { EFooter, EPageVariant } from 'ui/Page/Page';
 
-import ProgramBlocks from './ProgramBlocs/ProgramBlocks';
+import ProgramBlocks from './ProgramBlocks/ProgramBlocks';
 import ProgramIntro from './ProgramIntro/ProgramIntro';
 
 import Fallback from 'ui/Fallback';

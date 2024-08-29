@@ -58,7 +58,7 @@
 }
 
 .itemText {
-  @include font-18-normal-ui;
+  @include font-16-normal-paragraph;
   color: var(--color-content-paragraph-primary);
-  max-width: set-calc(350);
+  max-width: set-calc(320);
 }

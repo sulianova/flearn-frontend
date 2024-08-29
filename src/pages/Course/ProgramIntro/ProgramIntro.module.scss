@@ -154,37 +154,68 @@
   position: relative;
 
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 
-  z-index: 1;
   padding: 0 set-calc(64);
   height: set-calc(80);
 
   border-radius: calc(set-calc(80) / 2);
-  background: $color-accent-promo-light;
 
-  @include set-media(md) {
-    display: none;
-    margin: 0 0 set-calc(4) 0;
-    flex: 1 1 max-content;
+  z-index: 1;
 
-    &:hover {
-      box-shadow: $shadow-small-default;
-      transform: none;
+  @include font-20-normal-ui;
+  color: $color-content-primary-light;
+  font-family: $font-family-bold;
+
+  border-radius: calc(set-calc(150) / 2);
+  background-color: $color-accent-promo-light;
+
+  cursor: pointer;
+
+  &:hover {
+    &::before {
+      opacity: 1;
     }
   }
 
-  .text {
-    @include font-20-normal-ui;
-    color: $color-content-primary-light;
-    font-family: $font-family-highlight-medium;
-  }
+  @include set-media(md) {
+    height: set-calc(60);
 
-  &:hover {
-    box-shadow: $shadow-solid-small-light;
-    transform: translateY(-8px);
+    font-family: $font-family-medium;
+
+    padding: 0 0;
+    border-radius: calc(set-calc(60) / 2);
+
+    &:hover,
+    &:active {
+      box-shadow: none;
+
+      &::before {
+        opacity: 0;
+      }
+    }
   }
+}
+
+.actionsBtn::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  
+  z-index: -1;
+  -webkit-transition: opacity .8s;
+  -o-transition: opacity .8s;
+  transition: opacity .8s;
+  border-radius: calc(set-calc(150) / 2);
+  border: 0;
+  background: -o-radial-gradient(50% 50%, 60% 2336.38%, $color-accent-promo-light 0, #fff 100%), $color-accent-promo-light;
+  background: radial-gradient(60% 2336.38% at 50% 50%, $color-accent-promo-light 0, #fff 100%), $color-accent-promo-light;
+  opacity: 0;
+  will-change: opacity;
 }
 
 .cover {

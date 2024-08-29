@@ -1,18 +1,30 @@
 @import 'styles/index';
 
 .wrapper {
-  padding: 0;
+  @include is-beige;
+  background-color: var(--color-background-alternate);
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 0 set-calc(200);
+
+  @include set-media(md) {
+    padding: set-calc(8) set-calc(8) 0;
+  }
 }
 
 .cards {
   display: grid;
-  grid-gap: set-calc(8);
+  grid-gap: set-calc(16);
   grid-template-columns: 4fr 6fr;
   grid-template-areas: "explain-intro explain-video";
 
   @include set-media(md) {
     display: flex;
     flex-direction: column;
+
+    grid-gap: set-calc(8);
   }
 }
 
@@ -24,11 +36,9 @@
   gap: set-calc(16);
 
   overflow: hidden;
-  padding: 0 set-calc(16);
   border-radius: set-calc($border-radius-medium);
 
   @include set-media(md) {
-    padding: 0 0;
     gap: set-calc(8);
   }
 }
@@ -37,7 +47,7 @@
   position: relative;
   z-index: 2;
 
-  @include set-typography(24, 32, 500);
+  @include set-typography(20, 30, 500);
   font-family: $font-family-regular;
   color: var(--color-content-inverted-primary);
   white-space: pre-line;
@@ -48,19 +58,19 @@
   padding: set-calc(32);
 
   @include set-media(md) {
-    padding: set-calc(16);
+    padding: set-calc(24);
     @include set-typography(18, 24, 500);
   }
 }
 
 .introCardQuote:last-of-type {
-  padding: set-calc(16);
+  padding: set-calc(8) set-calc(16);
 
   background-color: transparent;
-  width: 60%;
+  width: 70%;
 
   color: var(--primary-color);
-  @include set-typography(20, 30, 500);
+  @include set-typography(16, 24, 500);
   font-family: $font-family-regular;
 
   @include set-media(md) {
@@ -111,7 +121,7 @@
   flex-grow: 1;
   flex-shrink: 1;
   width: 100%;
-  max-height: set-calc(800);
+  max-height: set-calc(700);
 
   @include set-media(md) {
     max-height: unset;
@@ -133,10 +143,10 @@
   @include set-media(md) {
     display: block;
 
-    padding: set-calc(16) set-calc(8) 0;
+    padding: set-calc(16) set-calc($padding-xs-mob-page) 0;
     width: 100%;
 
-    @include set-typography(16, 22, 500);
+    @include set-typography(16, 24, 500);
     color: var(--primary-color);
     font-family: $font-family-regular;
   }

@@ -24,7 +24,6 @@
 
 .item {
   @include btn;
-  @include shadow-solid;
   
   position: relative;
 
@@ -40,11 +39,16 @@
   cursor: pointer;
   border-radius: set-calc($border-radius-20);
 
-  border: 1px solid var(--border);
+  box-shadow: inset 0 0 0 1px var(--border);
   text-align: left;
 
   &:hover {
-    border-color: var(--border);
+    background-color: var(--color-background-glassy-b);
+    box-shadow: inset 0 0 0 2px var(--border);
+  }
+
+  &:active {
+    transform: scale(0.99);
   }
 
   @include set-media(md) {
@@ -53,7 +57,11 @@
     padding: set-calc(16);
 
     &:hover {
-      border-color: var(--border);
+      background-color: transparent;
+    }
+
+    &:active {
+      transform: scale(1);
     }
   }
 }
