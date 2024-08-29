@@ -31,7 +31,6 @@
 }
 
 .desc {
-  padding-right: set-calc(32);
   @include font-18-normal-ui;
   color: var(--color-content-paragraph-primary);
 
@@ -43,10 +42,6 @@
 
   p:not(:last-child) {
     padding-bottom: set-calc(16);
-  }
-
-  @include set-media(md) {
-    padding-right: 0;
   }
 }
 

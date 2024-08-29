@@ -112,17 +112,17 @@ function Profile(props: IProps) {
                   <div className={classes.description}>{currentCourse.introDescription}</div>
                   <div className={classes.metaData}>
                     <div className={classes.metaData_Item}>
-                      <div className={classes.metaData_ItemIcon}><Icon icon='Level'/></div>
+                      {/* <div className={classes.metaData_ItemIcon}><Icon icon='Level'/></div> */}
                       <span className={classes.metaData_ItemText}>{i18n.t(`catalogue.card.info.${currentCourse.level}`)}</span>
                     </div>
                     <div className={classes.metaData_Item}>
-                      <div className={classes.metaData_ItemIcon}><Icon icon='Time'/></div>
+                      {/* <div className={classes.metaData_ItemIcon}><Icon icon='Time'/></div> */}
                       <span className={classes.metaData_ItemText}>
                         {i18n.t(`duration.${currentCourse.metaData.lessonsDuration.unit}`, { count: currentCourse.metaData.lessonsDuration.value })}
                       </span>
                     </div>
                     <div className={classes.metaData_Item}>
-                      <div className={classes.metaData_ItemIcon}><Icon icon='Start'/></div>
+                      {/* <div className={classes.metaData_ItemIcon}><Icon icon='Start'/></div> */}
                       <span className={classes.metaData_ItemText}>
                         {i18n.t('lesson.p', { count: currentCourse.metaData.lessonsAmount })}
                       </span>
@@ -159,45 +159,71 @@ function Profile(props: IProps) {
               )}
             </div>
             {(currentCourseAccess !== 'FREE' || authedUser.role === 'support') ? (
-              <div className={classes.program}>
-                <div className={classes.subTitle}>Модули</div>
-                  <div className={classesList.wrapper}>
-                    {[...freeGroupes, ...payableGroupes].map((group, index) => (
-                      <TopicCard
-                        key={index}
-                        group={group}
-                        setOpenedTopic={setOpenedTopic}
-                      />
-                    ))}
+              <div className={classes.coursePage}>
+                <div className={classes.main}>
+                  <div className={classes.level}>
+                    <div className={classes.levelTitle}>Модули</div>
+                      <div className={classesList.wrapper}>
+                        {[...freeGroupes, ...payableGroupes].map((group, index) => (
+                          <TopicCard
+                            key={index}
+                            group={group}
+                            setOpenedTopic={setOpenedTopic}
+                          />
+                        ))}
+                    </div>
+                  </div>
                 </div>
+                <aside className={classes.asideWrapper}>
+                  <div className={classes.aside}>
+                    <div className={classes.asideSection}>
+                      <div className={classes.sectionSubtitle}>Ключевые навыки</div>
+                      <div className={classes.chipsSmall}>
+                        <div className={classes.chipSmall}>Выделение главного</div>
+                      </div>
+                    </div>
+                  </div>
+                </aside>
               </div>
             ) : (
-              <>
-                <div className={classes.program}>
-                  <div className={classes.subTitle}>Доступно сейчас и бесплатно</div>
-                    <div className={classesList.wrapper}>
-                      {freeGroupes.map((group, index) => (
-                        <TopicCard
-                          key={index}
-                          group={group}
-                          setOpenedTopic={setOpenedTopic}
-                        />
-                      ))}
+              <div className={classes.coursePage}>
+                <div className={classes.main}>
+                  <div className={classes.level}>
+                    <div className={classes.levelTitle}>Доступно сейчас и бесплатно</div>
+                      <div className={classesList.wrapper}>
+                        {freeGroupes.map((group, index) => (
+                          <TopicCard
+                            key={index}
+                            group={group}
+                            setOpenedTopic={setOpenedTopic}
+                          />
+                        ))}
+                    </div>
+                  </div>
+                  <div className={classes.level}>
+                    <div className={classes.levelTitle}>Будет доступно после оплаты</div>
+                      <div className={classesList.wrapper}>
+                        {payableGroupes.map((group, index) => (
+                          <TopicCard
+                            key={index}
+                            group={group}
+                            setOpenedTopic={setOpenedTopic}
+                          />
+                        ))}
+                    </div>
                   </div>
                 </div>
-                <div className={classes.program}>
-                  <div className={classes.subTitle}>Будет доступно после оплаты</div>
-                    <div className={classesList.wrapper}>
-                      {payableGroupes.map((group, index) => (
-                        <TopicCard
-                          key={index}
-                          group={group}
-                          setOpenedTopic={setOpenedTopic}
-                        />
-                      ))}
+                <aside className={classes.asideWrapper}>
+                  <div className={classes.aside}>
+                    <div className={classes.asideSection}>
+                      <div className={classes.sectionSubtitle}>Ключевые навыки</div>
+                      <div className={classes.chipsSmall}>
+                        <div className={classes.chipSmall}>Выделение главного</div>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </>
+                </aside>
+              </div>
             )}
           </div>
         </div>
