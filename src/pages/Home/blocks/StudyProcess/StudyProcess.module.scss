@@ -89,36 +89,19 @@
   }
 }
 
-.caption {
-  @include font-14-normal-ui;
-  color: var(--color-content-primary);
-  text-transform: lowercase;
-
-  margin-bottom: set-calc(8);
-  width: max-content;
-
-  background-color: var(--color-accent-promo-background);
-  padding: set-calc(6) set-calc(10);
-  border-radius: set-calc($border-radius-8);
-
-  @include set-media(md) {
-    padding: set-calc(6) set-calc(10);
-  }
-}
-
 .title {
-  @include font-24-normal-header;
+  @include set-typography(24, 30, 500);
   font-family: $font-family-bold;
   color: var(--color-content-primary);
   margin-bottom: set-calc(20);
 
   @include set-media(md) {
+    @include set-typography(20, 24, 500);
     margin-bottom: set-calc(16);
   }
 }
 
 .desc {
-  padding-right: set-calc(32);
   @include font-18-normal-ui;
   color: var(--color-content-paragraph-secondary);
 
@@ -130,10 +113,6 @@
 
   p:not(:last-child) {
     padding-bottom: set-calc(8);
-  }
-
-  @include set-media(md) {
-    padding-right: 0;
   }
 }
 

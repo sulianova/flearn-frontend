@@ -105,30 +105,37 @@ function Profile(props: IProps) {
       >
         <div className={classes.profilePage}>
           <div className={classes.profilePageContent}>
-            <div className={classes.programWrapper}>
-              <div className={classes.programBody}>
-                <div className={classes.title}>{currentCourse.title}</div>
-                <div className={classes.description}>{currentCourse.introDescription}</div>
-                <div className={classes.metaData}>
-                  <div className={classes.metaData_Item}>
-                    <div className={classes.metaData_ItemIcon}><Icon icon='Level'/></div>
-                    <span className={classes.metaData_ItemText}>{i18n.t(`catalogue.card.info.${currentCourse.level}`)}</span>
-                  </div>
-                  <div className={classes.metaData_Item}>
-                    <div className={classes.metaData_ItemIcon}><Icon icon='Time'/></div>
-                    <span className={classes.metaData_ItemText}>
-                      {i18n.t(`duration.${currentCourse.metaData.lessonsDuration.unit}`, { count: currentCourse.metaData.lessonsDuration.value })}
-                    </span>
-                  </div>
-                  <div className={classes.metaData_Item}>
-                    <div className={classes.metaData_ItemIcon}><Icon icon='Start'/></div>
-                    <span className={classes.metaData_ItemText}>
-                      {i18n.t('lesson.p', { count: currentCourse.metaData.lessonsAmount })}
-                    </span>
+            <div className={classes.header}>
+              <div className={classes.headerWrapper}>
+                <div className={classes.headerContent}>
+                  <div className={classes.title}>{currentCourse.title}</div>
+                  <div className={classes.description}>{currentCourse.introDescription}</div>
+                  <div className={classes.metaData}>
+                    <div className={classes.metaData_Item}>
+                      <div className={classes.metaData_ItemIcon}><Icon icon='Level'/></div>
+                      <span className={classes.metaData_ItemText}>{i18n.t(`catalogue.card.info.${currentCourse.level}`)}</span>
+                    </div>
+                    <div className={classes.metaData_Item}>
+                      <div className={classes.metaData_ItemIcon}><Icon icon='Time'/></div>
+                      <span className={classes.metaData_ItemText}>
+                        {i18n.t(`duration.${currentCourse.metaData.lessonsDuration.unit}`, { count: currentCourse.metaData.lessonsDuration.value })}
+                      </span>
+                    </div>
+                    <div className={classes.metaData_Item}>
+                      <div className={classes.metaData_ItemIcon}><Icon icon='Start'/></div>
+                      <span className={classes.metaData_ItemText}>
+                        {i18n.t('lesson.p', { count: currentCourse.metaData.lessonsAmount })}
+                      </span>
+                    </div>
                   </div>
                 </div>
-                {firstNotSolvedLesson ? (
-                        <div>
+                <div className={classes.headerImage}>
+                  <Icon {...currentCourse.icon}/>
+                </div>
+              </div>
+              {firstNotSolvedLesson ? (
+                    <div className={classes.actions}>
+                      <div className={classes.actionsBtn}>
                         {!firstNotSolvedLesson.isFree && currentCourseAccess === 'FREE' && authedUser.role === 'user' ? (
                           <div
                             className={classes.currentLessonButton}
@@ -145,13 +152,11 @@ function Profile(props: IProps) {
                           </Link>
                         )}
                       </div>
-                ) : (
-                  <div>Реклама</div>
-                )}
-              </div>
-              <div className={classes.programImage}>
-                <Icon {...currentCourse.icon}/>
-              </div>
+                      <div className={classes.shareLink}><Icon icon='Share'/></div>
+                    </div>
+              ) : (
+                <div>Реклама</div>
+              )}
             </div>
             {(currentCourseAccess !== 'FREE' || authedUser.role === 'support') ? (
               <div className={classes.program}>
@@ -227,7 +232,7 @@ function TopicCard(props: { group: IGroup, setOpenedTopic: (topic: string) => vo
     : `${Math.round(totalDurationMinutes)} мин`;
   return (
     <div className={classesList.itemWrapper} onClick={() => setOpenedTopic(group.topic)}>
-      <div className={classesList.item}>
+      <div className={cx({ item: true, featured: group.solved })}>
         <div className={classesList.imageWrapper}>
           <div className={classesList.image}>
             <Icon icon={group.topicIcon}/>
@@ -251,6 +256,7 @@ function TopicCard(props: { group: IGroup, setOpenedTopic: (topic: string) => vo
         <div className={cx({ itemStatus: true, solved: group.solved })}>
           <Icon icon='Tick'/>
         </div>
+        <div className={classesList.itemPopover}>Учиться</div>
       </div>
     </div>
   );

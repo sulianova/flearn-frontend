@@ -29,11 +29,13 @@ $matt-black_hover: #303030;
 $color-palette-black-25: #fdfcfc;
 $color-palette-black-50: #f5f5f5;
 $color-palette-black-100: #f0f0f0;
+$color-palette-black-150: #eae8e8;
 $color-palette-black-200: #e0e0e0;
 $color-palette-black-300: #bfbfbf;
 $color-palette-black-400: #b4b2b2;
 $color-palette-black-450: #808080;
 $color-palette-black-500: rgb(76, 76, 76);
+$color-palette-black-550: rgb(62, 62, 62);
 $color-palette-black-600: #2e2e2e;
 $color-palette-black-700: #262626;
 $color-palette-black-800: #1c1c1c;
@@ -89,7 +91,7 @@ $color-palette-indigo-1000: #090029;
 $color-palette-indigo-600: #382a85;
 $color-palette-indigo-550: #3b12cc;
 $color-palette-indigo-500: #452dbd;
-$color-palette-indigo-400: #513deb;
+$color-palette-indigo-400: #5627ff;
 $color-palette-indigo-350: #7657ff;
 $color-palette-indigo-300: #9282fa;
 $color-palette-indigo-250: #b595ff;
@@ -149,7 +151,7 @@ $color-background-btn-light: $color-palette-black-700;
 $color-background-btn-hover-light: $color-palette-black-900;
 $color-background-card-light: $color-palette-black-700;
 
-$border-light: $color-palette-black-200; //rgba(5, 6, 15, .1);
+$border-light: $color-palette-black-150; //rgba(5, 6, 15, .1);
 $shadow-solid-small-light: 0 1px 0 0 $border-light, 0 1.5px 0 0 $border-light, 0 2px 0 0 $border-light, 0 2.5px 0 0 $border-light, 0 3px 0 0 $border-light, 0 3.5px 0 0 $border-light, 0 4px 0 0 $border-light, 0 4.5px 0 0 $border-light;
 
 //theme-dark
@@ -194,7 +196,7 @@ $color-background-btn-dark: $color-palette-indigo-300;
 $color-background-btn-hover-dark: $color-palette-indigo-350;
 $color-background-card-dark: $primary-color-dark;
 
-$border-dark: $color-palette-black-500; // hsla(0, 0%, 100%, .1);
+$border-dark: $color-palette-black-550; // hsla(0, 0%, 100%, .1);
 $shadow-solid-small-dark: 0 1px 0 0 $border-dark, 0 1.5px 0 0 $border-dark, 0 2px 0 0 $border-dark, 0 2.5px 0 0 $border-dark, 0 3px 0 0 $border-dark, 0 3.5px 0 0 $border-dark, 0 4px 0 0 $border-dark, 0 4.5px 0 0 $border-dark;
 
 //links

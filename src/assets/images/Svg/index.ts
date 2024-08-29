@@ -55,3 +55,4 @@ export * from './Level';
 export * from './Time';
 export * from './Banner';
 export * from './ColorEye';
+export * from './Share';

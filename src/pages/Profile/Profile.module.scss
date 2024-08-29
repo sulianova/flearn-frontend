@@ -38,21 +38,116 @@
   }
 }
 
-.programWrapper {
+.header {
+  display: flex;
+  flex-direction: column;
+}
+
+.headerWrapper {
   display: flex;
   gap: set-calc(40);
 
-  padding-bottom: set-calc(20);
-
-  border-bottom: 1px solid var(--border);
+  margin-bottom: set-calc(32);
 
   @include set-media(md) {
     flex-direction: column;
-    padding-bottom: set-calc(20);
   }
 }
 
-.programImage {
+.actions {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  padding-bottom:  set-calc(20);
+}
+
+.actionsBtn {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  flex-grow: 1;
+
+  @include set-media(md) {
+    width: set-calc(16, true, 100%);
+    left: set-calc(-8);
+  }
+}
+
+.currentLessonButton {
+  @include btn;
+  @include button-small;
+
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: set-calc(8);
+  min-width: set-calc(160);
+
+  @include set-typography(16, 16, 500);
+  color: $color-content-inverted-primary-light;
+  font-family: $font-family-medium;
+
+  background-color: var(--primary-color);
+
+  &:hover {
+    background-color: var(--primary-color-hover);
+    cursor: pointer;
+  }
+
+  @include set-media(md) {
+    width: 100%;
+    &:hover {
+      background-color: var(--primary-color);
+    }
+  }
+}
+
+.shareLink {
+  @include btn;
+
+  position: relative;
+
+  display: inline-flex;
+  flex-shrink: 0;
+  align-self: center;
+  margin-left: set-calc(32);
+  width: set-calc(44);
+  border-radius: set-calc($border-radius-10);
+
+  -webkit-tap-highlight-color: transparent;
+  color: var(--color-content-secondary);
+
+  &:hover {
+    background-color: var(--color-background-glassy-b);
+
+    svg path {
+      fill: var(--color-content-primary);
+    }
+  }
+
+  &:active {
+    background-color: var(--color-background-glassy-c);
+  }
+
+  svg {
+    flex-shrink: 0;
+    width: set-calc(24);
+    height: set-calc(44);
+
+    path {
+      fill: currentColor;
+    }
+  }
+
+  @include set-media(md) {
+    display: none;
+  }
+}
+
+.headerImage {
   display: flex;
 
   width: set-calc(320);
@@ -81,7 +176,7 @@
   }
 }
 
-.programBody {
+.headerContent {
   display: flex;
   flex-direction: column;
   flex: 1 1;
@@ -120,8 +215,6 @@
 .metaData {
   display: flex;
   flex-wrap: wrap;
-
-  margin-bottom: set-calc(32);
 }
 
 .metaData_Item {
@@ -154,40 +247,6 @@
 
       color: inherit;
       fill: currentColor;
-    }
-  }
-}
-
-.currentLessonButton {
-  @include btn;
-  @include button-small;
-
-  position: relative;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  gap: set-calc(8);
-  min-width: set-calc(160);
-
-  @include font-16-normal-ui;
-  color: $color-content-inverted-primary-light;
-  font-family: $font-family-medium;
-
-  background-color: var(--primary-color);
-
-  &:hover {
-    background-color: var(--primary-color-hover);
-    cursor: pointer;
-  }
-
-  @include set-media(md) {
-    width: set-calc(16, true, 100%);
-    left: set-calc(-8);
-
-    &:hover {
-      background-color: var(--primary-color);
     }
   }
 }

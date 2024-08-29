@@ -21,6 +21,9 @@
   width: 100%;
   gap: 0;
 
+  border-bottom: 1px solid transparent;
+  background-color: var(--color-background-default);
+
   @include set-media(md) {
     position: relative;
     display: flex;
@@ -34,7 +37,6 @@
 }
 
 .deskPaddingWEB {
-  background-color: var(--color-background-default);
   padding: set-calc(12) set-calc($padding-x-desk-page);
   
   .navContent,
@@ -54,7 +56,6 @@
 
 .deskPaddingLMS {
   padding: set-calc(12) set-calc(24);
-  background-color: transparent;
 
   .navContent,
   .navLogin {
@@ -283,13 +284,17 @@
 .__Hidden {
   // transform: translateY(-100%);
 
-    @include set-media(md) {
-      transform: none;
+  .desk {
+    border-bottom: 1px solid var(--border);
+  }
 
-      .desk {
-        transform: none;
-        transform: translateY(-100%);
-      }
+    @include set-media(md) {
+      // transform: none;
+
+      // .desk {
+      //   transform: none;
+      //   transform: translateY(-100%);
+      // }
     }
 }
 

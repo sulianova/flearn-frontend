@@ -27,9 +27,6 @@
 
   background-color: var(--color-background-alternate);
 
-  border-top-right-radius: set-calc($border-radius-10);
-  border-bottom-right-radius: set-calc($border-radius-10);
-
   padding: set-calc(12) set-calc(4);
   height: 100%;
 }
