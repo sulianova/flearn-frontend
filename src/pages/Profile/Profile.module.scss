@@ -41,8 +41,11 @@
 
 .actions {
   display: flex;
-  border-bottom: 1px solid var(--border);
-  padding-bottom:  set-calc(20);
+  padding-bottom:  set-calc(60);
+
+  @include set-media(md) {
+    padding-bottom:  set-calc(20);
+  }
 }
 
 .actionsBtn {

@@ -152,7 +152,7 @@ function Profile(props: IProps) {
                           </Link>
                         )}
                       </div>
-                      <div className={classes.shareLink}><Icon icon='Share'/></div>
+                      {/* <div className={classes.shareLink}><Icon icon='Share'/></div> */}
                     </div>
               ) : (
                 <div>Реклама</div>
