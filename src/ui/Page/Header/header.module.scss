@@ -108,7 +108,9 @@
 
   svg {
     height: set-calc(36);
-    padding: 0 set-calc(8) 0 set-calc(4);
+    padding: set-calc(4);
+
+    margin-right: set-calc(4);
   }
 }
 
@@ -185,21 +187,23 @@
   @include btn;
   @include button-extra-small;
 
-  background-color: var(--primary-color);
-  color: $color-content-inverted-primary-light;
-  font-family: $font-family-medium;
+  background-color: var(--color-background-glassy-c);
+  color: var(--color-content-primary);
+  font-family: $font-family-regular;
 
   width: max-content;
 
   &:hover {
     background-color: var(--primary-color-hover);
+    color: var(--color-content-inverted-primary);
   }
 
   @include set-media(md) {
     margin-left: auto;
 
     &:hover {
-      background-color: var(--primary-color);
+      background-color: var(--color-background-glassy-c);
+      color: var(--color-content-primary);
     }
   }
 }

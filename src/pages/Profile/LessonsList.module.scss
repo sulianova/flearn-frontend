@@ -79,6 +79,7 @@
 
 .featured:hover {
   box-shadow: none;
+  background-color: var(--color-background-glassy-d);
 }
 
 .featured {
@@ -198,6 +199,7 @@
   @include set-typography(18, 28, 500);
 
   @include set-media(md) {
+    font-family: $font-family-bold;
     @include set-typography(16, 20, 500);
   }
 }
@@ -225,7 +227,7 @@
   opacity: 1;
 
   @include set-typography(13, 18, 500);
-  color: var(--color-content-secondary);
+  color: var(--color-content-paragraph-secondary);
 
   @include set-media(md) {
     @include set-typography(12, 18, 500);

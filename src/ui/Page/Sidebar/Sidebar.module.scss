@@ -51,6 +51,8 @@
     width: set-calc(28);
     height: set-calc(28);
 
+    padding: set-calc(2);
+
     transition: transform .2s cubic-bezier(.25,.01,.25,1) 0s;
   }
 }

@@ -258,7 +258,7 @@ function TopicCard(props: { group: IGroup, setOpenedTopic: (topic: string) => vo
     : `${Math.round(totalDurationMinutes)} мин`;
   return (
     <div className={classesList.itemWrapper} onClick={() => setOpenedTopic(group.topic)}>
-      <div className={cx({ item: true, featured: group.solved })}>
+      <div className={cx({ item: true, featured: false })}>
         <div className={classesList.imageWrapper}>
           <div className={classesList.image}>
             <Icon icon={group.topicIcon}/>

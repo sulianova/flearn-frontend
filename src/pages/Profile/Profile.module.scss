@@ -41,7 +41,7 @@
 
 .actions {
   display: flex;
-  border-bottom: 0.5px solid var(--border);
+  border-bottom: 1px solid var(--border);
   padding-bottom:  set-calc(20);
 }
 
@@ -186,12 +186,13 @@
 
 .description {
   @include font-18-normal-ui;
-  color: var(--color-content-paragraph-primary);
+  color: var(--color-content-paragraph-secondary);
   max-width: set-calc(700);
 
   margin: 0 0 set-calc(16);
 
   @include set-media(md) {
+    @include set-typography(14, 20, 500);
     margin: 0 0 set-calc(16);
   }
 }
@@ -208,7 +209,7 @@
   align-items: center;
   justify-content: center;
 
-  color: var(--color-content-paragraph-primary);
+  color: var(--color-content-paragraph-secondary);
 
   &:not(:last-child) {
     margin-right: set-calc(16);
@@ -223,7 +224,7 @@
     width: set-calc(3);
     height: set-calc(3);
     border-radius: 50%;
-    background-color: var(--color-content-paragraph-primary);
+    background-color: var(--color-content-paragraph-secondary);
     transform: translate3d(0, -50%, 0);
   }
 
