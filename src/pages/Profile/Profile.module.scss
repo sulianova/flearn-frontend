@@ -21,6 +21,12 @@
   flex-direction: column;
   width: 100%;
 
+  gap: set-calc(64);
+
+  @include set-media(md) {
+    gap: set-calc(40);
+  }
+
 }
 
 .header {
@@ -34,7 +40,7 @@
   display: flex;
   gap: set-calc(40);
 
-  background-color: var(--color-background-glassy-b);
+  background-color: var(--color-card);
   margin-bottom: set-calc(32);
   padding: set-calc(32);
   border-radius: set-calc($border-radius-20);
@@ -49,11 +55,9 @@
 
 .actions {
   display: flex;
-  padding-bottom:  set-calc(60);
   padding-left: set-calc(8);
 
   @include set-media(md) {
-    padding-bottom:  set-calc(20);
     padding-left: set-calc(0);
   }
 }
@@ -225,29 +229,15 @@
   justify-content: center;
 
   padding: 0 set-calc(12);
-  background-color: var(--color-background-default);
+  background-color: var(--color-background-alternate);
   height: set-calc(36);
   border-radius: set-calc( calc(36 / 2));
-  // box-shadow: inset 0 0 0 1px var(--border);
 
   color: var(--color-content-paragraph-secondary);
 
   &:not(:last-child) {
     margin-right: set-calc(6);
   }
-
-  // &:not(:last-child)::after {
-  //   content: "";
-  //   position: absolute;
-  //   right: set-calc(-12);
-  //   top: 50%;
-  
-  //   width: set-calc(4);
-  //   height: set-calc(4);
-  //   border-radius: 50%;
-  //   background-color: var(--color-content-paragraph-secondary);
-  //   transform: translate3d(0, -50%, 0);
-  // }
 
   &Text {
   @include font-14-normal-ui;
@@ -258,11 +248,9 @@
 
 .coursePage {
   display: flex;
-  padding: set-calc(32) 0 set-calc(64);
 
   @include set-media(md) {
     flex-direction: column;
-    padding: set-calc(24) 0 set-calc(48);
 
     width: 100%;
     gap: set-calc(40);
@@ -298,7 +286,7 @@
 .aside {
   position: -webkit-sticky; /* Safari */
   position: sticky;
-  top: set-calc(calc(61 + 32));
+  top: set-calc(calc(61 + 64));
   
   display: flex;
   flex-direction: column;

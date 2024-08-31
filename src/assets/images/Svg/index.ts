@@ -56,3 +56,4 @@ export * from './Time';
 export * from './Banner';
 export * from './ColorEye';
 export * from './Share';
+export * from './Star';

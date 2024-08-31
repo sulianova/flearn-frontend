@@ -9,6 +9,8 @@ import { type ILessonData, lessonService } from 'services/lesson.service';
 import { type ICourseData, courseService } from 'services/course.service';
 import { type TAccess, userAccessService } from 'services/userAccess.service';
 
+import Description from './Description/Description';
+import SocialValidation from './SocialValidation/SocialValidation';
 import BuyPopup from 'components/BuyPopup/BuyPopup';
 import LessonsPopup from 'components/LessonsPopup/LessonsPopup';
 import Link from 'ui/Link/Link';
@@ -94,6 +96,10 @@ function Profile(props: IProps) {
   const firstNotSolvedLesson = courseLessons.find(l => !l.solved);
   const freeGroupes = groupes.filter(g => g.isFree);
   const payableGroupes = groupes.filter(g => !g.isFree);
+  const {
+    description,
+    feedbacks
+  } = currentCourse.content;
 
   return (
     <>
@@ -222,6 +228,8 @@ function Profile(props: IProps) {
                 </aside>
               </div>
             )}
+            {description && <Description type={currentCourse.type} description={description}/>}
+            {feedbacks && feedbacks.length && <SocialValidation feedbacks={feedbacks}/>}
           </div>
         </div>
       </Page>
