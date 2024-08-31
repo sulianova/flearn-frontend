@@ -112,17 +112,14 @@ function Profile(props: IProps) {
                   <div className={classes.description}>{currentCourse.introDescription}</div>
                   <div className={classes.metaData}>
                     <div className={classes.metaData_Item}>
-                      {/* <div className={classes.metaData_ItemIcon}><Icon icon='Level'/></div> */}
                       <span className={classes.metaData_ItemText}>{i18n.t(`catalogue.card.info.${currentCourse.level}`)}</span>
                     </div>
                     <div className={classes.metaData_Item}>
-                      {/* <div className={classes.metaData_ItemIcon}><Icon icon='Time'/></div> */}
                       <span className={classes.metaData_ItemText}>
                         {i18n.t(`duration.${currentCourse.metaData.lessonsDuration.unit}`, { count: currentCourse.metaData.lessonsDuration.value })}
                       </span>
                     </div>
                     <div className={classes.metaData_Item}>
-                      {/* <div className={classes.metaData_ItemIcon}><Icon icon='Start'/></div> */}
                       <span className={classes.metaData_ItemText}>
                         {i18n.t('lesson.p', { count: currentCourse.metaData.lessonsAmount })}
                       </span>
@@ -132,6 +129,7 @@ function Profile(props: IProps) {
                 <div className={classes.headerImage}>
                   <Icon {...currentCourse.icon}/>
                 </div>
+                <div className={classes.shareLink}><Icon icon='Share'/></div>
               </div>
               {firstNotSolvedLesson ? (
                     <div className={classes.actions}>
@@ -141,18 +139,17 @@ function Profile(props: IProps) {
                             className={classes.currentLessonButton}
                             onClick={() => setBuyCoursePopupIsOpened(true)}
                           >
-                            Купить
+                            Купить полный курс
                           </div>
                         ) : (
                           <Link
                             className={classes.currentLessonButton}
                             to={URLSections.Study.to({ courseId: currentCourse.id, lessonId: firstNotSolvedLesson.id })}
                           >
-                            Учиться
+                            Продолжить учиться
                           </Link>
                         )}
                       </div>
-                      {/* <div className={classes.shareLink}><Icon icon='Share'/></div> */}
                     </div>
               ) : (
                 <div>Реклама</div>

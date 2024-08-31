@@ -25,7 +25,7 @@
   flex-direction: column;
   align-items: center;
 
-  background-color: var(--color-background-alternate);
+  background-color: transparent;
 
   padding: set-calc(12) set-calc(4);
   height: 100%;
@@ -154,8 +154,8 @@
     text-align: center;
     background: 50% no-repeat;
     background-size: contain;
-    width: set-calc(20);
-    height: set-calc(20);
+    width: set-calc(22);
+    height: set-calc(22);
 
     path {
       fill: var(--color-content-secondary);

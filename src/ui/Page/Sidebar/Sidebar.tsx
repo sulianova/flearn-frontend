@@ -61,7 +61,7 @@ function Sidebar() {
             </li>
           </ul>
         )}
-        <ul className={classes.itemsSeparator}></ul>
+        {/* <ul className={classes.itemsSeparator}></ul> */}
           <ul className={classes.items}>
             <li className={classes.item}>
               <span className={classes.iconWrapper}>

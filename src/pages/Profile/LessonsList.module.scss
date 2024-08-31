@@ -38,8 +38,9 @@
 
   cursor: pointer;
   border-radius: set-calc($border-radius-20);
+  background-color: var(--color-background-glassy-b);
 
-  box-shadow: inset 0 0 0 1px var(--border);
+  box-shadow: inset 0 0 0 1px var(--color-border);
   text-align: left;
 
   &:hover {
