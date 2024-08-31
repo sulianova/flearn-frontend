@@ -339,12 +339,11 @@
   padding: 0 set-calc(12);
 
   @include font-14-normal-ui;
+  color: var(--color-content-paragraph-secondary);
 
-  background-color: transparent;
+  background-color: var(--color-card);
   height: set-calc(36);
   border-radius: set-calc(calc(36 / 2));
-
-  box-shadow: inset 0 0 0 1px var(--border);
 }
 
 .level {

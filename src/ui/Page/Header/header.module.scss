@@ -71,9 +71,9 @@
   }
 
   @include set-media(md) {
-    background-color: var(--color-background-glassy-inverted-d);
-    backdrop-filter: blur(set-calc(15));
-    border-bottom: 1px solid var(--color-border);
+    background-color: transparent;
+    backdrop-filter: blur(set-calc(0));
+    border-bottom: 1px solid transparent;
 
     padding: set-calc(12) set-calc($padding-xs-mob-page);
 
