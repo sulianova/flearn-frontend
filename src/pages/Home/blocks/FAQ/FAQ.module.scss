@@ -2,22 +2,11 @@
 
 .wrapper {
   @include is-beige;
-  background-color: var(--color-background-alternate);
-
-  display: flex;
-  flex-direction: column;
-
-  padding: set-calc(80) set-calc(200);
-  border-radius: 0;
-
-  border-bottom-left-radius: set-calc($border-radius-50);
-  border-bottom-right-radius: set-calc($border-radius-50);
+  background-color:  $color-background-default-dark;
+  padding: set-calc(50) 0 set-calc(24);
 
   @include set-media(md) {
-    padding: set-calc(64) set-calc($padding-xs-mob-page);
-
-    border-bottom-left-radius: set-calc($border-radius-30);
-    border-bottom-right-radius: set-calc($border-radius-30);
+    padding: set-calc(64) set-calc(8) set-calc(64);
   }
 }
 
@@ -30,28 +19,32 @@
   align-items: center;
 
   width: 100%;
-  margin: 0 0 set-calc(32);
-
-  @include font-56-normal-header;
-  font-family: $font-family-highlight-bold;
-  color: var(--color-content-primary);
-  text-align: center;
+  margin: set-calc(32) auto 0;
 
   @include set-media(md) {
     align-items: start;
-    text-align: start;
 
     width: 100%;
-    margin: 0 0 set-calc(20);
-    padding: 0 set-calc($padding-xs-mob-page);
+    margin: set-calc(16) 0 0;
+  }
+}
+
+.headerTitle {
+  margin-bottom: set-calc(24);
+
+  @include font-56-normal-header;
+  font-family: $font-family-bold;
+  color: $color-content-primary-dark;
+  text-align: center;
+
+  @include set-media(md) {
+    margin-bottom: set-calc(16);
   }
 }
 
 .headerDesc {
-  margin-top: set-calc(24);
-
   @include font-18-normal-paragraph;
-  color: var(--color-content-paragraph-primary);
+  color: $color-content-primary-dark;
   font-family: $font-family;
   text-align: center;
 
@@ -59,20 +52,16 @@
 
   a {
     font-family: $font-family-medium;
-    color: var(--primary-color);
+    color: $primary-color-dark;
 
     transition: all $d-hover ease;
   }
 
   a:hover {
-    color: var(--primary-color-hover);
+    color: $primary-color-hover-dark;
   }
 
   @include set-media(md) {
-    margin-top: set-calc(16);
-    padding-left: set-calc(16);
-    text-align: start;
-
     width: 100%;
   }
 }
@@ -85,7 +74,7 @@
   flex-direction: column;
   margin: 0 auto;
 
-  width: 70%;
+  width: 48%;
 
   @include set-media(md) {
     position: relative;

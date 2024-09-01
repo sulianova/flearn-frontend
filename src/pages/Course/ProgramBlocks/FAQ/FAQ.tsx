@@ -23,7 +23,6 @@ function FAQ({ faq }: IProps) {
         ))}
       </div>
       <div className={classes.header}>
-        {/* <h2 className={classes.headerTitle}>{t('headerTitle')}</h2> */}
         <div className={classes.headerDesc}>
           {t('headerDesc1')}
           <Link to={t('creatorLink')}  target='_blank'>

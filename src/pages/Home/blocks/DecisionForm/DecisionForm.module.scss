@@ -1,0 +1,133 @@
+@import 'styles/index';
+
+.__ {
+  @include is-beige;
+  background-color:  $color-background-default-dark;
+  border-top: 1px solid $color-border-dark;
+  padding: set-calc(100) 0;
+
+  border-radius: set-calc(100) set-calc(100) 0 0;
+
+  @include set-media(md) {
+    padding: set-calc(32) set-calc(8) 0;
+
+    border-radius: set-calc(40) set-calc(40) 0 0;
+  }
+}
+
+.header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  width: 68%;
+
+  margin: 0 auto set-calc(80);
+
+  padding-left: set-calc(16);
+
+  @include set-media(md) {
+    margin: 0 auto set-calc(40);
+    padding-left: set-calc(8);
+
+    width: 100%;
+  }
+}
+
+.headerTitle {
+  @include set-typography(34, 50, 500);
+  color: $color-content-inverted-primary-light;
+  text-align: center;
+
+  @include set-media(md) {
+    @include set-typography(20, 30, 500);
+  }
+}
+
+.commonFlowRow {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+
+  margin: 0 auto;
+  width: 70%;
+
+  gap: set-calc(40);
+
+  @include set-media(md) {
+    width: 100%;
+    gap: 0;
+  }
+}
+
+.btn {
+  @include btn;
+
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: set-calc(150);
+  width: 100%;
+
+  z-index: 1;
+
+  @include set-typography(54, 54, 500);
+  color: $color-content-primary-light;
+  font-family: $font-family-bold;
+
+  border-radius: calc(set-calc(150) / 2);
+  background-color: $color-accent-promo-light;
+
+  cursor: pointer;
+
+  &:hover {
+    &:not([href])::before {
+      opacity: 1;
+    }
+  }
+
+  @include set-media(md) {
+    height: set-calc(60);
+
+    @include set-typography(18, 18, 500);
+    font-family: $font-family-medium;
+
+    padding: 0 0;
+    border-radius: calc(set-calc(60) / 2);
+
+    &:hover,
+    &:active {
+      box-shadow: none;
+
+      &:not([href])::before {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.btn:not([href])::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  -webkit-transition: opacity .8s;
+  -o-transition: opacity .8s;
+  transition: opacity .8s;
+  border-radius: calc(set-calc(150) / 2);
+  border: 0;
+  background: -o-radial-gradient(50% 50%, 60% 2336.38%, $color-accent-promo-light 0, #fff 100%), $color-accent-promo-light;
+  background: radial-gradient(60% 2336.38% at 50% 50%, $color-accent-promo-light 0, #fff 100%), $color-accent-promo-light;
+  opacity: 0;
+  will-change: opacity;
+}

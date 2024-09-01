@@ -10,12 +10,14 @@ import Page, { EFooter, EPageVariant } from 'ui/Page/Page';
 import Catalogue from './blocks/Catalogue/Catalogue';
 import  BannerStart from './blocks/BannerStart/BannerStart'
 import Header from './blocks/Header/Header';
-import RequestConsultationBanner from './blocks/RequestConsultationBanner/RequestConsultationBanner';
+import DecisionForm from './blocks/DecisionForm/DecisionForm';
 import StudyProcess from './blocks/StudyProcess/StudyProcess';
 import FAQ from './blocks/FAQ/FAQ';
 import Explain from './blocks/Explain/Explain';
+import SocialValidation from './blocks/SocialValidation/SocialValidation';
 
 import classes from './Home.module.scss';
+
 
 export default function Home() {
   const freeCourse = courseService.useCourses({ ids: ['how-to-draw'] }).at(0);
@@ -43,6 +45,12 @@ export default function Home() {
     linkToFreeCourse={linkToFreeCourse}
     onNotAuthedClick={onNotAuthedClick}
     />,
+    <SocialValidation/>,
+    <DecisionForm
+    key='decisionForm'
+    linkToFreeCourse={linkToFreeCourse}
+    onNotAuthedClick={onNotAuthedClick}
+    />,
     <FAQ key='faq'/>,
     // <RequestConsultationBanner key='requestConsultationBanner'/>,
   ];
@@ -59,7 +67,8 @@ export default function Home() {
       <Page
         variant={EPageVariant.WEB}
         header
-        footer={EFooter.Default}
+        footer={false}
+        // footer={EFooter.Default}
         backgroundColor='var(--color-background-default)'
       >
         <Header
