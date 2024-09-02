@@ -41,7 +41,7 @@
   } 
 
   .bubble {
-    background: $color-highlight-violet;
+    background: var(--primary-color);
   }
 
   .messageAuthor {
