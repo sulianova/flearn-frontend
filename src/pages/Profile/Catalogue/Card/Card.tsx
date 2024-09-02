@@ -29,6 +29,7 @@ export default function Card({ course }: Readonly<IProps>) {
           <p>{i18n.t(`catalogue.card.info.${course.level}`)}</p>
           <p>15 уроков</p>
         </div>
+      <div className={classes.background}></div>
     </div>
   );
 
@@ -39,7 +40,6 @@ export default function Card({ course }: Readonly<IProps>) {
         to={URLSections.Course.to({ courseId: course.id })}
       >
         {content}
-        <div className={classes.background}/>
       </Link>
     );
   }
@@ -56,7 +56,6 @@ export default function Card({ course }: Readonly<IProps>) {
       }}
     >
       {content}
-      <div className={classes.background}/>
     </div>
   );
 }

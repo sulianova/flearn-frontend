@@ -13,18 +13,32 @@
   width: set-calc(344);
   height: set-calc(271.5);
 
-  background-color: var(--color-background-default);
-  border: 1px solid var(--color-border);
   border-radius: set-calc($border-radius-20);
+  transform-origin: center center;
+  background-color: transparent;
   cursor: pointer;
 
-  text-align: start;
+  text-align: left;
+
+  &:hover {
+    .background {
+      transform: scale(1.02);
+      box-shadow: $shadow-medium-hovered;
+    }
+  }
   
   @include set-media(md) {
     padding: set-calc(16);
 
     width: 100%;
     height: unset;
+
+    &:hover {
+      .background {
+        box-shadow: none!important;
+        transform: scale(1,1)!important;
+      }
+    }
   }
 }
 
@@ -118,4 +132,24 @@
     background-color: var(--color-content-paragraph-secondary);
     transform: translate3d(0, -50%, 0);
   }
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  z-index: -1;
+
+  width: 100%;
+  height: 100%;
+  
+  transform-origin: center center;
+  overflow: hidden;
+
+  border: 1px solid var(--color-border);
+  border-radius: set-calc($border-radius-20);
+  background: var(--color-card);
+
+  transition: transform $d-hover ease, box-shadow $d-hover ease;
 }

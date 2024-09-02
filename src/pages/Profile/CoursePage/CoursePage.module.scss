@@ -130,28 +130,31 @@
 
 .item {
   @include btn;
-  
   position: relative;
 
   display: flex;
   align-items: center;
+
   height: set-calc(100);
   width: 100%;
 
   gap: set-calc(20);
-
   padding: set-calc(20);
 
   cursor: pointer;
-  border-radius: set-calc($border-radius-20);
-  background-color: var(--color-card);
+  transform-origin: center center;
 
-  box-shadow: inset 0 0 0 1px var(--color-border);
+  border-radius: set-calc($border-radius-20);
+  background-color: transparent;
+
   text-align: left;
 
+
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-medium-hovered);
+    .background {
+      transform: scale(1.02);
+      box-shadow: $shadow-medium-hovered;
+    }
   }
 
   @include set-media(md) {
@@ -160,8 +163,10 @@
     padding: set-calc(16);
 
     &:hover {
-      transform: translateY(0);
-      box-shadow: none;
+      .background {
+        box-shadow: none!important;
+        transform: scale(1,1)!important;
+      }
     }
   }
 }
@@ -375,19 +380,22 @@
   margin-top: set-calc(8);
 }
 
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
 
-.itemLinks {
-  position: relative;
-  padding-bottom: set-calc(8);
+  z-index: -1;
 
-  display: flex;
-  align-items: start;
-  justify-content: space-between;
-}
+  width: 100%;
+  height: 100%;
+  
+  transform-origin: center center;
+  overflow: hidden;
 
-.itemLink:not(:last-child) {
+  border: 1px solid var(--color-border);
+  border-radius: set-calc($border-radius-20);
+  background: var(--color-card);
 
-  &:after {
-    content: " · ";
-  }
+  transition: transform $d-hover ease, box-shadow $d-hover ease;
 }

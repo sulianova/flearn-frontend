@@ -176,6 +176,7 @@ function TopicCard(props: { group: IGroup, setOpenedTopic: (topic: string) => vo
           <Icon icon='Tick'/>
         </div>
         <div className={classes.itemPopover}>Учиться</div>
+        <div className={classes.background}></div>
       </div>
     </div>
   );
