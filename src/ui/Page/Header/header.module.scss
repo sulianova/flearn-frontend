@@ -38,8 +38,12 @@
 }
 
 .deskPaddingWEB {
-  padding: set-calc(12) set-calc($padding-x-desk-page);
+  margin: set-calc(8) set-calc($padding-x-desk-page) 0;
+  padding: set-calc(16) set-calc(16);
+
   background-color: var(--color-background-glassy-inverted-d);
+  border-radius: set-calc(calc(78 / 2));
+  border: 1px solid var(--color-border);
   
   .navContent,
   .navLogin {
@@ -47,7 +51,10 @@
   }
 
   @include set-media(md) {
+    margin: 0 0 0;
     padding: set-calc(12) set-calc($padding-xs-mob-page);
+
+    border-radius: 0;
 
     .navContent,
     .navLogin {
