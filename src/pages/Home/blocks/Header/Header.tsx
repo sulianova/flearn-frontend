@@ -29,14 +29,14 @@ export default function Header(props: IProps) {
                 className={classes.actionsBtn}
                 to={props.linkToFreeCourse}
               >
-                <div className={classes.text}>{i18n.t('signUp')}</div>
+                <div className={classes.text}>Начать учиться</div>
               </Link>
             ) : (
               <div
                 className={classes.actionsBtn}
                 onClick={props.onNotAuthedClick}
               >
-                <div className={classes.text}>{i18n.t('signUp')}</div>
+                <div className={classes.text}>Начать учиться</div>
               </div>
             )}
           </div>

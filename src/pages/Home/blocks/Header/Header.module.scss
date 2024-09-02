@@ -80,7 +80,7 @@
   margin: 0 0 set-calc(40);
 
   @include set-typography(40, 50, 500);
-  font-family: $font-family-highlight-bold;
+  font-family: $font-family-bold;
   text-align: start;
 
   @include set-media(md) {
