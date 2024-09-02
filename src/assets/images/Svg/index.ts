@@ -60,3 +60,4 @@ export * from './Star';
 export * from './HomeFill';
 export * from './Course';
 export * from './CourseFill';
+export * from './UserFill'

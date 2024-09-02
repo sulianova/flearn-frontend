@@ -167,6 +167,10 @@
   }
 }
 
+.icon[data-user] svg path {
+  fill: var(--color-content-primary);
+}
+
 .open {
   z-index: 10000;
 }

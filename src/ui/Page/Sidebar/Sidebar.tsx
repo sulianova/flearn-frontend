@@ -106,10 +106,11 @@ function Sidebar() {
                 <li className={classes.item}>
                   <span className={classes.iconWrapper}>
                     <div
+                      data-user
                       className={classes.icon}
                       onClick={() => setUserPopupVisible(!userPopupVisible)}
                     >
-                      <Icon icon='User' />
+                      <Icon icon='UserFill' />
                     </div>
                   </span>
                 </li>

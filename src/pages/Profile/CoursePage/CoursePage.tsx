@@ -1,14 +1,15 @@
 import classnames from 'classnames/bind';
 import { useMemo, useState } from 'react';
 
-import { formatI18nT, i18n } from 'shared';
+import { i18n } from 'shared';
 
-import { type IUserData, userService } from 'services/user.service';
-import { type ILessonData, lessonService } from 'services/lesson.service';
-import { type ICourseData, courseService } from 'services/course.service';
-import { type TAccess, userAccessService } from 'services/userAccess.service';
+import { type IUserData } from 'services/user.service';
+import { type ILessonData } from 'services/lesson.service';
+import { type ICourseData } from 'services/course.service';
+import { type TAccess } from 'services/userAccess.service';
 
 import Icon from 'ui/Icon/Icon';
+import LessonsPopup from 'components/LessonsPopup/LessonsPopup';
 
 import classes from './CoursePage.module.scss'
 
@@ -130,6 +131,13 @@ export default function CoursePage(props: IProps) {
             </div>
           </div>
         </aside>
+        {openedTopic && (
+          <LessonsPopup
+            courseId={currentCourse.id}
+            topic={openedTopic}
+            close={() => setOpenedTopic(null)}
+          />
+        )}
       </div>
     )
   );
