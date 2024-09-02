@@ -42,7 +42,7 @@ export default function Header(props: IProps) {
           </div>
       </div>
       <div className={classes.imgWrapper}>
-        <Icon icon='Creative'/>
+      <iframe src="https://lottie.host/embed/be172876-488a-4dce-9519-adecb7fe084d/A5JsQIWR3m.json"></iframe>
       </div>
     </div>
   );

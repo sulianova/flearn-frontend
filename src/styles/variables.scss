@@ -69,9 +69,8 @@ $color-palette-white-1000: #ffffff;
 $color-highlight-yellow: #ffe205;
 $color-highlight-yellow-hover:#ffce00;
 $color-highlight-green: #a4dd49;
-$color-highlight-sky: #49c2ff;
 $color-highlight-pink: #FE6DA8; //#FFA4E6; //#ffa2e2;
-$color-highlight-pink-hover: #c36; 
+$color-highlight-pink-hover: #cc3366; 
 $color-highlight-violet: #b595ff;
 $color-highlight-blue: #3f96fc;
 
@@ -83,7 +82,7 @@ $color-highlight-mint: #f0ffd9;
 $color-highlight-dust: #fffad2;
 
 $color-highlight-aquamarine: #d3f5ff;
-$color-highlight-misty-rose: #F1E3ED;
+$color-highlight-misty-rose: #facfee;
 $color-highlight-peach-puff: #fedfc2;
 
 //color-palette-indigo
@@ -98,7 +97,7 @@ $color-palette-indigo-250: #b595ff;
 $color-palette-indigo-200: #ede8ff;
 $color-palette-indigo-100: #f7f5ff;
 
-$color-palette-blue-400: #656AED;
+$color-palette-blue-400: rgb(0, 87, 255);
 $color-palette-blue-300: #9CA0F5;
 $color-palette-blue-200: #DADBFB;
 $color-palette-blue-100: #AAAAC7;
@@ -109,7 +108,7 @@ $color-palette-blue-100: #AAAAC7;
 $color-gradient-rainbow: linear-gradient(320deg, #ffa2e2, #b595ff, #9282fa, #5627ff, #49c2ff);
 
 //theme-light
-$primary-color-light: $color-palette-indigo-400;
+$primary-color-light: $color-palette-blue-400;
 $primary-color-hover-light: $color-palette-indigo-350;
 $color-accent-error-light:#db2323;
 $color-accent-notice-light: #f26e30;

@@ -83,7 +83,7 @@
   font-family: $font-family-bold;
 
   border-radius: calc(set-calc(150) / 2);
-  background-color: $color-accent-promo-light;
+  background-color: $color-accent-promo-dark;
 
   cursor: pointer;
 
@@ -126,8 +126,8 @@
   transition: opacity .8s;
   border-radius: calc(set-calc(150) / 2);
   border: 0;
-  background: -o-radial-gradient(50% 50%, 60% 2336.38%, $color-accent-promo-light 0, #fff 100%), $color-accent-promo-light;
-  background: radial-gradient(60% 2336.38% at 50% 50%, $color-accent-promo-light 0, #fff 100%), $color-accent-promo-light;
+  background: -o-radial-gradient(50% 50%, 60% 2336.38%, $color-accent-promo-dark 0, #fff 100%), $color-accent-promo-dark;
+  background: radial-gradient(60% 2336.38% at 50% 50%, $color-accent-promo-dark 0, #fff 100%), $color-accent-promo-dark;
   opacity: 0;
   will-change: opacity;
 }
