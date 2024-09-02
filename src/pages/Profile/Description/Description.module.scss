@@ -1,14 +1,6 @@
 @import 'styles/index';
 
-.wrapper {
-  padding-top: 0;
-
-  @include set-media(md) {
-    padding-top: 0;
-  }
-}
-
-.headerTitle {
+.sectionTitle {
   margin: 0 0 set-calc(24);
   padding-left: set-calc(8);
 

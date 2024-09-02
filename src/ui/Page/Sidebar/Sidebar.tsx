@@ -37,7 +37,7 @@ function Sidebar() {
           >
             <Icon icon='Logo' />
           </Link>
-        {urlSection.name === 'Study' && (
+        {(urlSection.name === 'Study' || urlSection.name === 'Profile') && (
           <ul className={classes.items}>
             <li className={classes.item}>
               <span className={classes.iconWrapper}>
@@ -51,17 +51,33 @@ function Sidebar() {
             </li>
             <li className={classes.item}>
               <span className={classes.iconWrapper}>
-              <div
+                <Link
                   className={classes.icon}
-                  onClick={() => setLessonsPopupVisible(v => !v)}
+                  to={URLSections.Profile.to({ courseId: courseId! })}
                 >
-                  <Icon icon='Lessons' />
-                </div>
+                  <Icon icon='Course' />
+                </Link>
               </span>
             </li>
           </ul>
         )}
-        {/* <ul className={classes.itemsSeparator}></ul> */}
+        {urlSection.name === 'Study' && (
+          <>
+            <ul className={classes.itemsSeparator}></ul>
+            <ul className={classes.items}>
+                <li className={classes.item}>
+                  <span className={classes.iconWrapper}>
+                  <div
+                      className={classes.icon}
+                      onClick={() => setLessonsPopupVisible(v => !v)}
+                    >
+                      <Icon icon='Lessons' />
+                    </div>
+                  </span>
+                </li>
+            </ul>
+          </>
+        )}
           <ul className={classes.items}>
             <li className={classes.item}>
               <span className={classes.iconWrapper}>

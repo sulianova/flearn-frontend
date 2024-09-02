@@ -11,7 +11,7 @@
   justify-content: center;
   align-items: center;
 
-  padding: set-calc(80) set-calc(200) 0;
+  padding: set-calc(80) set-calc(200) set-calc(80);
 
   @include set-media(md) {
     margin: 0 0;

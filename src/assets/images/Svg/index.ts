@@ -57,3 +57,6 @@ export * from './Banner';
 export * from './ColorEye';
 export * from './Share';
 export * from './Star';
+export * from './HomeFill';
+export * from './Course';
+export * from './CourseFill';

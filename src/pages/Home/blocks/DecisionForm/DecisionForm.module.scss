@@ -88,7 +88,7 @@
   cursor: pointer;
 
   &:hover {
-    &:not([href])::before {
+    &::before {
       opacity: 1;
     }
   }
@@ -106,14 +106,14 @@
     &:active {
       box-shadow: none;
 
-      &:not([href])::before {
+      &::before {
         opacity: 0;
       }
     }
   }
 }
 
-.btn:not([href])::before {
+.btn::before {
   position: absolute;
   content: "";
   top: 0;

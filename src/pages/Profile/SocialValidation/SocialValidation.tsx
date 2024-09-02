@@ -14,13 +14,13 @@ interface IProps {
 
 function SocialValidation({ feedbacks }: IProps) {
   return (
-    <div className={classes.wrapper}>
-          <h2 className={cx({ title: true })} >100+ учеников любят flearn</h2>
+    <>
+          <h2 className={cx({ sectionTitle: true })} >100+ учеников любят flearn</h2>
       <div className={classes.list}>
         {feedbacks.map((feedback, index) =>
           <Item key={index} feedback={feedback}/>
         )}
       </div>
-    </div>
+    </>
   );
 }

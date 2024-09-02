@@ -11,6 +11,7 @@ import { type TAccess, userAccessService } from 'services/userAccess.service';
 
 import Description from './Description/Description';
 import SocialValidation from './SocialValidation/SocialValidation';
+import Catalogue from './Catalogue/Catalogue';
 import BuyPopup from 'components/BuyPopup/BuyPopup';
 import LessonsPopup from 'components/LessonsPopup/LessonsPopup';
 import Link from 'ui/Link/Link';
@@ -18,10 +19,10 @@ import Page, { EPageVariant } from 'ui/Page/Page';
 import Fallback from 'ui/Fallback';
 import Icon from 'ui/Icon/Icon';
 
-import classesList from './LessonsList.module.scss';
+import classesCoursePage from './CoursePage.module.scss';
 import classes from './Profile.module.scss';
 
-const cx = classnames.bind(classesList);
+const cx = classnames.bind(classesCoursePage);
 
 interface IGroup extends Pick<ILessonData, 'topic' | 'topicOrder' | 'topicIcon'> {  
   isFree: boolean
@@ -101,6 +102,20 @@ function Profile(props: IProps) {
     feedbacks
   } = currentCourse.content;
 
+  const freeCourse = courseService.useCourses({ ids: ['how-to-draw'] }).at(0);
+  const firstLesson = lessonService.useLessons({ courseId: 'how-to-draw', topicOrder: 1, orderInTopic: 1 }).at(0);
+  const linkToFreeCourse = firstLesson
+    ? URLSections.Study.to({ courseId: 'how-to-draw', lessonId: firstLesson.id })
+    : URLSections.Profile.to({ courseId: 'how-to-draw' });
+  const [popupVisible, setPopupVisible] = useState(false);
+  const onNotAuthedClick = () => setPopupVisible(true);
+
+  const blocks: JSX.Element[] = [
+    description && <Description type={currentCourse.type} description={description}/>,
+    feedbacks && feedbacks.length && <SocialValidation feedbacks={feedbacks}/>,
+    <Catalogue linkToFreeCourse={linkToFreeCourse} onNotAuthedClick={onNotAuthedClick}/>,
+  ].filter(e => e !== undefined && e !== null && e !== 0);
+
   return (
     <>
       <Page 
@@ -162,11 +177,11 @@ function Profile(props: IProps) {
               )}
             </div>
             {(currentCourseAccess !== 'FREE' || authedUser.role === 'support') ? (
-              <div className={classes.coursePage}>
-                <div className={classes.main}>
-                  <div className={classes.level}>
-                    <div className={classes.levelTitle}>Модули</div>
-                      <div className={classesList.wrapper}>
+              <div className={classesCoursePage.coursePage}>
+                <div className={classesCoursePage.main}>
+                  <div className={classesCoursePage.level}>
+                    <div className={classesCoursePage.levelTitle}>Модули</div>
+                      <div className={classesCoursePage.wrapper}>
                         {[...freeGroupes, ...payableGroupes].map((group, index) => (
                           <TopicCard
                             key={index}
@@ -177,23 +192,23 @@ function Profile(props: IProps) {
                     </div>
                   </div>
                 </div>
-                <aside className={classes.asideWrapper}>
-                  <div className={classes.aside}>
-                    <div className={classes.asideSection}>
-                      <div className={classes.sectionSubtitle}>Ключевые навыки</div>
-                      <div className={classes.chipsSmall}>
-                        <div className={classes.chipSmall}>Выделение главного</div>
+                <aside className={classesCoursePage.asideWrapper}>
+                  <div className={classesCoursePage.aside}>
+                    <div className={classesCoursePage.asideSection}>
+                      <div className={classesCoursePage.sectionSubtitle}>Ключевые навыки</div>
+                      <div className={classesCoursePage.chipsSmall}>
+                        <div className={classesCoursePage.chipSmall}>Выделение главного</div>
                       </div>
                     </div>
                   </div>
                 </aside>
               </div>
             ) : (
-              <div className={classes.coursePage}>
-                <div className={classes.main}>
-                  <div className={classes.level}>
-                    <div className={classes.levelTitle}>Доступно сейчас и бесплатно</div>
-                      <div className={classesList.wrapper}>
+              <div className={classesCoursePage.coursePage}>
+                <div className={classesCoursePage.main}>
+                  <div className={classesCoursePage.level}>
+                    <div className={classesCoursePage.levelTitle}>Доступно сейчас и бесплатно</div>
+                      <div className={classesCoursePage.wrapper}>
                         {freeGroupes.map((group, index) => (
                           <TopicCard
                             key={index}
@@ -203,9 +218,9 @@ function Profile(props: IProps) {
                         ))}
                     </div>
                   </div>
-                  <div className={classes.level}>
-                    <div className={classes.levelTitle}>Будет доступно после оплаты</div>
-                      <div className={classesList.wrapper}>
+                  <div className={classesCoursePage.level}>
+                    <div className={classesCoursePage.levelTitle}>Будет доступно после оплаты</div>
+                      <div className={classesCoursePage.wrapper}>
                         {payableGroupes.map((group, index) => (
                           <TopicCard
                             key={index}
@@ -216,20 +231,23 @@ function Profile(props: IProps) {
                     </div>
                   </div>
                 </div>
-                <aside className={classes.asideWrapper}>
-                  <div className={classes.aside}>
-                    <div className={classes.asideSection}>
-                      <div className={classes.sectionSubtitle}>Ключевые навыки</div>
-                      <div className={classes.chipsSmall}>
-                        <div className={classes.chipSmall}>Выделение главного</div>
+                <aside className={classesCoursePage.asideWrapper}>
+                  <div className={classesCoursePage.aside}>
+                    <div className={classesCoursePage.asideSection}>
+                      <div className={classesCoursePage.sectionSubtitle}>Ключевые навыки</div>
+                      <div className={classesCoursePage.chipsSmall}>
+                        <div className={classesCoursePage.chipSmall}>Выделение главного</div>
                       </div>
                     </div>
                   </div>
                 </aside>
               </div>
             )}
-            {description && <Description type={currentCourse.type} description={description}/>}
-            {feedbacks && feedbacks.length && <SocialValidation feedbacks={feedbacks}/>}
+            {blocks.map((block, index) => (
+              <div key={index} className={classes.section}>
+                {block}
+              </div>
+            ))}
           </div>
         </div>
       </Page>
@@ -262,32 +280,32 @@ function TopicCard(props: { group: IGroup, setOpenedTopic: (topic: string) => vo
     ? `${Math.round(totalDurationMinutes / 6) / 10} ч`
     : `${Math.round(totalDurationMinutes)} мин`;
   return (
-    <div className={classesList.itemWrapper} onClick={() => setOpenedTopic(group.topic)}>
+    <div className={classesCoursePage.itemWrapper} onClick={() => setOpenedTopic(group.topic)}>
       <div className={cx({ item: true, featured: false })}>
-        <div className={classesList.imageWrapper}>
-          <div className={classesList.image}>
+        <div className={classesCoursePage.imageWrapper}>
+          <div className={classesCoursePage.image}>
             <Icon icon={group.topicIcon}/>
           </div>
         </div>
-        <div className={classesList.itemBody}>
-          <div className={classesList.itemBodyContainer}>
-            <div className={classesList.titleContainer}>
-              <h2 className={classesList.title}>
+        <div className={classesCoursePage.itemBody}>
+          <div className={classesCoursePage.itemBodyContainer}>
+            <div className={classesCoursePage.titleContainer}>
+              <h2 className={classesCoursePage.title}>
                 {group.topic}
               </h2>
             </div>
           </div>
-          <div className={classesList.info}>
-            <div className={classesList.infoMain}>
-              <span className={classesList.infoItem}>{i18n.t('lesson.p', { count: group.lessons.length })}</span>
-              <span className={classesList.infoItem}>{`${totalDurationStr}  `}</span>
+          <div className={classesCoursePage.info}>
+            <div className={classesCoursePage.infoMain}>
+              <span className={classesCoursePage.infoItem}>{i18n.t('lesson.p', { count: group.lessons.length })}</span>
+              <span className={classesCoursePage.infoItem}>{`${totalDurationStr}  `}</span>
             </div>
           </div>
         </div>
         <div className={cx({ itemStatus: true, solved: group.solved })}>
           <Icon icon='Tick'/>
         </div>
-        <div className={classesList.itemPopover}>Учиться</div>
+        <div className={classesCoursePage.itemPopover}>Учиться</div>
       </div>
     </div>
   );

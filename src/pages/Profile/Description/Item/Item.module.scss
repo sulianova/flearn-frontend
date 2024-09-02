@@ -32,7 +32,7 @@
 
 .desc {
   @include set-typography(16, 24, 500);
-  color: var(--color-content-paragraph-primary);
+  color: var(--color-content-paragraph-secondary);
 
   p {
     font-size: inherit;

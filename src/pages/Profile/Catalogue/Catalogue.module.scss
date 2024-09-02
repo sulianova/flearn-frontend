@@ -14,16 +14,13 @@
   }
 }
 
-.list {
+.wrapper {
+  position: relative;
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
-
   gap: set-calc(16);
-  max-height: set-calc(1500);
 
   @include set-media(md) {
     gap: set-calc(8);
-    max-height: unset;
   }
 }
