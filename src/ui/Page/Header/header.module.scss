@@ -55,6 +55,8 @@
     padding: set-calc(12) set-calc($padding-xs-mob-page);
 
     border-radius: 0;
+    border: 1px solid transparent;
+    border-bottom: 1px solid var(--color-border);
 
     .navContent,
     .navLogin {
