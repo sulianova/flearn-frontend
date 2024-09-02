@@ -122,7 +122,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
                 <>
                   {user ?
                     (<Link className={cx({ navLogin: true, navItem: true })} to={URLSections.Profile.to({ courseId: lastStudiedCourse?.id ?? 'how-to-draw' })}>{t('login.profile')}</Link>)
-                    : (<div onClick={() => authService.authenticate()}>{t('login.signIn')}</div>)
+                    : (<div className={cx({ navLogin: true, navItem: true })} onClick={() => authService.authenticate()}>{t('login.signIn')}</div>)
                   }
                 </>
               )

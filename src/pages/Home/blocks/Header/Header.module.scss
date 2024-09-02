@@ -2,6 +2,7 @@
 
 .__ {
   position: relative;
+
   display: flex;
   align-items: center;
 
@@ -73,22 +74,23 @@
 
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: center;
 }
 
 .headerTitle {
-  margin: 0 0 set-calc(40);
+  margin: 0 0 set-calc(60);
 
-  @include set-typography(40, 50, 500);
+  @include set-typography(56, 60, 500);
   font-family: $font-family-bold;
   text-align: start;
 
   @include set-media(md) {
 
-    @include set-typography(32, 38, 500);
+    @include set-typography(28, 34, 500);
+    font-family: $font-family-medium;
     text-align: center;
 
-    margin: set-calc(24) 0 set-calc(32);
+    margin: set-calc(24) 0 set-calc(40);
   }
 }
 
@@ -147,8 +149,10 @@
   }
 
   @include set-media(md) {
+    @include set-typography(18, 18, 500);
     width: unset;
     margin-bottom: set-calc(4);
+
     &:hover {
       background-color: var(--primary-color);
     }
