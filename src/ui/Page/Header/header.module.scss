@@ -12,7 +12,7 @@
   align-items: center;
 
   @include set-typography(16, 16, 500);
-  font-family: $font-family-regular;
+  font-family: $font-family-medium;
   color: var(--color-content-inverted-primary);
 }
 
@@ -196,7 +196,6 @@
 
   background-color: var(--color-background-glassy-c);
   color: var(--color-content-primary);
-  font-family: $font-family-regular;
 
   width: max-content;
 

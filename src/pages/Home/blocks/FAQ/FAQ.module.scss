@@ -63,6 +63,10 @@
 
   @include set-media(md) {
     width: 100%;
+
+    @include set-typography( 16, 22, 500);
+    text-align: start;
+    padding-left: set-calc(8);
   }
 }
 
