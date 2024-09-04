@@ -43,7 +43,7 @@
 
 .title {
   @include set-typography(42, 52, 500);
-  font-family: $font-family-regular;
+  font-family: $font-family-highlight-bold;
   text-align: center;
 
   width: 80%;
@@ -54,7 +54,7 @@
   margin-bottom: set-calc(80);
 
   @include set-media(md) {
-    @include set-typography(24, 30, 500);
+    @include set-typography(32, 40, 500);
     width: 100%;
     margin-bottom: set-calc(50);
   }
@@ -80,7 +80,11 @@
   .text {
     @include font-20-normal-ui;
     color: var(--color-content-inverted-primary);
-    font-family: $font-family-medium;
+    font-family: $font-family-bold;
+
+    @include set-media(md) {
+      @include set-typography(18, 18, 500);
+    }
   }
 
   &:hover {
