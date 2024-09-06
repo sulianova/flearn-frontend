@@ -1,6 +1,6 @@
 @import 'styles/index';
 
-.popup{
+.popup {
   margin-left: set-calc(20);
   margin-bottom: set-calc(-5);
 
@@ -12,7 +12,7 @@
   transition: visibility 0.3s, opacity 0.3s, transform 0.3s;
   transition-timing-function: cubic-bezier(0.25, 1.15, 0.5, 1.1);
 
-  width: set-calc(250);
+  min-width: set-calc(250);
   padding: set-calc(8);
 
   border-radius: set-calc($border-radius-16);
