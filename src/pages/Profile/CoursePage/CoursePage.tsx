@@ -68,6 +68,16 @@ export default function CoursePage(props: IProps) {
   const freeGroupes = groupes.filter(g => g.isFree);
   const payableGroupes = groupes.filter(g => !g.isFree);
 
+  const courseTags = useMemo(() => {
+    return [
+      ...new Set(
+        (currentCourse.content.modules ?? [])
+          .flatMap(module => module.tags)
+          .filter(tag => tag !== undefined)
+      )
+    ];
+  }, [currentCourse]);
+
   return (
     <>
       <div className={classes.coursePage}>
@@ -93,16 +103,22 @@ export default function CoursePage(props: IProps) {
             </>
           )}
         </div>
-        <aside className={classes.asideWrapper}>
-          <div className={classes.aside}>
-            <div className={classes.asideSection}>
-              <div className={classes.sectionSubtitle}>Ключевые навыки</div>
-              <div className={classes.chipsSmall}>
-                <div className={classes.chipSmall}>Выделение главного</div>
+        {Boolean(courseTags.length) && (
+          <aside className={classes.asideWrapper}>
+            <div className={classes.aside}>
+              <div className={classes.asideSection}>
+                <div className={classes.sectionSubtitle}>Ключевые навыки</div>
+                <div className={classes.chipsSmall}>
+                  {courseTags
+                    .map(tag => (
+                      <div className={classes.chipSmall}>{tag}</div>
+                    ))
+                  }
+                </div>
               </div>
             </div>
-          </div>
-        </aside>
+          </aside>
+        )}
       </div>
       {openedTopic && (
         <LessonsPopup
