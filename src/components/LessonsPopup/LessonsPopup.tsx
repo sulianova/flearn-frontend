@@ -1,6 +1,7 @@
 import classnames from 'classnames/bind';
+import { useMemo } from 'react';
 
-import { type ILessonData, lessonService } from 'services/lesson.service';
+import { lessonService } from 'services/lesson.service';
 import { URLSections } from 'router';
 
 import Icon from 'ui/Icon/Icon';
@@ -27,6 +28,7 @@ export default function LessonsPopup(props: TProps) {
   const { courseId, close } = props;
 
   const topicLessons = lessonService.useTopicLessons(props) ?? [];
+  const isUnderDevelopment = useMemo(() => topicLessons.some(l => l.isUnderDevelopment), [topicLessons]);
 
   return (
     <Popup
@@ -38,7 +40,7 @@ export default function LessonsPopup(props: TProps) {
           </div>
           <div className={classes.body}>
             <div className={classes.header}>
-              <div className={classes.title}>{topicLessons?.[0]?.topic ?? ''}</div>
+              <div className={classes.title}>{topicLessons?.[0]?.topic ?? ''}{isUnderDevelopment && ' (Скоро будет)'}</div>
             </div>
             {topicLessons ?
               topicLessons.map(lesson => (

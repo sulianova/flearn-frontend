@@ -24,6 +24,7 @@ const lessonData11: ILessonDataDB = {
     value: 5
   },
   isFree: true,
+  isUnderDevelopment: false,
   content: [
     {
       type: 'chat',
@@ -203,6 +204,7 @@ const lessonData12: ILessonDataDB = {
     value: 5
   },
   isFree: true,
+  isUnderDevelopment: false,
   content: [
     {
       type: 'text',
@@ -357,6 +359,7 @@ const lessonData13: ILessonDataDB = {
     value: 5
   },
   isFree: true,
+  isUnderDevelopment: false,
   content: [
     {
       type: 'chat',
@@ -541,6 +544,7 @@ const lessonData14: ILessonDataDB = {
     value: 5
   },
   isFree: true,
+  isUnderDevelopment: false,
   content: [
     {
       type: 'chat',
@@ -747,6 +751,7 @@ const lessonData32: ILessonDataDB = {
     value: 1
   },
   isFree: true,
+  isUnderDevelopment: true,
   content: [
     {
       type: 'text',
@@ -790,6 +795,7 @@ const lessonData41: ILessonDataDB = {
     value: 1
   },
   isFree: false,
+  isUnderDevelopment: false,
   content: [
     {
       type: 'text',
@@ -1194,6 +1200,7 @@ const lessonData42: ILessonDataDB = {
     value: 1
   },
   isFree: false,
+  isUnderDevelopment: false,
   content: [
     {
       type: 'text',
@@ -1807,6 +1814,7 @@ const lessonData43: ILessonDataDB = {
     value: 1
   },
   isFree: false,
+  isUnderDevelopment: false,
   content: [
     {
       type: 'text',
@@ -2025,6 +2033,7 @@ const lessonData44: ILessonDataDB = {
     value: 1
   },
   isFree: false,
+  isUnderDevelopment: false,
   content: [
     {
       type: 'title',
@@ -2356,6 +2365,7 @@ const lessonData45: ILessonDataDB = {
     value: 1
   },
   isFree: false,
+  isUnderDevelopment: false,
   content: [
     {
       type: 'text',
@@ -2601,6 +2611,7 @@ const lessonData46: ILessonDataDB = {
     value: 5
   },
   isFree: false,
+  isUnderDevelopment: false,
   content: [
     {
       type: 'chat',
@@ -2848,6 +2859,7 @@ const lessonData51: ILessonDataDB = {
     value: 1
   },
   isFree: false,
+  isUnderDevelopment: false,
   content: [
     {
       type: 'text',
@@ -3222,6 +3234,7 @@ const lessonData61: ILessonDataDB = {
     value: 1
   },
   isFree: false,
+  isUnderDevelopment: false,
   content: [
     {
       type: 'text',
@@ -3359,6 +3372,7 @@ const lessonData62: ILessonDataDB = {
     value: 1
   },
   isFree: false,
+  isUnderDevelopment: false,
   content: [
     {
       type: 'text',
@@ -4131,6 +4145,7 @@ const lessonData63: ILessonDataDB = {
     value: 1
   },
   isFree: false,
+  isUnderDevelopment: false,
   content: [
     {
       type: 'text',
@@ -4289,6 +4304,7 @@ const lessonData64: ILessonDataDB = {
     value: 1
   },
   isFree: false,
+  isUnderDevelopment: false,
   content: [
     {
       type: 'text',
@@ -4390,6 +4406,7 @@ const lessonData71: ILessonDataDB = {
     value: 1
   },
   isFree: false,
+  isUnderDevelopment: false,
   content: [
     {
       type: 'text',
@@ -4768,6 +4785,7 @@ const lessonData81: ILessonDataDB = {
     value: 1
   },
   isFree: false,
+  isUnderDevelopment: false,
   content: [
     {
       type: 'text',
@@ -5374,6 +5392,7 @@ const lessonData82: ILessonDataDB = {
     value: 1
   },
   isFree: false,
+  isUnderDevelopment: false,
   content: [
     {
       type: 'text',
@@ -5564,6 +5583,7 @@ const lessonData91: ILessonDataDB = {
     value: 1
   },
   isFree: false,
+  isUnderDevelopment: false,
   content: [
     {
       type: 'text',
@@ -5866,6 +5886,7 @@ const lessonDataFYS11: ILessonDataDB = {
     value: 5
   },
   isFree: true,
+  isUnderDevelopment: false,
   content: [
     {
       type: 'chat',
@@ -5984,6 +6005,7 @@ const lessonDataFYS12: ILessonDataDB = {
     value: 5
   },
   isFree: true,
+  isUnderDevelopment: false,
   content: [
     {
       type: 'text',
@@ -6138,6 +6160,7 @@ const lessonDataFYS13: ILessonDataDB = {
     value: 5
   },
   isFree: true,
+  isUnderDevelopment: false,
   content: [
     {
       type: 'chat',
@@ -6322,6 +6345,7 @@ const lessonDataFYS14: ILessonDataDB = {
     value: 5
   },
   isFree: true,
+  isUnderDevelopment: false,
   content: [
     {
       type: 'chat',
@@ -6517,6 +6541,7 @@ const lessonDataFYS21: ILessonDataDB = {
     value: 5
   },
   isFree: true,
+  isUnderDevelopment: false,
   content: [
     {
       type: 'textImportant',
@@ -6662,6 +6687,7 @@ const lessonDataFYS22: ILessonDataDB = {
     value: 10
   },
   isFree: true,
+  isUnderDevelopment: false,
   content: [
     {
       type: 'text',
@@ -7189,6 +7215,7 @@ const lessonDataFYS23: ILessonDataDB = {
     value: 10
   },
   isFree: true,
+  isUnderDevelopment: false,
   content: [
     {
       type: 'text',
@@ -7703,6 +7730,7 @@ const lessonDataFYS24: ILessonDataDB = {
     value: 10
   },
   isFree: true,
+  isUnderDevelopment: false,
   content: [
     {
       type: 'chat',
@@ -8070,6 +8098,7 @@ const lessonDataFYS25: ILessonDataDB = {
     value: 10
   },
   isFree: true,
+  isUnderDevelopment: false,
   content: [
     {
       type: 'text',
@@ -8336,6 +8365,7 @@ const lessonDataFYS26: ILessonDataDB = {
     value: 10
   },
   isFree: true,
+  isUnderDevelopment: false,
   content: [
     {
       type: 'text',
@@ -8508,6 +8538,7 @@ const lessonDataFYS27: ILessonDataDB = {
     value: 10
   },
   isFree: true,
+  isUnderDevelopment: false,
   content: [
     {
       type: 'text',
@@ -8720,6 +8751,7 @@ const lessonDataFYS28: ILessonDataDB = {
     value: 5
   },
   isFree: true,
+  isUnderDevelopment: false,
   content: [
 
   ]
@@ -8739,6 +8771,7 @@ const lessonDataFYS3: ILessonDataDB = {
     value: 1
   },
   isFree: false,
+  isUnderDevelopment: false,
   content: [
     {
       type: 'video',
@@ -10068,6 +10101,7 @@ const lessonDataFYS4: ILessonDataDB = {
     value: 1
   },
   isFree: false,
+  isUnderDevelopment: false,
   content: [
     {
       type: 'video',
@@ -11234,6 +11268,7 @@ const lessonDataFYS5: ILessonDataDB = {
     value: 1
   },
   isFree: false,
+  isUnderDevelopment: false,
   content: [
     {
       type: 'video',
@@ -12940,6 +12975,7 @@ const lessonDataFYS6: ILessonDataDB = {
     value: 1
   },
   isFree: false,
+  isUnderDevelopment: false,
   content: [
     {
       type: 'text',

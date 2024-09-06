@@ -15,10 +15,14 @@ import classes from './CoursePage.module.scss'
 
 const cx = classnames.bind(classes);
 
-interface IGroup extends Pick<ILessonData, 'topic' | 'topicOrder' | 'topicIcon'> {  
+interface ITopic {
+  title: string
+  order: number
+  icon: ILessonData['topicIcon']
   isFree: boolean
+  isSolved: boolean
   isFirstUnsolved: boolean
-  solved: boolean
+  isUnderDevelopment: boolean
   lessons: (ILessonData & { solved: boolean, canBeAccessed: boolean })[]
 }
 
@@ -33,7 +37,7 @@ export default function CoursePage(props: IProps) {
   const { authedUser, currentCourse, courseLessons, currentCourseAccess } = props;
   const [openedTopic, setOpenedTopic] = useState<string | null>(null);
 
-  const groupes: IGroup[] = useMemo(() => {
+  const topics: ITopic[] = useMemo(() => {
     const getKey = (topic: string, topicOrder: number) => `${topic}-${topicOrder}`;
     const firstNotSolvedLesson = courseLessons.find(l => !l.solved);
     return [...courseLessons
@@ -42,31 +46,33 @@ export default function CoursePage(props: IProps) {
 
         if (!acc.has(key)) {
           acc.set(key, {
-            topic: lessonData.topic,
-            topicOrder: lessonData.topicOrder,
-            topicIcon: lessonData.topicIcon,
+            title: lessonData.topic,
+            order: lessonData.topicOrder,
+            icon: lessonData.topicIcon,
             isFree: lessonData.isFree,
+            isSolved: lessonData.solved,
             isFirstUnsolved: Boolean(firstNotSolvedLesson && lessonData.id === firstNotSolvedLesson.id),
-            solved: lessonData.solved,
+            isUnderDevelopment: lessonData.isUnderDevelopment,
             lessons: [lessonData],
           })
         } else {
-          const group = acc.get(key)!;
-          group.isFree = group.isFree && lessonData.isFree;
-          group.isFirstUnsolved = group.isFirstUnsolved || Boolean(firstNotSolvedLesson && lessonData.id === firstNotSolvedLesson.id);
-          group.solved = group.solved && lessonData.solved;
-          group.lessons.push(lessonData);
-          group.lessons.sort((a, b) => a.orderInTopic - b.orderInTopic);
+          const topic = acc.get(key)!;
+          topic.isFree &&= lessonData.isFree;
+          topic.isSolved &&= lessonData.solved;
+          topic.isFirstUnsolved ||= Boolean(firstNotSolvedLesson && lessonData.id === firstNotSolvedLesson.id);
+          topic.isUnderDevelopment &&= lessonData.isUnderDevelopment;
+          topic.lessons.push(lessonData);
+          topic.lessons.sort((a, b) => a.orderInTopic - b.orderInTopic);
         }
 
         return acc;
-      }, new Map() as Map<string, IGroup>)
+      }, new Map() as Map<string, ITopic>)
       .values()]
-      .sort((a, b) => a.topicOrder - b.topicOrder);
+      .sort((a, b) => a.order - b.order);
   }, [courseLessons]);
 
-  const freeGroupes = groupes.filter(g => g.isFree);
-  const payableGroupes = groupes.filter(g => !g.isFree);
+  const freeTopics = topics.filter(topic => topic.isFree);
+  const payableTopics = topics.filter(topic => !topic.isFree);
 
   const courseTags = useMemo(() => {
     return [
@@ -85,19 +91,19 @@ export default function CoursePage(props: IProps) {
           {(currentCourseAccess !== 'FREE' || authedUser.role === 'support') ? (
             <TopicCards
               title='Модули'
-              groups={[...freeGroupes, ...payableGroupes]}
+              topics={[...freeTopics, ...payableTopics]}
               setOpenedTopic={setOpenedTopic}
             />
           ) : (
             <>
               <TopicCards
                 title='Доступно сейчас и бесплатно'
-                groups={freeGroupes}
+                topics={freeTopics}
                 setOpenedTopic={setOpenedTopic}
               />
               <TopicCards
                 title='Будет доступно после оплаты'
-                groups={payableGroupes}
+                topics={payableTopics}
                 setOpenedTopic={setOpenedTopic}
               />
             </>
@@ -131,16 +137,16 @@ export default function CoursePage(props: IProps) {
   );
 }
 
-function TopicCards(props: { title: string, groups: IGroup[], setOpenedTopic: (topic: string) => void }) {
-  const { title, groups, setOpenedTopic } = props;
+function TopicCards(props: { title: string, topics: ITopic[], setOpenedTopic: (topic: string) => void }) {
+  const { title, topics, setOpenedTopic } = props;
   return (
     <div className={classes.level}>
       <div className={classes.levelTitle}>{title}</div>
         <div className={classes.wrapper}>
-          {groups.map((group, index) => (
+          {topics.map((topic, index) => (
             <TopicCard
               key={index}
-              group={group}
+              topic={topic}
               setOpenedTopic={setOpenedTopic}
             />
           ))}
@@ -149,36 +155,36 @@ function TopicCards(props: { title: string, groups: IGroup[], setOpenedTopic: (t
   );
 }
 
-function TopicCard(props: { group: IGroup, setOpenedTopic: (topic: string) => void }) {
-  const { group, setOpenedTopic } = props;
-  const totalDurationMinutes = group.lessons.reduce((acc, l) => acc + durationToMinutes(l.duration), 0);
+function TopicCard(props: { topic: ITopic, setOpenedTopic: (topic: string) => void }) {
+  const { topic, setOpenedTopic } = props;
+  const totalDurationMinutes = topic.lessons.reduce((acc, l) => acc + durationToMinutes(l.duration), 0);
   const totalDurationStr = totalDurationMinutes >= 60
     ? `${Math.round(totalDurationMinutes / 6) / 10} ч`
     : `${Math.round(totalDurationMinutes)} мин`;
   return (
-    <div className={classes.itemWrapper} onClick={() => setOpenedTopic(group.topic)}>
-      <div className={cx({ item: true, featured: group.isFirstUnsolved })}>
+    <div className={classes.itemWrapper} onClick={() => setOpenedTopic(topic.title)}>
+      <div className={cx({ item: true, featured: topic.isFirstUnsolved })}>
         <div className={classes.imageWrapper}>
           <div className={classes.image}>
-            <Icon icon={group.topicIcon}/>
+            <Icon icon={topic.icon}/>
           </div>
         </div>
         <div className={classes.itemBody}>
           <div className={classes.itemBodyContainer}>
             <div className={classes.titleContainer}>
               <h2 className={classes.title}>
-                {group.topic}
+                {topic.title}
               </h2>
             </div>
           </div>
           <div className={classes.info}>
             <div className={classes.infoMain}>
-              <span className={classes.infoItem}>{i18n.t('lesson.p', { count: group.lessons.length })}</span>
+              <span className={classes.infoItem}>{i18n.t('lesson.p', { count: topic.lessons.length })}</span>
               <span className={classes.infoItem}>{`${totalDurationStr}  `}</span>
             </div>
           </div>
         </div>
-        <div className={cx({ itemStatus: true, solved: group.solved })}>
+        <div className={cx({ itemStatus: true, solved: topic.isSolved })}>
           <Icon icon='Tick'/>
         </div>
         <div className={classes.itemPopover}>Учиться</div>

@@ -21,6 +21,7 @@ interface ILessonDataCommon {
     value: number
   }
   isFree: boolean
+  isUnderDevelopment: boolean
   survey?: TSurvey
 }
 
