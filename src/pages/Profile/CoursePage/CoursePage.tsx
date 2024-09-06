@@ -17,6 +17,7 @@ const cx = classnames.bind(classes);
 
 interface IGroup extends Pick<ILessonData, 'topic' | 'topicOrder' | 'topicIcon'> {  
   isFree: boolean
+  isFirstUnsolved: boolean
   solved: boolean
   lessons: (ILessonData & { solved: boolean, canBeAccessed: boolean })[]
 }
@@ -34,6 +35,7 @@ export default function CoursePage(props: IProps) {
 
   const groupes: IGroup[] = useMemo(() => {
     const getKey = (topic: string, topicOrder: number) => `${topic}-${topicOrder}`;
+    const firstNotSolvedLesson = courseLessons.find(l => !l.solved);
     return [...courseLessons
       .reduce((acc, lessonData) => {
         const key = getKey(lessonData.topic, lessonData.topicOrder);
@@ -44,12 +46,14 @@ export default function CoursePage(props: IProps) {
             topicOrder: lessonData.topicOrder,
             topicIcon: lessonData.topicIcon,
             isFree: lessonData.isFree,
+            isFirstUnsolved: Boolean(firstNotSolvedLesson && lessonData.id === firstNotSolvedLesson.id),
             solved: lessonData.solved,
             lessons: [lessonData],
           })
         } else {
           const group = acc.get(key)!;
           group.isFree = group.isFree && lessonData.isFree;
+          group.isFirstUnsolved = group.isFirstUnsolved || Boolean(firstNotSolvedLesson && lessonData.id === firstNotSolvedLesson.id);
           group.solved = group.solved && lessonData.solved;
           group.lessons.push(lessonData);
           group.lessons.sort((a, b) => a.orderInTopic - b.orderInTopic);
@@ -151,7 +155,7 @@ function TopicCard(props: { group: IGroup, setOpenedTopic: (topic: string) => vo
     : `${Math.round(totalDurationMinutes)} мин`;
   return (
     <div className={classes.itemWrapper} onClick={() => setOpenedTopic(group.topic)}>
-      <div className={cx({ item: true, featured: false })}>
+      <div className={cx({ item: true, featured: group.isFirstUnsolved })}>
         <div className={classes.imageWrapper}>
           <div className={classes.image}>
             <Icon icon={group.topicIcon}/>
