@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import { courseService, dummyCourses } from 'services/course.service';
+import { courseService } from 'services/course.service';
 import Spinner from 'ui/Spinner/Spinner';
 
 import Card from './Card/Card';
@@ -12,18 +12,25 @@ interface IProps {
 }
 
 export default function Catalogue(props: IProps) {
-  const allRealCourses = courseService.useCourses();
+  const userCourses = courseService.useUserCourses();
+  const allCourses = courseService.useCourses();
   const courses = useMemo(() => {
-    const realCourses = allRealCourses.filter(course => !['illustration', 'how-to-draw-free'].includes(course.id));
-    return [...realCourses.map(c => ({ isDummy: false, ...c })), ...dummyCourses];
-  }, [allRealCourses]);
+    const excludeIds = ['illustration', 'how-to-draw-free', ...(userCourses ?? []).map(c => c.id)];
+    return allCourses
+      .filter(course => !excludeIds.includes(course.id))
+      .map(c => ({ isDummy: false, ...c }));
+  }, [allCourses, userCourses]);
 
-  if (!courses.length) {
+  if (!userCourses || !allCourses.length) {
     return (
       <div className={classes.spinnerWrapper}>
         <Spinner variant='global'/>
       </div>
     );
+  }
+
+  if (!courses.length) {
+    return null;
   }
 
   return (
