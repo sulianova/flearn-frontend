@@ -65,26 +65,33 @@ export default function CoursePage(props: IProps) {
       .sort((a, b) => a.topicOrder - b.topicOrder);
   }, [courseLessons]);
 
-  const firstNotSolvedLesson = courseLessons.find(l => !l.solved);
   const freeGroupes = groupes.filter(g => g.isFree);
   const payableGroupes = groupes.filter(g => !g.isFree);
 
   return (
-    (currentCourseAccess !== 'FREE' || authedUser.role === 'support') ? (
+    <>
       <div className={classes.coursePage}>
         <div className={classes.main}>
-          <div className={classes.level}>
-            <div className={classes.levelTitle}>Модули</div>
-              <div className={classes.wrapper}>
-                {[...freeGroupes, ...payableGroupes].map((group, index) => (
-                  <TopicCard
-                    key={index}
-                    group={group}
-                    setOpenedTopic={setOpenedTopic}
-                  />
-                ))}
-            </div>
-          </div>
+          {(currentCourseAccess !== 'FREE' || authedUser.role === 'support') ? (
+            <TopicCards
+              title='Модули'
+              groups={[...freeGroupes, ...payableGroupes]}
+              setOpenedTopic={setOpenedTopic}
+            />
+          ) : (
+            <>
+              <TopicCards
+                title='Доступно сейчас и бесплатно'
+                groups={freeGroupes}
+                setOpenedTopic={setOpenedTopic}
+              />
+              <TopicCards
+                title='Будет доступно после оплаты'
+                groups={payableGroupes}
+                setOpenedTopic={setOpenedTopic}
+              />
+            </>
+          )}
         </div>
         <aside className={classes.asideWrapper}>
           <div className={classes.aside}>
@@ -97,53 +104,32 @@ export default function CoursePage(props: IProps) {
           </div>
         </aside>
       </div>
-    ) : (
-      <div className={classes.coursePage}>
-        <div className={classes.main}>
-          <div className={classes.level}>
-            <div className={classes.levelTitle}>Доступно сейчас и бесплатно</div>
-              <div className={classes.wrapper}>
-                {freeGroupes.map((group, index) => (
-                  <TopicCard
-                    key={index}
-                    group={group}
-                    setOpenedTopic={setOpenedTopic}
-                  />
-                ))}
-            </div>
-          </div>
-          <div className={classes.level}>
-            <div className={classes.levelTitle}>Будет доступно после оплаты</div>
-              <div className={classes.wrapper}>
-                {payableGroupes.map((group, index) => (
-                  <TopicCard
-                    key={index}
-                    group={group}
-                    setOpenedTopic={setOpenedTopic}
-                  />
-                ))}
-            </div>
-          </div>
-        </div>
-        <aside className={classes.asideWrapper}>
-          <div className={classes.aside}>
-            <div className={classes.asideSection}>
-              <div className={classes.sectionSubtitle}>Ключевые навыки</div>
-              <div className={classes.chipsSmall}>
-                <div className={classes.chipSmall}>Выделение главного</div>
-              </div>
-            </div>
-          </div>
-        </aside>
-        {openedTopic && (
-          <LessonsPopup
-            courseId={currentCourse.id}
-            topic={openedTopic}
-            close={() => setOpenedTopic(null)}
-          />
-        )}
+      {openedTopic && (
+        <LessonsPopup
+          courseId={currentCourse.id}
+          topic={openedTopic}
+          close={() => setOpenedTopic(null)}
+        />
+      )}
+    </>
+  );
+}
+
+function TopicCards(props: { title: string, groups: IGroup[], setOpenedTopic: (topic: string) => void }) {
+  const { title, groups, setOpenedTopic } = props;
+  return (
+    <div className={classes.level}>
+      <div className={classes.levelTitle}>{title}</div>
+        <div className={classes.wrapper}>
+          {groups.map((group, index) => (
+            <TopicCard
+              key={index}
+              group={group}
+              setOpenedTopic={setOpenedTopic}
+            />
+          ))}
       </div>
-    )
+    </div>
   );
 }
 
