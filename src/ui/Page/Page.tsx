@@ -23,7 +23,7 @@ export enum EPageVariant {
 interface IProps {
   children: React.ReactNode
   variant: EPageVariant
-  header?: boolean | EPageVariant
+  header?: boolean
   footer?: boolean | EFooter
   scrollToTopDependencie?: any
   backgroundColor?: string
@@ -67,9 +67,9 @@ function Page({ children, variant, header = false, footer, backgroundColor = 'va
   return (
     <div className={classes.trainerContent}>
       <div className={classes.theoryPage}>
-        {(variant !== 'WEB') && <Sidebar/>}
+        {(variant !== EPageVariant.WEB) && <Sidebar/>}
         <div className={classes.__} data-footer={footer !== false} ref={ref}>
-          {header && <Header variant={header === true ? variant : header} visible={true /* headerVisible */}/>}
+          {header && <Header variant={variant} visible={true}/>}
           <div className={classes.content}>
             <section className={classes[`${variant}Wrapper`]}>
               <MobileBtn course={currentCourse} variant={variant} visible={headerVisible}/>

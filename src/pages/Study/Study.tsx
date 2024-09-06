@@ -49,7 +49,12 @@ export default function LessonContainer(props: IProps) {
   }, [courseId, lessonId]);
 
   if (!grandAccessFinished) {
-    return <Fallback.Pending text='Loading lesson' headerVariant={EPageVariant.LMS}/>;
+    return (
+      <Fallback.Pending
+        text='Loading lesson'
+        variant={EPageVariant.LMS}
+      />
+    );
   }
 
   return <Lesson {...props}/>
@@ -67,12 +72,19 @@ function Lesson({ section }: IProps) {
   const progress = userCourseProgressService.useCurrentCourseProgress();
 
   if (!currentCourse || !currentLesson || !currentCourseAccess || !authedUser || !progress) {
-    return <Fallback.Pending text='Loading lesson' headerVariant={EPageVariant.LMS}/>;
+    return (
+      <Fallback.Pending
+        text='Loading lesson'
+        variant={EPageVariant.LMS}
+      />
+    );
   }
 
   if (!currentLesson.isFree && currentCourseAccess === 'FREE' && authedUser.role === 'user') {
     return (
-      <Fallback.Info headerVariant={EPageVariant.LMS}>
+      <Fallback.Info
+        variant={EPageVariant.LMS}
+      >
         Это платный урок. Купите курс, чтобы получить доступ.
       </Fallback.Info>
     );

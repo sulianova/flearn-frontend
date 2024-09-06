@@ -1,26 +1,20 @@
 import Page, { EPageVariant } from 'ui/Page/Page';
-import InPageFallback from '../InPageFallback/InPageFallback';
+
+import classes from '../Fallback.module.scss';
 
 interface IProps {
   children: React.ReactNode
-  fullPage?: boolean
-  headerVariant?: EPageVariant
+  variant: EPageVariant
 }
 
 export default function Info(props: IProps) {
-  const { fullPage = true, headerVariant } = props;
-
-  if (fullPage) {
-    return (
-      <Page variant={EPageVariant.Fallback} header={headerVariant ?? true} footer>
-        {props.children}
-      </Page>
-    );
-  }
+  const { children, variant } = props;
 
   return (
-    <InPageFallback>
-      {props.children}
-    </InPageFallback>
+    <Page variant={variant} header footer>
+      <div className={classes._}>
+        {children}
+      </div>
+    </Page>
   );
 }

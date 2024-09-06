@@ -26,7 +26,12 @@ export default function ProfileContainer() {
   const currentCourseAccess = userAccessService.useCurrentCourseAccess();
 
   if (!authedUser || !currentCourse || !courseLessons || !currentCourseAccess) {
-    return <Fallback.Pending text='Loading profile' headerVariant={EPageVariant.LMS}/>;
+    return (
+      <Fallback.Pending
+        text='Loading profile'
+        variant={EPageVariant.LMS}
+      />
+    );
   }
 
   return (

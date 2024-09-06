@@ -11,7 +11,11 @@ export default function Course() {
   const course = courseService.useCurrentCourse();
 
   if (!course) {
-    return <Fallback.Pending headerVariant={EPageVariant.WEB}/>;
+    return (
+      <Fallback.Pending
+        variant={EPageVariant.WEB}
+      />
+    );
   }
 
   return (
