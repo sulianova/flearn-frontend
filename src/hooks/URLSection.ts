@@ -12,6 +12,10 @@ export function useURLSection(): TURLSectionObj {
       return { name: 'Home', params: URLSections.Home.getParams(pathname)! };
     } else if (URLSections.Landing.regex.test(pathname)) {
       return { name: 'Landing', params: URLSections.Landing.getParams(pathname)! };
+    } else if (URLSections.Courses.regex.test(pathname)) {
+      return { name: 'Courses', params: URLSections.Courses.getParams(pathname)! };
+    } else if (URLSections.Course.regex.test(pathname)) {
+      return { name: 'Course', params: URLSections.Course.getParams(pathname)! };
     } else if (URLSections.Profile.regex.test(pathname)) {
       return { name: 'Profile', params: URLSections.Profile.getParams(pathname)! };
     } else if (URLSections.EmptyProfile.regex.test(pathname)) {

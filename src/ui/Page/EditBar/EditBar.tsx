@@ -16,6 +16,8 @@ export default function EditBar() {
   if (
     urlSection.name === 'Other'
     || urlSection.name === 'EmptyProfile'
+    || urlSection.name === 'Courses'
+    || urlSection.name === 'Course'
     || envService.dataMode !== 'EDIT'
     || (urlSection.name === 'Landing' && !courseId)
     || (urlSection.name === 'Study' && (!courseId || !lessonId))

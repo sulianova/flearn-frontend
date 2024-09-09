@@ -1,0 +1,34 @@
+@import 'styles/index';
+
+.coursesPage {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 100%;
+  max-width: set-calc(1080);
+  margin: set-calc(32) auto set-calc(52) 0;
+
+  @include set-media(md) {
+    left: set-calc(-$padding-xs-mob-page);
+    width: set-calc(2 * $padding-xs-mob-page, true, 100%);
+
+    margin: 0 auto set-calc(24);
+  }
+}
+
+.coursesPageContent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  gap: set-calc(64);
+
+  @include set-media(md) {
+    gap: set-calc(40);
+  }
+
+}
+
+.section {
+
+}

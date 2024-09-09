@@ -28,20 +28,26 @@ export const URLSections = {
         };
     },
   },
-  // Courses: {
-  //   index: '/course/:courseId',
-  //   to: (props: { courseId: string } & IBaseProps) =>
-  //     assemble({ ...props, path: `/course/${props.courseId}` }),
-  //   regex: /^\/course\/([^\/]+)$/,
-  //   getParams(pathname: string) {
-  //     const res = this.regex.exec(pathname);
-  //     return !res
-  //       ? null
-  //       : {
-  //         courseId: res[1],
-  //       };
-  //   },
-  // },
+  Courses: {
+    index: '/courses',
+    to: () => '/courses',
+    regex: /^\/courses$/,
+    getParams: (_pathname: string) => ({}),
+  },
+  Course: {
+    index: '/courses/:courseId',
+    to: (props: { courseId: string } & IBaseProps) =>
+      assemble({ ...props, path: `/courses/${props.courseId}` }),
+    regex: /^\/courses\/([^\/]+)$/,
+    getParams(pathname: string) {
+      const res = this.regex.exec(pathname);
+      return !res
+        ? null
+        : {
+          courseId: res[1],
+        };
+    },
+  },
   Profile: {
     index: '/profile/:courseId',
     to: (props: { courseId: string } & IBaseProps) =>

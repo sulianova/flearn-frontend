@@ -4,7 +4,9 @@ import { useState } from 'react';
 import { useParams } from 'react-router';
 
 import { useURLSection } from 'hooks';
+import { frontendSettingsService } from 'services/frontendSettings.service';
 import { userService } from 'services/user.service';
+import { userCourseProgressService } from 'services/userCourseProgress.service';
 import { URLSections } from 'router';
 
 import LessonsPopup from 'components/LessonsPopup/LessonsPopup';
@@ -13,7 +15,6 @@ import Link from 'ui/Link/Link';
 
 import UserPopup from './UserPopup/UserPopup';
 import classes from './Sidebar.module.scss';
-import { frontendSettingsService } from 'services/frontendSettings.service';
 
 const cx = classnames.bind(classes);
 
@@ -24,6 +25,7 @@ function Sidebar() {
   const urlSection = useURLSection();
   const authedUser = userService.useAuthedUser();
   const { theme } = frontendSettingsService.useFrontendSettings();
+  const lastStudiedCourse = userCourseProgressService.useLastStudiedCourse();
   const [lessonsPopupVisible, setLessonsPopupVisible] = useState(false);
   const [userPopupVisible, setUserPopupVisible] = useState(false);
 
@@ -37,25 +39,51 @@ function Sidebar() {
           >
             <Icon icon='Logo' />
           </Link>
-        {(urlSection.name === 'Study' || urlSection.name === 'Profile') && (
+        {(urlSection.name === 'Study' || urlSection.name === 'Profile' || urlSection.name === 'Courses' || urlSection.name === 'Course') && (
           <ul className={classes.items}>
+            {(urlSection.name === 'Courses' || urlSection.name === 'Course') && authedUser && (
+              <li className={classes.item}>
+                <span className={classes.iconWrapper}>
+                  <Link
+                    className={classes.icon}
+                    to={!lastStudiedCourse ? URLSections.EmptyProfile.to() : URLSections.Profile.to({ courseId: lastStudiedCourse.id })}
+                  >
+                    <Icon icon='Home' />
+                  </Link>
+                </span>
+              </li>
+            )}
+            {urlSection.name === 'Profile' && (
+              <li className={classes.item}>
+                <span className={classes.iconWrapper}>
+                  <Link
+                    className={classes.icon}
+                    to={URLSections.Profile.to({ courseId: courseId! })}
+                  >
+                    <Icon icon='HomeFill' />
+                  </Link>
+                </span>
+              </li>
+            )}
+            {urlSection.name === 'Study' && (
+              <li className={classes.item}>
+                <span className={classes.iconWrapper}>
+                  <Link
+                    className={classes.icon}
+                    to={URLSections.Profile.to({ courseId: courseId! })}
+                  >
+                    <Icon icon='Home' />
+                  </Link>
+                </span>
+              </li>
+            )}
             <li className={classes.item}>
               <span className={classes.iconWrapper}>
                 <Link
                   className={classes.icon}
-                  to={URLSections.Profile.to({ courseId: courseId! })}
+                  to={URLSections.Courses.to()}
                 >
-                  <Icon icon='Home' />
-                </Link>
-              </span>
-            </li>
-            <li className={classes.item}>
-              <span className={classes.iconWrapper}>
-                <Link
-                  className={classes.icon}
-                  to={URLSections.Profile.to({ courseId: courseId! })}
-                >
-                  <Icon icon='Course' />
+                  <Icon icon={(urlSection.name === 'Courses' || urlSection.name === 'Course') ? 'CourseFill' : 'Course'} />
                 </Link>
               </span>
             </li>
@@ -89,7 +117,13 @@ function Sidebar() {
                 </div>
               </span>
             </li>
-            {(urlSection.name !== 'Landing') && (urlSection.name !== 'Home') && (
+            {(
+                 (urlSection.name === 'Courses' && authedUser)
+              || (urlSection.name === 'Course' && authedUser)
+              || urlSection.name === 'EmptyProfile'
+              || urlSection.name === 'Profile'
+              || urlSection.name === 'Study'
+            ) && (
               <Tippy
                 interactive
                 placement='left-end'
