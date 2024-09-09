@@ -181,7 +181,10 @@ class LessonService {
         source: this.sourceBS.getValue(),
         section: locationService.URLSection,
       };
-      if ((dependencies.section.name !== 'Profile' && dependencies.section.name !== 'Study')) {
+      console.log('initCourseLessonsRawBS refetch', { dependencies });
+      if ((dependencies.section.name !== 'Course' && dependencies.section.name !== 'Profile' && dependencies.section.name !== 'Study')) {
+        console.log('initCourseLessonsRawBS refetch 1');
+        
         this._courseLessonsRawBS.next({ lessons: null, dependencies });
         return;
       }
@@ -190,22 +193,25 @@ class LessonService {
       const prevDependencies = this._courseLessonsRawBS.getValue().dependencies;
       if (prevDependencies
         && prevDependencies.source === dependencies.source
-        && (prevDependencies.section.name === 'Profile' || prevDependencies.section.name === 'Study')
+        && (prevDependencies.section.name === 'Course' || prevDependencies.section.name === 'Profile' || prevDependencies.section.name === 'Study')
         && prevDependencies.section.params.courseId === dependencies.section.params.courseId
       ) {
+        console.log('initCourseLessonsRawBS refetch 2');
         return;
       }
 
       if (prevDependencies
         && prevDependencies.source !== dependencies.source
       ) {
+        console.log('initCourseLessonsRawBS refetch 3');
         // trigger spinner
         this._courseLessonsRawBS.next({ lessons: null, dependencies });
       } else if (
         prevDependencies
-        && (prevDependencies.section.name === 'Profile' || prevDependencies.section.name === 'Study')
+        && (prevDependencies.section.name === 'Course' || prevDependencies.section.name === 'Profile' || prevDependencies.section.name === 'Study')
         && prevDependencies.section.params.courseId !== dependencies.section.params.courseId
       ) {
+        console.log('initCourseLessonsRawBS refetch 4');
         // trigger spinner
         this._courseLessonsRawBS.next({ lessons: null, dependencies });
       }
@@ -213,6 +219,7 @@ class LessonService {
       const courseId = dependencies.section.params.courseId;
       this.fetch({ courseId })
           .then(lessons => {
+            console.log('initCourseLessonsRawBS refetch 5', { lessons });
             this._courseLessonsRawBS.next({ lessons, dependencies })
           })
           .catch(error => {
@@ -233,9 +240,11 @@ class LessonService {
         authedUser: userService.authedUser,
         courseAccess: userAccessService.currentCourseAccess,
       };
+      console.log('initCourseLessonsBS refetch', { dependencies });
       const { lessons, dependencies: rawDependencies } = this._courseLessonsRawBS.getValue();
-      if (!dependencies.authedUser || !lessons || !rawDependencies || (rawDependencies.section.name !== 'Profile' && rawDependencies.section.name !== 'Study')) {
+      if (!dependencies.authedUser || !lessons || !rawDependencies || (rawDependencies.section.name !== 'Course' && rawDependencies.section.name !== 'Profile' && rawDependencies.section.name !== 'Study')) {
         this._courseLessonsBS.next({ lessons: null, dependencies });
+        console.log('initCourseLessonsBS refetch', { dependencies });
         return;
       }
 

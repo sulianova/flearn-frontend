@@ -31,7 +31,14 @@ class UserAccessService {
     const refetch = () => {
       const authedUser = authService.user;
       const section = locationService.URLSection;
-      if ((section.name !== 'Profile' && section.name !== 'Study') || !authedUser) {
+      if (
+        (
+          section.name !== 'Course'
+          && section.name !== 'Profile'
+          && section.name !== 'Study'
+        )
+        || !authedUser
+    ) {
         this._currentCourseAccessBS.next(null);
         return;
       }

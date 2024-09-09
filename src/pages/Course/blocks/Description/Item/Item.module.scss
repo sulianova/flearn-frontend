@@ -1,0 +1,54 @@
+@import 'styles/index';
+
+._ {
+  width: calc(33% - 16px);
+  padding: set-calc(24);
+  border-radius: set-calc($border-radius-medium);
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+
+  @include set-media(md) {
+    display: flex;
+    width: 100%;
+    padding: set-calc(16);
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  @include set-typography(18, 24, 500);
+  font-family: $font-family-medium;
+  color: var(--color-content-primary);
+  margin-bottom: set-calc(16);
+
+  @include set-media(md) {
+    margin-bottom: set-calc(16);
+  }
+}
+
+.desc {
+  @include set-typography(16, 24, 500);
+  color: var(--color-content-paragraph-secondary);
+
+  p {
+    font-size: inherit;
+    line-height: inherit;
+    font-family: inherit;
+  }
+
+  p:not(:last-child) {
+    padding-bottom: set-calc(16);
+  }
+}
+
+.desc:not(:last-child) {
+  padding-bottom: set-calc(48);
+
+  @include set-media(md) {
+    padding-bottom: set-calc(24);
+  }
+}

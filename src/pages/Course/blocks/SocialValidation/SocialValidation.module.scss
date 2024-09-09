@@ -1,0 +1,29 @@
+@import 'styles/index';
+
+.sectionTitle {
+  margin: 0 0 set-calc(24);
+  padding-left: set-calc(8);
+
+  @include font-24-normal-header;
+  font-family: $font-family-bold;
+  color: var(--color-content-primary);
+
+  @include set-media(md) {
+    margin: 0 0 set-calc(24) set-calc(8);
+    padding-left: set-calc(0);
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  gap: set-calc(16);
+  max-height: set-calc(1500);
+
+  @include set-media(md) {
+    gap: set-calc(8);
+    max-height: unset;
+  }
+}

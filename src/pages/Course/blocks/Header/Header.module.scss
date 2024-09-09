@@ -1,0 +1,218 @@
+@import 'styles/index';
+
+.header {
+  display: flex;
+  flex-direction: column;
+}
+
+.headerWrapper {
+  position: relative;
+
+  display: flex;
+  gap: set-calc(40);
+
+  background-color: var(--color-card);
+  margin-bottom: set-calc(32);
+  padding: set-calc(32);
+  border-radius: set-calc($border-radius-20);
+  border: 1px solid var(--color-border);
+
+  @include set-media(md) {
+    flex-direction: column;
+    margin-bottom: set-calc(16);
+    padding: set-calc(16);
+  }
+}
+
+.shareLink {
+  @include btn;
+
+  position: absolute;
+  right: set-calc(32);
+  bottom: set-calc(32);
+
+  display: inline-flex;
+  flex-shrink: 0;
+  align-self: center;
+  margin-left: set-calc(32);
+  width: set-calc(44);
+  border-radius: set-calc($border-radius-10);
+
+  -webkit-tap-highlight-color: transparent;
+  color: var(--color-content-secondary);
+
+  &:hover {
+    background-color: var(--color-background-glassy-b);
+
+    svg path {
+      fill: var(--color-content-primary);
+    }
+  }
+
+  &:active {
+    background-color: var(--color-background-glassy-c);
+  }
+
+  svg {
+    flex-shrink: 0;
+    width: set-calc(24);
+    height: set-calc(44);
+
+    path {
+      fill: currentColor;
+    }
+  }
+
+  @include set-media(md) {
+    display: none;
+  }
+}
+
+.headerImage {
+  display: flex;
+
+  width: set-calc(320);
+
+  svg {
+    width: set-calc(176);
+    height: set-calc(176);
+
+    margin: 0 auto;
+  }
+  
+  @include set-media(md) {
+    position: absolute;
+    top: set-calc(16);
+    right: set-calc(16);
+
+    width: set-calc(72);
+    aspect-ratio: auto 1;
+
+    svg {
+      width: 100%;
+      height: 100%;
+  
+      margin: 0 0;
+    }
+  }
+}
+
+.headerContent {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1;
+
+  @include set-media(md) {
+    margin: 0 set-calc(8);
+  }
+}
+
+.title {
+  @include set-typography(40, 40, 500);
+  font-family: $font-family-bold;
+  max-width: set-calc(700);
+
+  margin: 0 0 set-calc(24);
+
+  @include set-media(md) {
+    @include set-typography(32, 36, 500);
+    margin: 0 set-calc(90) set-calc(16) 0;
+  }
+}
+
+.description {
+  @include font-18-normal-ui;
+  color: var(--color-content-paragraph-secondary);
+  max-width: set-calc(700);
+
+  margin: 0 0 set-calc(32);
+
+  @include set-media(md) {
+    @include set-typography(14, 20, 500);
+    margin: 0 0 set-calc(40);
+  }
+}
+
+.metaData {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.metaData_Item {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 set-calc(12);
+  background-color: var(--color-background-alternate);
+  height: set-calc(36);
+  border-radius: set-calc( calc(36 / 2));
+
+  color: var(--color-content-paragraph-secondary);
+
+  &:not(:last-child) {
+    margin-right: set-calc(6);
+  }
+
+  &Text {
+  @include font-14-normal-ui;
+    color: inherit;
+    white-space: nowrap;
+  }
+}
+
+.actions {
+  display: flex;
+  padding-left: set-calc(8);
+
+  @include set-media(md) {
+    padding-left: set-calc(0);
+  }
+}
+
+.actionsBtn {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  flex-grow: 1;
+
+  @include set-media(md) {
+    width: set-calc(16, true, 100%);
+    left: set-calc(-8);
+  }
+}
+
+.currentLessonButton {
+  @include btn;
+  @include button-small;
+
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: set-calc(8);
+  min-width: set-calc(160);
+
+  @include set-typography(16, 16, 500);
+  color: $color-content-inverted-primary-light;
+  font-family: $font-family-medium;
+
+  background-color: var(--primary-color);
+
+  &:hover {
+    background-color: var(--primary-color-hover);
+    cursor: pointer;
+  }
+
+  @include set-media(md) {
+    width: 100%;
+    &:hover {
+      background-color: var(--primary-color);
+    }
+  }
+}
