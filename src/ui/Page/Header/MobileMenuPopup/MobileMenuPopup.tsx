@@ -72,7 +72,7 @@ export default function MobileMenuPopup(props: Readonly<IProps>) {
           mobItem: true,
           active: {
             'Home': course.id === lastStudiedCourse?.id,
-            'Course': course.id === lastStudiedCourse?.id,
+            'Landing': course.id === lastStudiedCourse?.id,
             'Profile': course.id === courseId,
             'EmptyProfile': course.id === courseId,
             'Study': false,
@@ -190,7 +190,7 @@ export default function MobileMenuPopup(props: Readonly<IProps>) {
                   {!user ? mobMenuLoginBtn :
                       {
                         'Home': mobMenuFirstNotSolvedLessonProfileBtn,
-                        'Course': mobMenuFirstNotSolvedLessonProfileBtn,
+                        'Landing': mobMenuFirstNotSolvedLessonProfileBtn,
                         'Profile': buyCourseBtn,
                         'EmptyProfile': homeBtn,
                         'Study': buyCourseBtn,

@@ -3,7 +3,7 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { locationService } from 'services/location.service';
 
 import Home from 'pages/Home/Home';
-import Course from 'pages/Course/Course';
+import Landing from 'pages/Landing/Landing';
 import EmptyProfile from 'pages/EmptyProfile/EmptyProfile';
 import Profile from 'pages/Profile/Profile';
 import Study from 'pages/Study/Study';
@@ -34,7 +34,7 @@ function MyRouter() {
   return (
     <Routes>
       <Route index path={URLSections.Home.index} element={<Home />} />
-      <Route path={URLSections.Course.index} element={<Course />} />
+      <Route path={URLSections.Landing.index} element={<Landing />} />
       <Route element={<ProtectedRoute />}>
         <Route path={URLSections.EmptyProfile.index} element={<EmptyProfile />} />
         <Route path={URLSections.Profile.index} element={<Profile />} />

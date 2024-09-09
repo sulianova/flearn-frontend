@@ -17,7 +17,7 @@ export default function EditBar() {
     urlSection.name === 'Other'
     || urlSection.name === 'EmptyProfile'
     || envService.dataMode !== 'EDIT'
-    || (urlSection.name === 'Course' && !courseId)
+    || (urlSection.name === 'Landing' && !courseId)
     || (urlSection.name === 'Study' && (!courseId || !lessonId))
   ) {
     return null;
@@ -30,7 +30,7 @@ export default function EditBar() {
       undefined,
       undefined,
     ],
-    'Course': [
+    'Landing': [
       courseSource,
       () => courseService.changeSource(courseSource === 'local' ? 'remote' : 'local'),
       courseId ? () => courseService.upload(courseId) : undefined,

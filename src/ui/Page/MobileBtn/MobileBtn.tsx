@@ -70,7 +70,7 @@ export default function MobileBtn({ course, variant, visible }: IProps) {
         />
       }
       <div className={classes.__}>
-          {urlSection.name === 'Course' && course && (
+          {urlSection.name === 'Landing' && course && (
             authService.isAuthenticated && firstLesson
               ? (
                 <Link
@@ -90,7 +90,7 @@ export default function MobileBtn({ course, variant, visible }: IProps) {
               )
           )}
           <div className={classes.btnWrapperRight}>
-              {urlSection.name !== 'Course' && user && (
+              {urlSection.name !== 'Landing' && user && (
                 <div className={classes.settings} onClick={() => setMobMenuIsOpened(o => !o)}>
                   <Icon icon='List'/>
                 </div>

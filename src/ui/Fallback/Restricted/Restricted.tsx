@@ -12,7 +12,7 @@ export default function Restricted() {
     <Page variant={EPageVariant.Fallback} header footer>
       <p>Access to this page is restricted</p>
       <p>You have to buy course to be able to see content</p>
-      {courseId && (<Link to={URLSections.Course.to({ courseId })}>Buy course</Link>)}
+      {courseId && (<Link to={URLSections.Landing.to({ courseId })}>Buy course</Link>)}
     </Page>
   );
 }

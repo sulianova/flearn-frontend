@@ -49,7 +49,7 @@ export default function Card({ course }: Readonly<IProps>) {
     return (
       <Link 
         className={classes.__}
-        to={URLSections.Course.to({ courseId: course.id })}
+        to={URLSections.Landing.to({ courseId: course.id })}
       >
         {content}
         <div className={classes.background}/>

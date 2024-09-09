@@ -89,7 +89,7 @@ function Sidebar() {
                 </div>
               </span>
             </li>
-            {(urlSection.name !== 'Course') && (urlSection.name !== 'Home') && (
+            {(urlSection.name !== 'Landing') && (urlSection.name !== 'Home') && (
               <Tippy
                 interactive
                 placement='left-end'

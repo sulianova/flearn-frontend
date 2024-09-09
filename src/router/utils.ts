@@ -14,11 +14,11 @@ export const URLSections = {
     regex: /^\/$/,
     getParams: (_pathname: string) => ({}),
   },
-  Course: {
-    index: '/course/:courseId',
+  Landing: {
+    index: '/landing/:courseId',
     to: (props: { courseId: string } & IBaseProps) =>
-      assemble({ ...props, path: `/course/${props.courseId}` }),
-    regex: /^\/course\/([^\/]+)$/,
+      assemble({ ...props, path: `/landing/${props.courseId}` }),
+    regex: /^\/landing\/([^\/]+)$/,
     getParams(pathname: string) {
       const res = this.regex.exec(pathname);
       return !res
@@ -28,6 +28,20 @@ export const URLSections = {
         };
     },
   },
+  // Courses: {
+  //   index: '/course/:courseId',
+  //   to: (props: { courseId: string } & IBaseProps) =>
+  //     assemble({ ...props, path: `/course/${props.courseId}` }),
+  //   regex: /^\/course\/([^\/]+)$/,
+  //   getParams(pathname: string) {
+  //     const res = this.regex.exec(pathname);
+  //     return !res
+  //       ? null
+  //       : {
+  //         courseId: res[1],
+  //       };
+  //   },
+  // },
   Profile: {
     index: '/profile/:courseId',
     to: (props: { courseId: string } & IBaseProps) =>

@@ -1,13 +1,13 @@
 import { courseService } from 'services/course.service';
 
-import Page, { EFooter, EPageVariant } from 'ui/Page/Page';
+import Page, { EPageVariant } from 'ui/Page/Page';
 
 import ProgramBlocks from './ProgramBlocks/ProgramBlocks';
 import ProgramIntro from './ProgramIntro/ProgramIntro';
 
 import Fallback from 'ui/Fallback';
 
-export default function Course() {
+export default function Landing() {
   const course = courseService.useCurrentCourse();
 
   if (!course) {

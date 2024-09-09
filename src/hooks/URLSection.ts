@@ -10,8 +10,8 @@ export function useURLSection(): TURLSectionObj {
     const pathname = decodeURI(location.pathname);
     if (URLSections.Home.regex.test(pathname)) {
       return { name: 'Home', params: URLSections.Home.getParams(pathname)! };
-    } else if (URLSections.Course.regex.test(pathname)) {
-      return { name: 'Course', params: URLSections.Course.getParams(pathname)! };
+    } else if (URLSections.Landing.regex.test(pathname)) {
+      return { name: 'Landing', params: URLSections.Landing.getParams(pathname)! };
     } else if (URLSections.Profile.regex.test(pathname)) {
       return { name: 'Profile', params: URLSections.Profile.getParams(pathname)! };
     } else if (URLSections.EmptyProfile.regex.test(pathname)) {

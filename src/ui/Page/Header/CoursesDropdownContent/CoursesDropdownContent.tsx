@@ -40,7 +40,7 @@ export default function CoursesDropdownContent({ courses, lastStudiedCourse, clo
                         listOption: true,
                         active: {
                           'Home': course.id === lastStudiedCourse?.id,
-                          'Course': course.id === lastStudiedCourse?.id,
+                          'Landing': course.id === lastStudiedCourse?.id,
                           'Profile': course.id === courseId,
                           'EmptyProfile': course.id === courseId,
                           'Study': course.id === courseId,
