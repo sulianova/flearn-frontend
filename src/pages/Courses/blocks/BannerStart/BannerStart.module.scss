@@ -1,0 +1,110 @@
+@import 'styles/index';
+
+.wrapper {
+  @include is-beige;
+  background-color: var(--color-background-default);
+  background-image: linear-gradient(180deg, var(--color-background-default) 6%, var(--color-background-alternate) 30%);
+
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: set-calc(80) set-calc(200) set-calc(80);
+
+  @include set-media(md) {
+    margin: 0 0;
+    padding: 0 0;
+  }
+}
+
+.card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: set-calc(80);
+  width: 100%;
+
+  background: var(--primary-color);
+  border-radius: set-calc($border-radius-30);
+
+  @include set-media(md) {
+    padding: set-calc(56) set-calc(16);
+    border-radius: 0;
+
+    width: 100%;
+  }
+}
+
+.title {
+  @include set-typography(42, 52, 500);
+  font-family: $font-family-highlight-bold;
+  text-align: center;
+
+  width: 80%;
+
+  transition: opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
+  color: var(--color-content-inverted-primary);
+
+  margin-bottom: set-calc(80);
+
+  @include set-media(md) {
+    @include set-typography(32, 40, 500);
+    width: 100%;
+    margin-bottom: set-calc(50);
+  }
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  @include set-media(md) {
+    flex-direction: row-reverse;
+    width: 100%;
+  }
+}
+
+.actionsBtn {
+  @include btn;
+  @include button-xl;
+
+  border: 2px solid var(--color-content-inverted-primary);
+
+  .text {
+    @include font-20-normal-ui;
+    color: var(--color-content-inverted-primary);
+    font-family: $font-family-bold;
+
+    @include set-media(md) {
+      @include set-typography(18, 18, 500);
+    }
+  }
+
+  &:hover {
+    background: var(--color-content-inverted-primary);
+
+    .text {
+      color: var(--primary-color);
+    }
+  }
+
+  @include set-media(md) {
+    width: 100%;
+    border-width: 1px;
+
+    &:hover {
+      background: transparent;
+  
+      .text {
+        color: $color-content-inverted-primary-light;
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+@import 'styles/index';
+
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: set-calc(16);
+
+  @include set-media(md) {
+    gap: set-calc(8);
+  }
+}
+
+.spinnerWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

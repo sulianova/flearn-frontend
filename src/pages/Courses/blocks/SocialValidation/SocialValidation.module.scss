@@ -1,0 +1,41 @@
+@import 'styles/index';
+
+.wrapper {
+  padding: set-calc(80) 0 0;
+}
+
+.header {
+  position: relative;
+
+  padding: 0 set-calc(16);
+  margin-bottom: set-calc(32);
+
+  @include set-media(md) {
+    position: relative;
+
+    display: block;
+    margin-bottom: set-calc(24);
+    padding: 0 set-calc($padding-xs-mob-page);
+  }
+}
+
+.headerTitle {
+  margin-bottom: set-calc(24);
+
+  @include font-56-normal-header;
+  font-family: $font-family-highlight-bold;
+
+  @include set-media(md) {
+    margin-bottom: set-calc(20);
+  }
+}
+
+.list {
+  display: flex;
+  gap: set-calc(16);
+
+  @include set-media(md) {
+    gap: set-calc(8);
+    flex-direction: column;
+  }
+}
