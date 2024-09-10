@@ -31,6 +31,7 @@
   width: 100%;
 
   background: var(--primary-color);
+  background: var(--primary-color);
   border-radius: set-calc($border-radius-30);
 
   @include set-media(md) {
@@ -103,7 +104,7 @@
       background: transparent;
   
       .text {
-        color: $color-content-inverted-primary-light;
+        color: var(--color-content-inverted-primary);
       }
     }
   }

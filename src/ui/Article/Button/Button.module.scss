@@ -25,7 +25,7 @@
   font-family: $font-family-medium;
 
   &:hover {
-    background-color: $color-highlight-yellow-hover;
+    background-color: $color-highlight-orange;
   }
 
   @include set-media(md) {

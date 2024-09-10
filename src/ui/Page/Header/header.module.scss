@@ -38,7 +38,7 @@
 }
 
 .deskPaddingWEB {
-  margin: set-calc(8) set-calc($padding-x-desk-page) 0;
+  margin: set-calc(8) set-calc(calc($padding-x-desk-page - 16)) 0;
   padding: set-calc(16) set-calc(16);
 
   background-color: var(--color-background-glassy-inverted-d);
@@ -225,20 +225,10 @@
   @include btn;
   @include button-extra-small;
 
-  color: $color-content-primary-light;
-  background-color: $color-highlight-yellow;
+  color: $color-content-inverted-primary-dark;
+  background: $color-highlight-yellow;
 
   width: max-content;
-
-  &:hover {
-    background-color: $color-highlight-yellow-hover;
-  }
-
-  @include set-media(md) {
-    &:hover {
-      background-color: $color-highlight-yellow;
-    }
-  }
 }
 
 .navContent {

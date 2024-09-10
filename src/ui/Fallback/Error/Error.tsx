@@ -9,7 +9,6 @@ interface Iprops {
 export default function OtherError(props: Iprops) {
   const content = (
     <>
-      <div><Icon icon='Error404'/></div>
       {props.text && <p>{props.text}</p>}
       {props.error && props.error.message}
     </>

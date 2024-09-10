@@ -2,7 +2,7 @@
 
 .wrapper {
   @include is-beige;
-  background-color:  $color-background-default-dark;
+  background-color:  $color-background-alternate-dark;
   padding: set-calc(50) 0 set-calc(24);
 
   @include set-media(md) {
@@ -65,8 +65,6 @@
     width: 100%;
 
     @include set-typography( 16, 22, 500);
-    text-align: start;
-    padding-left: set-calc(8);
   }
 }
 

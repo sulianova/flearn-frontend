@@ -59,7 +59,7 @@
 }
 
 .item:nth-child(1) path  {
-  fill: var(--color-accent-error);
+  fill: $color-highlight-pink;
 }
 
 .item:nth-child(2) path  {

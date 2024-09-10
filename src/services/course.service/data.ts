@@ -351,7 +351,7 @@ const courseDB2: TCourseDataDBWithoutMeta = {
         text: 'познакомитесь с основами иллюстрации\n— узнаете, из чего состоит авторский стиль',
       },
       {
-        icon: 'Sketching',
+        icon: 'Feature',
         text: 'узнаете, как улучшить вашу изобразительную манеру.'
       },
       {
@@ -613,7 +613,7 @@ const courseDB3: TCourseDataDBWithoutMeta = {
         text: 'познакомитесь с основами иллюстрации\n— узнаете, из чего состоит авторский стиль',
       },
       {
-        icon: 'Sketching',
+        icon: 'Feature',
         text: 'узнаете, как улучшить вашу изобразительную манеру.'
       },
       {

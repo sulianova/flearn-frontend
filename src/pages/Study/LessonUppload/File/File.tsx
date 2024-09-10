@@ -46,7 +46,6 @@ function File(props: IProps) {
             className={classes.deleteSvg}
             onClick={() => props.handleDeleteImage({ imageId: imageData.id })}
           >
-            <Icon icon='Trash'/>
           </button>
         </div>
       </div>
