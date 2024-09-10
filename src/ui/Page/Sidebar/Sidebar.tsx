@@ -144,7 +144,7 @@ function Sidebar() {
                       className={classes.icon}
                       onClick={() => setUserPopupVisible(!userPopupVisible)}
                     >
-                      <Icon icon='UserFill' />
+                      <Icon icon='User' />
                     </div>
                   </span>
                 </li>

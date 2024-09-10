@@ -88,7 +88,7 @@
 
   @include font-16-normal-ui;
   color: var(--color-content-primary);
-  font-family: $font-family-regular;
+  font-family: $font-family;
 
   &:hover {
     background-color: var(--color-background-glassy-c);

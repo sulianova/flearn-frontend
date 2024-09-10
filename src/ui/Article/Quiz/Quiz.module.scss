@@ -318,7 +318,7 @@
 //submitBtn
 .submitButton {
   @include btn;
-  @include button-xl;
+  @include button-large;
 
   margin-top: set-calc(20);
   min-width: set-calc(180);

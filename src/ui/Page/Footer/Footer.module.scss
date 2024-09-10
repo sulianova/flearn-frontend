@@ -28,7 +28,7 @@
   position: relative;
   padding: set-calc(24);
   background: var(--color-card);
-  border: set-calc(1) solid var(--color-border);
+  border: set-calc(1) solid var(--color-card-border);
   border-radius: set-calc($border-radius-medium);
 
   @include set-media(md) {
@@ -120,7 +120,7 @@
   margin-bottom: set-calc(16);
 
   color: var(--color-content-paragraph-secondary);
-  font-family: $font-family-regular;
+  font-family: $font-family;
 
   @include set-media(md) {
     margin-bottom: set-calc(8);
@@ -131,7 +131,7 @@
   grid-column: 1 / 2;
   grid-row: 2;
 
-  font-family: $font-family-regular;
+  font-family: $font-family;
   color: var(--color-content-paragraph-secondary);
 
   @include set-media(md) {
@@ -144,7 +144,7 @@
   grid-column: 2 / 3;
   grid-row: 2;
 
-  font-family: $font-family-regular;
+  font-family: $font-family;
   color: var(--color-content-paragraph-secondary);
 
   @include set-media(md) {

@@ -32,7 +32,7 @@
 
 .button {
   @include btn;
-  @include button-xl;
+  @include button-large;
 
   background-color: var(--color-background-btn);
 

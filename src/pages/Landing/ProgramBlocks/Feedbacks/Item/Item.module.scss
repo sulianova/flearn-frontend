@@ -47,7 +47,7 @@
 
   border-radius: set-calc($border-radius-medium);
   background-color: var(--color-card);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-card-border);
 
   @include font-18-normal-paragraph;
   color: var(--color-content-paragraph-primary);
@@ -78,7 +78,7 @@
   padding-right: set-calc(40);
   padding-top: set-calc(8);
 
-  font-family: $font-family-regular;
+  font-family: $font-family;
 
   @include set-media(md) {
     display: none;

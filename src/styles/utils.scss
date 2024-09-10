@@ -166,12 +166,34 @@
   }
 }
 
+@mixin button-primary {
+  color: $color-content-inverted-primary-light;
+  background-color: var(--primary-color);
+
+  &:hover {
+    background-color: var(--primary-color-hover);
+  }
+
+  &:disabled {
+    color: var(--color-content-tertiary);
+    background: var(--color-background-glassy-c);
+  }
+
+  @include set-media(md) {
+    background-color: var(--primary-color);
+  }
+
+}
+
 @mixin button-extra-small {
   gap: set-calc(2);
   height: set-calc(36);
 
   padding: 0 set-calc(12);
   border-radius: set-calc($border-radius-8);
+
+  @include font-14-normal-ui;
+  font-family: $font-family-medium;
 }
 
 @mixin button-small {
@@ -180,14 +202,20 @@
 
   padding: 0 set-calc(16);
   border-radius: set-calc($border-radius-10);
+
+  @include set-typography(16, 16, 500);
+  font-family: $font-family-medium;
 }
 
-@mixin button-xl {
+@mixin button-large {
   gap: set-calc(4);
   height: set-calc(64);
   
   padding: 0 set-calc(24);
   border-radius: set-calc($border-radius-16);
+
+  @include set-typography(18, 18, 500);
+  font-family: $font-family-medium;
 }
 
 @mixin shadow-solid {

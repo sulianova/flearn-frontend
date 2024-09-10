@@ -29,7 +29,7 @@
 
 .headerTitle {
   @include font-56-normal-header;
-  font-family: $font-family-highlight-bold;
+  font-family: $font-family-extra-bold;
 }
 
 .list {
@@ -44,7 +44,7 @@
 .item {
   grid-column: span 1;
   background-color: var(--color-card);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-card-border);
   padding: set-calc(32);
   border-radius: set-calc($border-radius-30);
 
@@ -59,7 +59,7 @@
 }
 
 .item:nth-child(1) path  {
-  fill: $color-highlight-pink;
+  fill: $color-highlight-magenta;
 }
 
 .item:nth-child(2) path  {

@@ -126,7 +126,7 @@
 
 .actionsBtn {
   @include btn;
-  @include button-xl;
+  @include button-large;
 
   @include font-20-normal-ui;
   color: $color-content-inverted-primary-light;

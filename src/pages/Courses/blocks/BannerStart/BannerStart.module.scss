@@ -43,7 +43,7 @@
 
 .title {
   @include set-typography(42, 52, 500);
-  font-family: $font-family-highlight-bold;
+  font-family: $font-family-extra-bold;
   text-align: center;
 
   width: 80%;
@@ -73,7 +73,7 @@
 
 .actionsBtn {
   @include btn;
-  @include button-xl;
+  @include button-large;
 
   border: 2px solid var(--color-content-inverted-primary);
 

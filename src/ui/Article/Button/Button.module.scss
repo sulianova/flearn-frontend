@@ -16,7 +16,7 @@
 
 .button {
   @include btn;
-  @include button-xl;
+  @include button-large;
 
   background-color: $color-highlight-yellow;
 

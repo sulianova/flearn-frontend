@@ -74,7 +74,7 @@
   padding: set-calc(32) set-calc(40);
   margin: 0 set-calc(16);
 
-  background: var(--color-background-highlighted);
+  background: var(--color-background-alternate);
   border-radius: set-calc($border-radius-30);
 
   @include set-typography(20, 30, 500);

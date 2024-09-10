@@ -38,7 +38,7 @@
   margin-bottom: set-calc(24);
 
   @include font-56-normal-header;
-  font-family: $font-family-highlight-bold;
+  font-family: $font-family-extra-bold;
 
   @include set-media(md) {
     margin-bottom: set-calc(20);

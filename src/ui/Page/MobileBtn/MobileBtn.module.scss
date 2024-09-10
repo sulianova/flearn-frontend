@@ -22,7 +22,7 @@
 }
 
 .btnLink {
-  @include button-xl;
+  @include button-large;
   position: fixed;
 
   right: set-calc(16);

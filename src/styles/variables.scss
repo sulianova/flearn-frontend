@@ -1,11 +1,9 @@
 @use "sass:math";
 $rem-base: 18px;
-$font-family-light: Montserrat-Light, sans-serif;
 $font-family: Montserrat, sans-serif;
-$font-family-regular: Montserrat-Regular, sans-serif;
 $font-family-medium: Montserrat-Medium, sans-serif;
 $font-family-bold: Montserrat-Bold, sans-serif;
-$font-family-highlight-bold: Montserrat-Extra-Bold, sans-serif;
+$font-family-extra-bold: Montserrat-Extra-Bold, sans-serif;
 $font-family-article-light: Commissioner-Light, sans-serif;
 $font-family-article: Commissioner, sans-serif;
 $font-family-article-bold: Commissioner-Bold, sans-serif;
@@ -41,39 +39,42 @@ $color-palette-black-950: #121212;
 $color-palette-black-1000: #000000;
 
 //color-palette-black-a
-$color-palette-black-25-a: rgba(0, 0, 0, 0.015);
-$color-palette-black-50-a: rgba(0, 0, 0, 0.03);
-$color-palette-black-100-a: rgba(0, 0, 0, 0.06);
-$color-palette-black-200-a: rgba(0, 0, 0, 0.12);
-$color-palette-black-300-a: rgba(0, 0, 0, 0.25);
+$color-palette-black-15-a: rgba(0, 0, 0, 0.015);
+$color-palette-black-25-a: rgba(0, 0, 0, 0.025);
+$color-palette-black-50-a: rgba(0, 0, 0, 0.05);
+$color-palette-black-100-a: rgba(0, 0, 0, 0.1);
+$color-palette-black-200-a: rgba(0, 0, 0, 0.2);
+$color-palette-black-300-a: rgba(0, 0, 0, 0.3);
 $color-palette-black-500-a: rgba(0, 0, 0, 0.5);
 $color-palette-black-600-a: rgba(0, 0, 0, 0.6);
 $color-palette-black-700-a: rgba(0, 0, 0, 0.7);
 $color-palette-black-800-a: rgba(0, 0, 0, 0.8);
 $color-palette-black-900-a: rgba(0, 0, 0, 0.9);
 
-//color-palette-white
-$color-palette-white-25-a: rgba(0, 0, 0, 0.015);
-$color-palette-white-50-a: rgba(255, 255, 255, 0.03);
-$color-palette-white-100-a: rgba(255, 255, 255, 0.06);
-$color-palette-white-200-a: rgba(255, 255, 255, 0.12);
-$color-palette-white-300-a: rgba(255, 255, 255, 0.25);
+//color-palette-white-a
+$color-palette-white-25-a: rgba(0, 0, 0, 0.025);
+$color-palette-white-50-a: rgba(255, 255, 255, 0.05);
+$color-palette-white-100-a: rgba(255, 255, 255, 0.1);
+$color-palette-white-200-a: rgba(255, 255, 255, 0.2);
+$color-palette-white-300-a: rgba(255, 255, 255, 0.3);
 $color-palette-white-500-a: rgba(255, 255, 255, 0.5);
-$color-palette-white-700-a: rgba(255, 255, 255, 0.65);
-$color-palette-white-800-a: rgba(255, 255, 255, 0.75);
-$color-palette-white-900-a: rgba(255, 255, 255, 0.8);
+$color-palette-white-700-a: rgba(255, 255, 255, 0.7);
+$color-palette-white-800-a: rgba(255, 255, 255, 0.8);
+$color-palette-white-900-a: rgba(255, 255, 255, 0.9);
 $color-palette-white-1000: #ffffff;
 
 //color-highlight
 $color-highlight-dust: #fffad2;
-$color-highlight-yellow: #f8db46;
-$color-highlight-orange:#FDB022;
-
 $color-highlight-neon: #e9e1fa;
-$color-highlight-violet: #b595ff;
-$color-highlight-blue: #5627ff;
+$color-highlight-rose: #FCE7F6;
 
-$color-highlight-pink:  #EE0979;
+$color-highlight-yellow: #f8db46;
+$color-highlight-violet: #b595ff;
+$color-highlight-pink: #FAA7E0;
+
+$color-highlight-orange:#FDB022;
+$color-highlight-blue: #5627ff;
+$color-highlight-magenta:  #EE0979;
 
 
 //color-palette-indigo
@@ -95,61 +96,46 @@ $color-palette-indigo-25: #FCFAFF;
 $color-gradient-rainbow: linear-gradient(139.953deg, #FF30A1 0%, #8722FC 99%);
 
 //theme-light
-$color-background-alternate-light: $color-palette-black-50;
-$color-background-default-light: $color-palette-white-1000;
 $primary-color-light: $color-highlight-blue;
 $primary-color-hover-light: $color-palette-indigo-500;
 $color-content-primary-light: $color-palette-black-700;
 $color-content-secondary-light: $color-palette-black-500;
 $color-content-tertiary-light: $color-palette-black-400;
-
-$color-accent-error-light:#db2323;
-$color-accent-notice-light: #FDB022;
-$color-accent-success-light: #12B76A;
-$color-accent-warning-light: $color-highlight-yellow;
-
-$color-accent-promo-light: $color-highlight-yellow;
-$color-accent-inverted-promo-light: $color-highlight-violet;
-$color-accent-promo-background-light: $color-highlight-dust;
-$color-accent-neutral-light: $color-palette-black-700;
-$color-accent-neutral-hover-light: $black;
-
-$color-background-glassy-a-light: $color-palette-black-25-a;
-$color-background-glassy-b-light: $color-palette-black-50-a;
-$color-background-glassy-c-light: $color-palette-black-100-a;
-$color-background-glassy-d-light: $color-palette-black-200-a;
+$color-content-paragraph-primary-light: $color-palette-black-600;
+$color-content-paragraph-secondary-light: $color-palette-black-500;
+$color-content-inverted-primary-light: $color-palette-black-25;
+$color-content-inverted-secondary-light: $color-palette-black-200;
+$color-content-background-primary-light: $color-palette-black-800;
+$color-content-background-secondary-light: $color-palette-black-600;
+$color-content-background-tertiary-light: $color-palette-black-500;
+$color-background-alternate-light: $color-palette-black-50;
+$color-background-default-light: $color-palette-white-1000;
+$color-background-glassy-a-light: $color-palette-black-15-a;
+$color-background-glassy-b-light: $color-palette-black-25-a;
+$color-background-glassy-c-light: $color-palette-black-50-a;
+$color-background-glassy-d-light: $color-palette-black-100-a;
 $color-background-glassy-inverted-a-light: $color-palette-white-50-a;
 $color-background-glassy-inverted-b-light: $color-palette-white-100-a;
 $color-background-glassy-inverted-c-light: $color-palette-white-200-a;
 $color-background-glassy-inverted-d-light: $color-palette-white-300-a;
 
-$color-background-highlighted-light: $color-palette-black-50;
 $color-background-overlay-light: $color-palette-black-500-a;
-$color-background-active-light: rgba(0, 0, 0, 0.03);
-$color-background-stroke-light: rgba(0, 0, 0, 0.2);
-$color-border-light: $color-palette-white-300-a;
-$color-card-glassy-light: $color-palette-white-700-a;
-$color-card-light: $color-palette-white-1000;
-$color-content-inverted-primary-light: $color-palette-black-25;
-$color-content-inverted-secondary-light: $color-palette-black-200;
-
-$color-content-background-primary-light: $color-palette-black-800;
-$color-content-background-secondary-light: $color-palette-black-700;
-$color-content-background-tertiary-light: $color-palette-black-300;
-
-$color-content-paragraph-primary-light: $color-palette-black-900-a;
-$color-content-paragraph-secondary-light: $color-palette-black-600-a;
-
 $color-background-btn-light: $color-palette-black-700;
 $color-background-btn-hover-light: $color-palette-black-900;
 
-$color-background-card-light: $color-palette-black-700;
+$color-accent-error-light:#db2323;
+$color-accent-warning-light: #FDB022;
+$color-accent-success-light: #12B76A;
+$color-accent-notice-light: $color-highlight-blue;
+$color-accent-promo-light: $color-highlight-yellow;
+$color-accent-promo-background-light: $color-highlight-dust;
 
+$color-card-border-light: $color-palette-white-300-a;
+$color-card-light: $color-palette-white-1000;
 $border-light: $color-palette-black-150;
 $shadow-solid-small-light: 0 1px 0 0 $border-light, 0 1.5px 0 0 $border-light, 0 2px 0 0 $border-light, 0 2.5px 0 0 $border-light, 0 3px 0 0 $border-light, 0 3.5px 0 0 $border-light, 0 4px 0 0 $border-light, 0 4.5px 0 0 $border-light;
 
 //theme-dark
-$color-accent-neutral-hover-dark: $color-palette-black-300;
 $color-background-default-dark: $color-palette-black-800;
 $color-background-alternate-dark: $color-palette-black-950;
 $primary-color-dark: $color-palette-indigo-400;
@@ -157,42 +143,36 @@ $primary-color-hover-dark: $color-palette-indigo-500;
 $color-content-primary-dark: $color-palette-black-50;
 $color-content-secondary-dark: $color-palette-black-300;
 $color-content-tertiary-dark: $color-palette-black-400;
-
-$color-accent-error-dark: #db2323;
-$color-accent-notice-dark: #FDB022;
-$color-accent-success-dark: #12B76A;
-$color-accent-warning-dark: $color-highlight-yellow;
-$color-accent-promo-dark: $color-highlight-violet;
-$color-accent-inverted-promo-dark: $color-highlight-yellow;
-$color-accent-promo-background-dark: $color-palette-white-200-a;
-$color-accent-neutral-dark: $color-palette-white-1000;
-
+$color-content-paragraph-primary-dark: $color-palette-black-300;
+$color-content-paragraph-secondary-dark: $color-palette-black-400;
+$color-content-inverted-primary-dark:  $color-palette-black-900;
+$color-content-inverted-secondary-dark: $color-palette-black-600;
+$color-content-background-primary-dark: $color-palette-black-100;
+$color-content-background-secondary-dark: $color-palette-black-200;
+$color-content-background-tertiary-dark: $color-palette-black-400;
 $color-background-glassy-a-dark: $color-palette-white-50-a;
 $color-background-glassy-b-dark: $color-palette-white-100-a;
 $color-background-glassy-c-dark: $color-palette-white-200-a;
 $color-background-glassy-d-dark: $color-palette-white-300-a;
-$color-background-glassy-inverted-a-dark: $color-palette-black-50-a;
-$color-background-glassy-inverted-b-dark: $color-palette-black-100-a;
-$color-background-glassy-inverted-c-dark: $color-palette-black-200-a;
-$color-background-glassy-inverted-d-dark: $color-palette-black-300-a;
-$color-background-highlighted-dark: $color-palette-black-600;
-$color-background-overlay-dark: $color-palette-black-500-a;
-$color-background-stroke-dark: rgba(255, 255, 255, 0.2);
-$color-border-dark: hsla(0, 0%, 100%, .1);
-$color-card-glassy-dark: rgba(15,15,15,0.7);
-$color-card-dark: $color-palette-black-700;
-$color-content-inverted-primary-dark:  $color-palette-black-900;
-$color-content-inverted-secondary-dark: $color-palette-black-600;
+$color-background-glassy-inverted-a-dark: $color-palette-black-15-a;
+$color-background-glassy-inverted-b-dark: $color-palette-black-25-a;
+$color-background-glassy-inverted-c-dark: $color-palette-black-50-a;
+$color-background-glassy-inverted-d-dark: $color-palette-black-100-a;
 
-$color-content-background-primary-dark: $color-palette-black-100;
-$color-content-background-secondary-dark: $color-palette-black-200;
-$color-content-background-tertiary-dark: $color-palette-black-700;
-$color-content-paragraph-primary-dark: $color-palette-black-300;
-$color-content-paragraph-secondary-dark: $color-palette-black-400;
+$color-accent-error-dark: #db2323;
+$color-accent-warning-dark: #FDB022;
+$color-accent-success-dark: #12B76A;
+$color-accent-notice-dark: $color-highlight-blue;
+$color-accent-promo-dark: $color-highlight-violet;
+$color-accent-promo-background-dark: $color-highlight-neon;
+
+$color-background-overlay-dark: $color-palette-black-500-a;
 $color-background-btn-dark: $color-palette-indigo-400;
 $color-background-btn-hover-dark: $color-palette-indigo-500;
-$color-background-card-dark: $primary-color-dark;
 
+
+$color-card-border-dark: hsla(0, 0%, 100%, .1);
+$color-card-dark: $color-palette-black-700;
 $border-dark: $color-palette-black-500;
 $shadow-solid-small-dark: 0 1px 0 0 $border-dark, 0 1.5px 0 0 $border-dark, 0 2px 0 0 $border-dark, 0 2.5px 0 0 $border-dark, 0 3px 0 0 $border-dark, 0 3.5px 0 0 $border-dark, 0 4px 0 0 $border-dark, 0 4.5px 0 0 $border-dark;
 
@@ -223,12 +203,12 @@ $modal-animation-duration: 200ms;
 $shadow-small-default: 0 0 1px 1px rgba(0, 0, 0, .02), 0 .3px .5px rgba(0, 0, 0, .1), 0 2px 4px rgba(0, 0, 0, .2);
 $shadow-small-hovered: 0 0 1px 1px rgba(0, 0, 0, .02), 0 .4px .8px rgba(0, 0, 0, .1), 0 3px 6px rgba(0, 0, 0, .2);
 $shadow-small-pressed: 0 0 1px 1px rgba(0, 0, 0, .02), 0 .3px .5px rgba(0, 0, 0, .1), 0 2px 4px rgba(0, 0, 0, .2);
-$shadow-medium-hovered: 0px 2px 32px 6px rgba(36, 36, 36, 0.07);
 $shadow-medium-default: 0px 1px 12px 2px rgba(36, 36, 36, 0.07);
+$shadow-medium-hovered: 0px 2px 32px 6px rgba(36, 36, 36, 0.07);
 $shadow-medium-pressed: 0px 1px 8px rgba(36, 36, 36, 0.07);
 $shadow-huge-default: 4px 15px 24px -8px rgba(36, 36, 36, .02);
 $shadow-popup: 0 2px 10px 0 rgba(0, 0, 0, .3);
-$shadow-menu: 0 10px 48px $color-palette-black-200-a;
+$shadow-menu: 0 10px 48px rgba(0, 0, 0, .1);
 
 //filter
 $backdrop-filter: 5;
@@ -272,15 +252,16 @@ $z-index-500: 500;
   // theme light
   --primary-color-light: #{$primary-color-light};
   --primary-color-hover-light: #{$primary-color-hover-light};
-  --color-accent-error-light: #{$color-accent-error-light};
-  --color-accent-notice-light: #{$color-accent-notice-light};
-  --color-accent-success-light: #{$color-accent-success-light};
-  --color-accent-warning-light: #{$color-accent-warning-light};
-  --color-accent-promo-light: #{$color-accent-promo-light};
-  --color-accent-inverted-promo-light: #{$color-accent-inverted-promo-light};
-  --color-accent-promo-background-light: #{$color-accent-promo-background-light};
-  --color-accent-neutral-light: #{$color-accent-neutral-light};
-  --color-accent-neutral-hover-light: #{$color-accent-neutral-hover-light};
+  --color-content-primary-light: #{$color-content-primary-light};
+  --color-content-secondary-light: #{$color-content-secondary-light};
+  --color-content-tertiary-light: #{$color-content-tertiary-light};
+  --color-content-paragraph-primary-light: #{$color-content-paragraph-primary-light};
+  --color-content-paragraph-secondary-light: #{$color-content-paragraph-secondary-light};
+  --color-content-inverted-primary-light: #{$color-content-inverted-primary-light};
+  --color-content-inverted-secondary-light: #{$color-content-inverted-secondary-light};
+  --color-content-background-primary-light: #{$color-content-background-primary-light};
+  --color-content-background-secondary-light: #{$color-content-background-secondary-light};
+  --color-content-background-tertiary-light: #{$color-content-background-tertiary-light};
   --color-background-alternate-light: #{$color-background-alternate-light};
   --color-background-default-light: #{$color-background-default-light};
   --color-background-glassy-a-light: #{$color-background-glassy-a-light};
@@ -291,41 +272,34 @@ $z-index-500: 500;
   --color-background-glassy-inverted-b-light: #{$color-background-glassy-inverted-b-light};
   --color-background-glassy-inverted-c-light: #{$color-background-glassy-inverted-c-light};
   --color-background-glassy-inverted-d-light: #{$color-background-glassy-inverted-d-light};
-  --color-background-highlighted-light: #{$color-background-highlighted-light};
   --color-background-overlay-light: #{$color-background-overlay-light};
-  --color-background-active-light: #{$color-background-active-light};
-  --color-background-stroke-light: #{$color-background-stroke-light};
-  --color-border-light: #{$color-border-light};
-  --color-card-light: #{$color-card-light};
-  --color-card-glassy-light: #{$color-card-glassy-light};
-  --border-light: #{$border-light};
-  --color-content-inverted-primary-light: #{$color-content-inverted-primary-light};
-  --color-content-inverted-secondary-light: #{$color-content-inverted-secondary-light};
-  --color-content-primary-light: #{$color-content-primary-light};
-  --color-content-secondary-light: #{$color-content-secondary-light};
-  --color-content-tertiary-light: #{$color-content-tertiary-light};
-  --color-content-background-primary-light: #{$color-content-background-primary-light};
-  --color-content-background-secondary-light: #{$color-content-background-secondary-light};
-  --color-content-background-tertiary-light: #{$color-content-background-tertiary-light};
-  --color-content-paragraph-primary-light: #{$color-content-paragraph-primary-light};
-  --color-content-paragraph-secondary-light: #{$color-content-paragraph-secondary-light};
   --color-background-btn-light: #{$color-background-btn-light};
   --color-background-btn-hover-light: #{$color-background-btn-hover-light};
-  --color-background-card-light: #{$color-background-card-light};
+  --color-accent-error-light: #{$color-accent-error-light};
+  --color-accent-notice-light: #{$color-accent-notice-light};
+  --color-accent-success-light: #{$color-accent-success-light};
+  --color-accent-warning-light: #{$color-accent-warning-light};
+  --color-accent-promo-light: #{$color-accent-promo-light};
+  --color-accent-promo-background-light: #{$color-accent-promo-background-light};
+
+  --color-card-border-light: #{$color-card-border-light};
+  --color-card-light: #{$color-card-light};
+  --border-light: #{$border-light};
   --shadow-solid-small-light: #{$shadow-solid-small-light};
 
   // theme dark
   --primary-color-dark: #{$primary-color-dark};
   --primary-color-hover-dark: #{$primary-color-hover-dark};
-  --color-accent-error-dark: #{$color-accent-error-dark};
-  --color-accent-notice-dark: #{$color-accent-notice-dark};
-  --color-accent-success-dark: #{$color-accent-success-dark};
-  --color-accent-warning-dark: #{$color-accent-warning-dark};
-  --color-accent-promo-dark: #{$color-accent-promo-dark};
-  --color-accent-inverted-promo-dark: #{$color-accent-inverted-promo-dark};
-  --color-accent-promo-background-dark: #{$color-accent-promo-background-dark};
-  --color-accent-neutral-dark: #{$color-accent-neutral-dark};
-  --color-accent-neutral-hover-dark: #{$color-accent-neutral-hover-dark};
+  --color-content-primary-dark: #{$color-content-primary-dark};
+  --color-content-secondary-dark: #{$color-content-secondary-dark};
+  --color-content-tertiary-dark: #{$color-content-tertiary-dark};
+  --color-content-paragraph-primary-dark: #{$color-content-paragraph-primary-dark};
+  --color-content-paragraph-secondary-dark: #{$color-content-paragraph-secondary-dark};
+  --color-content-inverted-primary-dark: #{$color-content-inverted-primary-dark};
+  --color-content-inverted-secondary-dark: #{$color-content-inverted-secondary-dark};
+  --color-content-background-primary-dark: #{$color-content-background-primary-dark};
+  --color-content-background-secondary-dark: #{$color-content-background-secondary-dark};
+  --color-content-background-tertiary-dark: #{$color-content-background-tertiary-dark};
   --color-background-default-dark: #{$color-background-default-dark};
   --color-background-alternate-dark: #{$color-background-alternate-dark};
   --color-background-glassy-a-dark: #{$color-background-glassy-a-dark};
@@ -336,25 +310,18 @@ $z-index-500: 500;
   --color-background-glassy-inverted-b-dark: #{$color-background-glassy-inverted-b-dark};
   --color-background-glassy-inverted-c-dark: #{$color-background-glassy-inverted-c-dark};
   --color-background-glassy-inverted-d-dark: #{$color-background-glassy-inverted-d-dark};
-  --color-background-highlighted-dark: #{$color-background-highlighted-dark};
   --color-background-overlay-dark: #{$color-background-overlay-dark};
-  --color-background-stroke-dark: #{$color-background-stroke-dark};
-  --color-border-dark: #{$color-border-dark};
-  --color-card-dark: #{$color-card-dark};
-  --color-card-glassy-dark: #{$color-card-glassy-dark};
-  --border-dark: #{$border-dark};
-  --color-content-inverted-primary-dark: #{$color-content-inverted-primary-dark};
-  --color-content-inverted-secondary-dark: #{$color-content-inverted-secondary-dark};
-  --color-content-primary-dark: #{$color-content-primary-dark};
-  --color-content-secondary-dark: #{$color-content-secondary-dark};
-  --color-content-tertiary-dark: #{$color-content-tertiary-dark};
-  --color-content-background-primary-dark: #{$color-content-background-primary-dark};
-  --color-content-background-secondary-dark: #{$color-content-background-secondary-dark};
-  --color-content-background-tertiary-dark: #{$color-content-background-tertiary-dark};
-  --color-content-paragraph-primary-dark: #{$color-content-paragraph-primary-dark};
-  --color-content-paragraph-secondary-dark: #{$color-content-paragraph-secondary-dark};
   --color-background-btn-dark: #{$color-background-btn-dark};
   --color-background-btn-hover-dark: #{$color-background-btn-hover-dark};
-  --color-background-card-dark: #{$color-background-card-dark};
+  --color-accent-error-dark: #{$color-accent-error-dark};
+  --color-accent-notice-dark: #{$color-accent-notice-dark};
+  --color-accent-success-dark: #{$color-accent-success-dark};
+  --color-accent-warning-dark: #{$color-accent-warning-dark};
+  --color-accent-promo-dark: #{$color-accent-promo-dark};
+  --color-accent-promo-background-dark: #{$color-accent-promo-background-dark};
+
+  --color-card-border-dark: #{$color-card-border-dark};
+  --color-card-dark: #{$color-card-dark};
+  --border-dark: #{$border-dark};
   --shadow-solid-small-dark: #{$shadow-solid-small-dark};
 }

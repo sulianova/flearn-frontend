@@ -59,7 +59,7 @@ padding: set-calc(16) 0;
 
 .navBtn {
   @include btn;
-  @include button-xl;
+  @include button-large;
   width: 100%;
 
   background: var(--primary-color);
