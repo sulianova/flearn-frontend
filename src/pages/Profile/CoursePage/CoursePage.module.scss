@@ -126,6 +126,29 @@
 
   display: flex;
   flex-direction: column;
+
+  &:hover {
+    .background {
+      transform: scale(1.02);
+      box-shadow: $shadow-medium-hovered;
+    }
+
+    .featured {
+      .background {
+        transform: scale(1);
+        box-shadow: $shadow-medium-default;
+      }
+    }
+  }
+
+  @include set-media(md) {
+    &:hover {
+      .background {
+        box-shadow: none!important;
+        transform: scale(1,1)!important;
+      }
+    }
+  }
 }
 
 .item {
@@ -149,25 +172,10 @@
 
   text-align: left;
 
-
-  &:hover {
-    .background {
-      transform: scale(1.02);
-      box-shadow: $shadow-medium-hovered;
-    }
-  }
-
   @include set-media(md) {
     gap: set-calc(16);
     height: set-calc(110);
     padding: set-calc(16);
-
-    &:hover {
-      .background {
-        box-shadow: none!important;
-        transform: scale(1,1)!important;
-      }
-    }
   }
 }
 
