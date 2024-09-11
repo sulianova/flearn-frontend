@@ -307,7 +307,6 @@
   @include set-typography(18, 28, 500);
 
   @include set-media(md) {
-    font-family: $font-family-bold;
     @include set-typography(16, 20, 500);
   }
 }
