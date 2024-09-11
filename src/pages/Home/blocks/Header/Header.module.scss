@@ -71,7 +71,7 @@
 .headerTitle {
   margin: 0 0 set-calc(60);
 
-  @include set-typography(56, 60, 500);
+  @include set-typography(60, 70, 500);
   font-family: $font-family-bold;
   text-align: start;
 
