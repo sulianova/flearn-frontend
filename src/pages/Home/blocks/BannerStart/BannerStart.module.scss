@@ -75,37 +75,9 @@
 .actionsBtn {
   @include btn;
   @include button-large;
-
-  border: 2px solid var(--color-content-inverted-primary);
-
-  .text {
-    @include font-20-normal-ui;
-    color: var(--color-content-inverted-primary);
-    font-family: $font-family-bold;
-
-    @include set-media(md) {
-      @include set-typography(18, 18, 500);
-    }
-  }
-
-  &:hover {
-    background: var(--color-content-inverted-primary);
-
-    .text {
-      color: var(--primary-color);
-    }
-  }
+  @include button-outline(var(--color-content-inverted-primary), var(--primary-color));
 
   @include set-media(md) {
     width: 100%;
-    border-width: 1px;
-
-    &:hover {
-      background: transparent;
-  
-      .text {
-        color: var(--color-content-inverted-primary);
-      }
-    }
   }
 }

@@ -195,24 +195,12 @@
 
 .navLogin {
   @include btn;
-
-  background-color: var(--color-background-glassy-c);
-  color: var(--color-content-primary);
+  @include button-secondary;
 
   width: max-content;
 
-  &:hover {
-    background-color: var(--primary-color-hover);
-    color: $color-content-inverted-primary-light;
-  }
-
   @include set-media(md) {
     margin-left: auto;
-
-    &:hover {
-      background-color: var(--color-background-glassy-c);
-      color: var(--color-content-primary);
-    }
   }
 }
 
@@ -223,9 +211,7 @@
 
 .buyBtn {
   @include btn;
-
-  color: $color-content-inverted-primary-light;
-  background: var(--primary-color);
+  @include button-primary;
 
   width: max-content;
 }

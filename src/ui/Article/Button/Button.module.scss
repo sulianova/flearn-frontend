@@ -17,23 +17,9 @@
 .button {
   @include btn;
   @include button-large;
-
-  background-color: $color-highlight-yellow;
-
-  @include font-18-normal-ui;
-  color: $color-content-inverted-primary-dark;
-  font-family: $font-family-medium;
-
-  &:hover {
-    background-color: $color-highlight-orange;
-  }
+  @include button-special;
 
   @include set-media(md) {
     width: 100%;
-
-    &:hover,
-    &:active {
-      background-color: $color-highlight-yellow;
-    }
   }
 }

@@ -26,8 +26,14 @@ export default function Catalogue() {
   }
 
   return (
+    <>
+    <div className={classes.header}>
+      <h2 className={classes.headerTitle}>Курсы</h2>
+      <div className={classes.headerDesc}>Интерактивные уроки для ежедневной практики. Развивают насмотренность, помогают оставаться в форме.</div>
+    </div>
     <div className={classes.wrapper}>
       {courses.map(course => <Card key={course.id} course={course}/>)}
     </div>
+    </>
   );
 }

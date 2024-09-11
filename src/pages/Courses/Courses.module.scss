@@ -21,7 +21,7 @@
   flex-direction: column;
   width: 100%;
 
-  gap: set-calc(64);
+  gap: set-calc(80);
 
   @include set-media(md) {
     gap: set-calc(40);
@@ -32,22 +32,4 @@
 .section {
   display: block;
   position: relative;
-}
-
-.section:not(:last-child) {
-  margin-bottom: set-calc(100);
-
-  @include set-media(md) {
-    margin-bottom: set-calc(80);
-  }
-}
-
-.section:last-child {
-  @include set-media(md) {
-    margin-bottom: set-calc(24);
-  }
-}
-
-.section:has([data-bcalternate]) {
-  margin-bottom: 0;
 }

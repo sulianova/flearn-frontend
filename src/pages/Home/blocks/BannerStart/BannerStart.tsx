@@ -21,7 +21,7 @@ export default function BannerStart(props: IProps) {
                 className={classes.actionsBtn}
                 to={props.linkToFreeCourse}
               >
-                <div className={classes.text}>{i18n.t('signUp')}</div>
+                {i18n.t('signUp')}
               </Link>
             ) : (
               <div

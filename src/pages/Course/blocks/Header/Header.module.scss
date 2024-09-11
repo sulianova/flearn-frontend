@@ -109,7 +109,7 @@
 
 .title {
   @include set-typography(40, 40, 500);
-  font-family: $font-family-bold;
+  font-family: $font-family-extra-bold;
   max-width: set-calc(700);
 
   margin: 0 0 set-calc(24);

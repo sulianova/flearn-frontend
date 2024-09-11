@@ -33,21 +33,9 @@
 .button {
   @include btn;
   @include button-large;
-
-  background-color: var(--color-background-btn);
-
-  @include font-18-normal-ui;
-  color: $color-content-inverted-primary-light;
-
-  &:hover {
-    background-color: var(--color-background-btn-hover);
-  }
+  @include button-tertiary;
 
   @include set-media(md) {
     width: 100%;
-
-    &:hover {
-      background-color: var(--color-background-btn);
-    }
   }
 }

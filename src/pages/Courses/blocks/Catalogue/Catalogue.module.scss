@@ -16,3 +16,28 @@
   justify-content: center;
   align-items: center;
 }
+
+.header {
+  position: relative;
+  padding-bottom: set-calc(32);
+  padding-left: set-calc(16);
+
+  @include set-media(md) {
+    position: relative;
+    padding-bottom: set-calc(16);
+    padding-right: set-calc(8);
+    padding-left: set-calc(8);
+  }
+}
+
+.headerTitle {
+  @include font-32-normal-header;
+  font-family: $font-family-extra-bold;
+
+  margin-bottom: set-calc(12);
+}
+
+.headerDesc {
+  @include font-16-normal-paragraph;
+  color: var(--color-content-paragraph-primary);
+}

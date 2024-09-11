@@ -182,7 +182,86 @@
   @include set-media(md) {
     background-color: var(--primary-color);
   }
+}
 
+@mixin button-secondary {
+  color: var(--color-content-primary);
+  background-color: var(--color-background-glassy-c);
+
+  &:hover {
+    background-color: var(--primary-color-hover);
+    color: $color-content-inverted-primary-light;
+  }
+
+  &:disabled {
+    color: var(--color-content-tertiary);
+    background: var(--color-background-glassy-c);
+  }
+
+  @include set-media(md) {
+    &:hover {
+      background-color: var(--color-background-glassy-c);
+      color: var(--color-content-primary);
+    }
+  }
+}
+
+@mixin button-tertiary {
+  color: $color-content-inverted-primary-light;
+  background-color: var(--color-background-btn);
+
+  &:hover {
+    background-color: var(--color-background-btn-hover);
+  }
+
+  &:disabled {
+    color: var(--color-content-tertiary);
+    background: var(--color-background-glassy-c);
+  }
+
+  @include set-media(md) {
+    &:hover {
+      background-color: var(--color-background-btn);
+    }
+  }
+}
+
+@mixin button-special {
+  background-color: $color-highlight-yellow;
+  color: $color-content-inverted-primary-dark;
+
+  &:hover {
+    background-color: $color-highlight-orange;
+  }
+
+  @include set-media(md) {
+    &:hover {
+      background-color: $color-highlight-yellow;
+    }
+  }
+}
+
+@mixin button-outline(
+  $color,
+  $bc-color: $color
+) {
+  border: 2px solid $color;
+  color: $color;
+  background: transparent;
+
+  &:hover {
+    background: $color;
+    color: $bc-color;
+  }
+
+  @include set-media(md) {
+    border-width: 1px;
+
+    &:hover {
+      background: transparent;
+      color: $color;
+    }
+  }
 }
 
 @mixin button-extra-small {

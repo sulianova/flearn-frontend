@@ -178,13 +178,9 @@
 .cardBtn {
   @include btn;
   @include button-small;
+  @include button-outline(var(--color-content-primary));
 
   margin-top: auto;
-
-  color: var(--color-content-primary);
-
-  border: 2px solid var(--color-content-background-primary);
-
   width: 100%;
   order: 3;
 }
