@@ -42,6 +42,7 @@ function Sidebar() {
         {(urlSection.name === 'Study' || urlSection.name === 'Profile' || urlSection.name === 'Courses' || urlSection.name === 'Course') && (
           <ul className={classes.items}>
             {(urlSection.name === 'Courses' || urlSection.name === 'Course') && authedUser && (
+              <>
               <li className={classes.item}>
                 <span className={classes.iconWrapper}>
                   <Link
@@ -52,6 +53,7 @@ function Sidebar() {
                   </Link>
                 </span>
               </li>
+              </>
             )}
             {urlSection.name === 'Profile' && (
               <li className={classes.item}>

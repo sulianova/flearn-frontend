@@ -186,7 +186,7 @@
 
 @mixin button-secondary {
   color: var(--color-content-primary);
-  background-color: var(--color-background-glassy-c);
+  background-color: var(--color-background-glassy-b);
 
   &:hover {
     background-color: var(--primary-color-hover);
@@ -195,12 +195,12 @@
 
   &:disabled {
     color: var(--color-content-tertiary);
-    background: var(--color-background-glassy-c);
+    background: var(--color-background-glassy-b);
   }
 
   @include set-media(md) {
     &:hover {
-      background-color: var(--color-background-glassy-c);
+      background-color: var(--color-background-glassy-b);
       color: var(--color-content-primary);
     }
   }

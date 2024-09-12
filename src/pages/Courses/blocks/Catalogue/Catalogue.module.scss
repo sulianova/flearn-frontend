@@ -1,22 +1,5 @@
 @import 'styles/index';
 
-.wrapper {
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  gap: set-calc(16);
-
-  @include set-media(md) {
-    gap: set-calc(8);
-  }
-}
-
-.spinnerWrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .header {
   position: relative;
   padding-bottom: set-calc(32);
@@ -34,10 +17,30 @@
   @include font-32-normal-header;
   font-family: $font-family-extra-bold;
 
-  margin-bottom: set-calc(12);
+  margin-bottom: set-calc(20);
+
+  @include set-media(md) {
+    margin-bottom: set-calc(16);
+  }
 }
 
 .headerDesc {
-  @include font-16-normal-paragraph;
+  @include font-18-normal-paragraph;
   color: var(--color-content-paragraph-primary);
+  width: 60%;
+
+  @include set-media(md) {
+    width: 100%;
+  }
+}
+
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: set-calc(16);
+
+  @include set-media(md) {
+    gap: set-calc(8);
+  }
 }

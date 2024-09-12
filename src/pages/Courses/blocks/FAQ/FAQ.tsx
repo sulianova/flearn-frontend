@@ -26,19 +26,13 @@ const data: QA[] = [
 
 function FAQ() {
   return (
-    <div data-bcalternate className={classes.wrapper}>
+    <>
+      <div className={classes.header}>
+        <div className={classes.headerTitle}>FAQs</div>
+      </div>
       <div className={classes.list}>
         {data.map((qa, index) => <Item key={index} {...qa}/>)}
       </div>
-      <div className={classes.header}>
-        <div className={classes.headerDesc}>
-          {t('headerDesc1')}
-          <Link to={t('creatorLink')}  target='_blank'>
-            <span>{t('headerDesc2')}</span>
-          </Link>
-          {t('headerDesc3')}
-        </div>
-      </div>
-    </div>
+    </>
   );
 }

@@ -26,14 +26,14 @@ export default function Courses() {
     <Catalogue
       key='catalogue'
     />,
-    !user && <SocialValidation
+    <SocialValidation
       key='SocialValidation'
     />,
     !user && <BannerStart
       key='BannerStart'
       onNotAuthedClick={onNotAuthedClick}
     />,
-    !user && <FAQ
+    <FAQ
       key='FAQ'
     />,
   ].filter(c => c !== false);
