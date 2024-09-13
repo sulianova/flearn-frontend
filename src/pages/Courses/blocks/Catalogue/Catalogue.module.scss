@@ -16,22 +16,6 @@
 .headerTitle {
   @include font-32-normal-header;
   font-family: $font-family-extra-bold;
-
-  margin-bottom: set-calc(20);
-
-  @include set-media(md) {
-    margin-bottom: set-calc(16);
-  }
-}
-
-.headerDesc {
-  @include font-18-normal-paragraph;
-  color: var(--color-content-paragraph-primary);
-  width: 60%;
-
-  @include set-media(md) {
-    width: 100%;
-  }
 }
 
 .wrapper {

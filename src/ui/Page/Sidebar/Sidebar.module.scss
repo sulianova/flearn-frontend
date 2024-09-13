@@ -162,6 +162,12 @@
     }
   }
 
+  svg[data-fill] {
+    path {
+      fill: var(--color-content-primary);
+    }
+  }
+
   @include set-media(md) {
     display: none;
   }

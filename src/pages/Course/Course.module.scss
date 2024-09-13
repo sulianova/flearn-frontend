@@ -21,10 +21,10 @@
   flex-direction: column;
   width: 100%;
 
-  gap: set-calc(80);
+  gap: set-calc(64);
 
   @include set-media(md) {
-    gap: set-calc(60);
+    gap: set-calc(40);
   }
 
 }

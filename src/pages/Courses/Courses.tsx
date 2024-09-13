@@ -6,6 +6,7 @@ import { userService } from 'services/user.service';
 import SignupToCoursePopup from 'components/SignupToCoursePopup/SignupToCoursePopup';
 import Page, { EPageVariant } from 'ui/Page/Page';
 
+import IntroBanner from './blocks/IntroBanner/IntroBanner';
 import Catalogue from './blocks/Catalogue/Catalogue';
 import SocialValidation from './blocks/SocialValidation/SocialValidation';
 import BannerStart from './blocks/BannerStart/BannerStart';
@@ -20,9 +21,10 @@ export default function Courses() {
   const freeCourse = courseService.useCourses({ ids: ['how-to-draw'] }).at(0);
   const user = userService.useAuthedUser();
   const blocks = [
-    // user && <IntroBanner
-    //   key='IntroBanner'
-    // />,
+    !user && <IntroBanner
+      key='IntroBanner'
+      onNotAuthedClick={onNotAuthedClick}
+    />,
     <Catalogue
       key='catalogue'
     />,
