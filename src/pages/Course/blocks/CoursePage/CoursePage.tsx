@@ -3,6 +3,7 @@ import { useMemo, useState } from 'react';
 
 import { i18n } from 'shared';
 
+import { authService } from 'services/auth.service';
 import { type IUserData } from 'services/user.service';
 import { type ILessonData } from 'services/lesson.service';
 import { type ICourseData } from 'services/course.service';
@@ -10,8 +11,9 @@ import { type TAccess } from 'services/userAccess.service';
 
 import Icon from 'ui/Icon/Icon';
 import LessonsPopup from 'components/LessonsPopup/LessonsPopup';
+import SignupToCoursePopup from 'components/SignupToCoursePopup/SignupToCoursePopup';
 
-import classes from './CoursePage.module.scss'
+import classes from './CoursePage.module.scss';
 
 const cx = classnames.bind(classes);
 
@@ -36,6 +38,7 @@ interface IProps {
 export default function CoursePage(props: IProps) {
   const { authedUser, currentCourse, courseLessons, currentCourseAccess } = props;
   const [openedTopic, setOpenedTopic] = useState<string | null>(null);
+  const [signupToCoursePopupIsOpened, setSignupToCoursePopupIsOpened] = useState(false);
 
   const topics: ITopic[] = useMemo(() => {
     const getKey = (topic: string, topicOrder: number) => `${topic}-${topicOrder}`;
@@ -83,28 +86,29 @@ export default function CoursePage(props: IProps) {
       )
     ];
   }, [currentCourse]);
+  const onTopicClick = !authedUser ? (() => setSignupToCoursePopupIsOpened(true)) : setOpenedTopic;
 
   return (
     <>
       <div className={classes.coursePage}>
         <div className={classes.main}>
-          {(currentCourseAccess !== 'FREE' || authedUser?.role === 'support') ? (
+          {((currentCourseAccess ?? 'FREE') !== 'FREE' || authedUser?.role === 'support') ? (
             <TopicCards
               title='Модули'
               topics={[...freeTopics, ...payableTopics]}
-              setOpenedTopic={setOpenedTopic}
+              onTopicClick={onTopicClick}
             />
           ) : (
             <>
               <TopicCards
                 title='Доступно сейчас и бесплатно'
                 topics={freeTopics}
-                setOpenedTopic={setOpenedTopic}
+                onTopicClick={onTopicClick}
               />
               <TopicCards
                 title='Будет доступно после оплаты'
                 topics={payableTopics}
-                setOpenedTopic={setOpenedTopic}
+                onTopicClick={onTopicClick}
               />
             </>
           )}
@@ -130,15 +134,22 @@ export default function CoursePage(props: IProps) {
         <LessonsPopup
           courseId={currentCourse.id}
           topic={openedTopic}
-          close={() => setOpenedTopic(null)}
+          close={() => onTopicClick(null)}
+        />
+      )}
+      {signupToCoursePopupIsOpened && (
+        <SignupToCoursePopup
+          course={currentCourse}
+          option='OPTIMAL'
+          close={() => setSignupToCoursePopupIsOpened(false)}
         />
       )}
     </>
   );
 }
 
-function TopicCards(props: { title: string, topics: ITopic[], setOpenedTopic: (topic: string) => void }) {
-  const { title, topics, setOpenedTopic } = props;
+function TopicCards(props: { title: string, topics: ITopic[], onTopicClick: (topic: string) => void }) {
+  const { title, topics, onTopicClick } = props;
   return (
     <div className={classes.level}>
       <div className={classes.levelTitle}>{title}</div>
@@ -147,7 +158,7 @@ function TopicCards(props: { title: string, topics: ITopic[], setOpenedTopic: (t
             <TopicCard
               key={index}
               topic={topic}
-              setOpenedTopic={setOpenedTopic}
+              onTopicClick={onTopicClick}
             />
           ))}
       </div>
@@ -155,14 +166,17 @@ function TopicCards(props: { title: string, topics: ITopic[], setOpenedTopic: (t
   );
 }
 
-function TopicCard(props: { topic: ITopic, setOpenedTopic: (topic: string) => void }) {
-  const { topic, setOpenedTopic } = props;
+function TopicCard(props: { topic: ITopic, onTopicClick: (topic: string) => void }) {
+  const { topic, onTopicClick } = props;
   const totalDurationMinutes = topic.lessons.reduce((acc, l) => acc + durationToMinutes(l.duration), 0);
   const totalDurationStr = totalDurationMinutes >= 60
     ? `${Math.round(totalDurationMinutes / 6) / 10} ч`
     : `${Math.round(totalDurationMinutes)} мин`;
   return (
-    <div className={classes.itemWrapper} onClick={() => setOpenedTopic(topic.title)}>
+    <div
+      className={classes.itemWrapper}
+      onClick={() => onTopicClick(topic.title)}
+    >
       <div className={cx({ item: true, featured: topic.isFirstUnsolved })}>
         <div className={classes.imageWrapper}>
           <div className={classes.image}>
