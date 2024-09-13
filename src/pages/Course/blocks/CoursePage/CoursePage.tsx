@@ -27,10 +27,10 @@ interface ITopic {
 }
 
 interface IProps {
-  authedUser: IUserData
+  authedUser: IUserData | null
   currentCourse: ICourseData
   courseLessons: Array<ILessonData & { solved: boolean, canBeAccessed: boolean }>
-  currentCourseAccess: TAccess
+  currentCourseAccess: TAccess | null
 }
 
 export default function CoursePage(props: IProps) {
@@ -88,7 +88,7 @@ export default function CoursePage(props: IProps) {
     <>
       <div className={classes.coursePage}>
         <div className={classes.main}>
-          {(currentCourseAccess !== 'FREE' || authedUser.role === 'support') ? (
+          {(currentCourseAccess !== 'FREE' || authedUser?.role === 'support') ? (
             <TopicCards
               title='Модули'
               topics={[...freeTopics, ...payableTopics]}

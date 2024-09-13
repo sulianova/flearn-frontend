@@ -19,8 +19,9 @@ export default function Course() {
   const authedUser = userService.useAuthedUser();
   const currentCourse = courseService.useCurrentCourse();
   const currentCourseAccess = userAccessService.useCurrentCourseAccess();
+  const courseLessons = lessonService.useCourseLessons();
 
-  if (!currentCourse) {
+  if (!currentCourse || !courseLessons) {
     return (
       <Fallback.Pending
         text='Loading course'
@@ -34,13 +35,13 @@ export default function Course() {
     feedbacks
   } = currentCourse.content;
   const blocks: JSX.Element[] = [
-    // <CoursePage
-    //   key='CoursePage'
-    //   authedUser={authedUser}
-    //   currentCourse={currentCourse}
-    //   courseLessons={courseLessons}
-    //   currentCourseAccess={currentCourseAccess}
-    // />,
+    <CoursePage
+      key='CoursePage'
+      authedUser={authedUser}
+      currentCourse={currentCourse}
+      courseLessons={courseLessons}
+      currentCourseAccess={currentCourseAccess}
+    />,
     description && <Description
       key='Description'
       type={currentCourse.type}
@@ -72,9 +73,10 @@ export default function Course() {
           <div className={classes.coursesPage}>
             <div className={classes.coursesPageContent}>
               <Header
-                authedUser={authedUser}
                 currentCourse={currentCourse}
+                courseLessons={courseLessons}
                 currentCourseAccess={currentCourseAccess}
+                authedUser={authedUser}
               />
               {blocks.map((block, index) => (
                 <div key={index} className={classes.section}>

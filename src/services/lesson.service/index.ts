@@ -181,10 +181,8 @@ class LessonService {
         source: this.sourceBS.getValue(),
         section: locationService.URLSection,
       };
-      console.log('initCourseLessonsRawBS refetch', { dependencies });
+
       if ((dependencies.section.name !== 'Course' && dependencies.section.name !== 'Profile' && dependencies.section.name !== 'Study')) {
-        console.log('initCourseLessonsRawBS refetch 1');
-        
         this._courseLessonsRawBS.next({ lessons: null, dependencies });
         return;
       }
@@ -196,14 +194,12 @@ class LessonService {
         && (prevDependencies.section.name === 'Course' || prevDependencies.section.name === 'Profile' || prevDependencies.section.name === 'Study')
         && prevDependencies.section.params.courseId === dependencies.section.params.courseId
       ) {
-        console.log('initCourseLessonsRawBS refetch 2');
         return;
       }
 
       if (prevDependencies
         && prevDependencies.source !== dependencies.source
       ) {
-        console.log('initCourseLessonsRawBS refetch 3');
         // trigger spinner
         this._courseLessonsRawBS.next({ lessons: null, dependencies });
       } else if (
@@ -211,7 +207,6 @@ class LessonService {
         && (prevDependencies.section.name === 'Course' || prevDependencies.section.name === 'Profile' || prevDependencies.section.name === 'Study')
         && prevDependencies.section.params.courseId !== dependencies.section.params.courseId
       ) {
-        console.log('initCourseLessonsRawBS refetch 4');
         // trigger spinner
         this._courseLessonsRawBS.next({ lessons: null, dependencies });
       }
@@ -219,11 +214,10 @@ class LessonService {
       const courseId = dependencies.section.params.courseId;
       this.fetch({ courseId })
           .then(lessons => {
-            console.log('initCourseLessonsRawBS refetch 5', { lessons });
             this._courseLessonsRawBS.next({ lessons, dependencies })
           })
           .catch(error => {
-            console.log('Failed to fetch course lessons', { error });
+            console.log('Failed to fetch raw course lessons', { error });
           });
     };
 
@@ -235,51 +229,50 @@ class LessonService {
   }
 
   protected initCourseLessonsBS() {
-    const refetch = () => {
-      const dependencies: TCourseLessonsBSDependencies = {
-        authedUser: userService.authedUser,
-        courseAccess: userAccessService.currentCourseAccess,
-      };
-      console.log('initCourseLessonsBS refetch', { dependencies });
-      const { lessons, dependencies: rawDependencies } = this._courseLessonsRawBS.getValue();
-      if (!dependencies.authedUser || !lessons || !rawDependencies || (rawDependencies.section.name !== 'Course' && rawDependencies.section.name !== 'Profile' && rawDependencies.section.name !== 'Study')) {
-        this._courseLessonsBS.next({ lessons: null, dependencies });
-        console.log('initCourseLessonsBS refetch', { dependencies });
-        return;
+    const refetch = async () => {
+      try {
+        const dependencies: TCourseLessonsBSDependencies = {
+          authedUser: userService.authedUser,
+          courseAccess: userAccessService.currentCourseAccess,
+        };
+
+        const { lessons, dependencies: rawDependencies } = this._courseLessonsRawBS.getValue();
+        if (!lessons || !rawDependencies || (rawDependencies.section.name !== 'Course' && rawDependencies.section.name !== 'Profile' && rawDependencies.section.name !== 'Study')) {
+          this._courseLessonsBS.next({ lessons: null, dependencies });
+          return;
+        }
+
+        const courseId = rawDependencies.section.params.courseId;
+        const progress = await (!dependencies.authedUser ? null : dataService.userCourseProgress.get(courseId, dependencies.authedUser.email));
+
+        const sortedLessons = lessons.slice()
+          .sort((a, b) => {
+            const key = a.topicOrder !== b.topicOrder ? 'topicOrder' : 'orderInTopic';
+            return a[key] - b[key];
+          });
+
+        const firstNotLearnedLesson = sortedLessons.find(l => !progress || !progress[l.id]);
+
+        this._courseLessonsBS.next(
+          {
+            lessons: sortedLessons
+              .map(lesson => {
+                const solved = progress?.[lesson.id]?.solved ?? false;
+                const canBeAccessed =
+                  dependencies.authedUser && dependencies.authedUser.role === 'support' ? true
+                  : (dependencies.courseAccess ?? 'FREE') === 'FREE' && !lesson.isFree ? false
+                  : !firstNotLearnedLesson ? true
+                  : firstNotLearnedLesson.topicOrder === lesson.topicOrder
+                    ? firstNotLearnedLesson.orderInTopic >= lesson.orderInTopic
+                    : firstNotLearnedLesson.topicOrder > lesson.topicOrder;
+                return { ...lesson, canBeAccessed, solved };
+              }),
+            dependencies,
+          }
+        );
+      } catch (error) {
+        console.log('Failed to fetch course lessons', { error });
       }
-
-      const courseId = rawDependencies.section.params.courseId;
-      dataService.userCourseProgress.get(courseId, dependencies.authedUser.email)
-        .then(progress => {
-          const sortedLessons = lessons.slice()
-            .sort((a, b) => {
-              const key = a.topicOrder !== b.topicOrder ? 'topicOrder' : 'orderInTopic';
-              return a[key] - b[key];
-            });
-
-          const firstNotLearnedLesson = sortedLessons.find(l => !progress[l.id]);
-
-          this._courseLessonsBS.next(
-            {
-              lessons: sortedLessons
-                .map(lesson => {
-                  const solved = progress?.[lesson.id]?.solved ?? false;
-                  const canBeAccessed =
-                    dependencies.authedUser!.role === 'support' ? true
-                    : !lesson.isFree && dependencies.courseAccess! === 'FREE' ? false
-                    : !firstNotLearnedLesson ? true
-                    : firstNotLearnedLesson.topicOrder === lesson.topicOrder
-                      ? firstNotLearnedLesson.orderInTopic >= lesson.orderInTopic
-                      : firstNotLearnedLesson.topicOrder > lesson.topicOrder;
-                  return { ...lesson, canBeAccessed, solved };
-                }),
-              dependencies,
-            }
-          );
-        })
-        .catch(error => {
-          console.log('Failed to fetch topic lessons', { error });
-        });
     };
 
     merge(
