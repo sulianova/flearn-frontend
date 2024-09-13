@@ -118,14 +118,18 @@
 
   &:hover {
     background-color: var(--color-background-glassy-b);
-
-    svg path {
-      fill: var(--color-content-primary);
-    }
   }
 
   &:active {
     background-color: var(--color-background-glassy-c);
+  }
+}
+
+.item[data-user-wrapper] {
+  margin-top: set-calc(24);
+
+  &:hover {
+    background-color: transparent;
   }
 }
 
@@ -158,13 +162,26 @@
     height: set-calc(22);
 
     path {
-      fill: var(--color-content-paragraph-secondary);
+      fill: var(--color-content-tertiary);
+
+      transition-property: all;
+      transition-duration: $d-hover;
+      transition-timing-function: ease-out;
     }
   }
 
   svg[data-fill] {
     path {
       fill: var(--color-content-primary);
+    }
+  }
+
+  svg[data-user] {
+    width: set-calc(32);
+    height: set-calc(32);
+
+    path {
+      fill: var(--color-background-glassy-d);
     }
   }
 

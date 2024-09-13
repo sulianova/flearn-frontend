@@ -139,7 +139,7 @@ function Sidebar() {
                   />
                 )}
               >
-                <li className={classes.item}>
+                <li data-user-wrapper className={classes.item}>
                   <span className={classes.iconWrapper}>
                     <div
                       data-user
