@@ -3,7 +3,6 @@
 .item {
   position: relative;
 
-  grid-column: 4 / -4;
   padding: set-calc(24);
   border-radius: set-calc($border-radius-30);
   background-color: var(--color-card);
@@ -18,6 +17,7 @@
 
     display: flex;
     flex-direction: column;
+    width: 100%;
 
     border-radius: set-calc($border-radius-20);
   }

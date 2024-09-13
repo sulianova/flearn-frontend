@@ -1,6 +1,8 @@
 @import 'styles/index';
 
 .item {
+  position: relative;
+  
   display: flex;
   flex-direction: column;
   width: calc(33.3% - set-calc(16));

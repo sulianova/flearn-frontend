@@ -77,7 +77,7 @@ function Page({ children, variant, header = false, footer, backgroundColor = 'va
             </section>
             <EditBar/>
           </div>
-          {footer !== false && <Footer type={footer === true ? EFooter.Default : footer}/>}
+          {footer !== false && <Footer variant={variant} type={footer === true ? EFooter.Default : footer}/>}
         </div>
       </div>
     </div>

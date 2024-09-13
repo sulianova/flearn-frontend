@@ -1,6 +1,6 @@
 @import 'styles/index';
 
-._ {
+.wrapper {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -13,6 +13,19 @@
     grid-gap: set-calc(24);
   }
 }
+
+.paddingWEB {
+  @include set-media(md) {
+    padding: set-calc(0) set-calc($padding-x-mob-page) set-calc(16);
+  }
+}
+
+.paddingLMS {
+  @include set-media(md) {
+    padding: set-calc(0) set-calc($padding-x-mob-page) set-calc(16);
+  }
+}
+
 
 .row {
   @include is-grid-4;

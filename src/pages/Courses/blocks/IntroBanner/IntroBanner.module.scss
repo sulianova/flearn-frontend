@@ -1,11 +1,6 @@
 @import 'styles/index';
 .wrapper {
   position: relative;
-
-  @include set-media(md) {
-    left: set-calc(-8);
-    width: set-calc(16, true, 100%);
-  }
 }
 
 .card {

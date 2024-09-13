@@ -7,6 +7,7 @@ import Link from 'ui/Link/Link';
 import Icon from 'ui/Icon/Icon';
 
 import classes from './Footer.module.scss';
+import { EPageVariant } from '../Page';
 
 const t = formatI18nT('footer');
 const cx = classNames.bind(classes);
@@ -19,12 +20,13 @@ export enum EFooter {
 }
 
 interface IProps {
+  variant: EPageVariant
   type?:  EFooter
 }
 
-function Footer({ type =  EFooter.Default }: IProps) {
+function Footer({ variant, type =  EFooter.Default }: IProps) {
   return (
-    <div className={classes._}>
+    <div className={cx({ wrapper: true, [`padding${variant}`]: true })}>
       {
         type === EFooter.Big && (
           <div className={cx({ row: true, card: true })}>
