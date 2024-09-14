@@ -284,7 +284,7 @@ s {
 }
 
 .key-link {
-  color: var(--primary-color);
+  color: var(--color-content-secondary);
   transition: color $d-hover ease-out 0.1s;
   -o-transition: color $d-hover ease-out 0.1s;
   -moz-transition: color $d-hover ease-out 0.1s;
@@ -296,6 +296,12 @@ s {
 
   &:hover {
     color: var(--primary-color-hover);
+  }
+
+  @include set-media(md) {
+    &:hover {
+      color: var(--color-content-secondary);
+    }
   }
 }
 

@@ -31,8 +31,15 @@ export default function SignupToCoursePopup(props: Readonly<IProps>) {
           </div>
           <div className={classes.header}>
             <div className={classes.title}>{t(!orderEmail ? 'subtitle' : !course.isUnderDevelopment ? 'subtitle2' : 'subtitle3', { email: orderEmail })}</div>
-            <div className={classes.caption}>{t(!orderEmail ? 'emailCaption' : !course.isUnderDevelopment ? 'emailCaption2' : 'emailCaption3')}</div>
           </div>
+
+              {!orderEmail ? '' : !course.isUnderDevelopment ?
+                (
+                  <div className={classes.imgWrapper}>
+                    <Icon icon='EmailSent'/>
+                  </div>
+                ) : 'emailCaption3'
+              }
             <Form
               course={course}
               option={option}

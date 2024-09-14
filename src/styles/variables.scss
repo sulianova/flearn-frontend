@@ -123,10 +123,10 @@ $color-background-overlay-light: $color-palette-black-500-a;
 $color-background-btn-light: $color-palette-black-700;
 $color-background-btn-hover-light: $color-palette-black-900;
 
-$color-accent-error-light:#db2323;
+$color-accent-error-light: #F04438;
 $color-accent-warning-light: #FDB022;
 $color-accent-success-light: #12B76A;
-$color-accent-notice-light: $color-highlight-blue;
+$color-accent-notice-light: #0064F0;
 $color-accent-promo-light: $color-highlight-yellow;
 $color-accent-promo-background-light: $color-highlight-dust;
 
@@ -159,10 +159,10 @@ $color-background-glassy-inverted-b-dark: $color-palette-black-25-a;
 $color-background-glassy-inverted-c-dark: $color-palette-black-50-a;
 $color-background-glassy-inverted-d-dark: $color-palette-black-100-a;
 
-$color-accent-error-dark: #db2323;
+$color-accent-error-dark: #F04438;
 $color-accent-warning-dark: #FDB022;
 $color-accent-success-dark: #12B76A;
-$color-accent-notice-dark: $color-highlight-blue;
+$color-accent-notice-dark: #6172F3;
 $color-accent-promo-dark: $color-highlight-violet;
 $color-accent-promo-background-dark: $color-highlight-neon;
 
@@ -192,6 +192,7 @@ $breakpoints: (
 );
 
 //duration
+$d-focus: 0.1s;
 $d-hover: 0.25s;
 $d-expansion: 0.5s;
 $d-collapse: calc($d-expansion / 3);

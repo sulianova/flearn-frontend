@@ -15,50 +15,38 @@
 
 .inputWrap {
   display: flex;
+  flex-direction: column;
+}
+
+.inputTitle {
+  @include font-12-normal-ui;
+  font-family: $font-family-medium;
+
+  margin-bottom: set-calc(8);
+}
+
+.inputCaption {
+  @include font-10-normal-ui;
+  font-family: $font-family;
+  color: var(--color-content-tertiary);
+
+  margin-top: set-calc(4);
+  margin-left: set-calc(8);
 }
 
 .submitButton {
-  position: relative;
+  @include btn;
+  @include button-large;
+  @include button-primary;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: set-calc(16) set-calc(16);
-  min-width: set-calc(58);
-  max-width: set-calc(58);
-
-  color: var(--color-content-inverted-primary);
-  @include font-24-normal-ui;
-
-  background-color: var(--color-content-background-secondary);
-  border: set-calc(1) solid var(--color-background-stroke);
-  border-left: 0;
-  border-radius: 0 set-calc(15) set-calc(15) 0;
-  cursor: pointer;
-  pointer-events: all;
-  height: set-calc(66.5);
-
-  transition: background-color $d-hover ease-in-out, color ease-in-out $d-hover;
-
-  &:hover {
-    background-color: var(--color-content-background-primary);
-  }
-
-  @include set-media(md) {
-    border: set-calc(0.5) solid var(--color-background-stroke);
-    border-left: 0;
-    height: set-calc(66.5);
-  }
+  width: 100%;
+  margin-top: set-calc(12);
 }
 
 .btnSvg {
   svg {
     width: set-calc(24);
     height: set-calc(24);
-  }
-
-  svg[data-arrow] {
-    transform: rotate(180deg);
   }
 }
 
@@ -69,6 +57,7 @@
 
 .isPending {
   background-color: var(--color-background-glassy-a);
+  color: var(--color-background-glassy-d);
   pointer-events: none;
 }
 
@@ -82,12 +71,6 @@
   }
 }
 
-.isDisabled {
-  background-color: var(--color-background-glassy-a);
-  color: var(--color-content-tertiary);
-  pointer-events: none;
-}
-
 .Error {
   color: var(--color-accent-error);
   @include font-14-normal-ui;
@@ -96,54 +79,26 @@
   margin-left: set-calc(4);
 }
 
-
 .agreement {
-  margin-top: set-calc(18);
-  margin-left: set-calc(4);
+  align-self: flex-end;
 
-  @include font-16-normal-paragraph;
+  margin-top: set-calc(16);
+  margin-right: set-calc(4);
+
+  @include font-14-normal-ui;
 
   @include set-media(md) {
     margin-top: set-calc(8);
-    margin-left: set-calc(4);
+    margin-right: set-calc(4);
   }
 }
 
 .btn {
   @include btn;
-
-  position: relative;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  color: var(--color-content-inverted-primary);
-  @include font-20-normal-ui;
-
-  border-radius: set-calc($border-radius-12);
-  background-color: var(--color-background-btn);
-
-  padding: set-calc(22) set-calc(60);
-  width: 100%;
-
-  cursor: pointer;
-
-  &:hover {
-    background-color: var(--color-background-btn-hover);
-  }
+  @include button-large;
+  @include button-primary;
 
   @include set-media(md) {
-    padding: 0 set-calc(24);
     margin-top: set-calc(32);
-
-    height: set-calc(62);
-    width: 100%;
-  
-    border-radius: set-calc($border-radius-16);
-    background-color: var(--color-background-btn);
-  
-    @include set-typography(18, 24, 500);
-    touch-action: manipulation;
   }
 }

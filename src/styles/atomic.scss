@@ -1,4 +1,12 @@
 //fonts
+@mixin font-10-normal-ui {
+  @include set-typography(10, 12, 500);
+} 
+
+@mixin font-12-normal-ui {
+  @include set-typography(12, 14, 500);
+} 
+
 @mixin font-14-normal-ui {
   @include set-typography(14, 16, 500);
 } 

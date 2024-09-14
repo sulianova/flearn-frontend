@@ -69,7 +69,7 @@ export default function Form({ onOrderCreated, course, option }: IProps) {
           })
         }
       >
-        Начать учиться
+        Начать учиться бесплатно
       </button>
     );
   }
@@ -86,20 +86,21 @@ export default function Form({ onOrderCreated, course, option }: IProps) {
       >
         <div className={classes.inputWrap}>
           <InputField
-            className={cx2({ input: true, isError: formData.state.type === 'Error' })}
+            className={cx2({ input: true, isError: formData.state.type === 'Error', isValid: isValid(formData) })}
             variant='Email'
             value={formData.email}
             onChange={v => setFormData(d => ({ ...d, email: v }))}
           />
+          <div className={classes.inputCaption}>Email</div>
           <button
-            className={cx({ submitButton: true, isDisabled: !isValid(formData), [`is${formData.state.type}`]: true })}
+            className={cx({ submitButton: true, [`is${formData.state.type}`]: true })}
             type="submit"
             disabled={!isValid(formData)}
             onClick={() => handleSubmit(formData)}
           >
             <span className={classes.btnSvg}>
               {
-                formData.state.type === 'Idle' ?  <Icon icon='ArrowButton'/> :
+                formData.state.type === 'Idle' ?  <>Начать учиться бесплатно</>:
                 formData.state.type === 'Pending' ? <Spinner/> :
                 formData.state.type === 'Success' ?  <Icon icon='Tick'/>  :
                 formData.state.type === 'Error' ? <Icon icon='Refresh'/> : ''
@@ -110,7 +111,7 @@ export default function Form({ onOrderCreated, course, option }: IProps) {
         {formData.state.type === 'Error' && <span className={classes.Error}>{formData.state.error.message}</span>}
         <div className={classes.agreement}>
                     <Link
-                      className='link'
+                      className='key-link'
                       to={URLSections.Static.Oferta.index}
                       target='_blank'
                     >
