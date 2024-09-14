@@ -1,0 +1,22 @@
+@import 'styles/index';
+
+.inputWrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputTitle {
+  @include font-12-normal-ui;
+  font-family: $font-family-medium;
+
+  margin-bottom: set-calc(8);
+}
+
+.inputCaption {
+  @include font-10-normal-ui;
+  font-family: $font-family;
+  color: var(--color-content-tertiary);
+
+  margin-top: set-calc(4);
+  margin-left: set-calc(8);
+}

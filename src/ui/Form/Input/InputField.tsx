@@ -2,6 +2,7 @@ import { i18n } from 'shared';
 import { v4 } from 'uuid';
 
 import { Fragment } from 'react';
+import classes from './InputField.module.scss';
 
 export default InputField;
 
@@ -21,7 +22,8 @@ const type = {
 function InputField(props: IProps) {
   const id = v4();
   return (
-    <Fragment>
+    <div className={classes.inputWrap}>
+      {/* <div className={classes.inputTitle}>inputTitle</div> */}
       <label htmlFor={id}/>
       <input
         id={id}
@@ -33,6 +35,7 @@ function InputField(props: IProps) {
         value={props.value}
         onChange={e => props.onChange?.(e.target.value)}
       />
-    </Fragment>
+      {/* <div className={classes.inputCaption}>inputCaption</div> */}
+    </div>
   );
 }

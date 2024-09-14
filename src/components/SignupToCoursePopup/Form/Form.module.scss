@@ -9,29 +9,8 @@
   width: 100%;
 
   @include set-media(md) {
-    margin-top: set-calc(32);
+    margin-top: set-calc(16);
   }
-}
-
-.inputWrap {
-  display: flex;
-  flex-direction: column;
-}
-
-.inputTitle {
-  @include font-12-normal-ui;
-  font-family: $font-family-medium;
-
-  margin-bottom: set-calc(8);
-}
-
-.inputCaption {
-  @include font-10-normal-ui;
-  font-family: $font-family;
-  color: var(--color-content-tertiary);
-
-  margin-top: set-calc(4);
-  margin-left: set-calc(8);
 }
 
 .submitButton {
@@ -41,6 +20,10 @@
 
   width: 100%;
   margin-top: set-calc(12);
+
+  @include set-media(md) {
+    margin-top: set-calc(8);
+  }
 }
 
 .btnSvg {

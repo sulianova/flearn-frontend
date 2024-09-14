@@ -35,7 +35,7 @@ export default function Catalogue(props: IProps) {
 
   return (
     <>
-      <h2 className={classes.sectionTitle}>Могут вам подойти</h2>
+      <h2 className={classes.sectionTitle}>Что еще вам может понравиться</h2>
       <div className={classes.wrapper}>
         {courses.map(course => <Card key={course.id} course={course}/>)}
       </div>

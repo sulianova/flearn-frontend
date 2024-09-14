@@ -28,11 +28,14 @@ export default function Header(props: IProps) {
   const [buyCoursePopupIsOpened, setBuyCoursePopupIsOpened] = useState(false);
 
   return (
-    <div className={classes.header}>
-      <div className={classes.headerWrapper}>
+    <div className={classes.headerWrapper}>
+      <div className={classes.headerTitle}>Продолжить обучение</div>
+      <div className={classes.header}>
+        <div className={classes.headerImage}>
+          <Icon {...currentCourse.icon}/>
+        </div>
         <div className={classes.headerContent}>
           <div className={classes.title}>{currentCourse.title}</div>
-          <div className={classes.description}>{currentCourse.introDescription}</div>
           <div className={classes.metaData}>
             <div className={classes.metaData_Item}>
               <span className={classes.metaData_ItemText}>{i18n.t(`catalogue.card.info.${currentCourse.level}`)}</span>
@@ -49,41 +52,37 @@ export default function Header(props: IProps) {
             </div>
           </div>
         </div>
-        <div className={classes.headerImage}>
-          <Icon {...currentCourse.icon}/>
-        </div>
-        <div className={classes.shareLink}><Icon icon='Share'/></div>
-      </div>
-      {firstNotSolvedLesson ? (
-            <div className={classes.actions}>
-              <div className={classes.actionsBtn}>
-                {!firstNotSolvedLesson.isFree && currentCourseAccess === 'FREE' && authedUser.role === 'user' ? (
-                  <div
-                    className={classes.currentLessonButton}
-                    onClick={() => setBuyCoursePopupIsOpened(true)}
-                  >
-                    Купить полный курс
-                  </div>
-                ) : (
-                  <Link
-                    className={classes.currentLessonButton}
-                    to={URLSections.Study.to({ courseId: currentCourse.id, lessonId: firstNotSolvedLesson.id })}
-                  >
-                    Продолжить учиться
-                  </Link>
-                )}
-              </div>
+        {firstNotSolvedLesson ? (
+          <div className={classes.actions}>
+            <div className={classes.actionsBtn}>
+              {!firstNotSolvedLesson.isFree && currentCourseAccess === 'FREE' && authedUser.role === 'user' ? (
+                <div
+                  className={classes.currentLessonButton}
+                  onClick={() => setBuyCoursePopupIsOpened(true)}
+                >
+                  Купить полный курс
+                </div>
+              ) : (
+                <Link
+                  className={classes.currentLessonButton}
+                  to={URLSections.Study.to({ courseId: currentCourse.id, lessonId: firstNotSolvedLesson.id })}
+                >
+                  Продолжить учиться
+                </Link>
+              )}
             </div>
-      ) : (
-        <></>
-      )}
-      {buyCoursePopupIsOpened && (
-        <BuyPopup
-          course={currentCourse}
-          user={authedUser}
-          close={() => setBuyCoursePopupIsOpened(false)}
-        />
-      )}
+          </div>
+          ) : (
+            <></>
+          )}
+          {buyCoursePopupIsOpened && (
+            <BuyPopup
+              course={currentCourse}
+              user={authedUser}
+              close={() => setBuyCoursePopupIsOpened(false)}
+            />
+          )}
+      </div>
     </div>
   );
 }

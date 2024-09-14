@@ -70,11 +70,12 @@ function Profile(props: IProps) {
   const onNotAuthedClick = () => setPopupVisible(true);
 
   const blocks: JSX.Element[] = [
-    <CoursePage authedUser={authedUser} currentCourse={currentCourse} courseLessons={courseLessons} currentCourseAccess={currentCourseAccess}/>,
-    description && <Description type={currentCourse.type} description={description}/>,
-    feedbacks && feedbacks.length && <SocialValidation feedbacks={feedbacks}/>,
+    // <CoursePage authedUser={authedUser} currentCourse={currentCourse} courseLessons={courseLessons} currentCourseAccess={currentCourseAccess}/>,
+    // description && <Description type={currentCourse.type} description={description}/>,
+    // feedbacks && feedbacks.length && <SocialValidation feedbacks={feedbacks}/>,
     <Catalogue linkToFreeCourse={linkToFreeCourse} onNotAuthedClick={onNotAuthedClick}/>,
-  ].filter(e => e !== undefined && e !== null && e !== 0);
+  ]
+  // .filter(e => e !== undefined && e !== null && e !== 0);
 
   return (
     <>
