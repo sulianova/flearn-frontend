@@ -6,7 +6,7 @@
   flex-direction: column;
   width: 100%;
   max-width: set-calc(1080);
-  margin: set-calc(32) auto set-calc(52) 0;
+  margin: set-calc(32) auto set-calc(32) 0;
 
   @include set-media(md) {
     left: set-calc(-$padding-x-mob-page);
@@ -18,15 +18,39 @@
 
 .profilePageContent {
   display: flex;
-  flex-direction: column;
-  width: 100%;
-
-  gap: set-calc(64);
 
   @include set-media(md) {
+    flex-direction: column;
+
+    width: 100%;
     gap: set-calc(40);
   }
+}
 
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: set-calc(64);
+
+  flex-grow: 1;
+  max-width: 100%;
+
+  @include set-media(md) {
+
+    width: 100%;
+    gap: set-calc(40);
+  }
+}
+
+.asideWrapper {
+  flex-shrink: 0;
+  margin-left: set-calc(40);
+  width: set-calc(360);
+
+  @include set-media(md) {
+    margin-left: 0;
+    width: 100%;
+  }
 }
 
 .section {

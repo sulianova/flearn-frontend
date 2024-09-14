@@ -87,12 +87,15 @@ function Profile(props: IProps) {
       >
         <div className={classes.profilePage}>
           <div className={classes.profilePageContent}>
-            <Header authedUser={authedUser} currentCourse={currentCourse} courseLessons={courseLessons} currentCourseAccess={currentCourseAccess}/>
-            {blocks.map((block, index) => (
-              <div key={index} className={classes.section}>
-                {block}
-              </div>
-            ))}
+            <div className={classes.main}>
+              <Header authedUser={authedUser} currentCourse={currentCourse} courseLessons={courseLessons} currentCourseAccess={currentCourseAccess}/>
+              {blocks.map((block, index) => (
+                <div key={index} className={classes.section}>
+                  {block}
+                </div>
+              ))}
+            </div>
+            <aside className={classes.asideWrapper}></aside>
           </div>
         </div>
       </Page>

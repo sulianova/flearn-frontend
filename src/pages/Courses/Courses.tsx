@@ -28,7 +28,7 @@ export default function Courses() {
     <Catalogue
       key='catalogue'
     />,
-    <SocialValidation
+    !user && <SocialValidation
       key='SocialValidation'
     />,
     !user && <BannerStart

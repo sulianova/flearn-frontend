@@ -36,23 +36,20 @@ export default function Header(props: IProps) {
         </div>
         <div className={classes.headerContent}>
           <div className={classes.title}>{currentCourse.title}</div>
-          <div className={classes.metaData}>
-            <div className={classes.metaData_Item}>
-              <span className={classes.metaData_ItemText}>{i18n.t(`catalogue.card.info.${currentCourse.level}`)}</span>
-            </div>
-            <div className={classes.metaData_Item}>
-              <span className={classes.metaData_ItemText}>
+          <div className={classes.meta}>
+              <p className={classes.metaData_ItemText}>
+                {i18n.t(`catalogue.card.info.${currentCourse.level}`)}
+              </p>
+              <p className={classes.metaData_ItemText}>
                 {i18n.t(`duration.${currentCourse.metaData.lessonsDuration.unit}`, { count: currentCourse.metaData.lessonsDuration.value })}
-              </span>
-            </div>
-            <div className={classes.metaData_Item}>
-              <span className={classes.metaData_ItemText}>
+              </p>
+              <p className={classes.metaData_ItemText}>
                 {i18n.t('lesson.p', { count: currentCourse.metaData.lessonsAmount })}
-              </span>
-            </div>
+              </p>
           </div>
         </div>
-        {firstNotSolvedLesson ? (
+      </div>
+      {firstNotSolvedLesson ? (
           <div className={classes.actions}>
             <div className={classes.actionsBtn}>
               {!firstNotSolvedLesson.isFree && currentCourseAccess === 'FREE' && authedUser.role === 'user' ? (
@@ -82,7 +79,6 @@ export default function Header(props: IProps) {
               close={() => setBuyCoursePopupIsOpened(false)}
             />
           )}
-      </div>
     </div>
   );
 }
