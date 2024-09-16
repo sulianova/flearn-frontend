@@ -2,14 +2,15 @@
 
 .input {
   @include input;
+  @include input-large;
 
   width: 100%;
 }
 
 .isError {
-  @include input-error;
+  @include input-alert;
 }
 
 .isValid {
-  @include input-valid;
+  @include input-normal;
 }

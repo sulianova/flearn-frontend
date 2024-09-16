@@ -23,7 +23,7 @@ function InputField(props: IProps) {
   const id = v4();
   return (
     <div className={classes.inputWrap}>
-      {/* <div className={classes.inputTitle}>inputTitle</div> */}
+      {/* <div className={classes.inputLabel}>inputLabel</div> */}
       <label htmlFor={id}/>
       <input
         id={id}

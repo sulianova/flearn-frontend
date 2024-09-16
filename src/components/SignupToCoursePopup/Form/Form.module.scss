@@ -81,6 +81,8 @@
   @include button-large;
   @include button-primary;
 
+  width: 100%;
+
   @include set-media(md) {
     margin-top: set-calc(32);
   }

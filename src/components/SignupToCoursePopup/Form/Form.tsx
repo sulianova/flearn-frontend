@@ -69,7 +69,10 @@ export default function Form({ onOrderCreated, course, option }: IProps) {
           })
         }
       >
-        Начать учиться бесплатно
+        <div className={classes.content}>
+          <Icon icon='Google'/>
+          Продолжить с Google
+        </div>
       </button>
     );
   }
@@ -90,7 +93,6 @@ export default function Form({ onOrderCreated, course, option }: IProps) {
             value={formData.email}
             onChange={v => setFormData(d => ({ ...d, email: v }))}
           />
-          {/* <div className={classes.inputCaption}>inputErrorText</div> */}
           <button
             className={cx({ submitButton: true, [`is${formData.state.type}`]: true })}
             type="submit"
@@ -109,7 +111,7 @@ export default function Form({ onOrderCreated, course, option }: IProps) {
         {formData.state.type === 'Error' && <span className={classes.Error}>{formData.state.error.message}</span>}
         <div className={classes.agreement}>
                     <Link
-                      className='key-link'
+                      className='s-hoverable'
                       to={URLSections.Static.Oferta.index}
                       target='_blank'
                     >

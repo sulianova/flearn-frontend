@@ -49,4 +49,5 @@ export * from './HomeFill';
 export * from './Course';
 export * from './CourseFill';
 export * from './UserFill';
-export * from './EmailSent'
+export * from './EmailSent';
+export * from './Google'

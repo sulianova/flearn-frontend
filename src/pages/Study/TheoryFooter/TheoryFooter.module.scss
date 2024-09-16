@@ -33,7 +33,7 @@
 .button {
   @include btn;
   @include button-large;
-  @include button-tertiary;
+  @include button-black;
 
   @include set-media(md) {
     width: 100%;

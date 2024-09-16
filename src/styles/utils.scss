@@ -144,6 +144,13 @@
   transition-duration: $d-hover;
   transition-timing-function: ease-out;
 
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
   &:hover {
     cursor: pointer;
   }
@@ -184,30 +191,8 @@
   }
 }
 
-@mixin button-secondary {
-  color: var(--color-content-primary);
-  background-color: var(--color-background-glassy-b);
-
-  &:hover {
-    background-color: var(--primary-color-hover);
-    color: $color-content-inverted-primary-light;
-  }
-
-  &:disabled {
-    color: var(--color-background-glassy-d);
-    background: var(--color-background-glassy-b);
-  }
-
-  @include set-media(md) {
-    &:hover {
-      background-color: var(--color-background-glassy-b);
-      color: var(--color-content-primary);
-    }
-  }
-}
-
-@mixin button-tertiary {
-  color: $color-content-inverted-primary-light;
+@mixin button-black {
+  color: var(--color-content-inverted-primary);
   background-color: var(--color-background-btn);
 
   &:hover {
@@ -222,6 +207,27 @@
   @include set-media(md) {
     &:hover {
       background-color: var(--color-background-btn);
+    }
+  }
+}
+
+@mixin button-secondary {
+  color: var(--color-content-primary);
+  background-color: var(--color-background-glassy-b);
+
+  &:hover {
+    background-color: var(--color-background-glassy-c);
+  }
+
+  &:disabled {
+    color: var(--color-background-glassy-d);
+    background: var(--color-background-glassy-b);
+  }
+
+  @include set-media(md) {
+    &:hover {
+      background-color: var(--color-background-glassy-b);
+      color: var(--color-content-primary);
     }
   }
 }
@@ -265,33 +271,59 @@
 }
 
 @mixin button-extra-small {
-  gap: set-calc(2);
   height: set-calc(36);
 
   padding: 0 set-calc(12);
   border-radius: set-calc($border-radius-8);
+
+  .content {
+    gap: set-calc(2);
+
+    svg {
+      width: set-calc(24);
+      height: set-calc(24);
+    }
+  }
 
   @include font-14-normal-ui;
   font-family: $font-family-medium;
 }
 
 @mixin button-small {
-  gap: set-calc(2);
   height: set-calc(44);
 
   padding: 0 set-calc(16);
   border-radius: set-calc($border-radius-10);
+
+
+  .content {
+    gap: set-calc(4);
+
+    svg {
+      width: set-calc(24);
+      height: set-calc(24);
+    }
+  }
 
   @include set-typography(16, 16, 500);
   font-family: $font-family-medium;
 }
 
 @mixin button-large {
-  gap: set-calc(4);
   height: set-calc(64);
   
   padding: 0 set-calc(24);
   border-radius: set-calc($border-radius-16);
+
+
+  .content {
+    gap: set-calc(8);
+
+    svg {
+      width: set-calc(32);
+      height: set-calc(32);
+    }
+  }
 
   @include set-typography(18, 18, 500);
   font-family: $font-family-medium;
@@ -311,22 +343,22 @@
   }
 }
 
+
+
 @mixin input {
   position: relative;
-
-  height: set-calc(64);
-  padding: 0 set-calc(16);
+  appearance: none;
 
   color: var(--color-background-glassy-d);
 
   background: transparent;
-  border: 1.5px solid var(--border);
-  border-radius: set-calc($border-radius-12);
+
+  border-color: var(--border);
+  border-style: solid;
   
   box-shadow: none;
   outline: none;
 
-  @include font-16-normal-ui;
   font-family: $font-family!important;
 
   transition-property: all;
@@ -334,10 +366,17 @@
   transition-timing-function: ease-out;
 
   &::placeholder,
-  &::-ms-input-placeholder {
-    color: var(--color-content-tertiary);
+  &::-ms-input-placeholder,
+  &::-webkit-input-placeholder {
+    color: var(--color-background-glassy-d)!important;
     font-family: $font-family!important;
     opacity: 1;
+  }
+
+  &:is(:-webkit-autofill, :autofill, :-webkit-autofill:focus, :-webkit-autofill:hover) {
+    background-color: transparent;
+    background: transparent;
+    color: var(--color-content-primary);
   }
 
   &:focus {
@@ -347,18 +386,38 @@
   }
 
   &:disabled {
-    border: 1.5px solid transparent;
+    border-color: transparent;
     background-color: var(--color-background-glassy-c);
     color: var(--color-content-tertiary);
   }
 
 }
 
-@mixin input-error {
+@mixin input-large {
+  height: set-calc(64);
+  padding: 0 set-calc(16);
+
+  border-width: 1.5px;
+  border-radius: set-calc($border-radius-12);
+
+  @include font-16-normal-ui;
+}
+
+@mixin input-medium {
+  height: set-calc(44);
+  padding: 0 set-calc(12);
+
+  border-width: 1px;
+  border-radius: set-calc($border-radius-8);
+
+  @include font-14-normal-ui;
+}
+
+@mixin input-alert {
   border-color: var(--color-accent-error);
 }
 
-@mixin input-valid {
+@mixin input-normal {
   color: var(--color-content-primary);
   background-color: transparent;
 }

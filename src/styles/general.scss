@@ -152,6 +152,14 @@ input::placeholder {
   font-family: $font-family;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:focus,
+:-webkit-autofill:hover {
+  transition: background-color 0s 600000s, color 0s 600000s !important;
+
+  font-family: $font-family!important;
+}
+
 html input[type=button],input[type=reset],input[type=submit] {
   cursor: pointer;
   -webkit-appearance: button;
@@ -284,7 +292,7 @@ s {
 }
 
 .key-link {
-  color: var(--color-content-secondary);
+  color: var(--primary-color);
   transition: color $d-hover ease-out 0.1s;
   -o-transition: color $d-hover ease-out 0.1s;
   -moz-transition: color $d-hover ease-out 0.1s;
