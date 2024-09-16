@@ -7,7 +7,7 @@ import { firebaseService } from 'services/firebase.service';
 import { lessonService } from 'services/lesson.service';
 
 import { EEmail } from './types';
-import type { IEmail, IEmailContact, TCommonProps, TSendEmailProps, TWantToBuyDummyCourseProps, TWelcomeToDummyCourseProps } from './types';
+import type { IEmail, IEmailContact, TCommonProps, TSendEmailProps, TWantToBuyDummyCourseProps, TWelcomeToDummyCourseProps, TWelcomeToFlearnProps } from './types';
 import type {
   TWelcomeToCourseProps,
   TWelcomeToPaidCourseProps,
@@ -27,6 +27,7 @@ import HomeworkReviewed from './emails/HomeworkReviewed';
 import HomeworkReviewedToReviewer from './emails/HomeworkReviewedToReviewer';
 import WantToBuyDummyCourse from './emails/WantToBuyDummyCourse';
 import WelcomeToDummyCourse from './emails/WelcomeToDummyCourse';
+import WelcomeToFlearn from './emails/WelcomeToFlearn';
 
 class EmailService {
   public EEmail = EEmail;
@@ -57,6 +58,8 @@ class EmailService {
   private getId(props: TSendEmailProps) {
     const id = v4().slice(0, 4);
     switch (props.type) {
+      case this.EEmail.WelcomeToFlearn:
+        return `${props.type}-${props.to.email}-${id}`;
       case this.EEmail.WelcomeToCourse:
       case this.EEmail.WelcomeToPaidCourse:
       case this.EEmail.DiscontSolveFreeLessonsInWeek:
@@ -78,6 +81,8 @@ class EmailService {
 
   private async getEmail(props: TSendEmailProps): Promise<IEmail> {
     switch (props.type) {
+      case EEmail.WelcomeToFlearn:
+        return this.getWelcomeToFlearnEmail(props);
       case EEmail.WelcomeToCourse:
         return this.getWelcomeToCourseEmail(props);
       case EEmail.WelcomeToPaidCourse:
@@ -104,6 +109,10 @@ class EmailService {
   private async canSend(to: IEmailContact) {
     const notificationSettings = await dataService.notificationSettings.get(to.email);
     return notificationSettings.email !== false;
+  }
+
+  private async getWelcomeToFlearnEmail(props: TWelcomeToFlearnProps) {
+    return this.getEmailObjectFromComponent(WelcomeToFlearn, props);
   }
 
   private async getWelcomeToCourseEmail(props: TWelcomeToCourseProps) {

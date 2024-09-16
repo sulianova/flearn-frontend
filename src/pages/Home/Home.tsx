@@ -17,10 +17,10 @@ import Explain from './blocks/Explain/Explain';
 import SocialValidation from './blocks/SocialValidation/SocialValidation';
 
 import classes from './Home.module.scss';
+import SignupToFlearnPopup from 'components/SignupToFlearnPopup/SignupToFlearnPopup';
 
 
 export default function Home() {
-  const freeCourse = courseService.useCourses({ ids: ['how-to-draw'] }).at(0);
   const firstLesson = lessonService.useLessons({ courseId: 'how-to-draw', topicOrder: 1, orderInTopic: 1 }).at(0);
   const linkToFreeCourse = firstLesson
     ? URLSections.Study.to({ courseId: 'how-to-draw', lessonId: firstLesson.id })
@@ -30,40 +30,37 @@ export default function Home() {
 
   const blocks = [
     <StudyProcess 
-    key='studyProcess'
+      key='StudyProcess'
     />,
     <Explain 
-    key='explain'
+      key='Explain'
     />,
     <Catalogue
-    key='catalogue'
-    linkToFreeCourse={linkToFreeCourse}
-    onNotAuthedClick={onNotAuthedClick}
+      key='Catalogue'
+      linkToFreeCourse={linkToFreeCourse}
+      onNotAuthedClick={onNotAuthedClick}
     />,
-    < BannerStart
-    key='bannerStart'
-    linkToFreeCourse={linkToFreeCourse}
-    onNotAuthedClick={onNotAuthedClick}
+    <BannerStart
+      key='BannerStart'
+      linkToFreeCourse={linkToFreeCourse}
+      onNotAuthedClick={onNotAuthedClick}
     />,
-    <SocialValidation/>,
+    <SocialValidation
+      key='SocialValidation'
+    />,
     <DecisionForm
-    key='decisionForm'
-    linkToFreeCourse={linkToFreeCourse}
-    onNotAuthedClick={onNotAuthedClick}
+      key='DecisionForm'
+      linkToFreeCourse={linkToFreeCourse}
+      onNotAuthedClick={onNotAuthedClick}
     />,
-    <FAQ key='faq'/>,
+    <FAQ
+      key='FAQ'
+    />,
     // <RequestConsultationBanner key='requestConsultationBanner'/>,
   ];
 
   return (
     <>
-      {freeCourse && popupVisible &&
-        <SignupToCoursePopup
-          course={freeCourse}
-          option={'OPTIMAL'}
-          close={() => setPopupVisible(false)}
-        />
-      }
       <Page
         variant={EPageVariant.WEB}
         header
@@ -72,7 +69,6 @@ export default function Home() {
         backgroundColor='var(--color-background-default)'
       >
         <Header
-          linkToFreeCourse={linkToFreeCourse}
           onNotAuthedClick={onNotAuthedClick}
         />
         {blocks.map(block => (
@@ -81,6 +77,11 @@ export default function Home() {
           </div>
         ))}
       </Page>
+      {popupVisible &&
+        <SignupToFlearnPopup
+          close={() => setPopupVisible(false)}
+        />
+      }
     </>
   );
 }

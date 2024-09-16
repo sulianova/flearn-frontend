@@ -1,13 +1,12 @@
+import { URLSections } from 'router';
 import { i18n } from 'shared';
-
 import { authService } from 'services/auth.service';
+
 import Link from 'ui/Link/Link';
-import Icon from 'ui/Icon/Icon';
 
 import classes from './Header.module.scss';
 
 interface IProps {
-  linkToFreeCourse: string
   onNotAuthedClick: () => void
 }
 
@@ -27,7 +26,7 @@ export default function Header(props: IProps) {
             {authService.isAuthenticated ? (
               <Link
                 className={classes.actionsBtn}
-                to={props.linkToFreeCourse}
+                to={URLSections.EmptyProfile.to()}
               >
                 <div className={classes.text}>Начать учиться</div>
               </Link>

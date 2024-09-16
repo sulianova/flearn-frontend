@@ -1,0 +1,16 @@
+@import 'styles/index';
+
+.input {
+  @include input;
+  @include input-large;
+
+  width: 100%;
+}
+
+.isError {
+  @include input-alert;
+}
+
+.isValid {
+  @include input-normal;
+}

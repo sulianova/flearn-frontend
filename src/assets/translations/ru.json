@@ -87,6 +87,11 @@
       "title": "Настройки"
     }
   },
+  "SignupToFlearnPopup": {
+    "title": "Выберите почту, с которой будете учиться",
+    "subtitle": "Спасибо! Мы  отправили ссылку для входа на почту {{email}}",
+    "agreement": "Оферта и договор"
+  },
   "courseLanding": {
       "programIntro" : {
         "free": "Бесплатно",
@@ -312,6 +317,9 @@
     "week": "{{count}} $t(week.p, {\"count\": {{count}} })"
   },
   "emails": {
+    "WelcomeToFlearn": {
+      "subject": "Добро пожаловать в Flearn"
+    },
     "WelcomeToCourse": {
       "subject": {
         "course": "Вы начали курс \"{{title}}\"",

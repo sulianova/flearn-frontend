@@ -64,7 +64,7 @@ export const URLSections = {
   },
   EmptyProfile: {
     index: '/profile',
-    to: () => '/profile',
+    to: (props?: IBaseProps) => assemble({ ...props, path: `/profile` }),
     regex: /^\/profile$/,
     getParams: (_pathname: string) => ({}),
   },
