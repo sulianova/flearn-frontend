@@ -25,8 +25,18 @@ export default function WelcomeToFlearn(props: IWelcomeToFlearnEmailProps) {
           value: (
             <tr>
               <td align="left" style={{ fontFamily: 'Helvetica,Arial,sans-serif', fontSize: 32, lineHeight: '38px', color: '#000000' }}>
-                <span>Добро пожаловать в </span>
-                <span style={{ color: '#262626' }}>Flearn</span>
+                <span>Добро пожаловать в Flearn</span>
+              </td>
+            </tr>
+          ),
+        }, {
+          paddingBottom: 30,
+          value: (
+            <tr>
+              <td align="left" style={{ fontFamily: 'Helvetica,Arial,sans-serif', fontSize: 16, lineHeight: '20px', color: '#000000' }}>
+                <span>
+                  Привет! Мы рады, что вы к нам присоединились. Мы собрали интерактивные уроки и упражнения, чтобы вам было удобно учиться рисовать и развиваться в иллюстрации.
+                </span>
               </td>
             </tr>
           ),
@@ -36,7 +46,7 @@ export default function WelcomeToFlearn(props: IWelcomeToFlearnEmailProps) {
             <tr>
               <td align="left">
                 <Button href={profileLink}>
-                  Начать учиться
+                  Начать учиться бесплатно
                 </Button>
               </td>
             </tr>

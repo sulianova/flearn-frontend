@@ -136,7 +136,7 @@ export default function Layout({ title, content, to: { email }, gapPx }: IProps)
                                                           <br/>
                                                           <br/>
                                                           Письмо создано автоматически, пожалуйста, не отвечайте на него. Чтобы
-                                                          отписаться от рассылки, перейдите
+                                                          отписаться от рассылки, перейдите&nbsp;
                                                           <a href={unsubscribeLink}
                                                             style={{ fontFamily: 'Helvetica,Arial,sans-serif', fontSize: '12px', lineHeight: '16px', fontWeight:'normal', whiteSpace: 'nowrap', textDecoration: 'underline', color: '#808080' }}
                                                             target="_blank">

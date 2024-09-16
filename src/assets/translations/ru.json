@@ -318,7 +318,7 @@
   },
   "emails": {
     "WelcomeToFlearn": {
-      "subject": "Добро пожаловать в Flearn"
+      "subject": "Вы начали учиться иллюстрации с Flearn"
     },
     "WelcomeToCourse": {
       "subject": {
