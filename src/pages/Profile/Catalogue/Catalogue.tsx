@@ -6,12 +6,7 @@ import Spinner from 'ui/Spinner/Spinner';
 import Card from './Card/Card';
 import classes from './Catalogue.module.scss';
 
-interface IProps {
-  linkToFreeCourse: string
-  onNotAuthedClick: () => void
-}
-
-export default function Catalogue(props: IProps) {
+export default function Catalogue() {
   const userCourses = courseService.useUserCourses();
   const allCourses = courseService.useCourses();
   const courses = useMemo(() => {

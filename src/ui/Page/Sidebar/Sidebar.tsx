@@ -39,7 +39,7 @@ function Sidebar() {
           >
             <Icon icon='Logo' />
           </Link>
-        {(urlSection.name === 'Study' || urlSection.name === 'Profile' || urlSection.name === 'Courses' || urlSection.name === 'Course') && (
+        {(urlSection.name === 'Study' || urlSection.name === 'EmptyProfile' || urlSection.name === 'Courses' || urlSection.name === 'Course') && (
           <ul className={classes.items}>
             {(urlSection.name === 'Courses' || urlSection.name === 'Course') && authedUser && (
               <>
@@ -47,7 +47,7 @@ function Sidebar() {
                 <span className={classes.iconWrapper}>
                   <Link
                     className={classes.icon}
-                    to={!lastStudiedCourse ? URLSections.EmptyProfile.to() : URLSections.Profile.to({ courseId: lastStudiedCourse.id })}
+                    to={URLSections.EmptyProfile.to()}
                   >
                     <Icon icon='Home' />
                   </Link>
@@ -55,12 +55,12 @@ function Sidebar() {
               </li>
               </>
             )}
-            {urlSection.name === 'Profile' && (
+            {urlSection.name === 'EmptyProfile' && (
               <li className={classes.item}>
                 <span className={classes.iconWrapper}>
                   <Link
                     className={classes.icon}
-                    to={URLSections.Profile.to({ courseId: courseId! })}
+                    to={URLSections.EmptyProfile.to()}
                   >
                     <Icon icon='HomeFill' />
                   </Link>
@@ -72,7 +72,7 @@ function Sidebar() {
                 <span className={classes.iconWrapper}>
                   <Link
                     className={classes.icon}
-                    to={URLSections.Profile.to({ courseId: courseId! })}
+                    to={URLSections.EmptyProfile.to()}
                   >
                     <Icon icon='Home' />
                   </Link>

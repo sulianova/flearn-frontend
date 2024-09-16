@@ -108,7 +108,7 @@ export default function LessonContent(props: IProps) {
                 .markLessonAsRead(course.id, user.email, lesson.id)
                 .then(() => {
                   if (nextLesson === null) {
-                    navigate(URLSections.Profile.to({ courseId: course.id }));
+                    navigate(URLSections.Course.to({ courseId: course.id }));
                   } else if (!nextLesson.isFree && courseAccess === 'FREE' && user.role === 'user') {
                     setBuyPopupIsOpened(true);
                   } else {

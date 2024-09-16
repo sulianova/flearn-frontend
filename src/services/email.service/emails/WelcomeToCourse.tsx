@@ -25,8 +25,8 @@ export default function WelcomeToCourse(props: IWelcomeToCourseEmailProps) {
   const courseType = i18n.t(`courseType.${course.type}`);
   const startLink = firstLesson
     ? URLSections.Study.to({ courseId: course.id, lessonId: firstLesson.id, full: true })
-    : URLSections.Profile.to({ courseId: course.id, full: true });
-  
+    : URLSections.Course.to({ courseId: course.id, full: true });
+
   const mainCard = (
     <Card
       content={[

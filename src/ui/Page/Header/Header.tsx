@@ -79,7 +79,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
               <div className={classes.userSettingsWrapper}>
                   <Link
                     className={classes.userSettings}
-                    to={URLSections.Profile.to({ courseId: urlSection.params.courseId })}
+                    to={URLSections.Course.to({ courseId: urlSection.params.courseId })}
                   >
                     <Icon icon='ArrowButton' />
                   </Link>
@@ -121,7 +121,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
               ) : (
                 <>
                   {user ?
-                    (<Link className={cx({ navLogin: true, navItem: true })} to={URLSections.Profile.to({ courseId: lastStudiedCourse?.id ?? 'how-to-draw' })}>{t('login.profile')}</Link>)
+                    (<Link className={cx({ navLogin: true, navItem: true })} to={URLSections.EmptyProfile.to()}>{t('login.profile')}</Link>)
                     : (<div className={cx({ navLogin: true, navItem: true })} onClick={() => authService.authenticate()}>{t('login.signIn')}</div>)
                   }
                 </>

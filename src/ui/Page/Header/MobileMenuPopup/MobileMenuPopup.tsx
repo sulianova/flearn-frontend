@@ -65,7 +65,7 @@ export default function MobileMenuPopup(props: Readonly<IProps>) {
   ));
   const mobMenuCoursesList = userCourses?.map(course => (
     <Link
-      to={URLSections.Profile.to({ courseId: course.id })}
+      to={URLSections.Course.to({ courseId: course.id })}
       onClick={close}
       
       className={cx({
@@ -74,9 +74,9 @@ export default function MobileMenuPopup(props: Readonly<IProps>) {
             'Home': course.id === lastStudiedCourse?.id,
             'Landing': course.id === lastStudiedCourse?.id,
             'Courses': course.id === lastStudiedCourse?.id,
-            'Course': course.id === lastStudiedCourse?.id,
-            'Profile': course.id === courseId,
-            'EmptyProfile': course.id === courseId,
+            'Course': course.id === courseId,
+            'Profile': course.id === lastStudiedCourse?.id,
+            'EmptyProfile': course.id === lastStudiedCourse?.id,
             'Study': false,
             'Other': false,
           }[urlSection.name]

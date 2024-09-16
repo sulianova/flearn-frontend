@@ -1,16 +1,15 @@
+import { useState } from 'react';
+
 import type { ICourseCardInfo } from 'services/course.service';
+import { emailService } from 'services/email.service';
+import { userService } from 'services/user.service';
 import { i18n } from 'shared';
 import { URLSections } from 'router';
-import { formatDate } from 'utils';
 
-import Img from 'ui/Img/Img';
 import Link from 'ui/Link/Link';
 import Icon from 'ui/Icon/Icon';
 
 import classes from './Card.module.scss';
-import { useState } from 'react';
-import { emailService } from 'services/email.service';
-import { userService } from 'services/user.service';
 
 interface IProps {
   course: ICourseCardInfo
@@ -37,7 +36,7 @@ export default function Card({ course }: Readonly<IProps>) {
     return (
       <Link 
         className={classes.__}
-        to={URLSections.Landing.to({ courseId: course.id })}
+        to={URLSections.Course.to({ courseId: course.id })}
       >
         {content}
       </Link>

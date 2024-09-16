@@ -35,15 +35,15 @@ export default function CoursesDropdownContent({ courses, lastStudiedCourse, clo
                   : courses.map(course => (
                     <Link
                       key={course.id}
-                      to={URLSections.Profile.to({ courseId: course.id })}
+                      to={URLSections.Course.to({ courseId: course.id })}
                       className={cx({
                         listOption: true,
                         active: {
                           'Home': course.id === lastStudiedCourse?.id,
                           'Landing': course.id === lastStudiedCourse?.id,
                           'Courses': course.id === lastStudiedCourse?.id,
-                          'Course': course.id === lastStudiedCourse?.id,
-                          'Profile': course.id === courseId,
+                          'Course': course.id === courseId,
+                          'Profile': course.id === lastStudiedCourse?.id,
                           'EmptyProfile': course.id === courseId,
                           'Study': course.id === courseId,
                           'Other': course.id === courseId,

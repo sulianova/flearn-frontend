@@ -42,17 +42,13 @@
   }
 }
 
-.asideWrapper {
-  flex-shrink: 0;
-  margin-left: set-calc(40);
-  width: set-calc(360);
+// .asideWrapper {
+//   flex-shrink: 0;
+//   margin-left: set-calc(40);
+//   width: set-calc(360);
 
-  @include set-media(md) {
-    margin-left: 0;
-    width: 100%;
-  }
-}
-
-.section {
-
-}
+//   @include set-media(md) {
+//     margin-left: 0;
+//     width: 100%;
+//   }
+// }

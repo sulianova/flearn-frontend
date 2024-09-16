@@ -40,8 +40,7 @@ function MyRouter() {
       <Route path={URLSections.Courses.index} element={<Courses />} />
       <Route path={URLSections.Course.index} element={<Course />} />
       <Route element={<ProtectedRoute />}>
-        <Route path={URLSections.EmptyProfile.index} element={<EmptyProfile />} />
-        <Route path={URLSections.Profile.index} element={<Profile />} />
+        <Route path={URLSections.EmptyProfile.index} element={<Profile />} />
         <Route path={URLSections.Study.index} element={<Study section='task'/>} />
         <Route path={URLSections.Study.Results.index} element={<Study section='results'/>} />
       </Route>
