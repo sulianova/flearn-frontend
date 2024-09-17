@@ -19,7 +19,7 @@ export default function Profile() {
             <Header/>
             <Catalogue/>
           </div>
-          {/* <aside className={classes.asideWrapper}></aside> */}
+          <aside className={classes.asideWrapper}></aside>
         </div>
       </div>
     </Page>

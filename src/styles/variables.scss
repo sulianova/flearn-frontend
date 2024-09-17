@@ -65,8 +65,9 @@ $color-palette-white-1000: #ffffff;
 
 //color-highlight
 $color-highlight-dust: #fffad2;
-$color-highlight-neon: #e9e1fa;
+$color-highlight-lilac: #e9e1fa;
 $color-highlight-rose: #FCE7F6;
+$color-highlight-neon: #D9D6FE;
 
 $color-highlight-yellow: #f8db46;
 $color-highlight-violet: #b595ff;
@@ -128,7 +129,7 @@ $color-accent-warning-light: #FDB022;
 $color-accent-success-light: #12B76A;
 $color-accent-notice-light: #0064F0;
 $color-accent-promo-light: $color-highlight-yellow;
-$color-accent-promo-background-light: $color-highlight-dust;
+$color-accent-promo-background-light: $color-highlight-neon;
 
 $color-card-border-light: $color-palette-white-300-a;
 $color-card-light: $color-palette-white-1000;
@@ -164,7 +165,7 @@ $color-accent-warning-dark: #FDB022;
 $color-accent-success-dark: #12B76A;
 $color-accent-notice-dark: #6172F3;
 $color-accent-promo-dark: $color-highlight-violet;
-$color-accent-promo-background-dark: $color-highlight-neon;
+$color-accent-promo-background-dark: $primary-color-hover-dark;
 
 $color-background-overlay-dark: $color-palette-black-500-a;
 $color-background-btn-dark: $color-palette-black-50;
@@ -203,11 +204,11 @@ $modal-animation-duration: 200ms;
 $shadow-small-default: 0 0 1px 1px rgba(0, 0, 0, .02), 0 .3px .5px rgba(0, 0, 0, .1), 0 2px 4px rgba(0, 0, 0, .2);
 $shadow-small-hovered: 0 0 1px 1px rgba(0, 0, 0, .02), 0 .4px .8px rgba(0, 0, 0, .1), 0 3px 6px rgba(0, 0, 0, .2);
 $shadow-small-pressed: 0 0 1px 1px rgba(0, 0, 0, .02), 0 .3px .5px rgba(0, 0, 0, .1), 0 2px 4px rgba(0, 0, 0, .2);
-$shadow-medium-default: 0px 1px 12px 2px rgba(36, 36, 36, 0.07);
-$shadow-medium-hovered: 0px 2px 32px 6px rgba(36, 36, 36, 0.07);
-$shadow-medium-pressed: 0px 1px 8px rgba(36, 36, 36, 0.07);
-$shadow-popup: 0 2px 10px 0 rgba(0, 0, 0, .3);
-$shadow-menu: 0 10px 48px rgba(0, 0, 0, .1);
+$shadow-medium-default: 0px 6px 12px 0px rgba(36, 36, 36, 0.08);
+$shadow-medium-hovered: 0px 16px 32px 0px rgba(36, 36, 36, 0.10);
+$shadow-medium-pressed: 0px 4px 8px 0px rgba(36, 36, 36, 0.08);
+$shadow-popup: 0px 24px 48px 0px rgba(0, 0, 0, 0.10);
+$shadow-menu: 0px 10px 48px 0px rgba(0, 0, 0, 0.10);
 
 //filter
 $backdrop-filter: 5;

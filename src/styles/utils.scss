@@ -216,7 +216,7 @@
   background-color: var(--color-background-glassy-b);
 
   &:hover {
-    background-color: var(--color-background-glassy-c);
+    background-color: var(--color--color-background-glassy-c);
   }
 
   &:disabled {
@@ -266,6 +266,43 @@
     &:hover {
       background: transparent;
       color: $color;
+    }
+  }
+}
+
+@mixin icon-button-secondary {
+  background: transparent;
+  color: var(--color-content-tertiary);
+
+  &:hover {
+    background: var(--color-background-glassy-b);
+  }
+
+  &:active {
+    background: var(--color-background-glassy-c);
+  }
+
+  @include set-media(md) {
+    &:hover,
+    &:active {
+      background: transparent;
+    }
+  }
+}
+
+@mixin icon-button-small {
+  padding: set-calc(8);
+  border-radius: set-calc($border-radius-8);
+
+  svg {
+    display: block;
+    width: set-calc(24);
+    height: set-calc(24);
+
+    path {
+      transition-property: all;
+      transition-duration: $d-hover;
+      transition-timing-function: ease-out;
     }
   }
 }

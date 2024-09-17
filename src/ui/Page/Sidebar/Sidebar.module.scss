@@ -109,20 +109,8 @@
 
 .item {
   @include btn;
-
-  position: relative;
-
-  border-radius: set-calc($border-radius-10);
-  background-color: transparent;
-  cursor: pointer;
-
-  &:hover {
-    background-color: var(--color-background-glassy-b);
-  }
-
-  &:active {
-    background-color: var(--color-background-glassy-c);
-  }
+  @include icon-button-secondary;
+  @include icon-button-small;
 }
 
 .item[data-user-wrapper] {
@@ -133,43 +121,7 @@
   }
 }
 
-.iconWrapper {
-  position: relative;
-  display: block;
-  overflow: inherit;
-
-  width: set-calc(40);
-  height: set-calc(40);
-}
-
 .icon {
-  display: inline-flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-
-  transition: background-color $d-hover ease, transform $d-hover ease;
-
-  height: 100%;
-  width: 100%;
-
-  svg {
-    display: inline-block;
-    text-align: center;
-    background: 50% no-repeat;
-    background-size: contain;
-    width: set-calc(22);
-    height: set-calc(22);
-
-    path {
-      fill: var(--color-content-tertiary);
-
-      transition-property: all;
-      transition-duration: $d-hover;
-      transition-timing-function: ease-out;
-    }
-  }
-
   svg[data-fill] {
     path {
       fill: var(--color-content-primary);

@@ -44,50 +44,42 @@ function Sidebar() {
             {(urlSection.name === 'Courses' || urlSection.name === 'Course') && authedUser && (
               <>
               <li className={classes.item}>
-                <span className={classes.iconWrapper}>
-                  <Link
-                    className={classes.icon}
-                    to={URLSections.EmptyProfile.to()}
-                  >
-                    <Icon icon='Home' />
-                  </Link>
-                </span>
+                <Link
+                  className={classes.icon}
+                  to={URLSections.EmptyProfile.to()}
+                >
+                  <Icon icon='Home' />
+                </Link>
               </li>
               </>
             )}
             {urlSection.name === 'EmptyProfile' && (
               <li className={classes.item}>
-                <span className={classes.iconWrapper}>
-                  <Link
-                    className={classes.icon}
-                    to={URLSections.EmptyProfile.to()}
-                  >
-                    <Icon icon='HomeFill' />
-                  </Link>
-                </span>
+                <Link
+                  className={classes.icon}
+                  to={URLSections.EmptyProfile.to()}
+                >
+                  <Icon icon='HomeFill' />
+                </Link>
               </li>
             )}
             {urlSection.name === 'Study' && (
               <li className={classes.item}>
-                <span className={classes.iconWrapper}>
-                  <Link
-                    className={classes.icon}
-                    to={URLSections.EmptyProfile.to()}
-                  >
-                    <Icon icon='Home' />
-                  </Link>
-                </span>
+                <Link
+                  className={classes.icon}
+                  to={URLSections.EmptyProfile.to()}
+                >
+                  <Icon icon='Home' />
+                </Link>
               </li>
             )}
             <li className={classes.item}>
-              <span className={classes.iconWrapper}>
-                <Link
-                  className={classes.icon}
-                  to={URLSections.Courses.to()}
-                >
-                  <Icon icon={(urlSection.name === 'Courses' || urlSection.name === 'Course') ? 'CourseFill' : 'Course'} />
-                </Link>
-              </span>
+              <Link
+                className={classes.icon}
+                to={URLSections.Courses.to()}
+              >
+                <Icon icon={(urlSection.name === 'Courses' || urlSection.name === 'Course') ? 'CourseFill' : 'Course'} />
+              </Link>
             </li>
           </ul>
         )}
@@ -96,28 +88,24 @@ function Sidebar() {
             <ul className={classes.itemsSeparator}></ul>
             <ul className={classes.items}>
                 <li className={classes.item}>
-                  <span className={classes.iconWrapper}>
                   <div
                       className={classes.icon}
                       onClick={() => setLessonsPopupVisible(v => !v)}
                     >
                       <Icon icon='Lessons' />
                     </div>
-                  </span>
                 </li>
             </ul>
           </>
         )}
           <ul className={classes.items}>
             <li className={classes.item}>
-              <span className={classes.iconWrapper}>
-                <div
-                  className={classes.icon}
-                  onClick={() => frontendSettingsService.update({ theme: theme === 'dark' ? 'light' : 'dark' })}
-                >
-                   {theme === 'dark' ? (<Icon icon="Day"/>) :  (<Icon icon="Night"/>) }
-                </div>
-              </span>
+              <div
+                className={classes.icon}
+                onClick={() => frontendSettingsService.update({ theme: theme === 'dark' ? 'light' : 'dark' })}
+              >
+                  {theme === 'dark' ? (<Icon icon="Day"/>) :  (<Icon icon="Night"/>) }
+              </div>
             </li>
             {(
                  (urlSection.name === 'Courses' && authedUser)
@@ -140,15 +128,13 @@ function Sidebar() {
                 )}
               >
                 <li data-user-wrapper className={classes.item}>
-                  <span className={classes.iconWrapper}>
-                    <div
-                      data-user
-                      className={classes.icon}
-                      onClick={() => setUserPopupVisible(!userPopupVisible)}
-                    >
-                      <Icon icon='User' />
-                    </div>
-                  </span>
+                  <div
+                    data-user
+                    className={classes.icon}
+                    onClick={() => setUserPopupVisible(!userPopupVisible)}
+                  >
+                    <Icon icon='User' />
+                  </div>
                 </li>
               </Tippy>
             )}
