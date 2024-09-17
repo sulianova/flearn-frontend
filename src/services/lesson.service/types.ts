@@ -12,6 +12,7 @@ interface ILessonDataCommon {
   courseId: string
   title: string
   type: 'Theory' | 'Practice'
+  icon: TIcon
   topic: string
   topicOrder: number
   topicIcon: TIcon

@@ -1,17 +1,14 @@
 import classnames from 'classnames/bind';
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 
-import { i18n } from 'shared';
-
-import { authService } from 'services/auth.service';
+import { URLSections } from 'router';
 import { type IUserData } from 'services/user.service';
 import { type ILessonData } from 'services/lesson.service';
 import { type ICourseData } from 'services/course.service';
 import { type TAccess } from 'services/userAccess.service';
 
 import Icon from 'ui/Icon/Icon';
-import LessonsPopup from 'components/LessonsPopup/LessonsPopup';
-import SignupToCoursePopup from 'components/SignupToCoursePopup/SignupToCoursePopup';
+import Link from 'ui/Link/Link';
 
 import classes from './CoursePage.module.scss';
 
@@ -22,10 +19,10 @@ interface ITopic {
   order: number
   icon: ILessonData['topicIcon']
   isFree: boolean
-  isSolved: boolean
-  isFirstUnsolved: boolean
-  isUnderDevelopment: boolean
-  lessons: (ILessonData & { solved: boolean, canBeAccessed: boolean })[]
+  // isSolved: boolean
+  // isFirstUnsolved: boolean
+  // isUnderDevelopment: boolean
+  lessons: (ILessonData & { solved: boolean, canBeAccessed: boolean, isFirstUnsolved: boolean })[]
 }
 
 interface IProps {
@@ -37,12 +34,10 @@ interface IProps {
 
 export default function CoursePage(props: IProps) {
   const { authedUser, currentCourse, courseLessons, currentCourseAccess } = props;
-  const [openedTopic, setOpenedTopic] = useState<string | null>(null);
-  const [signupToCoursePopupIsOpened, setSignupToCoursePopupIsOpened] = useState(false);
 
   const topics: ITopic[] = useMemo(() => {
     const getKey = (topic: string, topicOrder: number) => `${topic}-${topicOrder}`;
-    const firstNotSolvedLesson = courseLessons.find(l => !l.solved);
+    const firstUnolvedLesson = courseLessons.find(l => !l.solved);
     return [...courseLessons
       .reduce((acc, lessonData) => {
         const key = getKey(lessonData.topic, lessonData.topicOrder);
@@ -53,18 +48,18 @@ export default function CoursePage(props: IProps) {
             order: lessonData.topicOrder,
             icon: lessonData.topicIcon,
             isFree: lessonData.isFree,
-            isSolved: lessonData.solved,
-            isFirstUnsolved: Boolean(firstNotSolvedLesson && lessonData.id === firstNotSolvedLesson.id),
-            isUnderDevelopment: lessonData.isUnderDevelopment,
-            lessons: [lessonData],
+            // isSolved: lessonData.solved,
+            // isFirstUnsolved: Boolean(firstUnolvedLesson && lessonData.id === firstUnolvedLesson.id),
+            // isUnderDevelopment: lessonData.isUnderDevelopment,
+            lessons: [{ ...lessonData, isFirstUnsolved: Boolean(firstUnolvedLesson && lessonData.id === firstUnolvedLesson.id) }],
           })
         } else {
           const topic = acc.get(key)!;
           topic.isFree &&= lessonData.isFree;
-          topic.isSolved &&= lessonData.solved;
-          topic.isFirstUnsolved ||= Boolean(firstNotSolvedLesson && lessonData.id === firstNotSolvedLesson.id);
-          topic.isUnderDevelopment &&= lessonData.isUnderDevelopment;
-          topic.lessons.push(lessonData);
+          // topic.isSolved &&= lessonData.solved;
+          // topic.isFirstUnsolved ||= Boolean(firstNotSolvedLesson && lessonData.id === firstNotSolvedLesson.id);
+          // topic.isUnderDevelopment &&= lessonData.isUnderDevelopment;
+          topic.lessons.push({ ...lessonData, isFirstUnsolved: Boolean(firstUnolvedLesson && lessonData.id === firstUnolvedLesson.id) });
           topic.lessons.sort((a, b) => a.orderInTopic - b.orderInTopic);
         }
 
@@ -86,29 +81,25 @@ export default function CoursePage(props: IProps) {
       )
     ];
   }, [currentCourse]);
-  const onTopicClick = !authedUser ? (() => setSignupToCoursePopupIsOpened(true)) : setOpenedTopic;
 
   return (
     <>
       <div className={classes.coursePage}>
         <div className={classes.main}>
           {((currentCourseAccess ?? 'FREE') !== 'FREE' || authedUser?.role === 'support') ? (
-            <TopicCards
+            <Topics
               title='Модули'
               topics={[...freeTopics, ...payableTopics]}
-              onTopicClick={onTopicClick}
             />
           ) : (
             <>
-              <TopicCards
+              <Topics
                 title='Доступно сейчас и бесплатно'
                 topics={freeTopics}
-                onTopicClick={onTopicClick}
               />
-              <TopicCards
+              <Topics
                 title='Будет доступно после оплаты'
                 topics={payableTopics}
-                onTopicClick={onTopicClick}
               />
             </>
           )}
@@ -130,7 +121,7 @@ export default function CoursePage(props: IProps) {
           </aside>
         )}
       </div>
-      {openedTopic && (
+      {/* {openedTopic && (
         <LessonsPopup
           courseId={currentCourse.id}
           topic={openedTopic}
@@ -143,22 +134,36 @@ export default function CoursePage(props: IProps) {
           option='OPTIMAL'
           close={() => setSignupToCoursePopupIsOpened(false)}
         />
-      )}
+      )} */}
     </>
   );
 }
 
-function TopicCards(props: { title: string, topics: ITopic[], onTopicClick: (topic: string) => void }) {
-  const { title, topics, onTopicClick } = props;
+function Topics(props: { topics: ITopic[], title: string }) {
+  const { title, topics } = props;
+  return (
+    <>
+      <h2>{title}</h2>
+      {topics.map(topic => (
+        <Topic
+          key={topic.title}
+          topic={topic}
+        />
+      ))}
+    </>
+  );
+}
+
+function Topic(props: { topic: ITopic }) {
+  const { topic } = props;
   return (
     <div className={classes.level}>
-      <div className={classes.levelTitle}>{title}</div>
+      <div className={classes.levelTitle}>{topic.title}</div>
         <div className={classes.wrapper}>
-          {topics.map((topic, index) => (
-            <TopicCard
-              key={index}
-              topic={topic}
-              onTopicClick={onTopicClick}
+          {topic.lessons.map(lesson => (
+            <LessonCard
+              key={lesson.id}
+              lesson={lesson}
             />
           ))}
       </div>
@@ -166,44 +171,66 @@ function TopicCards(props: { title: string, topics: ITopic[], onTopicClick: (top
   );
 }
 
-function TopicCard(props: { topic: ITopic, onTopicClick: (topic: string) => void }) {
-  const { topic, onTopicClick } = props;
-  const totalDurationMinutes = topic.lessons.reduce((acc, l) => acc + durationToMinutes(l.duration), 0);
+function LessonCard(props: { lesson: ILessonData & { solved: boolean, canBeAccessed: boolean, isFirstUnsolved: boolean } }) {
+  const { lesson } = props;
+  const totalDurationMinutes = durationToMinutes(lesson.duration);
   const totalDurationStr = totalDurationMinutes >= 60
     ? `${Math.round(totalDurationMinutes / 6) / 10} ч`
     : `${Math.round(totalDurationMinutes)} мин`;
-  return (
-    <div
-      className={classes.itemWrapper}
-      onClick={() => onTopicClick(topic.title)}
-    >
-      <div className={cx({ item: true, featured: topic.isFirstUnsolved })}>
-        <div className={classes.imageWrapper}>
-          <div className={classes.image}>
-            <Icon icon={topic.icon}/>
+  
+  const content = (
+    <button className={cx({ item: true, featured: lesson.isFirstUnsolved })} disabled={!lesson.canBeAccessed}>
+      <div className={classes.imageWrapper}>
+        <div className={classes.image}>
+          <Icon icon={lesson.icon}/>
+        </div>
+      </div>
+      <div className={classes.itemBody}>
+        <div className={classes.itemBodyContainer}>
+          <div className={classes.titleContainer}>
+            <h2 className={classes.title}>
+              {lesson.title}
+            </h2>
           </div>
         </div>
-        <div className={classes.itemBody}>
-          <div className={classes.itemBodyContainer}>
-            <div className={classes.titleContainer}>
-              <h2 className={classes.title}>
-                {topic.title}
-              </h2>
-            </div>
-          </div>
-          <div className={classes.info}>
-            <div className={classes.infoMain}>
-              <span className={classes.infoItem}>{i18n.t('lesson.p', { count: topic.lessons.length })}</span>
-              <span className={classes.infoItem}>{`${totalDurationStr}  `}</span>
-            </div>
+        <div className={classes.info}>
+          <div className={classes.infoMain}>
+            {/* <span className={classes.infoItem}>{i18n.t('lesson.p', { count: 1 })}</span> */}
+            <span className={classes.infoItem}>{totalDurationStr}</span>
           </div>
         </div>
-        <div className={cx({ itemStatus: true, solved: topic.isSolved })}>
+      </div>
+      {lesson.canBeAccessed ? (
+        <div className={cx({ itemStatus: true, solved: lesson.solved })}>
           <Icon icon='Tick'/>
         </div>
-        <div className={classes.itemPopover}>Учиться</div>
-        <div className={classes.background}></div>
+      ) : (
+        <div className={cx({ itemStatus: true })}>
+        <Icon icon='Lock'/>
       </div>
+      )}
+      <div className={classes.itemPopover}>Учиться</div>
+      <div className={classes.background}></div>
+    </button>
+  );
+
+  if (lesson.canBeAccessed) {
+    return (
+      <Link
+        className={classes.itemWrapper}
+        to={URLSections.Study.to({ courseId: lesson.courseId, lessonId: lesson.id })}
+      >
+        {content}
+      </Link>
+    );
+  }
+
+  return (
+    <div
+      data-locked
+      className={classes.itemWrapper}
+    >
+      {content}
     </div>
   );
 }
