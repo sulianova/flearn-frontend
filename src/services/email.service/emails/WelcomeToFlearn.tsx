@@ -14,7 +14,7 @@ export interface IWelcomeToFlearnEmailProps {
 WelcomeToFlearn.getSubject = () => i18n.t('emails.WelcomeToFlearn.subject');
 
 export default function WelcomeToFlearn(props: IWelcomeToFlearnEmailProps) {
-  const profileLink = URLSections.EmptyProfile.to({ full: true, params: { login: true } });
+  const profileLink = URLSections.Courses.to({ full: true, params: { from: 'WelcomeToFlearnEmail' } });
 
   const mainCard = (
     <Card

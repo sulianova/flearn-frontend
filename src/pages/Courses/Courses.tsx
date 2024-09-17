@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useParams } from 'react-router';
 
 import { courseService } from 'services/course.service';
 import { userService } from 'services/user.service';
@@ -6,15 +7,17 @@ import { userService } from 'services/user.service';
 import SignupToCoursePopup from 'components/SignupToCoursePopup/SignupToCoursePopup';
 import Page, { EPageVariant } from 'ui/Page/Page';
 
+import useHandleUserFlowFromWelcomeToFlearnEmail from './useHandleUserFlowFromWelcomeToFlearnEmail';
 import IntroBanner from './blocks/IntroBanner/IntroBanner';
 import Catalogue from './blocks/Catalogue/Catalogue';
 import SocialValidation from './blocks/SocialValidation/SocialValidation';
 import BannerStart from './blocks/BannerStart/BannerStart';
 import FAQ from './blocks/FAQ/FAQ';
 
-import classes from './Courses.module.scss'
+import classes from './Courses.module.scss';
 
 export default function Courses() {
+  useHandleUserFlowFromWelcomeToFlearnEmail();
   const [popupVisible, setPopupVisible] = useState(false);
   const onNotAuthedClick = () => setPopupVisible(true);
 

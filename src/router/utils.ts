@@ -10,7 +10,7 @@ interface IBaseProps {
 export const URLSections = {
   Home: {
     index: '/',
-    to: () => '/',
+    to: (props?: IBaseProps) => assemble({ ...props, path: '/' }),
     regex: /^\/$/,
     getParams: (_pathname: string) => ({}),
   },
@@ -30,7 +30,7 @@ export const URLSections = {
   },
   Courses: {
     index: '/courses',
-    to: () => '/courses',
+    to: (props?: IBaseProps) => assemble({ ...props, path: '/courses' }),
     regex: /^\/courses$/,
     getParams: (_pathname: string) => ({}),
   },
@@ -99,16 +99,23 @@ export const URLSections = {
       },
     },
   },
+
   Static: {
-    Policy: { index: '/policy' },
-    Oferta: { index: '/oferta' },
+    Policy: {
+      index: '/policy',
+      to: (props?: IBaseProps) => assemble({ ...props, path: '/policy' }),
+    },
+    Oferta: {
+      index: '/oferta',
+      to: (props?: IBaseProps) => assemble({ ...props, path: '/oferta' }),
+    },
     Unsubscribe: {
       index: '/unsubscribe',
-      to: (props: IBaseProps) => assemble({ ...props, path: `/unsubscribe` }),
+      to: (props?: IBaseProps) => assemble({ ...props, path: `/unsubscribe` }),
     },
     TikTokLogin: {
       index: '/tiktokLogin',
-      to: (props: IBaseProps) => assemble({ ...props, path: `/tiktokLogin` }),
+      to: (props?: IBaseProps) => assemble({ ...props, path: `/tiktokLogin` }),
     },
   },
 } as const;

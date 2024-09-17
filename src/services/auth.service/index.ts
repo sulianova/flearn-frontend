@@ -52,10 +52,14 @@ class AuthService {
     });
   }
 
-  public async getUserAfterPersistenceAuth() {
+  public async awaitPersistenceAuthIfItExists() {
     if (this._awaitPersistedAuth) {
       await this._awaitPersistedAuth;
     }
+  }
+
+  public async getUserAfterPersistenceAuth() {
+    await this.awaitPersistenceAuthIfItExists();
 
     return this.firebaseUserBS.getValue();
   }
@@ -74,7 +78,7 @@ class AuthService {
 
       this._authenticationInProgress = true;
   
-      const result = await signInWithPopup(this._auth, this._authProvider, );
+      const result = await signInWithPopup(this._auth, this._authProvider);
   
       this._authenticationInProgress = false;
       if (!result.user) {
@@ -98,6 +102,7 @@ class AuthService {
         type: analyticsService.event.LoginFailed,
         data: { method: 'Google', reason: String(error) },
       });
+      throw error;
     }
   }
 
