@@ -5,6 +5,8 @@ import type { IUserDataDB } from 'services/user.service';
 import { courseConverter } from './courseConverter';
 
 import { ECommonErrorTypes } from 'types';
+import { TUserCourseProgressDB } from 'services/userCourseProgress.service';
+import userCourseProgress from '../UserCourseProgress';
 
 class Course {
   public async get(id: string): Promise<ICourseData> {
@@ -24,8 +26,8 @@ class Course {
       if (!user) {
         throw new Error(ECommonErrorTypes.FailedToFindData);
       }
-      const filteredAccess = await firebaseService.getDocs(firebaseService.Collections.Access, [{ param: user.email, value: ['FREE', 'BASE', 'OPTIMAL', 'EXTENDED'], operator: 'in' }]);
-      usersCoursesIds = filteredAccess.map(a => a.id);
+      const progresses = await userCourseProgress.getAll(user.email);
+      usersCoursesIds = progresses.map(a => a.courseId);
       if (usersCoursesIds.length === 0) {
         return [];
       }

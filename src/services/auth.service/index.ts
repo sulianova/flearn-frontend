@@ -14,7 +14,7 @@ import { getFirebaseConfig } from '../firebase.service/firebase.config';
 
 import type { FirebaseApp, FirebaseOptions } from 'firebase/app';
 import type { Auth, User as FirebaseUserRaw } from 'firebase/auth';
-import { getBrowserAgent } from 'utils';
+import { getBrowserAgent, MS_PER_DAY } from 'utils';
 import { URLSections } from 'router/utils';
 import { locationService } from 'services/location.service';
 import { analyticsService } from 'services/analytics.service';
@@ -121,8 +121,21 @@ class AuthService {
       if (!email) {
         throw new Error('Cannot authenticate without email');
       }
-  
+      
+      const isNewUser = await dataService.user.get(id).then(() => false).catch(() => true);
       const user = await dataService.user.getOrCreate(id, { id, email, displayName, photoURL, role: 'user' });
+
+      if (isNewUser) {
+        const { discountService } = await import('../discount.service');
+        discountService.add({
+          type: 'personal',
+          email: user.email,
+          product: 'subscription',
+          startDate: new Date(),
+          minutes: MS_PER_DAY * 2,
+          discountPRC: 50,
+        });
+      }
   
       // send update request to work in the background
       dataService.user.update(user.id, { lastSignInAt: new Date() });

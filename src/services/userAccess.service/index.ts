@@ -5,58 +5,51 @@ import { dataService } from 'services/data.service';
 import { locationService } from 'services/location.service';
 
 import { type TAccess } from './types';
-import useCurrentCourseAccess from './useCurrentCourseAccess';
+import useAccess from './useAccess';
+import { ISubscription } from 'services/data.service/Subscription/types';
 
 export { type TAccess, type TAccessData } from './types';
 
 class UserAccessService {
-  public useCurrentCourseAccess = useCurrentCourseAccess;
+  public useAccess = useAccess;
   public accessS = new Subject<{ type: 'updated' }>();
-  public _currentCourseAccessBS = new BehaviorSubject<TAccess | null>(null);
+  public _subscriptionBS = new BehaviorSubject<ISubscription | null>(null);
 
   constructor() {
-    this.initCurrentCourseAccessBS();
+    this.initSubscriptionBS();
   }
 
-  public get currentCourseAccess() {
-    return this._currentCourseAccessBS.getValue() ?? 'FREE';
+  public get access() {
+    return this._subscriptionBS.getValue()?.access ?? 'FREE';
   }
 
-  public async add(courseId: string, email: string, accessValue: TAccess) {
-    await dataService.access.add(courseId, email, accessValue);
+  public async add(email: string, accessValue: Exclude<TAccess, 'FREE'>) {
+    await dataService.subscription.add(email, accessValue);
     this.accessS.next({ type: 'updated' });
   }
 
-  protected initCurrentCourseAccessBS() {
+  protected initSubscriptionBS() {
     const refetch = () => {
       const authedUser = authService.user;
       const section = locationService.URLSection;
-      if (
-        (
-          section.name !== 'Course'
-          && section.name !== 'Profile'
-          && section.name !== 'Study'
-        )
-        || !authedUser
-    ) {
-        this._currentCourseAccessBS.next(null);
+      if (!authedUser) {
+        this._subscriptionBS.next(null);
         return;
       }
 
-      dataService.access.get(section.params.courseId, authedUser.email)
-        .then(access => {
-          this._currentCourseAccessBS.next(access ?? 'FREE');
+      dataService.subscription.get(authedUser.email)
+        .then(s => {
+          this._subscriptionBS.next(s);
         })
         .catch(error => {
-          console.log('Failed to fetch access for _currentCourseAccessBS', { error, authedUser, section });
-          this._currentCourseAccessBS.next(null);
+          console.log('Failed to fetch subscription for _subscriptionBS', { error, authedUser, section });
+          this._subscriptionBS.next(null);
         });
     }
 
     merge(
       this.accessS,
       authService.firebaseUserBS,
-      locationService.URLSectionBS,
     ).subscribe(refetch);
   }
 }

@@ -7,15 +7,19 @@ import user from './User';
 import userCourseProgress from './UserCourseProgress';
 import notificationSettings from './NotificationSettings';
 import surveyAnswers from './SurveyAnswers';
+import subscription from './Subscription';
+import discount from './Discount';
 
 export const dataService = {
-  access: access,
-  course: course,
-  homework: homework,
-  lesson: lesson,
-  order: order,
-  user: user,
+  // access,
+  course,
+  homework,
+  lesson,
+  order,
+  user,
   userCourseProgress,
   notificationSettings,
   surveyAnswers,
+  subscription,
+  discount,
 };

@@ -50,7 +50,7 @@ export type TCourseLessonsRawBSValue = {
 
 export type TCourseLessonsBSDependencies = {
   authedUser: IUserData | null
-  courseAccess: TAccess | null
+  courseAccess: TAccess
 }
 
 export type TCourseLessonsBSValue = {

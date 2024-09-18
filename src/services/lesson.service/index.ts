@@ -233,7 +233,7 @@ class LessonService {
       try {
         const dependencies: TCourseLessonsBSDependencies = {
           authedUser: userService.authedUser,
-          courseAccess: userAccessService.currentCourseAccess,
+          courseAccess: userAccessService.access,
         };
 
         const { lessons, dependencies: rawDependencies } = this._courseLessonsRawBS.getValue();
@@ -281,7 +281,7 @@ class LessonService {
       this._courseLessonsRawBS,
       userService.authedUserBS,
       userCourseProgressService.userCourseProgresS,
-      userAccessService._currentCourseAccessBS,
+      userAccessService._subscriptionBS,
     ).subscribe(refetch);
   }
 

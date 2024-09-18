@@ -24,6 +24,10 @@ class UserCourseProgressService {
     this.initCurrentCourseProgressBS();
   }
 
+  public get currentCourseProgress() {
+    return this._currentCourseProgressBS.getValue()?.value ?? null;
+  }
+
   public async markLessonAsRead(courseId: string, userEmail: string, lessonId: string) {
     try {
       const progress = await dataService.userCourseProgress.get(courseId, userEmail).catch(_err => null) ?? {};
@@ -78,8 +82,8 @@ class UserCourseProgressService {
       if (!authedUser) {
         throw new Error('Not authenticated');
       }
-      const accessedCoursesIds = (await dataService.access.getAll({ email: authedUser.email })).map(({ id }) => id);
-      const randomAccessedCourseId = accessedCoursesIds.at(0);
+      // const accessedCoursesIds = (await dataService.access.getAll({ email: authedUser.email })).map(({ id }) => id);
+      // const randomAccessedCourseId = accessedCoursesIds.at(0);
       const userCourseProgreses = await dataService.userCourseProgress.getAll(authedUser.email);
       const lastSolvedLessonProgress = userCourseProgreses
         .map(p => {
@@ -90,12 +94,9 @@ class UserCourseProgressService {
         .flat()
         .sort((a, b) => +a.lastSolvedAt - +b.lastSolvedAt)
         .at(-1);
-      if (!lastSolvedLessonProgress) {
-        if (!randomAccessedCourseId) {
-          return null;
-        }
 
-        return (await courseService._fetch({ ids: [randomAccessedCourseId] })).at(0) ?? null;
+      if (!lastSolvedLessonProgress) {
+        return null;
       }
       const { courseId } = lastSolvedLessonProgress;
       return (await courseService._fetch({ ids: [courseId] })).at(0) ?? null;

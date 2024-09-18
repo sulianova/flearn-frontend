@@ -1,3 +1,12 @@
+export const MS_PER_SECOND = 1000;
+export const MS_PER_MINUTE = MS_PER_SECOND * 60;
+export const MS_PER_HOUR = MS_PER_MINUTE * 60;
+export const MS_PER_DAY = MS_PER_HOUR * 24;
+export const MS_PER_WEEK = MS_PER_DAY * 7;
+export const MS_PER_MONTH = MS_PER_WEEK * 4;
+export const MS_PER_YEAR = MS_PER_MONTH * 12;
+export const SEC_PER_MINUTE = 60;
+export const SEC_PER_HOUR = SEC_PER_MINUTE * 60;
 
 /**
  * @param date Date
@@ -7,6 +16,10 @@ export function addDays(date: Date, days: number): Date {
   const copyDate = new Date(date.valueOf());
   copyDate.setDate(copyDate.getDate() + days);
   return copyDate;
+}
+
+export function addMinutes(date: Date, minutes: number): Date {
+  return new Date(date.getTime() + minutes * MS_PER_MINUTE);
 }
 
 type TTimeZone =

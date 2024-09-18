@@ -10,4 +10,6 @@ export enum ECollections {
   FrontendSettings = 'frontend_settings',
   NotificationSettings = 'notification_settings',
   SurveyAnswers = 'survey_answers',
+  Subscription = 'subscription',
+  Discount = 'discount',
 }

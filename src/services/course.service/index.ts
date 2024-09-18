@@ -190,7 +190,7 @@ class CourseService {
       this._courseS,
       this.sourceBS,
       authService.firebaseUserBS,
-      userAccessService.accessS,
+      userAccessService._subscriptionBS,
     ).subscribe(refetch);
   }
 

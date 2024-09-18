@@ -98,7 +98,7 @@ async function handleSubmit(props: {
         course: course,
       });
     } else {
-      await userAccessService.add(course.id, user.email, 'FREE');
+      // await userAccessService.add(course.id, user.email, 'FREE');
       await emailService.sendEmail({
         type: emailService.EEmail.WelcomeToCourse,
         to: { email: user.email },

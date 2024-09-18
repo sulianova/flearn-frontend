@@ -34,9 +34,9 @@ export default function LessonContainer(props: IProps) {
     }
 
     (async () => {
-      const hasAccess = await dataService.access.get(courseId, user.email).catch(() => null).then(Boolean);
-      if (!hasAccess) {
-        await userAccessService.add(courseId, user.email, 'FREE');
+      const progress = await dataService.userCourseProgress.get(courseId, user.email);
+      const isNewUser = Object.keys(progress).length === 0;
+      if (isNewUser) {
         const course = (await courseService._fetch({ ids: [courseId] })).at(0)!;
         await emailService.sendEmail({
           type: emailService.EEmail.WelcomeToCourse,
@@ -69,7 +69,7 @@ function Lesson({ section }: IProps) {
   const homework = homeworkService.useHomeworks({ filter: { courseId: courseId!, lessonId: lessonId, userId: authedUserId }}).at(0);
   const currentCourse = courseService.useCurrentCourse();
   const currentLesson = lessonService.useCurrentLesson();
-  const currentCourseAccess = userAccessService.useCurrentCourseAccess() ?? 'FREE';
+  const currentCourseAccess = userAccessService.useAccess();
   const progress = userCourseProgressService.useCurrentCourseProgress() ?? {};
 
   if (!currentCourse || !currentLesson || !currentCourseAccess) {

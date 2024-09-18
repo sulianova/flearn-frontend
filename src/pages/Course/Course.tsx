@@ -18,7 +18,7 @@ import Fallback from 'ui/Fallback';
 export default function Course() {
   const authedUser = userService.useAuthedUser();
   const currentCourse = courseService.useCurrentCourse();
-  const currentCourseAccess = userAccessService.useCurrentCourseAccess();
+  const currentCourseAccess = userAccessService.useAccess();
   const courseLessons = lessonService.useCourseLessons();
 
   if (!currentCourse || !courseLessons) {
