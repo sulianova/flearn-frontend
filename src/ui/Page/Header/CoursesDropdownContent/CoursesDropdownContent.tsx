@@ -11,7 +11,7 @@ import { useURLSection } from 'hooks';
 const cx = classnames.bind(classes);
 
 interface IProps {
-  courses: ICourseData[] | undefined
+  courses: ICourseData[]
   lastStudiedCourse: ICourseData | null
   close: () => void
 }
@@ -26,13 +26,9 @@ export default function CoursesDropdownContent({ courses, lastStudiedCourse, clo
           <div className={classes.contentContainer}>
             <div className={classes.content}>
               <div className={classes.listItems}>
-                <div className={classes.listOptionTitle}>
-                  Бесплатная часть
-                </div>
+                <div className={classes.listOptionTitle}>Бесплатная часть</div>
                 {
-                  !courses ? <Spinner variant='local'/>
-                  : !courses.length ? <div>У вас пока нет курсов, давайте выберем</div>
-                  : courses.map(course => (
+                  courses.map(course => (
                     <Link
                       key={course.id}
                       to={URLSections.Course.to({ courseId: course.id })}
