@@ -88,17 +88,14 @@ export default function CoursePage(props: IProps) {
         <div className={classes.main}>
           {((currentCourseAccess ?? 'FREE') !== 'FREE' || authedUser?.role === 'support') ? (
             <Topics
-              title='Модули'
               topics={[...freeTopics, ...payableTopics]}
             />
           ) : (
             <>
               <Topics
-                title='Доступно сейчас и бесплатно'
                 topics={freeTopics}
               />
               <Topics
-                title='Будет доступно после оплаты'
                 topics={payableTopics}
               />
             </>
@@ -139,11 +136,10 @@ export default function CoursePage(props: IProps) {
   );
 }
 
-function Topics(props: { topics: ITopic[], title: string }) {
-  const { title, topics } = props;
+function Topics(props: { topics: ITopic[] }) {
+  const { topics } = props;
   return (
     <>
-      <h2>{title}</h2>
       {topics.map(topic => (
         <Topic
           key={topic.title}
@@ -205,7 +201,7 @@ function LessonCard(props: { lesson: ILessonData & { solved: boolean, canBeAcces
           <Icon icon='Tick'/>
         </div>
       ) : (
-        <div className={cx({ itemStatus: true })}>
+        <div className={cx({ itemStatus: true, locked: true })}>
         <Icon icon='Lock'/>
       </div>
       )}

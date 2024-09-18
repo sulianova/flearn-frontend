@@ -62,16 +62,16 @@
   transition: transform $d-hover ease-in-out;
 
   svg {
-    width: set-calc(24);
-    height: set-calc(24);
+    width: set-calc(32);
+    height: set-calc(32);
   }
 
   @include set-media(md) {
     margin-top: set-calc(4);
     
     svg {
-      width: set-calc(16);
-      height: set-calc(16);
+      width: set-calc(24);
+      height: set-calc(24);
     }
   }
 }

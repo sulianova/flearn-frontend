@@ -127,6 +127,12 @@
   display: flex;
   flex-direction: column;
 
+  &[data-locked="true"] {
+    .background {
+      background-color: var(--color-background-glassy-b);
+    }
+  }
+
   &:not([data-locked="true"]) {
     &:hover {
       .background {
@@ -261,26 +267,30 @@
 }
 
 .itemStatus {
+  @include icon-extra-small;
+
   display: flex;
   align-items: center;
   justify-content: center;
-
   flex-shrink: 0;
-  width: set-calc(24);
-  height: set-calc(24);
 
+  color: var(--color-content-inverted-primary);
+  background-color: var(--color-background-glassy-c);
   border-radius: 50%;
-  background-color: var(--color-background-glassy-d);
-
-  svg {
-    width: set-calc(24);
-    height: set-calc(24);
-    color: var(--color-content-inverted-primary);
-  }
 }
 
 .solved {
   background-color: var(--color-accent-success);
+  color: var(--color-content-inverted-primary);
+}
+
+.locked {
+  @include icon-small;
+
+  background-color: transparent;
+  color: var(--color-content-tertiary);
+
+  padding: set-calc(0);
 }
 
 .itemBodyContainer {

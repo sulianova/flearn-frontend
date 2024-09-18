@@ -133,7 +133,7 @@ function Sidebar() {
                     className={classes.icon}
                     onClick={() => setUserPopupVisible(!userPopupVisible)}
                   >
-                    <Icon icon='User' />
+                    <Icon icon='Avatar' />
                   </div>
                 </li>
               </Tippy>

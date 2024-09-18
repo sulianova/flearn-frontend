@@ -63,42 +63,35 @@ $color-palette-white-800-a: rgba(255, 255, 255, 0.8);
 $color-palette-white-900-a: rgba(255, 255, 255, 0.9);
 $color-palette-white-1000: #ffffff;
 
+//color
+$color-smokyWhite: #FFFFFF;
+$color-salmonOrange: #EE5E37;
+$color-oldFlax: #DFF37D;
+$color-purple: #D9B8F3;
+$color-royalBlue: #5627FF;
+$color-jetBlack: #262626;
+
 //color-highlight
-$color-highlight-dust: #fffad2;
-$color-highlight-lilac: #e9e1fa;
-$color-highlight-rose: #FCE7F6;
-$color-highlight-neon: #D9D6FE;
+$color-highlight-yellow: #F8DB46;
+$color-highlight-gold: #F5CB36;
 
-$color-highlight-yellow: #f8db46;
-$color-highlight-violet: #b595ff;
-$color-highlight-pink: #FAA7E0;
-
-$color-highlight-orange:#f5cb36;
-$color-highlight-blue: #5627ff;
-$color-highlight-magenta:  #EE0979;
-
-
-//color-palette-indigo
-$color-palette-indigo-950: #090029;
-$color-palette-indigo-900: #382a85;
-$color-palette-indigo-800: #4A1FB8;
-$color-palette-indigo-700: #452dbd;
-$color-palette-indigo-600: #6938EF;
-$color-palette-indigo-500: #7657ff;
-$color-palette-indigo-400: #9282fa;
-$color-palette-indigo-300: #b595ff;
-$color-palette-indigo-200: #D9D6FE;
-$color-palette-indigo-100: #e9e1fa;
-$color-palette-indigo-50: #F9F5FF;
-$color-palette-indigo-25: #FCFAFF;
-
+//color-palette-brand
+$color-palette-brand-25: #F1EAFF;
+$color-palette-brand-50: #E0CFFF;
+$color-palette-brand-100: #CFB8FF;
+$color-palette-brand-200: #B595FF;
+$color-palette-brand-300: #9F72FF;
+$color-palette-brand-400: #8B5BFF;
+$color-palette-brand-500: #7342FF;
+$color-palette-brand-600: #5627FF;
+$color-palette-brand-700: #5026E3;
 
 //gradient
 $color-gradient-rainbow: linear-gradient(139.953deg, #FF30A1 0%, #8722FC 99%);
 
 //theme-light
-$primary-color-light: $color-highlight-blue;
-$primary-color-hover-light: $color-palette-indigo-500;
+$primary-color-light: $color-palette-brand-600;
+$primary-color-hover-light: $color-palette-brand-500;
 $color-content-primary-light: $color-palette-black-700;
 $color-content-secondary-light: $color-palette-black-500;
 $color-content-tertiary-light: $color-palette-black-400;
@@ -128,19 +121,19 @@ $color-accent-error-light: #F04438;
 $color-accent-warning-light: #FDB022;
 $color-accent-success-light: #12B76A;
 $color-accent-notice-light: #0064F0;
-$color-accent-promo-light: $color-highlight-yellow;
-$color-accent-promo-background-light: $color-highlight-neon;
+$color-accent-promo-light: $color-oldFlax;
+$color-accent-promo-background-light: $color-purple;
 
 $color-card-border-light: $color-palette-white-300-a;
 $color-card-light: $color-palette-white-1000;
 $border-light: $color-palette-black-150;
-$shadow-solid-small-light: 0 1px 0 0 $border-light, 0 1.5px 0 0 $border-light, 0 2px 0 0 $border-light, 0 2.5px 0 0 $border-light, 0 3px 0 0 $border-light, 0 3.5px 0 0 $border-light, 0 4px 0 0 $border-light, 0 4.5px 0 0 $border-light;
+$shadow-solid-small-light: 0 1px 0 0 $color-palette-black-700, 0 1.5px 0 0 $color-palette-black-700, 0 2px 0 0 $color-palette-black-700, 0 2.5px 0 0 $color-palette-black-700, 0 3px 0 0 $color-palette-black-700, 0 3.5px 0 0 $color-palette-black-700, 0 4px 0 0 $color-palette-black-700, 0 4.5px 0 0 $color-palette-black-700;
 
 //theme-dark
+$primary-color-dark: $color-palette-brand-300;
+$primary-color-hover-dark: $color-palette-brand-200;
 $color-background-default-dark: $color-palette-black-800;
 $color-background-alternate-dark: $color-palette-black-950;
-$primary-color-dark: $color-palette-indigo-400;
-$primary-color-hover-dark: $color-palette-indigo-500;
 $color-content-primary-dark: $color-palette-black-50;
 $color-content-secondary-dark: $color-palette-black-300;
 $color-content-tertiary-dark: $color-palette-black-400;
@@ -162,10 +155,10 @@ $color-background-glassy-inverted-d-dark: $color-palette-black-100-a;
 
 $color-accent-error-dark: #F04438;
 $color-accent-warning-dark: #FDB022;
-$color-accent-success-dark: #12B76A;
+$color-accent-success-dark: #36BA5F;
 $color-accent-notice-dark: #6172F3;
-$color-accent-promo-dark: $color-highlight-violet;
-$color-accent-promo-background-dark: $primary-color-hover-dark;
+$color-accent-promo-dark: $color-oldFlax;
+$color-accent-promo-background-dark: $color-purple;
 
 $color-background-overlay-dark: $color-palette-black-500-a;
 $color-background-btn-dark: $color-palette-black-50;
@@ -174,7 +167,7 @@ $color-background-btn-hover-dark: $color-palette-black-200;
 $color-card-border-dark: hsla(0, 0%, 100%, .1);
 $color-card-dark: $color-palette-black-700;
 $border-dark: $color-palette-black-500;
-$shadow-solid-small-dark: 0 1px 0 0 $border-dark, 0 1.5px 0 0 $border-dark, 0 2px 0 0 $border-dark, 0 2.5px 0 0 $border-dark, 0 3px 0 0 $border-dark, 0 3.5px 0 0 $border-dark, 0 4px 0 0 $border-dark, 0 4.5px 0 0 $border-dark;
+$shadow-solid-small-dark: 0 1px 0 0 $color-palette-black-1000, 0 1.5px 0 0 $color-palette-black-1000, 0 2px 0 0 $color-palette-black-1000, 0 2.5px 0 0 $color-palette-black-1000, 0 3px 0 0 $color-palette-black-1000, 0 3.5px 0 0 $color-palette-black-1000, 0 4px 0 0 $color-palette-black-1000, 0 4.5px 0 0 $color-palette-black-1000;
 
 //links
 $link: var(--color-content-primary);

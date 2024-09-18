@@ -88,8 +88,8 @@
     }
   },
   "SignupToFlearnPopup": {
-    "title": "Выберите почту, с которой будете учиться",
-    "subtitle": "Спасибо! Мы  отправили ссылку для входа на почту {{email}}",
+    "titleEmailForm": "Выберите почту, с которой будете учиться",
+    "titleEmailFormSubmitted": "Спасибо! Мы  отправили ссылку для входа на почту {{email}}",
     "agreement": "Оферта и договор"
   },
   "courseLanding": {

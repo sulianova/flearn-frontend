@@ -216,7 +216,7 @@
   background-color: var(--color-background-glassy-b);
 
   &:hover {
-    background-color: var(--color--color-background-glassy-c);
+    background-color: var(--color-background-glassy-c);
   }
 
   &:disabled {
@@ -237,7 +237,7 @@
   color: $color-content-inverted-primary-dark;
 
   &:hover {
-    background-color: $color-highlight-orange;
+    background-color: $color-highlight-gold;
   }
 
   @include set-media(md) {
@@ -270,6 +270,26 @@
   }
 }
 
+@mixin icon-button-black {
+  background: transparent;
+  color: var(--color-content-primary);
+
+  &:hover {
+    background: var(--color-background-glassy-b);
+  }
+
+  &:active {
+    background: var(--color-background-glassy-c);
+  }
+
+  @include set-media(md) {
+    &:hover,
+    &:active {
+      background: transparent;
+    }
+  }
+}
+
 @mixin icon-button-secondary {
   background: transparent;
   color: var(--color-content-tertiary);
@@ -290,7 +310,25 @@
   }
 }
 
-@mixin icon-button-small {
+@mixin icon-extra-small {
+  padding: set-calc(3);
+  border-radius: set-calc($border-radius-6);
+
+  svg {
+    display: block;
+    width: set-calc(20);
+    height: set-calc(20);
+    color: inherit
+
+    path {
+      transition-property: all;
+      transition-duration: $d-hover;
+      transition-timing-function: ease-out;
+    }
+  }
+}
+
+@mixin icon-small {
   padding: set-calc(8);
   border-radius: set-calc($border-radius-8);
 
@@ -298,6 +336,7 @@
     display: block;
     width: set-calc(24);
     height: set-calc(24);
+    color: inherit;
 
     path {
       transition-property: all;

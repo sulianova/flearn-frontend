@@ -2,17 +2,17 @@
 
 .__ {
   position: relative;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
 
-
+  @include font-18-normal-paragraph;
   color: var(--color-content-primary);
 
   padding: set-calc(32);
   width: set-calc(560);
-  @include font-18-normal-paragraph;
 
   @include set-media(md) {
     display: flex;
@@ -29,47 +29,24 @@
 
 .close {
   @include btn;
+  @include icon-button-black;
+  @include icon-small;
 
   position: absolute;
-
   top: set-calc(16);
   right: set-calc(16);
 
-  display: flex;
-
   z-index: 1;
-
-  padding: set-calc(12);
-
-  color: var(--color-content-primary);
-  border-radius: set-calc($border-radius-small);
-  background-color:  transparent;
-
-  svg {
-    width: set-calc(24);
-    height: set-calc(24);
-
-    display: inline-block;
-    text-align: center;
-    background: 50% no-repeat;
-    background-size: contain;
-  }
-
-  &:hover {
-    background-color: var(--color-background-glassy-b);
-  }
 
   @include set-media(md) {
     top: 0;
     right: 0;
 
-    padding: set-calc(24);
-    box-shadow: none;
     background-color: transparent;
+    padding: set-calc(24);
 
     &:active,
     &:hover {
-      transform: none;
       background-color: transparent;
     }
   }
@@ -83,31 +60,21 @@
   }
 }
 
-.title {
+.titleForm {
   @include set-typography(24, 30, 500);
   font-family: $font-family-medium;
   align-self: start;
   
   max-width: 92%;
-
-  @include set-media(md) {
-    @include set-typography(24, 30, 500);
-  }
 }
 
-.subtitle {
+.titleLogin {
   @include set-typography(24, 30, 500);
   font-family: $font-family-medium;
   text-align: center;
-
-  @include set-media(md) {
-    @include set-typography(24, 30, 500);
-  }
 }
 
 .caption {
-  margin-right: set-calc(24);
-
   color: var(--color-content-paragraph-primary);
   @include font-18-normal-paragraph;
 }
@@ -121,7 +88,7 @@
 
   width: max-content;
 
-  margin: set-calc(30) 0 set-calc(30);
+  margin: set-calc(30) 0;
 
   svg {
     display: inline-block;

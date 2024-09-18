@@ -39,7 +39,7 @@ function Item({ faq: { question, answer } }: Readonly<IProps>) {
               <Text text={question}/>
             </div>
             <div className={cx({ itemArrow: true, itemArrowExpended: isExpanded })}>
-              <Icon icon='SubsectionArrow'/>
+              <Icon icon='ChevronDown'/>
             </div>
           </div>
           <div

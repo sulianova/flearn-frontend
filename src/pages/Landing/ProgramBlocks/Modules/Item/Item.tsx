@@ -43,7 +43,7 @@ function Item(props: Readonly<IProps>) {
       <div className={itemClasses}>
         {module.subsectionDescription && module.subsection && module.subsection.length && index !== 0 && (
           <div className={cx({ itemArrow: true, itemArrowOpened: opened })}>
-            <Icon icon='SubsectionArrow'/>
+            <Icon icon='ChevronDown'/>
           </div>
         )}
         <div className={classes.meta}>

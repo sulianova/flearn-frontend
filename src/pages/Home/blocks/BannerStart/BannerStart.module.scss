@@ -50,7 +50,7 @@
   width: 80%;
 
   transition: opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
-  color: var(--color-content-inverted-primary);
+  color: $color-content-inverted-primary-light;
 
   margin-bottom: set-calc(80);
 
@@ -75,7 +75,7 @@
 .actionsBtn {
   @include btn;
   @include button-large;
-  @include button-outline(var(--color-content-inverted-primary), var(--primary-color));
+  @include button-outline($color-content-inverted-primary-light, var(--primary-color));
 
   @include set-media(md) {
     width: 100%;

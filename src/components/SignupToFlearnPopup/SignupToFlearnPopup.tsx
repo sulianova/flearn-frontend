@@ -33,8 +33,8 @@ export default function SignupToFlearnPopup(props: Readonly<IProps>) {
           <div className={classes.header}>
             {
               !orderEmail
-              ? <div className={classes.title}>{t('title')}</div>
-              : <div className={classes.subtitle}>{t('subtitle', { email: orderEmail })}</div>
+              ? <div className={classes.titleForm}>{t('titleEmailForm')}</div>
+              : <div className={classes.titleLogin}>{t('titleEmailFormSubmitted', { email: orderEmail })}</div>
             }
           </div>
             <Form

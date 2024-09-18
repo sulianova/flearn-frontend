@@ -37,7 +37,7 @@ export default function Item(props: IProps) {
             {question}
           </div>
           <div className={cx({ itemArrow: true, itemArrowExpended: isExpanded })}>
-            <Icon icon='SubsectionArrow'/>
+            <Icon icon='ChevronDown'/>
           </div>
         </div>
         <div

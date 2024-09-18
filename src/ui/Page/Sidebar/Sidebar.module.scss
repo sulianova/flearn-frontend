@@ -110,7 +110,7 @@
 .item {
   @include btn;
   @include icon-button-secondary;
-  @include icon-button-small;
+  @include icon-small;
 }
 
 .item[data-user-wrapper] {

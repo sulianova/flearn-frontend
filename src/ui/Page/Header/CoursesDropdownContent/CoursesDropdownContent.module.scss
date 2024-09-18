@@ -91,10 +91,10 @@
   font-family: $font-family;
 
   &:hover {
-    background-color: var(--color-background-glassy-c);
+    background-color: var(--color-background-glassy-b);
   }
 }
 
 .active {
-  background-color: var(--color-background-glassy-b);
+  background-color: var(--color-background-glassy-a);
 }

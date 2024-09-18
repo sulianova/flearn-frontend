@@ -40,7 +40,7 @@
   width: 80%;
 
   transition: opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
-  color: var(--color-content-inverted-primary);
+  color: $color-content-inverted-primary-light;
 
   margin-bottom: set-calc(80);
 
@@ -66,11 +66,11 @@
   @include btn;
   @include button-large;
 
-  border: 2px solid var(--color-content-inverted-primary);
+  border: 2px solid $color-content-inverted-primary-light;
 
   .text {
     @include font-20-normal-ui;
-    color: var(--color-content-inverted-primary);
+    color: $color-content-inverted-primary-light;
     font-family: $font-family-bold;
 
     @include set-media(md) {
@@ -79,7 +79,7 @@
   }
 
   &:hover {
-    background: var(--color-content-inverted-primary);
+    background: $color-content-inverted-primary-light;
 
     .text {
       color: var(--primary-color);

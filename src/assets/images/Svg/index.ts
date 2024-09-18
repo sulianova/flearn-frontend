@@ -16,9 +16,8 @@ export * from './Logo';
 export * from './ModalCross';
 export * from './Portfolio';
 export * from './ProgressStepArrow';
-export * from './SelectToggleIcon';
 export * from './Spinner';
-export * from './SubsectionArrow';
+export * from './ChevronDown';
 export * from './Telegram';
 export * from './Tick';
 export * from './Tiktok';
@@ -50,4 +49,5 @@ export * from './Course';
 export * from './CourseFill';
 export * from './UserFill';
 export * from './EmailSent';
-export * from './Google'
+export * from './Google';
+export * from './Avatar'

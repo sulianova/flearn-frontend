@@ -49,7 +49,7 @@
 
   @include set-typography(20, 30, 500);
   font-family: $font-family;
-  color: var(--color-content-inverted-primary);
+  color: $color-content-inverted-primary-light;
   white-space: pre-line;
 
 
@@ -100,7 +100,7 @@
   z-index: 9;
 
   @include font-20-normal-ui;
-  color: var(--color-content-inverted-primary);
+  color: $color-content-inverted-primary-light;
   font-family: $font-family;
 
   padding: set-calc(12) set-calc(18);

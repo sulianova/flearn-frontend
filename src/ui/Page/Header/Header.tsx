@@ -100,7 +100,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
                   return (
                     <div className={cx({ navContent: true, navItem: true, selectToggleIsOpened: opened }) + ' s-hoverable'} onClick={opened ? close : open}>
                       <span className={classes.selectToggleContent}>Мои курсы</span>
-                      <span className={classes.selectToggleIcon}><Icon icon='SelectToggleIcon'/></span>
+                      <span className={classes.selectToggleIcon}><Icon icon='ChevronDown'/></span>
                     </div>
                   );
                 }}
