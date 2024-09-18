@@ -24,7 +24,7 @@ const cx = classNames.bind(classes);
 
 interface IContainerProps {
   lesson: ILessonData
-  user: IUserData
+  user: IUserData | null
   answers: TSurveyAnswers | null
 }
 
@@ -46,7 +46,7 @@ export default function LessonSurveyContainer(props: IContainerProps) {
 interface IProps<Survey extends TSurvey> {
   survey: Survey
   lesson: ILessonData
-  user: IUserData
+  user: IUserData | null
   answers: TSurveyAnswers | null
 }
 
@@ -70,7 +70,7 @@ function LessonSurvey<Survey extends TSurvey>(props: IProps<Survey>) {
     return null;
   }
 
-  if (fetchedAnswers && isSuccess) {
+  if ((fetchedAnswers || !user) && isSuccess) {
     return (
       <div className={cx({ __: true, contentExpander: true})}>
         <div className={classes.wrapper}>
@@ -122,11 +122,12 @@ function LessonSurvey<Survey extends TSurvey>(props: IProps<Survey>) {
               disabled={isPending || (!answer || (Array.isArray(answer) && answer.length === 0))}
               className={classes.submitButton}
               onClick={() => {
+                console.log('click')
                 setIsPending(true);
                 surveyAnswersService.saveSurveyAnswers({
                   answers: answers as TSurveyAnswers,
                   lesson: lesson,
-                  userEmail: user.email,
+                  userEmail: user?.email,
                 }).finally(() => {
                   setIsPending(false);
                   setIsSuccess(true);

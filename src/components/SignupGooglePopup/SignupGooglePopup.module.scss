@@ -1,0 +1,118 @@
+@import 'styles/index';
+
+.__ {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  @include font-18-normal-paragraph;
+  color: var(--color-content-primary);
+
+  padding: set-calc(32);
+  width: set-calc(560);
+
+  @include set-media(md) {
+    display: flex;
+    flex-direction: column;
+
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    min-height: fill-available;
+
+    width: 100%;
+    padding: set-calc(24);
+  }
+}
+
+.close {
+  @include btn;
+  @include icon-button-black;
+  @include icon-small;
+
+  position: absolute;
+  top: set-calc(16);
+  right: set-calc(16);
+
+  z-index: 1;
+
+  @include set-media(md) {
+    top: 0;
+    right: 0;
+
+    background-color: transparent;
+    padding: set-calc(24);
+
+    &:active,
+    &:hover {
+      background-color: transparent;
+    }
+  }
+}
+
+.header {
+  margin: 0 0 set-calc(40);
+
+  @include set-media(md) {
+    margin: 0 0 0;
+  }
+}
+
+.titleForm {
+  @include set-typography(24, 30, 500);
+  font-family: $font-family-medium;
+  align-self: start;
+  
+  max-width: 92%;
+}
+
+.titleLogin {
+  @include set-typography(24, 30, 500);
+  font-family: $font-family-medium;
+  text-align: center;
+}
+
+.caption {
+  color: var(--color-content-paragraph-primary);
+  @include font-18-normal-paragraph;
+}
+
+.imgWrapper {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: max-content;
+
+  margin: set-calc(30) 0;
+
+  svg {
+    display: inline-block;
+    width: set-calc(200);
+  }
+
+  @include set-media(md) {
+    margin: set-calc(20) 0;
+
+    svg {
+      display: inline-block;
+      width: set-calc(120);
+    }
+  }
+}
+
+.btn {
+  @include btn;
+  @include button-large;
+  @include button-primary;
+
+  width: 100%;
+
+  @include set-media(md) {
+    margin-top: set-calc(32);
+  }
+}

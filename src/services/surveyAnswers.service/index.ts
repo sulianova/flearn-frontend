@@ -7,6 +7,7 @@ import { type ILessonData } from 'services/lesson.service';
 import { TSurveyAnswers } from './types';
 import useCurrentLessonSurveyAnswers from './useCurrentLessonSurveyAnswers'
 import { dataService } from 'services';
+import { v4 } from 'uuid';
 
 export * from './types';
 
@@ -22,12 +23,12 @@ class SurveyAnswersService {
     return this.currentLessonSurveyAnswersBS.getValue();
   }
 
-  public async saveSurveyAnswers(props: { answers: TSurveyAnswers, lesson: ILessonData, userEmail: string }) {
+  public async saveSurveyAnswers(props: { answers: TSurveyAnswers, lesson: ILessonData, userEmail?: string }) {
     try {
       await dataService.surveyAnswers.set({
         answers: props.answers,
         lesson: props.lesson,
-        email: props.userEmail,
+        email: props.userEmail ?? `anonimus-${v4().slice(8)}`,
       });
       this._surveyAnswersS.next({ type: 'updated' });
     } catch (error) {

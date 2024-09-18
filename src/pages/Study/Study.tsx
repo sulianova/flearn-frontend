@@ -24,11 +24,12 @@ interface IProps {
 
 export default function LessonContainer(props: IProps) {
   const { courseId, lessonId } = useParams();
-  const [grandAccessFinished, setGrandAccessFinished] = useState(false);
+  const [initFinished, setInitFinished] = useState(false);
 
   useEffect(() => {
     const user = authService.user;
     if (!user || !courseId || !lessonId) {
+      setInitFinished(true);
       return;
     }
 
@@ -44,11 +45,11 @@ export default function LessonContainer(props: IProps) {
         });
       }
 
-      setGrandAccessFinished(true);
+      setInitFinished(true);
     })();
   }, [courseId, lessonId]);
 
-  if (!grandAccessFinished) {
+  if (!initFinished) {
     return (
       <Fallback.Pending
         text='Loading lesson'
@@ -68,10 +69,10 @@ function Lesson({ section }: IProps) {
   const homework = homeworkService.useHomeworks({ filter: { courseId: courseId!, lessonId: lessonId, userId: authedUserId }}).at(0);
   const currentCourse = courseService.useCurrentCourse();
   const currentLesson = lessonService.useCurrentLesson();
-  const currentCourseAccess = userAccessService.useCurrentCourseAccess();
-  const progress = userCourseProgressService.useCurrentCourseProgress();
+  const currentCourseAccess = userAccessService.useCurrentCourseAccess() ?? 'FREE';
+  const progress = userCourseProgressService.useCurrentCourseProgress() ?? {};
 
-  if (!currentCourse || !currentLesson || !currentCourseAccess || !authedUser || !progress) {
+  if (!currentCourse || !currentLesson || !currentCourseAccess) {
     return (
       <Fallback.Pending
         text='Loading lesson'
@@ -80,7 +81,7 @@ function Lesson({ section }: IProps) {
     );
   }
 
-  if (!currentLesson.isFree && currentCourseAccess === 'FREE' && authedUser.role === 'user') {
+  if (!currentLesson.isFree && currentCourseAccess === 'FREE' && authedUser?.role !== 'support') {
     return (
       <Fallback.Info
         variant={EPageVariant.LMS}
@@ -106,7 +107,7 @@ function Lesson({ section }: IProps) {
         )}
         {section === 'task' &&
           (<LessonContent
-            key={`${courseId}-${lessonId}-${authedUser.email}`}
+            key={`${courseId}-${lessonId}-${authedUser?.email}`}
             course={currentCourse}
             courseAccess={currentCourseAccess}
             lesson={currentLesson}

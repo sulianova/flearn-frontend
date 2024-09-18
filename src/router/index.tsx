@@ -6,15 +6,14 @@ import Home from 'pages/Home/Home';
 import Landing from 'pages/Landing/Landing';
 import Courses from 'pages/Courses/Courses';
 import Course from 'pages/Course/Course';
-import EmptyProfile from 'pages/EmptyProfile/EmptyProfile';
 import Profile from 'pages/Profile/Profile';
 import Study from 'pages/Study/Study';
 import Oferta from 'pages/Static/Oferta';
 import Policy from 'pages/Static/Policy';
 import Unsubscribe from 'pages/Static/Unsubscribe';
 import TikTokLogin from 'pages/Static/TikTokLogin';
-
 import ProtectedRoute from './ProtectedRoute';
+
 import { URLSections } from './utils';
 
 export { URLSections, type TRouteConfig } from './utils';
@@ -39,10 +38,10 @@ function MyRouter() {
       <Route path={URLSections.Landing.index} element={<Landing />} />
       <Route path={URLSections.Courses.index} element={<Courses />} />
       <Route path={URLSections.Course.index} element={<Course />} />
+      <Route path={URLSections.Study.index} element={<Study section='task'/>} />
+      <Route path={URLSections.Study.Results.index} element={<Study section='results'/>} />
       <Route element={<ProtectedRoute />}>
         <Route path={URLSections.EmptyProfile.index} element={<Profile />} />
-        <Route path={URLSections.Study.index} element={<Study section='task'/>} />
-        <Route path={URLSections.Study.Results.index} element={<Study section='results'/>} />
       </Route>
       <Route path={URLSections.Static.Oferta.index} element={<Oferta />}/>
       <Route path={URLSections.Static.Policy.index} element={<Policy />}/>

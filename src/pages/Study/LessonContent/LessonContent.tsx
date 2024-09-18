@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
 import { type ICourseData } from 'services/course.service';
-import { type IUserData } from 'services/user.service';
+import { userService, type IUserData } from 'services/user.service';
 import { type ILessonData, lessonService } from 'services/lesson.service';
 import { type TUserCourseProgress, userCourseProgressService } from 'services/userCourseProgress.service';
 import { emailService } from 'services/email.service';
@@ -11,22 +11,26 @@ import { surveyAnswersService } from 'services/surveyAnswers.service';
 import { URLSections } from 'router';
 
 import BuyPopup from 'components/BuyPopup/BuyPopup';
+import SignupGooglePopup from 'components/SignupGooglePopup/SignupGooglePopup';
 import Article from 'ui/Article/Article';
 
 import TheoryFooter from '../TheoryFooter/TheoryFooter';
 import LessonSurvey from '../LessonSurvey/LessonSurvey';
 import classes from './LessonContent.module.scss';
+import { authService } from 'services';
 
 interface IProps {
   course: ICourseData
   lesson: ILessonData
-  user: IUserData
+  user: IUserData | null
   courseAccess: TAccess
   progress: TUserCourseProgress
 }
 
 export default function LessonContent(props: IProps) {
   const { course, lesson, user, courseAccess, progress } = props;
+
+  const [signupGooglePopupIsOpened, setSignupGooglePopupIsOpened] = useState(false);
 
   const navigate = useNavigate();
   const nextLesson = lessonService.useNextLesson();
@@ -39,10 +43,12 @@ export default function LessonContent(props: IProps) {
 
   const courseId = course.id;
   const lessonId = lesson.id;
-  const userEmail = user.email;
+  const userEmail = user?.email;
   const onUnlockBlock = useCallback((unlockedBlocks: number) => {
-    userCourseProgressService.saveLessonProgress({ courseId, lessonId, userEmail, unlockedBlocks })
-      .catch(_err => { /* do nothing */});
+    if (userEmail) {
+      userCourseProgressService.saveLessonProgress({ courseId, lessonId, userEmail, unlockedBlocks })
+        .catch(_err => { /* do nothing */});
+    }
   }, [courseId, lessonId, userEmail]);
 
   const initiallyUlockedBlocks = useMemo(() => {
@@ -63,11 +69,35 @@ export default function LessonContent(props: IProps) {
 
   return (
     <>
-      {buyPopupIsOpened && (
+      {buyPopupIsOpened && user && (
         <BuyPopup
           user={user}
           course={course}
           close={() => setBuyPopupIsOpened(false)}
+        />
+      )}
+      {signupGooglePopupIsOpened && (
+        <SignupGooglePopup
+          text={'Начать учиться на курсе с бесплатным аккаунтом Flearn'}
+          close={() => setSignupGooglePopupIsOpened(false)}
+          onSuccess={() => {
+            const authedUser = authService.user;
+            if (!authedUser) {
+              return;
+            }
+
+            userCourseProgressService
+              .markLessonAsRead(course.id, authedUser.email, lesson.id)
+              .then(() => {
+                if (nextLesson === null) {
+                  navigate(URLSections.Course.to({ courseId: course.id }));
+                } else if (!nextLesson.isFree && courseAccess === 'FREE') {
+                  setBuyPopupIsOpened(true);
+                } else {
+                  navigate(URLSections.Study.to({ courseId: course.id, lessonId: nextLesson.id }));
+                }
+              });
+          }}
         />
       )}
       <div className={classes._}>
@@ -80,7 +110,7 @@ export default function LessonContent(props: IProps) {
           onUnlockBlock={onUnlockBlock}
           onAllBlocksUnlocked={() => setAllQuizesSubmited(true)}
         />
-        {allQuizesSubmited && (
+        {allQuizesSubmited && user && (
           <LessonSurvey
             lesson={lesson}
             user={user}
@@ -89,9 +119,9 @@ export default function LessonContent(props: IProps) {
         )}
         <TheoryFooter
           onNext={
-            (lesson.survey && !lessonSurveyAnswers) || !allQuizesSubmited ? undefined
+            (lesson.survey && !lessonSurveyAnswers && user) || !allQuizesSubmited ? undefined
             : async () => {
-              if (lesson.topicOrder === 1 && lesson.orderInTopic === 1 && lesson.isFree) {
+              if (lesson.topicOrder === 1 && lesson.orderInTopic === 1 && lesson.isFree && user) {
                 const isLessonSolved = await userCourseProgressService
                   .isLessonSolved(course.id, user.email, lesson.id)
                   .catch(_err => true);
@@ -104,17 +134,21 @@ export default function LessonContent(props: IProps) {
                 }
               }
 
-              userCourseProgressService
-                .markLessonAsRead(course.id, user.email, lesson.id)
-                .then(() => {
-                  if (nextLesson === null) {
-                    navigate(URLSections.Course.to({ courseId: course.id }));
-                  } else if (!nextLesson.isFree && courseAccess === 'FREE' && user.role === 'user') {
-                    setBuyPopupIsOpened(true);
-                  } else {
-                    navigate(URLSections.Study.to({ courseId: course.id, lessonId: nextLesson.id }));
-                  }
-                });
+              if (user) {
+                userCourseProgressService
+                  .markLessonAsRead(course.id, user.email, lesson.id)
+                  .then(() => {
+                    if (nextLesson === null) {
+                      navigate(URLSections.Course.to({ courseId: course.id }));
+                    } else if (!nextLesson.isFree && courseAccess === 'FREE' && user.role === 'user') {
+                      setBuyPopupIsOpened(true);
+                    } else {
+                      navigate(URLSections.Study.to({ courseId: course.id, lessonId: nextLesson.id }));
+                    }
+                  });
+              } else {
+                setSignupGooglePopupIsOpened(true);
+              }
             }
           }
         />
