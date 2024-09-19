@@ -4,7 +4,7 @@ import { useTheme } from 'hooks';
 import Router from './router';
 
 import 'styles/index.scss';
-import Discount from 'components/Discount/Discount';
+import PromoPopup from 'components/PromoPopup/PromoPopup';
 
 function App() {
   useTheme();
@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <Router/>
-      <Discount/>
+      <PromoPopup/>
     </>
   );
 }

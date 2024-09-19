@@ -1,4 +1,6 @@
-import classNames from 'classnames/bind';
+import type { CSSProperties } from 'react';
+
+import { getClassesWithCx, type TClassesWithCx } from 'utils';
 
 import Icon from 'ui/Icon/Icon';
 import Popup from 'ui/Popup/Popup';
@@ -15,17 +17,14 @@ type TClassesNames =
   | 'title_start'
   | 'title_center'
   | 'description';
-type TCx = (a: { [key in TClassesNames]?: boolean }, b?: string) => string;
-type TClasses = { [key in TClassesNames]: string };
-type TClassesWithCx = TClasses & { cx: TCx };
 
 interface IProps {
-  children: (classes: TClassesWithCx) => React.ReactNode
+  children: ((classes: TClassesWithCx<TClassesNames>) => React.ReactNode) | React.ReactNode
   close: () => void
+  style?: CSSProperties
 }
 
-const cx = classNames.bind(classes) as TCx;
-const classesWithCx: TClassesWithCx = { ...(classes as TClasses), cx };
+const classesWithCx = getClassesWithCx<TClassesNames>(classes);
 
 GeneralPopup.Img = Img;
 GeneralPopup.Btn = Btn;
@@ -37,11 +36,11 @@ export default function GeneralPopup(props: IProps) {
     <Popup
       close={props.close}
       children={startClosingProcess => (
-        <div className={classes.contentWrapper}>
+        <div className={classes.contentWrapper} style={props.style}>
           <div className={classes.close} onClick={startClosingProcess}>
             <Icon icon='Cross'/>
           </div>
-          {props.children(classesWithCx)}
+          {typeof props.children === 'function' ?  props.children(classesWithCx) : props.children}
         </div>
       )}
     />

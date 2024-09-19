@@ -1,5 +1,7 @@
 import type { ButtonHTMLAttributes } from 'react';
 
+import { getClassesWithCx  } from 'utils';
+
 import classes from './Btn.module.scss';
 
 type TClassesNames =
@@ -7,13 +9,17 @@ type TClassesNames =
   | 'btn_primary'
   | 'btn_secondary';
 
-interface IProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'className'> {}
+interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
+
+const classesWithCx = getClassesWithCx<TClassesNames>(classes);
+console.log({ classesWithCx });
+Btn.classesWithCx = classesWithCx;
 
 export default function Btn(props: IProps) {
-  const { children, ...buttonProps } = props;
+  const { children, className, ...buttonProps } = props;
   return (
     <button
-      className={classes.btn}
+      className={classesWithCx.cx({ btn: true }, className)}
       {...buttonProps}
     >
       <div className={classes.content}>

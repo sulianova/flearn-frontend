@@ -1,6 +1,6 @@
 import classnames from 'classnames/bind';
 
-import { formatI18nT } from 'shared';
+import { formatI18nT, i18n } from 'shared';
 
 import classes from './Decision.module.scss';
 import Icon from 'ui/Icon/Icon';
@@ -27,6 +27,10 @@ export default function Decision({ course, next }: IProps) {
   const optionsNodes = optionTypes.map(type => {
     const option = course.productOptions[type]!;
     const { creditPrice, creditWas, discount } = getDiscountedPrice(course.discount, option);
+    const options =
+      type === 'BASE' ? ['1', '2', '3']
+      : type === 'OPTIMAL' ? ['1', '2', '3', '4', '5']
+      : [];
     return (
       <div className={cx({ block: true, blockDetails: type === 'OPTIMAL', active: false })} key={type}>
         <h2 className={classes.courseName}>
@@ -34,32 +38,12 @@ export default function Decision({ course, next }: IProps) {
         </h2>
         <h3 className={classes.title}>{t(`options.${type}.title`)}</h3>
         <ul className={classes.pricingCheckList}>
-          <li className={classes.pricingCheckListItem}>
-            <div className={classes.itemIcon}><Icon icon='TickInCircle'/></div>
-            <div className={classes.itemText}>Бессрочный доступ к учебнику</div>
-          </li>
-          <li className={classes.pricingCheckListItem}>
-            <div className={classes.itemIcon}><Icon icon='TickInCircle'/></div>
-            <div className={classes.itemText}>Телеграм-чат студентов</div>
-          </li>
-          <li className={classes.pricingCheckListItem}>
-            <div className={classes.itemIcon}><Icon icon='TickInCircle'/></div>
-            <div className={classes.itemText}>Поддержка куратора</div>
-          </li>
-          {
-            type === 'OPTIMAL' && (
-              <>
-              <li className={classes.pricingCheckListItem}>
-                <div className={classes.itemIcon}><Icon icon='TickInCircle'/></div>
-                <div className={classes.itemText}>Телеграм-чат с преподавателем</div>
-              </li>
-              <li className={classes.pricingCheckListItem}>
-                <div className={classes.itemIcon}><Icon icon='TickInCircle'/></div>
-                <div className={classes.itemText}>Индивидуальная обратная связь</div>
-              </li>
-              </>
-            )
-          }
+          {options.map(key => (
+            <li className={classes.pricingCheckListItem} key={key}>
+              <div className={classes.itemIcon}><Icon icon='TickInCircle'/></div>
+              <div className={classes.itemText}>{i18n.t(`product.${type}.${key}`)}</div>
+            </li>
+          ))}
         </ul>
         <dl className={classes.paymentSummary}>
           <dt>

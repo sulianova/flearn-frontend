@@ -86,7 +86,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
               </div>
             )}
             </div>
-            {(user && userCourses.length && !isMobile) && (urlSection.name !== 'Study') && (
+            {(user && Boolean(userCourses.length) && !isMobile) && (urlSection.name !== 'Study') && (
               <Dropdown
                 content={({ close }) => (
                   <CoursesDropdownContent
