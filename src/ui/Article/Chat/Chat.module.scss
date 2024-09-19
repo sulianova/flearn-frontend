@@ -127,7 +127,7 @@
 .button {
   @include btn;
   @include button-large;
-  @include shadow-button($color-palette-black-200, $color-palette-black-300);
+  @include button-2d($color-palette-black-200, $color-palette-black-300);
   justify-content: space-between;
 
   gap: set-calc(20);
@@ -149,7 +149,7 @@
   }
 
   &:hover {
-    @include shadow-button($color: var(--color-accent-promo-background));
+    @include button-2d($color: var(--color-accent-promo-background));
 
     .icon {
       background-color: var(--color-accent-promo-background);

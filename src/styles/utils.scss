@@ -271,6 +271,35 @@
   }
 }
 
+@mixin button-2d(
+  $bc: transparent,
+  $colorHover: var(--color-background-glassy-a),
+  $color: $color-palette-black-200,
+  $colorActive: $color-palette-black-300,
+  $opacity: 1,
+  ) {
+  box-shadow: 0 0 0 1px $color, 0 2px 0 2px $color;
+  transition-property: all;
+  transition-duration: $d-hover;
+  transition-timing-function: ease-out;
+
+  background-color: $bc;
+
+  &:hover {
+    background-color: $colorHover;
+    opacity: $opacity;
+  }
+
+  &:active {
+    box-shadow: 0 0 0 1px $colorActive;
+    transform: translate3d(0, 2px, 0);
+  }
+
+  @include set-media(md) {
+    background-color: transparent;
+  }
+}
+
 @mixin button-extra-small {
   height: set-calc(36);
 
@@ -524,35 +553,6 @@
   animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 0.1);
   animation-delay: .3s;
   animation-fill-mode: backwards;
-}
-
-@mixin shadow-button(
-  $bc: transparent,
-  $colorHover: var(--color-background-glassy-a),
-  $color: $color-palette-black-200,
-  $colorActive: $color-palette-black-300,
-  $opacity: 1,
-  ) {
-  box-shadow: 0 0 0 1px $color, 0 2px 0 2px $color;
-  transition-property: all;
-  transition-duration: $d-hover;
-  transition-timing-function: ease-out;
-
-  background-color: $bc;
-
-  &:hover {
-    background-color: $colorHover;
-    opacity: $opacity;
-  }
-
-  &:active {
-    box-shadow: 0 0 0 1px $colorActive;
-    transform: translate3d(0, 2px, 0);
-  }
-
-  @include set-media(md) {
-    background-color: transparent;
-  }
 }
 
 @mixin key-link(
