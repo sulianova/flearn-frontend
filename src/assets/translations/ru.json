@@ -21,6 +21,7 @@
       "profile": "Профиль"
     }
   },
+  "oferta": "Оферта и договор",
   "footer": {
       "referencesCatalogue": "Курсы",
       "referencesBooks": "Рекомендуемые книги",
@@ -87,10 +88,17 @@
       "title": "Настройки"
     }
   },
+  "SignupToCoursePopup": {
+    "titleEmailForm": "Выберите почту, с которой будете учиться",
+    "titleEmailFormSubmitted": "Спасибо! Мы  отправили ссылку для входа на почту {{email}}",
+    "submitEmail": "Начать учиться бесплатно",
+    "login": "Продолжить с Google"
+  },
   "SignupToFlearnPopup": {
     "titleEmailForm": "Выберите почту, с которой будете учиться",
     "titleEmailFormSubmitted": "Спасибо! Мы  отправили ссылку для входа на почту {{email}}",
-    "agreement": "Оферта и договор"
+    "submitEmail": "Начать учиться бесплатно",
+    "login": "Продолжить с Google"
   },
   "courseLanding": {
       "programIntro" : {

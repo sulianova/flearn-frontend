@@ -1,11 +1,9 @@
 import { useState } from 'react';
 
-import { courseService } from 'services/course.service';
 import { lessonService } from 'services/lesson.service';
 import { URLSections } from 'router';
 
-import SignupToCoursePopup from 'components/SignupToCoursePopup/SignupToCoursePopup';
-import Page, { EFooter, EPageVariant } from 'ui/Page/Page';
+import Page, { EPageVariant } from 'ui/Page/Page';
 
 import Catalogue from './blocks/Catalogue/Catalogue';
 import  BannerStart from './blocks/BannerStart/BannerStart'
@@ -27,6 +25,8 @@ export default function Home() {
     : URLSections.Profile.to({ courseId: 'how-to-draw' });
   const [popupVisible, setPopupVisible] = useState(false);
   const onNotAuthedClick = () => setPopupVisible(true);
+
+  const [submited, setSubmited] = useState(false);
 
   const blocks = [
     <StudyProcess 

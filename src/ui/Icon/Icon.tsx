@@ -10,7 +10,7 @@ type TNativeProps =
   & React.SVGAttributes<SVGSVGElement>;
 
 export type TIcon = keyof typeof icons;
-interface IPropsWithoutRef extends TNativeProps {
+export interface IPropsWithoutRef extends TNativeProps {
   icon: TIcon | React.FunctionComponent<React.SVGProps<SVGSVGElement>>
   rotate?: number
   height?: number

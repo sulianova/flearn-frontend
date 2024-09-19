@@ -61,29 +61,3 @@
   margin-top: set-calc(6);
   margin-left: set-calc(4);
 }
-
-.agreement {
-  align-self: flex-end;
-
-  margin-top: set-calc(16);
-  margin-right: set-calc(4);
-
-  @include font-14-normal-ui;
-
-  @include set-media(md) {
-    margin-top: set-calc(8);
-    margin-right: set-calc(4);
-  }
-}
-
-.btn {
-  @include btn;
-  @include button-large;
-  @include button-primary;
-
-  width: 100%;
-
-  @include set-media(md) {
-    margin-top: set-calc(32);
-  }
-}

@@ -1,0 +1,27 @@
+@import 'styles/index';
+
+.imgWrapper {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: max-content;
+
+  margin: set-calc(30) 0;
+
+  svg {
+    display: inline-block;
+    width: set-calc(200);
+  }
+
+  @include set-media(md) {
+    margin: set-calc(20) 0;
+
+    svg {
+      display: inline-block;
+      width: set-calc(120);
+    }
+  }
+}
