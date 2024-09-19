@@ -292,25 +292,7 @@ s {
 }
 
 .key-link {
-  color: var(--primary-color);
-  transition: color $d-hover ease-out 0.1s;
-  -o-transition: color $d-hover ease-out 0.1s;
-  -moz-transition: color $d-hover ease-out 0.1s;
-  -ms-transition: color $d-hover ease-out 0.1s;
-  -webkit-transition: color $d-hover ease-out 0.1s;
-  cursor: pointer;
-
-  width: fit-content;
-
-  &:hover {
-    color: var(--primary-color-hover);
-  }
-
-  @include set-media(md) {
-    &:hover {
-      color: var(--color-content-secondary);
-    }
-  }
+  @include key-link;
 }
 
 .link {

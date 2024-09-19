@@ -12,12 +12,12 @@ export default function TextImportant({ text }: Omit<IArticleTextImportantBlock,
   return (
     <div className={classes.__}>
       <div className={classes.textImportantWrapper}>
-        <span className={classes.quoteMark}>«</span>
+        {/* <span className={classes.quoteMark}>«</span> */}
         <p className={classes.quoteText}>
           <UIText text={text}/>
-          <span className={classes.quoteSub}></span>
+          {/* <span className={classes.quoteSub}></span> */}
         </p>
-        <span className={classes.quoteMark}>»</span>
+        {/* <span className={classes.quoteMark}>»</span> */}
       </div>
     </div>
   );

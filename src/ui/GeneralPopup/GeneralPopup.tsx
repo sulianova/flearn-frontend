@@ -12,8 +12,8 @@ import Oferta from './Oferta/Oferta';
 type TClassesNames =
   | 'header'
   | 'title'
-  | 'titleStart'
-  | 'titleCenter'
+  | 'title_start'
+  | 'title_center'
   | 'description';
 type TCx = (a: { [key in TClassesNames]?: boolean }, b?: string) => string;
 type TClasses = { [key in TClassesNames]: string };
@@ -37,7 +37,7 @@ export default function GeneralPopup(props: IProps) {
     <Popup
       close={props.close}
       children={startClosingProcess => (
-        <div className={classes.__}>
+        <div className={classes.contentWrapper}>
           <div className={classes.close} onClick={startClosingProcess}>
             <Icon icon='Cross'/>
           </div>

@@ -128,6 +128,7 @@
   background-color: var(--color-accent-promo-background);
 }
 
+//button
 @mixin btn {
   position: relative;
 
@@ -270,112 +271,6 @@
   }
 }
 
-@mixin icon-button-black {
-  background: transparent;
-  color: var(--color-content-primary);
-
-  &:hover {
-    background: var(--color-background-glassy-b);
-  }
-
-  &:active {
-    background: var(--color-background-glassy-c);
-  }
-
-  @include set-media(md) {
-    &:hover,
-    &:active {
-      background: transparent;
-    }
-  }
-}
-
-@mixin icon-button-secondary {
-  background: transparent;
-  color: var(--color-content-tertiary);
-
-  &:hover {
-    background: var(--color-background-glassy-b);
-  }
-
-  &:active {
-    background: var(--color-background-glassy-c);
-  }
-
-  @include set-media(md) {
-    &:hover,
-    &:active {
-      background: transparent;
-    }
-  }
-}
-
-@mixin icon-medium {
-  padding: set-calc(16);
-  border-radius: set-calc($border-radius-12);
-
-  svg {
-    display: block;
-    width: set-calc(32);
-    height: set-calc(32);
-    color: inherit;
-
-    transition-property: all;
-    transition-duration: $d-hover;
-    transition-timing-function: ease-out;
-
-    path {
-      transition-property: all;
-      transition-duration: $d-hover;
-      transition-timing-function: ease-out;
-    }
-  }
-}
-
-@mixin icon-small {
-  padding: set-calc(8);
-  border-radius: set-calc($border-radius-8);
-
-  svg {
-    display: block;
-    width: set-calc(24);
-    height: set-calc(24);
-    color: inherit;
-
-    transition-property: all;
-    transition-duration: $d-hover;
-    transition-timing-function: ease-out;
-
-    path {
-      transition-property: all;
-      transition-duration: $d-hover;
-      transition-timing-function: ease-out;
-    }
-  }
-}
-
-@mixin icon-extra-small {
-  padding: set-calc(3);
-  border-radius: set-calc($border-radius-6);
-
-  svg {
-    display: block;
-    width: set-calc(20);
-    height: set-calc(20);
-    color: inherit;
-
-    transition-property: all;
-    transition-duration: $d-hover;
-    transition-timing-function: ease-out;
-
-    path {
-      transition-property: all;
-      transition-duration: $d-hover;
-      transition-timing-function: ease-out;
-    }
-  }
-}
-
 @mixin button-extra-small {
   height: set-calc(36);
 
@@ -435,22 +330,114 @@
   font-family: $font-family-medium;
 }
 
-@mixin shadow-solid {
-  &:hover {
-    box-shadow: var(--shadow-solid-small);
-    transform: translateY(-4px);
-  }
+//icon
+@mixin icon-small {
+  padding: set-calc(8);
+  border-radius: set-calc($border-radius-8);
 
-  @include set-media(md) {
-    &:hover {
-      box-shadow: none;
-      transform: none;
+  svg {
+    display: block;
+    width: set-calc(24);
+    height: set-calc(24);
+    color: inherit;
+
+    transition-property: all;
+    transition-duration: $d-hover;
+    transition-timing-function: ease-out;
+
+    path {
+      transition-property: all;
+      transition-duration: $d-hover;
+      transition-timing-function: ease-out;
     }
   }
 }
 
+@mixin icon-medium {
+  padding: set-calc(16);
+  border-radius: set-calc($border-radius-12);
 
+  svg {
+    display: block;
+    width: set-calc(32);
+    height: set-calc(32);
+    color: inherit;
 
+    transition-property: all;
+    transition-duration: $d-hover;
+    transition-timing-function: ease-out;
+
+    path {
+      transition-property: all;
+      transition-duration: $d-hover;
+      transition-timing-function: ease-out;
+    }
+  }
+}
+
+@mixin icon-extra-small {
+  padding: set-calc(3);
+  border-radius: set-calc($border-radius-6);
+
+  svg {
+    display: block;
+    width: set-calc(20);
+    height: set-calc(20);
+    color: inherit;
+
+    transition-property: all;
+    transition-duration: $d-hover;
+    transition-timing-function: ease-out;
+
+    path {
+      transition-property: all;
+      transition-duration: $d-hover;
+      transition-timing-function: ease-out;
+    }
+  }
+}
+
+@mixin icon-button-black {
+  background: transparent;
+  color: var(--color-content-primary);
+
+  &:hover {
+    background: var(--color-background-glassy-b);
+  }
+
+  &:active {
+    background: var(--color-background-glassy-c);
+  }
+
+  @include set-media(md) {
+    &:hover,
+    &:active {
+      background: transparent;
+    }
+  }
+}
+
+@mixin icon-button-secondary {
+  background: transparent;
+  color: var(--color-content-tertiary);
+
+  &:hover {
+    background: var(--color-background-glassy-b);
+  }
+
+  &:active {
+    background: var(--color-background-glassy-c);
+  }
+
+  @include set-media(md) {
+    &:hover,
+    &:active {
+      background: transparent;
+    }
+  }
+}
+
+//input
 @mixin input {
   position: relative;
   appearance: none;
@@ -537,6 +524,80 @@
   animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 0.1);
   animation-delay: .3s;
   animation-fill-mode: backwards;
+}
+
+@mixin shadow-button(
+  $bc: transparent,
+  $colorHover: var(--color-background-glassy-a),
+  $color: $color-palette-black-200,
+  $colorActive: $color-palette-black-300,
+  $opacity: 1,
+  ) {
+  box-shadow: 0 0 0 1px $color, 0 2px 0 2px $color;
+  transition-property: all;
+  transition-duration: $d-hover;
+  transition-timing-function: ease-out;
+
+  background-color: $bc;
+
+  &:hover {
+    background-color: $colorHover;
+    opacity: $opacity;
+  }
+
+  &:active {
+    box-shadow: 0 0 0 1px $colorActive;
+    transform: translate3d(0, 2px, 0);
+  }
+
+  @include set-media(md) {
+    background-color: transparent;
+  }
+}
+
+@mixin key-link(
+  $color: var(--color-accent-promo-background)
+  ) {
+  position: relative;
+  display: inline-block;
+  color: inherit;
+  z-index: 1;
+
+  transition: all $d-hover ease-out 0s;
+  -o-transition: all $d-hover ease-out 0s;
+  -moz-transition: all $d-hover ease-out 0s;
+  -ms-transition: all $d-hover ease-out 0s;
+  -webkit-transition: all $d-hover ease-out 0s;
+  cursor: pointer;
+
+  width: fit-content;
+  -webkit-tap-highlight-color: transparent;
+
+  &:hover::before {
+    height: 100%;
+  }
+
+  @include set-media(md) {
+    &:hover::before {
+      height: 2px;
+    }
+  }
+
+  &::before {
+    position: absolute;
+    content: "";
+
+    bottom: 0;
+    left: -2px;
+    z-index: -1;
+
+    width: calc(100% + 4px);
+    height: 2px;
+
+    border-radius: set-calc(4);
+    background-color: $color;
+    transition: height .2s cubic-bezier(.25,.01,.25,1) 0s;
+  }
 }
 
 @mixin keyframes($name) {

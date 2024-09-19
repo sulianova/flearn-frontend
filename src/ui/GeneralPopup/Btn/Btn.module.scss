@@ -5,6 +5,14 @@
   @include button-large;
   @include button-primary;
 
+  &_primary {
+    @include button-primary;
+  }
+
+  &_secondary {
+    @include button-secondary;
+  }
+
   width: 100%;
 
   @include set-media(md) {

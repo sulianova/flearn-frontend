@@ -16,11 +16,13 @@
 
 .wrapper {
   position: relative;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: set-calc(16);
 
   @include set-media(md) {
+    display: flex;
+    flex-direction: column;
     gap: set-calc(8);
   }
 }

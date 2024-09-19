@@ -29,7 +29,7 @@ export default function SignupToFlearnPopup(props: Readonly<IProps>) {
         {classes => (
           <>
             <div className={classes.header}>
-              <div className={classes.cx({ title: true, titleStart: true })}>
+              <div className={classes.cx({ title: true, title_start: true })}>
                 {t('titleEmailForm')}
               </div>
             </div>
@@ -54,7 +54,7 @@ export default function SignupToFlearnPopup(props: Readonly<IProps>) {
         <>
           <GeneralPopup.Img iconProps={{ icon: 'EmailSent' }}/>
           <div className={classes.header}>
-            <div className={classes.cx({ title: true, titleCenter: true })}>
+            <div className={classes.cx({ title: true, title_center: true })}>
               {t('titleEmailFormSubmitted', { email: orderEmail })}
             </div>
           </div>

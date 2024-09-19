@@ -17,7 +17,7 @@ export default function SignupGooglePopup(props: IProps) {
       {classes => (
         <>
           <div className={classes.header}>
-            <div className={classes.cx({ title: true, titleCenter: true })}>
+            <div className={classes.cx({ title: true, title_center: true })}>
               {props.text}
             </div>
           </div>

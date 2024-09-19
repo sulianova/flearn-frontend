@@ -1,6 +1,6 @@
 @import 'styles/index';
 
-.profilePage {
+.page {
   display: flex;
   position: relative;
   flex-direction: column;
@@ -16,7 +16,7 @@
   }
 }
 
-.profilePageContent {
+.page__content {
   display: flex;
 
   @include set-media(md) {
@@ -51,4 +51,9 @@
     margin-left: 0;
     width: 100%;
   }
+}
+
+.section {
+  display: block;
+  position: relative;
 }

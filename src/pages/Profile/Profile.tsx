@@ -6,6 +6,11 @@ import Catalogue from './Catalogue/Catalogue';
 import classes from './Profile.module.scss';
 
 export default function Profile() {
+  const blocks: JSX.Element[] = [
+    <Header/>,
+    <Catalogue/>
+  ].filter(c => c !== undefined);
+
   return (
     <Page 
       variant={EPageVariant.LMS}
@@ -13,11 +18,14 @@ export default function Profile() {
       footer
       backgroundColor='var(--color-background-alternate)'
     >
-      <div className={classes.profilePage}>
-        <div className={classes.profilePageContent}>
+      <div className={classes.page}>
+        <div className={classes.page__content}>
           <div className={classes.main}>
-            <Header/>
-            <Catalogue/>
+              {blocks.map((block, index) => (
+                <div key={index} className={classes.section}>
+                  {block}
+                </div>
+              ))}
           </div>
           <aside className={classes.asideWrapper}></aside>
         </div>

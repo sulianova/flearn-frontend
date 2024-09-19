@@ -125,64 +125,48 @@
 }
 
 .button {
-  position: relative;
-
-  display: flex;
-  align-items: center;
+  @include btn;
+  @include button-large;
+  @include shadow-button($color-palette-black-200, $color-palette-black-300);
   justify-content: space-between;
 
   gap: set-calc(20);
   width: 100%;
+  height: max-content;
 
   padding: set-calc(10) set-calc(16);
   padding-left: set-calc(32);
-  border-radius: set-calc($border-radius-30);
   background: transparent;
-  border: 1px solid var(--color-content-primary);
-
-  text-rendering: geometricPrecision;
-  -webkit-font-smoothing: antialiased;
-
-  transition: all $d-hover ease;
 
   @include set-typography(18, 24, 500);
   color: var(--color-content-primary);
   font-family: $font-family-article;
   text-align: start;
 
-  box-shadow: $shadow-solid-small;
-
   .icon {
     background-color: transparent;
-    color: var(--color-content-primary);
-    border-color: var(--color-content-primary);
+    color: $color-palette-black-200;
   }
 
   &:hover {
-    box-shadow: none;
-    transform: translateY(4px);
+    @include shadow-button($color: var(--color-accent-promo-background));
 
     .icon {
-      background-color: var(--color-content-primary);
-      color: var(--color-content-inverted-primary);
-      border-color: var(--color-content-primary);
+      background-color: var(--color-accent-promo-background);
+      color: var(--color-content-primary);
     }
   }
 
   @include set-media(md) {
     width: 100%;
-
     padding-left: set-calc(20);
 
     @include set-typography(18, 24, 500);
 
     &:hover {
-      box-shadow: none;
-      transform: none;
-
       .icon {
         background-color: transparent;
-        color: var(--color-content-primary);
+        color: $color-palette-black-200;
       }
     }
   }
@@ -190,31 +174,9 @@
 
 .icon {
   @include btn;
+  @include icon-medium;
 
-  position: relative;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  align-self: self-end;
+  padding: set-calc(4);
 
   border-radius: 50%;
-  border: 1px solid  var(--color-content-primary);
-  background-color: transparent;
-  color: var(--color-content-primary);
-  
-  width: set-calc(32);
-  height: set-calc(32);
-
-  svg {
-    display: flex;
-    vertical-align: middle;
-
-    stroke-width: 1.5;
-    flex-shrink: 0;
-
-    width: set-calc(32);
-    height: set-calc(32);
-  }
 }

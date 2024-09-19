@@ -1,6 +1,6 @@
 @import 'styles/index';
 
-.__ {
+.contentWrapper {
   position: relative;
 
   display: flex;
@@ -12,18 +12,15 @@
   color: var(--color-content-primary);
 
   padding: set-calc(32);
-  width: set-calc(560);
+  width: set-calc(480);
 
   @include set-media(md) {
-    display: flex;
-    flex-direction: column;
-
     min-height: 100vh;
     min-height: -webkit-fill-available;
     min-height: fill-available;
 
-    width: 100%;
     padding: set-calc(24);
+    width: 100%;
   }
 }
 
@@ -63,13 +60,17 @@
 .title {
   @include set-typography(24, 30, 500);
   font-family: $font-family-medium;
-  margin-bottom: set-calc(40);
+  margin-bottom: set-calc(32);
 
-  &Start {
+  &_start {
     align-self: start;
   }
 
-  &Center {
+  &_center {
     text-align: center;
+  }
+
+  @include set-media(md) {
+    margin-bottom: set-calc(16);
   }
 }

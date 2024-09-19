@@ -2,6 +2,10 @@ import type { ButtonHTMLAttributes } from 'react';
 
 import classes from './Btn.module.scss';
 
+type TClassesNames =
+  | 'btn'
+  | 'btn_primary'
+  | 'btn_secondary';
 
 interface IProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'className'> {}
 

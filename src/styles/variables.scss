@@ -121,8 +121,8 @@ $color-accent-error-light: #F04438;
 $color-accent-warning-light: #FDB022;
 $color-accent-success-light: #12B76A;
 $color-accent-notice-light: #0064F0;
-$color-accent-promo-light: $color-oldFlax;
-$color-accent-promo-background-light: $color-purple;
+$color-accent-promo-light: $color-royalBlue;
+$color-accent-promo-background-light: $color-highlight-yellow;
 
 $color-card-border-light: $color-palette-white-300-a;
 $color-card-light: $color-palette-white-1000;
@@ -156,8 +156,8 @@ $color-accent-error-dark: #F04438;
 $color-accent-warning-dark: #FDB022;
 $color-accent-success-dark: #36BA5F;
 $color-accent-notice-dark: #6172F3;
-$color-accent-promo-dark: $color-oldFlax;
-$color-accent-promo-background-dark: $color-purple;
+$color-accent-promo-dark: $color-highlight-yellow;
+$color-accent-promo-background-dark: $color-royalBlue;
 
 $color-background-overlay-dark: $color-palette-black-500-a;
 $color-background-btn-dark: $color-palette-black-50;
@@ -200,8 +200,6 @@ $shadow-medium-hovered: 0px 16px 32px 0px rgba(36, 36, 36, 0.10);
 $shadow-medium-pressed: 0px 4px 8px 0px rgba(36, 36, 36, 0.08);
 $shadow-popup: 0px 24px 48px 0px rgba(0, 0, 0, 0.10);
 $shadow-menu: 0px 10px 48px 0px rgba(0, 0, 0, 0.10);
-
-$shadow-solid-small: 0 1px 0 0 var(--color-content-primary), 0 1.5px 0 0 var(--color-content-primary), 0 2px 0 0 var(--color-content-primary), 0 2.5px 0 0 var(--color-content-primary), 0 3px 0 0 var(--color-content-primary), 0 3.5px 0 0 var(--color-content-primary), 0 4px 0 0 var(--color-content-primary), 0 4.5px 0 0 var(--color-content-primary);
 
 //filter
 $backdrop-filter: 5;

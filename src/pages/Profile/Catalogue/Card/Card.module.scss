@@ -4,14 +4,14 @@
   @include btn;
   position: relative;
 
+  width: 100%;
+  height: set-calc(271.5);
+
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: start;
   padding: set-calc(24);
-
-  width: set-calc(344);
-  height: set-calc(271.5);
 
   border-radius: set-calc($border-radius-20);
   transform-origin: center center;
