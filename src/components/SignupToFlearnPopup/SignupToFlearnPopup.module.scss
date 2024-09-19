@@ -1,30 +1,8 @@
 @import 'styles/index';
+@import 'src/ui/Popup/PopupUtils.scss';
 
-.__ {
-  position: relative;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-
-  @include font-18-normal-paragraph;
-  color: var(--color-content-primary);
-
-  padding: set-calc(32);
-  width: set-calc(560);
-
-  @include set-media(md) {
-    display: flex;
-    flex-direction: column;
-
-    min-height: 100vh;
-    min-height: -webkit-fill-available;
-    min-height: fill-available;
-
-    width: 100%;
-    padding: set-calc(24);
-  }
+.contantWrapper {
+ @include content-wrapper;
 }
 
 .close {

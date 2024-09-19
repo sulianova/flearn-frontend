@@ -200,7 +200,7 @@
 
 //check general
 .checked {
-  background-color: var(--color-accent-neutral);
+  background-color: var(--color-content-primary);
 }
 
 .checked .icon {
@@ -261,7 +261,7 @@
 
   transition: background-color .2s ease-in-out;
   border-radius: 50%;
-  box-shadow: inset 0 0 0 1.5px var(--color-accent-neutral);
+  box-shadow: inset 0 0 0 1.5px var(--color-content-primary);
 
   @include set-media(md) {
 
@@ -288,7 +288,7 @@
 
   transition: background-color .2s ease-in-out;
   border-radius: set-calc(6);
-  box-shadow: inset 0 0 0 1.5px var(--color-accent-neutral);
+  box-shadow: inset 0 0 0 1.5px var(--color-content-primary);
 }
 
 .checkbox::after,
@@ -309,7 +309,7 @@
   transform: translate(-100%, 100%);
   border-radius: inherit;
 
-  background-color: var(--color-accent-neutral);
+  background-color: var(--color-content-primary);
 }
 
 .checked .checkboxWithMovementAnimation::before{
@@ -322,28 +322,12 @@
 .submitButton {
   @include btn;
   @include button-large;
+  @include button-black;
 
   margin-top: set-calc(20);
-  min-width: set-calc(180);
-
-  @include font-18-normal-ui;
-
-  background-color: var(--color-accent-neutral);
-  color: var(--color-content-inverted-primary);
-
-  &:hover {
-    background-color: var(--color-accent-neutral-hover);
-  }
-  
-  &:disabled {
-    background-color: var(--color-background-glassy-b);
-    color: var(--color-content-tertiary);
-  }
 
   @include set-media(md) {
-    &:hover {
-      background-color: var(--color-accent-neutral);
-    }
+    width: 100%;
   }
 }
 

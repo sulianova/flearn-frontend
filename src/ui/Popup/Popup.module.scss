@@ -37,7 +37,7 @@
   }
 }
 
-.modalContentWrapper {
+.modal__ContentWrapper {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -64,7 +64,7 @@
   }
 }
 
-.modalContent {
+.modal__Content {
   position: relative;
   margin: set-calc(10);
 
@@ -99,12 +99,12 @@
   }
 }
 
-.modal_AnimationEnter {
+.modal__AnimationEnter {
   .overlay {
     opacity: 1;
   }
 
-  .modalContent {
+  .modal__Content {
     transform: translateY(0) scale(1);
     opacity: 1;
   
@@ -116,13 +116,13 @@
 }
 
 
-.modal_AnimationExit {
+.modal__AnimationExit {
   .overlay {
     transition: opacity 0.2s ease-in;
     opacity: 0;
   }
 
-  .modalContent {
+  .modal__Content {
     transition: opacity 0.2s ease-in, transform 0.2s ease-in;
     transform: translateY(50px) scale(0.98);
   

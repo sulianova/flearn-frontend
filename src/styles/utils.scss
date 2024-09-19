@@ -310,15 +310,19 @@
   }
 }
 
-@mixin icon-extra-small {
-  padding: set-calc(3);
-  border-radius: set-calc($border-radius-6);
+@mixin icon-medium {
+  padding: set-calc(16);
+  border-radius: set-calc($border-radius-12);
 
   svg {
     display: block;
-    width: set-calc(20);
-    height: set-calc(20);
-    color: inherit
+    width: set-calc(32);
+    height: set-calc(32);
+    color: inherit;
+
+    transition-property: all;
+    transition-duration: $d-hover;
+    transition-timing-function: ease-out;
 
     path {
       transition-property: all;
@@ -337,6 +341,32 @@
     width: set-calc(24);
     height: set-calc(24);
     color: inherit;
+
+    transition-property: all;
+    transition-duration: $d-hover;
+    transition-timing-function: ease-out;
+
+    path {
+      transition-property: all;
+      transition-duration: $d-hover;
+      transition-timing-function: ease-out;
+    }
+  }
+}
+
+@mixin icon-extra-small {
+  padding: set-calc(3);
+  border-radius: set-calc($border-radius-6);
+
+  svg {
+    display: block;
+    width: set-calc(20);
+    height: set-calc(20);
+    color: inherit;
+
+    transition-property: all;
+    transition-duration: $d-hover;
+    transition-timing-function: ease-out;
 
     path {
       transition-property: all;

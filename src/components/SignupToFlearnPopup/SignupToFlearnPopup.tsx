@@ -21,7 +21,7 @@ export default function SignupToFlearnPopup(props: Readonly<IProps>) {
     <Popup
       close={props.close}
       children={startClosingProcess => (
-        <div className={classes.__}>
+        <div className={classes.contantWrapper}>
           <div className={classes.close} onClick={startClosingProcess}>
             <Icon icon='Cross'/>
           </div>

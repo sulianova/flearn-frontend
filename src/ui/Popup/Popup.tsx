@@ -45,11 +45,11 @@ function Popup({ children, close }: Readonly<IProps>) {
 
   return createPortal(
     (
-      <div className={cx({ modal: true, modal_AnimationEnter: state === 'OPENING' || state === 'OPENED', modal_AnimationExit: state === 'CLOSING' })}>
+      <div className={cx({ modal: true, modal__AnimationEnter: state === 'OPENING' || state === 'OPENED', modal__AnimationExit: state === 'CLOSING' })}>
         <div className={classes.overlay}></div>
         {(state === null || state === 'OPENING' || state === 'OPENED' || state === 'CLOSING') && (
-          <div className={classes.modalContentWrapper}>
-            <div className={cx({ modalContent: true})}>
+          <div className={classes.modal__ContentWrapper}>
+            <div className={cx({ modal__Content: true})}>
               {children(startClosingProcess)}
             </div>
           </div>

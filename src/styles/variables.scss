@@ -127,7 +127,6 @@ $color-accent-promo-background-light: $color-purple;
 $color-card-border-light: $color-palette-white-300-a;
 $color-card-light: $color-palette-white-1000;
 $border-light: $color-palette-black-150;
-$shadow-solid-small-light: 0 1px 0 0 $color-palette-black-700, 0 1.5px 0 0 $color-palette-black-700, 0 2px 0 0 $color-palette-black-700, 0 2.5px 0 0 $color-palette-black-700, 0 3px 0 0 $color-palette-black-700, 0 3.5px 0 0 $color-palette-black-700, 0 4px 0 0 $color-palette-black-700, 0 4.5px 0 0 $color-palette-black-700;
 
 //theme-dark
 $primary-color-dark: $color-palette-brand-300;
@@ -167,7 +166,6 @@ $color-background-btn-hover-dark: $color-palette-black-200;
 $color-card-border-dark: hsla(0, 0%, 100%, .1);
 $color-card-dark: $color-palette-black-700;
 $border-dark: $color-palette-black-500;
-$shadow-solid-small-dark: 0 1px 0 0 $color-palette-black-1000, 0 1.5px 0 0 $color-palette-black-1000, 0 2px 0 0 $color-palette-black-1000, 0 2.5px 0 0 $color-palette-black-1000, 0 3px 0 0 $color-palette-black-1000, 0 3.5px 0 0 $color-palette-black-1000, 0 4px 0 0 $color-palette-black-1000, 0 4.5px 0 0 $color-palette-black-1000;
 
 //links
 $link: var(--color-content-primary);
@@ -202,6 +200,8 @@ $shadow-medium-hovered: 0px 16px 32px 0px rgba(36, 36, 36, 0.10);
 $shadow-medium-pressed: 0px 4px 8px 0px rgba(36, 36, 36, 0.08);
 $shadow-popup: 0px 24px 48px 0px rgba(0, 0, 0, 0.10);
 $shadow-menu: 0px 10px 48px 0px rgba(0, 0, 0, 0.10);
+
+$shadow-solid-small: 0 1px 0 0 var(--color-content-primary), 0 1.5px 0 0 var(--color-content-primary), 0 2px 0 0 var(--color-content-primary), 0 2.5px 0 0 var(--color-content-primary), 0 3px 0 0 var(--color-content-primary), 0 3.5px 0 0 var(--color-content-primary), 0 4px 0 0 var(--color-content-primary), 0 4.5px 0 0 var(--color-content-primary);
 
 //filter
 $backdrop-filter: 5;
@@ -278,7 +278,6 @@ $z-index-500: 500;
   --color-card-border-light: #{$color-card-border-light};
   --color-card-light: #{$color-card-light};
   --border-light: #{$border-light};
-  --shadow-solid-small-light: #{$shadow-solid-small-light};
 
   // theme dark
   --primary-color-dark: #{$primary-color-dark};
@@ -316,5 +315,4 @@ $z-index-500: 500;
   --color-card-border-dark: #{$color-card-border-dark};
   --color-card-dark: #{$color-card-dark};
   --border-dark: #{$border-dark};
-  --shadow-solid-small-dark: #{$shadow-solid-small-dark};
 }

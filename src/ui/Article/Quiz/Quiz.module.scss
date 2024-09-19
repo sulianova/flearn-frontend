@@ -119,7 +119,7 @@
 .quizGroupItem {
   position: relative;
 
-  --color-quiz: var(--color-accent-neutral);
+  --color-quiz: var(--color-content-primary);
 }
 
 .quizGroupItem::before {
@@ -319,27 +319,11 @@
 .submitButton {
   @include btn;
   @include button-large;
+  @include button-black;
 
   margin-top: set-calc(20);
-  min-width: set-calc(180);
-
-  @include font-18-normal-ui;
-
-  background-color: var(--color-accent-neutral);
-  color: var(--color-content-inverted-primary);
-
-  &:hover {
-    background-color: var(--color-accent-neutral-hover);
-  }
-  
-  &:disabled {
-    background-color: var(--color-background-glassy-b);
-    color: var(--color-content-tertiary);
-  }
 
   @include set-media(md) {
-    &:hover {
-      background-color: var(--color-accent-neutral);
-    }
+    width: 100%;
   }
 }

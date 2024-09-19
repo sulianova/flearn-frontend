@@ -103,8 +103,6 @@
           "subtitleCourseIsUnderDevelopment": "Спасибо! На почту {{email}} отправили письмо с информацией",
           "courseName": "{{courseName}}: обучение с сопровождением",
           "emailCaption": "Адрес, к которому хотите привязать курс. Если у вас есть профиль с другими курсами, используйте адрес оттуда.",
-          "emailCaption2": "",
-          "emailCaption3": "Что-то ещё",
           "agreement": "Оферта и договор",
           "orderIsCreated": {
             "free=false": "",

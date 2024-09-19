@@ -211,7 +211,7 @@
 
 .buyBtn {
   @include btn;
-  @include button-primary;
+  @include button-special;
 
   width: max-content;
 }
@@ -247,26 +247,7 @@
 }
 
 .selectToggleIcon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: set-calc(16);
-
-
-  transition: all $d-hover ease;
-
-  svg {
-    transition: all $d-hover ease;
-    
-    display: inline-block;
-    text-align: center;
-    width: set-calc(16);
-    height: set-calc(16);
-    background: 50% no-repeat;
-    background-size: contain;
-
-    fill: var(--color-content-primary);
-  }
+  @include icon-extra-small;
 }
 
 .selectToggleIsOpened {

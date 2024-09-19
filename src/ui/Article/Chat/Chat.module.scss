@@ -41,7 +41,7 @@
   } 
 
   .bubble {
-    background: var(--primary-color);
+    background: var(--color-content-background-primary);
   }
 
   .messageAuthor {
@@ -50,7 +50,7 @@
   }
 
   .messageText {
-    color: $color-content-inverted-primary-light;
+    color: var(--color-content-inverted-primary);
   }
 }
 
@@ -124,10 +124,6 @@
   }
 }
 
-// .hiddenButton {
-//   margin: 0 0;
-// }
-
 .button {
   position: relative;
 
@@ -141,7 +137,8 @@
   padding: set-calc(10) set-calc(16);
   padding-left: set-calc(32);
   border-radius: set-calc($border-radius-30);
-  background: var(--color-accent-promo);
+  background: transparent;
+  border: 1px solid var(--color-content-primary);
 
   text-rendering: geometricPrecision;
   -webkit-font-smoothing: antialiased;
@@ -153,14 +150,22 @@
   font-family: $font-family-article;
   text-align: start;
 
+  box-shadow: $shadow-solid-small;
+
+  .icon {
+    background-color: transparent;
+    color: var(--color-content-primary);
+    border-color: var(--color-content-primary);
+  }
+
   &:hover {
-    box-shadow: $shadow-solid-small-light;
-    transform: translateY(-4px);
+    box-shadow: none;
+    transform: translateY(4px);
 
     .icon {
-      background-color: $color-content-primary-light;
-      color: $color-content-inverted-primary-light;
-      border-color: $color-content-primary-light;
+      background-color: var(--color-content-primary);
+      color: var(--color-content-inverted-primary);
+      border-color: var(--color-content-primary);
     }
   }
 

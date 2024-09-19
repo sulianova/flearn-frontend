@@ -53,26 +53,14 @@
 }
 
 .itemArrow {
-  display: flex;
-  align-items: start;
+  @include icon-medium;
 
-  margin-top: set-calc(4);
-  color: var(--color-content-primary);
-
+  margin-top: set-calc(-16);
   transition: transform $d-hover ease-in-out;
 
-  svg {
-    width: set-calc(32);
-    height: set-calc(32);
-  }
-
   @include set-media(md) {
-    margin-top: set-calc(4);
-    
-    svg {
-      width: set-calc(24);
-      height: set-calc(24);
-    }
+    @include icon-small;
+    margin-top: set-calc(-8);
   }
 }
 

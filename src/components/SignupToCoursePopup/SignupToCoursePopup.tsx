@@ -25,22 +25,20 @@ export default function SignupToCoursePopup(props: Readonly<IProps>) {
     <Popup
       close={close}
       children={startClosingProcess => (
-        <div className={classes.__}>
+        <div className={classes.contantWrapper}>
           <div className={classes.close} onClick={startClosingProcess}>
             <Icon icon='Cross'/>
           </div>
-          {!orderEmail ? '' : !course.isUnderDevelopment ?
-                (
-                  <div className={classes.imgWrapper}>
-                    <Icon icon='EmailSent'/>
-                  </div>
-                ) : 'emailCaption3'
-              }
+            {orderEmail && (
+              <div className={classes.imgWrapper}>
+                <Icon icon='EmailSent'/>
+              </div>
+            )}
           <div className={classes.header}>
-            {!orderEmail ? <div className={classes.title}>{t('title')}</div>
-              : !course.isUnderDevelopment ?
-              <div className={classes.subtitle}>{t('subtitle', { email: orderEmail })}</div>
-              : <div className={classes.subtitle}>{t('subtitleCourseIsUnderDevelopment', { email: orderEmail })}</div>
+            {
+              !orderEmail
+              ? <div className={classes.titleForm}>{t('titleEmailForm')}</div>
+              : <div className={classes.titleLogin}>{t('titleEmailFormSubmitted', { email: orderEmail })}</div>
             }
           </div>
             <Form

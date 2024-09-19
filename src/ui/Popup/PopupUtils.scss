@@ -1,0 +1,32 @@
+@use "sass:math";
+@use "sass:list";
+@use "sass:map";
+@use "sass:meta";
+@use "sass:string";
+
+@import 'styles/index';
+
+@mixin content-wrapper {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+
+  color: var(--color-content-primary);
+
+  padding: set-calc(32);
+  width: set-calc(560);
+
+
+  @include set-media(md) {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    min-height: fill-available;
+
+    width: 100%;
+    padding: set-calc(24);
+  }
+}
