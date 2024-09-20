@@ -86,14 +86,19 @@
 }
 
 .cardIcon {
-  width: set-calc(80);
-  aspect-ratio: auto 1;
   order: 1;
 
   margin-bottom: set-calc(20);
 
-  svg path {
-    stroke-width: 1px;
+  padding: set-calc(16);
+  background-color: var(--color-background-glassy-a);
+  border-radius: 50%;
+
+  svg {
+    display: block;
+    width: set-calc(100);
+    height: set-calc(100);
+    color: inherit;
   }
   
   @include set-media(md) {
@@ -101,11 +106,13 @@
     justify-content: flex-start;
     align-items: start;
 
-    width: set-calc(64);
-    aspect-ratio: auto 1;
-
     margin-top: set-calc(10);
     margin-bottom: set-calc(10);
+
+    svg {
+      width: set-calc(88);
+      height: set-calc(88);
+    }
   }
 }
 

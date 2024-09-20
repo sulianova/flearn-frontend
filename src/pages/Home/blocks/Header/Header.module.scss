@@ -33,14 +33,21 @@
     height: auto;
     display: inline-block;
 
-    aspect-ratio: auto 640 / 435;
-    width: set-calc(640);
+    aspect-ratio: auto 600 / 400;
+    scale: (1.3);
+    width: set-calc(600);
 
     border: none;
   }
 
   @include set-media(md) {
     margin-top: set-calc(40);
+
+    iframe {
+      max-width: 100%;
+      scale: (1);
+      width: 100%;
+    }
   }
 }
 
@@ -141,7 +148,7 @@
 
   @include set-media(md) {
     @include set-typography(18, 18, 500);
-    width: unset;
+    width: 100%;
     margin-bottom: set-calc(4);
 
     &:hover {

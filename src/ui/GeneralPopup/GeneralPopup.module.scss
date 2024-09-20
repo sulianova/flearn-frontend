@@ -51,25 +51,24 @@
 
 .header {
   margin: 0 0 set-calc(40);
-
-  @include set-media(md) {
-    margin: 0 0 0;
-  }
 }
 
 .title {
   @include set-typography(24, 30, 500);
   font-family: $font-family-medium;
-  margin-bottom: set-calc(32);
 
   &_start {
     align-self: start;
+    max-width: 92%;
   }
 
   &_center {
     text-align: center;
   }
+}
 
+.title:not(:last-child) {
+  margin-bottom: set-calc(32);
   @include set-media(md) {
     margin-bottom: set-calc(16);
   }

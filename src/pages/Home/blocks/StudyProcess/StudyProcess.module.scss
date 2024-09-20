@@ -59,7 +59,7 @@
 }
 
 .item:nth-child(1) path  {
-  fill: #EE0979;
+  fill: $color-salmonOrange;
 }
 
 .item:nth-child(2) path  {
@@ -67,7 +67,7 @@
 }
 
 .item:nth-child(3) path  {
-  fill: var(--primary-color);
+  fill: $color-royalBlue;
 }
 
 .content {

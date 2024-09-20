@@ -277,8 +277,9 @@
   $color: $color-palette-black-200,
   $colorActive: $color-palette-black-300,
   $opacity: 1,
+  $width: 2px,
   ) {
-  box-shadow: 0 0 0 1px $color, 0 2px 0 2px $color;
+  box-shadow: 0 0 0 calc($width / 2) $color, 0 $width 0 $width $color;
   transition-property: all;
   transition-duration: $d-hover;
   transition-timing-function: ease-out;
@@ -291,12 +292,16 @@
   }
 
   &:active {
-    box-shadow: 0 0 0 1px $colorActive;
-    transform: translate3d(0, 2px, 0);
+    box-shadow: 0 0 0 calc($width / 2) $colorActive;
+    transform: translate3d(0, $width, 0);
   }
 
   @include set-media(md) {
-    background-color: transparent;
+    transition-property: all;
+    transition-duration: $d-hover;
+    transition-timing-function: ease-out;
+    
+    background-color: $bc;
   }
 }
 
@@ -360,14 +365,14 @@
 }
 
 //icon
-@mixin icon-small {
-  padding: set-calc(8);
-  border-radius: set-calc($border-radius-8);
+@mixin icon-medium {
+  padding: set-calc(16);
+  border-radius: set-calc($border-radius-12);
 
   svg {
     display: block;
-    width: set-calc(24);
-    height: set-calc(24);
+    width: set-calc(32);
+    height: set-calc(32);
     color: inherit;
 
     transition-property: all;
@@ -382,14 +387,14 @@
   }
 }
 
-@mixin icon-medium {
-  padding: set-calc(16);
-  border-radius: set-calc($border-radius-12);
+@mixin icon-small {
+  padding: set-calc(8);
+  border-radius: set-calc($border-radius-8);
 
   svg {
     display: block;
-    width: set-calc(32);
-    height: set-calc(32);
+    width: set-calc(24);
+    height: set-calc(24);
     color: inherit;
 
     transition-property: all;

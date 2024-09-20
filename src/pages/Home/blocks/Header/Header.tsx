@@ -41,7 +41,7 @@ export default function Header(props: IProps) {
           </div>
       </div>
       <div className={classes.imgWrapper}>
-      <iframe src="https://lottie.host/embed/be172876-488a-4dce-9519-adecb7fe084d/A5JsQIWR3m.json"></iframe>
+      <iframe src="https://lottie.host/embed/49f5cea0-eed2-4655-94b6-bcb7fe61b93d/gFmKDudVDa.json"></iframe>
       </div>
     </div>
   );

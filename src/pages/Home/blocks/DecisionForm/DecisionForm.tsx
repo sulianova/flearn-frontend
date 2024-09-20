@@ -44,10 +44,10 @@ export default function DecisionForm(props: IProps) {
   const user = userService.useAuthedUser();
 
   return (
-    <div data-bcalternate className={classes.__}>
-      <div className={classes.header}>
+    <div className={classes.__}>
+      {/* <div className={classes.header}>
         <h2 className={classes.headerTitle}>Начните учиться бесплатно — выбрать формат: «самостоятельно» или «с обратной связью» — можно позже</h2>
-      </div>
+      </div> */}
       <div className={classes.commonFlowRow}>
         {authService.isAuthenticated ? (
           <Link

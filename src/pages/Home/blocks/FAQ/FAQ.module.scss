@@ -1,13 +1,7 @@
 @import 'styles/index';
 
 .wrapper {
-  @include is-beige;
-  background-color:  $color-background-alternate-dark;
-  padding: set-calc(50) 0 set-calc(24);
 
-  @include set-media(md) {
-    padding: set-calc(64) set-calc(8) set-calc(64);
-  }
 }
 
 .header {
@@ -16,48 +10,37 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  padding: 0 set-calc(16) set-calc(32);
 
   width: 100%;
-  margin: set-calc(32) auto 0;
 
   @include set-media(md) {
-    align-items: start;
+    padding: 0 set-calc($padding-xs-mob-page) set-calc(24);
 
     width: 100%;
-    margin: set-calc(16) 0 0;
   }
 }
 
 .headerTitle {
-  margin-bottom: set-calc(24);
-
   @include font-56-normal-header;
-  font-family: $font-family-bold;
-  color: $color-content-primary-dark;
-  text-align: center;
+  font-family: $font-family-extra-bold;
+  padding: 0 0 set-calc(32);
 
   @include set-media(md) {
-    margin-bottom: set-calc(16);
+    position: relative;
+    display: block;
   }
 }
 
+
 .headerDesc {
   @include font-18-normal-paragraph;
-  color: $color-content-primary-dark;
-  text-align: center;
+  color: var(--color-content-primary);
 
   width: 100%;
 
   a {
-    font-family: $font-family-medium;
-    color: $primary-color-dark;
-
-    transition: all $d-hover ease;
-  }
-
-  a:hover {
-    color: $primary-color-hover-dark;
+    @include key-link;
   }
 
   @include set-media(md) {
@@ -75,7 +58,7 @@
   flex-direction: column;
   margin: 0 auto;
 
-  width: 48%;
+  width: 100%;
 
   @include set-media(md) {
     position: relative;

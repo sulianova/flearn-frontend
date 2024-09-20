@@ -1,18 +1,6 @@
 @import 'styles/index';
 
 .__ {
-  @include is-beige;
-  background-color:  $color-background-alternate-dark;
-  border-top: 1px solid $color-card-border-dark;
-  padding: set-calc(100) 0;
-
-  border-radius: set-calc(100) set-calc(100) 0 0;
-
-  @include set-media(md) {
-    padding: set-calc(32) set-calc(8) 0;
-
-    border-radius: set-calc(40) set-calc(40) 0 0;
-  }
 }
 
 .header {
@@ -35,12 +23,15 @@
 }
 
 .headerTitle {
-  @include set-typography(34, 50, 500);
-  color: $color-content-inverted-primary-light;
-  text-align: center;
+  @include font-56-normal-header;
+  font-family: $font-family-extra-bold;
+  padding: 0 set-calc(16);
 
   @include set-media(md) {
-    @include set-typography(20, 30, 500);
+    position: relative;
+
+    display: block;
+    padding: 0 set-calc($padding-xs-mob-page);
   }
 }
 
@@ -66,71 +57,27 @@
 
 .btn {
   @include btn;
+  @include button-2d($color-palette-brand-300, $color-palette-brand-300, $color-palette-brand-400, $color-palette-brand-400, 0.9, 4px);
+  @include rounded(150);
 
-  position: relative;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  height: set-calc(150);
   width: max-content;
-  padding: 0 set-calc(40);
+  height: set-calc(150);
 
-  z-index: 1;
+  padding: 0 set-calc(80);
+
 
   @include set-typography(40, 40, 500);
-  color: $color-content-inverted-primary-dark;
+  color: $color-content-inverted-primary-light;
   font-family: $font-family-bold;
 
-  background-color:$color-highlight-yellow;
-  border-radius: calc(set-calc(150) / 2);
-
-  cursor: pointer;
-
-  &:hover {
-    &::before {
-      opacity: 1;
-    }
-  }
-
   @include set-media(md) {
+    @include button-2d($color-palette-brand-300, $color-palette-brand-300, $color-palette-brand-400, $color-palette-brand-400, 0.9, 2px);
+    @include rounded(60);
+
+    padding: 0 set-calc(16);
     height: set-calc(60);
 
     @include set-typography(18, 18, 500);
     font-family: $font-family-medium;
-
-    width: max-content;
-    padding: 0 set-calc(16);
-    border-radius: calc(set-calc(60) / 2);
-    background-color:$color-highlight-yellow;
-
-    &:hover,
-    &:active {
-      box-shadow: none;
-
-      &::before {
-        opacity: 0;
-      }
-    }
   }
-}
-
-.btn::before {
-  position: absolute;
-  content: "";
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-  -webkit-transition: opacity .8s;
-  -o-transition: opacity .8s;
-  transition: opacity .8s;
-  border-radius: calc(set-calc(150) / 2);
-  border: 0;
-  background: -o-radial-gradient(50% 50%, 60% 2336.38%, $color-highlight-yellow 0, #fff 100%), $color-highlight-yellow;
-  background: radial-gradient(60% 2336.38% at 50% 50%, $color-highlight-yellow 0, #fff 100%), $color-highlight-yellow;
-  opacity: 0;
-  will-change: opacity;
 }

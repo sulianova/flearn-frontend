@@ -64,7 +64,7 @@ export default function Home() {
       <Page
         variant={EPageVariant.WEB}
         header
-        footer={false}
+        footer
         // footer={EFooter.Default}
         backgroundColor='var(--color-background-default)'
       >

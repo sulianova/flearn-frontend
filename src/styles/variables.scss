@@ -64,12 +64,11 @@ $color-palette-white-900-a: rgba(255, 255, 255, 0.9);
 $color-palette-white-1000: #ffffff;
 
 //color
-$color-smokyWhite: #FFFFFF;
 $color-salmonOrange: #EE5E37;
+$color-oldOldFlax: #D5E683;
 $color-oldFlax: #DFF37D;
 $color-purple: #D9B8F3;
-$color-royalBlue: #5627FF;
-$color-jetBlack: #262626;
+$color-royalBlue: #4558c8;
 
 //color-highlight
 $color-highlight-yellow: #F8DB46;
@@ -240,6 +239,13 @@ $z-index-500: 500;
 
 // CSS
 :root {
+  --color-salmonOrange: #{$color-salmonOrange};
+  --color-oldFlax: #{$color-oldFlax};
+  --color-oldOldFlax: #{$color-oldOldFlax};
+  --color-purple: #{$color-purple};
+  --color-royalBlue: #{$color-royalBlue};
+  --color-highlight-yellow: #{$color-highlight-yellow};
+  --color-highlight-gold: #{$color-highlight-gold};
   // theme light
   --primary-color-light: #{$primary-color-light};
   --primary-color-hover-light: #{$primary-color-hover-light};

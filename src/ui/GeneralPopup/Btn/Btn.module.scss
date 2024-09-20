@@ -14,8 +14,4 @@
   }
 
   width: 100%;
-
-  @include set-media(md) {
-    margin-top: set-calc(32);
-  }
 }
