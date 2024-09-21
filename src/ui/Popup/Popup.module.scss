@@ -37,7 +37,7 @@
   }
 }
 
-.modal__ContentWrapper {
+.modal__contentWrapper {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -64,7 +64,7 @@
   }
 }
 
-.modal__Content {
+.modal__content {
   position: relative;
   margin: set-calc(10);
 
@@ -92,6 +92,10 @@
     transform: translateY(100%) scale(1);
     transition: opacity 0.3s ease-out, transform 0.3s ease-out;
 
+    border-bottom: 0 solid var(--color-card-border);
+    border-left: 0 solid var(--color-card-border);
+    border-right: 0 solid var(--color-card-border);
+
     border-top-right-radius: set-calc($border-radius-medium);
     border-top-left-radius: set-calc($border-radius-medium);
     border-bottom-right-radius: 0;
@@ -99,12 +103,12 @@
   }
 }
 
-.modal__AnimationEnter {
+.modal__animationEnter {
   .overlay {
     opacity: 1;
   }
 
-  .modal__Content {
+  .modal__content {
     transform: translateY(0) scale(1);
     opacity: 1;
   
@@ -115,14 +119,13 @@
   }
 }
 
-
-.modal__AnimationExit {
+.modal__animationExit {
   .overlay {
     transition: opacity 0.2s ease-in;
     opacity: 0;
   }
 
-  .modal__Content {
+  .modal__content {
     transition: opacity 0.2s ease-in, transform 0.2s ease-in;
     transform: translateY(50px) scale(0.98);
   

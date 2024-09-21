@@ -3,15 +3,13 @@
 .wrapper {
   @include is-beige;
   background-color: var(--color-background-default);
-  background-image: linear-gradient(180deg, var(--color-background-default) 6%, var(--color-background-alternate) 30%);
-
   position: relative;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  padding: set-calc(80) set-calc(200) set-calc(80);
+  padding: set-calc(150) set-calc(200) set-calc(150);
 
   @include set-media(md) {
     margin: 0 0;
@@ -27,7 +25,7 @@
   justify-content: center;
   align-items: center;
 
-  padding: set-calc(80);
+  padding: set-calc(60);
   width: 100%;
 
   background: var(--primary-color);

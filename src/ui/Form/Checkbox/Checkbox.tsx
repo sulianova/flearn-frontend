@@ -21,7 +21,7 @@ export default function Checkbox(props: IProps) {
         onChange={e => props.onChange?.(e.target.checked)}
       />
       <label htmlFor={id}>
-        <Icon icon='Check'/>
+        <Icon icon='Checkmark'/>
         <span>{props.children}</span>
       </label>
     </>

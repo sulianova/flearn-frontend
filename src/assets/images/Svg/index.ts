@@ -1,5 +1,4 @@
 export * from './ArrowButton';
-export * from './Check';
 export * from './Cross';
 export * from './Feature';
 export * from './Finish';
@@ -50,4 +49,5 @@ export * from './CourseFill';
 export * from './UserFill';
 export * from './EmailSent';
 export * from './Google';
-export * from './Avatar'
+export * from './Avatar';
+export * from './Checkmark'

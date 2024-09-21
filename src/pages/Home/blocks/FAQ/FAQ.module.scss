@@ -1,7 +1,15 @@
 @import 'styles/index';
 
 .wrapper {
+  @include is-beige;
+  background-color: var(--color-background-alternate);
 
+  padding: set-calc(100) set-calc(200) set-calc(50);
+  border-radius: 0;
+
+  @include set-media(md) {
+    padding: set-calc(64) set-calc(8);
+  }
 }
 
 .header {
@@ -12,7 +20,7 @@
   justify-content: center;
   padding: 0 set-calc(16) set-calc(32);
 
-  width: 100%;
+  width: 70%;
 
   @include set-media(md) {
     padding: 0 set-calc($padding-xs-mob-page) set-calc(24);
@@ -24,11 +32,13 @@
 .headerTitle {
   @include font-56-normal-header;
   font-family: $font-family-extra-bold;
-  padding: 0 0 set-calc(32);
+  padding: 0 0 set-calc(24);
 
   @include set-media(md) {
     position: relative;
     display: block;
+
+    padding: 0 0 set-calc(16);
   }
 }
 
@@ -52,13 +62,9 @@
 
 .list {
   position: relative;
-  left: 0;
 
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
-
-  width: 100%;
 
   @include set-media(md) {
     position: relative;

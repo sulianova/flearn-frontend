@@ -6,8 +6,9 @@ import classes from './Btn.module.scss';
 
 type TClassesNames =
   | 'btn'
+  | 'btn_special'
   | 'btn_primary'
-  | 'btn_secondary';
+  | 'btn_invisible';
 
 interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
 

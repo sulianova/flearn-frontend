@@ -1,41 +1,6 @@
 @import 'styles/index';
 
-.__ {
-}
-
-.header {
-  position: relative;
-  display: flex;
-  justify-content: center;
-
-  width: 68%;
-
-  margin: 0 auto set-calc(80);
-
-  padding-left: set-calc(16);
-
-  @include set-media(md) {
-    margin: 0 auto set-calc(40);
-    padding-left: set-calc(8);
-
-    width: 100%;
-  }
-}
-
-.headerTitle {
-  @include font-56-normal-header;
-  font-family: $font-family-extra-bold;
-  padding: 0 set-calc(16);
-
-  @include set-media(md) {
-    position: relative;
-
-    display: block;
-    padding: 0 set-calc($padding-xs-mob-page);
-  }
-}
-
-.commonFlowRow {
+.wrapper {
   position: relative;
 
   display: flex;
@@ -43,15 +8,37 @@
   justify-content: center;
   align-items: center;
 
-
   margin: 0 auto;
   width: 70%;
 
-  gap: set-calc(40);
+  @include set-media(md) {
+    width: set-calc(-16, true, 100%);
+    
+    margin: 0 set-calc(8);
+  }
+}
+
+.header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  margin: 0 auto set-calc(40);
 
   @include set-media(md) {
+    margin: 0 auto set-calc(32);
+
     width: 100%;
-    gap: 0;
+  }
+}
+
+.header__title {
+  @include set-typography(28, 40, 500);
+  font-family: $font-family-medium;
+  text-align: center;
+
+  @include set-media(md) {
+    @include set-typography(28, 38, 500);
   }
 }
 
@@ -71,13 +58,10 @@
   font-family: $font-family-bold;
 
   @include set-media(md) {
-    @include button-2d($color-palette-brand-300, $color-palette-brand-300, $color-palette-brand-400, $color-palette-brand-400, 0.9, 2px);
-    @include rounded(60);
+    @include btn;
+    @include button-large;
+    @include button-primary;
 
-    padding: 0 set-calc(16);
-    height: set-calc(60);
-
-    @include set-typography(18, 18, 500);
-    font-family: $font-family-medium;
+    width: 100%;
   }
 }

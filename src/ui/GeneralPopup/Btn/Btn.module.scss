@@ -3,14 +3,18 @@
 .btn {
   @include btn;
   @include button-large;
-  @include button-primary;
 
   &_primary {
     @include button-primary;
   }
 
-  &_secondary {
+  &_invisible {
     @include button-secondary;
+    background-color: transparent;
+  }
+
+  &_special {
+    @include button-special(var(--color-content-inverted-primary), var(--color-accent-promo));
   }
 
   width: 100%;

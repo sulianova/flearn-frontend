@@ -175,7 +175,7 @@ function LessonCard(props: { lesson: ILessonData & { solved: boolean, canBeAcces
     : `${Math.round(totalDurationMinutes)} мин`;
   
   const content = (
-    <button className={cx({ item: true, featured: lesson.isFirstUnsolved })} disabled={!lesson.canBeAccessed}>
+    <button className={cx({ item: true, featured: lesson.isFirstUnsolved, disabled: !lesson.canBeAccessed })} disabled={!lesson.canBeAccessed}>
       <div className={classes.imageWrapper}>
         <div className={classes.image}>
           <Icon icon={lesson.icon}/>

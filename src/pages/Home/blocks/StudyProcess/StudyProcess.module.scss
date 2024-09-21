@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
 
-  padding: set-calc(80) set-calc(200);
+  padding: set-calc(100) set-calc(200) set-calc(150);
 
   @include set-media(md) {
     padding: set-calc(64) set-calc($padding-xs-mob-page) 0;
@@ -17,12 +17,12 @@
 .header {
   position: relative;
 
-  margin-bottom: set-calc(32);
+  margin-bottom: set-calc(40);
   padding-left: set-calc(16);
 
   @include set-media(md) {
     position: relative;
-    margin-bottom: set-calc(20);
+    margin-bottom: set-calc(30);
     padding-left: set-calc($padding-xs-mob-page);
   }
 }

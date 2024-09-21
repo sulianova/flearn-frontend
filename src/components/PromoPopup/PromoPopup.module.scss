@@ -1,0 +1,93 @@
+@import 'styles/index';
+
+.title_subscription {
+  margin-bottom: set-calc(16);
+
+  @include font-14-normal-ui;
+  font-family: $font-family-medium;
+  text-align: center;
+}
+
+.title_discount {
+  margin-bottom: set-calc(32);
+
+  @include font-70-normal-header;
+  font-family: $font-family-bold;
+  text-align: center;
+}
+
+.timer {
+  display: flex;
+  gap: set-calc(14);
+
+  margin-bottom: set-calc(24);
+}
+
+.timer__item {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: set-calc(46);
+  height: set-calc(46);
+
+  padding: set-calc(10);
+  border-radius: set-calc($border-radius-8);
+  background-color: var(--color-content-inverted-primary);
+
+  @include font-18-normal-ui;
+  color: var(--color-content-primary);
+  font-family: $font-family-bold;
+  text-align: center;
+
+  &:not(:last-child)::after {
+    position: absolute;
+    content: ":";
+
+    right: set-calc(-9);
+
+    @include font-18-normal-ui;
+    color: var(--color-content-primary);
+  }
+}
+
+.list {
+  display: flex;
+  
+  flex-direction: column;
+  gap: set-calc(2);
+
+  margin-bottom: set-calc(24);
+}
+
+.list__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.list__item__icon {
+  @include icon-medium;
+  padding: 0;
+
+  @include set-media(md) {
+    @include icon-small;
+    padding: 0;
+  }
+}
+
+.list__item__text {
+  @include font-18-normal-ui;
+  font-family: $font-family-medium;
+}
+
+// button + button {
+//   margin: set-calc(8) 0 0;
+// }
+
+// button {
+//   max-width: set-calc(180);
+// }

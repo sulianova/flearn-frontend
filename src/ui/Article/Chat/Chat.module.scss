@@ -127,7 +127,7 @@
 .button {
   @include btn;
   @include button-large;
-  @include button-2d($color-palette-black-200, $color-palette-black-300);
+  @include button-2d($color: var(--color-accent-promo-background));
   justify-content: space-between;
 
   gap: set-calc(20);
@@ -149,8 +149,6 @@
   }
 
   &:hover {
-    @include button-2d($color: var(--color-accent-promo-background));
-
     .icon {
       background-color: var(--color-accent-promo-background);
       color: var(--color-content-primary);
@@ -163,11 +161,9 @@
 
     @include set-typography(18, 24, 500);
 
-    &:hover {
-      .icon {
-        background-color: transparent;
-        color: $color-palette-black-200;
-      }
+    .icon {
+      background-color: var(--color-accent-promo-background);
+      color: var(--color-content-primary);
     }
   }
 }

@@ -136,6 +136,29 @@
   color: var(--primary-color);
 }
 
+.bc-accent-promo-background {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: "";
+
+    bottom: 0;
+    left: -3px;
+    z-index: -1;
+
+    width: calc(100% + 6px);
+    height: 50%;
+
+    border-radius: set-calc(10);
+    background-color: var(--color-accent-promo-background);
+
+    @include set-media(md) {
+      height: 40%;
+    }
+  }
+}
+
 .blue {
   color: var(--primary-color);
 }

@@ -15,8 +15,12 @@
 }
 
 .paddingWEB {
+  background-color: var(--color-background-alternate);
+
+  margin-top: set-calc(-24);
   @include set-media(md) {
     padding: set-calc(0) set-calc($padding-x-mob-page) set-calc(16);
+    margin-top: set-calc(-16);
   }
 }
 

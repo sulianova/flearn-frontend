@@ -1,32 +1,36 @@
 @import 'styles/index';
 
 .wrapper {
-  padding: set-calc(80) 0 0;
+  padding: set-calc(150) 0 0;
+
+  @include set-media(md) {
+    padding: set-calc(64) 0 0;
+  }
 }
 
 .header {
   position: relative;
 
   padding: 0 set-calc(16);
-  margin-bottom: set-calc(32);
+  margin-bottom: set-calc(40);
 
   @include set-media(md) {
     position: relative;
 
     display: block;
-    margin-bottom: set-calc(24);
+    margin-bottom: set-calc(30);
     padding: 0 set-calc($padding-xs-mob-page);
   }
 }
 
-.headerTitle {
+.header__title {
   margin-bottom: set-calc(24);
 
   @include font-56-normal-header;
   font-family: $font-family-extra-bold;
 
   @include set-media(md) {
-    margin-bottom: set-calc(20);
+    margin-bottom: set-calc(16);
   }
 }
 

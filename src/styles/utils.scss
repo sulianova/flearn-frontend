@@ -145,6 +145,8 @@
   transition-duration: $d-hover;
   transition-timing-function: ease-out;
 
+  box-shadow: none;
+
   .content {
     display: flex;
     justify-content: center;
@@ -153,6 +155,7 @@
   }
 
   &:hover {
+    opacity: 1;
     cursor: pointer;
   }
 
@@ -163,6 +166,7 @@
 
   &:active {
     transform: scale(0.96);
+    box-shadow: none;
   }
 
   @include set-media(md) {
@@ -188,7 +192,9 @@
   }
 
   @include set-media(md) {
-    background-color: var(--primary-color);
+    &:hover {
+      background-color: var(--primary-color);
+    }
   }
 }
 
@@ -233,17 +239,20 @@
   }
 }
 
-@mixin button-special {
-  background-color: $color-highlight-yellow;
-  color: $color-content-inverted-primary-dark;
+@mixin button-special( 
+  $color: $color-content-inverted-primary-dark,
+  $bc:  $color-highlight-yellow,
+  ) {
+  background-color: $bc;
+  color: $color;
 
   &:hover {
-    background-color: $color-highlight-gold;
+    opacity: 0.9;
   }
 
   @include set-media(md) {
     &:hover {
-      background-color: $color-highlight-yellow;
+      opacity: 1;
     }
   }
 }
@@ -262,7 +271,6 @@
   }
 
   @include set-media(md) {
-    border-width: 1px;
 
     &:hover {
       background: transparent;

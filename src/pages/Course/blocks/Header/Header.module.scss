@@ -70,8 +70,12 @@
 
 .headerImage {
   display: flex;
+  justify-content: center;
+  align-items: center;
 
-  width: set-calc(320);
+  padding: set-calc(30);
+  background-color: var(--color-salmonOrange);
+  border-radius: 50%;
 
   svg {
     width: set-calc(176);

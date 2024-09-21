@@ -1,13 +1,13 @@
 @import 'styles/index';
 
-.__ {
+.wrapper {
   @include is-beige;
   background-color: var(--color-background-alternate);
 
   display: flex;
   flex-direction: column;
 
-  padding: set-calc(80) set-calc(200);
+  padding: set-calc(100) set-calc(200)  set-calc(150);
   border-radius: 0;
 
   @include set-media(md) {
@@ -33,7 +33,7 @@
   }
 }
 
-.headerTitle {
+.header__title {
   grid-column: 1 / 7;
   margin-bottom: set-calc(24);
 
@@ -41,11 +41,11 @@
   font-family: $font-family-extra-bold;
 
   @include set-media(md) {
-    margin-bottom: set-calc(20);
+    margin-bottom: set-calc(16);
   }
 }
 
-.headerDesc {
+.header__desc {
   grid-column: 1 / 9;
 
   @include font-20-normal-paragraph;
@@ -73,7 +73,7 @@
   }
 }
 
-.wrapper {
+.cardsWrapper {
   display: flex;
   gap: set-calc(20);
 
@@ -97,5 +97,5 @@
   align-items: center;
   justify-content: center;
 
-  min-height: calc(var(--scale)* 400);
+  min-height: set-calc(400);
 }

@@ -11,7 +11,7 @@
   padding: set-calc(24);
 
   width: set-calc(344);
-  height: set-calc(271.5);
+  height: set-calc(280);
 
   border-radius: set-calc($border-radius-20);
   transform-origin: center center;
@@ -44,26 +44,22 @@
 
 .cardIcon {
   flex-shrink: 0;
-  display: block;
-  width: set-calc(64);
-  aspect-ratio: auto 1;
+  display: flex;
+
+  padding: set-calc(10);
+  background-color: var(--color-salmonOrange);
+  border-radius: 50%;
 
   margin-bottom: set-calc(20);
 
-  svg path {
-    stroke-width: 1px;
-  }
-
   svg {
-    width: 100%;
+    width: set-calc(64);
+    height: set-calc(64);
   }
   
   @include set-media(md) {
     justify-content: flex-start;
     align-items: start;
-
-    width: set-calc(64);
-    aspect-ratio: auto 1;
 
     margin-bottom: set-calc(10);
   }

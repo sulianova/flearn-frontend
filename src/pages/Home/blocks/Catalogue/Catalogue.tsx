@@ -26,23 +26,14 @@ export default function Catalogue(props: IProps) {
     );
   }
 
-  // const promoContent = (
-  //   <>
-  //     <div className={classes.content}>
-  //       <div className={classes.title}>Как это — быть иллюстратором. Бесплатный курс, чтобы попробовать</div>
-  //       <div className={classes.cardBtn}><span className={classes.text}>Начать учиться</span><span className={classes.icon}><Icon icon='ArrowButton'/></span></div>
-  //     </div>
-  //     <div className={classes.background + ' bc-color-promo-highlight-yellow'}></div>
-  //   </>
-  // );
   return (
-    <div data-bcalternate className={classes.__}>
+    <div data-bcalternate className={classes.wrapper}>
       <div className={classes.header}>
-        <h2 className={classes.headerTitle}>Курсы</h2>
-        <div className={classes.headerDesc}>Интерактивные уроки для ежедневной практики. Развивают насмотренность, помогают оставаться в форме.</div>
+        <h2 className={classes.header__title}>Курсы</h2>
+        <div className={classes.header__desc}>Интерактивные уроки для ежедневной практики. Развивают насмотренность, помогают оставаться в форме.</div>
       </div>
       <div className={classes.animationWrapper}>
-        <div className={classes.wrapper}>
+        <div className={classes.cardsWrapper}>
           {courses.map(course => <Card key={course.id} course={course}/>)}
         </div>
       </div>

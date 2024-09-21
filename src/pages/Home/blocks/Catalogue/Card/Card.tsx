@@ -19,14 +19,13 @@ interface IProps {
 export default function Card({ course }: Readonly<IProps>) {
   const [clicked, setClicked] = useState(false);
   const content = (
-    <div className={classes.content}>
-      <div className={classes.cardIcon}>
+    <>
+      <div className={classes.icon}>
         <Icon {...course.icon}/>
       </div>
-      <div className={classes.info}>
+      <div className={classes.content}>
         <h3 className={classes.title}>{course.title}</h3>
-        <div className={classes.description}>{course.introDescription}</div>
-        <div className={classes.infoText}>
+        <div className={classes.meta}>
           <p>
             {i18n.t(`catalogue.card.info.${course.level}`)}
           </p>
@@ -35,30 +34,29 @@ export default function Card({ course }: Readonly<IProps>) {
           </p>
         </div>
       </div>
-      <div className={classes.cardBtn}>
+      <div className={classes.btn}>
         {
           !course.isDummy ? 'Подробнее'
           : !clicked ? 'Мне интересно'
           : 'Учли!'
         }
       </div>
-    </div>
+    </>
   );
 
   if (!course.isDummy) {
     return (
       <Link 
-        className={classes.__}
+        className={classes.wrapper}
         to={URLSections.Landing.to({ courseId: course.id })}
       >
         {content}
-        <div className={classes.background}/>
       </Link>
     );
   }
   return (
     <div 
-      className={classes.__}
+      className={classes.wrapper}
       onClick={() => {
         setClicked(true);
         emailService.sendEmail({
@@ -69,7 +67,6 @@ export default function Card({ course }: Readonly<IProps>) {
       }}
     >
       {content}
-      <div className={classes.background}/>
     </div>
   );
 }
