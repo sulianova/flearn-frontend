@@ -21,7 +21,8 @@ type TClassesNames =
 interface IProps {
   children: ((classes: TClassesWithCx<TClassesNames>) => React.ReactNode) | React.ReactNode
   close: () => void
-  style?: CSSProperties
+  containerClassname?: string
+  contentClassName?: string
 }
 
 const classesWithCx = getClassesWithCx<TClassesNames>(classes);
@@ -32,15 +33,17 @@ GeneralPopup.EmailForm = EmailForm;
 GeneralPopup.Oferta = Oferta;
 
 export default function GeneralPopup(props: IProps) {
+  const { close, children, ...popupProps } = props;
   return (
     <Popup
-      close={props.close}
+      {...popupProps}
+      close={close}
       children={startClosingProcess => (
-        <div className={classes.contentWrapper} style={props.style}>
+        <div className={classes.contentWrapper}>
           <div className={classes.close} onClick={startClosingProcess}>
             <Icon icon='Cross'/>
           </div>
-          {typeof props.children === 'function' ?  props.children(classesWithCx) : props.children}
+          {typeof children === 'function' ?  children(classesWithCx) : children}
         </div>
       )}
     />

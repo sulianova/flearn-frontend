@@ -20,7 +20,7 @@ export default function PromoPopup() {
   return (
     <GeneralPopup
       close={() => {}}
-      style={{backgroundColor: 'var(--color-accent-promo-background)'}}
+      containerClassname={classes.popup}
       // close={() => discountService.hideBanner(authedUser.email)}
     >
       <div className={classes.title_subscription}>FLEARN PRO</div>

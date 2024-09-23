@@ -15,6 +15,8 @@ const openedPopupsCountBS = new BehaviorSubject(0);
 interface IProps {
   close: () => void
   children: (startClosingProcess: () => void) => ReactNode
+  containerClassname?: string
+  contentClassName?: string
 }
 
 openedPopupsCountBS.subscribe(count => {
@@ -25,7 +27,8 @@ openedPopupsCountBS.subscribe(count => {
   }
 });
 
-function Popup({ children, close }: Readonly<IProps>) {
+function Popup(props: Readonly<IProps>) {
+  const { close, children, containerClassname, contentClassName } = props
   const [state, setState] = useState<null | 'OPENING' | 'OPENED' | 'CLOSING'>(null);
 
   useEffect(() => {
@@ -45,11 +48,11 @@ function Popup({ children, close }: Readonly<IProps>) {
 
   return createPortal(
     (
-      <div className={cx({ modal: true, modal__animationEnter: state === 'OPENING' || state === 'OPENED', modal__animationExit: state === 'CLOSING' })}>
+      <div className={cx({ modal: true, modal__animationEnter: state === 'OPENING' || state === 'OPENED', modal__animationExit: state === 'CLOSING', [containerClassname!]: Boolean(containerClassname) })}>
         <div className={classes.overlay}></div>
         {(state === null || state === 'OPENING' || state === 'OPENED' || state === 'CLOSING') && (
           <div className={classes.modal__contentWrapper}>
-            <div className={cx({ modal__content: true})}>
+            <div className={cx({ modal__content: true, [contentClassName!]: Boolean(contentClassName) })}>
               {children(startClosingProcess)}
             </div>
           </div>
