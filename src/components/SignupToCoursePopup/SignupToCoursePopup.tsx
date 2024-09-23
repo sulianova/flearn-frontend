@@ -7,6 +7,7 @@ import { authService, dataService } from 'services';
 import { emailService } from 'services/email.service';
 import { analyticsService } from 'services/analytics.service';
 import { lessonService } from 'services/lesson.service';
+import { userCourseProgressService } from 'services/userCourseProgress.service';
 import { formatI18nT } from 'shared';
 
 import Icon from 'ui/Icon/Icon';
@@ -103,23 +104,33 @@ async function handleEmailSubmit(props: { email: string, course: ICourseData, op
   }).catch(_err => { /* do nothing */});
 
   if (course.isUnderDevelopment) {
-    await emailService.sendEmail({
-      type: emailService.EEmail.WantToBuyDummyCourse,
-      course: { isDummy: false, ...course },
-      requester: { email },
-    });
-    await emailService.sendEmail({
-      type: emailService.EEmail.WelcomeToDummyCourse,
-      to: { email },
-      course: course,
-    });
+    await Promise.all([
+      emailService.sendEmail({
+        type: emailService.EEmail.WantToBuyDummyCourse,
+        course: { isDummy: false, ...course },
+        requester: { email },
+      }),
+      emailService.sendEmail({
+        type: emailService.EEmail.WelcomeToDummyCourse,
+        to: { email },
+        course: course,
+      }),
+    ]);
   } else {
-    // await userAccessService.add(course.id, formData.email, 'FREE');
-    await emailService.sendEmail({
-      type: emailService.EEmail.WelcomeToCourse,
-      to: { email },
-      course,
-    });
+    await Promise.all([
+      emailService.sendEmail({
+        type: emailService.EEmail.WelcomeToCourse,
+        to: { email },
+        course,
+      }),
+      lessonService.fetch({ courseId: course.id, topicOrder: 1, orderInTopic: 1 })
+        .then(async lessons => {
+          const lesson = lessons.at(0);
+          if (lesson) {
+            await userCourseProgressService.saveLessonProgress({ courseId: course.id, lessonId: lesson.id, userEmail: email, unlockedBlocks: 0 })
+          }
+        })
+    ]);
   }
   analyticsService.logEvent({ type: analyticsService.event.GenerateLead });
 }

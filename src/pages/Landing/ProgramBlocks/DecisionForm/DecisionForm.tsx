@@ -17,6 +17,7 @@ import Icon from 'ui/Icon/Icon';
 import { lessonService } from 'services/lesson.service';
 import { userAccessService } from 'services/userAccess.service';
 import { analyticsService } from 'services/analytics.service';
+import { userCourseProgressService } from 'services/userCourseProgress.service';
 
 const cx = classNames.bind(classes);
 interface IProps {
@@ -158,14 +159,17 @@ async function handleSubmit(props: {
         course: course,
       });
     } else {
-      // await userAccessService.add(course.id, user.email, 'FREE');
-      await emailService.sendEmail({
-        type: emailService.EEmail.WelcomeToCourse,
-        to: { email: user.email },
-        course,
-      });
-
       const firstLesson = (await lessonService.fetch({ courseId: course.id, topicOrder: 1, orderInTopic: 1 })).at(0);
+
+      await Promise.all([
+        emailService.sendEmail({
+          type: emailService.EEmail.WelcomeToCourse,
+          to: { email: user.email },
+          course,
+        }),
+        firstLesson && userCourseProgressService.saveLessonProgress({ courseId: course.id, lessonId: firstLesson.id, userEmail: user.email, unlockedBlocks: 0 })
+      ]);
+
       if (firstLesson) {
         navigate(URLSections.Study.to({ courseId: course.id, lessonId: firstLesson.id }));
       } else {

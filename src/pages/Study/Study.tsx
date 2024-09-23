@@ -36,6 +36,11 @@ export default function LessonContainer(props: IProps) {
     (async () => {
       const progress = await dataService.userCourseProgress.get(courseId, user.email);
       const isNewUser = Object.keys(progress).length === 0;
+      if (!progress[lessonId]) {
+        // on the background
+        userCourseProgressService.saveLessonProgress({ courseId, lessonId, userEmail: user.email, unlockedBlocks: 0 })
+      }
+
       if (isNewUser) {
         const course = (await courseService._fetch({ ids: [courseId] })).at(0)!;
         await emailService.sendEmail({
