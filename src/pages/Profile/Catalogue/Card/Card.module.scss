@@ -1,6 +1,6 @@
 @import 'styles/index';
 
-.card {
+.wrapper {
   @include btn;
   position: relative;
 
@@ -42,17 +42,13 @@
   }
 }
 
-.cardIcon {
+.icon {
   flex-shrink: 0;
   display: block;
   width: set-calc(64);
   aspect-ratio: auto 1;
 
   margin-bottom: set-calc(20);
-
-  svg path {
-    stroke-width: 1px;
-  }
 
   svg {
     width: 100%;

@@ -18,16 +18,16 @@ interface IProps {
 export default function Card({ course }: Readonly<IProps>) {
   const [clicked, setClicked] = useState(false);
   const content = (
-    <div className={classes.card}>
-      <div className={classes.cardIcon}>
+    <div className={classes.wrapper}>
+      <div className={classes.icon}>
         <Icon {...course.icon}/>
       </div>
-        <h3 className={classes.title}>{course.title}</h3>
-        <div className={classes.description}>{course.introDescription}</div>
-        <div className={classes.meta}>
-          <p>{i18n.t(`catalogue.card.info.${course.level}`)}</p>
-          <p>15 уроков</p>
-        </div>
+      <h3 className={classes.title}>{course.title}</h3>
+      <div className={classes.description}>{course.introDescription}</div>
+      <div className={classes.meta}>
+        <p>{i18n.t(`catalogue.card.info.${course.level}`)}</p>
+        <p>15 уроков</p>
+      </div>
       <div className={classes.background}></div>
     </div>
   );

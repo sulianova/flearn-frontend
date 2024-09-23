@@ -59,7 +59,7 @@
 }
 
 .item:nth-child(1) path  {
-  fill: $color-salmonOrange;
+  fill: var(--color-salmonOrange);
 }
 
 .item:nth-child(2) path  {
@@ -67,7 +67,7 @@
 }
 
 .item:nth-child(3) path  {
-  fill: $color-royalBlue;
+  fill: var(--color-royalBlue);
 }
 
 .content {

@@ -12,7 +12,7 @@
   background: var(--color-card);
 
   padding: set-calc(32);
-  gap: set-calc(8);
+  gap: set-calc(24);
 
   &:hover {
     .btn {
@@ -22,7 +22,7 @@
   }
 
   @include set-media(md) {
-    padding: set-calc(20);
+    padding: set-calc(24);
 
     width: set-calc(280);
     min-height: set-calc(320);
@@ -36,30 +36,11 @@
   }
 }
 
-
-.content {
-  position: relative;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  order: 2;
-
-  @include set-media(md) {
-    align-items: start;
-    order: 2;
-  }
-}
-
 .icon {
   order: 1;
 
-  margin-bottom: set-calc(20);
-
   padding: set-calc(16);
-  background-color: var(--color-salmonOrange);
+  background-color: var(--color-background-glassy-b);
   border-radius: 50%;
 
   svg {
@@ -84,6 +65,22 @@
   }
 }
 
+.content {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  order: 2;
+
+  @include set-media(md) {
+    align-items: start;
+    order: 2;
+  }
+}
+
 .title {
   display: flex;
   justify-content: center;
@@ -99,8 +96,6 @@
 
   @include set-media(md) {
     @include set-typography(18, 22, 500);
-
-    margin-bottom: set-calc(10);
   }
 }
 
@@ -134,10 +129,6 @@
       border-radius: 50%;
       background-color: var(--color-content-tertiary);
       transform: translate3d(0, -50%, 0);
-    }
-  
-    @include set-media(md) {
-      font-family: $font-family;
     }
   }
 }

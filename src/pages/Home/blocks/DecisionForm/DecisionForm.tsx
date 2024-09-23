@@ -46,7 +46,7 @@ export default function DecisionForm(props: IProps) {
   return (
     <div className={classes.wrapper}>
       <div className={classes.header}>
-        <h2 className={classes.header__title}><span className='bc-accent-promo-background'>Бесплатный доступ</span> к первому модулю любого курса без карты и пробного периода</h2>
+        <h2 className={classes.header__title}><span className='bc-accent-promo-background'>Бесплатный доступ</span> к первому модулю любого курса без привязки банковской карты</h2>
       </div>
         {authService.isAuthenticated ? (
           <Link
