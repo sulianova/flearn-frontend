@@ -64,7 +64,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
           close={() => setMobMenuIsOpened(false)}
         />
       )}
-      {buyPopupIsOpened && currentCourse && user && <BuyPopup user={user} course={currentCourse} close={() => setBuyPopupIsOpened(false)}/>}
+      {buyPopupIsOpened && user && <BuyPopup user={user} close={() => setBuyPopupIsOpened(false)}/>}
       <div className={headerClass}>
         <div className={cx({ desk: true, [`deskPadding${variant}`]: true })}>
          {(urlSection.name !== 'Study') && (

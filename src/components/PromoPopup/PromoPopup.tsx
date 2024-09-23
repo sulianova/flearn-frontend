@@ -5,31 +5,42 @@ import Icon from "ui/Icon/Icon";
 
 import GeneralPopup from "ui/GeneralPopup/GeneralPopup";
 import classes from './PromoPopup.module.scss';
+import { useCountdown } from "hooks";
+import { useState } from "react";
+import BuyPopup from "components/BuyPopup/BuyPopup";
 
 export default function PromoPopup() {
   const authedUser = userService.useAuthedUser();
   const discount = discountService.useDiscount();
   const show = discountService.useShowBanner();
-
-  console.log('Discount', { authedUser, discount, show });
+  const cd = useCountdown(discount?.endDate ?? null);
+  const [buyPopup, setBuyPopup] = useState(false);
 
   if (!authedUser || !show || !discount || +discount.endDate < Date.now()) {
     return null;
   }
 
+  if (buyPopup) {
+    return (
+      <BuyPopup
+        close={() => setBuyPopup(false)}
+        user={authedUser}
+      />
+    );
+  }
+
   return (
     <GeneralPopup
-      close={() => {}}
       containerClassname={classes.popup}
-      // close={() => discountService.hideBanner(authedUser.email)}
+      close={() => discountService.hideBanner(authedUser.email)}
     >
       <div className={classes.title_subscription}>FLEARN PRO</div>
-      <div className={classes.title_discount}>-50%</div>
+      <div className={classes.title_discount}>{`-${Math.floor(discount.discountPRC)}%`}</div>
       <div className={classes.timer}>
-        <div className={classes.timer__item}>1</div>
-        <div className={classes.timer__item}>10</div>
-        <div className={classes.timer__item}>10</div>
-        <div className={classes.timer__item}>10</div>
+        <div className={classes.timer__item}>{cd.days}</div>
+        <div className={classes.timer__item}>{cd.hours}</div>
+        <div className={classes.timer__item}>{cd.minutes}</div>
+        <div className={classes.timer__item}>{cd.seconds}</div>
       </div>
       <div className={classes.list}>
         <div className={classes.list__item}>
@@ -52,12 +63,14 @@ export default function PromoPopup() {
         </div>
       </div>
       <GeneralPopup.Btn
+        onClick={() => setBuyPopup(true)}
         // className={GeneralPopup.Btn.classesWithCx.btn_secondary}
         className={GeneralPopup.Btn.classesWithCx.cx({ btn_special: true })}
       >
         Купить
       </GeneralPopup.Btn>
       <GeneralPopup.Btn
+        onClick={() => setBuyPopup(true)}
         // className={GeneralPopup.Btn.classesWithCx.btn_secondary}
         className={GeneralPopup.Btn.classesWithCx.cx({ btn_invisible: true })}
       >

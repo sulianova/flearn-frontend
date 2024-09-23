@@ -1,7 +1,7 @@
 import classnames from 'classnames/bind';
 import { useEffect, useState } from 'react';
 
-import type { ICourseData, TCourseProductOptionTypes } from 'services/course.service';
+import type { TCourseProductOptionTypes } from 'services/course.service';
 import type { IUserData } from 'services/user.service';
 
 import Decision from './steps/Decision';
@@ -18,7 +18,6 @@ const cx = classnames.bind(classes);
 
 interface IProps {
   close: () => void
-  course: ICourseData
   user: IUserData
 }
 
@@ -27,7 +26,7 @@ type TStep =
   | 'PAYMENT'
   | 'ORDER_INFO';
 
-export default function BuyPopup({ close, course, user }: IProps) {
+export default function BuyPopup({ close, user }: IProps) {
   const [chosenProductOptionType, setChosenProductOptionType] = useState<TCourseProductOptionTypes | undefined> ( undefined);
   const [step, setStep] = useState<TStep>('DECISION');
 
@@ -67,7 +66,6 @@ export default function BuyPopup({ close, course, user }: IProps) {
             </div>
             {step === 'DECISION' &&
               <Decision
-                course={course}
                 next={productOptionType => {
                   setStep('PAYMENT');
                   setChosenProductOptionType(productOptionType);
@@ -77,12 +75,11 @@ export default function BuyPopup({ close, course, user }: IProps) {
             {step === 'PAYMENT' &&
               <Payment
                 user={user}
-                course={course}
                 chosenProductOptionType={chosenProductOptionType!}
                 next={() => setStep('ORDER_INFO')}
               />
             }
-            {step === 'ORDER_INFO' && <OrderInfo user={user} course={course} next={close} />}
+            {step === 'ORDER_INFO' && <OrderInfo user={user} next={close} />}
           </div>
         </div>
       )}

@@ -13,17 +13,19 @@ import { emailService } from 'services/email.service';
 import Spinner from 'ui/Spinner/Spinner';
 import Icon from 'ui/Icon/Icon';
 import { analyticsService } from 'services/analytics.service';
+import { discountService } from 'services/discount.service';
+import { getDiscount } from './utils';
 
 const cx = classnames.bind(classes);
 const t = formatI18nT('courseLanding.form');
 
 export default function Payment(props: IProps & { chosenProductOptionType: keyof ICourseData['productOptions'] }) {
-  const { next, course, user, chosenProductOptionType } = props;
-  const chosenProductOption = course.productOptions[chosenProductOptionType]!;
+  const { next, chosenProductOptionType } = props;
+  const personalDiscount = discountService.useDiscount();
+  const { creditPrice: creditPriceRub, creditWas: creditWasRub, discount } = getDiscount(personalDiscount, chosenProductOptionType);
   const [isPending, setIsPending] = useState(false);
   const [isPayed, setIsPayed] = useState(false);
-  const [paymentOption, setPaymentOption] = useState<'CARD_RU' | 'PAYPAL'>('CARD_RU');
-  const { creditWas: creditWasRub, creditPrice: creditPriceRub, discount } = getDiscountedPrice(course.discount, chosenProductOption);
+  const [paymentOption, setPaymentOption] = useState<'CARD_RU' | 'PAYPAL'>('PAYPAL');
   const creditWas = Math.round(paymentOption === 'CARD_RU' ? creditWasRub : creditWasRub / 100);
   const creditPrice = Math.round(paymentOption === 'CARD_RU' ? creditPriceRub : creditPriceRub / 100);
   const currencySign = paymentOption === 'CARD_RU' ? '\u20BD' : '\u20AC';
@@ -92,21 +94,22 @@ export default function Payment(props: IProps & { chosenProductOptionType: keyof
             disabled={!isPayed}
             className={classes.btn}
             onClick={() => {
-              analyticsService.logEvent({ type: analyticsService.event.Purchase });
-              setIsPending(true);
-              emailService.sendEmail({
-                type: emailService.EEmail.WelcomeToPaidCourse,
-                course,
-                to: {
-                  email: user.email,
-                  name: user.displayName ?? undefined,
-                },
-                paymentOption: paymentOption,
-                productOption: chosenProductOptionType,
-                dateOfPaiment: new Date(),
-              })
-                .then(next)
-                .finally(() => setIsPending(false));
+              next();
+              // analyticsService.logEvent({ type: analyticsService.event.Purchase });
+              // setIsPending(true);
+              // emailService.sendEmail({
+              //   type: emailService.EEmail.WelcomeToPaidCourse,
+              //   course,
+              //   to: {
+              //     email: user.email,
+              //     name: user.displayName ?? undefined,
+              //   },
+              //   paymentOption: paymentOption,
+              //   productOption: chosenProductOptionType,
+              //   dateOfPaiment: new Date(),
+              // })
+              //   .then(next)
+              //   .finally(() => setIsPending(false));
             }}
           >
             {isPending ? <Spinner/> : 'Подтвердить перевод'}

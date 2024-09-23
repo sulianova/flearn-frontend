@@ -72,7 +72,6 @@ export default function LessonContent(props: IProps) {
       {buyPopupIsOpened && user && (
         <BuyPopup
           user={user}
-          course={course}
           close={() => setBuyPopupIsOpened(false)}
         />
       )}

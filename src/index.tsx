@@ -4,16 +4,12 @@ import { useTheme } from 'hooks';
 import Router from './router';
 
 import 'styles/index.scss';
-import PromoPopup from 'components/PromoPopup/PromoPopup';
 
 function App() {
   useTheme();
 
   return (
-    <>
-      <Router/>
-      <PromoPopup/>
-    </>
+    <Router/>
   );
 }
 

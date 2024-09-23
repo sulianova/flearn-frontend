@@ -130,7 +130,7 @@ export default function MobileMenuPopup(props: Readonly<IProps>) {
 
   return (
     <>
-      {buyPopupIsOpened && currentCourse && user && <BuyPopup user={user} course={currentCourse} close={() => setBuyPopupIsOpened(false)}/>}
+      {buyPopupIsOpened && user && <BuyPopup user={user} close={() => setBuyPopupIsOpened(false)}/>}
       <Popup
         close={close}
         children={startClosingProcess => (

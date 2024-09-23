@@ -1,5 +1,6 @@
 export * from './behaviourSubjectValue';
 export * from './const';
+export * from './countDown';
 export * from './getId';
 export * from './guid';
 export * from './isMobile';

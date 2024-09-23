@@ -93,7 +93,6 @@ export default function Header(props: IProps) {
       )}
       {authedUser && buyCoursePopupIsOpened && (
         <BuyPopup
-          course={currentCourse}
           user={authedUser}
           close={() => setBuyCoursePopupIsOpened(false)}
         />

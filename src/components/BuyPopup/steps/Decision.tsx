@@ -5,34 +5,30 @@ import { formatI18nT, i18n } from 'shared';
 import classes from './Decision.module.scss';
 import Icon from 'ui/Icon/Icon';
 
-import { formatCourseCredit, formatCourseDiscount, getDiscountedPrice, safeObjectKeys } from 'utils';
-import { ICourseData, TCourseProductOptionTypes } from 'services/course.service';
+import { formatCourseCredit } from 'utils';
+import { TCourseProductOptionTypes } from 'services/course.service';
+import { discountService } from 'services/discount.service';
+import { getDiscount } from './utils';
 
 const cx = classnames.bind(classes);
 const t = formatI18nT('courseLanding.form');
 
 interface IProps {
-  course: ICourseData
   next: (productOptionType: TCourseProductOptionTypes) => void
 }
-const optionOrder = {
-  OPTIMAL: 1,
-  BASE: 2,
-  EXTENDED: 3,
-};
 
-export default function Decision({ course, next }: IProps) {
+const optionTypes = ['OPTIMAL', 'BASE'] as const;
 
-  const optionTypes = safeObjectKeys(course.productOptions).sort((a, b) => optionOrder[a] - optionOrder[b]);
+export default function Decision({ next }: IProps) {
+  const personalDiscount = discountService.useDiscount();
   const optionsNodes = optionTypes.map(type => {
-    const option = course.productOptions[type]!;
-    const { creditPrice, creditWas, discount } = getDiscountedPrice(course.discount, option);
     const options =
       type === 'BASE' ? ['1', '2', '3']
       : type === 'OPTIMAL' ? ['1', '2', '3', '4', '5']
       : [];
+    const { creditPrice, creditWas, discount } = getDiscount(personalDiscount, type);
     return (
-      <div className={cx({ block: true, blockDetails: type === 'OPTIMAL', active: false })} key={type}>
+      <div className={cx({ block: true, blockDetails: type === 'OPTIMAL', active: false })} key={type} id={type}>
         <h2 className={classes.courseName}>
           {t(`options.${type}.caption`)}
         </h2>
