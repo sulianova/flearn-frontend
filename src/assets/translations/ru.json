@@ -402,6 +402,9 @@
         "intensive": "Вы оставили заявку на интенсив \"{{title}}\"",
         "webinar": "Вы оставили заявку на вебинар \"{{title}}\""
       }
+    },
+    "WelcomeToPaidFlearn": {
+      "subject": "Подтверждение оформления подписки на flearn"
     }
   },
   "courseType": {

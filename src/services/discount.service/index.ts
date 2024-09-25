@@ -1,4 +1,4 @@
-import { BehaviorSubject, merge } from "rxjs";
+import { BehaviorSubject, merge, Subject } from "rxjs";
 
 import { authService, dataService } from "services";
 import { IDiscount } from "services/data.service/Discount/types";
@@ -7,10 +7,12 @@ import { MS_PER_MINUTE } from "utils";
 
 import useDiscount from "./useDiscount";
 import useShowBanner from "./useShowBanner";
+import { v4 } from "uuid";
 
 const PROMO_POPUP_HIDE_MS = 10_000;
 
 class DiscountService {
+  protected discountS = new Subject<{ type: 'updated' }>();
   protected discountBS = new BehaviorSubject<IDiscount | null>(null);
   protected showBannerBS = new BehaviorSubject<boolean>(false);
 
@@ -26,9 +28,13 @@ class DiscountService {
   }
 
   public async add(data: Pick<IDiscount, "type" | "email" | "product" | "discountPRC" | "minutes" | "startDate">) {
-    await dataService.discount.add(data);
-    this.discountBS.next(await dataService.discount.get(data.email));
-    this.showBannerBS.next(true);
+    await dataService.discount.add({ ...data, id: `${data.email}-${v4()}` });
+    this.discountS.next({ type: 'updated' });
+  }
+
+  public async realizeDiscount(discount: IDiscount) {
+    await dataService.discount.set({ ...discount, realized: true });
+    this.discountS.next({ type: 'updated' });
   }
 
   public async addMe() {
@@ -42,7 +48,7 @@ class DiscountService {
     });
   }
 
-  public hideBanner(email: string) {
+  public hideBanner() {
     this.showBannerBS.next(false);
 
     const checkAndShow = async () => {
@@ -51,11 +57,15 @@ class DiscountService {
         return;
       }
 
-      const discount = await this.get(email);
-      this.discountBS.next(discount);
-      if (discount) {
-        this.showBannerBS.next(true);
+      const discount = await this.get(user.email);
+      if (!discount || discount.realized || discount.endDate < new Date()) {
+        this.showBannerBS.next(false);
+        this.discountBS.next(null);
+        return;
       }
+
+      this.discountBS.next(discount);
+      this.showBannerBS.next(true);
     }
 
     setTimeout(checkAndShow, PROMO_POPUP_HIDE_MS);
@@ -70,7 +80,7 @@ class DiscountService {
         return;
       }
       const discount = await this.get(authedUser.email);
-      if (!discount || discount.endDate < new Date()) {
+      if (!discount || discount.realized || discount.endDate < new Date()) {
         this.showBannerBS.next(false);
         this.discountBS.next(null);
         return;
@@ -82,6 +92,7 @@ class DiscountService {
 
     merge(
       authService.firebaseUserBS,
+      this.discountS,
     ).subscribe(refetch);
   }
 }

@@ -8,19 +8,21 @@ import Link from 'ui/Link/Link';
 import classes from './Payment.module.scss';
 import type { IProps } from './types';
 import { ICourseData } from 'services/course.service';
-import { formatCourseCredit, getDiscountedPrice } from 'utils';
+import { formatCourseCredit } from 'utils';
 import { emailService } from 'services/email.service';
 import Spinner from 'ui/Spinner/Spinner';
 import Icon from 'ui/Icon/Icon';
 import { analyticsService } from 'services/analytics.service';
 import { discountService } from 'services/discount.service';
 import { getDiscount } from './utils';
+import { userService } from 'services/user.service';
 
 const cx = classnames.bind(classes);
 const t = formatI18nT('courseLanding.form');
 
 export default function Payment(props: IProps & { chosenProductOptionType: keyof ICourseData['productOptions'] }) {
   const { next, chosenProductOptionType } = props;
+  const authedUser = userService.useAuthedUser();
   const personalDiscount = discountService.useDiscount();
   const { creditPrice: creditPriceRub, creditWas: creditWasRub, discount } = getDiscount(personalDiscount, chosenProductOptionType);
   const [isPending, setIsPending] = useState(false);
@@ -94,22 +96,27 @@ export default function Payment(props: IProps & { chosenProductOptionType: keyof
             disabled={!isPayed}
             className={classes.btn}
             onClick={() => {
-              next();
-              // analyticsService.logEvent({ type: analyticsService.event.Purchase });
-              // setIsPending(true);
-              // emailService.sendEmail({
-              //   type: emailService.EEmail.WelcomeToPaidCourse,
-              //   course,
-              //   to: {
-              //     email: user.email,
-              //     name: user.displayName ?? undefined,
-              //   },
-              //   paymentOption: paymentOption,
-              //   productOption: chosenProductOptionType,
-              //   dateOfPaiment: new Date(),
-              // })
-              //   .then(next)
-              //   .finally(() => setIsPending(false));
+              if (!authedUser) {
+                next();
+                return;
+              }
+
+              analyticsService.logEvent({ type: analyticsService.event.Purchase });
+              setIsPending(true);
+              emailService.sendEmail({
+                type: emailService.EEmail.WelcomeToPaidFlearn,
+                to: {
+                  email: authedUser.email,
+                  name: authedUser.displayName ?? undefined,
+                },
+                paymentOption: paymentOption,
+                productOption: chosenProductOptionType,
+                dateOfPaiment: new Date(),
+                discount: personalDiscount,
+              })
+                .then(() => personalDiscount && discountService.realizeDiscount(personalDiscount))
+                .then(next)
+                .finally(() => setIsPending(false));
             }}
           >
             {isPending ? <Spinner/> : 'Подтвердить перевод'}

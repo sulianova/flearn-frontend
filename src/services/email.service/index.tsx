@@ -7,7 +7,7 @@ import { firebaseService } from 'services/firebase.service';
 import { lessonService } from 'services/lesson.service';
 
 import { EEmail } from './types';
-import type { IEmail, IEmailContact, TCommonProps, TSendEmailProps, TWantToBuyDummyCourseProps, TWelcomeToDummyCourseProps, TWelcomeToFlearnProps } from './types';
+import type { IEmail, IEmailContact, TCommonProps, TSendEmailProps, TWantToBuyDummyCourseProps, TWelcomeToDummyCourseProps, TWelcomeToFlearnProps, TWelcomeToPaidFlearnProps } from './types';
 import type {
   TWelcomeToCourseProps,
   TWelcomeToPaidCourseProps,
@@ -28,6 +28,7 @@ import HomeworkReviewedToReviewer from './emails/HomeworkReviewedToReviewer';
 import WantToBuyDummyCourse from './emails/WantToBuyDummyCourse';
 import WelcomeToDummyCourse from './emails/WelcomeToDummyCourse';
 import WelcomeToFlearn from './emails/WelcomeToFlearn';
+import WelcomeToPaidFlearn from './emails/WelcomeToPaidFlearn';
 
 class EmailService {
   public EEmail = EEmail;
@@ -59,6 +60,7 @@ class EmailService {
     const id = v4().slice(0, 4);
     switch (props.type) {
       case this.EEmail.WelcomeToFlearn:
+      case this.EEmail.WelcomeToPaidFlearn:
         return `${props.type}-${props.to.email}-${id}`;
       case this.EEmail.WelcomeToCourse:
       case this.EEmail.WelcomeToPaidCourse:
@@ -101,6 +103,8 @@ class EmailService {
         return this.getWantToBuyDummyCourseEmail(props);
       case EEmail.WelcomeToDummyCourse:
         return this.getWelcomeToDummyCourseEmail(props);
+      case EEmail.WelcomeToPaidFlearn:
+        return this.getWelcomeToPaidFlearn(props);
       default:
         throw new Error('Unknown email type');
     }
@@ -150,6 +154,10 @@ class EmailService {
 
   private getWelcomeToDummyCourseEmail(props: TWelcomeToDummyCourseProps): IEmail {
     return this.getEmailObjectFromComponent(WelcomeToDummyCourse, props);
+  }
+
+  private getWelcomeToPaidFlearn(props: TWelcomeToPaidFlearnProps): IEmail {
+    return this.getEmailObjectFromComponent(WelcomeToPaidFlearn, props);
   }
 
   private getEmailObjectFromComponent<T>(

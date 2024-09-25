@@ -32,7 +32,7 @@ export default function PromoPopup() {
   return (
     <GeneralPopup
       containerClassname={classes.popup}
-      close={() => discountService.hideBanner(authedUser.email)}
+      close={() => discountService.hideBanner()}
     >
       <div className={classes.title_subscription}>FLEARN PRO</div>
       <div className={classes.title_discount}>{`-${Math.floor(discount.discountPRC)}%`}</div>
