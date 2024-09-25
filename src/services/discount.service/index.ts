@@ -8,6 +8,7 @@ import { MS_PER_MINUTE } from "utils";
 import useDiscount from "./useDiscount";
 import useShowBanner from "./useShowBanner";
 import { v4 } from "uuid";
+import UserAccessService, { userAccessService } from "services/userAccess.service";
 
 const PROMO_POPUP_HIDE_MS = 10_000;
 
@@ -30,6 +31,16 @@ class DiscountService {
   public async add(data: Pick<IDiscount, "type" | "email" | "product" | "discountPRC" | "minutes" | "startDate">) {
     await dataService.discount.add({ ...data, id: `${data.email}-${v4()}` });
     this.discountS.next({ type: 'updated' });
+  }
+
+  public async tryToAddToAuthedUser(data: Pick<IDiscount, "type" | "product" | "discountPRC" | "minutes" | "startDate">, probability: number) {
+    const user = userService.authedUser;
+    const access = userAccessService.access;
+    if (!user || access !== 'FREE' || Math.random() > probability/100 || this.discountBS.getValue()) {
+      return;
+    }
+
+    await this.add({ ...data, email: user.email });
   }
 
   public async realizeDiscount(discount: IDiscount) {

@@ -18,6 +18,8 @@ import TheoryFooter from '../TheoryFooter/TheoryFooter';
 import LessonSurvey from '../LessonSurvey/LessonSurvey';
 import classes from './LessonContent.module.scss';
 import { authService } from 'services';
+import { discountService } from 'services/discount.service';
+import { MIN_PER_DAY } from 'utils';
 
 interface IProps {
   course: ICourseData
@@ -120,6 +122,13 @@ export default function LessonContent(props: IProps) {
           onNext={
             (lesson.survey && !lessonSurveyAnswers && user) || !allQuizesSubmited ? undefined
             : async () => {
+              discountService.tryToAddToAuthedUser({
+                type: 'personal',
+                product: 'subscription',
+                startDate: new Date(),
+                minutes: MIN_PER_DAY * 2,
+                discountPRC: 50,
+              }, 50);
               if (lesson.topicOrder === 1 && lesson.orderInTopic === 1 && lesson.isFree && user) {
                 const isLessonSolved = await userCourseProgressService
                   .isLessonSolved(course.id, user.email, lesson.id)

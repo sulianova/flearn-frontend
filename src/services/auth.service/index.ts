@@ -14,7 +14,7 @@ import { getFirebaseConfig } from '../firebase.service/firebase.config';
 
 import type { FirebaseApp, FirebaseOptions } from 'firebase/app';
 import type { Auth, User as FirebaseUserRaw } from 'firebase/auth';
-import { getBrowserAgent, MS_PER_DAY } from 'utils';
+import { getBrowserAgent, MIN_PER_DAY } from 'utils';
 import { URLSections } from 'router/utils';
 import { locationService } from 'services/location.service';
 import { analyticsService } from 'services/analytics.service';
@@ -132,7 +132,7 @@ class AuthService {
           email: user.email,
           product: 'subscription',
           startDate: new Date(),
-          minutes: MS_PER_DAY * 2,
+          minutes: MIN_PER_DAY * 2,
           discountPRC: 50,
         });
       }

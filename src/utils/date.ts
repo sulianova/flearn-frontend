@@ -7,6 +7,8 @@ export const MS_PER_MONTH = MS_PER_WEEK * 4;
 export const MS_PER_YEAR = MS_PER_MONTH * 12;
 export const SEC_PER_MINUTE = 60;
 export const SEC_PER_HOUR = SEC_PER_MINUTE * 60;
+export const MIN_PER_HOUR = 60;
+export const MIN_PER_DAY = MIN_PER_HOUR * 24;
 
 /**
  * @param date Date
