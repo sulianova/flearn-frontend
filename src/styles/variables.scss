@@ -63,6 +63,15 @@ $color-palette-white-800-a: rgba(255, 255, 255, 0.8);
 $color-palette-white-900-a: rgba(255, 255, 255, 0.9);
 $color-palette-white-1000: #ffffff;
 
+//color
+$color-salmonOrange: #ED7234;
+$color-green: #69CB84;
+$color-lime: #D2FD7C;
+$color-purple: #A3A3F2;
+$color-royalBlue: #565CE7;
+$color-pink: #ED6BD1;
+$color-yellow: #f8db46;
+
 //color-highlight
 $color-highlight-yellow: #F8DB46;
 $color-highlight-gold: #F5CB36;
@@ -82,12 +91,6 @@ $color-palette-brand-700: #5026E3;
 $color-gradient-rainbow: linear-gradient(139.953deg, #FF30A1 0%, #8722FC 99%);
 
 //theme-light
-$color-salmonOrange-light: #EE5E37;
-$color-green-light: #AFCB6E;
-$color-lime-light: #DFF37D;
-$color-purple-light: #D9B8F3;
-$color-royalBlue-light: #5627FF;
-
 $primary-color-light: $color-palette-brand-600;
 $primary-color-hover-light: $color-palette-brand-500;
 $color-content-primary-light: $color-palette-black-700;
@@ -119,7 +122,7 @@ $color-accent-error-light: #F04438;
 $color-accent-warning-light: #FDB022;
 $color-accent-success-light: #12B76A;
 $color-accent-notice-light: #0064F0;
-$color-accent-promo-light: $color-royalBlue-light;
+$color-accent-promo-light: $color-palette-brand-600;
 $color-accent-promo-background-light: $color-highlight-yellow;
 
 $color-card-border-light: transparent; //$color-palette-white-300-a;
@@ -127,12 +130,6 @@ $color-card-light: $color-palette-white-1000;
 $border-light: $color-palette-black-150;
 
 //theme-dark
-$color-salmonOrange-dark: #ED7234;
-$color-green-dark: #69CB84;
-$color-lime-dark: #D2FD7C;
-$color-purple-dark: #A3A3F2;
-$color-royalBlue-dark: #565CE7;
-
 $primary-color-dark: $color-palette-brand-300;
 $primary-color-hover-dark: $color-palette-brand-200;
 $color-background-default-dark: $color-palette-black-800;
@@ -161,7 +158,7 @@ $color-accent-warning-dark: #FDB022;
 $color-accent-success-dark: #36BA5F;
 $color-accent-notice-dark: #6172F3;
 $color-accent-promo-dark: $color-highlight-yellow;
-$color-accent-promo-background-dark: $color-royalBlue-light;
+$color-accent-promo-background-dark: $color-palette-brand-600;
 
 $color-background-overlay-dark: $color-palette-black-500-a;
 $color-background-btn-dark: $color-palette-black-50;
@@ -244,14 +241,14 @@ $z-index-500: 500;
 
 // CSS
 :root {
+  --color-salmonOrange: #{$color-salmonOrange};
+  --color-purple: #{$color-purple};
+  --color-royalBlue: #{$color-royalBlue};
+  --color-yellow: #{$color-yellow};
+
   --color-highlight-yellow: #{$color-highlight-yellow};
   --color-highlight-gold: #{$color-highlight-gold};
   // theme light
-  --color-salmonOrange-light: #{$color-salmonOrange-light};
-  --color-lime-light: #{$color-lime-light};
-  --color-green-light: #{$color-green-light};
-  --color-purple-light: #{$color-purple-light};
-  --color-royalBlue-light: #{$color-royalBlue-light};
   --primary-color-light: #{$primary-color-light};
   --primary-color-hover-light: #{$primary-color-hover-light};
   --color-content-primary-light: #{$color-content-primary-light};
@@ -289,11 +286,6 @@ $z-index-500: 500;
   --border-light: #{$border-light};
 
   // theme dark
-  --color-salmonOrange-dark: #{$color-salmonOrange-dark};
-  --color-lime-dark: #{$color-lime-dark};
-  --color-green-dark: #{$color-green-dark};
-  --color-purple-dark: #{$color-purple-dark};
-  --color-royalBlue-dark: #{$color-royalBlue-dark};
   --primary-color-dark: #{$primary-color-dark};
   --primary-color-hover-dark: #{$primary-color-hover-dark};
   --color-content-primary-dark: #{$color-content-primary-dark};

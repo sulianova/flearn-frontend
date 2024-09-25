@@ -1,11 +1,5 @@
 
 body.light {
-  --color-salmonOrange: var(--color-salmonOrange-light);
-  --color-lime: var(--color-lime-light);
-  --color-green: var(--color-green-light);
-  --color-purple: var(--color-purple-light);
-  --color-royalBlue: var(--color-royalBlue-light);
-
   --primary-color: var(--primary-color-light);
   --primary-color-hover: var(--primary-color-hover-light);
 
@@ -48,12 +42,6 @@ body.light {
 }
 
 body.dark {
-  --color-salmonOrange: var(--color-salmonOrange-dark);
-  --color-lime: var(--color-lime-dark);
-  --color-green: var(--color-green-dark);
-  --color-purple: var(--color-purple-dark);
-  --color-royalBlue: var(--$color-royalBlue-dark);
-
   --primary-color: var(--primary-color-dark);
   --primary-color-hover: var(--primary-color-hover-dark);
 
