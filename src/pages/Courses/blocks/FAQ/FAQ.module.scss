@@ -1,46 +1,16 @@
 @import 'styles/index';
 
-.header {
+.section__title {
   position: relative;
-  padding-bottom: set-calc(32);
+
+  margin-bottom: set-calc(32);
   padding-left: set-calc(16);
 
-  @include set-media(md) {
-    position: relative;
-    padding-bottom: set-calc(16);
-    padding-right: set-calc(8);
-    padding-left: set-calc(8);
-  }
-}
-
-.headerTitle {
   @include font-32-normal-header;
   font-family: $font-family-extra-bold;
-}
-
-.headerDesc {
-  @include font-18-normal-paragraph;
-  color: var(--color-content-primary);
-  text-align: center;
-
-  width: 100%;
-
-  a {
-    font-family: $font-family-medium;
-    color: var(--primary-color);
-
-    transition: all $d-hover ease;
-  }
-
-  a:hover {
-    color: var(--primary-color-hover);
-  }
 
   @include set-media(md) {
-    width: 100%;
-
-    @include set-typography( 16, 22, 500);
-    text-align: start;
+    margin-bottom: set-calc(16);
     padding-left: set-calc(8);
   }
 }

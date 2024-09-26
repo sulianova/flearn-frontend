@@ -19,18 +19,18 @@ interface IProps {
 export default function Card({ course }: Readonly<IProps>) {
   const [clicked, setClicked] = useState(false);
   const content = (
-    <div className={classes.card}>
-      <div className={classes.cardIcon}>
+    <>
+      <div className={classes.icon}>
         <Icon {...course.icon}/>
       </div>
-        <h3 className={classes.title}>{course.title}</h3>
-        <div className={classes.description}>{course.introDescription}</div>
-        <div className={classes.meta}>
-          <p>{i18n.t(`catalogue.card.info.${course.level}`)}</p>
-          <p>15 уроков</p>
-        </div>
+      <h3 className={classes.title}>{course.title}</h3>
+      <div className={classes.description}>{course.introDescription}</div>
+      <div className={classes.meta}>
+        <p>{i18n.t(`catalogue.card.info.${course.level}`)}</p>
+        <p>15 уроков</p>
+      </div>
       <div className={classes.background}></div>
-    </div>
+    </>
   );
 
   if (!course.isDummy) {
@@ -39,13 +39,14 @@ export default function Card({ course }: Readonly<IProps>) {
         className={classes.__}
         to={URLSections.Course.to({ courseId: course.id })}
       >
-        {content}
+        <div className={classes.wrapper}>
+          {content}
+        </div>
       </Link>
     );
   }
   return (
-    <div 
-      className={classes.__}
+    <div className={classes.wrapper}
       onClick={() => {
         setClicked(true);
         emailService.sendEmail({
@@ -56,6 +57,13 @@ export default function Card({ course }: Readonly<IProps>) {
       }}
     >
       {content}
+      <div className={classes.btn}>
+        {
+          !course.isDummy ? 'Подробнее'
+          : !clicked ? 'Мне интересно'
+          : 'Учли!'
+        }
+      </div>
     </div>
   );
 }

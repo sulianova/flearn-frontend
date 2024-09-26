@@ -1,6 +1,6 @@
 @import 'styles/index';
 
-.sectionTitle {
+.section__title {
   margin: 0 0 set-calc(24);
   padding-left: set-calc(8);
 
@@ -14,7 +14,7 @@
   }
 }
 
-.wrapper {
+.list {
   position: relative;
   display: grid;
   grid-template-columns: repeat(2, 1fr);

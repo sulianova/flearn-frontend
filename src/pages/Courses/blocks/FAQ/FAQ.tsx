@@ -27,9 +27,7 @@ const data: QA[] = [
 function FAQ() {
   return (
     <>
-      <div className={classes.header}>
-        <div className={classes.headerTitle}>FAQs</div>
-      </div>
+      <div className={classes.section__title}>FAQs</div>
       <div className={classes.list}>
         {data.map((qa, index) => <Item key={index} {...qa}/>)}
       </div>

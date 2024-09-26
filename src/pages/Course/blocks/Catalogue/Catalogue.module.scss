@@ -1,26 +1,29 @@
 @import 'styles/index';
 
-.sectionTitle {
-  margin: 0 0 set-calc(24);
-  padding-left: set-calc(8);
+.section__title {
+  position: relative;
 
-  @include font-24-normal-header;
-  font-family: $font-family-bold;
-  color: var(--color-content-primary);
+  margin-bottom: set-calc(32);
+  padding-left: set-calc(16);
+
+  @include font-32-normal-header;
+  font-family: $font-family-extra-bold;
 
   @include set-media(md) {
-    margin: 0 0 set-calc(24) set-calc(8);
-    padding-left: set-calc(0);
+    margin-bottom: set-calc(16);
+    padding-left: set-calc(8);
   }
 }
 
 .wrapper {
   position: relative;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: set-calc(16);
 
   @include set-media(md) {
+    display: flex;
+    flex-direction: column;
     gap: set-calc(8);
   }
 }

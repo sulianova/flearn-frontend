@@ -10,7 +10,7 @@ import Header from './blocks/Header/Header';
 import CoursePage from './blocks/CoursePage/CoursePage';
 import Description from './blocks/Description/Description';
 import SocialValidation from './blocks/SocialValidation/SocialValidation';
-// import Catalogue from './blocks/Catalogue/Catalogue';
+import Catalogue from './blocks/Catalogue/Catalogue';
 
 import classes from './Course.module.scss'
 import Fallback from 'ui/Fallback';
@@ -54,9 +54,9 @@ export default function Course() {
     // <BannerStart
     //   key='BannerStart'
     // />,
-    // <Catalogue
-    //   key='Catalogue'
-    // />,
+    <Catalogue
+      key='Catalogue'
+    />,
     // <FAQ
     //   key='FAQ'
     // />,

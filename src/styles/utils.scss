@@ -187,11 +187,11 @@
 }
 
 @mixin button-primary {
-  color: $color-content-inverted-primary-light;
-  background-color: var(--primary-color);
+  color: var(--color-content-inverted-primary);
+  background-color: var(--color-accent-promo);
 
   &:hover {
-    background-color: var(--primary-color-hover);
+    opacity:0.9;
   }
 
   &:disabled {
@@ -201,7 +201,7 @@
 
   @include set-media(md) {
     &:hover {
-      background-color: var(--primary-color);
+      opacity: 1;
     }
   }
 }

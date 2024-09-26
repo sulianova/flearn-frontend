@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import { courseService } from 'services/course.service';
+import { courseService, dummyCourses } from 'services/course.service';
 import Spinner from 'ui/Spinner/Spinner';
 
 import Card from './Card/Card';
@@ -11,9 +11,9 @@ export default function Catalogue() {
   const allCourses = courseService.useCourses();
   const courses = useMemo(() => {
     const excludeIds = ['illustration', 'how-to-draw-free', ...(userCourses ?? []).map(c => c.id)];
-    return allCourses
+    return [...allCourses
       .filter(course => !excludeIds.includes(course.id))
-      .map(c => ({ isDummy: false, ...c }));
+      .map(c => ({ isDummy: false, ...c })), ...dummyCourses];
   }, [allCourses, userCourses]);
 
   if (!userCourses || !allCourses.length) {
@@ -30,7 +30,7 @@ export default function Catalogue() {
 
   return (
     <>
-      <h2 className={classes.sectionTitle}>Могут вам подойти</h2>
+      <h2 className={classes.section__title}>Могут вам подойти</h2>
       <div className={classes.wrapper}>
         {courses.map(course => <Card key={course.id} course={course}/>)}
       </div>

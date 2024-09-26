@@ -18,7 +18,7 @@ interface IProps {
 export default function Card({ course }: Readonly<IProps>) {
   const [clicked, setClicked] = useState(false);
   const content = (
-    <div className={classes.wrapper}>
+    <>
       <div className={classes.icon}>
         <Icon {...course.icon}/>
       </div>
@@ -29,7 +29,7 @@ export default function Card({ course }: Readonly<IProps>) {
         <p>15 уроков</p>
       </div>
       <div className={classes.background}></div>
-    </div>
+    </>
   );
 
   if (!course.isDummy) {
@@ -38,13 +38,14 @@ export default function Card({ course }: Readonly<IProps>) {
         className={classes.__}
         to={URLSections.Course.to({ courseId: course.id })}
       >
-        {content}
+        <div className={classes.wrapper}>
+          {content}
+        </div>
       </Link>
     );
   }
   return (
-    <div 
-      className={classes.__}
+    <div className={classes.wrapper}
       onClick={() => {
         setClicked(true);
         emailService.sendEmail({
@@ -55,6 +56,13 @@ export default function Card({ course }: Readonly<IProps>) {
       }}
     >
       {content}
+      <div className={classes.btn}>
+        {
+          !course.isDummy ? 'Подробнее'
+          : !clicked ? 'Мне интересно'
+          : 'Учли!'
+        }
+      </div>
     </div>
   );
 }
