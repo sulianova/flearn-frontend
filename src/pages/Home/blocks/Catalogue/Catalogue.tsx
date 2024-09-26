@@ -1,9 +1,10 @@
 import { useMemo } from 'react';
 
 import { courseService, dummyCourses } from 'services/course.service';
+
+import CourseCard from 'components/CourseCard/CourseCard';
 import Spinner from 'ui/Spinner/Spinner';
 
-import Card from './Card/Card';
 import classes from './Catalogue.module.scss';
 
 interface IProps {
@@ -34,7 +35,7 @@ export default function Catalogue(props: IProps) {
       </div>
       <div className={classes.animationWrapper}>
         <div className={classes.cardsWrapper}>
-          {courses.map(course => <Card key={course.id} course={course}/>)}
+          {courses.map(course => <CourseCard.BASE key={course.id} course={course}/>)}
         </div>
       </div>
     </div>

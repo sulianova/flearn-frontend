@@ -123,6 +123,6 @@ export type TActionBS =
 
 
 export type ICourseCardInfo =
-  Pick<ICourseData, 'id'| 'type' | 'level' | 'icon' | 'title' | 'introDescription' | 'duration' >
+  Pick<ICourseData, 'id'| 'type' | 'level' | 'icon' | 'title' | 'introDescription' | 'duration' | 'metaData' >
   & { isDummy: boolean }
 ;

@@ -842,6 +842,13 @@ const courseDummy1: ICourseCardInfo = {
     unit: 'day',
   },
   introDescription: 'Научитесь управлять цветом и выделять главное в рисунке',
+  metaData: {
+    lessonsAmount: 15,
+    lessonsDuration: {
+      value: 5,
+      unit: 'hour',
+    },
+  },
 };
 
 const courseDummy2: ICourseCardInfo = {
@@ -858,6 +865,13 @@ const courseDummy2: ICourseCardInfo = {
     unit: 'day',
   },
   introDescription: 'Научитесь управлять цветом и выделять главное в рисунке',
+  metaData: {
+    lessonsAmount: 15,
+    lessonsDuration: {
+      value: 5,
+      unit: 'hour',
+    },
+  },
 };
 
 export const dummyCourses = [

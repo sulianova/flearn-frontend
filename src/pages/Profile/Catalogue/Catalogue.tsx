@@ -1,9 +1,10 @@
 import { useMemo } from 'react';
 
 import { courseService, dummyCourses } from 'services/course.service';
+
+import CourseCard from 'components/CourseCard/CourseCard';
 import Spinner from 'ui/Spinner/Spinner';
 
-import Card from './Card/Card';
 import classes from './Catalogue.module.scss';
 
 export default function Catalogue() {
@@ -32,7 +33,7 @@ export default function Catalogue() {
     <>
       <h2 className={classes.section__title}>Что еще вам может понравиться</h2>
       <div className={classes.list}>
-        {courses.map(course => <Card key={course.id} course={course}/>)}
+        {courses.map(course => <CourseCard.EXTENDED key={course.id} course={course}/>)}
       </div>
     </>
   );

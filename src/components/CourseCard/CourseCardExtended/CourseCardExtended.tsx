@@ -1,22 +1,21 @@
+import { useState } from 'react';
+
 import type { ICourseCardInfo } from 'services/course.service';
+import { emailService } from 'services/email.service';
+import { userService } from 'services/user.service';
 import { i18n } from 'shared';
 import { URLSections } from 'router';
-import { formatDate } from 'utils';
 
-import Img from 'ui/Img/Img';
 import Link from 'ui/Link/Link';
 import Icon from 'ui/Icon/Icon';
 
-import classes from './Card.module.scss';
-import { useState } from 'react';
-import { emailService } from 'services/email.service';
-import { userService } from 'services/user.service';
+import classes from './CourseCardExtended.module.scss';
 
 interface IProps {
   course: ICourseCardInfo
 }
 
-export default function Card({ course }: Readonly<IProps>) {
+export default function CourseCardExtended({ course }: Readonly<IProps>) {
   const [clicked, setClicked] = useState(false);
   const content = (
     <>
@@ -27,7 +26,7 @@ export default function Card({ course }: Readonly<IProps>) {
       <div className={classes.description}>{course.introDescription}</div>
       <div className={classes.meta}>
         <p>{i18n.t(`catalogue.card.info.${course.level}`)}</p>
-        <p>15 уроков</p>
+        <p>{i18n.t(`lesson.p`, { count: course.metaData.lessonsAmount })}</p>
       </div>
       <div className={classes.background}></div>
     </>

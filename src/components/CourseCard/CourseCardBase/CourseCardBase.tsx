@@ -7,7 +7,7 @@ import Img from 'ui/Img/Img';
 import Link from 'ui/Link/Link';
 import Icon from 'ui/Icon/Icon';
 
-import classes from './Card.module.scss';
+import classes from './CourseCardBase.module.scss';
 import { useState } from 'react';
 import { emailService } from 'services/email.service';
 import { userService } from 'services/user.service';
@@ -16,37 +16,43 @@ interface IProps {
   course: ICourseCardInfo
 }
 
-export default function Card({ course }: Readonly<IProps>) {
+export default function CourseCardBase({ course }: Readonly<IProps>) {
   const [clicked, setClicked] = useState(false);
   const content = (
     <>
       <div className={classes.icon}>
         <Icon {...course.icon}/>
       </div>
-      <h3 className={classes.title}>{course.title}</h3>
-      <div className={classes.description}>{course.introDescription}</div>
-      <div className={classes.meta}>
-        <p>{i18n.t(`catalogue.card.info.${course.level}`)}</p>
-        <p>15 уроков</p>
+      <div className={classes.content}>
+        <h3 className={classes.title}>{course.title}</h3>
+        <div className={classes.meta}>
+          <p>{i18n.t(`catalogue.card.info.${course.level}`)}</p>
+          <p>{i18n.t(`lesson.p`, { count: course.metaData.lessonsAmount })}</p>
+        </div>
       </div>
-      <div className={classes.background}></div>
+      <div className={classes.btn}>
+        {
+          !course.isDummy ? 'Подробнее'
+          : !clicked ? 'Мне интересно'
+          : 'Учли!'
+        }
+      </div>
     </>
   );
 
   if (!course.isDummy) {
     return (
       <Link 
-        className={classes.__}
-        to={URLSections.Course.to({ courseId: course.id })}
+        className={classes.wrapper}
+        to={URLSections.Landing.to({ courseId: course.id })}
       >
-        <div className={classes.wrapper}>
-          {content}
-        </div>
+        {content}
       </Link>
     );
   }
   return (
-    <div className={classes.wrapper}
+    <div 
+      className={classes.wrapper}
       onClick={() => {
         setClicked(true);
         emailService.sendEmail({
@@ -57,13 +63,6 @@ export default function Card({ course }: Readonly<IProps>) {
       }}
     >
       {content}
-      <div className={classes.btn}>
-        {
-          !course.isDummy ? 'Подробнее'
-          : !clicked ? 'Мне интересно'
-          : 'Учли!'
-        }
-      </div>
     </div>
   );
 }
