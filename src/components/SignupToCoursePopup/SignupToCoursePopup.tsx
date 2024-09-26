@@ -72,17 +72,18 @@ export default function SignupToCoursePopup(props: Readonly<IProps>) {
             </div>
           </div>
           <GeneralPopup.Btn
-              onClick={() =>
-                authService.authenticate()
-                  .then(() => {
-                    analyticsService.logEvent({ type: analyticsService.event.ButtonClickedStartStudy });
-                    if (firstLesson) {
-                      navigate(URLSections.Study.to({ courseId: course.id, lessonId: firstLesson.id }));
-                    } else {
-                      navigate(URLSections.Profile.to({ courseId: course.id }));
-                    }
-                  })
-              }
+            onClick={() =>
+              authService.authenticate()
+                .then(() => {
+                  analyticsService.logEvent({ type: analyticsService.event.ButtonClickedStartStudy });
+                  if (firstLesson) {
+                    navigate(URLSections.Study.to({ courseId: course.id, lessonId: firstLesson.id }));
+                  } else {
+                    navigate(URLSections.Profile.to({ courseId: course.id }));
+                  }
+                })
+            }
+            className={GeneralPopup.Btn.classesWithCx.btn_primary}
           >
             <Icon icon='Google'/>
             {t('login')}

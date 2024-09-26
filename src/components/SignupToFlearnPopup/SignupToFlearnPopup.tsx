@@ -66,6 +66,7 @@ export default function SignupToFlearnPopup(props: Readonly<IProps>) {
                   navigate(URLSections.EmptyProfile.to());
                 })
               }
+              className={GeneralPopup.Btn.classesWithCx.btn_primary}
           >
             <Icon icon='Google'/>
             {t('login')}
