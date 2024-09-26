@@ -152,6 +152,10 @@
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
+
+    .loader {
+      color: inherit;
+    }
   }
 
   &:hover {
@@ -176,6 +180,10 @@
       transform: none;
     }
   }
+}
+
+@mixin isLoading {
+  opacity: 0.8;
 }
 
 @mixin button-primary {
@@ -279,7 +287,7 @@
   }
 }
 
-@mixin button-2d(
+@mixin button-3d(
   $bc: transparent,
   $colorHover: var(--color-background-glassy-a),
   $color: $color-palette-black-200,
@@ -326,6 +334,11 @@
       width: set-calc(24);
       height: set-calc(24);
     }
+
+    .loader svg {
+      width: set-calc(12);
+      height: set-calc(12);
+    }
   }
 
   @include font-14-normal-ui;
@@ -346,6 +359,11 @@
       width: set-calc(24);
       height: set-calc(24);
     }
+
+    .loader svg {
+      width: set-calc(12);
+      height: set-calc(12);
+    }
   }
 
   @include set-typography(16, 16, 500);
@@ -365,6 +383,11 @@
     svg {
       width: set-calc(32);
       height: set-calc(32);
+    }
+
+    .loader svg {
+      width: set-calc(16);
+      height: set-calc(16);
     }
   }
 

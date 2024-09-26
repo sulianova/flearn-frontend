@@ -210,7 +210,7 @@
 
 .buyBtn {
   @include btn;
-  @include button-2d($color-palette-brand-300, $color-palette-brand-300, $color-palette-brand-400, $color-palette-brand-400, 0.9);
+  @include button-3d($color-palette-brand-300, $color-palette-brand-300, $color-palette-brand-400, $color-palette-brand-400, 0.9);
   width: max-content;
 
   color: $color-content-inverted-primary-light;

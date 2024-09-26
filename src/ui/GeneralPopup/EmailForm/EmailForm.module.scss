@@ -26,33 +26,14 @@
   }
 }
 
-.btnSvg {
-  color: var(--color-content-inverted-primary);
-  svg {
-    width: set-calc(24);
-    height: set-calc(24);
-  }
-}
-
 .isSuccess {
   pointer-events: none;
-  color: var(--color-content-background-secondary);
-}
-
-.isPending {
-  background-color: var(--color-background-glassy-a);
-  color: var(--color-background-glassy-d);
-  pointer-events: none;
-}
-
-.isError {
+  background-color: var(--color-accent-success);
   color: var(--color-content-inverted-primary);
-  background-color: var(--color-content-background-secondary);
-  transition: background-color $d-hover ease-in-out, color ease-in-out $d-hover;
+}
 
-  &:hover {
-    background-color: var(--color-content-background-primary);
-  }
+.isLoading {
+  @include isLoading;
 }
 
 .Error {

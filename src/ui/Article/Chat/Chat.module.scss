@@ -127,7 +127,7 @@
 .button {
   @include btn;
   @include button-large;
-  @include button-2d($color: var(--color-accent-promo-background));
+  @include button-3d($color: var(--color-accent-promo-background));
   justify-content: space-between;
 
   gap: set-calc(20);

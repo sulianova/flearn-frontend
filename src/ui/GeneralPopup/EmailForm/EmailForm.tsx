@@ -15,7 +15,7 @@ const cx2 = classNames.bind(classesInputField);
 
 interface IFormData {
   email: string
-  state: { type: 'Idle' } |  { type: 'Pending' } | { type: 'Success' } | { type: 'Error', error: Error }
+  state: { type: 'Idle' } |  { type: 'Loading' } | { type: 'Success' } | { type: 'Error', error: Error }
 }
 
 const initialFormData: IFormData = { email: '', state: { type: 'Idle' } };
@@ -40,22 +40,22 @@ export default function EmailForm({ submitText, handleSubmit }: IProps) {
             value={formData.email}
             onChange={v => setFormData(d => ({ ...d, email: v }))}
           />
+          {formData.state.type === 'Error' && <span className={classes.Error}>{formData.state.error.message}</span>}
           <button
             className={cx({ submitButton: true, [`is${formData.state.type}`]: true })}
             type="submit"
             disabled={!isValid(formData)}
             onClick={() => submit({ formData, setFormData, handleSubmit })}
           >
-            <span className={classes.btnSvg}>
+            <div className={classes.content}>
               {
                 formData.state.type === 'Idle' ? submitText:
-                formData.state.type === 'Pending' ? <Spinner/> :
-                formData.state.type === 'Success' ?  <Icon icon='Tick'/>  :
-                formData.state.type === 'Error' ? <Icon icon='Refresh'/> : ''
+                formData.state.type === 'Loading' ? <div className={classes.loader}><Spinner/></div>:
+                formData.state.type === 'Success' ?  <Icon icon='Tick'/>:
+                formData.state.type === 'Error' ? submitText: ''
               }
-            </span>
+            </div>
           </button>
-        {formData.state.type === 'Error' && <span className={classes.Error}>{formData.state.error.message}</span>}
       </form>
     </>
   );
@@ -63,7 +63,7 @@ export default function EmailForm({ submitText, handleSubmit }: IProps) {
 
 function isValid(formData: IFormData) {
   const { email, state } = formData;
-  return email && state.type !== 'Pending';
+  return email && state.type !== 'Loading';
 }
 
 async function submit(props: {
@@ -72,7 +72,7 @@ async function submit(props: {
   handleSubmit: (email: string) => Promise<void>,
 }) {
   const { formData, setFormData, handleSubmit } = props;
-  setFormData(d => ({ ...d, state: { type: 'Pending' } }));
+  setFormData(d => ({ ...d, state: { type: 'Loading' } }));
   handleSubmit(formData.email)
     .then(() => setFormData(d => ({ ...d, state: { type: 'Success' } })))
     .catch(e => setFormData(d => ({ ...d, state: { type: 'Error', error: e as Error } })))

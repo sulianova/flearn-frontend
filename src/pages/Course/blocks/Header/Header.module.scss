@@ -73,15 +73,15 @@
   justify-content: center;
   align-items: center;
 
-  padding: set-calc(30);
-  background-color: var(--color-salmonOrange);
+  background-color: var(--color-background-glassy-b);
   border-radius: 50%;
+
+  width: set-calc(176 + 16);
+  height: set-calc(176 + 16);
 
   svg {
     width: set-calc(176);
     height: set-calc(176);
-
-    margin: 0 auto;
   }
   
   @include set-media(md) {

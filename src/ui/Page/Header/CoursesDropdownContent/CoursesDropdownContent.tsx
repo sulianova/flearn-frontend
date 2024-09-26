@@ -26,7 +26,7 @@ export default function CoursesDropdownContent({ courses, lastStudiedCourse, clo
           <div className={classes.contentContainer}>
             <div className={classes.content}>
               <div className={classes.listItems}>
-                <div className={classes.listOptionTitle}>Бесплатная часть</div>
+                {/* <div className={classes.listOptionTitle}>Бесплатная часть</div> */}
                 {
                   courses.map(course => (
                     <Link

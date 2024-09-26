@@ -1,8 +1,8 @@
 @import 'styles/index';
 
 .popup {
-  margin-left: set-calc(20);
-  margin-bottom: set-calc(-5);
+  margin-left: set-calc(8);
+  margin-bottom: 0;
 
   transform: none;
   z-index: -1;
@@ -13,7 +13,7 @@
   transition-timing-function: cubic-bezier(0.25, 1.15, 0.5, 1.1);
 
   min-width: set-calc(250);
-  padding: set-calc(8);
+  padding: set-calc(6);
 
   border-radius: set-calc($border-radius-16);
   background:  var(--color-card);
@@ -61,7 +61,7 @@
   height: auto;
   user-select: none;
 
-  padding: set-calc(12) set-calc(12);
+  padding: set-calc(12);
   border-radius: set-calc($border-radius-10);
 
 }
