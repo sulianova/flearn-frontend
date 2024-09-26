@@ -1,18 +1,18 @@
 @import 'styles/index';
 
-.inputWrap {
+.wrapper {
   display: flex;
   flex-direction: column;
 }
 
-.inputLabel {
+.label {
   @include font-12-normal-ui;
   font-family: $font-family-medium;
 
   margin-bottom: set-calc(8);
 }
 
-.inputCaption {
+.caption {
   @include font-10-normal-ui;
   font-family: $font-family;
   color: var(--color-content-tertiary);
@@ -20,3 +20,21 @@
   margin-top: set-calc(4);
   margin-left: set-calc(8);
 }
+
+// .placeholder {
+//   font-size: 16px;
+//   position: absolute;
+//   top: 16px;
+//   left: 18px;
+//   color: var(--text-secondary-color);
+//   transition: transform .2s ease-in-out;
+//   pointer-events: none;
+//   overflow: hidden;
+//   white-space: nowrap;
+//   text-overflow: ellipsis;
+//   max-width: calc(100% - 36px);
+// }
+
+// input:focus ~ .placeholder {
+//   transform: translate(-14%, -44%) scale(.7);
+// }

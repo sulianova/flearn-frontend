@@ -64,12 +64,10 @@ $color-palette-white-900-a: rgba(255, 255, 255, 0.9);
 $color-palette-white-1000: #ffffff;
 
 //color
-$color-salmonOrange: #ED7234;
 $color-green: #69CB84;
-$color-lime: #D2FD7C;
 $color-purple: #A3A3F2;
+$color-salmonOrange: #ED7234;
 $color-royalBlue: #565CE7;
-$color-pink: #ED6BD1;
 $color-yellow: #f8db46;
 
 //color-highlight
@@ -241,8 +239,9 @@ $z-index-500: 500;
 
 // CSS
 :root {
-  --color-salmonOrange: #{$color-salmonOrange};
   --color-purple: #{$color-purple};
+  --color-green: #{$color-green};
+  --color-salmonOrange: #{$color-salmonOrange};
   --color-royalBlue: #{$color-royalBlue};
   --color-yellow: #{$color-yellow};
 

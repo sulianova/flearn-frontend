@@ -22,8 +22,8 @@ const type = {
 function InputField(props: IProps) {
   const id = v4();
   return (
-    <div className={classes.inputWrap}>
-      {/* <div className={classes.inputLabel}>inputLabel</div> */}
+    <div className={classes.wrapper}>
+      {/* <div className={classes.label}>inputLabel</div> */}
       <label htmlFor={id}/>
       <input
         id={id}
@@ -35,7 +35,8 @@ function InputField(props: IProps) {
         value={props.value}
         onChange={e => props.onChange?.(e.target.value)}
       />
-      {/* <div className={classes.inputCaption}>inputCaption</div> */}
+      {/* <span className={classes.placeholder}>placeholder</span> */}
+      {/* <div className={classes.caption}>inputCaption</div> */}
     </div>
   );
 }
