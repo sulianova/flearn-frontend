@@ -32,7 +32,7 @@ export default function Header(props: IProps) {
               </Link>
             ) : (
               <div
-                className={classes.actions_btn}
+                className={classes.actions__btn}
                 onClick={props.onNotAuthedClick}
               >
                 Начать учиться
