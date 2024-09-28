@@ -188,7 +188,7 @@
 
 @mixin button-primary {
   color: var(--color-content-inverted-primary);
-  background-color: var(--color-accent-promo);
+  background-color: var(--primary-color);
 
   &:hover {
     opacity:0.9;

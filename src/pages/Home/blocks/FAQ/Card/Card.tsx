@@ -7,7 +7,7 @@ import Icon from 'ui/Icon/Icon';
 import Animated from 'ui/Animated';
 import Text from 'ui/Text/Text';
 
-import classes from './Item.module.scss';
+import classes from './Card.module.scss';
 
 const cx = classNames.bind(classes);
 

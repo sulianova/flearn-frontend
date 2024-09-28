@@ -4,7 +4,7 @@ import { formatI18nT } from 'shared';
 import Link from 'ui/Link/Link';
 
 import classes from './FAQ.module.scss';
-import Item, { type IProps as QA } from './Item/Item';
+import Card, { type IProps as QA } from './Card/Card';
 
 export default FAQ;
 
@@ -59,7 +59,7 @@ function FAQ() {
         </div>
       </div>
       <div className={classes.list}>
-        {data.map((qa, index) => <Item key={index} {...qa}/>)}
+        {data.map((qa, index) => <Card key={index} {...qa}/>)}
       </div>
     </>
   );
