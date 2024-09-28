@@ -28,7 +28,8 @@ export default function Catalogue(props: IProps) {
   }
 
   return (
-    <div data-bcalternate className={classes.wrapper}>
+    <>
+      <div data-bcalternate/>
       <div className={classes.header}>
         <h2 className={classes.header__title}>Курсы</h2>
         <div className={classes.header__desc}>Интерактивные уроки для ежедневной практики. Развивают насмотренность, помогают оставаться в форме.</div>
@@ -38,6 +39,6 @@ export default function Catalogue(props: IProps) {
           {courses.map(course => <CourseCard.BASE key={course.id} course={course}/>)}
         </div>
       </div>
-    </div>
+    </>
   );
 }

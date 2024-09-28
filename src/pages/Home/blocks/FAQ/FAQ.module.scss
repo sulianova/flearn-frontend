@@ -1,17 +1,5 @@
 @import 'styles/index';
 
-.wrapper {
-  @include is-beige;
-  background-color: var(--color-background-alternate);
-
-  padding: set-calc(100) set-calc(200) set-calc(50);
-  border-radius: 0;
-
-  @include set-media(md) {
-    padding: set-calc(64) set-calc(8);
-  }
-}
-
 .header {
   position: relative;
 

@@ -1,16 +1,6 @@
 @import 'styles/index';
 
 .wrapper {
-  @include is-beige;
-  background-color: var(--color-background-default);
-  position: relative;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  padding: set-calc(150) set-calc(200) set-calc(150);
-
   @include set-media(md) {
     margin: 0 0;
     padding: 0 0;

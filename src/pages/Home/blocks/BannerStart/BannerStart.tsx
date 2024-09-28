@@ -12,8 +12,7 @@ interface IProps {
 
 export default function BannerStart(props: IProps) {
   return (
-    <div data-bcalternate className={classes.wrapper}>
-      <div className={classes.card}>
+      <div data-bannerstart className={classes.card}>
         <span className={classes.title}>Развивайте насмотренность, тренируясь по 5&#160;минут в&#160;день</span>
         <div className={classes.actions}>
             {authService.isAuthenticated ? (
@@ -33,6 +32,5 @@ export default function BannerStart(props: IProps) {
             )}
           </div>
       </div>
-    </div>
   );
 }

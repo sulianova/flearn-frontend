@@ -11,12 +11,14 @@
 
   display: flex;
   flex-direction: column;
+  width: 80%;
 
   @include set-media(md) {
     position: relative;
 
     display: flex;
     flex-direction: column;
+    width: 100%;
 
     border-radius: set-calc($border-radius-20);
   }
@@ -38,13 +40,13 @@
 
   @include font-20-normal-paragraph;
   color: var(--color-content-primary);
-  font-family: $font-family-medium;
+  font-family: $font-family-bold;
 
-  padding-bottom: set-calc(20);
+  padding-bottom: set-calc(16);
   cursor: pointer;
 
   @include set-media(md) {
-    padding-bottom: set-calc(10);
+    padding-bottom: set-calc(8);
   }
 }
 

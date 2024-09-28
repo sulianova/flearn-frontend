@@ -12,10 +12,10 @@ interface IProps {
 
 export default function Header(props: IProps) {
   return (
-    <div className={classes.__}>
+    <div data-header className={classes.header}>
       <div className={classes.inner}>
-        <div className={classes.headerWrapper}>
-          <h1 className={classes.headerTitle}>
+        <div className={classes.wrapper}>
+          <h1 className={classes.title}>
             <span>Учите иллюстрацию бесплатно, весело, эффективно!</span>
           </h1>
           <div className={classes.descriptionWrapper }>
@@ -25,17 +25,17 @@ export default function Header(props: IProps) {
           <div className={classes.actions}>
             {authService.isAuthenticated ? (
               <Link
-                className={classes.actionsBtn}
+                className={classes.actions__btn}
                 to={URLSections.EmptyProfile.to()}
               >
-                <div className={classes.text}>Начать учиться</div>
+                Начать учиться
               </Link>
             ) : (
               <div
-                className={classes.actionsBtn}
+                className={classes.actions_btn}
                 onClick={props.onNotAuthedClick}
               >
-                <div className={classes.text}>Начать учиться</div>
+                Начать учиться
               </div>
             )}
           </div>

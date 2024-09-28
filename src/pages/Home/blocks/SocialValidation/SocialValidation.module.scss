@@ -1,13 +1,5 @@
 @import 'styles/index';
 
-.wrapper {
-  padding: set-calc(150) 0 0;
-
-  @include set-media(md) {
-    padding: set-calc(64) 0 0;
-  }
-}
-
 .header {
   position: relative;
 

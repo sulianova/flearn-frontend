@@ -11,7 +11,6 @@ import Header from './blocks/Header/Header';
 import DecisionForm from './blocks/DecisionForm/DecisionForm';
 import StudyProcess from './blocks/StudyProcess/StudyProcess';
 import FAQ from './blocks/FAQ/FAQ';
-import Explain from './blocks/Explain/Explain';
 import SocialValidation from './blocks/SocialValidation/SocialValidation';
 
 import classes from './Home.module.scss';
@@ -31,9 +30,6 @@ export default function Home() {
   const blocks = [
     <StudyProcess 
       key='StudyProcess'
-    />,
-    <Explain 
-      key='Explain'
     />,
     <BannerStart
     key='BannerStart'

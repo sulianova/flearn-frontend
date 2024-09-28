@@ -47,7 +47,7 @@
 }
 
 html {
-  font-family: $font-family;
+  font-family: $font-family, "Segoe UI", Roboto, "Helvetica Neue" ,Arial, sans-serif;
   font-size: set-calc(18);
   line-height: set-calc(28);
   font-weight: 500;

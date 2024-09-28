@@ -1,6 +1,6 @@
 @import 'styles/index';
 
-.__ {
+.header {
   position: relative;
 
   display: flex;
@@ -66,7 +66,7 @@
   }
 }
 
-.headerWrapper {
+.wrapper {
   position: relative;
 
   display: flex;
@@ -74,7 +74,7 @@
   align-items: center;
 }
 
-.headerTitle {
+.title {
   margin: 0 0 set-calc(60);
 
   @include font-40-normal-header;
@@ -130,7 +130,7 @@
   }
 }
 
-.actionsBtn {
+.actions__btn {
   @include btn;
   @include button-large;
 

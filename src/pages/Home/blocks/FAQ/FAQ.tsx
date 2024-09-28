@@ -40,13 +40,14 @@ const data: QA[] = [
   },
   {
     question: 'У вас есть скидки для школьников и студентов?',
-    answer: 'Да, у нас есть скидка 62.5% для flearn Pro на 3 месяца. Чтобы получить скидку, пришлите на почту flearn.info@gmail.com подтверждение о том, что вы учитесь в гос. учреждении. Подойдет справка об обучении или скан студенческого билета.',
+    answer: 'Да, у нас есть скидка 65% для flearn Pro на 3 месяца. Чтобы получить скидку, пришлите на почту flearn.info@gmail.com подтверждение о том, что вы учитесь в гос. учреждении. Подойдет справка об обучении или скан студенческого билета.',
   },
 ];
 
 function FAQ() {
   return (
-    <div className={classes.wrapper}>
+    <>
+      <div data-bcalternate/>
       <div className={classes.header}>
         <div className={classes.header__title}>Вопросы и ответы</div>
         <div className={classes.header__description}>
@@ -60,6 +61,6 @@ function FAQ() {
       <div className={classes.list}>
         {data.map((qa, index) => <Item key={index} {...qa}/>)}
       </div>
-    </div>
+    </>
   );
 }

@@ -6,10 +6,10 @@
 }
 
 .section:not(:last-child) {
-  margin-bottom: set-calc(150);
+  margin-bottom: set-calc(80);
 
   @include set-media(md) {
-    margin-bottom: set-calc(80);
+    margin-bottom: set-calc(64);
   }
 }
 
@@ -19,6 +19,53 @@
   }
 }
 
+[data-header] + .section:has([data-bcalternate]) {
+  padding-top: set-calc(80);
+
+  @include set-media(md) {
+    padding-top: set-calc(64);
+  }
+}
+
 .section:has([data-bcalternate]) {
   margin-bottom: 0;
+
+  @include is-beige;
+  background-color: var(--color-background-alternate);
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 0 set-calc(200) set-calc(80);
+
+  @include set-media(md) {
+    padding: 0 set-calc($padding-xs-mob-page) set-calc(64);
+  }
+}
+
+.section:not(:has([data-bcalternate]))  + .section:has([data-bcalternate]) {
+  padding-top: set-calc(80);
+
+  @include set-media(md) {
+    padding-top: set-calc(64);
+  }
+}
+
+.section:has([data-bcalternate]) + .section:not(:has([data-bcalternate])) {
+  margin-top: set-calc(80);
+
+  @include set-media(md) {
+    margin-top: set-calc(64);
+  }
+}
+
+.section:has([data-bannerstart]) {
+
+  @include set-media(md) {
+    width: set-calc(16, true, 100%);
+    left: set-calc(-8);
+    
+    padding: 0;
+    margin: 0;
+  }
 }
