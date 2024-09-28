@@ -1,6 +1,6 @@
 @import 'styles/index';
 
-.item {
+.wrapper {
   position: relative;
 
   padding: set-calc(24);
@@ -22,7 +22,7 @@
   }
 }
 
-.item:not(:last-child) {
+.wrapper:not(:last-child) {
   margin-bottom: set-calc(8);
 
   @include set-media(md) {
@@ -31,27 +31,25 @@
 }
 
 
-.itemQuestion {
+.title {
   display: flex;
   align-items: start;
   justify-content: space-between;
+
+  @include font-20-normal-paragraph;
+  color: var(--color-content-primary);
+  font-family: $font-family-medium;
 
   padding-bottom: set-calc(20);
   cursor: pointer;
 
   @include set-media(md) {
-    padding-bottom: 0;
+    padding-bottom: set-calc(10);
   }
 }
 
-.itemQuestionText {
-  @include font-20-normal-paragraph;
-  color: var(--color-content-primary);
-  font-family: $font-family-medium;
-  max-width: 80%;
-}
 
-.itemArrow {
+.arrow {
   @include icon-medium;
 
   margin-top: set-calc(-16);
@@ -64,26 +62,24 @@
   }
 }
 
-.itemArrowExpended {
+.arrow_expended {
   transform: rotate(180deg);
 }
 
-.itemAnswer {
+.description {
   height: 0;
   overflow: hidden;
   transition: height $d-collapse linear;
 }
 
-.itemAnswerExpanded {
-  transition: height $d-expansion cubic-bezier(0, 0, 0.15, 1);
-}
-
-.itemAnswerText {
-  margin-right: set-calc(48);
-  @include font-18-normal-ui;
+.description_expanded {
+  margin-right: set-calc(80);
+  @include font-18-normal-paragraph;
   color: var(--color-content-paragraph-primary);
 
   @include set-media(md) {
     margin: set-calc(20) 0 set-calc(20) 0;
   }
+
+  transition: height $d-expansion cubic-bezier(0, 0, 0.15, 1);
 }

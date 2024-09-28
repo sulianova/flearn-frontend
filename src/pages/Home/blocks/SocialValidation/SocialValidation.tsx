@@ -12,7 +12,7 @@ function SocialValidation() {
   return (
     <div className={classes.wrapper}>
       <div className={classes.header}>
-        <h2 className={cx({ header__title: true })} >100+ учеников любят flearn</h2>
+        <h2 className={cx({ header__title: true })}>Уже больше 100 человек учатся в flearn. И они очень довольны</h2>
       </div>
       <div className={classes.list}>
           <Item/>

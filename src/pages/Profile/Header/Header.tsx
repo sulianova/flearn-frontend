@@ -15,7 +15,7 @@ export default function Header() {
     return (
       <div className={classes.headerWrapper}>
         <div className={classes.headerTitle}>Продолжить обучение</div>
-        <div className={classes.header}>У вас пока нет курсов</div>
+        <div className={classes.header}>Начните курс, и он появится здесь</div>
         <div className={classes.actions}>
           <div className={classes.actionsBtn}>
             <Link

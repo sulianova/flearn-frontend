@@ -29,7 +29,7 @@
   }
 }
 
-.headerTitle {
+.header__title {
   @include font-56-normal-header;
   font-family: $font-family-extra-bold;
   padding: 0 0 set-calc(24);
@@ -43,7 +43,7 @@
 }
 
 
-.headerDesc {
+.header__description {
   @include font-18-normal-paragraph;
   color: var(--color-content-primary);
 
@@ -55,8 +55,6 @@
 
   @include set-media(md) {
     width: 100%;
-
-    @include set-typography( 16, 22, 500);
   }
 }
 

@@ -60,7 +60,7 @@
   @include set-media(md) {
     @include btn;
     @include button-large;
-    @include button-primary;
+    @include button-3d($color-palette-brand-300, $color-palette-brand-300, $color-palette-brand-400, $color-palette-brand-400, 0.9, 2px);
 
     width: 100%;
   }
