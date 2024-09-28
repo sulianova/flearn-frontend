@@ -30,37 +30,35 @@
   }
 }
 
-.header__desc {
+.header__description {
   grid-column: 1 / 9;
 
   @include font-20-normal-paragraph;
 }
 
 .animationWrapper {
-  // width: 100000px;
-  // transform: translateX(0px);
-  // animation: 42.116667s linear infinite marqueeAnimation;
-
-  // gap: set-calc(16);
-
-  // -webkit-backface-visibility: hidden;
+  position: relative;
 
   display: flex;
-  flex-direction: row;
+  overflow: hidden;
+  gap: set-calc(20);
+
+  width: set-calc(400, true, 100%);
+  left: set-calc(-200);
 
   @include set-media(md) {
     width: 100%;
-    transform: none;
-    animation: none;
-    gap: 8;
+    left: 0;
 
-    flex-direction: column;
+    gap: set-calc(12);
   }
 }
 
-.cardsWrapper {
+.group {
   display: flex;
   gap: set-calc(20);
+
+  animation: 120s linear infinite marqueeAnimation;
 
   @include set-media(md) {
     position: relative;
@@ -74,13 +72,7 @@
     padding: 0 set-calc(8) 0;
 
     gap: set-calc(12);
+
+    animation: none;
   }
-}
-
-.spinnerWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  min-height: set-calc(400);
 }

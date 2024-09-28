@@ -32,10 +32,13 @@ export default function Catalogue(props: IProps) {
       <div data-bcalternate/>
       <div className={classes.header}>
         <h2 className={classes.header__title}>Курсы</h2>
-        <div className={classes.header__desc}>Интерактивные уроки для ежедневной практики. Развивают насмотренность, помогают оставаться в форме.</div>
+        <div className={classes.header__description}>Интерактивные уроки для ежедневной практики. Развивают насмотренность, помогают оставаться в форме.</div>
       </div>
       <div className={classes.animationWrapper}>
-        <div className={classes.cardsWrapper}>
+        <div className={classes.group}>
+          {courses.map(course => <CourseCard.BASE key={course.id} course={course}/>)}
+          {courses.map(course => <CourseCard.BASE key={course.id} course={course}/>)}
+          {courses.map(course => <CourseCard.BASE key={course.id} course={course}/>)}
           {courses.map(course => <CourseCard.BASE key={course.id} course={course}/>)}
         </div>
       </div>

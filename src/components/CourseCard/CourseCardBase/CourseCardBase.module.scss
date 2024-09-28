@@ -5,7 +5,7 @@
   flex-direction: column;
 
   width: set-calc(280);
-  min-height: set-calc(380);
+  height: set-calc(380);
 
   border: 1px solid var(--color-card-border);
   border-radius: set-calc($border-radius-20);
@@ -25,7 +25,8 @@
     padding: set-calc(24);
 
     width: set-calc(280);
-    min-height: set-calc(320);
+    min-width: set-calc(280);
+    min-height: set-calc(380);
 
     &:hover {
       .btn {
