@@ -2,6 +2,8 @@ import { authService } from 'services';
 
 import Icon from 'ui/Icon/Icon';
 import GeneralPopup from 'ui/GeneralPopup/GeneralPopup';
+import { useState } from 'react';
+import Spinner from 'ui/Spinner/Spinner';
 
 interface IProps {
   text: string
@@ -10,6 +12,8 @@ interface IProps {
 }
 
 export default function SignupGooglePopup(props: IProps) {
+  const [loginPending, setLoginPending] = useState(false);
+
   return (
     <GeneralPopup
       close={props.close}
@@ -22,13 +26,20 @@ export default function SignupGooglePopup(props: IProps) {
             </div>
           </div>
           <GeneralPopup.Btn
-            onClick={() =>
+            className={GeneralPopup.Btn.classesWithCx.cx({ btn_primary: true, btn_loading: loginPending })}
+            onClick={() => {
+              setLoginPending(true);
               authService.authenticate()
                 .then(props.onSuccess)
-            }
+                .finally(() => setLoginPending(false));
+            }}
           >
-            <Icon icon='Google'/>
-            Продолжить с Google
+            {loginPending ? <Spinner/> : (
+              <>
+                <Icon icon='Google'/>
+                Продолжить с Google
+              </>
+            )}
           </GeneralPopup.Btn>
           <GeneralPopup.Oferta/>
         </>

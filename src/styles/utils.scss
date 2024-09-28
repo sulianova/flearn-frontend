@@ -182,12 +182,14 @@
   }
 }
 
-@mixin isLoading {
+@mixin button-loading {
   opacity: 0.8;
+  pointer-events: none;
+  cursor: default;
 }
 
 @mixin button-primary {
-  color: var(--color-content-inverted-primary);
+  color: $color-content-inverted-primary-light;
   background-color: var(--primary-color);
 
   &:hover {

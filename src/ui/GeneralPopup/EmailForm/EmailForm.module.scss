@@ -33,7 +33,7 @@
 }
 
 .isLoading {
-  @include isLoading;
+  @include button-loading;
 }
 
 .Error {

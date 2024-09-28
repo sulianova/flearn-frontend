@@ -12,6 +12,7 @@ import { formatI18nT } from 'shared';
 
 import Icon from 'ui/Icon/Icon';
 import GeneralPopup from 'ui/GeneralPopup/GeneralPopup';
+import Spinner from 'ui/Spinner/Spinner';
 
 const t = formatI18nT('SignupToCoursePopup');
 
@@ -28,6 +29,7 @@ export default function SignupToCoursePopup(props: Readonly<IProps>) {
   const firstLesson = lessonService.useLessons({ courseId: course.id, topicOrder: 1, orderInTopic: 1 }).at(0);
 
   const [orderEmail, setOrderEmail] = useState<string | null>(null);
+  const [loginPending, setLoginPending] = useState(false);
 
   if (!orderEmail) {
     return (
@@ -72,7 +74,9 @@ export default function SignupToCoursePopup(props: Readonly<IProps>) {
             </div>
           </div>
           <GeneralPopup.Btn
-            onClick={() =>
+            className={GeneralPopup.Btn.classesWithCx.cx({ btn_primary: true, btn_loading: loginPending })}
+            onClick={() => {
+              setLoginPending(true);
               authService.authenticate()
                 .then(() => {
                   analyticsService.logEvent({ type: analyticsService.event.ButtonClickedStartStudy });
@@ -82,11 +86,15 @@ export default function SignupToCoursePopup(props: Readonly<IProps>) {
                     navigate(URLSections.Profile.to({ courseId: course.id }));
                   }
                 })
-            }
-            className={GeneralPopup.Btn.classesWithCx.btn_primary}
+                .finally(() => setLoginPending(false));
+            }}
           >
-            <Icon icon='Google'/>
-            {t('login')}
+            {loginPending ? <Spinner/> : (
+              <>
+                <Icon icon='Google'/>
+                Продолжить с Google
+              </>
+            )}
           </GeneralPopup.Btn>
           <GeneralPopup.Oferta/>
         </>

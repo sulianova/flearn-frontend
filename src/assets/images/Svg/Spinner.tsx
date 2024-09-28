@@ -5,8 +5,8 @@ interface IProps {
   height?: number | string
 }
 
-export function Spinner({ width = '', height = ''}: IProps) {
-  return <Tadpole width={width} height={height} color="var(--primary-color)"/>
+export function Spinner({ width = '', height = '' }: IProps) {
+  return <Tadpole width={width} height={height} color="currentColor"/>
   // return <TwoSeventyRing color="var(--primary-color)"/>;
 }
 

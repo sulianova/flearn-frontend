@@ -17,5 +17,9 @@
     @include button-special(var(--color-content-inverted-primary), var(--color-accent-promo));
   }
 
+  &_loading {
+    @include button-loading;
+  }
+
   width: 100%;
 }

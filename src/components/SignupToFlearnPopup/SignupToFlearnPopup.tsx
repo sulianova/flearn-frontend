@@ -9,6 +9,7 @@ import { URLSections } from 'router';
 
 import Icon from 'ui/Icon/Icon';
 import GeneralPopup from 'ui/GeneralPopup/GeneralPopup';
+import Spinner from 'ui/Spinner/Spinner';
 
 const t = formatI18nT('SignupToFlearnPopup');
 
@@ -20,6 +21,7 @@ export default function SignupToFlearnPopup(props: Readonly<IProps>) {
   const navigate = useNavigate();
 
   const [orderEmail, setOrderEmail] = useState<string | null>(null);
+  const [loginPending, setLoginPending] = useState(false);
 
   if (!orderEmail) {
     return (
@@ -59,17 +61,23 @@ export default function SignupToFlearnPopup(props: Readonly<IProps>) {
             </div>
           </div>
           <GeneralPopup.Btn
-              onClick={() =>
+              onClick={() => {
+                setLoginPending(true);
                 authService.authenticate()
-                .then(() => {
-                  analyticsService.logEvent({ type: analyticsService.event.ButtonClickedStartStudy });
-                  navigate(URLSections.EmptyProfile.to());
-                })
-              }
-              className={GeneralPopup.Btn.classesWithCx.btn_primary}
+                  .then(() => {
+                    analyticsService.logEvent({ type: analyticsService.event.ButtonClickedStartStudy });
+                    navigate(URLSections.EmptyProfile.to());
+                  })
+                  .finally(() => setLoginPending(false));
+              }}
+              className={GeneralPopup.Btn.classesWithCx.cx({ btn_primary: true, btn_loading: loginPending })}
           >
-            <Icon icon='Google'/>
-            {t('login')}
+            {loginPending ? <Spinner/> : (
+              <>
+                <Icon icon='Google'/>
+                {t('login')}
+              </>
+            )}
           </GeneralPopup.Btn>
           <GeneralPopup.Oferta/>
         </>
