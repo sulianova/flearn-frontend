@@ -1,16 +1,24 @@
-import { i18n } from 'shared';
-import { v4 } from 'uuid';
+import classNames from 'classnames/bind';
+import type { DetailedHTMLProps, InputHTMLAttributes } from 'react';
 
-import { Fragment } from 'react';
+import { useGetId } from 'hooks';
+import { i18n } from 'shared';
+
 import classes from './InputField.module.scss';
 
-export default InputField;
+const cx = classNames.bind(classes);
 
-export interface IProps {
-  className?: string
+export interface IProps
+  extends Omit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>,
+  'onChange' | 'id' | 'type' | 'name' | 'placeholder' | 'size'>
+{
   variant: 'Name' | 'Email' | 'Phone'
+  size: 'lg' | 'md'
   value?: string
   onChange?: (v: string) => void
+  state?: 'idle' | 'error'
+  label?: string
+  caption?: string
 }
 
 const type = {
@@ -19,24 +27,47 @@ const type = {
   'Phone': 'tel',
 } as const;
 
-function InputField(props: IProps) {
-  const id = v4();
+export default function InputField(props: IProps) {
+  const {
+    variant,
+    size,
+    value,
+    onChange,
+    state = 'idle',
+    label,
+    caption,
+    ...inputProps
+  } = props;
+
+  const getId = useGetId();
+
   return (
-    <div className={classes.wrapper}>
-      {/* <div className={classes.label}>inputLabel</div> */}
-      <label htmlFor={id}/>
+    <div className={classes.wrapper} {...{ [`data-input-state-${state}`]: true }}>
+      {label && (
+        <label htmlFor={getId()} className={cx({ label: true, label_disabled: inputProps.disabled })}>
+          {label}
+        </label>
+      )}
       <input
-        id={id}
-        name={props.variant.toLocaleLowerCase()}
-        type={type[props.variant]}
-        placeholder={i18n.t(`input${props.variant}.placeholder`)}
-        className={props.className}
-        required
-        value={props.value}
+        {...inputProps}
+        id={getId()}
+        name={variant.toLocaleLowerCase()}
+        type={type[variant]}
+        placeholder={i18n.t(`input${variant}.placeholder`)}
+        className={cx({
+          input: true,
+          input_empty: !value,
+          [`input_${size}`]: true,
+          [`input_${state}`]: true,
+        }, props.className)}
+        value={value}
         onChange={e => props.onChange?.(e.target.value)}
       />
-      {/* <span className={classes.placeholder}>placeholder</span> */}
-      {/* <div className={classes.caption}>inputCaption</div> */}
+      {caption && (
+        <div className={cx({ caption: true, [`caption_${state}`]: true, caption_disabled: inputProps.disabled })}>
+          {caption}
+        </div>
+      )}
     </div>
   );
 }

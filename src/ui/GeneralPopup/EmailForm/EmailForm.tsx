@@ -9,16 +9,18 @@ import Icon from 'ui/Icon/Icon';
 
 import classes from './EmailForm.module.scss';
 import classesInputField from './InputField.module.scss';
+import { validators } from 'utils/validators';
 
 const cx = classNames.bind(classes);
 const cx2 = classNames.bind(classesInputField);
 
 interface IFormData {
   email: string
-  state: { type: 'Idle' } |  { type: 'Loading' } | { type: 'Success' } | { type: 'Error', error: Error }
+  emailValid: boolean
+  state: { type: 'Idle' } | { type: 'Loading' } | { type: 'Success' } | { type: 'Error', error: Error }
 }
 
-const initialFormData: IFormData = { email: '', state: { type: 'Idle' } };
+const initialFormData: IFormData = { email: '', emailValid: true,  state: { type: 'Idle' } };
 
 interface IProps {
   submitText: string
@@ -35,10 +37,13 @@ export default function EmailForm({ submitText, handleSubmit }: IProps) {
         onSubmit={isValid(formData) ? () => submit({ formData, setFormData, handleSubmit }) : undefined}
       >
           <InputField
-            className={cx2({ input: true, isError: formData.state.type === 'Error', isValid: isValid(formData) })}
             variant='Email'
+            size="lg"
             value={formData.email}
             onChange={v => setFormData(d => ({ ...d, email: v }))}
+            state={formData.emailValid ? 'idle' : 'error'}
+            onBlur={() => setFormData(d => ({ ...d, emailValid: validators.email(d.email) }))}
+            caption={formData.emailValid ? undefined : 'Введите верный email'}
           />
           {formData.state.type === 'Error' && <span className={classes.Error}>{formData.state.error.message}</span>}
           <button
@@ -62,8 +67,8 @@ export default function EmailForm({ submitText, handleSubmit }: IProps) {
 }
 
 function isValid(formData: IFormData) {
-  const { email, state } = formData;
-  return email && state.type !== 'Loading';
+  const { emailValid, state } = formData;
+  return emailValid && state.type !== 'Loading';
 }
 
 async function submit(props: {
