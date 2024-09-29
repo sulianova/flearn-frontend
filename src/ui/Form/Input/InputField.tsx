@@ -10,10 +10,9 @@ const cx = classNames.bind(classes);
 
 export interface IProps
   extends Omit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>,
-  'onChange' | 'id' | 'type' | 'name' | 'placeholder' | 'size'>
+  'onChange' | 'id' | 'type' | 'name' | 'placeholder' >
 {
   variant: 'Name' | 'Email' | 'Phone'
-  size: 'lg' | 'md'
   value?: string
   onChange?: (v: string) => void
   state?: 'idle' | 'error'
@@ -30,7 +29,6 @@ const type = {
 export default function InputField(props: IProps) {
   const {
     variant,
-    size,
     value,
     onChange,
     state = 'idle',
@@ -56,9 +54,8 @@ export default function InputField(props: IProps) {
         placeholder={i18n.t(`input${variant}.placeholder`)}
         className={cx({
           input: true,
-          input_empty: !value,
-          [`input_${size}`]: true,
-          [`input_${state}`]: true,
+          empty: !value,
+          [`${state}`]: true,
         }, props.className)}
         value={value}
         onChange={e => props.onChange?.(e.target.value)}

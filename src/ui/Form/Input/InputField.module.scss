@@ -6,49 +6,43 @@
 }
 
 .label {
-  @include font-12-normal-ui;
-  font-family: $font-family-medium;
-
-  margin-left: set-calc(8);
-  margin-bottom: set-calc(4);
-
-  &_disabled {
-    color: var(--color-content-tertiary);
-  }
-}
-
-.input {
-  @include input;
-  @include input-normal;
-
-  width: 100%;
-
-  &_empty {
-    @include input-empty;
-  }
-
-  &_lg {
-    @include input-large;
-  }
-
-  &_md {
-    @include input-medium;
-  }
+  @include input-label;
 }
 
 .caption {
-  @include font-10-normal-ui;
-  font-family: $font-family;
-  color: var(--color-content-tertiary);
+  @include input-caption;
 
-  margin-top: set-calc(4);
-  margin-left: set-calc(8);
-
-  &_error {
-    color: var(--color-accent-error);
-  }
-
-  &_disabled {
-    color: var(--color-content-tertiary);
-  }
+  // &_disabled {
+  //   color: var(--color-content-tertiary);
+  // }
 }
+
+.empty {
+  @include input-empty;
+}
+
+.error {
+  @include input-alert;
+}
+
+.valid {
+  @include input-normal;
+}
+
+// .placeholder {
+//   font-size: 16px;
+//   position: absolute;
+//   top: 16px;
+//   left: 18px;
+//   color: var(--text-secondary-color);
+//   transition: transform .2s ease-in-out;
+//   pointer-events: none;
+//   overflow: hidden;
+//   white-space: nowrap;
+//   text-overflow: ellipsis;
+//   max-width: calc(100% - 36px);
+// }
+
+// input:focus ~ .placeholder {
+//   transform: translate(-14%, -44%) scale(.7);
+// }

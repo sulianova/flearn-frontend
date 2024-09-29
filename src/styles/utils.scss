@@ -536,40 +536,50 @@
   &:is(:-webkit-autofill, :autofill, :-webkit-autofill:focus, :-webkit-autofill:hover) {
     background-color: transparent;
     background: transparent;
-    color: var(--color-background-glassy-d);
+    color: var(--color-content-primary);
   }
 
   &:focus {
     border-color: var(--color-accent-notice);
     background-color: transparent;
-  }
-
-  [data-input-state-error] & {
-    border-color: var(--color-accent-error);
-  }
-  [data-input-state-error] &:focus {
-    border-color: var(--color-accent-error);
+    color: var(--color-content-primary);
   }
 
   &:disabled {
     border-color: transparent;
     background-color: var(--color-background-glassy-a);
     color: var(--color-background-glassy-d);
+
+    &+ .caption {
+      color: var(--color-content-tertiary);
+    }
   }
-
 }
 
-@mixin input-empty {
-  color: var(--color-background-glassy-d);
+@mixin input-caption {
+  @include font-10-normal-ui;
+  font-family: $font-family;
+  color: var(--color-content-tertiary);
+
+  margin-top: set-calc(4);
+  margin-left: set-calc(8);
 }
 
-@mixin input-normal {
-  color: var(--color-content-primary);
-  background-color: transparent;
+@mixin input-label {
+  @include font-12-normal-ui;
+  font-family: $font-family-medium;
+
+  margin-left: set-calc(8);
+  margin-bottom: set-calc(4);
+
+  &_disabled {
+    color: var(--color-content-tertiary);
+  }
 }
 
 @mixin input-large {
-  padding: set-calc(23) set-calc(16);
+  height: set-calc(64);
+  padding: 0 set-calc(16);
 
   border-width: 1.5px;
   border-radius: set-calc($border-radius-12);
@@ -578,7 +588,8 @@
 }
 
 @mixin input-medium {
-  padding: set-calc(14) set-calc(12);
+  height: set-calc(44);
+  padding: 0 set-calc(12);
 
   border-width: 1px;
   border-radius: set-calc($border-radius-8);
@@ -588,7 +599,29 @@
 
 @mixin input-alert {
   border-color: var(--color-accent-error);
+
+  [data-input-state-error] & {
+    border-color: var(--color-accent-error);
+
+    &:focus {
+      border-color: var(--color-accent-error);
+    }
+  }
+
+  &+ .caption {
+    color: var(--color-accent-error);
+  }
 }
+
+@mixin input-normal {
+  color: var(--color-content-primary);
+  background-color: transparent;
+}
+
+@mixin input-empty {
+  color: var(--color-background-glassy-d);
+}
+
 
 @mixin rounded($height) {
   border-radius: calc(set-calc($height) / 2)

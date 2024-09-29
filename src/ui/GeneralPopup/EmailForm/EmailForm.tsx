@@ -8,11 +8,9 @@ import Spinner from 'ui/Spinner/Spinner';
 import Icon from 'ui/Icon/Icon';
 
 import classes from './EmailForm.module.scss';
-import classesInputField from './InputField.module.scss';
 import { validators } from 'utils/validators';
 
 const cx = classNames.bind(classes);
-const cx2 = classNames.bind(classesInputField);
 
 interface IFormData {
   email: string
@@ -38,11 +36,11 @@ export default function EmailForm({ submitText, handleSubmit }: IProps) {
       >
           <InputField
             variant='Email'
-            size="lg"
             value={formData.email}
+            className={cx({ input: true })}
             onChange={v => setFormData(d => ({ ...d, email: v }))}
             state={formData.emailValid ? 'idle' : 'error'}
-            onBlur={() => setFormData(d => ({ ...d, emailValid: validators.email(d.email) }))}
+            onBlur={() => setFormData(d => ({ ...d, emailValid: true }))} //validators.email(d.email) }))}
             caption={formData.emailValid ? undefined : 'Введите верный email'}
           />
           {formData.state.type === 'Error' && <span className={classes.Error}>{formData.state.error.message}</span>}
