@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import classnames from 'classnames/bind';
 
 import type { ICourseCardInfo } from 'services/course.service';
 import { emailService } from 'services/email.service';
@@ -10,23 +11,27 @@ import Link from 'ui/Link/Link';
 import Icon from 'ui/Icon/Icon';
 
 import classes from './CourseCardExtended.module.scss';
+const cx = classnames.bind(classes);
 
 interface IProps {
   course: ICourseCardInfo
+  isHorizontal?: boolean
 }
 
-export default function CourseCardExtended({ course }: Readonly<IProps>) {
+export default function CourseCardExtended({ course, isHorizontal }: Readonly<IProps>) {
   const [clicked, setClicked] = useState(false);
   const content = (
     <>
       <div className={classes.icon}>
         <Icon {...course.icon}/>
       </div>
-      <h3 className={classes.title}>{course.title}</h3>
-      <div className={classes.description}>{course.introDescription}</div>
-      <div className={classes.meta}>
-        <p>{i18n.t(`catalogue.card.info.${course.level}`)}</p>
-        <p>{i18n.t(`lesson.p`, { count: course.metaData.lessonsAmount })}</p>
+      <div className={classes.content}>
+        <h3 className={classes.title}>{course.title}</h3>
+        <div className={classes.description}>{course.introDescription}</div>
+        <div className={classes.meta}>
+          <p>{i18n.t(`catalogue.card.info.${course.level}`)}</p>
+          <p>{i18n.t(`lesson.p`, { count: course.metaData.lessonsAmount })}</p>
+        </div>
       </div>
       <div className={classes.background}></div>
     </>
@@ -35,7 +40,7 @@ export default function CourseCardExtended({ course }: Readonly<IProps>) {
   if (!course.isDummy) {
     return (
       <Link 
-        className={classes.wrapper}
+        className={cx({wrapper: true, wrapper_horizontal: isHorizontal})}
         to={URLSections.Course.to({ courseId: course.id })}
       >
         {content}
@@ -43,7 +48,7 @@ export default function CourseCardExtended({ course }: Readonly<IProps>) {
     );
   }
   return (
-    <div className={classes.wrapper}
+    <div className={cx({wrapper: true, wrapper_horizontal: isHorizontal})}
       onClick={() => {
         setClicked(true);
         emailService.sendEmail({
@@ -53,14 +58,15 @@ export default function CourseCardExtended({ course }: Readonly<IProps>) {
         })
       }}
     >
+      <div className={classes.chips}>скоро</div>
       {content}
-      <div className={classes.btn}>
+      {/* <div className={classes.btn}>
         {
           !course.isDummy ? 'Подробнее'
           : !clicked ? 'Мне интересно'
           : 'Учли!'
         }
-      </div>
+      </div> */}
     </div>
   );
 }

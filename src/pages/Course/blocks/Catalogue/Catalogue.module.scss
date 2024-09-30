@@ -18,12 +18,12 @@
 .wrapper {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: set-calc(16);
 
   @include set-media(md) {
     display: flex;
     flex-direction: column;
-    gap: set-calc(8);
+    gap: set-calc(16);
   }
 }

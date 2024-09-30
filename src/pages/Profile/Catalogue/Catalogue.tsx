@@ -33,7 +33,7 @@ export default function Catalogue() {
     <>
       <h2 className={classes.section__title}>Что еще вам может понравиться</h2>
       <div className={classes.list}>
-        {courses.map(course => <CourseCard.EXTENDED key={course.id} course={course}/>)}
+        {courses.map(course => <CourseCard.EXTENDED key={course.id} course={course} isHorizontal={true}/>)}
       </div>
     </>
   );

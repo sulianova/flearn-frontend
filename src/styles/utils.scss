@@ -4,6 +4,7 @@
 @use "sass:meta";
 @use "sass:string";
 
+//general
 @function px-to-rem($list) {
   $rem-list: ();
 
@@ -58,6 +59,7 @@
   @include add-scale-md;
 }
 
+//layout
 @mixin is-beige {
   position: relative;
   background-color: transparent;
@@ -124,8 +126,58 @@
   }
 }
 
+//atomic
+@mixin key-link(
+  $color: var(--color-accent-promo-background)
+  ) {
+  position: relative;
+  display: inline-block;
+  color: inherit;
+  z-index: 1;
+
+  transition: all $d-hover ease-out 0s;
+  -o-transition: all $d-hover ease-out 0s;
+  -moz-transition: all $d-hover ease-out 0s;
+  -ms-transition: all $d-hover ease-out 0s;
+  -webkit-transition: all $d-hover ease-out 0s;
+  cursor: pointer;
+
+  width: fit-content;
+  -webkit-tap-highlight-color: transparent;
+
+  &:hover::before {
+    height: 100%;
+  }
+
+  @include set-media(md) {
+    &:hover::before {
+      height: 2px;
+    }
+  }
+
+  &::before {
+    position: absolute;
+    content: "";
+
+    bottom: 0;
+    left: -2px;
+    z-index: -1;
+
+    width: calc(100% + 4px);
+    height: 2px;
+
+    border-radius: set-calc(4);
+    background-color: $color;
+    transition: height .2s cubic-bezier(.25,.01,.25,1) 0s;
+  }
+}
+
 @mixin bc-yellow {
   background-color: var(--color-accent-promo-background);
+}
+
+@mixin rounded($height) {
+  border-radius: calc(set-calc($height) / 2)
 }
 
 //button
@@ -254,8 +306,8 @@
 }
 
 @mixin button-special( 
-  $color: $color-content-inverted-primary-dark,
-  $bc:  $color-highlight-yellow,
+  $color: var(--color-content-primary),
+  $bc:  var(--color-accent-promo-background),
   ) {
   background-color: $bc;
   color: $color;
@@ -544,6 +596,146 @@
   }
 }
 
+//chips
+@mixin chips {
+  @include btn;
+}
+
+@mixin chips-secondary {
+  background: var(--color-background-glassy-a);
+  color: var(--color-content-primary);
+
+  &:hover {
+    background: var(--color-background-glassy-b);
+  }
+
+  &:active {
+    background: var(--color-background-glassy-c);
+  }
+
+  &:disabled {
+    background: var(--color-background-glassy-c);
+    color: var(--color-background-glassy-d);
+  }
+
+  &_selected {
+    background: var(--color-content-primary);
+    color: var(--color-content-inverted-primary);
+  }
+
+  @include set-media(md) {
+    &:hover,
+    &:active {
+      background: transparent;
+    }
+  }
+}
+
+@mixin chips-special (
+  $color: var(--color-content-primary),
+  $bc:  var(--color-accent-promo-background),
+  ) {
+  background-color: $bc;
+  color: $color;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  @include set-media(md) {
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+@mixin chips-outline {
+  background: transparent;
+  color: var(--color-content-primary);
+  border: 1px solid var(--color-background-glassy-d);
+
+  &:hover {
+    background: var(--color-background-glassy-a);
+    border: 2px solid var(--color-background-glassy-d);
+  }
+
+  &:active {
+    background: var(--color-background-glassy-c);
+    border: 2px solid var(--color-background-glassy-d);
+  }
+
+  &:disabled {
+    background: var(--color-background-glassy-c);
+    color: var(--color-background-glassy-d);
+  }
+
+  &_selected {
+    background: transparent;
+    border: 2px solid var(--color-content-primary);
+  }
+
+  @include set-media(md) {
+    &:hover,
+    &:active {
+      background: transparent;
+    }
+  }
+}
+
+@mixin chips-30 {
+  height: set-calc(30);
+  @include rounded(30);
+
+  padding: 0 set-calc(12);
+
+  .content {
+    gap: set-calc(4);
+
+    svg {
+      width: set-calc(12);
+      height: set-calc(12);
+    }
+  }
+
+  @include font-12-normal-ui;
+}
+
+@mixin chips-44 {
+  height: set-calc(44);
+  @include round(44);
+
+  padding: 0 set-calc(16);
+
+  .content {
+    gap: set-calc(8);
+
+    svg {
+      width: set-calc(20);
+      height: set-calc(20);
+    }
+  }
+
+  @include font-16-normal-ui;
+}
+
+@mixin chips-64 {
+  height: set-calc(64);
+  @include round(64);
+
+  padding: 0 set-calc(20);
+
+  .content {
+    gap: set-calc(8);
+
+    svg {
+      width: set-calc(28);
+      height: set-calc(28);
+    }
+  }
+
+  @include font-20-normal-ui;
+}
+
 //input
 @mixin input {
   position: relative;
@@ -662,11 +854,7 @@
   color: var(--color-background-glassy-d);
 }
 
-
-@mixin rounded($height) {
-  border-radius: calc(set-calc($height) / 2)
-}
-
+//animation
 @mixin contentExpander {
   animation: theoryFragmentAppearance .3s;
   animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 0.1);
@@ -674,50 +862,7 @@
   animation-fill-mode: backwards;
 }
 
-@mixin key-link(
-  $color: var(--color-accent-promo-background)
-  ) {
-  position: relative;
-  display: inline-block;
-  color: inherit;
-  z-index: 1;
-
-  transition: all $d-hover ease-out 0s;
-  -o-transition: all $d-hover ease-out 0s;
-  -moz-transition: all $d-hover ease-out 0s;
-  -ms-transition: all $d-hover ease-out 0s;
-  -webkit-transition: all $d-hover ease-out 0s;
-  cursor: pointer;
-
-  width: fit-content;
-  -webkit-tap-highlight-color: transparent;
-
-  &:hover::before {
-    height: 100%;
-  }
-
-  @include set-media(md) {
-    &:hover::before {
-      height: 2px;
-    }
-  }
-
-  &::before {
-    position: absolute;
-    content: "";
-
-    bottom: 0;
-    left: -2px;
-    z-index: -1;
-
-    width: calc(100% + 4px);
-    height: 2px;
-
-    border-radius: set-calc(4);
-    background-color: $color;
-    transition: height .2s cubic-bezier(.25,.01,.25,1) 0s;
-  }
-}
+//keyframes
 
 @mixin keyframes($name) {
   @keyframes #{$name} {
