@@ -44,7 +44,7 @@ export default function CourseCardBase({ course }: Readonly<IProps>) {
     return (
       <Link 
         className={classes.wrapper}
-        to={URLSections.Landing.to({ courseId: course.id })}
+        to={URLSections.Course.to({ courseId: course.id })}
       >
         {content}
       </Link>

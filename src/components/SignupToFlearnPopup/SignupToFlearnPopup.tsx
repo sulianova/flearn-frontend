@@ -61,6 +61,7 @@ export default function SignupToFlearnPopup(props: Readonly<IProps>) {
             </div>
           </div>
           <GeneralPopup.Btn
+              className={GeneralPopup.Btn.classesWithCx.cx({ btn_primary: true, btn_loading: loginPending })}
               onClick={() => {
                 setLoginPending(true);
                 authService.authenticate()
@@ -70,7 +71,6 @@ export default function SignupToFlearnPopup(props: Readonly<IProps>) {
                   })
                   .finally(() => setLoginPending(false));
               }}
-              className={GeneralPopup.Btn.classesWithCx.cx({ btn_primary: true, btn_loading: loginPending })}
           >
             {loginPending ? <Spinner/> : (
               <>

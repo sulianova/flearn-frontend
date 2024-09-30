@@ -9,7 +9,7 @@ type TClassesNames =
   | 'btn_special'
   | 'btn_primary'
   | 'btn_invisible'
-  | 'btn_loading';
+  | 'btn_loading'
 
 interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
 

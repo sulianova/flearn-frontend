@@ -4,22 +4,17 @@
   @include btn;
   @include button-large;
 
+  width: 100%;
+
   &_primary {
     @include button-primary;
   }
 
   &_invisible {
-    @include button-secondary;
-    background-color: transparent;
+    @include button-invisible;
   }
 
   &_special {
     @include button-special(var(--color-content-inverted-primary), var(--color-accent-promo));
   }
-
-  &_loading {
-    @include button-loading;
-  }
-
-  width: 100%;
 }

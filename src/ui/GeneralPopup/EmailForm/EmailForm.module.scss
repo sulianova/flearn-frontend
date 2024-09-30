@@ -39,10 +39,6 @@
   color: var(--color-content-inverted-primary);
 }
 
-.isLoading {
-  @include button-loading;
-}
-
 .Error {
   color: var(--color-accent-error);
   @include font-14-normal-ui;

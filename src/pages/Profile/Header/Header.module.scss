@@ -164,7 +164,7 @@
 .currentLessonButton {
   @include btn;
   @include button-small;
-  @include button-primary;
+  @include button-special(var(--color-content-inverted-primary), var(--color-accent-promo));
 
 
   min-width: set-calc(160);

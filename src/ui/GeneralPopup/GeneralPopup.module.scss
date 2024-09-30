@@ -26,7 +26,7 @@
 
 .close {
   @include btn;
-  @include icon-button-black;
+  @include icon-button-invisible;
   @include icon-small;
 
   position: absolute;

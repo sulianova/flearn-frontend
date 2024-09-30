@@ -35,12 +35,10 @@ export default function CourseCardExtended({ course }: Readonly<IProps>) {
   if (!course.isDummy) {
     return (
       <Link 
-        className={classes.__}
+        className={classes.wrapper}
         to={URLSections.Course.to({ courseId: course.id })}
       >
-        <div className={classes.wrapper}>
-          {content}
-        </div>
+        {content}
       </Link>
     );
   }

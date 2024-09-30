@@ -147,6 +147,12 @@
 
   box-shadow: none;
 
+  &_loading {
+    opacity: 0.8;
+    cursor: default;
+    pointer-events: none;
+  }
+
   .content {
     display: flex;
     justify-content: center;
@@ -166,6 +172,9 @@
   &:disabled {
     cursor: default;
     pointer-events: none;
+
+    color: var(--color-background-glassy-d);
+    background: var(--color-background-glassy-c);
   }
 
   &:active {
@@ -182,23 +191,12 @@
   }
 }
 
-@mixin button-loading {
-  opacity: 0.8;
-  pointer-events: none;
-  cursor: default;
-}
-
 @mixin button-primary {
   color: $color-content-inverted-primary-light;
   background-color: var(--primary-color);
 
   &:hover {
-    opacity:0.9;
-  }
-
-  &:disabled {
-    color: var(--color-background-glassy-d);
-    background: var(--color-background-glassy-c);
+    background-color: var(--primary-color-hover);
   }
 
   @include set-media(md) {
@@ -216,14 +214,25 @@
     background-color: var(--color-background-btn-hover);
   }
 
-  &:disabled {
-    color: var(--color-background-glassy-d);
-    background: var(--color-background-glassy-c);
+  @include set-media(md) {
+    &:hover {
+      background-color: var(--color-background-btn);
+    }
+  }
+}
+
+@mixin button-invisible {
+  color: var(--color-content-primary);
+  background-color: transparent;
+
+  &:hover {
+    background-color: var(--color-background-glassy-b);
   }
 
   @include set-media(md) {
     &:hover {
-      background-color: var(--color-background-btn);
+      background-color: transparent;
+      color: var(--color-content-primary);
     }
   }
 }
@@ -234,11 +243,6 @@
 
   &:hover {
     background-color: var(--color-background-glassy-c);
-  }
-
-  &:disabled {
-    color: var(--color-background-glassy-d);
-    background: var(--color-background-glassy-b);
   }
 
   @include set-media(md) {
@@ -297,6 +301,7 @@
   $opacity: 1,
   $width: 2px,
   ) {
+
   box-shadow: 0 0 0 calc($width / 2) $color, 0 $width 0 $width $color;
   transition-property: all;
   transition-duration: $d-hover;
@@ -337,7 +342,7 @@
       height: set-calc(24);
     }
 
-    .loader svg {
+    .loader {
       width: set-calc(12);
       height: set-calc(12);
     }
@@ -362,7 +367,7 @@
       height: set-calc(24);
     }
 
-    .loader svg {
+    .loader {
       width: set-calc(12);
       height: set-calc(12);
     }
@@ -464,7 +469,7 @@
   }
 }
 
-@mixin icon-button-black {
+@mixin icon-button-invisible {
   background: transparent;
   color: var(--color-content-primary);
 
@@ -476,6 +481,11 @@
     background: var(--color-background-glassy-c);
   }
 
+  &:disabled {
+    background: var(--color-background-glassy-c);
+    color: var(--color-background-glassy-d);
+  }
+
   @include set-media(md) {
     &:hover,
     &:active {
@@ -484,7 +494,7 @@
   }
 }
 
-@mixin icon-button-secondary {
+@mixin icon-button-invisible-secondary {
   background: transparent;
   color: var(--color-content-tertiary);
 
@@ -494,6 +504,36 @@
 
   &:active {
     background: var(--color-background-glassy-c);
+  }
+
+  &:disabled {
+    background: var(--color-background-glassy-c);
+    color: var(--color-background-glassy-d);
+  }
+
+  @include set-media(md) {
+    &:hover,
+    &:active {
+      background: transparent;
+    }
+  }
+}
+
+@mixin icon-button-secondary {
+  background: var(--color-background-glassy-a);
+  color: var(--color-content-primary);
+
+  &:hover {
+    background: var(--color-background-glassy-b);
+  }
+
+  &:active {
+    background: var(--color-background-glassy-c);
+  }
+
+  &:disabled {
+    background: var(--color-background-glassy-c);
+    color: var(--color-background-glassy-d);
   }
 
   @include set-media(md) {
@@ -608,7 +648,7 @@
     }
   }
 
-  &+ .caption {
+  & + .caption {
     color: var(--color-accent-error);
   }
 }
