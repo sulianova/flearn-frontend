@@ -1,17 +1,25 @@
 @import 'styles/index';
 
 .title_subscription {
-  margin-bottom: set-calc(16);
+  position: relative;
 
   @include font-14-normal-ui;
   font-family: $font-family-medium;
   text-align: center;
+
+  .star_14 {
+    @include icon-size(20);
+
+    position: absolute;
+    top: set-calc(-7);
+    right: set-calc(-19.5);
+  }
 }
 
 .title_discount {
-  margin-bottom: set-calc(32);
+  margin-bottom: set-calc(14);
 
-  @include font-70-normal-header;
+  @include set-typography(70, 66, 500);
   font-family: $font-family-bold;
   text-align: center;
 }
@@ -20,7 +28,7 @@
   display: flex;
   gap: set-calc(14);
 
-  margin-bottom: set-calc(24);
+  margin: set-calc(10) 0;
 }
 
 .timer__item {
@@ -36,11 +44,11 @@
 
   padding: set-calc(10);
   border-radius: set-calc($border-radius-8);
-  background-color: var(--color-content-inverted-primary);
+  background-color: var(--color-background-glassy-inverted-d);
 
   @include font-18-normal-ui;
   color: var(--color-content-primary);
-  font-family: $font-family-bold;
+  font-family: $font-family-medium;
   text-align: center;
 
   &:not(:last-child)::after {
@@ -56,41 +64,59 @@
 
 .list {
   display: flex;
-  
   flex-direction: column;
-  gap: set-calc(2);
+  gap: set-calc(8);
 
-  margin-bottom: set-calc(24);
+  width: 100%;
+  margin: set-calc(22) 0 set-calc(30);
+
+  opacity: 0.8;
+
+  @include set-media(md) {
+    margin: set-calc(14) 0 set-calc(22);
+  }
 }
 
 .list__item {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  gap: set-calc(4);
 }
 
 .list__item__icon {
-  @include icon-medium;
-  padding: 0;
-
-  @include set-media(md) {
-    @include icon-small;
-    padding: 0;
-  }
+  @include icon-size(14);
 }
 
 .list__item__text {
-  @include font-18-normal-ui;
+  @include set-typography(16, 20, 500);
+  text-align: center;
   font-family: $font-family-medium;
 }
 
-// button + button {
-//   margin: set-calc(8) 0 0;
-// }
+.discountDescription {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: set-calc(4);
 
-// button {
-//   max-width: set-calc(180);
-// }
+  @include font-16-normal-ui;
+
+  span:first-child {
+    color: var(--color-accent-promo);
+    text-align: center;
+
+    text-decoration: line-through;
+  }
+
+  span:last-child {
+    color: var(--color-accent-promo);
+    text-align: center;
+
+    font-family: $font-family-bold;
+  }
+}
 
 .popup {
   --bg-modal-content: var(--color-accent-promo-background);

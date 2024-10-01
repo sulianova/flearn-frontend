@@ -53,13 +53,13 @@
 }
 
 .itemArrow {
-  @include icon-medium;
+  @include icon-medium-button;
 
   margin-top: set-calc(-16);
   transition: transform $d-hover ease-in-out;
 
   @include set-media(md) {
-    @include icon-small;
+    @include icon-small-button;
     margin-top: set-calc(-8);
   }
 }

@@ -50,4 +50,7 @@ export * from './UserFill';
 export * from './EmailSent';
 export * from './Google';
 export * from './Avatar';
-export * from './Checkmark'
+export * from './Checkmark';
+export * from './CheckmarkFill';
+export * from './Pro';
+export * from './Magic'

@@ -34,7 +34,10 @@ export default function PromoPopup() {
       containerClassname={classes.popup}
       close={() => discountService.hideBanner()}
     >
-      <div className={classes.title_subscription}>FLEARN PRO</div>
+      <div className={classes.title_subscription}>
+        <div className={classes.star_14}> <Icon icon='Magic'/></div>
+        FLEARN PRO
+      </div>
       <div className={classes.title_discount}>{`-${Math.floor(discount.discountPRC)}%`}</div>
       <div className={classes.timer}>
         <div className={classes.timer__item}>{cd.days}</div>
@@ -45,33 +48,35 @@ export default function PromoPopup() {
       <div className={classes.list}>
         <div className={classes.list__item}>
           <div className={classes.list__item__icon}>
-            <Icon icon='Checkmark'/>
+            <Icon icon='Pro'/>
           </div>
           <div className={classes.list__item__text}>Доступ ко всем урокам</div>
         </div>
         <div className={classes.list__item}>
           <div className={classes.list__item__icon}>
-            <Icon icon='Checkmark'/>
+            <Icon icon='Pro'/>
           </div>
-          <div className={classes.list__item__text}>Индивидуальная обратная связь</div>
+          <div className={classes.list__item__text}>Брифы с обратной связью</div>
         </div>
         <div className={classes.list__item}>
           <div className={classes.list__item__icon}>
-            <Icon icon='Checkmark'/>
+            <Icon icon='Pro'/>
           </div>
-          <div className={classes.list__item__text}>Телеграм-чат студентов</div>
+          <div className={classes.list__item__text}>Онлайн-наброски каждую неделю</div>
         </div>
+      </div>
+      <div className={classes.discountDescription}>
+        <span>2 990 ₽ </span>
+        <span>1 490 ₽ </span>
       </div>
       <GeneralPopup.Btn
         onClick={() => setBuyPopup(true)}
-        // className={GeneralPopup.Btn.classesWithCx.btn_secondary}
         className={GeneralPopup.Btn.classesWithCx.cx({ btn_special: true })}
       >
-        Купить
+        Забрать скидку
       </GeneralPopup.Btn>
       <GeneralPopup.Btn
         onClick={() => setBuyPopup(true)}
-        // className={GeneralPopup.Btn.classesWithCx.btn_secondary}
         className={GeneralPopup.Btn.classesWithCx.cx({ btn_invisible: true })}
       >
         Подробнее

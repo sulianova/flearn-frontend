@@ -23,7 +23,9 @@ export default function CourseCardExtended({ course, isHorizontal }: Readonly<IP
   const content = (
     <>
       <div className={classes.icon}>
-        <Icon {...course.icon}/>
+        <div className={classes.course}><Icon {...course.icon}/></div>
+        <div className={classes.star_18}> <Icon icon='Pro'/></div>
+        <div className={classes.star_12}> <Icon icon='Pro'/></div>
       </div>
       <div className={classes.content}>
         <h3 className={classes.title}>{course.title}</h3>

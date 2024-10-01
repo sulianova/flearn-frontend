@@ -38,31 +38,34 @@
 }
 
 .icon {
-  order: 1;
+  position: relative;
 
   padding: set-calc(16);
   background-color: var(--color-background-glassy-b);
   border-radius: 50%;
 
-  svg {
-    display: block;
-    width: set-calc(100);
-    height: set-calc(100);
-    color: inherit;
+  .star_18 {
+    @include icon-size(28);
+    position: absolute;
+    right: set-calc(30.205);
+    top: set-calc(3.046);
+
+    color: var(--color-accent-promo-background);
   }
-  
-  @include set-media(md) {
-    order: 1;
-    justify-content: flex-start;
-    align-items: start;
 
-    margin-top: set-calc(10);
-    margin-bottom: set-calc(10);
+  .star_12 {
+    @include icon-size(18);
+    position: absolute;
+    left: set-calc(47.7);
+    bottom: set-calc(6.3);
 
-    svg {
-      width: set-calc(88);
-      height: set-calc(88);
-    }
+    color: var(--color-accent-promo-background);
+  }
+
+  .course {
+    @include icon-size(100);
+    position: relative;
+    z-index: 2;
   }
 }
 
@@ -74,11 +77,10 @@
   justify-content: center;
   align-items: center;
 
-  order: 2;
+  gap: set-calc(10);
 
   @include set-media(md) {
     align-items: start;
-    order: 2;
   }
 }
 
@@ -92,8 +94,6 @@
   @include set-typography(20, 26, 500);
   color: var(--color-content-primary);
   font-family: $font-family-bold;
-
-  margin-bottom: set-calc(10);
 
   @include set-media(md) {
     @include set-typography(18, 22, 500);
@@ -141,5 +141,4 @@
 
   margin-top: auto;
   width: 100%;
-  order: 3;
 }

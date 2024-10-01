@@ -109,8 +109,8 @@
 
 .item {
   @include btn;
+  @include icon-small-button;
   @include icon-button-invisible-secondary;
-  @include icon-small;
 }
 
 .item[data-user-wrapper] {

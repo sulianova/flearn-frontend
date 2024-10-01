@@ -8,6 +8,7 @@
   justify-content: space-between;
   align-items: center;
 
+  gap: set-calc(10);
   @include font-18-normal-paragraph;
   color: var(--color-content-primary);
 
@@ -26,8 +27,8 @@
 
 .close {
   @include btn;
+  @include icon-small-button;
   @include icon-button-invisible;
-  @include icon-small;
 
   position: absolute;
   top: set-calc(16);
@@ -50,7 +51,7 @@
 }
 
 .header {
-  margin: 0 0 set-calc(40);
+  margin: 0 0 set-calc(30);
 }
 
 .title {
@@ -68,7 +69,8 @@
 }
 
 .title:not(:last-child) {
-  margin-bottom: set-calc(32);
+  margin-bottom: set-calc(24);
+  
   @include set-media(md) {
     margin-bottom: set-calc(16);
   }

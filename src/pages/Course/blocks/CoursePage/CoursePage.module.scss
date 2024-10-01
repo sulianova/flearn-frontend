@@ -253,7 +253,7 @@
 }
 
 .itemStatus {
-  @include icon-extra-small;
+  @include icon-extra-small-button;
 
   display: flex;
   align-items: center;
@@ -271,7 +271,7 @@
 }
 
 .locked {
-  @include icon-small;
+  @include icon-small-button;
 
   background-color: transparent;
   color: var(--color-content-tertiary);

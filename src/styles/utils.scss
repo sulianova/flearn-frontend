@@ -273,9 +273,15 @@
   }
 }
 
-@mixin button-invisible {
+@mixin button-invisible (
+  $height,
+  $border-radius
+) {
   color: var(--color-content-primary);
   background-color: transparent;
+
+  height: set-calc($height);
+  border-radius: set-calc($border-radius);
 
   &:hover {
     background-color: var(--color-background-glassy-b);
@@ -307,7 +313,7 @@
 
 @mixin button-special( 
   $color: var(--color-content-primary),
-  $bc:  var(--color-accent-promo-background),
+  $bc: var(--color-accent-promo-background),
   ) {
   background-color: $bc;
   color: $color;
@@ -455,7 +461,28 @@
 }
 
 //icon
-@mixin icon-medium {
+@mixin icon {
+  display: block;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+@mixin icon-size (
+  $size
+) {
+  width: set-calc($size);
+  height: set-calc($size);
+
+  svg {
+    display: block;
+
+    width: set-calc($size);
+    height: set-calc($size);
+    fill: currentColor;
+  }
+}
+
+@mixin icon-medium-button {
   padding: set-calc(16);
   border-radius: set-calc($border-radius-12);
 
@@ -477,7 +504,7 @@
   }
 }
 
-@mixin icon-small {
+@mixin icon-small-button {
   padding: set-calc(8);
   border-radius: set-calc($border-radius-8);
 
@@ -499,7 +526,7 @@
   }
 }
 
-@mixin icon-extra-small {
+@mixin icon-extra-small-button {
   padding: set-calc(3);
   border-radius: set-calc($border-radius-6);
 

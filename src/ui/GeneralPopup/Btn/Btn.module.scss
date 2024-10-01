@@ -4,17 +4,18 @@
   @include btn;
   @include button-large;
 
-  width: 100%;
-
   &_primary {
     @include button-primary;
-  }
-
-  &_invisible {
-    @include button-invisible;
+    width: 100%;
   }
 
   &_special {
-    @include button-special(var(--color-content-inverted-primary), var(--color-accent-promo));
+    @include button-special($color: var(--color-content-inverted-primary), $bc: var(--color-accent-promo));
+    width: 100%;
+  }
+
+  &_invisible {
+    @include button-invisible($height: 54, $border-radius: 12);
+    width: max-content;
   }
 }

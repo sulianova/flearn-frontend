@@ -170,7 +170,7 @@
 
 .icon {
   @include btn;
-  @include icon-medium;
+  @include icon-medium-button;
 
   padding: set-calc(4);
 
