@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from 'react';
 import type { ICourseFaqItem } from 'services/course.service';
 
 import Icon from 'ui/Icon/Icon';
-import Animated from 'ui/Animated';
 import Text from 'ui/Text/Text';
 
 import classes from './Card.module.scss';

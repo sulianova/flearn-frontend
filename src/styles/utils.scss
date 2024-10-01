@@ -482,8 +482,9 @@
   }
 }
 
-@mixin icon-medium-button {
-  padding: set-calc(16);
+@mixin icon-button-64 {
+  height: set-calc(64);
+  padding: 0 set-calc(16);
   border-radius: set-calc($border-radius-12);
 
   svg {
@@ -504,8 +505,9 @@
   }
 }
 
-@mixin icon-small-button {
-  padding: set-calc(8);
+@mixin icon-button-40 {
+  height: set-calc(40);
+  padding: 0 set-calc(8);
   border-radius: set-calc($border-radius-8);
 
   svg {
@@ -526,8 +528,9 @@
   }
 }
 
-@mixin icon-extra-small-button {
-  padding: set-calc(3);
+@mixin icon-button-32 {
+  height: set-calc(32);
+  padding: 0 set-calc(6);
   border-radius: set-calc($border-radius-6);
 
   svg {

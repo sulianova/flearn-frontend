@@ -109,7 +109,7 @@
 
 .item {
   @include btn;
-  @include icon-small-button;
+  @include icon-button-40;
   @include icon-button-invisible-secondary;
 }
 

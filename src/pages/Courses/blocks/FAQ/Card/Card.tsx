@@ -4,10 +4,9 @@ import { useEffect, useRef, useState } from 'react';
 import type { ICourseFaqItem } from 'services/course.service';
 
 import Icon from 'ui/Icon/Icon';
-import Animated from 'ui/Animated';
 import Text from 'ui/Text/Text';
 
-import classes from './Item.module.scss';
+import classes from './Card.module.scss';
 
 const cx = classNames.bind(classes);
 
@@ -29,25 +28,21 @@ export default function Item(props: IProps) {
   return (
     <>
       <div
-        className={cx({ item: true })}
+        className={cx({ wrapper: true })}
         onClick={() => setIsExpanded(!isExpanded)}
       >
-        <div className={classes.itemQuestion}>
-          <div className={classes.itemQuestionText}>
+        <div className={classes.title}>
             {question}
-          </div>
-          <div className={cx({ itemArrow: true, itemArrowExpended: isExpanded })}>
+          <div className={cx({ arrow: true, arrow_expended: isExpanded })}>
             <Icon icon='ChevronDown'/>
           </div>
         </div>
         <div
           ref={ref}
           style={{ height }}
-          className={cx({ itemAnswer: true, itemAnswerExpanded: isExpanded })}
+          className={cx({ description: true, description_expanded: isExpanded })}
         >
-          <div className={classes.itemAnswerText}>
-            {answer}
-          </div>
+          {answer}
         </div>
       </div>
     </>

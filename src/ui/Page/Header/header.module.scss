@@ -41,7 +41,7 @@
   padding: set-calc(16) set-calc(16);
 
   background-color: var(--color-background-glassy-inverted-d);
-  border-radius: set-calc(calc(78 / 2));
+  border-radius: set-calc($border-radius-20);
   border: 1px solid var(--color-card-border);
   
   .navContent,
@@ -247,7 +247,7 @@
 }
 
 .selectToggleIcon {
-  @include icon-extra-small-button;
+  @include icon-size(32);
 }
 
 .selectToggleIsOpened {

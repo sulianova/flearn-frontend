@@ -253,7 +253,7 @@
 }
 
 .itemStatus {
-  @include icon-extra-small-button;
+  @include icon-size(32);
 
   display: flex;
   align-items: center;
@@ -262,6 +262,7 @@
 
   color: var(--color-content-inverted-primary);
   background-color: var(--color-background-glassy-c);
+  padding: set-calc(6);
   border-radius: 50%;
 }
 
@@ -271,12 +272,10 @@
 }
 
 .locked {
-  @include icon-small-button;
+  @include icon-size(40);
 
   background-color: transparent;
   color: var(--color-content-tertiary);
-
-  padding: set-calc(0);
 }
 
 .itemBodyContainer {

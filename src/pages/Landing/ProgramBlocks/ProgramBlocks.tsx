@@ -2,7 +2,6 @@ import About from './About/About';
 import DecisionForm from './DecisionForm/DecisionForm';
 import Description from './Description/Description';
 import Explain from './Explain/Explain';
-import FAQ from './FAQ/FAQ';
 import Feedbacks from './Feedbacks/Feedbacks';
 import Gallery from './Gallery/Gallery';
 import Modules from './Modules/Modules';
@@ -46,7 +45,6 @@ export default function ProgramBlocks({ course }: IProps) {
     promoVideo && <Promo key='promo' promoVideo={promoVideo}/>,
     feedbacks && feedbacks.length && <Feedbacks key='feedbacks' feedbacks={feedbacks}/>,
     <DecisionForm key='decisionForm' course={course}/>,
-    faq && faq.length && <FAQ key='faq' faq={faq}/>,
   ].filter(e => e !== undefined && e !== null && e !== 0);
 
   return (
