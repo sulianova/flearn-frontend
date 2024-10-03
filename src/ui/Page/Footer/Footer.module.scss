@@ -4,7 +4,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 0 set-calc($padding-x-desk-page) set-calc(32);
+  padding: 0 set-calc($p-desk-page) set-calc(32);
   margin-top: set-calc(24);
 
   @include set-media(md) {
@@ -19,14 +19,14 @@
 
   margin-top: set-calc(-24);
   @include set-media(md) {
-    padding: set-calc(0) set-calc($padding-x-mob-page) set-calc(16);
+    padding: set-calc(0) set-calc($p-mob-page) set-calc(16);
     margin-top: set-calc(-16);
   }
 }
 
 .paddingLMS {
   @include set-media(md) {
-    padding: set-calc(0) set-calc($padding-x-mob-page) set-calc(16);
+    padding: set-calc(0) set-calc($p-mob-page) set-calc(16);
   }
 }
 
@@ -49,8 +49,8 @@
   border-radius: set-calc($border-radius-medium);
 
   @include set-media(md) {
-    left: set-calc(-$padding-xs-mob-page);
-    width: set-calc($padding-xs-mob-page * 2, true, 100%);
+    left: set-calc(-$p-mob-s-page);
+    width: set-calc($p-mob-s-page * 2, true, 100%);
     padding: set-calc(16);
 
   }

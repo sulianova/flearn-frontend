@@ -96,8 +96,8 @@
     border-left: 0 solid var(--color-card-border);
     border-right: 0 solid var(--color-card-border);
 
-    border-top-right-radius: set-calc($border-radius-medium);
-    border-top-left-radius: set-calc($border-radius-medium);
+    border-top-right-radius: set-calc($border-radius-20);
+    border-top-left-radius: set-calc($border-radius-20);
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
   }

@@ -12,7 +12,7 @@
   @include set-media(md) {
     position: relative;
     margin-bottom: set-calc(30);
-    padding-left: set-calc($padding-xs-mob-page);
+    padding-left: set-calc($p-mob-s-page);
   }
 }
 
@@ -209,7 +209,7 @@
   @include set-media(md) {
     display: block;
 
-    padding: set-calc(16) set-calc($padding-xs-mob-page) 0;
+    padding: set-calc(16) set-calc($p-mob-s-page) 0;
     width: 100%;
 
     @include set-typography(16, 24, 500);

@@ -37,7 +37,7 @@
 }
 
 .deskPaddingWEB {
-  margin: set-calc(8) set-calc(calc($padding-x-desk-page - 16)) 0;
+  margin: set-calc(8) set-calc(calc($p-desk-page - 16)) 0;
   padding: set-calc(16) set-calc(16);
 
   background-color: var(--color-background-glassy-inverted-d);
@@ -51,7 +51,7 @@
 
   @include set-media(md) {
     margin: 0 0 0;
-    padding: set-calc(12) set-calc($padding-xs-mob-page);
+    padding: set-calc(12) set-calc($p-mob-s-page);
 
     border-radius: 0;
     border: 1px solid transparent;
@@ -84,7 +84,7 @@
     backdrop-filter: blur(set-calc(0));
     border-bottom: 1px solid transparent;
 
-    padding: set-calc(12) set-calc($padding-xs-mob-page);
+    padding: set-calc(12) set-calc($p-mob-s-page);
 
     .logoWrapper {
       display: flex;

@@ -2,7 +2,7 @@
 
 .__ {
   @include is-grid-3;
-  grid-gap: set-calc($s-gap);
+  grid-gap: set-calc($gap-8);
 
   padding: set-calc(24);
   margin: set-calc(8) auto 0;

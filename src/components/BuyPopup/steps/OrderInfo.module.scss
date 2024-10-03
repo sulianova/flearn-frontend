@@ -2,7 +2,7 @@
 
 .wrapper {
   display: flex;
-  gap: set-calc($s-gap);
+  gap: set-calc($gap-8);
   justify-content: center;
 
   @include set-media(md) {

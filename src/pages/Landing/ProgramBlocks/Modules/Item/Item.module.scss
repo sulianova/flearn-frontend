@@ -225,7 +225,7 @@
 .tags {
   display: flex;
   flex-wrap: wrap;
-  gap: set-calc($s-gap);
+  gap: set-calc($gap-8);
 
   margin-top: set-calc(40);
   margin-bottom: 0;

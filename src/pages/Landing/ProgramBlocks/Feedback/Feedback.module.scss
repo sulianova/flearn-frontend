@@ -4,7 +4,7 @@
   margin: 0 0 set-calc(140);
   padding: set-calc(8) 0 0;
 
-  border-top: set-calc(calc($s-gap / 2)) solid var(--color-content-background-primary);
+  border-top: set-calc(calc($gap-8 / 2)) solid var(--color-content-background-primary);
 
   &Btn {
     grid-column: 3 / 4;

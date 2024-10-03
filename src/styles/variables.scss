@@ -7,12 +7,11 @@ $font-family-extra-bold: Montserrat-Extra-Bold, sans-serif;
 $font-family-article-light: Commissioner-Light, sans-serif;
 $font-family-article: Commissioner, sans-serif;
 $font-family-article-bold: Commissioner-Bold, sans-serif;
-$padding-x-desk-page: 200;
-$padding-xs-desk-page: 16;
-$padding-x-mob-page: 16;
-$padding-xs-mob-page: 8;
-$s-gap: 8;
-$mobile-gap: 6;
+
+$p-desk-page: 150;
+$p-desk-s-page: 16;
+$p-mob-page: 16;
+$p-mob-s-page: 8;
 
 $white: #fff;
 $black: #000000;
@@ -200,7 +199,7 @@ $shadow-medium-pressed: 0px 4px 8px 0px rgba(36, 36, 36, 0.08);
 $shadow-popup: 0px 24px 48px 0px rgba(0, 0, 0, 0.10);
 $shadow-menu: 0px 10px 48px 0px rgba(0, 0, 0, 0.10);
 
-//filter
+//blur
 $backdrop-filter: 5;
 
 //border
@@ -222,14 +221,14 @@ $border-radius-30: 30;
 $border-radius-50: 50;
 
 //opacity
-$opacity-100: 0.06;
-$opacity-200: 0.15;
+$opacity-60: 0.06;
+$opacity-150: 0.15;
 $opacity-300: 0.3;
-$opacity-400: 0.6;
-$opacity-500: 0.8;
-$opacity-600: 0.85;
-$opacity-700: 0.9;
-$opacity-800: 0.95;
+$opacity-600: 0.6;
+$opacity-800: 0.8;
+$opacity-850: 0.85;
+$opacity-90: 0.9;
+$opacity-950: 0.95;
 
 //z-index
 $z-index-100: 100;
@@ -238,6 +237,9 @@ $z-index-300: 300;
 $z-index-400: 400;
 $z-index-500: 500;
 
+
+//gap 
+$gap-8: 8;
 // CSS
 :root {
   --color-purple: #{$color-purple};

@@ -6,13 +6,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 set-calc(16) set-calc(32);
+  padding: 0 set-calc($p-desk-s-page) set-calc(32);
   gap: set-calc(24);
 
   width: 70%;
 
   @include set-media(md) {
-    padding: 0 set-calc($padding-xs-mob-page) set-calc(24);
+    padding: 0 set-calc($p-mob-s-page) set-calc(24);
     gap: set-calc(16);
 
     width: 100%;
@@ -29,14 +29,10 @@
   @include font-18-normal-paragraph;
   color: var(--color-content-primary);
 
-  width: 100%;
+  max-width: set-calc(600);
 
   a {
     @include key-link;
-  }
-
-  @include set-media(md) {
-    width: 100%;
   }
 }
 
@@ -45,7 +41,7 @@
 
   display: flex;
   flex-direction: column;
-  gap: set-calc(8);
+  gap: set-calc($gap-8);
 
   @include set-media(md) {
     position: relative;

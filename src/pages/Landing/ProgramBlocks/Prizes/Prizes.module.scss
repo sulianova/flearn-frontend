@@ -22,7 +22,7 @@
 .listItem {
   display: grid;
   grid-template-columns: repeat(2,minmax(0,1fr));
-  grid-column-gap: set-calc($s-gap);
+  grid-column-gap: set-calc($gap-8);
 
   @include set-media(md) {
     display: block;
