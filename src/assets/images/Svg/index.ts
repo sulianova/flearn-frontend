@@ -53,4 +53,5 @@ export * from './Avatar';
 export * from './Checkmark';
 export * from './CheckmarkFill';
 export * from './Pro';
+export * from './BrandPro';
 export * from './Magic'

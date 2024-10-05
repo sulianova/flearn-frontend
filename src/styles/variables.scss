@@ -1,5 +1,6 @@
 @use "sass:math";
 $rem-base: 18px;
+$font-family-logo: Montserrat-Logo, sans-serif;
 $font-family: Montserrat, sans-serif;
 $font-family-medium: Montserrat-Medium, sans-serif;
 $font-family-bold: Montserrat-Bold, sans-serif;
@@ -200,7 +201,7 @@ $shadow-popup: 0px 24px 48px 0px rgba(0, 0, 0, 0.10);
 $shadow-menu: 0px 10px 48px 0px rgba(0, 0, 0, 0.10);
 
 //blur
-$backdrop-filter: 5;
+$backdrop-filter: 15;
 
 //border
 $border-radius-small: 6;

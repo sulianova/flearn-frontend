@@ -18,7 +18,7 @@ interface IApi {
 
 export interface IProps {
     content: ReactNode | ((api: Omit<IApi, 'opened' | 'closing'>) => ReactNode)
-    children: ReactElement | ((api: IApi) => ReactElement)
+    children?: ReactElement | ((api: IApi) => ReactElement)
     preventContentOverflow?: boolean
     dropdownPlacement?: TippyProps['placement']
     containerClassName?: string

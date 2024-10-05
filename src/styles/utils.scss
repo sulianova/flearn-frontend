@@ -626,6 +626,89 @@
   }
 }
 
+//dropdown
+@mixin dropdown {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  width: max-content;
+
+  color: inherit;
+
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+
+  transition-property: all;
+  transition-duration: 0.1s;
+  transition-timing-function: ease-out;
+
+  svg,
+  svg path {
+    color: inherit;
+
+    transition-property: all;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-out;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+  }
+
+  &_isOpened {
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+
+  &:hover {
+    color: var(--primary-color);
+  }
+
+  &:disabled {
+    cursor: default;
+    pointer-events: none;
+
+    color: var(--color-background-glassy-d);
+  }
+
+  @include set-media(md) {
+    transition-property: none;
+  }
+}
+
+@mixin dropdown-small {
+  height: set-calc(44);
+
+  &__content {
+    @include font-16-normal-ui;
+  }
+
+  svg {
+    display: block;
+
+    width: set-calc(24);
+    height: set-calc(24);
+  }
+}
+
+@mixin dropdown-extra-small {
+  height: set-calc(44);
+
+  &__content {
+    @include font-14-normal-ui;
+  }
+
+  svg {
+    display: block;
+    
+    width: set-calc(24);
+    height: set-calc(24);
+  }
+}
+
 //chips
 @mixin chips {
   @include btn;

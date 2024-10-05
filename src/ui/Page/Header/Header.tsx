@@ -29,7 +29,11 @@ interface IProps {
   visible: boolean
 }
 
-export default function Header({ variant, visible }: Readonly<IProps>) {
+interface IProps2 {
+  onNotAuthedClick: () => void
+}
+
+export default function Header({ variant, visible }: Readonly<IProps>, { onNotAuthedClick }: IProps2) {
   const urlSection = useURLSection();
   const isMobile = useIsMobile();
 
@@ -50,7 +54,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
     }
   }, [visible]);
 
-  const headerClass = cx({ __: true, __Hidden: !visible, IsMobileMenuOpened: mobMenuIsOpened, [variant]: true });
+  const headerClass = cx({ wrapper: true, _hidden: !visible, IsMobileMenuOpened: mobMenuIsOpened, [variant]: true });
 
   return (
     <>
@@ -66,67 +70,75 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
       )}
       {buyPopupIsOpened && user && <BuyPopup user={user} close={() => setBuyPopupIsOpened(false)}/>}
       <div className={headerClass}>
-        <div className={cx({ desk: true, [`deskPadding${variant}`]: true })}>
-         {(urlSection.name !== 'Study') && (
-            <Link className={classes.logoWrapper} to={URLSections.Home.index}>
-              <Icon icon='Logo'/>
-              <div>{t('logo')}</div>
+        <div className={cx({ desk: true, [`desk_${variant}`]: true })}>
+         {(urlSection.name === 'Home' || isMobile) && (
+            <Link className={classes.logo} to={URLSections.Home.index}>
+              <div className={classes.logo__icon}><Icon icon='BrandPro'/></div>
+              <div className={classes.logo__name}>{t('logo')}</div>
             </Link>
          )}
-          <div className={classes.nav}>
-            <div className={classes.navMob}>
-            {(urlSection.name === 'Study') && (
-              <div className={classes.userSettingsWrapper}>
+          <div className={classes.menu}>
+            <div className={classes.menu__section}>
+              {(user && Boolean(userCourses.length) && !isMobile) && (urlSection.name !== 'Study') && (
+                <Dropdown
+                  content={({ close }) => (
+                    <CoursesDropdownContent
+                      courses={userCourses}
+                      lastStudiedCourse={lastStudiedCourse}
+                      close={close}
+                    />
+                  )}
+                  children={({ open, close, opened }) => {
+                    currentCloseCourseDropdown.current = close;
+                    return (
+                      <div className={cx({ dropdown: true, dropdown_isOpened: opened })} onClick={opened ? close : open}>
+                        <span className={classes.dropdown__content}>Мои курсы</span>
+                        <Icon icon='ChevronDown'/>
+                      </div>
+                    );
+                  }}
+                />
+              )}
+            </div>
+            <div className={classes.menu__btns}>
+              { user ?
+                <>
+                  {(urlSection.name === 'Home') && 
+                    (<Link
+                      className={cx({ btn_login: true})}
+                      to={URLSections.EmptyProfile.to()}
+                    >
+                      {t('login.profile')}
+                    </Link>
+                  )}
+                  {(urlSection.name !== 'Home') && (
+                    <div className={cx({ btn_start: true})} onClick={() => setBuyPopupIsOpened(true)}>
+                      Flearn PRO
+                    </div>
+                  )}
+                </>
+                : 
+                  <> 
+                    <div className={cx({ btn_login: true})} onClick={() => authService.authenticate()}>
+                      {t('login.signIn')}
+                    </div>
+                    <div
+                      className={cx({ btn_start: true})}
+                      onClick={onNotAuthedClick}
+                    >
+                      Учиться бесплатно
+                    </div>
+                  </>
+              }
+              {(urlSection.name === 'Study') && (
                   <Link
-                    className={classes.userSettings}
+                    className={classes.btn_back}
                     to={URLSections.Course.to({ courseId: urlSection.params.courseId })}
                   >
                     <Icon icon='ArrowButton' />
                   </Link>
-              </div>
-            )}
+              )}
             </div>
-            {(user && Boolean(userCourses.length) && !isMobile) && (urlSection.name !== 'Study') && (
-              <Dropdown
-                content={({ close }) => (
-                  <CoursesDropdownContent
-                    courses={userCourses}
-                    lastStudiedCourse={lastStudiedCourse}
-                    close={close}
-                  />
-                )}
-                children={({ open, close, opened }) => {
-                  currentCloseCourseDropdown.current = close;
-                  return (
-                    <div className={cx({ navContent: true, navItem: true, selectToggleIsOpened: opened }) + ' s-hoverable'} onClick={opened ? close : open}>
-                      <span className={classes.selectToggleContent}>Мои курсы</span>
-                      <span className={classes.selectToggleIcon}><Icon icon='ChevronDown'/></span>
-                    </div>
-                  );
-                }}
-              />
-            )}
-            {
-              urlSection.name === 'EmptyProfile' ? null :
-              (urlSection.name === 'Profile' || urlSection.name === 'Study') ? (
-                isMobile ? null :
-                (
-                  <div className={cx({ navBuy: true, navItem: true })} onClick={() => setBuyPopupIsOpened(true)}>
-                    <div className={cx({ buyBtn: true})}>Купить полный курс</div>
-                    {/* {getCourseBaseDiscountAmountPrc(currentCourse?.discount) && (
-                      <div className={classes.buyBadge}>{formatCourseDiscount(getCourseBaseDiscountAmountPrc(currentCourse?.discount)!)}</div>
-                    )} */}
-                  </div>
-                )
-              ) : (
-                <>
-                  {user ?
-                    (<Link className={cx({ navLogin: true, navItem: true })} to={URLSections.EmptyProfile.to()}>{t('login.profile')}</Link>)
-                    : (<div className={cx({ navLogin: true, navItem: true })} onClick={() => authService.authenticate()}>{t('login.signIn')}</div>)
-                  }
-                </>
-              )
-            }
           </div>
           </div>
       </div>

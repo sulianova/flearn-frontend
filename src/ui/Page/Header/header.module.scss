@@ -1,6 +1,6 @@
 @import 'styles/index';
 
-.__ {
+.wrapper {
   position: sticky;
   position: -webkit-sticky; 
   top: 0;
@@ -10,43 +10,41 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
-  @include set-typography(16, 16, 500);
-  font-family: $font-family-medium;
 }
 
 .desk {
-  @include is-grid-12;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
   width: 100%;
-  gap: 0;
 
   border-bottom: 1px solid var(--color-card-border);
   background-color: transparent;
-  backdrop-filter: blur(set-calc(15));
 
   @include set-media(md) {
     position: relative;
     display: flex;
-    flex-direction: row;
-  
-    justify-content: space-between;
-    align-items: center;
 
-    grid-gap: set-calc(16);
+    gap: set-calc(16);
   }
 }
 
-.deskPaddingWEB {
-  margin: set-calc(8) set-calc(calc($p-desk-page - 16)) 0;
-  padding: set-calc(16) set-calc(16);
+.desk_WEB {
+  margin: set-calc(8) set-calc(calc($p-desk-page)) 0;
+  padding: set-calc(16) set-calc(32);
 
+  backdrop-filter: blur(set-calc(15));
   background-color: var(--color-background-glassy-inverted-d);
-  border-radius: set-calc($border-radius-20);
-  border: 1px solid var(--color-card-border);
-  
-  .navContent,
-  .navLogin {
+  border-radius: set-calc(calc(76/2));
+  border: 1px solid var(--border);
+
+  .btn_login,
+  .btn_start {
     @include button-small;
+  }
+
+  .dropdown {
+    @include dropdown-small;
   }
 
   @include set-media(md) {
@@ -55,208 +53,155 @@
 
     border-radius: 0;
     border: 1px solid transparent;
-    border-bottom: 1px solid var(--color-card-border);
+    border-bottom: 1px solid var(--border);
 
-    .navContent,
-    .navLogin {
+    .btn_login,
+    .btn_start {
       @include button-extra-small;
+    }
+
+    .dropdown {
+      @include dropdown-extra-small;
     }
   }
 }
 
-.deskPaddingLMS {
+.desk_LMS {
   padding: set-calc(12) set-calc(24);
   backdrop-filter: blur(set-calc(0));
   border-bottom: 1px solid transparent;
 
-  .navContent,
-  .navLogin,
-  .buyBtn {
+  .btn_login,
+  .btn_buy,
+  .btn_start {
     @include button-extra-small;
   }
 
-  .logoWrapper {
-    display: none;
+  .dropdown {
+    @include dropdown-extra-small;
   }
 
   @include set-media(md) {
-    background-color: transparent;
-    backdrop-filter: blur(set-calc(0));
-    border-bottom: 1px solid transparent;
-
     padding: set-calc(12) set-calc($p-mob-s-page);
 
-    .logoWrapper {
-      display: flex;
-    }
+    border-radius: 0;
+    backdrop-filter: blur(set-calc(15));
+    background-color: var(--color-background-glassy-inverted-d);
+    border-bottom: 1px solid var(--border);
   }
 }
 
-.logoWrapper {
-  grid-column: 1 / 5;
-
+.logo {
   position: relative;
 
   display: flex;
-  align-items: center;
-  justify-content: start;
-
+  justify-content: center;
+  height: set-calc(44);
+  
   cursor: pointer;
 
-  div {
-    @include set-typography(22, 22, 500);
-    color: var(--color-content-primary);
-    font-family: $font-family-extra-bold;
+  &__name {
+    @include set-typography(28, 28, 500);
+    font-family: $font-family-logo;
+    font-feature-settings: 'ss01' on;
+    letter-spacing: set-calc(-0.66);
 
-    margin-top: set-calc(4);
-
-    @include set-media(md) {
-      @include set-typography(20, 20, 500);
-    }
+    align-self: center;
   }
 
-  svg {
-    height: set-calc(36);
-    padding: set-calc(4);
+  &__icon {
+    @include icon-size(24);
+    color: var(--color-accent-promo-background);
+  }
 
-    margin-right: set-calc(4);
+  @include set-media(md) {
+    height: set-calc(36);
   }
 }
 
-.nav {
-  grid-column: 5 / -1;
+.menu {
+  display: flex;
+  align-items: baseline;
+  gap: set-calc(40);
+
+  margin-left: auto;
+}
+
+.menu__section {
   position: relative;
 
   display: flex;
   align-items: baseline;
-  justify-content: end;
+  gap: set-calc(8);
+
+  margin-left: auto;
 
   @include set-media(md) {
     width: 100%;
     justify-content: space-between;
   }
-}
 
-.navItem {
-   height: 100%;
-
-   &:not(:first-child) {
-    margin-left: set-calc(8);
+  .dropdown {
+    @include dropdown;
   
     @include set-media(md) {
-      margin-left: set-calc(8);
+      display: none;
     }
   }
 }
 
-.navMob {
-  display: flex;
-  gap: set-calc(6);
-}
+.menu__btns {
+  position: relative;
 
-.userSettingsWrapper {
-  display: none;
+  display: flex;
+  align-items: baseline;
+  gap: set-calc(12);
 
   @include set-media(md) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background-color: var(--color-card);
-    border-radius: set-calc($border-radius-6);
-    border: set-calc(1) solid var(--color-card-border);
-    box-shadow: $shadow-small-default;
+    margin-left: auto;
   }
+
+  .btn_start {
+    @include btn;
+    @include button-primary;
+  
+    width: max-content;
+  }
+
+  .btn_login {
+    @include btn;
+    @include button-secondary;
+  
+    width: max-content;
+  }
+  
+  .btn_buy {
+    @include btn;
+    @include button-3d($color-palette-brand-300, $color-palette-brand-300, $color-palette-brand-400, $color-palette-brand-400, 0.9);
+    width: max-content;
+  
+    color: $color-content-inverted-primary-light;
+  }
+
+  .btn_back {
+    display: none;
+  
+    @include set-media(md) {
+      @include icon-button-40;
+      @include icon-button-secondary;
+    }
+  }
+}
+
+.isActive {
+  color: var(--primary-color) !important;
 }
 
 .open {
   z-index: 10000;
 }
 
-.userSettings {
-  display: none;
-
-  @include set-media(md) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: set-calc(8);
-  
-    svg {
-      width: set-calc(24);
-      height: set-calc(24);
-  
-      color: var(--color-content-paragraph-primary);
-    }
-  }
-}
-
-.navLogin {
-  @include btn;
-  @include button-secondary;
-
-  width: max-content;
-
-  @include set-media(md) {
-    margin-left: auto;
-  }
-}
-
-.navBuy {
-  display: block;
-  position: relative;
-}
-
-.buyBtn {
-  @include btn;
-  @include button-3d($color-palette-brand-300, $color-palette-brand-300, $color-palette-brand-400, $color-palette-brand-400, 0.9);
-  width: max-content;
-
-  color: $color-content-inverted-primary-light;
-}
-
-.navContent {
-  position: relative;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 0 set-calc(16);
-  color: var(--color-content-primary);
-
-  width: max-content;
-  gap: set-calc(4);
-
-  transition: all $d-hover ease;
-  
-  .selectToggleIcon svg {
-    fill: currentColor;
-  }
-
-  @include set-media(md) {
-    display: none;
-  }
-}
-
-.selectToggleContent {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-.selectToggleIcon {
-  @include icon-size(32);
-}
-
-.selectToggleIsOpened {
-  svg {
-    transform: rotate(180deg);
-  }
-}
-
-.__Hidden {
+._hidden {
   // transform: translateY(-100%);
 
   .desk {
@@ -271,8 +216,4 @@
       //   transform: translateY(-100%);
       // }
     }
-}
-
-.isActive {
-  color: var(--primary-color) !important;
 }
