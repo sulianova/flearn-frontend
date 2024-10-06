@@ -13,6 +13,8 @@
 }
 
 .desk {
+  position: relative;
+
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -22,9 +24,6 @@
   background-color: transparent;
 
   @include set-media(md) {
-    position: relative;
-    display: flex;
-
     gap: set-calc(16);
   }
 }
@@ -101,12 +100,18 @@
   cursor: pointer;
 
   &__name {
+    color: var(--primary-color);
+
     @include set-typography(28, 28, 500);
     font-family: $font-family-logo;
     font-feature-settings: 'ss01' on;
     letter-spacing: set-calc(-0.66);
 
     align-self: center;
+
+    @include set-media(md) {
+      @include set-typography(26, 26, 500);
+    }
   }
 
   &__icon {

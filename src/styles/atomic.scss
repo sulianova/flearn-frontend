@@ -11,27 +11,11 @@
   @include set-typography(14, 16, 500);
 } 
 
-@mixin font-16-normal-paragraph {
-  @include set-typography(16, 20, 500);
-
-  @include set-media(md) {
-    @include set-typography(14, 18, 500)
-  }
-}
-
 @mixin font-16-normal-ui {
   @include set-typography(16, 18, 500);
 
   @include set-media(md) {
     @include set-typography(14, 16, 500)
-  }
-}
-
-@mixin font-18-normal-paragraph {
-  @include set-typography(18, 32, 500);
-
-  @include set-media(md) {
-    @include set-typography(16, 24, 500)
   }
 }
 
@@ -43,11 +27,19 @@
   }
 }
 
-@mixin font-20-normal-paragraph {
-  @include set-typography(20, 34, 500);
+@mixin font-20-normal-ui {
+  @include set-typography(20, 21, 500);
 
   @include set-media(md) {
-    @include set-typography(16, 24, 500);
+    @include set-typography(16, 22, 500);
+  }
+}
+
+@mixin font-24-normal-ui {
+  @include set-typography(24, 24, 500);
+
+  @include set-media(md) {
+    @include set-typography(20, 20, 500);
   }
 }
 
@@ -59,11 +51,27 @@
   }
 }
 
-@mixin font-20-normal-ui {
-  @include set-typography(20, 21, 500);
+@mixin font-16-normal-paragraph {
+  @include set-typography(16, 26, 500);
 
   @include set-media(md) {
-    @include set-typography(16, 22, 500);
+    @include set-typography(16, 26, 500)
+  }
+}
+
+@mixin font-18-normal-paragraph {
+  @include set-typography(18, 32, 500);
+
+  @include set-media(md) {
+    @include set-typography(16, 24, 500)
+  }
+}
+
+@mixin font-20-normal-paragraph {
+  @include set-typography(20, 34, 500);
+
+  @include set-media(md) {
+    @include set-typography(16, 24, 500);
   }
 }
 
@@ -75,13 +83,6 @@
   }
 }
 
-@mixin font-24-normal-ui {
-  @include set-typography(24, 24, 500);
-
-  @include set-media(md) {
-    @include set-typography(20, 20, 500);
-  }
-}
 
 @mixin font-28-normal-header {
   @include set-typography(28, 32, 500);

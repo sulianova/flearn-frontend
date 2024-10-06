@@ -73,33 +73,32 @@ export default function Header({ variant, visible }: Readonly<IProps>, { onNotAu
         <div className={cx({ desk: true, [`desk_${variant}`]: true })}>
          {(urlSection.name === 'Home' || isMobile) && (
             <Link className={classes.logo} to={URLSections.Home.index}>
-              <div className={classes.logo__icon}><Icon icon='BrandPro'/></div>
               <div className={classes.logo__name}>{t('logo')}</div>
             </Link>
          )}
           <div className={classes.menu}>
-            <div className={classes.menu__section}>
               {(user && Boolean(userCourses.length) && !isMobile) && (urlSection.name !== 'Study') && (
-                <Dropdown
-                  content={({ close }) => (
-                    <CoursesDropdownContent
-                      courses={userCourses}
-                      lastStudiedCourse={lastStudiedCourse}
-                      close={close}
-                    />
-                  )}
-                  children={({ open, close, opened }) => {
-                    currentCloseCourseDropdown.current = close;
-                    return (
-                      <div className={cx({ dropdown: true, dropdown_isOpened: opened })} onClick={opened ? close : open}>
-                        <span className={classes.dropdown__content}>Мои курсы</span>
-                        <Icon icon='ChevronDown'/>
-                      </div>
-                    );
-                  }}
-                />
+                <div className={classes.menu__section}>
+                  <Dropdown
+                    content={({ close }) => (
+                      <CoursesDropdownContent
+                        courses={userCourses}
+                        lastStudiedCourse={lastStudiedCourse}
+                        close={close}
+                      />
+                    )}
+                    children={({ open, close, opened }) => {
+                      currentCloseCourseDropdown.current = close;
+                      return (
+                        <div className={cx({ dropdown: true, dropdown_isOpened: opened })} onClick={opened ? close : open}>
+                          <span className={classes.dropdown__content}>Мои курсы</span>
+                          <Icon icon='ChevronDown'/>
+                        </div>
+                      );
+                    }}
+                  />
+                </div>
               )}
-            </div>
             <div className={classes.menu__btns}>
               { user ?
                 <>
@@ -142,7 +141,6 @@ export default function Header({ variant, visible }: Readonly<IProps>, { onNotAu
           </div>
           </div>
       </div>
-      
     </>
   );
 }
