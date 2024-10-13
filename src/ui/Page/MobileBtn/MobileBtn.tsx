@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import classnames from 'classnames/bind';
 
 import { useIsMobile, useURLSection } from 'hooks';
-import { authService } from 'services/auth.service';
+import { IUserData } from 'services/user.service';
+import { authService } from 'services';
 import { courseService, type ICourseData } from 'services/course.service';
 import { userService } from 'services/user.service';
 import { lessonService } from 'services/lesson.service';
@@ -26,9 +27,10 @@ interface IProps {
   course?: ICourseData
   variant: EPageVariant
   visible: boolean
+  onNotAuthedClick: () => void
 }
 
-export default function MobileBtn({ course, variant, visible }: IProps) {
+export default function MobileBtn({ course, variant, visible, onNotAuthedClick }: IProps) {
   const userCourses = courseService.useUserCourses() ?? [];
   const lastStudiedCourse = userCourseProgressService.useLastStudiedCourse();
   const currentLesson = lessonService.useCurrentLesson() ?? undefined;
@@ -41,8 +43,6 @@ export default function MobileBtn({ course, variant, visible }: IProps) {
   const [userPopupVisible, setUserPopupVisible] = useState(false);
   const user = userService.useAuthedUser();
   const [mobMenuIsOpened, setMobMenuIsOpened] = useState(false);
-
-
 
   useEffect(() => {
     if (!visible) {
@@ -70,27 +70,25 @@ export default function MobileBtn({ course, variant, visible }: IProps) {
         />
       }
       <div className={classes.__}>
-          {urlSection.name === 'Landing' && course && (
-            authService.isAuthenticated && firstLesson
-              ? (
-                <Link
-                  className={classes.btnLink}
-                  onClick={() => analyticsService.logEvent({ type: analyticsService.event.ButtonClickedStartStudy })}
-                  to={URLSections.Study.to({ courseId: course.id, lessonId: firstLesson.id })}
-                >
-                  <div className={classes.text}>Начать учиться бесплатно</div>
-                </Link>
-              ) : (
-                <div
-                  className={classes.btnLink}
-                  onClick={() => setPopupVisible(true)}
-                >
-                  <div className={classes.text}>Начать учиться бесплатно</div>
-                </div>
-              )
+          {(
+            urlSection.name === 'Home' && (authService.isAuthenticated ? (
+              <Link
+                className={classes.btnLink}
+                to={URLSections.EmptyProfile.to()}
+              >
+                Продолжить учиться
+              </Link>
+            ) : (
+              <div
+                className={classes.btnLink}
+                onClick={onNotAuthedClick}
+              >
+                Начать учиться бесплатно
+              </div>
+            ))
           )}
           <div className={classes.btnWrapperRight}>
-              {urlSection.name !== 'Landing' && user && (
+              {urlSection.name !== 'Home' && user && (
                 <div className={classes.settings} onClick={() => setMobMenuIsOpened(o => !o)}>
                   <Icon icon='List'/>
                 </div>

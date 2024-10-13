@@ -48,6 +48,8 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+  gap: set-calc(6);
+  
   padding: set-calc(16) 0;
 
   &__btn {
@@ -64,16 +66,9 @@
 .itemsGroup {
   display: flex;
   flex-direction: column;
-  margin-top: set-calc(16);
-  padding-bottom: set-calc(12);
-
   gap: set-calc(4);
 
   border-bottom: 1px solid var(--border);
-}
-
-.itemsGroup:first-child {
-  margin-top: set-calc(-10);
 }
 
 .item {
@@ -101,7 +96,18 @@
 }
 
 .userEmail {
-  font-family: $font-family-bold;
+  position: relative;
+
+  display: flex;
+  gap: set-calc(8);
+
+  width: 100%;
+  user-select: none;
+
+  color: var(--color-content-paragraph-secondary);
+  @include font-14-normal-ui;
+
+  padding: 0 set-calc(10) set-calc(12);
 }
 
 .active {

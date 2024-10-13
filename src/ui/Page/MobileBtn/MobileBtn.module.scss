@@ -22,25 +22,15 @@
 }
 
 .btnLink {
+  @include btn;
   @include button-large;
-  position: fixed;
+  @include button-primary;
 
+  position: fixed;
   right: set-calc(16);
   bottom: 0;
 
-  width: max-content;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background: $color-highlight-yellow;
   box-shadow: $shadow-small-default;
-
-  @include font-20-normal-ui ;
-  color: $color-content-primary-light;
-  font-family: $font-family-medium;
-
 }
 
 .btnWrapperLeft {

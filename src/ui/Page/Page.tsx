@@ -34,6 +34,9 @@ function Page({ children, variant, header = false, footer, backgroundColor = 'va
   const ref = useHeightToCss();
   const lastScrollTop = useRef(0);
   const [headerVisible, setHeaderVisible] = useState(false);
+  
+  const [popupVisible, setPopupVisible] = useState(false);
+  const onNotAuthedClick = () => setPopupVisible(true);
 
   useEffect(() => {
     window.scrollTo({ top: 0 });
@@ -72,7 +75,7 @@ function Page({ children, variant, header = false, footer, backgroundColor = 'va
           {header && <Header variant={variant} visible={true}/>}
           <div className={classes.content}>
             <section className={classes[`${variant}Wrapper`]}>
-              <MobileBtn course={currentCourse} variant={variant} visible={headerVisible}/>
+              <MobileBtn course={currentCourse} variant={variant} visible={headerVisible} onNotAuthedClick={onNotAuthedClick}/>
               {children}
             </section>
             <EditBar/>

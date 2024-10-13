@@ -139,21 +139,19 @@ export default function MobileMenuPopup(props: Readonly<IProps>) {
               <Icon icon='Cross' />
             </div>
               <div className={classes.content}>
-                <div className={classes.itemsGroup}>
-                  {user &&  urlSection.name !== 'Study' &&(
-                    <div className={classes.item}>
-                      <div className={classes.userEmail}>{user.email}</div>
-                    </div>
-                  )}
+                {user &&  urlSection.name !== 'Study' &&(
+                    <div className={classes.userEmail}>{user.email}</div>
+                )}
                   {!user ? null :
                       urlSection.name === 'Study' ? (<>
+                      <div className={classes.itemsGroup}>
                         <div className={classes.header}><div className={classes.title}>{currentLesson?.topic}</div></div>
                         {mobMenuLessonsList}
+                      </div>
                       </>) : (<>
-                        {mobMenuCoursesList}
+                        {/* {mobMenuCoursesList} */}
                       </>)
                     }
-                </div>
                 <div className={classes.itemsGroup}>
                   {isMobile && (
                     <div className={cx({ item: true })} onClick={() => frontendSettingsService.update({ theme: theme === 'light' ? 'dark' : 'light' })}>
