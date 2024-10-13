@@ -20,10 +20,8 @@
 @mixin set-typography(
   $font-size,
   $line-height: $font-size,
-  $font-weight: 500,
   $text-transform: inherit
 ) {
-  font-weight: $font-weight;
   font-size: calc(var(--scale)*$font-size);
   line-height: calc(var(--scale)*$line-height);
   text-transform: $text-transform;
@@ -127,6 +125,19 @@
 }
 
 //atomic
+@mixin s-hoverable {
+  cursor: pointer;
+  transition: color $d-hover ease-out 0.1s;
+  -o-transition: color $d-hover ease-out 0.1s;
+  -moz-transition: color $d-hover ease-out 0.1s;
+  -ms-transition: color $d-hover ease-out 0.1s;
+  -webkit-transition: color $d-hover ease-out 0.1s;
+
+  &:hover {
+    color: var(--primary-color);
+  }
+}
+
 @mixin key-link(
   $color: var(--color-accent-promo-background)
   ) {
@@ -602,11 +613,11 @@
 }
 
 @mixin icon-button-secondary {
-  background: var(--color-background-glassy-a);
+  background: var(--color-background-glassy-b);
   color: var(--color-content-primary);
 
   &:hover {
-    background: var(--color-background-glassy-b);
+    background: var(--color-background-glassy-c);
   }
 
   &:active {
@@ -986,6 +997,26 @@
 @mixin apply-to-all($mixin, $list) {
   @each $element in $list {
     @include meta.apply($mixin, $element);
+  }
+}
+
+@keyframes bubble-up {
+  0% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes bubble-down {
+  0% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
   }
 }
 

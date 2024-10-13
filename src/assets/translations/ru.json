@@ -24,7 +24,7 @@
     "placeholder": "email@gmail.com"
   },
   "logo": "Flearn",
-  "logoLong": "freedom to learn",
+  "logoLong": "Freedom to Learn",
   "header": {
     "my": "мoe обучение",
     "logo": "Flearn",
@@ -72,16 +72,16 @@
         "title": "Оферта и Договор"
       },
       "creatorDesign": {
-        "title": "Дизайн и разработка",
-        "name": "Sofi Ulyanova",
-        "link": "https://github.com/sulianova"
+        "title": "Дизайн",
+        "name": "Sofiia Ulianova",
+        "link": "https://www.behance.net/sofiulianova"
       },
       "creatorFrontend": {
         "title": "Разработка",
         "name": "Vladimir Fyodorov",
         "link": "https://github.com/VladimirFyodorov"
       },
-      "copyright": "© 2023-2024, flearn",
+      "copyright": "© 2024 flearn",
       "email": "flearn.info@gmail.com",
       "emailTo": "mailto:flearn.info@gmail.com",
       "emailComment": "Пишите, разберемся!"

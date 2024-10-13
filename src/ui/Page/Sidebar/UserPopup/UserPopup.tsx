@@ -20,12 +20,7 @@ export default function UserPopup({ user, close }: IProps) {
 
   return (
     <div className={cx({ popup: true, animated: true, inverseAnimated: true, open: true })}>
-      <div className={classes.itemsGroup}>
-      <div className={classes.item}>
-          <div className={classes.userName}>{user.email}</div>
-        </div>
-      </div>
-      <div className={classes.itemsGroup}>
+      <div className={classes.items}>
         {/* <div className={cx({ item: true, itemHoverable: true })}>
           <div className={classes.itemTitle}>
             <div className={classes.withIcon}>
@@ -34,6 +29,9 @@ export default function UserPopup({ user, close }: IProps) {
             </div>
           </div>
         </div> */}
+        <div className={classes.item}>
+          <div className={classes.userName}>{user.email}</div>
+        </div>
         <div className={cx({ item: true, itemHoverable: true })}>
           <div
             className={classes.itemTitle}

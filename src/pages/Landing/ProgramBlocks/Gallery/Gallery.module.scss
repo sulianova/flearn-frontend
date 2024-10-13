@@ -160,7 +160,7 @@
   margin-right: set-calc(4);
 
   min-width: 35%;
-  border-radius: set-calc($border-radius-medium);
+  border-radius: set-calc($border-radius-20);
 
   aspect-ratio: 1 / 1.5;
   text-align: center; 
@@ -179,5 +179,5 @@
   height: 100%;
   object-fit: cover;
 
-  border-radius: set-calc($border-radius-medium);
+  border-radius: set-calc($border-radius-20);
 }

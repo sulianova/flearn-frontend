@@ -22,10 +22,9 @@
   left: 0;
   right: 0;
 
+  backdrop-filter: blur(set-calc($blur-15));
   background: var(--color-background-overlay);
   opacity: 0;
-
-  backdrop-filter: blur(set-calc($backdrop-filter));
 
   transition: opacity 0.2s ease-out;
 
@@ -96,8 +95,8 @@
     border-left: 0 solid var(--color-card-border);
     border-right: 0 solid var(--color-card-border);
 
-    border-top-right-radius: set-calc($border-radius-20);
-    border-top-left-radius: set-calc($border-radius-20);
+    border-top-right-radius: set-calc($border-radius-30);
+    border-top-left-radius: set-calc($border-radius-30);
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
   }

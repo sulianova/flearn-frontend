@@ -85,7 +85,6 @@ function Sidebar() {
         )}
         {urlSection.name === 'Study' && (
           <>
-            {/* <ul className={classes.itemsSeparator}></ul> */}
             <ul className={classes.items}>
                 <li className={classes.item}>
                   <div

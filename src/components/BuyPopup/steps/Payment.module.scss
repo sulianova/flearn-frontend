@@ -27,10 +27,10 @@
   justify-content: space-between;
 
   width: set-calc(450);
-  border-radius: set-calc($border-radius-large);
+  border-radius: set-calc($border-radius-30);
 
   @include set-media(md) {
-    border-radius: set-calc($border-radius-medium);
+    border-radius: set-calc($border-radius-20);
     padding: set-calc(16);
 
     width: 100%;

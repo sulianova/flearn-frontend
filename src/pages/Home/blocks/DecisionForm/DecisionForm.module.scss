@@ -44,7 +44,7 @@
 
 .btn {
   @include btn;
-  @include button-3d($color-palette-brand-300, $color-palette-brand-300, $color-palette-brand-400, $color-palette-brand-400, 0.9, 4px);
+  @include button-3d($color-palette-primary-300, $color-palette-primary-300, $color-palette-primary-400, $color-palette-primary-400, 0.9, 4px);
   @include rounded(150);
 
   width: max-content;
@@ -60,7 +60,7 @@
   @include set-media(md) {
     @include btn;
     @include button-large;
-    @include button-3d($color-palette-brand-300, $color-palette-brand-300, $color-palette-brand-400, $color-palette-brand-400, 0.9, 2px);
+    @include button-3d($color-palette-primary-300, $color-palette-primary-300, $color-palette-primary-400, $color-palette-primary-400, 0.9, 2px);
 
     width: 100%;
   }

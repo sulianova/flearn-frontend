@@ -23,49 +23,26 @@
 
 .close {
   @include btn;
+  @include icon-button-40;
+  @include icon-button-invisible;
 
   position: absolute;
-
   top: set-calc(16);
   right: set-calc(16);
 
-  display: flex;
-
   z-index: 1;
 
-  padding: set-calc(12);
-
-  color: var(--color-content-primary);
-  border-radius: set-calc($border-radius-small);
-  background-color:  transparent;
-
-  svg {
-    width: set-calc(24);
-    height: set-calc(24);
-
-    display: inline-block;
-    text-align: center;
-    background: 50% no-repeat;
-    background-size: contain;
-  }
-
-  &:hover {
-    background-color: var(--color-background-glassy-b);
-  }
 
   @include set-media(md) {
+    @include icon;
+
     top: 0;
     right: 0;
 
-    padding: set-calc(24);
-    box-shadow: none;
-    background-color: transparent;
+    height: set-calc(72);
+    width: set-calc(72);
 
-    &:active,
-    &:hover {
-      transform: none;
-      background-color: transparent;
-    }
+    padding: set-calc(24) set-calc(24);
   }
 }
 

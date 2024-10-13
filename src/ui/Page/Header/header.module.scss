@@ -34,7 +34,7 @@
 
   backdrop-filter: blur(set-calc(15));
   background-color: var(--color-background-glassy-inverted-d);
-  border-radius: set-calc(calc(76/2));
+  border-radius: set-calc($border-radius-20);
   border: 1px solid var(--border);
 
   .btn_login,
@@ -100,8 +100,6 @@
   cursor: pointer;
 
   &__name {
-    color: var(--primary-color);
-
     @include set-typography(28, 28, 500);
     font-family: $font-family-logo;
     font-feature-settings: 'ss01' on;
@@ -182,7 +180,7 @@
   
   .btn_buy {
     @include btn;
-    @include button-3d($color-palette-brand-300, $color-palette-brand-300, $color-palette-brand-400, $color-palette-brand-400, 0.9);
+    @include button-3d($color-palette-primary-300, $color-palette-primary-300, $color-palette-primary-400, $color-palette-primary-400, 0.9);
     width: max-content;
   
     color: $color-content-inverted-primary-light;

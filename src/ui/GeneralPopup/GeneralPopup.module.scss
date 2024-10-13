@@ -36,17 +36,17 @@
 
   z-index: 1;
 
+
   @include set-media(md) {
+    @include icon;
+
     top: 0;
     right: 0;
 
-    background-color: transparent;
-    padding: set-calc(24);
+    height: set-calc(72);
+    width: set-calc(72);
 
-    &:active,
-    &:hover {
-      background-color: transparent;
-    }
+    padding: set-calc(24) set-calc(24);
   }
 }
 

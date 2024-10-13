@@ -10,110 +10,103 @@
   width: 100%;
 }
 
-.mobMenuMain {
+.close {
+  display: none;
+
+  @include set-media(md) {
+    @include icon;
+    @include icon-button-40;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+
+    height: set-calc(72);
+    width: set-calc(72);
+
+    padding: set-calc(24) set-calc(24);
+  }
+}
+
+.content {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+
   gap: set-calc(4);
   flex-grow: 1;
   flex-shrink: 0;
 
   width: 100%;
   height: max-content;
-  padding: set-calc(24) set-calc(8) set-calc(16);
+  padding: set-calc(24) set-calc(16) set-calc(16);
 }
 
-.listOptionTitle {
-  padding: set-calc(4) set-calc(12);
-
-  @include set-typography(16, 20, 500);
-  color: var(--color-content-paragraph-secondary);
-}
-
-.mobItem {
+.actions {
   display: flex;
-  justify-content: flex-start;
+  flex-direction: column;
   align-items: center;
-  padding: 0 set-calc(16);
-  height: set-calc(60);
-
-  border-radius: set-calc($border-radius-12);
-  background: transparent;
-
-  touch-action: manipulation;
-  box-shadow: none;
-}
-
-.mobItemText {
-  color: var(--color-content-paragraph-primary);
-  @include set-typography(18, 24, 500);
-}
-
-.mobMenuControls {
-display: flex;
-flex-direction: column;
-align-items: center;
-width: 100%;
-padding: set-calc(16) 0;
-}
-
-.navBtn {
-  @include btn;
-  @include button-large;
   width: 100%;
+  padding: set-calc(16) 0;
 
-  background: var(--primary-color);
+  &__btn {
+    @include btn;
+    @include button-large;
+    @include button-primary;
+    width: 100%;
 
-  @include set-typography(18, 24, 500);
-  color: $color-palette-white-1000;
-  font-family: $font-family-medium;
-
-  touch-action: manipulation;
-}
-
-.close {
-  display: none;
-
-  @include set-media(md) {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 1;
-
-    border-radius: 50%;
-    padding: set-calc(12);
-    margin: set-calc(12);
-  
-    display: flex;
-    color: var(--color-content-primary);
-
-    cursor: pointer;
-  
-    transition-property: background-color, border-color, box-shadow, color, transform;
-    transition-duration: 0.15s;
-    transition-timing-function: ease-out;
-
-    svg {
-      width: set-calc(24);
-      height: set-calc(24);
-  
-      display: inline-block;
-      text-align: center;
-      background: 50% no-repeat;
-      background-size: contain;
-    }
+    @include set-typography(18, 24, 500);
+    touch-action: manipulation;
   }
 }
 
-.IsMobileMenuOpened {
-  position: fixed;
-  overflow: scroll;
-  height: 100%;
-  z-index: 1000;
+.itemsGroup {
+  display: flex;
+  flex-direction: column;
+  margin-top: set-calc(16);
+  padding-bottom: set-calc(12);
 
-  .mob {
-    display: flex;
+  gap: set-calc(4);
+
+  border-bottom: 1px solid var(--border);
+}
+
+.itemsGroup:first-child {
+  margin-top: set-calc(-10);
+}
+
+.item {
+  position: relative;
+
+  display: flex;
+  justify-content: space-between;
+  gap: set-calc(8);
+
+  width: 100%;
+  user-select: none;
+
+  color: var(--color-content-paragraph-primary);
+
+  border-radius: set-calc($border-radius-10);
+  padding: set-calc(12) set-calc(10);
+
+  &__text {
+    @include set-typography(18, 24, 500);
   }
+
+  &__icon {
+    @include icon-size(24);
+  }
+}
+
+.userEmail {
+  font-family: $font-family-bold;
+}
+
+.active {
+  background-color: var(--color-background-glassy-b);
+  color: var(--color-content-primary);
 }
 
 //lessons
@@ -249,109 +242,5 @@ padding: set-calc(16) 0;
     .infoIcon {
       opacity: 0.2;
     }
-  }
-}
-
-//settings
-.itemsGroup {
-  display: flex;
-  flex-direction: column;
-  margin-top: set-calc(16);
-  padding-bottom: set-calc(12);
-
-  gap: set-calc(4);
-
-  border-bottom: 1px solid var(--border);
-}
-
-.itemsGroup:first-child {
-  margin-top: set-calc(-10);
-}
-
-.item {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  align-content: space-between;
-  height: auto;
-  user-select: none;
-
-  border-radius: set-calc($border-radius-10);
-
-  padding: set-calc(12) set-calc(16);
-}
-
-.withIcon {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  width: 100%;
-  gap: set-calc(8);
-
-  svg {
-    display: inline-block;
-    text-align: center;
-    background: 50% no-repeat;
-    background-size: contain;
-
-    width: set-calc(24);
-    height: set-calc(24);
-
-    path {
-      fill: var(--color-content-primary);
-    }
-  }
-
-  span {
-    font-size: inherit;
-    line-height: inherit;
-  }
-}
-
-.itemTitle {
-  display: flex;
-  align-items: center;
-  gap: set-calc(8);
-
-  color: var(--color-content-primary);
-  @include set-typography(18, 24, 500)
-}
-
-.userEmail {
-  display: flex;
-  align-items: center;
-
-  background: $color-gradient-rainbow;
-  background-size: 400% 400%;
-
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-
-  animation: buttonGradient 45s ease infinite;
-  transition: width .3s, margin .3s, min-width .3s, background-color .3s, color .3s, border .3s, background-position 2s ease-out, padding-left .3s;
-
-  @include set-typography(16, 20, 500);
-  font-family: $font-family-bold;
-
-  margin-top: set-calc(2);
-}
-
-.active {
-  background-color: var(--color-background-glassy-c);
-  font-family: $font-family-medium;
-
-  .navigationItemTitle {
-    color: var(--color-content-primary);
-  }
-
-  .mobItemText {
-    color: var(--color-content-primary);
-  }
-
-  &:hover {
-    cursor: default;
   }
 }

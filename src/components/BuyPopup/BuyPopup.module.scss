@@ -45,7 +45,7 @@
   padding: set-calc(13);
 
   color: var(--color-content-primary);
-  border-radius: set-calc($border-radius-small);
+  border-radius: set-calc($border-radius-6);
   background-color:  var(--color-background-glassy-b);
 
   svg {
@@ -93,7 +93,7 @@
   padding: set-calc(13);
 
   color: var(--color-content-primary);
-  border-radius: set-calc($border-radius-small);
+  border-radius: set-calc($border-radius-6);
   background-color:  var(--color-background-glassy-b);
 
   svg {
@@ -178,7 +178,7 @@
   justify-content: center;
 
   padding: 0 set-calc(16);
-  border-radius: set-calc($border-radius-large);
+  border-radius: set-calc($border-radius-30);
   background-color: var(--color-background-glassy-b);
   color: var(--color-content-tertiary);
   height: set-calc(30);

@@ -42,13 +42,13 @@
   opacity: 1;
 }
 
-.itemsGroup {
+.items {
   display: flex;
   flex-direction: column;
-  margin-top: set-calc(16);
+  gap: set-calc(4);
 }
 
-.itemsGroup:first-child {
+.items:first-child {
   margin-top: 0;
 }
 

@@ -25,58 +25,57 @@ interface IProps {
 }
 
 function Footer({ variant, type =  EFooter.Default }: IProps) {
+
   return (
-    <div className={cx({ wrapper: true, [`padding${variant}`]: true })}>
+    <div className={cx({ wrapper: true, [`wrapper_${variant}`]: true })}>
       {
         type === EFooter.Big && (
           <div className={cx({ row: true, card: true })}>
-            <div className={cx({ logo: true, col: true })}>
-                <div className={classes.logoLong}>{i18n.t('logoLong')}</div>
+            <div className={classes.logo}>
+                <div className={classes.logo}>{i18n.t('logoLong')}</div>
             </div>
-            <div className={cx({ creator: true, col: true })}>
-              <Link to={t('creatorDesign.link')}  target='_blank'>
-                <span className={classes.creatorTitle}>{t('creatorDesign.title')}</span>
-                <span className={classes.creatorName + ' inline-link'}>{t('creatorDesign.name')}</span>
+            <div className={classes.creators}>
+              <Link className={classes.person} to={t('creatorDesign.link')}  target='_blank'>
+                <span className={classes.person__title}>{t('creatorDesign.title')}</span>
+                <span className={classes.person__name}>{t('creatorDesign.name')}</span>
               </Link>
-              <Link to={t('creatorFrontend.link')} target='_blank'>
-                <span className={classes.creatorTitle}>{t('creatorFrontend.title')}</span>
-                <span className={classes.creatorName + ' inline-link'}>{t('creatorFrontend.name')}</span>
+              <Link className={classes.person} to={t('creatorFrontend.link')} target='_blank'>
+                <span className={classes.person__title}>{t('creatorFrontend.title')}</span>
+                <span className={classes.person__name}>{t('creatorFrontend.name')}</span>
               </Link>
             </div>
         </div>
         )
       }
       <div className={cx({ row: true, card: false })}>
-        <div className={cx({ copyright: true, col: true })}>
-          <p className={classes.colItem}>{t('copyright')}</p>
-        </div>
         <div className={cx({ contacts: true, col: true })}>
-          <Link to={t('emailTo')} className={classes.colItem + ' key-link'} target='_blank'>{t('email')}</Link>
-          <p className={classes.colItem}>{t('emailComment')}</p>
+          <p className={classes.copyright}>{t('copyright')}</p>
+          <Link to={t('emailTo')} className='key-link' target='_blank'>{t('email')}</Link>
+          <p>{t('emailComment')}</p>
         </div>
         <div className={cx({ documents: true, col: true })}>
-          <Link to={URLSections.Static.Policy.index} className={classes.colItem + ' nav-link'} target='_blank'>{t('documentsPrivacyPolicy.title')}</Link>
-          <Link to={URLSections.Static.Oferta.index} className={classes.colItem + ' nav-link'} target='_blank'>{t('documentsTermsOfUse.title')}</Link>
+          <Link to={URLSections.Static.Policy.index} className='s-hoverable' target='_blank'>{t('documentsPrivacyPolicy.title')}</Link>
+          <Link to={URLSections.Static.Oferta.index} className='s-hoverable' target='_blank'>{t('documentsTermsOfUse.title')}</Link>
         </div>
         <div className={cx({ social: true, col: false })}>
-          {/* <div className={classes.socialLink}>
-            <Link to={t('socialInstagram.link')} target='_blank'>{<Icon icon='Instagram'/>}</Link>
-          </div> */}
-          <div className={classes.socialLink}>
-            <Link to={t('socialTelegram.link')} target='_blank'><Icon icon='Telegram'/></Link>
-          </div>
-          <div className={classes.socialLink}>
-            <Link to={t('socialTiktok.link')} target='_blank'><Icon icon='Tiktok'/></Link>
-          </div>
-          <div className={classes.socialLink}>
-            <Link to={t('socialVk.link')} target='_blank'>{<Icon icon='Vk'/>}</Link>
-          </div>
-          {/* <div className={classes.socialLink}>
-            <Link to={t('socialYoutube.link')} target='_blank'>{<Icon icon='Youtube'/>}</Link>
-          </div>
-          <div className={classes.socialLink}>
-            <Link to={t('socialDzen.link')} target='_blank'>{<Icon icon='YandexZen'/>}</Link>
-          </div> */}
+          <Link
+            className={cx({ social__link: true })}
+            to={t('socialTelegram.link')}
+            target='_blank'>
+              <Icon icon='Telegram'/>
+            </Link>
+          <Link 
+            className={cx({ social__link: true })}
+            to={t('socialTiktok.link')}
+            target='_blank'>
+              <Icon icon='Tiktok'/>
+          </Link>
+          <Link 
+            className={cx({ social__link: true })}
+            to={t('socialVk.link')}
+            target='_blank'>
+              <Icon icon='Vk'/>
+          </Link>
       </div>
       </div>
     </div>

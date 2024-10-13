@@ -120,15 +120,15 @@
   @include set-typography(56, 60, 500);
 
   @include set-media(md) {
-    @include set-typography(38, 44, 500);
+    @include set-typography(38, 42, 500);
   }
 }
 
 @mixin font-70-normal-header  {
-  @include set-typography(70, 66, 500);
+  @include set-typography(70, 74, 500);
 
   @include set-media(md) {
-    @include set-typography(40, 40, 500);
+    @include set-typography(40, 44, 500);
   }
 }
 

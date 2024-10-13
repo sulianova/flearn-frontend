@@ -103,7 +103,7 @@
   gap: set-calc(16);
 
   overflow: hidden;
-  border-radius: set-calc($border-radius-medium);
+  border-radius: set-calc($border-radius-20);
 
   @include set-media(md) {
     gap: set-calc(8);
@@ -170,7 +170,7 @@
   font-family: $font-family;
 
   padding: set-calc(12) set-calc(18);
-  border-radius: set-calc($border-radius-large);
+  border-radius: set-calc($border-radius-30);
   background-color: var(--primary-color);
 
   @include set-media(md) {
@@ -200,7 +200,7 @@
   height: 100%;
   -o-object-fit: cover;
   object-fit: cover;
-  border-radius: set-calc($border-radius-medium);
+  border-radius: set-calc($border-radius-20);
 }
 
 .image__description {

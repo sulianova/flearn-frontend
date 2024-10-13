@@ -17,7 +17,7 @@
 
 .card {
   background: var(--color-content-tertiary);
-  border-radius: set-calc($border-radius-medium);
+  border-radius: set-calc($border-radius-20);
   display: flex;
   flex-direction: column;
   padding: set-calc(32);
@@ -46,7 +46,7 @@
 }
 
 .videoCardContainer iframe {
-  border-radius: set-calc($border-radius-medium);
+  border-radius: set-calc($border-radius-20);
   display: block;
   position: absolute;
   left: 0;

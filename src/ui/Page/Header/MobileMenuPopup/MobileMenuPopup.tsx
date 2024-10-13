@@ -69,7 +69,7 @@ export default function MobileMenuPopup(props: Readonly<IProps>) {
       onClick={close}
       
       className={cx({
-          mobItem: true,
+          item: true,
           active: {
             'Home': course.id === lastStudiedCourse?.id,
             'Landing': course.id === lastStudiedCourse?.id,
@@ -81,12 +81,12 @@ export default function MobileMenuPopup(props: Readonly<IProps>) {
             'Other': false,
           }[urlSection.name]
         })} key={course.id}>
-        <span className={classes.mobItemText + ' inline-text'}>{course.title}</span>
+        <span className={classes.item__text}>{course.title}</span>
     </Link>
   ));
   const homeBtn = (
     <Link
-      className={classes.navBtn}
+      className={classes.actions__btn}
       to={URLSections.Home.index}
       onClick={close}
     >
@@ -95,7 +95,7 @@ export default function MobileMenuPopup(props: Readonly<IProps>) {
   );
   const buyCourseBtn = (
       <div
-        className={classes.navBtn}
+        className={classes.actions__btn}
         onClick={() => setBuyPopupIsOpened(true)}
       >
         Купить полный курс
@@ -103,7 +103,7 @@ export default function MobileMenuPopup(props: Readonly<IProps>) {
   );
   const mobMenuLoginBtn = (
     <div
-      className={classes.navBtn}
+      className={classes.actions__btn}
       onClick={() => authService.authenticate()}
     >
       {t('login.signIn')}
@@ -111,7 +111,7 @@ export default function MobileMenuPopup(props: Readonly<IProps>) {
   );
   const mobMenuFirstNotSolvedLessonProfileBtn = (
     <Link
-      className={classes.navBtn}
+      className={classes.actions__btn}
       to={URLSections.Profile.to({ courseId: lastStudiedCourse?.id ?? 'how-to-draw' })}
       onClick={close}
     >
@@ -120,7 +120,7 @@ export default function MobileMenuPopup(props: Readonly<IProps>) {
   );
   const mobMenuCurrentLessonProfileBtn = (
     <Link
-      className={classes.navBtn}
+      className={classes.actions__btn}
       to={URLSections.Profile.to({ courseId: courseId! })}
       onClick={close}
     >
@@ -138,57 +138,52 @@ export default function MobileMenuPopup(props: Readonly<IProps>) {
             <div className={classes.close} onClick={startClosingProcess}>
               <Icon icon='Cross' />
             </div>
-              <div className={classes.mobMenuMain}>
-              <div className={classes.itemsGroup}>
-                {user &&  urlSection.name !== 'Study' &&(
-                  <div className={classes.item}>
-                    <div className={classes.userEmail}>{user.email}</div>
-                  </div>
-                )}
-                {!user ? null :
-                    urlSection.name === 'Study' ? (<>
-                      <div className={classes.header}><div className={classes.title}>{currentLesson?.topic}</div></div>
-                      {mobMenuLessonsList}
-                    </>) : (<>
-                      {/* <div className={classes.listOptionTitle}>{mobMenuCoursesList?.length ? 'Мои курсы:' : 'У вас пока нет курсов'}</div> */}
-                      {mobMenuCoursesList}
-                    </>)
-                  }
-              </div>
-              <div className={classes.itemsGroup}>
-                {isMobile && (
-                  <div className={cx({ item: true })} onClick={() => frontendSettingsService.update({ theme: theme === 'light' ? 'dark' : 'light' })}>
-                    <div className={classes.itemTitle}>
-                      <div className={classes.withIcon}>
-                        {theme === 'dark' ?
-                          (<>
-                            <span>Светлая тема</span>
-                            <Icon icon="Day"/>
-                          </>
-                          )
-                        : (
-                          <>
-                            <span>Темная тема</span>
-                            <Icon icon="Night"/>
-                          </>
-                          )}
+              <div className={classes.content}>
+                <div className={classes.itemsGroup}>
+                  {user &&  urlSection.name !== 'Study' &&(
+                    <div className={classes.item}>
+                      <div className={classes.userEmail}>{user.email}</div>
+                    </div>
+                  )}
+                  {!user ? null :
+                      urlSection.name === 'Study' ? (<>
+                        <div className={classes.header}><div className={classes.title}>{currentLesson?.topic}</div></div>
+                        {mobMenuLessonsList}
+                      </>) : (<>
+                        {mobMenuCoursesList}
+                      </>)
+                    }
+                </div>
+                <div className={classes.itemsGroup}>
+                  {isMobile && (
+                    <div className={cx({ item: true })} onClick={() => frontendSettingsService.update({ theme: theme === 'light' ? 'dark' : 'light' })}>
+                      {theme === 'dark' ?
+                        (<>
+                          <span className={classes.item__text}>Светлая тема</span>
+                          <span className={classes.item__icon}><Icon icon="Day"/></span>
+                        </>
+                        )
+                      : (
+                        <>
+                          <span className={classes.item__text}>Темная тема</span>
+                          <span className={classes.item__icon}><Icon icon="Night"/></span>
+                        </>
+                        )}
+                    </div>
+                  )}
+                  {user &&  urlSection.name === 'Profile' && (
+                    <div className={cx({ item: true })}>
+                      <div
+                        className={classes.itemTitle}
+                        style={{width: 'max-content'}}
+                        onClick={() => authService.logout().then(() => navigate(URLSections.Home.index))}
+                      >
+                        Выйти из профиля
                       </div>
                     </div>
-                  </div>
-                )}
-                {user &&  urlSection.name === 'Profile' && (
-                  <div className={cx({ item: true })}>
-                    <div
-                      className={classes.itemTitle}
-                      style={{width: 'max-content'}}
-                      onClick={() => authService.logout().then(() => navigate(URLSections.Home.index))}
-                    >
-                      Выйти из профиля
-                    </div>
-                  </div>
-                )}
-              </div>
-                <div className={classes.mobMenuControls}>
+                  )}
+                </div>
+                <div className={classes.actions}>
                   {!user ? mobMenuLoginBtn :
                       {
                         'Home': mobMenuFirstNotSolvedLessonProfileBtn,

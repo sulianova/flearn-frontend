@@ -11,11 +11,11 @@
   margin-top: set-calc(16);
 
   padding: set-calc(48) set-calc(24) set-calc(24);
-  border-radius: set-calc($border-radius-medium);
+  border-radius: set-calc($border-radius-20);
   border: set-calc(1) solid var(--color-card-border);
   background: var(--primary-color);
 
-  color: $matt-white;
+  color: $white;
 
   @include set-media(md) {
     margin-top: set-calc(8);
@@ -80,6 +80,8 @@
 }
 
 .categoriesItem {
+  @include rounded(30);
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -91,7 +93,6 @@
   height: set-calc(30);
   background-color: transparent;
   
-  border-radius: set-calc($border-radius-large);
   border: 1px solid var(--color-content-inverted-primary);
 
   @include set-media(md) {
@@ -225,7 +226,7 @@
   display: block;
   align-self: stretch;
   justify-self: stretch;
-  border-radius: set-calc($border-radius-medium);
+  border-radius: set-calc($border-radius-20);
   overflow: hidden;
   max-height: set-calc(600);
 
@@ -249,5 +250,5 @@
 .cover img {
   width: 100%;
   object-fit: cover;
-  border-radius: set-calc($border-radius-medium);
+  border-radius: set-calc($border-radius-20);
 }

@@ -23,7 +23,7 @@
   @include font-18-normal-paragraph;
 
   border: set-calc(1.3) solid var(--color-background-stroke);
-  border-radius: set-calc($border-radius-small);
+  border-radius: set-calc($border-radius-6);
 
   @include set-media(md) {
     min-width: 100%;

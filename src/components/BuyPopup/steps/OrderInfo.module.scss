@@ -27,7 +27,7 @@
   padding: 0 set-calc(24);
 
   @include set-media(md) {
-    border-radius: set-calc($border-radius-medium);
+    border-radius: set-calc($border-radius-20);
     padding: set-calc(16) set-calc(16);
 
     min-height: unset;

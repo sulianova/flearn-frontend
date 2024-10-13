@@ -7,11 +7,10 @@
   @include is-beige;
   padding: set-calc(32);
   background-color: $color-palette-black-700;
-  border-radius: set-calc($border-radius-medium);
+  border-radius: set-calc($border-radius-20);
 
   @include set-media(md) {
     padding: set-calc(32) set-calc(8);
-    border-radius: set-calc($border-radius-medium);
   }
 }
 

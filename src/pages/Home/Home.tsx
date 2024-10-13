@@ -3,10 +3,10 @@ import { useState } from 'react';
 import { lessonService } from 'services/lesson.service';
 import { URLSections } from 'router';
 
-import Page, { EPageVariant } from 'ui/Page/Page';
+import Page, { EPageVariant, EFooter } from 'ui/Page/Page';
 
 import Catalogue from './blocks/Catalogue/Catalogue';
-import  BannerStart from './blocks/BannerStart/BannerStart'
+import BannerStart from './blocks/BannerStart/BannerStart'
 import Header from './blocks/Header/Header';
 import DecisionForm from './blocks/DecisionForm/DecisionForm';
 import StudyProcess from './blocks/StudyProcess/StudyProcess';
@@ -60,8 +60,7 @@ export default function Home() {
       <Page
         variant={EPageVariant.WEB}
         header
-        footer
-        // footer={EFooter.Default}
+        footer={EFooter.Big}
         backgroundColor='var(--color-background-default)'
       >
         <Header
