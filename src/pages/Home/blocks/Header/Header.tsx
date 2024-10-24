@@ -5,6 +5,7 @@ import { authService } from 'services/auth.service';
 import Link from 'ui/Link/Link';
 
 import classes from './Header.module.scss';
+import Img from 'ui/Img/Img';
 
 interface IProps {
   onNotAuthedClick: () => void
@@ -41,7 +42,14 @@ export default function Header(props: IProps) {
           </div>
       </div>
       <div className={classes.imgWrapper}>
-      <iframe src="https://lottie.host/embed/49f5cea0-eed2-4655-94b6-bcb7fe61b93d/gFmKDudVDa.json"></iframe>
+      <Img
+        src={{
+          mobile: "/png/Home/3d_halloween_glass_angle_bg_mob.png",
+          desktop: "/png/Home/3d_halloween_glass_angle_bg_desk.png",
+        }}
+        alt=""
+      />
+      {/* <iframe src="https://lottie.host/embed/49f5cea0-eed2-4655-94b6-bcb7fe61b93d/gFmKDudVDa.json"></iframe> */}
       </div>
     </div>
   );
