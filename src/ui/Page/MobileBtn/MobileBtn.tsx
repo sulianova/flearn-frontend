@@ -69,7 +69,7 @@ export default function MobileBtn({ course, variant, visible, onNotAuthedClick }
           close={() => setPopupVisible(false)}
         />
       }
-      <div className={classes.__}>
+      <div className={classes.wrapper}>
           {(
             urlSection.name === 'Home' && (authService.isAuthenticated ? (
               <Link
@@ -89,40 +89,10 @@ export default function MobileBtn({ course, variant, visible, onNotAuthedClick }
           )}
           <div className={classes.btnWrapperRight}>
               {urlSection.name !== 'Home' && user && (
-                <div className={classes.settings} onClick={() => setMobMenuIsOpened(o => !o)}>
+                <div className={classes.menuBtn} onClick={() => setMobMenuIsOpened(o => !o)}>
                   <Icon icon='List'/>
                 </div>
               )}
-              {/* {urlSection.name === 'Profile' && (
-                <div
-                  className={cx({settings: true, open: userPopupVisible })}
-                  onClick={() => setUserPopupVisible(!userPopupVisible)}
-                >
-                  {user && userPopupVisible && (
-                    <UserPopup
-                      user={user}
-                      close={() => setUserPopupVisible(false)}
-                    />
-                  )}
-                  <Icon icon='User'/>
-                </div>
-              )} */}
-          </div>
-          <div className={classes.btnWrapperLeft}>
-              {/* {urlSection.name === 'Profile' && (
-                <div
-                  className={cx({settings: true, open: userPopupVisible })}
-                  onClick={() => setUserPopupVisible(!userPopupVisible)}
-                >
-                  {user && userPopupVisible && (
-                    <UserPopup
-                      user={user}
-                      close={() => setUserPopupVisible(false)}
-                    />
-                  )}
-                  <Icon icon='User'/>
-                </div>
-              )} */}
           </div>
       </div>
     </>

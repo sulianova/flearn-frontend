@@ -1,23 +1,19 @@
 @import 'styles/index';
 
-.__ {
+.wrapper {
   display: none;
 
   @include set-media(md) {
     position: fixed;
 
     bottom: set-calc(24);
-    left: 0;
-    right: 0;
+    left: set-calc(8);
+    right: set-calc(8);
     z-index: 600;
 
     display: flex;
     justify-content: center;
     align-items: center;
-
-    background-color: transparent;
-    transition: .3s ease;
-    will-change: transform;
   }
 }
 
@@ -26,58 +22,35 @@
   @include button-large;
   @include button-primary;
 
-  position: fixed;
-  right: set-calc(16);
-  bottom: 0;
-
+  width: 100%;
   box-shadow: $shadow-small-default;
 }
 
 .btnWrapperLeft {
-  position: fixed;
-
-  left: set-calc(16);
-  bottom: 0;
-
   display: flex;
   gap: set-calc(6);
 }
 
 .btnWrapperRight {
-  position: fixed;
-
-  right: set-calc(16);
-  bottom: 0;
-
   display: flex;
-  flex-direction: column-reverse;
   gap: set-calc(6);
+  margin-left: auto;
 }
 
-.settings {
+.menuBtn {
+  @include icon-size(24);
+
   display: flex;
   justify-content: center;
 
-  align-self: flex-end;
-
-  padding: set-calc(15);
-  transition: transform 0.15s ease-in;
+  padding: set-calc(15) set-calc(15);
+  width: set-calc(54);
+  height: set-calc(54);
   opacity: 1;
 
-  color: var(--color-content-inverted-primary);
-  background-color: var(--color-content-background-primary);
+  color: var(--color-content-primary);
+  background-color: var(--color-accent-promo-background);
   border-radius: 50%;
+
   box-shadow: $shadow-small-default;
-
-  svg {
-    display: inline-block;
-    text-align: center;
-
-    background: 50% no-repeat;
-    background-size: contain;
-    width: set-calc(24);
-    height: set-calc(24);
-
-    fill: $color-content-inverted-primary-light;
-  }
 }

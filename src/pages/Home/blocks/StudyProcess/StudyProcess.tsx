@@ -18,7 +18,9 @@ function StudyProcess() {
   return (
     <>
       <div data-bcalternate></div>
-      <div className={classes.title}>Как устроено обучение</div>
+      <div className={classes.header}>
+        <div className={classes.header__title}>Как устроено обучение</div>
+      </div>
       <div className={classes.list}>
       <div className={classes.item}>
         <h2 className={classes.item__title}>Наглядная теория с онлайн-тренажером</h2>

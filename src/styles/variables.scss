@@ -1,21 +1,22 @@
 @use "sass:math";
-$rem-base: 18px;
-$font-family-logo: Montserrat-Logo, sans-serif;
-$font-family: Montserrat, sans-serif;
+$rem-base: 16px;
+$font-family-light: Montserrat-Light, sans-serif;
+$font-family-normal: Montserrat-Normal, sans-serif;
 $font-family-medium: Montserrat-Medium, sans-serif;
 $font-family-bold: Montserrat-Bold, sans-serif;
-$font-family-extra-bold: Montserrat-Extra-Bold, sans-serif;
 $font-family-article-light: Commissioner-Light, sans-serif;
 $font-family-article: Commissioner, sans-serif;
 $font-family-article-bold: Commissioner-Bold, sans-serif;
 
-$p-desk-page: 150;
-$p-desk-s-page: 16;
-$p-mob-page: 16;
-$p-mob-s-page: 8;
+$p-page-desk-l: 200;
+$p-page-desk-m: 100;
+$p-page-desk-s: 16;
+$p-page-mob-l: 16;
+$p-page-mob-m: 16;
+$p-page-mob-s: 8;
 
 $white: #fff;
-$black: #000000;
+$black: #000;
 
 //color-palette-black
 $color-palette-black-25: #fdfcfc;
@@ -70,18 +71,23 @@ $color-palette-primary-600: #5627FF;
 $color-palette-primary-700: #5026E3;
 
 //color
-$color-green: #69CB84;
-$color-purple: #A3A3F2;
-$color-salmonOrange: #ED7234;
-$color-royalBlue: #565CE7;
+$color-pink: #e39bdf;
+$color-violet: #855be1;
+$color-green: #59c193;
+$color-blue: #405df6;
+$color-red: #eb4e27;
 $color-yellow: #f8db46;
+
+$color-rose: #f8d6fc;
+$color-purple: #bfacf9;
+$color-mint: #77d3a8;
+$color-sky: #74aef2;
+$color-peach: #f5bd84;
+$color-dust: #ffec8f;
 
 //color-highlight
 $color-highlight-yellow: #F8DB46;
 $color-highlight-gold: #F5CB36;
-
-//gradient
-$color-gradient-rainbow: linear-gradient(139.953deg, #FF30A1 0%, #8722FC 99%);
 
 //theme-light
 $primary-color-light: $color-palette-primary-600;
@@ -106,20 +112,23 @@ $color-background-glassy-inverted-a-light: $color-palette-white-50-a;
 $color-background-glassy-inverted-b-light: $color-palette-white-100-a;
 $color-background-glassy-inverted-c-light: $color-palette-white-200-a;
 $color-background-glassy-inverted-d-light: $color-palette-white-300-a;
-
 $color-background-overlay-light: $color-palette-black-500-a;
 $color-background-btn-light: $color-palette-black-700;
 $color-background-btn-hover-light: $color-palette-black-900;
+$color-background-violet-light: $color-purple;
+$color-background-pink-light: $color-rose;
 
-$color-accent-error-light: #F04438;
+$color-accent-alert-light: #F04438;
 $color-accent-warning-light: #FDB022;
 $color-accent-success-light: #12B76A;
-$color-accent-notice-light: #0064F0;
+$color-accent-info-light: #405DF6;
 $color-accent-promo-light: $color-palette-primary-600;
-$color-accent-promo-background-light: $color-highlight-yellow;
+$color-accent-promo-background-light: $color-yellow;
 
 $color-card-border-light: transparent; //$color-palette-white-300-a;
 $color-card-light: $color-palette-white-1000;
+$color-card-glassy-light: $color-palette-white-800-a;
+
 $border-light: $color-palette-black-100-a;
 
 //theme-dark
@@ -145,20 +154,23 @@ $color-background-glassy-inverted-a-dark: $color-palette-black-15-a;
 $color-background-glassy-inverted-b-dark: $color-palette-black-25-a;
 $color-background-glassy-inverted-c-dark: $color-palette-black-50-a;
 $color-background-glassy-inverted-d-dark: $color-palette-black-100-a;
-
-$color-accent-error-dark: #F04438;
-$color-accent-warning-dark: #FDB022;
-$color-accent-success-dark: #36BA5F;
-$color-accent-notice-dark: #6172F3;
-$color-accent-promo-dark: $color-highlight-yellow;
-$color-accent-promo-background-dark: $color-palette-primary-600;
-
 $color-background-overlay-dark: $color-palette-black-500-a;
 $color-background-btn-dark: $color-palette-black-50;
 $color-background-btn-hover-dark: $color-palette-black-200;
+$color-background-violet-dark: $color-violet;
+$color-background-pink-dark: $color-pink;
+
+$color-accent-alert-dark: #F04438;
+$color-accent-warning-dark: #FDB022;
+$color-accent-success-dark: #36BA5F;
+$color-accent-info-dark: #405DF6;
+$color-accent-promo-dark: $color-yellow;
+$color-accent-promo-background-dark: $color-palette-primary-600;
 
 $color-card-border-dark: hsla(0, 0%, 100%, .1);
 $color-card-dark: $color-palette-black-700;
+$color-card-glassy-dark: $color-palette-black-800-a;
+
 $border-dark: $color-palette-black-500;
 
 //links
@@ -196,7 +208,8 @@ $shadow-popup: 0px 24px 48px 0px rgba(0, 0, 0, 0.10);
 $shadow-menu: 0px 10px 48px 0px rgba(0, 0, 0, 0.10);
 
 //blur
-$blur-15: 15;
+$blur-8: 8;
+$blur-16: 16;
 
 //border-radius
 $border-radius-4: 4;
@@ -205,22 +218,11 @@ $border-radius-6: 6;
 $border-radius-8: 8;
 $border-radius-10: 10;
 $border-radius-12: 12;
-$border-radius-14: 14;
 $border-radius-16: 16;
 $border-radius-20: 20;
 $border-radius-24: 24;
-$border-radius-30: 30;
-$border-radius-50: 50;
-
-//opacity
-$opacity-60: 0.06;
-$opacity-150: 0.15;
-$opacity-300: 0.3;
-$opacity-600: 0.6;
-$opacity-800: 0.8;
-$opacity-850: 0.85;
-$opacity-90: 0.9;
-$opacity-950: 0.95;
+$border-radius-32: 32;
+$border-radius-40: 40;
 
 //z-index
 $z-index-100: 100;
@@ -239,14 +241,23 @@ $gap-8: 8;
 
 // CSS
 :root {
-  --color-purple: #{$color-purple};
+  --color-pink: #{$color-pink};
+  --color-violet: #{$color-violet};
   --color-green: #{$color-green};
-  --color-salmonOrange: #{$color-salmonOrange};
-  --color-royalBlue: #{$color-royalBlue};
+  --color-blue: #{$color-blue};
+  --color-red: #{$color-red};
   --color-yellow: #{$color-yellow};
+
+  --color-rose: #{$color-rose};
+  --color-purple: #{$color-purple};
+  --color-mint: #{$color-mint};
+  --color-sky: #{$color-sky};
+  --color-peach: #{$color-peach};
+  --color-dust: #{$color-dust};
 
   --color-highlight-yellow: #{$color-highlight-yellow};
   --color-highlight-gold: #{$color-highlight-gold};
+
   // theme light
   --primary-color-light: #{$primary-color-light};
   --primary-color-hover-light: #{$primary-color-hover-light};
@@ -273,8 +284,10 @@ $gap-8: 8;
   --color-background-overlay-light: #{$color-background-overlay-light};
   --color-background-btn-light: #{$color-background-btn-light};
   --color-background-btn-hover-light: #{$color-background-btn-hover-light};
-  --color-accent-error-light: #{$color-accent-error-light};
-  --color-accent-notice-light: #{$color-accent-notice-light};
+  --color-background-violet-light: #{$color-background-violet-light};
+  --color-background-pink-light: #{$color-background-pink-light};
+  --color-accent-alert-light: #{$color-accent-alert-light};
+  --color-accent-info-light: #{$color-accent-info-light};
   --color-accent-success-light: #{$color-accent-success-light};
   --color-accent-warning-light: #{$color-accent-warning-light};
   --color-accent-promo-light: #{$color-accent-promo-light};
@@ -282,6 +295,7 @@ $gap-8: 8;
 
   --color-card-border-light: #{$color-card-border-light};
   --color-card-light: #{$color-card-light};
+  --color-card-glassy-light: #{$color-card-glassy-light};
   --border-light: #{$border-light};
 
   // theme dark
@@ -310,8 +324,10 @@ $gap-8: 8;
   --color-background-overlay-dark: #{$color-background-overlay-dark};
   --color-background-btn-dark: #{$color-background-btn-dark};
   --color-background-btn-hover-dark: #{$color-background-btn-hover-dark};
-  --color-accent-error-dark: #{$color-accent-error-dark};
-  --color-accent-notice-dark: #{$color-accent-notice-dark};
+  --color-background-violet-dark: #{$color-background-violet-dark};
+  --color-background-pink-dark: #{$color-background-pink-dark};
+  --color-accent-alert-dark: #{$color-accent-alert-dark};
+  --color-accent-info-dark: #{$color-accent-info-dark};
   --color-accent-success-dark: #{$color-accent-success-dark};
   --color-accent-warning-dark: #{$color-accent-warning-dark};
   --color-accent-promo-dark: #{$color-accent-promo-dark};
@@ -319,5 +335,6 @@ $gap-8: 8;
 
   --color-card-border-dark: #{$color-card-border-dark};
   --color-card-dark: #{$color-card-dark};
+  --color-card-glassy-dark: #{$color-card-glassy-dark};
   --border-dark: #{$border-dark};
 }

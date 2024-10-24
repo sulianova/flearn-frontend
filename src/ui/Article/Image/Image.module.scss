@@ -89,8 +89,8 @@
     margin-top: 0;
     padding: set-calc(8) set-calc(12);
     background-color: $color-palette-white-900-a;
-    border-radius: set-calc($border-radius-30);
-    backdrop-filter: blur(set-calc($blur-15));
+    border-radius: set-calc($border-radius-32);
+    backdrop-filter: blur(set-calc($blur-16));
 
     @include set-media(md) {
       bottom: set-calc(4);

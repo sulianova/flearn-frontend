@@ -20,7 +20,7 @@
 
   background: var(--primary-color);
   background: var(--primary-color);
-  border-radius: set-calc($border-radius-30);
+  border-radius: set-calc($border-radius-32);
 
   @include set-media(md) {
     padding: set-calc(56) set-calc(16);
@@ -32,7 +32,7 @@
 
 .title {
   @include set-typography(42, 52, 500);
-  font-family: $font-family-extra-bold;
+  font-family: $font-family-bold;
   text-align: center;
 
   width: 80%;

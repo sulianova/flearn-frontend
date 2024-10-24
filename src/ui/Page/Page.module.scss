@@ -43,18 +43,18 @@
 }
 
 .WEBWrapper {
-  padding: 0 set-calc($p-desk-page);
+  padding: 0 set-calc($p-page-desk-l);
 
   @include set-media(md) {
-    padding: 0 set-calc($p-mob-s-page);
+    padding: 0 set-calc($p-page-mob-s);
   }
 }
 
 .LMSWrapper {
-  padding: 0 set-calc($p-desk-page);
+  padding: 0 set-calc($p-page-desk-s);
 
   @include set-media(md) {
-    padding: 0 set-calc(1.5 * $p-mob-page);
+    padding: 0 set-calc($p-page-mob-m);
   }
 }
 
@@ -65,9 +65,9 @@
   gap: set-calc(16);
   background-color: transparent;
 
-  padding: 0 set-calc($p-desk-page);
+  padding: 0 set-calc($p-page-desk-l);
 
   @include set-media(md) {
-    padding: 0 set-calc($p-mob-page);
+    padding: 0 set-calc($p-page-mob-l);
   }
 }

@@ -9,8 +9,8 @@
   margin: set-calc(32) auto set-calc(32) 0;
 
   @include set-media(md) {
-    left: set-calc(-$p-mob-page);
-    width: set-calc(2 * $p-mob-page, true, 100%);
+    left: set-calc(-$p-page-mob-s);
+    width: set-calc(2 * $p-page-mob-s, true, 100%);
 
     margin: 0 auto set-calc(24);
   }

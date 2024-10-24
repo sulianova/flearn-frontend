@@ -6,7 +6,7 @@
   padding-left: set-calc(16);
 
   @include font-32-normal-header;
-  font-family: $font-family-extra-bold;
+  font-family: $font-family-bold;
 
   @include set-media(md) {
     position: relative;

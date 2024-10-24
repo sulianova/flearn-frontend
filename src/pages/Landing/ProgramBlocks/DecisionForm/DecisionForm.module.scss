@@ -104,7 +104,7 @@
   background-color: var(--color-card);
 
   box-shadow: 0 0 0 2px $color-palette-black-200, 0 2px 0 2px $color-palette-black-200;
-  border-radius: set-calc($border-radius-30);
+  border-radius: set-calc($border-radius-32);
   -webkit-tap-highlight-color: transparent;
   cursor: pointer;
 
@@ -176,7 +176,7 @@
   align-items: flex-start;
   z-index: 9;
 
-  border-radius: set-calc($border-radius-30);
+  border-radius: set-calc($border-radius-32);
   padding: set-calc(10) set-calc(15);
   background: var(--primary-color);
   

@@ -48,7 +48,7 @@
   z-index: 2;
 
   @include set-typography(20, 30, 500);
-  font-family: $font-family;
+  font-family: $font-family-normal;
   color: var(--color-content-inverted-primary);
   white-space: pre-line;
 
@@ -71,7 +71,7 @@
 
   color: var(--primary-color);
   @include set-typography(16, 24, 500);
-  font-family: $font-family;
+  font-family: $font-family-normal;
 
   @include set-media(md) {
     display: none;
@@ -101,10 +101,10 @@
 
   @include font-20-normal-ui;
   color: var(--color-content-inverted-primary);
-  font-family: $font-family;
+  font-family: $font-family-normal;
 
   padding: set-calc(12) set-calc(18);
-  border-radius: set-calc($border-radius-30);
+  border-radius: set-calc($border-radius-32);
   background-color: var(--primary-color);
 
   @include set-media(md) {
@@ -143,11 +143,11 @@
   @include set-media(md) {
     display: block;
 
-    padding: set-calc(16) set-calc($p-mob-s-page) 0;
+    padding: set-calc(16) set-calc($p-page-mob-s) 0;
     width: 100%;
 
     @include set-typography(16, 24, 500);
     color: var(--primary-color);
-    font-family: $font-family;
+    font-family: $font-family-normal;
   }
 }

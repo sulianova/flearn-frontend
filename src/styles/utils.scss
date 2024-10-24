@@ -41,7 +41,7 @@
 
 @mixin add-scale {
   :root {
-     --scale: 100vw/1600;
+     --scale: 100vw/1728;
   }
 }
 
@@ -63,16 +63,16 @@
   background-color: transparent;
   color: var(--color-content-primary);
 
-  left: set-calc(-$p-desk-page);
-  width: set-calc(2 * $p-desk-page, true, 100%);
+  left: set-calc(-$p-page-desk-l);
+  width: set-calc(2 * $p-page-desk-l, true, 100%);
   padding: set-calc(0) set-calc(24);
 
   @include set-media(md) {
     display: block;
 
-    left: set-calc(-$p-mob-s-page);
-    width: set-calc(2 * $p-mob-s-page, true, 100%);
-    padding: set-calc($p-mob-s-page) set-calc($p-mob-s-page);
+    left: set-calc(-$p-page-mob-s);
+    width: set-calc(2 * $p-page-mob-s, true, 100%);
+    padding: set-calc($p-page-mob-s) set-calc($p-page-mob-s);
   }
 }
 
@@ -124,71 +124,36 @@
   }
 }
 
-//atomic
-@mixin s-hoverable {
-  cursor: pointer;
-  transition: color $d-hover ease-out 0.1s;
-  -o-transition: color $d-hover ease-out 0.1s;
-  -moz-transition: color $d-hover ease-out 0.1s;
-  -ms-transition: color $d-hover ease-out 0.1s;
-  -webkit-transition: color $d-hover ease-out 0.1s;
-
-  &:hover {
-    color: var(--primary-color);
-  }
-}
-
-@mixin key-link(
-  $color: var(--color-accent-promo-background)
-  ) {
+//headers
+@mixin header {
   position: relative;
-  display: inline-block;
-  color: inherit;
-  z-index: 1;
 
-  transition: all $d-hover ease-out 0s;
-  -o-transition: all $d-hover ease-out 0s;
-  -moz-transition: all $d-hover ease-out 0s;
-  -ms-transition: all $d-hover ease-out 0s;
-  -webkit-transition: all $d-hover ease-out 0s;
-  cursor: pointer;
+  display: flex;
+  flex-direction: column;
 
-  width: fit-content;
-  -webkit-tap-highlight-color: transparent;
+  gap: set-calc(16);
+  padding: 0 set-calc(16);
+  margin-bottom: set-calc(40);
 
-  &:hover::before {
-    height: 100%;
+  &__title {
+    @include font-56-normal-header;
+    font-family: $font-family-bold;
+  }
+
+  &__description {
+    @include font-20-normal-paragraph;
+    color: var(--color-content-paragraph-primary);
+
+    max-width: set-calc(600);
   }
 
   @include set-media(md) {
-    &:hover::before {
-      height: 2px;
-    }
+    width: 100%;
+
+    gap: set-calc(8);
+    padding: 0 set-calc($p-page-mob-s);
+    margin-bottom: set-calc(24);
   }
-
-  &::before {
-    position: absolute;
-    content: "";
-
-    bottom: 0;
-    left: -2px;
-    z-index: -1;
-
-    width: calc(100% + 4px);
-    height: 2px;
-
-    border-radius: set-calc(4);
-    background-color: $color;
-    transition: height .2s cubic-bezier(.25,.01,.25,1) 0s;
-  }
-}
-
-@mixin bc-yellow {
-  background-color: var(--color-accent-promo-background);
-}
-
-@mixin rounded($height) {
-  border-radius: calc(set-calc($height) / 2)
 }
 
 //button
@@ -875,7 +840,7 @@
   box-shadow: none;
   outline: none;
 
-  font-family: $font-family!important;
+  font-family: $font-family-normal!important;
 
   transition-property: all;
   transition-duration: $d-focus;
@@ -885,7 +850,7 @@
   &::-ms-input-placeholder,
   &::-webkit-input-placeholder {
     color: var(--color-background-glassy-d)!important;
-    font-family: $font-family!important;
+    font-family: $font-family-normal!important;
     opacity: 1;
   }
 
@@ -914,7 +879,7 @@
 
 @mixin input-caption {
   @include font-10-normal-ui;
-  font-family: $font-family;
+  font-family: $font-family-normal;
   color: var(--color-content-tertiary);
 
   margin-top: set-calc(4);
@@ -954,18 +919,18 @@
 }
 
 @mixin input-alert {
-  border-color: var(--color-accent-error);
+  border-color: var(--color-accent-alert);
 
   [data-input-state-error] & {
-    border-color: var(--color-accent-error);
+    border-color: var(--color-accent-alert);
 
     &:focus {
-      border-color: var(--color-accent-error);
+      border-color: var(--color-accent-alert);
     }
   }
 
   & + .caption {
-    color: var(--color-accent-error);
+    color: var(--color-accent-alert);
   }
 }
 

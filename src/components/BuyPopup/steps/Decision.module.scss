@@ -89,7 +89,7 @@
 
   padding: set-calc(40);
   background-color: var(--color-card);
-  border-radius: set-calc($border-radius-30);
+  border-radius: set-calc($border-radius-32);
   border: 1px solid var(--border);
 
   @include set-media(md) {
@@ -162,7 +162,7 @@
 
   .title {
     color: var(--color-content-inverted-secondary);
-    font-family: $font-family;
+    font-family: $font-family-normal;
   }
 
   .paymentSummary {
@@ -200,7 +200,7 @@
 
   .itemText {
     color: var(--color-content-inverted-secondary);
-    font-family: $font-family;
+    font-family: $font-family-normal;
   }
 
   .cardBtn {

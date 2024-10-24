@@ -5,15 +5,15 @@
 }
 
 @font-face {
-  font-weight: 450;
-  font-family: Montserrat;
+  font-weight: 400;
+  font-family: Montserrat-Light;
   src: url("../assets/fonts/Montserrat.ttf");
 }
 
 @font-face {
-  font-family: Montserrat-Logo;
-  font-weight: 550;
-  src: url("../assets/fonts//Montserrat.ttf");
+  font-family: Montserrat-Normal;
+  font-weight: 500;
+  src: url("../assets/fonts/Montserrat.ttf");
 }
 
 @font-face {
@@ -25,12 +25,6 @@
 @font-face {
   font-family: Montserrat-Bold;
   font-weight: 700;
-  src: url("../assets/fonts/Montserrat.ttf");
-}
-
-@font-face {
-  font-family: Montserrat-Extra-Bold;
-  font-weight: 850;
   src: url("../assets/fonts/Montserrat.ttf");
 }
 
@@ -53,7 +47,7 @@
 }
 
 html {
-  font-family: $font-family, "Segoe UI", Roboto, "Helvetica Neue" ,Arial, sans-serif;
+  font-family: $font-family-normal, "Segoe UI", Roboto, "Helvetica Neue" ,Arial, sans-serif;
   font-size: set-calc(18);
   line-height: set-calc(28);
   font-weight: 500;
@@ -155,7 +149,7 @@ li {
 input,
 input::placeholder {
   color: inherit;
-  font-family: $font-family;
+  font-family: $font-family-normal;
 }
 
 input:-webkit-autofill,
@@ -163,7 +157,7 @@ input:-webkit-autofill:focus,
 :-webkit-autofill:hover {
   transition: background-color 0s 600000s, color 0s 600000s !important;
 
-  font-family: $font-family!important;
+  font-family: $font-family-normal!important;
 }
 
 html input[type=button],input[type=reset],input[type=submit] {
@@ -236,60 +230,6 @@ s {
   position: relative;
   text-decoration: none;
   white-space: nowrap;
-}
-
-.inline-link {
-  transition: color $d-hover ease-out 0s;
-  -o-transition: color $d-hover ease-out 0s;
-  -moz-transition: color $d-hover ease-out 0s;
-  -ms-transition: color $d-hover ease-out 0s;
-  -webkit-transition: color $d-hover ease-out 0s;
-
-  cursor: pointer;
-
-  &:hover {
-    color: var(--primary-color);
-  }
-
-  &:active {
-    color: var(--primary-color);
-  }
-
-  &-text {
-    display: inline;
-    vertical-align: top;
-    color: inherit;
-  }
-  
-  &-arrow {
-    display: inline-block;
-    vertical-align: top;
-    line-height: set-calc(28);
-    margin-left: set-calc(6);
-
-    @include set-media(md) {
-      line-height: set-calc(22);
-    }
-  }
-
-  &-arrow-left {
-    display: inline-block;
-    vertical-align: top;
-    line-height: set-calc(28);
-    margin-right: set-calc(6);
-
-    @include set-media(md) {
-      line-height: set-calc(22);
-    }
-  }
-}
-
-.s-hoverable {
-  @include s-hoverable;
-}
-
-.key-link {
-  @include key-link;
 }
 
 .isActive {

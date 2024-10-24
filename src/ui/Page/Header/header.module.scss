@@ -29,7 +29,7 @@
 }
 
 .desk_WEB {
-  margin: set-calc(8) set-calc(calc($p-desk-page)) 0;
+  margin: set-calc(8) set-calc(calc($p-page-desk-l)) 0;
   padding: set-calc(16) set-calc(32);
 
   backdrop-filter: blur(set-calc(15));
@@ -48,7 +48,7 @@
 
   @include set-media(md) {
     margin: 0 0 0;
-    padding: set-calc(12) set-calc($p-mob-s-page);
+    padding: set-calc(12) set-calc($p-page-mob-s);
 
     border-radius: 0;
     border: 1px solid transparent;
@@ -81,7 +81,7 @@
   }
 
   @include set-media(md) {
-    padding: set-calc(12) set-calc($p-mob-s-page);
+    padding: set-calc(12) set-calc($p-page-mob-s);
 
     border-radius: 0;
     backdrop-filter: blur(set-calc(15));
@@ -101,7 +101,7 @@
 
   &__name {
     @include set-typography(28, 28, 500);
-    font-family: $font-family-logo;
+    font-family: $font-family-normal;
     font-feature-settings: 'ss01' on;
     letter-spacing: set-calc(-0.66);
 

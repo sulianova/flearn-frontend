@@ -1,37 +1,15 @@
 @import 'styles/index';
 
 .header {
-  position: relative;
-
-  padding: 0 set-calc(16);
-  margin-bottom: set-calc(40);
-
-  @include set-media(md) {
-    position: relative;
-
-    display: block;
-    margin-bottom: set-calc(30);
-    padding: 0 set-calc($p-mob-s-page);
-  }
-}
-
-.header__title {
-  margin-bottom: set-calc(24);
-
-  @include font-56-normal-header;
-  font-family: $font-family-extra-bold;
-
-  @include set-media(md) {
-    margin-bottom: set-calc(16);
-  }
+  @include header;
 }
 
 .list {
   display: flex;
-  gap: set-calc(16);
+  gap: set-calc(6);
 
   @include set-media(md) {
-    gap: set-calc(8);
+    gap: set-calc(4);
     flex-direction: column;
   }
 }

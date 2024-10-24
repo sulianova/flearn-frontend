@@ -40,7 +40,7 @@
 }
 
 .Error {
-  color: var(--color-accent-error);
+  color: var(--color-accent-alert);
   @include font-14-normal-ui;
 
   margin-top: set-calc(6);

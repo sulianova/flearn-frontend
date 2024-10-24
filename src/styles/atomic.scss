@@ -1,3 +1,138 @@
+//screen
+.isMobile {
+  @include set-media-min(md) {
+    display: none;
+  }
+}
+
+.isDesktop {
+  @include set-media(md) {
+    display: none!important;
+  }
+}
+
+//links
+@mixin inline-link {
+  transition: color $d-hover ease-out 0s;
+  -o-transition: color $d-hover ease-out 0s;
+  -moz-transition: color $d-hover ease-out 0s;
+  -ms-transition: color $d-hover ease-out 0s;
+  -webkit-transition: color $d-hover ease-out 0s;
+
+  cursor: pointer;
+
+  &:hover {
+    color: var(--primary-color);
+  }
+
+  &:active {
+    color: var(--primary-color);
+  }
+
+  &-text {
+    display: inline;
+    vertical-align: top;
+    color: inherit;
+  }
+  
+  &-arrow {
+    display: inline-block;
+    vertical-align: top;
+    line-height: set-calc(28);
+    margin-left: set-calc(6);
+
+    @include set-media(md) {
+      line-height: set-calc(22);
+    }
+  }
+
+  &-arrow-left {
+    display: inline-block;
+    vertical-align: top;
+    line-height: set-calc(28);
+    margin-right: set-calc(6);
+
+    @include set-media(md) {
+      line-height: set-calc(22);
+    }
+  }
+}
+
+@mixin s-hoverable {
+  cursor: pointer;
+  transition: color $d-hover ease-out 0.1s;
+  -o-transition: color $d-hover ease-out 0.1s;
+  -moz-transition: color $d-hover ease-out 0.1s;
+  -ms-transition: color $d-hover ease-out 0.1s;
+  -webkit-transition: color $d-hover ease-out 0.1s;
+
+  &:hover {
+    color: var(--primary-color);
+  }
+}
+
+@mixin key-link(
+  $color: var(--color-accent-promo-background)
+  ) {
+  position: relative;
+  display: inline-block;
+  color: inherit;
+  z-index: 1;
+
+  transition: all $d-hover ease-out 0s;
+  -o-transition: all $d-hover ease-out 0s;
+  -moz-transition: all $d-hover ease-out 0s;
+  -ms-transition: all $d-hover ease-out 0s;
+  -webkit-transition: all $d-hover ease-out 0s;
+  cursor: pointer;
+
+  width: fit-content;
+  -webkit-tap-highlight-color: transparent;
+
+  &:hover::before {
+    height: 100%;
+  }
+
+  @include set-media(md) {
+    &:hover::before {
+      height: 2px;
+    }
+  }
+
+  &::before {
+    position: absolute;
+    content: "";
+
+    bottom: 0;
+    left: -2px;
+    z-index: -1;
+
+    width: calc(100% + 4px);
+    height: 2px;
+
+    border-radius: set-calc(4);
+    background-color: $color;
+    transition: height .2s cubic-bezier(.25,.01,.25,1) 0s;
+  }
+}
+
+.inline-link {
+  @include inline-link;
+}
+
+.s-hoverable {
+  @include s-hoverable;
+}
+
+.key-link {
+  @include key-link;
+}
+
+//borders
+@mixin rounded($height) {
+  border-radius: calc(set-calc($height) / 2)
+}
+
 //fonts
 @mixin font-10-normal-ui {
   @include set-typography(10, 12, 500);
@@ -133,6 +268,10 @@
 }
 
 //color
+@mixin bc-yellow {
+  background-color: var(--color-accent-promo-background);
+}
+
 .color-highlight-violet {
   color: var(--primary-color);
 }
@@ -166,53 +305,4 @@
 
 .bold {
   font-family: $font-family-article-bold;
-}
-
-//
-.isMobile {
-  @include set-media-min(md) {
-    display: none;
-  }
-}
-
-.isDesktop {
-  @include set-media(md) {
-    display: none!important;
-  }
-}
-
-//button
-.btnIcon {
-  display: inline-flex;
-  align-items: center;
-  height: set-calc(24);
-  justify-content: center;
-}
-
-//slider
-.slide-right-enter, .slide-right-exit-active {
-  transform: translateX(-100%);
-}
-
-.slide-left-enter, .slide-left-exit-active {
-  transform: translateX(100%);
-}
-
-.slide-right-enter, .slide-right-exit, .slide-right-enter-active, .slide-right-exit-active,
-.slide-left-enter,
-.slide-left-exit,
-.slide-left-enter-active,
-.slide-left-exit-active {
-  will-change: transform;
-}
-
-.slide-right-enter-active,
-.slide-left-enter-active {
-  transition: transform 0.65s cubic-bezier(0.2, 1, 0.3, 1);
-  transition-delay: 0.1s;
-  transform: translateX(0);
-}
-.slide-right-exit,
-.slide-left-exit {
-  transform: translateX(0);
 }

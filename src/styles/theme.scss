@@ -27,8 +27,11 @@ body.light {
   --color-background-overlay: var(--color-background-overlay-light);
   --color-background-btn: var(--color-background-btn-light);
   --color-background-btn-hover: var(--color-background-btn-hover-light);
-  --color-accent-error: var(--color-accent-error-light);
-  --color-accent-notice: var(--color-accent-notice-light);
+  --color-background-violet: var(--color-background-violet-light);
+  --color-background-pink: var(--color-background-pink-light);
+
+  --color-accent-alert: var(--color-accent-alert-light);
+  --color-accent-info: var(--color-accent-info-light);
   --color-accent-success: var(--color-accent-success-light);
   --color-accent-warning: var(--color-accent-warning-light);
   --color-accent-promo: var(--color-accent-promo-light);
@@ -36,7 +39,9 @@ body.light {
 
   --color-card-border: var(--color-card-border-light);
   --color-card: var(--color-card-light);
+  --color-card-glassy: var(--color-card-glassy-light);
   --border: var(--border-light);
+
   --color-quiz: var(--color-quiz-light);
   --shadow-solid-small: var(--shadow-solid-small-light);
 }
@@ -69,8 +74,10 @@ body.dark {
   --color-background-overlay: var(--color-background-overlay-dark);
   --color-background-btn: var(--color-background-btn-dark);
   --color-background-btn-hover: var(--color-background-btn-hover-dark);
-  --color-accent-error: var(--color-accent-error-dark);
-  --color-accent-notice: var(--color-accent-notice-dark);
+  --color-background-violet: var(--color-background-violet-dark);
+  --color-background-pink: var(--color-background-pink-dark);
+  --color-accent-alert: var(--color-accent-alert-dark);
+  --color-accent-info: var(--color-accent-info-dark);
   --color-accent-success: var(--color-accent-success-dark);
   --color-accent-warning: var(--color-accent-warning-dark);
   --color-accent-promo: var(--color-accent-promo-dark);
@@ -78,7 +85,9 @@ body.dark {
 
   --color-card-border: var(--color-card-border-dark);
   --color-card: var(--color-card-dark);
+  --color-card-glassy: var(--color-card-glassy-dark);
   --border: var(--border-dark);
+  
   --color-quiz: var(--color-quiz-dark);
   --shadow-solid-small: var(--shadow-solid-small-dark);
 }

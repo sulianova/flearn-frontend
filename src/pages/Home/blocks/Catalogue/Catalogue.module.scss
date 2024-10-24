@@ -1,39 +1,7 @@
 @import 'styles/index';
 
 .header {
-  position: relative;
-
-  @include is-grid-12;
-  grid-row-gap: 0;
-
-  padding: 0 set-calc(16);
-  margin-bottom: set-calc(32);
-
-  @include set-media(md) {
-    position: relative;
-
-    display: block;
-    margin-bottom: set-calc(24);
-    padding: 0 set-calc($p-mob-s-page);
-  }
-}
-
-.header__title {
-  grid-column: 1 / 7;
-  margin-bottom: set-calc(24);
-
-  @include font-56-normal-header;
-  font-family: $font-family-extra-bold;
-
-  @include set-media(md) {
-    margin-bottom: set-calc(16);
-  }
-}
-
-.header__description {
-  grid-column: 1 / 9;
-
-  @include font-20-normal-paragraph;
+  @include header;
 }
 
 .animationWrapper {

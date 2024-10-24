@@ -1,85 +1,58 @@
 @import 'styles/index';
 
-.title {
-  position: relative;
-
-  margin-bottom: set-calc(40);
-  padding-left: set-calc(16);
-
-  @include font-56-normal-header;
-  font-family: $font-family-extra-bold;
-
-  @include set-media(md) {
-    position: relative;
-    margin-bottom: set-calc(30);
-    padding-left: set-calc($p-mob-s-page);
-  }
+.header {
+  @include header;
 }
 
 .list {
-  @include is-grid-3;
-  gap: set-calc(20);
+  display: flex;
+  gap: set-calc(6);
 
   @include set-media(md) {
-    gap: set-calc(8);
+    flex-direction: column;
+    gap: set-calc(4);
   }
 }
 
 .item {
-  grid-column: span 1;
+  display: flex;
+  flex-direction: column;
+  gap: set-calc(20);
+
+  width: calc(33.3% - set-calc(6));
+
+  padding: set-calc(40);
   background-color: var(--color-card);
   border: 1px solid var(--color-card-border);
-  padding: set-calc(32);
-  border-radius: set-calc($border-radius-30);
+  border-radius: set-calc($border-radius-32);
 
   @include set-media(md) {
-    display: flex;
-    flex-direction: column;
-    padding: set-calc(24);
-    padding-top: set-calc(16);
-
-    border-radius: set-calc($border-radius-20);
+    gap: set-calc(10);
+    width: 100%;
+    padding: set-calc(20);
   }
 }
 
 .item__title {
-  @include set-typography(24, 30, 500);
+  @include font-24-normal-header;
   font-family: $font-family-bold;
-  color: var(--color-content-primary);
-  margin-bottom: set-calc(20);
-
-  @include set-media(md) {
-    @include set-typography(20, 24, 500);
-    margin-bottom: set-calc(16);
-  }
 }
 
 .item__description {
   @include font-18-normal-ui;
   color: var(--color-content-paragraph-secondary);
+  gap: set-calc(8);
 
   p {
     font-size: inherit;
     line-height: inherit;
     font-family: inherit;
   }
-
-  p:not(:last-child) {
-    padding-bottom: set-calc(8);
-  }
-}
-
-.desc:not(:last-child) {
-  padding-bottom: set-calc(48);
-
-  @include set-media(md) {
-    padding-bottom: set-calc(24);
-  }
 }
 
 .group {
   display: grid;
-  grid-gap: set-calc(16);
+  grid-gap: set-calc(6);
   grid-template-columns: 4fr 6fr;
   grid-template-areas: "explain-intro explain-video";
 
@@ -89,9 +62,8 @@
     display: flex;
     flex-direction: column;
 
-    margin-top: set-calc(8);
-
-    grid-gap: set-calc(8);
+    margin-top: set-calc(4);
+    grid-gap: set-calc(4);
   }
 }
 
@@ -100,13 +72,12 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: set-calc(16);
+  gap: set-calc(6);
 
   overflow: hidden;
-  border-radius: set-calc($border-radius-20);
 
   @include set-media(md) {
-    gap: set-calc(8);
+    gap: set-calc(4);
   }
 }
 
@@ -115,12 +86,12 @@
   z-index: 2;
 
   @include set-typography(20, 30, 500);
-  font-family: $font-family;
+  font-family: $font-family-normal;
   color: $color-content-inverted-primary-light;
   white-space: pre-line;
 
   background-color: var(--primary-color);
-  border-radius: set-calc($border-radius-20);
+  border-radius: set-calc($border-radius-32);
   padding: set-calc(32);
 
   @include set-media(md) {
@@ -137,7 +108,7 @@
 
   color: var(--primary-color);
   @include set-typography(16, 24, 500);
-  font-family: $font-family;
+  font-family: $font-family-normal;
 
   @include set-media(md) {
     display: none;
@@ -167,10 +138,10 @@
 
   @include font-20-normal-ui;
   color: $color-content-inverted-primary-light;
-  font-family: $font-family;
+  font-family: $font-family-normal;
 
   padding: set-calc(12) set-calc(18);
-  border-radius: set-calc($border-radius-30);
+  border-radius: set-calc($border-radius-32);
   background-color: var(--primary-color);
 
   @include set-media(md) {
@@ -200,7 +171,7 @@
   height: 100%;
   -o-object-fit: cover;
   object-fit: cover;
-  border-radius: set-calc($border-radius-20);
+  border-radius: set-calc($border-radius-32);
 }
 
 .image__description {
@@ -209,11 +180,11 @@
   @include set-media(md) {
     display: block;
 
-    padding: set-calc(16) set-calc($p-mob-s-page) 0;
+    padding: set-calc(16) set-calc($p-page-mob-s) 0;
     width: 100%;
 
     @include set-typography(16, 24, 500);
     color: var(--primary-color);
-    font-family: $font-family;
+    font-family: $font-family-normal;
   }
 }

@@ -78,7 +78,7 @@
   padding-right: set-calc(40);
   padding-top: set-calc(8);
 
-  font-family: $font-family;
+  font-family: $font-family-normal;
 
   @include set-media(md) {
     display: none;

@@ -62,7 +62,7 @@
   @include set-media(md) {
     width: 100%;
 
-    padding: 0 set-calc($p-mob-s-page);
+    padding: 0 set-calc($p-page-mob-s);
   }
 }
 

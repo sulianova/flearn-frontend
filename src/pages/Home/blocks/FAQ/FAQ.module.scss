@@ -1,36 +1,8 @@
 @import 'styles/index';
 
 .header {
-  position: relative;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 set-calc($p-desk-s-page) set-calc(32);
-  gap: set-calc(24);
-
-  width: 70%;
-
-  @include set-media(md) {
-    padding: 0 set-calc($p-mob-s-page) set-calc(24);
-    gap: set-calc(16);
-
-    width: 100%;
-  }
-}
-
-.header__title {
-  @include font-56-normal-header;
-  font-family: $font-family-extra-bold;
-}
-
-
-.header__description {
-  @include font-18-normal-paragraph;
-  color: var(--color-content-primary);
-
-  max-width: set-calc(600);
-
+  @include header;
+  
   a {
     @include key-link;
   }

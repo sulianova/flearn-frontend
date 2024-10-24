@@ -23,7 +23,7 @@
 
 .headerTitle {
   @include font-56-normal-header;
-  font-family: $font-family-extra-bold;
+  font-family: $font-family-bold;
   padding: 0 set-calc(16);
 
   @include set-media(md) {
