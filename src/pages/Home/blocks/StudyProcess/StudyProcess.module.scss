@@ -34,12 +34,12 @@
 }
 
 .item__title {
-  @include font-24-normal-header;
+  @include font-24-header;
   font-family: $font-family-bold;
 }
 
 .item__description {
-  @include font-18-normal-ui;
+  @include font-18-ui;
   color: var(--color-content-paragraph-secondary);
   gap: set-calc(8);
 
@@ -136,7 +136,7 @@
   align-items: flex-start;
   z-index: 9;
 
-  @include font-20-normal-ui;
+  @include font-20-ui;
   color: $color-content-inverted-primary-light;
   font-family: $font-family-normal;
 

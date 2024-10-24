@@ -30,12 +30,12 @@
   justify-content: space-between;
   align-items: center;
   
-  @include font-24-normal-header;
+  @include font-24-header;
   font-family: $font-family-medium;
 }
 
 .subsectionDescription {
-  @include font-18-normal-ui;
+  @include font-18-ui;
   color: var(--color-content-paragraph-primary);
 }
 

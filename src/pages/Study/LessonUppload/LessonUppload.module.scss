@@ -38,7 +38,7 @@
   margin-bottom: set-calc(16);
   width: 100%;
 
-  @include font-18-normal-paragraph;
+  @include font-18-paragraph;
   text-align: center;
 
   @include set-media(md) {
@@ -50,7 +50,7 @@
   margin-bottom: set-calc(16);
   width: 100%;
 
-  @include font-18-normal-paragraph;
+  @include font-18-paragraph;
   text-align: center;
   color: var(--primary-color);
 
@@ -114,7 +114,7 @@
 
 
   color: var(--color-content-inverted-primary);
-  @include font-16-normal-ui;
+  @include font-16-ui;
 
   background: var(--color-content-background-primary);
   border-radius: set-calc($border-radius-8);
@@ -230,7 +230,7 @@
   color: $color-palette-black-900;
   white-space: nowrap;
 
-  @include font-16-normal-ui;
+  @include font-16-ui;
 
   @include set-media(md) {
     display: flex;

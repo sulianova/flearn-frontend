@@ -139,7 +139,7 @@
 
 .cardSubtitle {
   position: relative;
-  @include font-18-normal-paragraph;
+  @include font-18-paragraph;
   font-family: $font-family-article;
 
   white-space: pre-wrap;
@@ -346,6 +346,6 @@
 }
 
 .successScreenTitle {
-  @include font-28-normal-header;
+  @include font-28-header;
   font-family: $font-family-article;
 }

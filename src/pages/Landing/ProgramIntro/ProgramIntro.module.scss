@@ -86,7 +86,7 @@
   justify-content: center;
   align-items: center;
 
-  @include font-18-normal-ui;
+  @include font-18-ui;
   color: var(--color-content-inverted-primary);
 
   padding: 0 set-calc(12);
@@ -100,7 +100,7 @@
     height: set-calc(28);
     padding: 0 set-calc(10);
 
-    @include font-16-normal-ui;
+    @include font-16-ui;
   }
 }
 
@@ -165,7 +165,7 @@
 
   z-index: 1;
 
-  @include font-20-normal-ui;
+  @include font-20-ui;
   color: $color-content-primary-light;
   font-family: $font-family-bold;
 

@@ -183,7 +183,7 @@
   color: var(--color-content-tertiary);
   height: set-calc(30);
 
-  @include font-16-normal-ui;
+  @include font-16-ui;
 
   @include set-media(md) {
     padding: 0 0;

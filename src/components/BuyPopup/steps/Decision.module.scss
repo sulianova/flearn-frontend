@@ -229,7 +229,7 @@
   margin-bottom: set-calc(32);
   width: max-content;
 
-  @include font-28-normal-header;
+  @include font-28-header;
   font-family: $font-family-bold;
   color: var(--color-content-primary);
 }
@@ -306,7 +306,7 @@
 
   color: var(--color-content-paragraph-secondary);
   font-family: $font-family-medium;
-  @include font-16-normal-ui;
+  @include font-16-ui;
 
   height: set-calc(64);
   background-color: transparent;
@@ -362,7 +362,7 @@
   color: var(--color-content-inverted-secondary);
   font-family: $font-family-medium;
 
-  @include font-14-normal-ui;
+  @include font-14-ui;
   text-align: start;
 }
 

@@ -184,7 +184,7 @@
   justify-content: space-between;
   align-items: end;
 
-  @include font-16-normal-ui;
+  @include font-16-ui;
   color: var(--color-content-paragraph-primary);
 
   @include set-media(md) {
@@ -214,7 +214,7 @@
   margin-right: set-calc(56);
   max-width: set-calc(800);
 
-  @include font-18-normal-ui;
+  @include font-18-ui;
   color: var(--color-content-paragraph-primary);
 
   @include set-media(md) {
@@ -247,7 +247,7 @@
   border-radius: calc(set-calc(38) / 2);
   background-color: var(--color-background-glassy-b);
 
-  @include font-16-normal-ui;
+  @include font-16-ui;
   color: var(--color-content-primary);
 
   @include set-media(md) {
@@ -284,7 +284,7 @@
   height: 100%;
   width: set-calc(320);
 
-  @include font-24-normal-header;
+  @include font-24-header;
   font-family: $font-family-medium;
 
   @include set-media(md) {
@@ -360,7 +360,7 @@
   height: set-calc(38);
   border-radius: calc(set-calc(38) / 2);
 
-  @include font-16-normal-ui;
+  @include font-16-ui;
 
   color: $color-content-inverted-primary-dark;
   background: $color-highlight-yellow;

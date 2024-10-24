@@ -303,7 +303,7 @@
   text-align: center;
   white-space: normal;
   
-  @include font-14-normal-ui;
+  @include font-14-ui;
 
   a {
     transition: opacity $d-hover ease-in;

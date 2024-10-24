@@ -69,7 +69,7 @@
 
 .title {
   margin: 0 0 set-calc(32);
-  @include font-28-normal-header;
+  @include font-28-header;
   font-family: $font-family-bold;
 
   @include set-media(md) {

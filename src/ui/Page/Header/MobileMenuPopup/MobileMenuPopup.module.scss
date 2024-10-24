@@ -105,7 +105,7 @@
   user-select: none;
 
   color: var(--color-content-paragraph-secondary);
-  @include font-14-normal-ui;
+  @include font-14-ui;
 
   padding: 0 set-calc(10) set-calc(12);
 }
@@ -126,7 +126,7 @@
 }
 
 .title {
-  @include font-28-normal-header;
+  @include font-28-header;
   font-family: $font-family-bold;
 
   margin: set-calc(60) 0 set-calc(24);

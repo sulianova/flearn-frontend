@@ -136,12 +136,12 @@
   margin-bottom: set-calc(40);
 
   &__title {
-    @include font-56-normal-header;
+    @include font-56-header;
     font-family: $font-family-bold;
   }
 
   &__description {
-    @include font-20-normal-paragraph;
+    @include font-20-paragraph;
     color: var(--color-content-paragraph-primary);
 
     max-width: set-calc(600);
@@ -382,7 +382,7 @@
     }
   }
 
-  @include font-14-normal-ui;
+  @include font-14-ui;
   font-family: $font-family-medium;
 }
 
@@ -659,7 +659,7 @@
   height: set-calc(44);
 
   &__content {
-    @include font-16-normal-ui;
+    @include font-16-ui;
   }
 
   svg {
@@ -674,7 +674,7 @@
   height: set-calc(44);
 
   &__content {
-    @include font-14-normal-ui;
+    @include font-14-ui;
   }
 
   svg {
@@ -786,7 +786,7 @@
     }
   }
 
-  @include font-12-normal-ui;
+  @include font-12-ui;
 }
 
 @mixin chips-44 {
@@ -878,7 +878,7 @@
 }
 
 @mixin input-caption {
-  @include font-10-normal-ui;
+  @include font-10-ui;
   font-family: $font-family-normal;
   color: var(--color-content-tertiary);
 
@@ -887,7 +887,7 @@
 }
 
 @mixin input-label {
-  @include font-12-normal-ui;
+  @include font-12-ui;
   font-family: $font-family-medium;
 
   margin-left: set-calc(8);
@@ -905,7 +905,7 @@
   border-width: 1.5px;
   border-radius: set-calc($border-radius-12);
 
-  @include font-16-normal-ui;
+  @include font-16-ui;
 }
 
 @mixin input-medium {

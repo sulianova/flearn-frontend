@@ -9,7 +9,7 @@
   align-items: center;
 
   gap: set-calc(10);
-  @include font-18-normal-paragraph;
+  @include font-18-paragraph;
   color: var(--color-content-primary);
 
   padding: set-calc(32);

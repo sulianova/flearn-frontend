@@ -125,7 +125,7 @@
 }
 
 .description {
-  @include font-18-normal-ui;
+  @include font-18-ui;
   color: var(--color-content-paragraph-secondary);
   max-width: set-calc(700);
 
@@ -161,7 +161,7 @@
   }
 
   &Text {
-  @include font-14-normal-ui;
+  @include font-14-ui;
     color: inherit;
     white-space: nowrap;
   }

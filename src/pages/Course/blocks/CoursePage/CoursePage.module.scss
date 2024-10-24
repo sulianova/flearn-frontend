@@ -80,7 +80,7 @@
   margin: set-calc(4);
   padding: 0 set-calc(12);
 
-  @include font-14-normal-ui;
+  @include font-14-ui;
   color: var(--color-content-paragraph-secondary);
 
   background-color: var(--color-card);
@@ -96,7 +96,7 @@
   margin: 0 0 set-calc(24);
   padding-left: set-calc(8);
 
-  @include font-24-normal-header;
+  @include font-24-header;
   font-family: $font-family-bold;
   color: var(--color-content-primary);
 
@@ -204,7 +204,7 @@
   z-index: 3;
 
   color: $color-content-inverted-primary-light;
-  @include font-16-normal-ui;
+  @include font-16-ui;
   font-family: $font-family-medium;
 
 

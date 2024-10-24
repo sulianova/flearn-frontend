@@ -95,7 +95,7 @@
 }
 
 .itemCaption {
-  @include font-14-normal-ui;
+  @include font-14-ui;
   color: $color-palette-white-1000;
   text-transform: uppercase;
 }

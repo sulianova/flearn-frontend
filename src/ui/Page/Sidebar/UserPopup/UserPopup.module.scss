@@ -99,7 +99,7 @@
   height: auto;
 
   color: var(--color-content-paragraph-primary);
-  @include font-16-normal-ui;
+  @include font-16-ui;
 }
 
 .userName {
@@ -116,7 +116,7 @@
 .itemSubtitle {
   margin: set-calc(6) 0 0;
 
-  @include font-16-normal-ui;
+  @include font-16-ui;
   color: var(--color-content-paragraph-secondary);
 }
 

@@ -6,7 +6,7 @@
   margin-bottom: set-calc(32);
   padding-left: set-calc(16);
 
-  @include font-32-normal-header;
+  @include font-32-header;
   font-family: $font-family-bold;
 
   @include set-media(md) {

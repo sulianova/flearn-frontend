@@ -13,7 +13,7 @@
 .title {
   margin-bottom: set-calc(40);
   
-  @include  font-56-normal-header;
+  @include font-56-header;
   color: var(--color-content-primary);
   font-family: $font-family-article-bold;
   

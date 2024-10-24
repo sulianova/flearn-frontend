@@ -15,11 +15,11 @@
 
 .title {
   padding-bottom: set-calc(24);
-  @include font-70-normal-header;
+  @include font-60-header;
 }
 
 .desc {
   padding-bottom: set-calc(32);
-  @include font-18-normal-paragraph;
+  @include font-18-paragraph;
   max-width: set-calc(600);
 }

@@ -21,7 +21,7 @@
 }
 
 .title {
-  @include  font-40-normal-header;
+  @include  font-40-header;
   font-family: $font-family-bold;
   color: $color-content-inverted-primary-light;
 
@@ -65,7 +65,7 @@
   border: 2px solid $color-content-inverted-primary-light;
 
   .text {
-    @include font-20-normal-ui;
+    @include font-20-ui;
     color: $color-content-inverted-primary-light;
     font-family: $font-family-bold;
 

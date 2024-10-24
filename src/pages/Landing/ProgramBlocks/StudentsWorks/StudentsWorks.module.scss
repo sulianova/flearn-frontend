@@ -17,7 +17,7 @@
 
 .title {
   color: var(--color-background-glassy-inverted-d);
-  @include font-18-normal-paragraph;
+  @include font-18-paragraph;
   margin-bottom: set-calc(18);
 
   @include set-media(md) {

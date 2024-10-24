@@ -160,7 +160,7 @@
   margin-bottom: set-calc(8);
   width: max-content;
 
-  @include font-18-normal-paragraph;
+  @include font-18-paragraph;
   font-family: $font-family-bold;
   color: var(--color-content-primary);
 }
@@ -181,7 +181,7 @@
   background: var(--primary-color);
   
   color: $color-content-primary-dark;
-  @include font-16-normal-ui;
+  @include font-16-ui;
 
   @include set-media(md) {
     right: set-calc(20);
@@ -225,7 +225,7 @@
   color: var(--color-content-primary);
   font-family: $font-family-medium;
 
-  @include font-14-normal-ui;
+  @include font-14-ui;
   text-align: start;
 }
 
@@ -233,7 +233,7 @@
   display: block;
 
   color: var(--color-content-tertiary);
-  @include font-18-normal-ui;
+  @include font-18-ui;
   margin: set-calc(5) 0;
   white-space: nowrap;
 
@@ -272,7 +272,7 @@
   word-break: break-word;
   margin: set-calc(24) 0;
 
-  @include font-16-normal-paragraph;
+  @include font-16-paragraph;
   color: var(--color-content-tertiary);
 
   @include set-media(md) {
@@ -330,7 +330,7 @@
 }
 
 .itemText {
-  @include font-16-normal-paragraph;
+  @include font-16-paragraph;
   color: var(--color-content-tertiary);
 }
 

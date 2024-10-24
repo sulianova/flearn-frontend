@@ -77,7 +77,7 @@
 .title {
   margin: 0 0 set-calc(60);
 
-  @include font-40-normal-header;
+  @include font-40-header;
   font-family: $font-family-bold;
   text-align: start;
 
@@ -134,7 +134,7 @@
   @include btn;
   @include button-large;
 
-  @include font-20-normal-ui;
+  @include font-20-ui;
   color: $color-content-inverted-primary-light;
   font-family: $font-family-bold;
 

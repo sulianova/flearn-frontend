@@ -99,7 +99,7 @@
   align-items: flex-start;
   z-index: 9;
 
-  @include font-20-normal-ui;
+  @include font-20-ui;
   color: var(--color-content-inverted-primary);
   font-family: $font-family-normal;
 

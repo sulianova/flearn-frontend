@@ -47,7 +47,7 @@
   margin-bottom: set-calc(20);
 
   word-break: break-word;
-  @include font-32-normal-header;
+  @include font-32-header;
   color: var(--color-content-primary);
   font-family: $font-family-bold;
   text-align: center;
@@ -98,7 +98,7 @@
 .itemText {
   margin-left: set-calc(8);
   color: var(--color-content-paragraph-secondary);
-  @include font-14-normal-ui;
+  @include font-14-ui;
 }
 
 .bottom {
@@ -118,7 +118,7 @@
 
   color: $color-content-inverted-primary-light;
   font-family: $font-family-medium;
-  @include font-20-normal-ui;
+  @include font-20-ui;
 
   border-radius: set-calc($border-radius-12);
   background-color: var(--primary-color);
@@ -161,7 +161,7 @@
     color: var(--color-content-secondary);
 
     span {
-      @include font-14-normal-ui;
+      @include font-14-ui;
     }
 
     svg {
@@ -207,7 +207,7 @@
 }
 
 .paymentSummaryText {
-  @include font-18-normal-ui;
+  @include font-18-ui;
   font-family: $font-family-bold;
 }
 
@@ -231,7 +231,7 @@
   border-radius: set-calc($border-radius-4);
   color: $color-content-primary-light;
 
-  @include font-14-normal-ui;
+  @include font-14-ui;
   text-align: start;
 }
 
@@ -240,7 +240,7 @@
   padding-block: set-calc(4);
 
   color: var(--color-content-tertiary);
-  @include font-16-normal-ui;
+  @include font-16-ui;
   margin-top: set-calc(4);
   white-space: nowrap;
 
@@ -273,7 +273,7 @@
 
   margin-bottom: set-calc(16);
 
-  @include font-18-normal-ui;
+  @include font-18-ui;
   font-family: $font-family-bold;
   color: var(--color-content-primary);
 
@@ -318,7 +318,7 @@
   padding: set-calc(12) 0;
   border-radius: set-calc($border-radius-12);
 
-  @include font-14-normal-ui;
+  @include font-14-ui;
   color: var(--color-content-paragraph-secondary);
   font-family: $font-family-medium;
   text-align: center;

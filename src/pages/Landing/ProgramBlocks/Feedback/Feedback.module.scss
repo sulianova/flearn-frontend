@@ -22,7 +22,7 @@
 }
 
 .headerTitle {
-  @include font-56-normal-header;
+  @include font-56-header;
   font-family: $font-family-bold;
   padding: 0 set-calc(16);
 
@@ -52,7 +52,7 @@
 }
 
 .pointsCardTitle {
-  @include font-24-normal-header;
+  @include font-24-header;
   font-family: $font-family-medium;
   color: var(--color-content-primary);
   margin-bottom: set-calc(20);
@@ -63,6 +63,6 @@
 }
 
 .pointsCardText {
-  @include font-18-normal-ui;
+  @include font-18-ui;
   color: var(--color-content-paragraph-primary);
 }

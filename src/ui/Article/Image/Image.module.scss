@@ -54,7 +54,7 @@
 }
 
 .imageCaption {
-  @include font-16-normal-paragraph;
+  @include font-16-paragraph;
   color: var(--color-content-paragraph-primary);
   text-align: center;
 
@@ -65,7 +65,7 @@
 }
 
 .imageCaption > * {
-  @include font-16-normal-paragraph;
+  @include font-16-paragraph;
   text-align: center;
 }
 

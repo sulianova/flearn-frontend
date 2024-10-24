@@ -35,7 +35,7 @@
   &__title {
     padding: set-calc(8) set-calc(12);
   
-    @include font-14-normal-ui;
+    @include font-14-ui;
     font-family: $font-family-medium;
     color: var(--color-content-secondary);
     text-transform: uppercase;
@@ -48,7 +48,7 @@
     flex: 1 1;
     gap: set-calc(12);
 
-    @include font-14-normal-ui;
+    @include font-14-ui;
     color: var(--color-content-primary);
     font-family: $font-family-normal;
 

@@ -20,7 +20,7 @@
 }
 
 .title {
-  @include font-24-normal-header;
+  @include font-24-header;
   font-family: $font-family-medium;
   color: var(--color-content-primary);
   margin-bottom: set-calc(20);
@@ -31,7 +31,7 @@
 }
 
 .desc {
-  @include font-18-normal-ui;
+  @include font-18-ui;
   color: var(--color-content-paragraph-primary);
 
   p {

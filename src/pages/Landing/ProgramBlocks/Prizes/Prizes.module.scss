@@ -7,7 +7,7 @@
 
 .title {
   padding-bottom: set-calc(32);
-  @include font-70-normal-header;
+  @include font-60-header;
 
   @include set-media(md) {
     padding-bottom: set-calc(24);
@@ -52,11 +52,11 @@
 
 .listItemTitle {
   margin-bottom: set-calc(32);
-  @include font-36-normal-header;
+  @include font-36-header;
 }
 
 .listItemContent {
-  @include font-18-normal-paragraph;
+  @include font-18-paragraph;
   margin-top: set-calc(80);
 
   @include set-media(md) {

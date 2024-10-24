@@ -3,7 +3,7 @@
 .title_subscription {
   position: relative;
 
-  @include font-14-normal-ui;
+  @include font-14-ui;
   font-family: $font-family-medium;
   text-align: center;
 
@@ -46,7 +46,7 @@
   border-radius: set-calc($border-radius-8);
   background-color: var(--color-background-glassy-inverted-d);
 
-  @include font-18-normal-ui;
+  @include font-18-ui;
   color: var(--color-content-primary);
   font-family: $font-family-medium;
   text-align: center;
@@ -57,7 +57,7 @@
 
     right: set-calc(-9);
 
-    @include font-18-normal-ui;
+    @include font-18-ui;
     color: var(--color-content-primary);
   }
 }
@@ -101,7 +101,7 @@
   align-items: baseline;
   gap: set-calc(4);
 
-  @include font-16-normal-ui;
+  @include font-16-ui;
 
   span:first-child {
     color: var(--color-accent-promo);

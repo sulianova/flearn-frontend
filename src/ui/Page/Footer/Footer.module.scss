@@ -54,7 +54,7 @@
   width: calc(100% / 4);
 
   & > * {
-    @include font-14-normal-ui;
+    @include font-14-ui;
     color: var(--color-content-paragraph-secondary);
   }
 
@@ -140,13 +140,13 @@
   align-items: baseline;
 
   &__title {
-    @include font-14-normal-ui;
+    @include font-14-ui;
   }
   
   &__name {
     @include s-hoverable;
 
-    @include font-16-normal-ui;
+    @include font-16-ui;
     text-transform: uppercase;
   }
 }

@@ -39,7 +39,7 @@
   transition: opacity $d-fade ease;
   opacity: 0;
 
-  @include font-18-normal-paragraph;
+  @include font-18-paragraph;
   color: var(--color-content-primary);
 
   @include set-media(md) {
@@ -231,7 +231,7 @@
 //feedback
 .feedback {
   color: var(--color-quiz);
-  @include font-18-normal-paragraph;
+  @include font-18-paragraph;
 }
 
 //radio
