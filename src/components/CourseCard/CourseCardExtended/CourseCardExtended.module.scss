@@ -122,7 +122,7 @@
 
 .chips {
   @include chips;
-  @include chips-30;
+  @include chips-32;
   @include chips-special;
 
   position: absolute;
@@ -301,7 +301,7 @@
 
 .btn {
   @include btn;
-  @include button-small;
+  @include button-48;
   @include button-secondary;
 
   margin-top: set-calc(20);

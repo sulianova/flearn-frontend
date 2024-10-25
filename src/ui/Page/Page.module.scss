@@ -43,10 +43,10 @@
 }
 
 .WEBWrapper {
-  padding: 0 set-calc($p-page-desk-l);
+  padding: set-calc(16) set-calc($p-page-desk-l) 0;
 
   @include set-media(md) {
-    padding: 0 set-calc($p-page-mob-s);
+    padding: set-calc(8) set-calc($p-page-mob-s) 0;
   }
 }
 

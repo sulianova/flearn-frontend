@@ -1,0 +1,161 @@
+@import 'styles/index';
+
+.header {
+  @include header;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+  gap: set-calc(16);
+
+  margin-bottom: set-calc(4);
+  width: 100%;
+
+  @include set-media(md) {
+    margin-bottom: set-calc(2);
+  }
+}
+
+.tabsMenu {
+  @include  tabsMenu;
+
+  @include set-media(md) {
+    display: none;
+  }
+}
+
+.tab {
+  @include chips;
+  @include chips-invisible;
+  @include chips-40;
+}
+
+.slideControl {
+  display: none;
+
+  @include set-media(md) {
+    @include slideControl;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+
+  height: set-calc(400);
+  padding: set-calc(40);
+
+  border-radius: set-calc($border-radius-40);
+  background-color: var(--color-background-violet);
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: set-calc(20);
+
+    max-width: set-calc(460);
+
+    &__title {
+      @include font-28-header;
+      font-family: $font-family-medium;
+      color: var(--color-content-primary);
+    }
+
+    &__description {
+      @include font-18-paragraph;
+      color: var(--color-content-primary);
+    }
+  }
+
+  animation: fadeEffect 1s;
+
+  @include set-media(md) {
+    height: set-calc(650);
+    gap: set-calc(20);
+
+    padding: set-calc(16);
+    border-radius: set-calc($border-radius-32);
+
+    .content {
+      gap: set-calc(12);
+    }
+  }
+}
+
+.card_photo {
+  background-color: $color-palette-black-700;
+  background-position: center center;
+
+  .content {
+    &__title {
+      color: $color-content-primary-dark;
+    }
+
+    &__description {
+      color: $color-content-secondary-dark;
+    }
+  }
+
+  img {
+    width: 100%;
+    display: block;
+  }
+
+  .slideControl {
+    .item {
+      background-color: $color-background-glassy-c-dark;
+    }
+  
+    .item_active {
+      background: linear-gradient(to right, $color-content-primary-dark 50%, $color-background-glassy-c-dark 50%);
+      background-size: 200% 100%;
+    }
+  }
+}
+
+.list {
+  display: flex;
+  gap: set-calc(4);
+
+  .item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    height: set-calc(380);
+
+    padding: set-calc(40);
+    border-radius: set-calc($border-radius-40);
+    background: var(--color-card);
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: set-calc(16);
+
+      &__title {
+        @include font-24-header;
+        font-family: $font-family-medium;
+        color: var(--color-content-primary);
+        text-align: center;
+      }
+  
+      &__description {
+        @include font-16-paragraph;
+        color: var(--color-content-secondary);
+        text-align: center;
+      }
+    }
+
+    @include set-media(md) {
+      height: set-calc(350);
+      padding:set-calc(24);
+    }
+  }
+
+  @include set-media(md) {
+    flex-direction: column;
+    gap: set-calc(2);
+  }
+}

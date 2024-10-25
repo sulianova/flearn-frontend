@@ -39,7 +39,7 @@
 
   .btn_login,
   .btn_start {
-    @include button-small;
+    @include button-48;
   }
 
   .dropdown {
@@ -56,7 +56,7 @@
 
     .btn_login,
     .btn_start {
-      @include button-extra-small;
+      @include button-40;
     }
 
     .dropdown {
@@ -73,7 +73,7 @@
   .btn_login,
   .btn_buy,
   .btn_start {
-    @include button-extra-small;
+    @include button-40;
   }
 
   .dropdown {

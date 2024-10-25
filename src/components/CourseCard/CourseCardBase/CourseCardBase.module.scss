@@ -136,7 +136,7 @@
 
 .btn {
   @include btn;
-  @include button-small;
+  @include button-48;
   @include button-outline(var(--color-content-primary));
 
   margin-top: auto;

@@ -14,7 +14,6 @@
   display: none;
 
   @include set-media(md) {
-    @include icon;
     @include icon-button-40;
 
     position: absolute;
@@ -54,7 +53,7 @@
 
   &__btn {
     @include btn;
-    @include button-large;
+    @include button-56;
     @include button-primary;
     width: 100%;
 

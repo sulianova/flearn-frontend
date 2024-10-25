@@ -124,24 +124,24 @@
   }
 }
 
-//headers
+//header
 @mixin header {
   position: relative;
 
   display: flex;
   flex-direction: column;
 
-  gap: set-calc(16);
+  gap: set-calc(24);
   padding: 0 set-calc(16);
   margin-bottom: set-calc(40);
 
   &__title {
     @include font-56-header;
-    font-family: $font-family-bold;
+    font-family: $font-family-medium;
   }
 
   &__description {
-    @include font-20-paragraph;
+    @include font-18-paragraph;
     color: var(--color-content-paragraph-primary);
 
     max-width: set-calc(600);
@@ -150,8 +150,8 @@
   @include set-media(md) {
     width: 100%;
 
-    gap: set-calc(8);
-    padding: 0 set-calc($p-page-mob-s);
+    gap: set-calc(16);
+    padding: 0 set-calc(8);
     margin-bottom: set-calc(24);
   }
 }
@@ -160,9 +160,11 @@
 @mixin btn {
   position: relative;
 
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  display: inline-flex;
+  flex-shrink: 0;
 
   text-align: center;
   
@@ -186,6 +188,11 @@
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
+
+    gap: set-calc(2);
+
+    font-size: inherit;
+    line-height: inherit;
 
     .loader {
       color: inherit;
@@ -229,7 +236,7 @@
 
   @include set-media(md) {
     &:hover {
-      opacity: 1;
+      background-color: var(--primary-color);
     }
   }
 }
@@ -288,8 +295,8 @@
 }
 
 @mixin button-special( 
-  $color: var(--color-content-primary),
-  $bc: var(--color-accent-promo-background),
+  $color: var(--color-content-inverted-primary),
+  $bc: var(--color-accent-promo),
   ) {
   background-color: $bc;
   color: $color;
@@ -306,10 +313,10 @@
 }
 
 @mixin button-outline(
-  $color,
-  $bc-color: $color
+  $color: var(--color-content-primary),
+  $bc-color: var(--color-content-inverted-primary)
 ) {
-  border: 2px solid $color;
+  border: 1px solid $color;
   color: $color;
   background: transparent;
 
@@ -362,15 +369,16 @@
   }
 }
 
-@mixin button-extra-small {
-  height: set-calc(36);
+@mixin button-40 {
+  height: set-calc(40);
 
   padding: 0 set-calc(12);
   border-radius: set-calc($border-radius-8);
 
-  .content {
-    gap: set-calc(2);
 
+  @include font-14-ui;
+
+  .content {
     svg {
       width: set-calc(24);
       height: set-calc(24);
@@ -381,46 +389,38 @@
       height: set-calc(12);
     }
   }
-
-  @include font-14-ui;
-  font-family: $font-family-medium;
 }
 
-@mixin button-small {
-  height: set-calc(44);
-
+@mixin button-48 {
+  height: set-calc(48);
+  
   padding: 0 set-calc(16);
   border-radius: set-calc($border-radius-10);
 
+  @include font-16-ui;
 
   .content {
-    gap: set-calc(4);
-
     svg {
       width: set-calc(24);
       height: set-calc(24);
     }
 
-    .loader {
+    .loader svg {
       width: set-calc(12);
       height: set-calc(12);
     }
   }
-
-  @include set-typography(16, 16, 500);
-  font-family: $font-family-medium;
 }
 
-@mixin button-large {
-  height: set-calc(64);
+@mixin button-56 {
+  height: set-calc(56);
   
-  padding: 0 set-calc(24);
-  border-radius: set-calc($border-radius-16);
+  padding: 0 set-calc(16);
+  border-radius: set-calc($border-radius-12);
 
+  @include font-18-ui;
 
   .content {
-    gap: set-calc(8);
-
     svg {
       width: set-calc(32);
       height: set-calc(32);
@@ -431,18 +431,9 @@
       height: set-calc(16);
     }
   }
-
-  @include set-typography(18, 18, 500);
-  font-family: $font-family-medium;
 }
 
 //icon
-@mixin icon {
-  display: block;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-
 @mixin icon-size (
   $size
 ) {
@@ -451,6 +442,8 @@
 
   svg {
     display: block;
+    overflow: hidden;
+    flex-shrink: 0;
 
     width: set-calc($size);
     height: set-calc($size);
@@ -463,12 +456,9 @@
   padding: 0 set-calc(16);
   border-radius: set-calc($border-radius-12);
 
-  svg {
-    display: block;
-    width: set-calc(32);
-    height: set-calc(32);
-    color: inherit;
+  @include icon-size(32);
 
+  svg {
     transition-property: all;
     transition-duration: $d-hover;
     transition-timing-function: ease-out;
@@ -486,12 +476,9 @@
   padding: 0 set-calc(8);
   border-radius: set-calc($border-radius-8);
 
-  svg {
-    display: block;
-    width: set-calc(24);
-    height: set-calc(24);
-    color: inherit;
+  @include icon-size(24);
 
+  svg {
     transition-property: all;
     transition-duration: $d-hover;
     transition-timing-function: ease-out;
@@ -509,12 +496,9 @@
   padding: 0 set-calc(6);
   border-radius: set-calc($border-radius-6);
 
-  svg {
-    display: block;
-    width: set-calc(20);
-    height: set-calc(20);
-    color: inherit;
+  @include icon-size(20);
 
+  svg {
     transition-property: all;
     transition-duration: $d-hover;
     transition-timing-function: ease-out;
@@ -685,9 +669,172 @@
   }
 }
 
+//Bage
+@mixin bage {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+
+    font-size: inherit;
+    line-height: inherit;
+  }
+}
+
+@mixin bage-primary {
+  background: var(--color-accent-promo-background, #5627FF);
+  color: var(--color-content-primary);
+}
+
+@mixin bage-secondary {
+  background: var(--color-background-glassy-a, rgba(255, 255, 255, 0.05));
+  color: var(--color-content-primary);
+}
+
+@mixin bage-outline {
+  border: 1px solid var(--color-background-glassy-d, rgba(0, 0, 0, 0.20));
+  color: var(--color-content-primary);
+}
+
+@mixin bage-blur {
+  background: var(--color-background-glassy-inverted-d, rgba(255, 255, 255, 0.30));
+  backdrop-filter: blur(calc($blur-8));
+  color: var(--color-content-primary);
+}
+
+@mixin bage-64 {
+  height: set-calc(64);
+  @include rounded(64);
+
+  padding: 0 set-calc(16);
+  @include font-20-ui;
+
+  .content {
+    @include icon-size(28);
+    gap: set-calc(8);
+  }
+}
+
+@mixin bage-56 {
+  height: set-calc(56);
+  @include rounded(56);
+
+  padding: 0 set-calc(16);
+  @include font-18-ui;
+
+  .content {
+    @include icon-size(24);
+    gap: set-calc(8);
+  }
+}
+
+@mixin bage-48 {
+  height: set-calc(48);
+  @include rounded(48);
+
+  padding: 0 set-calc(14);
+  @include font-18-ui;
+
+  .content {
+    @include icon-size(24);
+    gap: set-calc(4);
+  }
+}
+
+@mixin bage-40 {
+  height: set-calc(40);
+  @include rounded(40);
+
+  padding: 0 set-calc(12);
+  @include font-16-normal-ui;
+
+  .content {
+    @include icon-size(20);
+    gap: set-calc(4);
+  }
+}
+
+@mixin bage-32 {
+  height: set-calc(32);
+  @include rounded(32);
+
+  padding: 0 set-calc(10);
+  @include font-12-ui;
+
+  .content {
+    @include icon-size(12);
+    gap: set-calc(2);
+  }
+}
+
+@mixin bage-24 {
+  height: set-calc(24);
+  @include rounded(24);
+
+  padding: 0 set-calc(6);
+  @include font-10-ui;
+
+  .content {
+    @include icon-size(12);
+    gap: set-calc(2);
+  }
+}
+
 //chips
 @mixin chips {
-  @include btn;
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  display: inline-flex;
+  flex-shrink: 0;
+
+  text-align: center;
+  
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+
+  transition-property: all;
+  transition-duration: $d-hover;
+  transition-timing-function: ease-out;
+
+  box-shadow: none;
+
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+
+    gap: set-calc(2);
+
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+
+  &:disabled {
+    cursor: default;
+    pointer-events: none;
+
+    color: var(--color-background-glassy-d);
+    background: var(--color-background-glassy-c);
+  }
+
+  @include set-media(md) {
+    transition-property: none;
+  }
 }
 
 @mixin chips-secondary {
@@ -715,7 +862,7 @@
   @include set-media(md) {
     &:hover,
     &:active {
-      background: transparent;
+      background: var(--color-background-glassy-a);
     }
   }
 }
@@ -724,16 +871,32 @@
   $color: var(--color-content-primary),
   $bc:  var(--color-accent-promo-background),
   ) {
-  background-color: $bc;
+    
+  background: var(--color-background-glassy-b);
   color: $color;
 
   &:hover {
-    opacity: 0.9;
+    background: var(--color-background-glassy-c);
+  }
+
+  &:active {
+    background: var(--color-background-glassy-d);
+  }
+
+  &:disabled {
+    background: var(--color-background-glassy-c);
+    color: var(--color-background-glassy-d);
+  }
+
+  &_selected {
+    background: $bc;
+    color: var(--color-content-primary);
   }
 
   @include set-media(md) {
-    &:hover {
-      opacity: 1;
+    &:hover,
+    &:active {
+      background: var(--color-background-glassy-a);
     }
   }
 }
@@ -771,58 +934,87 @@
   }
 }
 
-@mixin chips-30 {
-  height: set-calc(30);
-  @include rounded(30);
+@mixin chips-invisible {
 
-  padding: 0 set-calc(12);
+  background: transparent;
+  color: var(--color-content-primary);
+
+  &:hover {
+    background: var(--color-background-glassy-b);
+  }
+
+  &:active {
+    background: var(--color-background-glassy-c);
+  }
+
+  &:disabled {
+    background: var(--color-background-glassy-c);
+    color: var(--color-background-glassy-d);
+  }
+
+  &_selected {
+    background: var(--color-accent-promo-background);
+    color: var(--color-content-primary);
+  }
+
+  @include set-media(md) {
+    &:hover,
+    &:active {
+      background: var(--color-background-glassy-a);
+    }
+  }
+}
+
+@mixin chips-24 {
+  height: set-calc(24);
+  @include rounded(24);
+
+  padding: 0 set-calc(6);
+  @include font-10-ui;
 
   .content {
     gap: set-calc(4);
-
-    svg {
-      width: set-calc(12);
-      height: set-calc(12);
-    }
+    @include icon-size(12);
   }
-
-  @include font-12-ui;
 }
 
-@mixin chips-44 {
-  height: set-calc(44);
-  @include round(44);
+@mixin chips-32 {
+  height: set-calc(32);
+  @include rounded(32);
 
-  padding: 0 set-calc(16);
+  padding: 0 set-calc(10);
+  @include font-12-ui;
 
   .content {
-    gap: set-calc(8);
-
-    svg {
-      width: set-calc(20);
-      height: set-calc(20);
-    }
+    gap: set-calc(4);
+    @include icon-size(12);
   }
+}
 
-  @include font-16-normal-ui;
+@mixin chips-40 {
+  height: set-calc(40);
+  @include rounded(40);
+
+  padding: 0 set-calc(12);
+  @include font-16-ui;
+
+  .content {
+    gap: set-calc(4);
+    @include icon-size(20);
+  }
 }
 
 @mixin chips-64 {
   height: set-calc(64);
-  @include round(64);
+  @include rounded(64);
 
-  padding: 0 set-calc(20);
+  padding: 0 set-calc(16);
+  @include font-20-ui;
 
   .content {
     gap: set-calc(8);
-
-    svg {
-      width: set-calc(28);
-      height: set-calc(28);
-    }
+    @include icon-size(28);
   }
-
-  @include font-20-normal-ui;
 }
 
 //input
@@ -943,6 +1135,47 @@
   color: var(--color-background-glassy-d);
 }
 
+//tabs
+@mixin tabsMenu {
+  display: inline-flex;
+  gap: set-calc(2);
+
+  height: set-calc(56);
+  @include rounded(56);
+
+  width: max-content;
+
+  padding: set-calc(8);
+  background: var(--color-card);
+}
+
+//slideControl
+@mixin slideControl {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+
+  padding: set-calc(8) 0;
+  gap: set-calc(10);
+
+  .item {
+    display: flex;
+    flex: 1 1;
+
+    height: set-calc(4);
+    border-radius: set-calc(4);
+    background-color: var(--color-background-glassy-c);
+  }
+
+  .item_active {
+    background: linear-gradient(to right, var(--color-content-primary) 50%, var(--color-background-glassy-c) 50%);
+    background-size: 200% 100%;
+    animation: slideControl linear infinite;
+    animation-duration: $d-slide;
+  }
+}
+
 //animation
 @mixin contentExpander {
   animation: theoryFragmentAppearance .3s;
@@ -962,26 +1195,6 @@
 @mixin apply-to-all($mixin, $list) {
   @each $element in $list {
     @include meta.apply($mixin, $element);
-  }
-}
-
-@keyframes bubble-up {
-  0% {
-    transform: translateY(0px);
-  }
-
-  100% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes bubble-down {
-  0% {
-    transform: translateY(-10px);
-  }
-
-  100% {
-    transform: translateY(0px);
   }
 }
 
@@ -1007,17 +1220,18 @@
   }
 }
 
-@keyframes buttonGradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes slideControl {
+	0% {
+		background-position: 100% 0;
+	}
+	100% {
+		background-position: 0 0;
+	}
 }
 
 @keyframes marqueeAnimation {

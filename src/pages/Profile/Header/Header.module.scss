@@ -163,7 +163,7 @@
 
 .currentLessonButton {
   @include btn;
-  @include button-small;
+  @include button-48;
   @include button-special(var(--color-content-inverted-primary), var(--color-accent-promo));
 
 

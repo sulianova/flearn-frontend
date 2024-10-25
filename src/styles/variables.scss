@@ -189,13 +189,14 @@ $breakpoints: (
 );
 
 //duration
-$d-focus: 0.1s;
-$d-hover: 0.25s;
-$d-expansion: 0.5s;
+$d-focus: .1s;
+$d-hover: .25s;
+$d-expansion: .5s;
 $d-collapse: calc($d-expansion / 3);
 $d-zoom: .3s;
-$d-fade: 100ms;
-$modal-animation-duration: 200ms;
+$d-fade: 1s;
+$d-slide: 5s;
+$modal-animation-duration: 2s;
 
 //shadow
 $shadow-small-default: 0 0 1px 1px rgba(0, 0, 0, .02), 0 .3px .5px rgba(0, 0, 0, .1), 0 2px 4px rgba(0, 0, 0, .2);

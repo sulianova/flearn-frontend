@@ -6,7 +6,7 @@
 }
 
 .section:not(:last-child) {
-  margin-bottom: set-calc(80);
+  margin-bottom: set-calc(120);
 
   @include set-media(md) {
     margin-bottom: set-calc(64);

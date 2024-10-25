@@ -8,6 +8,7 @@ import Page, { EPageVariant, EFooter } from 'ui/Page/Page';
 import Catalogue from './blocks/Catalogue/Catalogue';
 import BannerStart from './blocks/BannerStart/BannerStart'
 import Header from './blocks/Header/Header';
+import About from './blocks/About/About';
 import DecisionForm from './blocks/DecisionForm/DecisionForm';
 import StudyProcess from './blocks/StudyProcess/StudyProcess';
 import FAQ from './blocks/FAQ/FAQ';
@@ -28,6 +29,12 @@ export default function Home() {
   const [submited, setSubmited] = useState(false);
 
   const blocks = [
+    <Header
+    onNotAuthedClick={onNotAuthedClick}
+    />,
+    <About 
+    key='About'
+    />,
     <StudyProcess 
       key='StudyProcess'
     />,
@@ -35,7 +42,7 @@ export default function Home() {
     key='BannerStart'
     linkToFreeCourse={linkToFreeCourse}
     onNotAuthedClick={onNotAuthedClick}
-  />,
+    />,
     <Catalogue
       key='Catalogue'
       linkToFreeCourse={linkToFreeCourse}
@@ -52,7 +59,6 @@ export default function Home() {
     <FAQ
       key='FAQ'
     />,
-    // <RequestConsultationBanner key='requestConsultationBanner'/>,
   ];
 
   return (
@@ -63,9 +69,6 @@ export default function Home() {
         footer={EFooter.Big}
         backgroundColor='var(--color-background-default)'
       >
-        <Header
-          onNotAuthedClick={onNotAuthedClick}
-        />
         {blocks.map(block => (
           <div className={classes.section} key={block.key}>
             {block}
