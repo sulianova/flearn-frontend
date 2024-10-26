@@ -1,71 +1,62 @@
 @import 'styles/index';
 
-.wrapper {
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  padding: set-calc(40);
+
+  border-radius: set-calc(40);
+  background: var(--color-accent-promo-background);
+
   @include set-media(md) {
-    margin: 0 0;
-    padding: 0 0;
+    height: set-calc(600);
+
+    padding: set-calc(24);
+    border-radius: set-calc(32);
+
+    width: 100%;
   }
 }
 
-.card {
-  position: relative;
-
+.content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 
-  padding: set-calc(60);
-  width: 100%;
-
-  background: var(--primary-color);
-  background: var(--primary-color);
-  border-radius: set-calc($border-radius-32);
+  width: set-calc(651);
+  gap: set-calc(40);
 
   @include set-media(md) {
-    padding: set-calc(56) set-calc(16);
-    border-radius: 0;
-
     width: 100%;
   }
 }
 
 .title {
-  @include set-typography(42, 52, 500);
-  font-family: $font-family-bold;
-  text-align: center;
-
-  width: 80%;
-
-  transition: opacity $d-hover ease, box-shadow $d-hover ease, color $d-hover ease;
-  color: $color-content-inverted-primary-light;
-
-  margin-bottom: set-calc(80);
-
-  @include set-media(md) {
-    @include set-typography(32, 40, 500);
-    width: 100%;
-    margin-bottom: set-calc(50);
-  }
+  @include font-40-header;
+  font-family: $font-family-medium;
 }
 
 .actions {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
 
   @include set-media(md) {
-    flex-direction: row-reverse;
     width: 100%;
   }
 }
 
-.actionsBtn {
+.actions__btn {
   @include btn;
   @include button-56;
-  @include button-outline($color-content-inverted-primary-light, var(--primary-color));
+  @include button-special;
+
+  min-width: set-calc(320);
 
   @include set-media(md) {
-    width: 100%;
+    width: max-content;
+    min-width: unset;
   }
 }

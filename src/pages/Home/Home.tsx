@@ -35,13 +35,13 @@ export default function Home() {
     <About 
     key='About'
     />,
-    <StudyProcess 
-      key='StudyProcess'
-    />,
     <BannerStart
     key='BannerStart'
     linkToFreeCourse={linkToFreeCourse}
     onNotAuthedClick={onNotAuthedClick}
+    />,
+    <StudyProcess 
+      key='StudyProcess'
     />,
     <Catalogue
       key='Catalogue'

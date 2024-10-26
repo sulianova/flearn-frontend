@@ -1,5 +1,7 @@
 import classNames from 'classnames/bind';
 import classes from './About.module.scss';
+import Img from 'ui/Img/Img';
+
 import { formatI18nT } from 'shared';
 
 const cx = classNames.bind(classes);
@@ -88,18 +90,45 @@ export default function RequestConsultationBanner() {
         </div>
         <div className={classes.list}>
           <div className={classes.item}>
+            <div className={classes.image}>
+              <Img
+                src={{
+                  mobile: "/png/Home/3d_kukla_AlarmClock.png",
+                  desktop: "/png/Home/3d_kukla_AlarmClock.png",
+                }}
+                alt=""
+              />
+            </div>
             <div className={classes.content}>
               <div className={classes.content__title}>{t('list.item1.title')}</div>
               <div className={classes.content__description}>{t('list.item1.description')}</div>
             </div>
           </div>
           <div className={classes.item}>
+            <div className={classes.image}>
+                <Img
+                  src={{
+                    mobile: "/png/Home/3d_kukla_Settings2.png",
+                    desktop: "/png/Home/3d_kukla_Settings2.png",
+                  }}
+                  alt=""
+                />
+              </div>
             <div className={classes.content}>
                 <div className={classes.content__title}>{t('list.item2.title')}</div>
                 <div className={classes.content__description}>{t('list.item2.description')}</div>
               </div>
           </div>
           <div className={classes.item}>
+            <div className={classes.image}>
+                <Img
+                  src={{
+                    mobile: "/png/Home/3d_kukla_MoneyboxAngle.png",
+                    desktop: "/png/Home/3d_kukla_MoneyboxAngle.png",
+                  }}
+                  alt=""
+                />
+              </div>
             <div className={classes.content}>
               <div className={classes.content__title}>{t('list.item3.title')}</div>
               <div className={classes.content__description}>{t('list.item3.description')}</div>

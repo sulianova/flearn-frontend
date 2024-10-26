@@ -119,15 +119,31 @@
   gap: set-calc(4);
 
   .item {
+    position: relative;
+
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
 
+    width: set-calc(-4, true, 33.33%);
     height: set-calc(380);
 
     padding: set-calc(40);
     border-radius: set-calc($border-radius-40);
     background: var(--color-card);
+
+    .image {
+      position: absolute;
+      top: 0;
+      left: set-calc(31);
+
+      width: set-calc(369);
+      height: set-calc(291);
+
+      img {
+        width: 100%;
+      }
+    }
 
     .content {
       display: flex;
@@ -149,8 +165,13 @@
     }
 
     @include set-media(md) {
+      width: 100%;
       height: set-calc(350);
       padding:set-calc(24);
+
+      .image {
+        left: set-calc(10);
+      }
     }
   }
 

@@ -24,24 +24,34 @@ export default function Header(props: IProps) {
         <h1 className={classes.title}>{t('title')}</h1>
         <div className={classes.description}>{t('description')}</div>
       </div>
-        <div className={classes.actions}>
-          {authService.isAuthenticated ? (
-            <Link
-              className={classes.actions__btn}
-              to={URLSections.EmptyProfile.to()}
-            >
-              {t('button')}
-            </Link>
-          ) : (
-            <div
-              className={classes.actions__btn}
-              onClick={props.onNotAuthedClick}
-            >
-              {t('button')}
-            </div>
-          )}
-          <div className={classes.actions__note}>{t('note')}</div>
-        </div>
+      <div className={classes.actions}>
+        {authService.isAuthenticated ? (
+          <Link
+            className={classes.actions__btn}
+            to={URLSections.EmptyProfile.to()}
+          >
+            {t('button')}
+          </Link>
+        ) : (
+          <div
+            className={classes.actions__btn}
+            onClick={props.onNotAuthedClick}
+          >
+            {t('button')}
+          </div>
+        )}
+        <div className={classes.actions__note}>{t('note')}</div>
+        <div className={classes.image}>
+          <Img
+            src={{
+              mobile: "/png/Home/3d_secutiry_pointer.png",
+              desktop: "/png/Home/3d_secutiry_pointer.png",
+            }}
+            alt=""
+          />
+      </div>
+      </div>
+      <div className={classes.image}>
         <Img
           src={{
             mobile: "/png/Home/3d_halloween_glass_angle_bg_mob.png",
@@ -49,6 +59,7 @@ export default function Header(props: IProps) {
           }}
           alt=""
         />
+      </div>
     </div>
   );
 }

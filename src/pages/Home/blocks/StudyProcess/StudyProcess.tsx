@@ -2,7 +2,6 @@ import { TCourseExplainMedia } from 'services/course.service';
 import { formatI18nT } from 'shared';
 
 import Img from 'ui/Img/Img';
-import Text from 'ui/Text/Text';
 
 import classes from './StudyProcess.module.scss';
 
@@ -12,47 +11,69 @@ interface IProps {
   explainMedia: TCourseExplainMedia
 }
 
-const t = formatI18nT('courseLanding.explain');
+const t = formatI18nT('home.studyProcess');
 
 function StudyProcess() {
   return (
     <>
       <div data-bcalternate></div>
       <div className={classes.header}>
-        <div className={classes.header__title}>Как устроено обучение</div>
+        <h2 className={classes.header__title}>{t('title')}</h2>
       </div>
       <div className={classes.list}>
       <div className={classes.item}>
-        <h2 className={classes.item__title}>Наглядная теория с онлайн-тренажером</h2>
-        <div className={classes.item__description}>Всю информацию и практические задания мы собрали в интерактивном учебнике. Проходить его можно в любое удобное время, с компьютера или с телефона</div>
+        <div className={classes.item__image}>
+            <Img
+              src={{
+                mobile: "/png/Home/3d_kukla_lego_angle_mob.png",
+                desktop: "/png/Home/3d_kukla_lego_angle_mob.png",
+              }}
+              alt=""
+            />
+        </div>
+        <div className={classes.item__title}>{t('card1.title')}</div>
+        <div className={classes.item__description}>{t('card1.description')}</div>
       </div>
       <div className={classes.item}>
-        <h2 className={classes.item__title}>Вопросы по ходу в любое время</h2>
-        <div className={classes.item__description}>Вопросы, возникающие по ходу, задаем в любое время в телеграм-чате. В чате можно обсуждать рисование, делиться радостями, горестями, лайфхаками, поддерживать друг друга и болтать.</div>
+        <div className={classes.item__image}>
+              <Img
+                src={{
+                  mobile: "/png/Home/3d_kukla_Bubble_mob.png",
+                  desktop: "/png/Home/3d_kukla_Bubble_mob.png",
+                }}
+                alt=""
+              />
+          </div>
+        <div className={classes.item__title}>{t('card2.title')}</div>
+        <div className={classes.item__description}>{t('card2.description')}</div>
       </div>
       <div className={classes.item}>
-        <h2 className={classes.item__title}>Обратная связь от иллюстратора</h2>
-        <div className={classes.item__description}>В конце каждого блока ученики сдают проект, чтобы закрепить пройденное и получить обратную связь от эксперта</div>
+        <div className={classes.item__image}>
+            <Img
+              src={{
+                mobile: "/png/Home/3d_hands_8_mob.png",
+                desktop: "/png/Home/3d_kukla_Explosion_desk.png",
+              }}
+              alt=""
+            />
+        </div>
+        <div className={classes.item__title}>{t('card3.title')}</div>
+        <div className={classes.item__description}>{t('card3.description')}</div>
       </div>
       </div>
       <div className={classes.group}>
-        <div className={classes.cards}>
-            <div className={classes.card}>{t('introCardQuote0')}</div>
-            <div className={classes.card}>{t('introCardQuote')}</div>
-            <div className={classes.card}>{t('videoCardText')}</div>
+        <div className={classes.column}>
+            <div className={classes.card}>{t('quote1')}</div>
+            <div className={classes.card}>{t('quote2')}</div>
+            <div className={classes.author}>{t('author')}</div>
         </div>
-        <div className={classes.image}>
-          <div className={classes.image__wrapper}>
-            <div className={classes.image__buble}>
-              <div>иллюстратор, преподаватель</div>
-            </div>
-              <Img
-                src='https://firebasestorage.googleapis.com/v0/b/flearn-6b617.appspot.com/o/how-to-draw%2Flanding%2Fimages%2FSofiUlianova.jpg?alt=media&token=3ef7a44f-9ade-41ad-8ec2-a4d36555b3c7'
-                alt='author'
-              />
-          </div>
-          <div className={classes.image__description}>{t('videoCardText')}</div>
+        <div className={classes.imageCard}>
+          <Img
+            src='png/Home/Sofi.png'
+            alt='author'
+          />
         </div>
+        <div className={classes.author}>{t('author')}</div>
       </div>
     </>
   );
