@@ -7,24 +7,24 @@
 .animationWrapper {
   position: relative;
 
-  display: flex;
   overflow: hidden;
-  gap: set-calc(20);
+  display: flex;
+  gap: set-calc(4);
 
   width: set-calc(400, true, 100%);
   left: set-calc(-200);
 
   @include set-media(md) {
-    width: 100%;
-    left: 0;
+    width: set-calc(8, true, 100%);
+    left: set-calc(-8);
 
-    gap: set-calc(12);
+    gap: set-calc(2);
   }
 }
 
 .group {
   display: flex;
-  gap: set-calc(20);
+  gap: set-calc(4);
 
   animation: 120s linear infinite marqueeAnimation;
 
@@ -33,13 +33,10 @@
     
     display: flex;
     flex-flow: row nowrap;
+    gap: set-calc(2);
     overflow-x: scroll;
 
-    width: set-calc(16, true, 100%);
-    left: set-calc(-8);
-    padding: 0 set-calc(8) 0;
-
-    gap: set-calc(12);
+    padding: 0 set-calc(8);
 
     animation: none;
   }

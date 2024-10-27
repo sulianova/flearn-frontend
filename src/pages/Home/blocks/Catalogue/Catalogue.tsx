@@ -29,7 +29,7 @@ export default function Catalogue(props: IProps) {
 
   return (
     <>
-      <div data-bcalternate/>
+      <div data-bcred/>
       <div className={classes.header}>
         <h2 className={classes.header__title}>Курсы</h2>
         <div className={classes.header__description}>Интерактивные уроки для ежедневной практики. Развивают насмотренность, помогают оставаться в форме.</div>

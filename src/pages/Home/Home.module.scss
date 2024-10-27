@@ -43,7 +43,25 @@
   }
 }
 
-.section:not(:has([data-bcalternate]))  + .section:has([data-bcalternate]) {
+.section:has([data-bcred]) {
+  margin-bottom: 0;
+
+  @include is-beige;
+  background-color: var(--color-red);
+
+  display: flex;
+  flex-direction: column;
+  
+  color: $color-content-inverted-primary-light;
+  padding: set-calc(120) set-calc($p-page-desk-l) set-calc(120);
+
+  @include set-media(md) {
+    padding: set-calc(64) 0 set-calc(64) set-calc($p-page-mob-s);
+  }
+}
+
+.section:not(:has([data-bcalternate])) + .section:has([data-bcalternate]),
+.section:has([data-bcred]) + .section {
   padding-top: set-calc(120);
 
   @include set-media(md) {
@@ -51,11 +69,12 @@
   }
 }
 
-.section:has([data-bcalternate]) + .section:not(:has([data-bcalternate])) {
-  margin-top: set-calc(120);
+.section:has([data-bcalternate]) + .section:not(:has([data-bcalternate])),
+.section:has([data-bcalternate]) + .section:has([data-bcred]) {
+  margin-top: 0;
 
   @include set-media(md) {
-    margin-top: set-calc(64);
+    margin-top:0;
   }
 }
 

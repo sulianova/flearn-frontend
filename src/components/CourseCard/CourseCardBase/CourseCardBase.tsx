@@ -21,12 +21,17 @@ export default function CourseCardBase({ course }: Readonly<IProps>) {
   const content = (
     <>
       <div className={classes.icon}>
-        <div className={classes.course}><Icon {...course.icon}/></div>
-        <div className={classes.star_18}> <Icon icon='Pro'/></div>
-        <div className={classes.star_12}> <Icon icon='Pro'/></div>
+        <Img
+          src={{
+            mobile: "/png/3d_emoji_Robot.png",
+            desktop: "/png/3d_emoji_Robot.png",
+          }}
+          alt=""
+        />
+        {/* <div className={classes.course}><Icon {...course.icon}/></div> */}
       </div>
       <div className={classes.content}>
-        <h3 className={classes.title}>{course.title}</h3>
+        <div className={classes.title}>{course.title}</div>
         <div className={classes.meta}>
           <p>{i18n.t(`catalogue.card.info.${course.level}`)}</p>
           <p>{i18n.t(`lesson.p`, { count: course.metaData.lessonsAmount })}</p>

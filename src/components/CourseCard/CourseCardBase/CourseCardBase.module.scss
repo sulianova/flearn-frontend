@@ -1,18 +1,21 @@
 @import 'styles/index';
 
 .wrapper {
-  @include btn;
+  position: relative;
+
+  display: flex;
   flex-direction: column;
 
   width: set-calc(280);
-  height: set-calc(380);
+  height: set-calc(464);
 
-  border: 1px solid var(--color-card-border);
-  border-radius: set-calc($border-radius-20);
-  background: var(--color-card);
+  border-radius: set-calc($border-radius-32);
+  background: var(--color-background-alternate);
 
-  padding: set-calc(32);
+  padding: set-calc(28);
   gap: set-calc(24);
+
+  cursor: pointer;
 
   &:hover {
     .btn {
@@ -22,12 +25,7 @@
   }
 
   @include set-media(md) {
-    padding: set-calc(24);
-
-    width: set-calc(280);
     min-width: set-calc(280);
-    min-height: set-calc(380);
-
     &:hover {
       .btn {
         background-color: transparent;
@@ -41,30 +39,12 @@
   position: relative;
 
   padding: set-calc(16);
-  background-color: var(--color-background-glassy-b);
-  border-radius: 50%;
+  width: set-calc(200);
+  height: set-calc(200);
 
-  .star_18 {
-    @include icon-size(28);
-    position: absolute;
-    right: set-calc(30.205);
-    top: set-calc(3.046);
-
-    color: var(--color-accent-promo-background);
-  }
-
-  .star_12 {
-    @include icon-size(18);
-    position: absolute;
-    left: set-calc(47.7);
-    bottom: set-calc(6.3);
-
-    color: var(--color-accent-promo-background);
-  }
-
-  .course {
-    @include icon-size(100);
-    position: relative;
+  img {
+    width: 100%;
+    height: auto;
     z-index: 2;
   }
 }
@@ -77,27 +57,17 @@
   justify-content: center;
   align-items: center;
 
-  gap: set-calc(10);
-
-  @include set-media(md) {
-    align-items: start;
-  }
+  gap: set-calc(12);
 }
 
 .title {
   display: flex;
-  justify-content: center;
   width: 100%;
 
-  text-align: center;
-
   @include set-typography(20, 26, 500);
+  font-family: $font-family-medium;
   color: var(--color-content-primary);
-  font-family: $font-family-bold;
-
-  @include set-media(md) {
-    @include set-typography(18, 22, 500);
-  }
+  text-align: center;
 }
 
 .meta {
@@ -111,8 +81,8 @@
   p {
     position: relative;
 
-    @include set-typography(13, 18, 500);
-    color: var(--color-content-tertiary);
+    @include font-14-ui;
+    color: var(--color-content-secondary);
     text-align: center;
   }
 
@@ -128,7 +98,7 @@
       width: set-calc(3);
       height: set-calc(3);
       border-radius: 50%;
-      background-color: var(--color-content-tertiary);
+      background-color: var(--color-content-secondary);
       transform: translate3d(0, -50%, 0);
     }
   }
