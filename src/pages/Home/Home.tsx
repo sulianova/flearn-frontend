@@ -11,6 +11,7 @@ import Header from './blocks/Header/Header';
 import About from './blocks/About/About';
 import DecisionForm from './blocks/DecisionForm/DecisionForm';
 import StudyProcess from './blocks/StudyProcess/StudyProcess';
+import Community from './blocks/Community/Community';
 import FAQ from './blocks/FAQ/FAQ';
 import SocialValidation from './blocks/SocialValidation/SocialValidation';
 
@@ -47,6 +48,9 @@ export default function Home() {
       key='Catalogue'
       linkToFreeCourse={linkToFreeCourse}
       onNotAuthedClick={onNotAuthedClick}
+    />,
+    <Community
+    key='Community'
     />,
     <SocialValidation
       key='SocialValidation'

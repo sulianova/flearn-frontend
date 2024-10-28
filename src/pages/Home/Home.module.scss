@@ -69,12 +69,19 @@
   }
 }
 
-.section:has([data-bcalternate]) + .section:not(:has([data-bcalternate])),
+.section:has([data-bcalternate]) + .section:not(:has([data-bcalternate])) {
+  margin-top: set-calc(120);
+
+  @include set-media(md) {
+    margin-top: set-calc(64);
+  }
+}
+
 .section:has([data-bcalternate]) + .section:has([data-bcred]) {
   margin-top: 0;
 
   @include set-media(md) {
-    margin-top:0;
+    margin-top: 0;
   }
 }
 

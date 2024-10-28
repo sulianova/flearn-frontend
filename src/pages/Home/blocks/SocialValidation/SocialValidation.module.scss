@@ -2,14 +2,25 @@
 
 .header {
   @include header;
+
+  span:nth-child(2n) {
+    color: var(--color-background-glassy-d);
+  }
 }
 
 .list {
   display: flex;
-  gap: set-calc(6);
+  gap: set-calc(4);
 
   @include set-media(md) {
-    gap: set-calc(4);
     flex-direction: column;
   }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+
+  width: calc(33.3% - set-calc(16));
+  gap: set-calc(4);
 }

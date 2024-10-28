@@ -1,0 +1,66 @@
+@import 'styles/index';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+
+  width: 100%;
+  height: set-calc(697);
+
+  padding: set-calc(40);
+  border-radius: set-calc(40);
+  background: $color-purple;
+  // background: url("./png/Home/community_cover_desk.jpg");
+  background-size: contain;
+  background-position: center;
+
+  @include set-media(md) {
+    background: transparent;
+    height: unset;
+
+    padding: 0;
+    border-radius: 0;
+  }
+}
+
+.header {
+  @include header;
+  color: $color-content-inverted-primary-light;
+
+  @include set-media(md) {
+    color: var(--color-content-primary);
+  }
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  .chat {
+    width: set-calc(470);
+    height: set-calc(288);
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  @include set-media(md) {
+
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    .chat {
+      border-radius: set-calc(32);
+      background-color: var(--color-background-violet);
+
+      width: 100%;
+      height: set-calc(465);
+    }
+  }
+}
