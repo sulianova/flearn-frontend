@@ -54,8 +54,8 @@ export default function Header(props: IProps) {
       <div className={classes.image}>
         <Img
           src={{
-            mobile: "/png/Home/3d_halloween_glass_angle_bg_mob.png",
-            desktop: "/png/Home/3d_halloween_glass_angle_bg_desk.png",
+            mobile: "/png/Home/header_cover_mob.png",
+            desktop: "/png/Home/header_cover_desk.png",
           }}
           alt=""
         />

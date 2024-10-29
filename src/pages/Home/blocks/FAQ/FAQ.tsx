@@ -8,55 +8,49 @@ import Card, { type IProps as QA } from './Card/Card';
 
 export default FAQ;
 
-const t = formatI18nT('courseLanding.faq');
+const t = formatI18nT('home.faq');
 const data: QA[] = [
   {
-    question: 'Что такое подписка flearn Pro?',
-    answer: 'Подписка flearn Pro — это безлимитный доступ к знаниям по выгодной цене, много практических заданий и живой обратной связи. Отменить подписку можно в любой момент.',
+    question: `${t('item1.question')}`,
+    answer: `${t('item1.answer')}`,
   },
   {
-    question: 'Какие курсы входят в подписку?',
-    answer: 'Курсы, которые входят в подписку, можно посмотреть в разделе «Курсы».',
+    question: `${t('item2.question')}`,
+    answer: `${t('item2.answer')}`,
   },
   {
-    question: 'Подойдут ли мне курсы, если я раньше не рисовал?',
-    answer: 'Да, подойдут. Курсы рассчитаны для начинающих рисовальщиков.',
+    question: `${t('item3.question')}`,
+    answer: `${t('item3.answer')}`,
   },
   {
-    question: 'Сколько стоит подписка flearn Pro?',
-    answer: 'У подписки есть два тарифа: на 1 месяц – 2990 рублей и 3 месяца – 6 990 рублей. Если хотите пройти несколько курсов, выгоднее оформить подписку на 3 месяца.',
+    question: `${t('item4.question')}`,
+    answer: `${t('item4.answer')}`,
   },
   {
-    question: 'Можно оплатить подписку заубежной картой?',
-    answer: 'Да, можно. Мы принимаем оплату через PayPal или с российской карты.',
+    question: `${t('item5.question')}`,
+    answer: `${t('item5.answer')}`,
   },
   {
-    question: 'Зачем оформлять подписку, если можно смотреть бесплатные видео в интернете?',
-    answer: 'Конечно, можно смотреть и их. Но нужно потратить много часов и даже дней, чтобы найти действительно качественный контент. С подпиской вы экономите время и получаете доступ к достоверной информации, которая подана в увлекательной и понятной форме.',
+    question: `${t('item6.question')}`,
+    answer: `${t('item6.answer')}`,
   },
   {
-    question: 'Что произойдет с моими данными, если я отменю подписку flearn Pro?',
-    answer: 'После отмены подписки, у вас сохранится прогресс, достижения и сертификаты. А вот доступ к материалам курсов, которые вы уже прошли будет закрыт. Если позже решите снова стать участником flearn Pro, то доступ ко всем материалам будет восстановлен.',
+    question: `${t('item7.question')}`,
+    answer: `${t('item7.answer')}`,
   },
   {
-    question: 'У вас есть скидки для школьников и студентов?',
-    answer: 'Да, у нас есть скидка 65% для flearn Pro на 3 месяца. Чтобы получить скидку, пришлите на почту flearn.info@gmail.com подтверждение о том, что вы учитесь в гос. учреждении. Подойдет справка об обучении или скан студенческого билета.',
+    question: `${t('item8.question')}`,
+    answer: `${t('item8.answer')}`,
   },
 ];
+
 
 function FAQ() {
   return (
     <>
       <div data-bcalternate/>
       <div className={classes.header}>
-        <div className={classes.header__title}>Вопросы и ответы</div>
-        <div className={classes.header__description}>
-          {t('headerDesc1')}
-          <Link to={t('creatorLink')}  target='_blank'>
-            <span>{t('headerDesc2')}</span>
-          </Link>
-          {t('headerDesc3')}
-        </div>
+        <div className={classes.header__title}>{t('title')}</div>
       </div>
       <div className={classes.list}>
         {data.map((qa, index) => <Card key={index} {...qa}/>)}

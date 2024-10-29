@@ -12,7 +12,7 @@
   padding: set-calc(40);
   border-radius: set-calc(40);
   background: $color-purple;
-  // background: url("./png/Home/community_cover_desk.jpg");
+  background: url("../../../../../public/png/Home/community_cover_desk.png");
   background-size: contain;
   background-position: center;
 
@@ -29,6 +29,15 @@
   @include header;
   color: $color-content-inverted-primary-light;
 
+  border-radius: set-calc(40);
+  background: rgba(255, 255, 255, 0.15);
+  padding: set-calc(32);
+  backdrop-filter: blur(set-calc($blur-16));
+
+  margin-bottom: 0;
+
+  flex: 1 1;
+
   @include set-media(md) {
     color: var(--color-content-primary);
   }
@@ -39,9 +48,11 @@
   justify-content: space-between;
   align-items: flex-end;
 
+  gap: set-calc(40);
+
   .chat {
-    width: set-calc(470);
-    height: set-calc(288);
+    width: set-calc(450);
+    height: auto;
 
     img {
       width: 100%;
@@ -54,6 +65,8 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+
+    gap: 0;
 
     .chat {
       border-radius: set-calc(32);

@@ -12,8 +12,7 @@
   margin-top: set-calc(80);
   padding: set-calc(56);
   border-radius: set-calc(40);
-  background-color: $color-card-dark;
-  border: 1px solid $border-dark;
+  background-color: $color-blue;
 
   gap: set-calc(60);
 
@@ -48,10 +47,10 @@
 .tag {
   @include bage;
   @include bage-outline;
-  @include bage-32;
+  @include bage-40;
 
   border-color: $color-background-glassy-d-dark;
-  color: $color-content-tertiary-dark;
+  color: $color-content-primary-dark;
 }
 
 .title {
@@ -110,7 +109,7 @@
 
 .actions__btn {
   @include btn;
-  @include button-primary;
+  @include button-special($color-content-primary-light, $color-yellow);
   @include button-56;
 
   @include font-18-ui;
@@ -125,7 +124,7 @@
   justify-content: center;
 
   @include font-14-ui;
-  color: $color-content-tertiary-dark;
+  color: $color-content-primary-dark;
   text-align: center;
 }
 
@@ -134,8 +133,8 @@
   right: 0;
   bottom: 0;
 
-  width: set-calc(442);
-  height: set-calc(491);
+  width: set-calc(1268/2);
+  height: set-calc(982/2);
 
   img {
     width: 100%;
@@ -144,7 +143,7 @@
   }
 
   @include set-media(md) {
-    width: set-calc(398);
-    height: set-calc(558);
+    width: set-calc(796/2);
+    height: set-calc(818/2);
   }
 }

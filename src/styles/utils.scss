@@ -862,7 +862,7 @@
   @include rounded(40);
 
   padding: 0 set-calc(12);
-  @include font-16-normal-ui;
+  @include font-16-ui;
 
   .content {
     @include icon-size(20);

@@ -4,6 +4,7 @@ import { courseService, dummyCourses } from 'services/course.service';
 
 import CourseCard from 'components/CourseCard/CourseCard';
 import Spinner from 'ui/Spinner/Spinner';
+import { formatI18nT, i18n } from 'shared';
 
 import classes from './Catalogue.module.scss';
 
@@ -11,6 +12,8 @@ interface IProps {
   linkToFreeCourse: string
   onNotAuthedClick: () => void
 }
+
+const t = formatI18nT('catalogue');
 
 export default function Catalogue(props: IProps) {
   const allRealCourses = courseService.useCourses();
@@ -31,8 +34,8 @@ export default function Catalogue(props: IProps) {
     <>
       <div data-bcred/>
       <div className={classes.header}>
-        <h2 className={classes.header__title}>Курсы</h2>
-        <div className={classes.header__description}>Интерактивные уроки для ежедневной практики. Развивают насмотренность, помогают оставаться в форме.</div>
+        <h2 className={classes.header__title}>{t('title')}</h2>
+        <div className={classes.header__description}>{t('description')}</div>
       </div>
       <div className={classes.animationWrapper}>
         <div className={classes.group}>
