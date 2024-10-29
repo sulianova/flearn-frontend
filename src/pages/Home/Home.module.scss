@@ -113,3 +113,13 @@
     margin: 0;
   }
 }
+
+.section:has([data-faq]) {
+  flex-direction: row;
+  gap: set-calc(40);
+
+  @include set-media(md) {
+   flex-direction: column;
+   gap: set-calc(0);
+  }
+}

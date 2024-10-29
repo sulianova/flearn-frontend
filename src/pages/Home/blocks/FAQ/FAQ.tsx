@@ -49,6 +49,7 @@ function FAQ() {
   return (
     <>
       <div data-bcalternate/>
+      <div data-faq/>
       <div className={classes.header}>
         <div className={classes.header__title}>{t('title')}</div>
       </div>
