@@ -60,8 +60,25 @@
   }
 }
 
+.section:has([data-bcpink]) {
+  margin-bottom: 0;
+
+  @include is-beige;
+  background-color: var(--color-background-pink);
+
+  display: flex;
+  flex-direction: column;
+  
+  padding: set-calc(120) set-calc($p-page-desk-l) set-calc(120);
+
+  @include set-media(md) {
+    padding: set-calc(64) set-calc($p-page-mob-s);
+  }
+}
+
 .section:not(:has([data-bcalternate])) + .section:has([data-bcalternate]),
-.section:has([data-bcred]) + .section {
+.section:has([data-bcred]) + .section,
+.section:has([data-bcpink]) + .section {
   padding-top: set-calc(120);
 
   @include set-media(md) {
@@ -77,7 +94,8 @@
   }
 }
 
-.section:has([data-bcalternate]) + .section:has([data-bcred]) {
+.section:has([data-bcalternate]) + .section:has([data-bcred]),
+.section:has([data-bcalternate]) + .section:has([data-bcpink]) {
   margin-top: 0;
 
   @include set-media(md) {

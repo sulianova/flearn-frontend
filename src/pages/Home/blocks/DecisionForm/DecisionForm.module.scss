@@ -1,67 +1,290 @@
 @import 'styles/index';
 
-.wrapper {
-  position: relative;
-
+.header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  gap: set-calc(24);
 
-  margin: 0 auto;
-  width: 70%;
+  padding: 0 set-calc(16) set-calc(40);
 
-  @include set-media(md) {
-    width: set-calc(-16, true, 100%);
-    
-    margin: 0 set-calc(8);
-  }
-}
-
-.header {
-  position: relative;
-  display: flex;
-  justify-content: center;
-
-  margin: 0 auto set-calc(40);
+  color: $color-content-primary-light;
 
   @include set-media(md) {
-    margin: 0 auto set-calc(32);
-
-    width: 100%;
+    padding: 0 set-calc(8) set-calc(24);
+    gap: set-calc(16);
   }
 }
 
 .header__title {
-  @include set-typography(28, 40, 500);
+  @include font-60-header;
   font-family: $font-family-medium;
   text-align: center;
+}
+
+.header__description {
+  @include font-18-paragraph;
+  text-align: center;
+}
+
+.switchWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.switch {
+  @include switch-label-24-on;
+
+  &_off {
+    .label {
+      color: var(--color-content-tertiary);
+    }
+    .icon {
+      @include switch-off;
+  
+      .switchPin {
+        transform: translate(set-calc(-20), 0);
+      }
+    }
+  }
+
+
+}
+
+.group {
+  display: flex;
+  justify-content: center;
+  gap: set-calc(16);
+
+  padding-top: set-calc(40);
 
   @include set-media(md) {
-    @include set-typography(28, 38, 500);
+    flex-direction: column-reverse;
+    padding-top: set-calc(24);
+    gap: set-calc(8);
   }
+}
+
+.plan {
+  display: flex;
+  flex-direction: column;
+  gap: set-calc(12);
+
+  width: set-calc(440);
+  padding: set-calc(40);
+
+  border-radius: set-calc(40);
+
+  @include set-media(md) {
+    width: 100%;
+    padding: set-calc(24);
+    border-radius: set-calc(32);
+  }
+}
+
+.free {
+  border: 1px solid $color-content-primary-light;
+  background-color: transparent;
+
+  color: $color-content-primary-light;
+
+  .btn {
+    @include button-outline($color-content-primary-light, var(--color-background-pink));
+  }
+
+  .item__icon {
+    background-color: $color-content-primary-light;
+    color: $color-content-inverted-primary-light;
+  }
+}
+
+.pro {
+  border: 1px solid var(--color-card-border, rgba(255, 255, 255, 0.10));
+  background: var(--color-card, #262626);
+
+  .btn {
+    @include button-primary;
+  }
+}
+
+.planHeader {
+  display: flex;
+  min-height: set-calc(30);
+  justify-content: space-between;
+  align-items: center;
+}
+
+.subscriptionPlan {
+  @include font-16-ui;
+
+  @include set-media(md) {
+    @include font-14-ui;
+  }
+}
+
+.discount {
+  @include bage;
+  @include bage-32;
+
+  background: var(--primary-color);
+  color: $color-content-inverted-primary-light;
+}
+
+.price {
+  display: flex;
+  padding-top: set-calc(8);
+  align-items: baseline;
+  align-self: stretch;
+
+  font-family: $font-family-bold;
+
+  &__number {
+    @include font-36-header;
+
+    @include set-media(md) {
+      @include font-56-header;
+    }
+  }
+
+  &__frequency {
+    @include font-16-ui;
+  }
+}
+
+.subtitle {
+  display: flex;
+  align-items: center;
+  gap: set-calc(4);
+
+  padding-bottom: set-calc(16);
+
+  @include font-14-ui;
+
+  span {
+    font-size: inherit;
+    line-height: inherit;
+
+    opacity: 0.8;
+  }
+
+  span:not(:first-child) {
+    color: var(--primary-color);
+    opacity: 1;
+  }
+
+  span:nth-child(2n) {
+    text-decoration: line-through;
+  }
+
+  span:nth-child(3n) {
+    font-family: $font-family-bold;
+  }
+
 }
 
 .btn {
   @include btn;
-  @include button-3d($color-palette-primary-300, $color-palette-primary-300, $color-palette-primary-400, $color-palette-primary-400, 0.9, 4px);
-  @include rounded(150);
+  @include button-56;
+}
 
-  width: max-content;
-  height: set-calc(150);
+.description {
+  display: flex;
+  padding: set-calc(8) 0 set-calc(24) 0;
+  justify-content: center;
+  align-items: center;
 
-  padding: 0 set-calc(80);
+  @include font-16-paragraph;
+  opacity: 0.8;
+}
 
+.list {
+  display: flex;
+  flex-direction: column;
 
-  @include set-typography(40, 40, 500);
-  color: $color-content-inverted-primary-light;
-  font-family: $font-family-bold;
+  gap: set-calc(24);
+  padding-bottom: set-calc(16);
 
   @include set-media(md) {
-    @include btn;
-    @include button-56;
-    @include button-3d($color-palette-primary-300, $color-palette-primary-300, $color-palette-primary-400, $color-palette-primary-400, 0.9, 2px);
+    padding-bottom: set-calc(8);
+  }
+}
 
-    width: 100%;
+.item {
+  display: flex;
+  align-items: baseline;
+  gap: set-calc(12);
+
+  opacity: 0.8;
+}
+
+.item__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include icon-size(14);
+  width: set-calc(20);
+  height: set-calc(20);
+  @include rounded(20);
+
+  color: var(--color-content-inverted-primary);
+  background: var(--color-content-primary);
+  padding: set-calc(3);
+
+  &_pro {
+    background: var(--primary-color);
+  }
+}
+
+.item__text {
+  @include font-16-paragraph;
+}
+
+.priceQuarterly_3m {
+  display: block;
+
+  color: var(--color-content-background-secondary);
+  @include set-typography(16, 22, 500);
+  margin: set-calc(5) 0;
+  white-space: nowrap;
+
+  s:after {
+    margin-top: 0;
+    border-bottom: set-calc(1.5) solid var(--color-content-background-secondary);
+    content: "";
+    position: absolute;
+    left: set-calc(-2);
+    right: set-calc(-2);
+    top: 50%;
+
+    @include set-media(md) {
+      border-bottom: set-calc(1) solid var(--color-content-background-secondary);
+    }
+  }
+}
+
+.priceMonthly_3m {
+  position: relative;
+  @include set-typography(28, 28, 500);
+  font-family: $font-family-bold;
+
+  display: inline-block;
+  letter-spacing: -0.05rem;
+  color: var(--color-content-primary);
+  align-self: flex-end;
+}
+
+.conditionDescription {
+  display: flex;
+  justify-content: center;
+  gap: set-calc(4);
+
+  color: $color-content-paragraph-primary-light;
+  text-align: center;
+  padding-top: set-calc(24);
+
+  @include set-media(md) {
+    padding-top: set-calc(16);
   }
 }

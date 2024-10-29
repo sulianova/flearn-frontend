@@ -1,32 +1,33 @@
 import classNames from 'classnames/bind';
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
-import { i18n } from 'shared';
+import { formatI18nT, i18n } from 'shared';
+
+import Link from 'ui/Link/Link';
+import Icon from 'ui/Icon/Icon';
 
 import { authService } from 'services/auth.service';
-import Link from 'ui/Link/Link';
-
 import { dataService } from 'services/data.service';
 import { emailService } from 'services/email.service';
 import type { ICourseData} from 'services/course.service';
 import { userService, type IUserData } from 'services/user.service';
-import { formatI18nT } from 'shared';
 import { URLSections } from 'router';
-import { getDiscountedPrice, safeObjectKeys, formatCourseCredit, formatCourseDiscount } from 'utils';
+
+
+import { lessonService } from 'services/lesson.service';
+import { TCourseProductOptionTypes } from 'services/course.service';
+import { discountService } from 'services/discount.service';
+import { analyticsService } from 'services/analytics.service';
 
 import classes from './DecisionForm.module.scss';
 
-import SignupToCoursePopup from '../../../../components/SignupToCoursePopup/SignupToCoursePopup';
-import Icon from 'ui/Icon/Icon';
-import { lessonService } from 'services/lesson.service';
-import { userAccessService } from 'services/userAccess.service';
-import { analyticsService } from 'services/analytics.service';
-
 const cx = classNames.bind(classes);
+const t = formatI18nT('decision');
 
 interface IProps {
   linkToFreeCourse: string
   onNotAuthedClick: () => void
+  next: (productOptionType: TCourseProductOptionTypes) => void
 }
 
 type TState =
@@ -35,35 +36,135 @@ type TState =
   | { type: 'Success' }
   | { type: 'Error', error: string };
 
-const t = formatI18nT('courseLanding.form');
+  const optionTypes = ['OPTIMAL', 'BASE'] as const;
 
 export default function DecisionForm(props: IProps) {
+  const personalDiscount = discountService.useDiscount();
   const navigate = useNavigate();
   const [state, setState] = useState<TState>({ type: 'Idle' });
   const [popupOption, setPopupOption] = useState<keyof ICourseData['productOptions'] | null>(null);
   const user = userService.useAuthedUser();
 
   return (
-    <div className={classes.wrapper}>
+    <>
+      <div data-bcpink/>
       <div className={classes.header}>
-        <h2 className={classes.header__title}><span className='bc-accent-promo-background'>Бесплатный доступ</span> к первому модулю любого курса без банковской карты и других обязательств</h2>
+        <div className={classes.header__title}>{t('home.title')}</div>
+        <div className={classes.header__description}>{t('home.description')}</div>
       </div>
-        {authService.isAuthenticated ? (
-          <Link
-            className={classes.btn}
-            to={props.linkToFreeCourse}
-          >
-            <div className={classes.text}>{i18n.t('signUp')}</div>
-          </Link>
-        ) : (
-          <div
-            className={classes.btn}
-            onClick={props.onNotAuthedClick}
-          >
-            <div className={classes.text}>{i18n.t('signUp')}</div>
+      <div className={classes.switchWrapper}>
+        <div className={cx({ switch: true, switch_off: false })}>
+          <div className={classes.label}>{t('home.switchLabel')}</div>
+          <div className={classes.icon}>
+            <div className={classes.fill}></div>
+            <div className={classes.switchPin}></div>
           </div>
-        )}
-    </div>
+        </div>
+      </div>
+      <div className={classes.group}>
+        <div className={cx({ plan: true, free: true})}>
+          <div className={classes.planHeader}>
+            <div className={classes.subscriptionPlan}>{t('card.subscriptionType.free')}</div>
+          </div>
+          <div className={classes.price}>
+            <span className={classes.price__number}>{t('card.priceRub.free')}</span>
+          </div>
+          <div className={classes.subtitle}>
+            <span>{t('card.subtitle.free')}</span>
+          </div>
+          {authService.isAuthenticated ? (
+           <Link
+             className={classes.btn}
+             to={props.linkToFreeCourse}
+           >
+             <div className={classes.text}>{t('card.btn.freeUser')}</div>
+           </Link>
+          ) : (
+           <div
+             className={classes.btn}
+             onClick={props.onNotAuthedClick}
+           >
+             <div className={classes.text}>{t('card.btn.freeVisitor')}</div>
+           </div>
+         )}
+          <div className={classes.description}>{t('card.description.free')}</div>
+          <ul className={classes.list}>
+            <li className={classes.item}>
+              <div className={classes.item__icon}><Icon icon='CheckmarkFill'/></div>
+              <div className={classes.item__text}>{t('card.list.free.item1')}</div>
+            </li>
+            <li className={classes.item}>
+              <div className={classes.item__icon}><Icon icon='CheckmarkFill'/></div>
+              <div className={classes.item__text}>{t('card.list.both.item1')}</div>
+            </li>
+            <li className={classes.item}>
+              <div className={classes.item__icon}><Icon icon='CheckmarkFill'/></div>
+              <div className={classes.item__text}>{t('card.list.both.item2')}</div>
+            </li>
+            <li className={classes.item}>
+              <div className={classes.item__icon}><Icon icon='CheckmarkFill'/></div>
+              <div className={classes.item__text}>{t('card.list.both.item3')}</div>
+            </li>
+            <li className={classes.item}>
+              <div className={classes.item__icon}><Icon icon='CheckmarkFill'/></div>
+              <div className={classes.item__text}>{t('card.list.both.item4')}</div>
+            </li>
+          </ul>
+        </div>
+        <div className={cx({ plan: true, pro: true})}>
+          <div className={classes.planHeader}>
+            <div className={classes.subscriptionPlan}>{t('card.subscriptionType.pro')}</div>
+            <div className={classes.discount}>{t('card.discount.3m')}</div>
+          </div>
+          <div className={classes.price}>
+            <span className={classes.price__number}>{t('card.priceRub.quarterly_1m')}</span>
+          </div>
+          <div className={classes.subtitle}>
+            <span>{t('card.subtitle.pro_quarterly')}</span>
+            <span>{t('card.priceRub.monthly_3m')}</span>
+            <span>{t('card.priceRub.quarterly_3m')}</span>
+          </div>
+          <Link
+             className={classes.btn}
+             to={props.linkToFreeCourse}
+           >
+             <div className={classes.text}>{t('card.btn.pro')}</div>
+           </Link>
+          <div className={classes.description}>{t('card.description.pro')}</div>
+          <ul className={classes.list}>
+            <li className={classes.item}>
+              <div className={cx({ item__icon: true, item__icon_pro: true})}><Icon icon='Pro'/></div>
+              <div className={classes.item__text}>{t('card.list.pro.item1')}</div>
+            </li>
+            <li className={classes.item}>
+              <div className={cx({ item__icon: true, item__icon_pro: true})}><Icon icon='Pro'/></div>
+              <div className={classes.item__text}>{t('card.list.pro.item2')}</div>
+            </li>
+            <li className={classes.item}>
+              <div className={cx({ item__icon: true, item__icon_pro: true})}><Icon icon='Pro'/></div>
+              <div className={classes.item__text}>{t('card.list.pro.item3')}</div>
+            </li>
+            <li className={classes.item}>
+              <div className={classes.item__icon}><Icon icon='CheckmarkFill'/></div>
+              <div className={classes.item__text}>{t('card.list.both.item1')}</div>
+            </li>
+            <li className={classes.item}>
+              <div className={classes.item__icon}><Icon icon='CheckmarkFill'/></div>
+              <div className={classes.item__text}>{t('card.list.both.item2')}</div>
+            </li>
+            <li className={classes.item}>
+              <div className={classes.item__icon}><Icon icon='CheckmarkFill'/></div>
+              <div className={classes.item__text}>{t('card.list.both.item3')}</div>
+            </li>
+            <li className={classes.item}>
+              <div className={classes.item__icon}><Icon icon='CheckmarkFill'/></div>
+              <div className={classes.item__text}>{t('card.list.both.item4')}</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div className={classes.conditionDescription}>{t('home.conditionDescription')}</div>
+    </>
   );
 }
 

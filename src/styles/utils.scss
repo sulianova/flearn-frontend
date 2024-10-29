@@ -779,7 +779,7 @@
   }
 }
 
-//Bage
+//bage
 @mixin bage {
   display: inline-flex;
   justify-content: center;
@@ -797,7 +797,7 @@
   }
 }
 
-@mixin bage-primary {
+@mixin bage-primary {    
   background: var(--color-accent-promo-background, #5627FF);
   color: var(--color-content-primary);
 }
@@ -893,6 +893,538 @@
   .content {
     @include icon-size(12);
     gap: set-calc(2);
+  }
+}
+
+//switch
+@mixin switch {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: transparent;
+
+  transition-property: all;
+  transition-duration: $d-hover;
+  transition-timing-function: ease-out;
+
+  .switchPin {
+    position: absolute;
+
+    transition-property: all;
+    transition-duration: $d-hover;
+    transition-timing-function: ease-out;
+  }
+}
+
+@mixin switch-16-on {
+  width: set-calc(34);
+  height: set-calc(22);
+  @include rounded(22);
+
+  padding: set-calc(3);
+
+  .fill {
+    width: set-calc(28);
+    height: set-calc(16);
+    @include rounded(16);
+
+    background-color: var(--primary-color);
+  }
+
+  .switchPin {
+    right: set-calc(5);
+    top: set-calc(5);
+
+    width: set-calc(12);
+    height: set-calc(12);
+    @include rounded(12);
+
+    background: var(--color-content-inverted-primary);
+  }
+}
+
+@mixin switch-16-off {
+  width: set-calc(34);
+  height: set-calc(22);
+  @include rounded(22);
+
+  padding: set-calc(3);
+
+  .fill {
+    width: set-calc(28);
+    height: set-calc(16);
+    @include rounded(16);
+
+    background-color: var(--color-background-glassy-d);
+  }
+
+  .switchPin {
+    left: set-calc(5);
+    top: set-calc(5);
+
+    width: set-calc(12);
+    height: set-calc(12);
+    @include rounded(12);
+
+    background: var(--color-content-inverted-primary);
+  }
+}
+
+@mixin switch-20-on {
+  width: set-calc(42);
+  height: set-calc(26);
+  @include rounded(26);
+
+  padding: set-calc(3);
+
+  .fill {
+    width: set-calc(36);
+    height: set-calc(20);
+    @include rounded(20);
+
+    background-color: var(--primary-color);
+  }
+
+  .switchPin {
+    right: set-calc(5);
+    top: set-calc(5);
+
+    width: set-calc(16);
+    height: set-calc(16);
+    @include rounded(16);
+
+    background: var(--color-content-inverted-primary);
+  }
+}
+
+@mixin switch-20-off {
+  width: set-calc(42);
+  height: set-calc(26);
+  @include rounded(26);
+
+  padding: set-calc(3);
+
+  .fill {
+    width: set-calc(36);
+    height: set-calc(20);
+    @include rounded(20);
+
+    background-color: var(--color-background-glassy-d);
+  }
+
+  .switchPin {
+    left: set-calc(5);
+    top: set-calc(5);
+
+    width: set-calc(16);
+    height: set-calc(16);
+    @include rounded(16);
+
+    background: var(--color-content-inverted-primary);
+  }
+}
+
+@mixin switch-24-on {
+  width: set-calc(52);
+  height: set-calc(32);
+  @include rounded(32);
+
+  padding: set-calc(4);
+
+  .fill {
+    width: set-calc(44);
+    height: set-calc(24);
+    @include rounded(24);
+
+    background-color: var(--primary-color);
+  }
+
+  .switchPin {
+    right: set-calc(6);
+    top: set-calc(6);
+
+    width: set-calc(20);
+    height: set-calc(20);
+    @include rounded(20);
+
+    background: var(--color-content-inverted-primary);
+  }
+}
+
+@mixin switch-24-off {
+  width: set-calc(52);
+  height: set-calc(32);
+  @include rounded(32);
+
+  padding: set-calc(4);
+
+  .fill {
+    width: set-calc(44);
+    height: set-calc(24);
+    @include rounded(24);
+
+    background-color: var(--color-background-glassy-d);
+  }
+
+  .switchPin {
+    left: set-calc(6);
+    top: set-calc(6);
+
+    width: set-calc(20);
+    height: set-calc(20);
+    @include rounded(20);
+
+    background: var(--color-content-inverted-primary);
+  }
+}
+
+@mixin switch-hover {
+  background: var(--color-background-glassy-b);
+  cursor: pointer;
+
+  @include set-media(md) {
+    background: transparent;
+  }
+}
+
+@mixin switch-off {
+  .fill {
+    background-color: var(--color-background-glassy-d);
+  }
+
+  .switchPin {
+    background: var(--color-content-inverted-primary);
+  }
+
+  &:disabled {
+    cursor: default;
+    pointer-events: none;
+
+    .fill {
+      background: var(--color-background-glassy-c);
+    }
+
+    .switchPin {
+      background: var(--color-background-glassy-d);
+    }
+  }
+}
+
+@mixin switch-on {
+  .fill {
+    background-color: var(--primary-color);
+  }
+
+  .switchPin {
+    background: var(--color-content-inverted-primary);
+  }
+
+  &:disabled {
+    cursor: default;
+    pointer-events: none;
+
+    .fill {
+      background: var(--color-background-glassy-c);
+    }
+  
+    .switchPin {
+      background: var(--color-content-inverted-primary);
+    }
+  }
+}
+
+//switch-label
+@mixin switch-label-16-on {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: set-calc(6);
+
+  .label {
+    @include font-12-ui;
+    color: var(--color-content-primary);
+
+    transition-property: all;
+    transition-duration: $d-hover;
+    transition-timing-function: ease-out;
+  }
+
+  .icon {
+    @include switch;
+    @include switch-16-on;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    .icon {
+      @include switch-hover;
+    }
+  }
+
+  &:disabled {
+    cursor: default;
+    pointer-events: none;
+
+    .label {
+      color: var(--color-background-glassy-d);
+    }
+
+    .icon {
+      .fill {
+        background: var(--color-background-glassy-c);
+      }
+    
+      .switchPin {
+        background: var(--color-content-inverted-primary);
+      }
+    }
+  }
+}
+
+@mixin switch-label-16-off {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: set-calc(6);
+
+  .label {
+    @include font-12-ui;
+    color: var(--color-content-tertiary);
+
+    transition-property: all;
+    transition-duration: $d-hover;
+    transition-timing-function: ease-out;
+  }
+
+  .icon {
+    @include switch;
+    @include switch-16-off;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    .icon {
+      @include switch-hover;
+    }
+  }
+
+  &:disabled {
+    cursor: default;
+    pointer-events: none;
+
+    .label {
+      color: var(--color-background-glassy-d);
+    }
+
+    .icon {
+      .fill {
+        background: var(--color-background-glassy-c);
+      }
+  
+      .switchPin {
+        background: var(--color-background-glassy-d);
+      }
+    }
+  }
+}
+
+@mixin switch-label-20-on {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: set-calc(8);
+
+  .label {
+    @include font-14-ui;
+    color: var(--color-content-primary);
+
+    transition-property: all;
+    transition-duration: $d-hover;
+    transition-timing-function: ease-out;
+  }
+
+  .icon {
+    @include switch;
+    @include switch-20-on;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    .icon {
+      @include switch-hover;
+    }
+  }
+
+  &:disabled {
+    cursor: default;
+    pointer-events: none;
+
+    .label {
+      color: var(--color-background-glassy-d);
+    }
+
+
+    .icon {
+      .fill {
+        background: var(--color-background-glassy-c);
+      }
+    
+      .switchPin {
+        background: var(--color-content-inverted-primary);
+      }
+    }
+  }
+}
+
+@mixin switch-label-20-off {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: set-calc(8);
+
+  .label {
+    @include font-14-ui;
+    color: var(--color-content-tertiary);
+
+    transition-property: all;
+    transition-duration: $d-hover;
+    transition-timing-function: ease-out;
+  }
+
+  .icon {
+    @include switch;
+    @include switch-20-off;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    .icon {
+      @include switch-hover;
+    }
+  }
+
+  &:disabled {
+    cursor: default;
+    pointer-events: none;
+
+    .label {
+      color: var(--color-background-glassy-d);
+    }
+
+    .icon {
+      .fill {
+        background: var(--color-background-glassy-c);
+      }
+  
+      .switchPin {
+        background: var(--color-background-glassy-d);
+      }
+    }
+  }
+}
+
+@mixin switch-label-24-on {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: set-calc(10);
+
+  .label {
+    @include font-16-ui;
+    color: var(--color-content-primary);
+
+    transition-property: all;
+    transition-duration: $d-hover;
+    transition-timing-function: ease-out;
+  }
+
+  .icon {
+    @include switch;
+    @include switch-24-on;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    .icon {
+      @include switch-hover;
+    }
+  }
+
+  &:disabled {
+    cursor: default;
+    pointer-events: none;
+
+    .label {
+      color: var(--color-background-glassy-d);
+    }
+
+
+    .icon {
+      .fill {
+        background: var(--color-background-glassy-c);
+      }
+    
+      .switchPin {
+        background: var(--color-content-inverted-primary);
+      }
+    }
+  }
+}
+
+@mixin switch-label-24-off {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: set-calc(10);
+
+  .label {
+    @include font-16-ui;
+    color: var(--color-content-tertiary);
+
+    transition-property: all;
+    transition-duration: $d-hover;
+    transition-timing-function: ease-out;
+  }
+
+  .icon {
+    @include switch;
+    @include switch-24-off;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    .icon {
+      @include switch-hover;
+    }
+  }
+
+  &:disabled {
+    cursor: default;
+    pointer-events: none;
+
+    .label {
+      color: var(--color-background-glassy-d);
+    }
+
+    .icon {
+      .fill {
+        background: var(--color-background-glassy-c);
+      }
+  
+      .switchPin {
+        background: var(--color-background-glassy-d);
+      }
+    }
   }
 }
 

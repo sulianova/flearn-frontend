@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import type { TCourseProductOptionTypes } from 'services/course.service';
 import { lessonService } from 'services/lesson.service';
 import { URLSections } from 'router';
 
@@ -18,8 +19,14 @@ import SocialValidation from './blocks/SocialValidation/SocialValidation';
 import classes from './Home.module.scss';
 import SignupToFlearnPopup from 'components/SignupToFlearnPopup/SignupToFlearnPopup';
 
+type TStep =
+  | 'DECISION'
+  | 'PAYMENT'
+  | 'ORDER_INFO';
 
 export default function Home() {
+  const [chosenProductOptionType, setChosenProductOptionType] = useState<TCourseProductOptionTypes | undefined> ( undefined);
+  const [step, setStep] = useState<TStep>('DECISION');
   const firstLesson = lessonService.useLessons({ courseId: 'how-to-draw', topicOrder: 1, orderInTopic: 1 }).at(0);
   const linkToFreeCourse = firstLesson
     ? URLSections.Study.to({ courseId: 'how-to-draw', lessonId: firstLesson.id })
@@ -59,6 +66,10 @@ export default function Home() {
       key='DecisionForm'
       linkToFreeCourse={linkToFreeCourse}
       onNotAuthedClick={onNotAuthedClick}
+      next={productOptionType => {
+      setStep('PAYMENT');
+      setChosenProductOptionType(productOptionType);
+      }}
     />,
     <FAQ
       key='FAQ'
