@@ -17,28 +17,22 @@
 
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   width: 100%;
 
   border-bottom: 1px solid var(--color-card-border);
   background-color: transparent;
-
-  @include set-media(md) {
-    gap: set-calc(16);
-  }
 }
 
 .desk_WEB {
-  margin: set-calc(8) set-calc(calc($p-page-desk-l)) 0;
-  padding: set-calc(16) set-calc(32);
+  padding: set-calc(12) set-calc(calc($p-page-desk-l));
 
-  backdrop-filter: blur(set-calc(15));
-  background-color: var(--color-background-glassy-inverted-d);
-  border-radius: set-calc($border-radius-20);
-  border: 1px solid var(--border);
+  backdrop-filter: blur(set-calc($blur-16));
+  background-color: var(--color-card-glassy);
 
   .btn_login,
-  .btn_start {
+  .btn_start,
+  .nav {
     @include button-48;
   }
 
@@ -47,15 +41,12 @@
   }
 
   @include set-media(md) {
-    margin: 0 0 0;
     padding: set-calc(12) set-calc($p-page-mob-s);
-
-    border-radius: 0;
-    border: 1px solid transparent;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 0.5px solid var(--border);
 
     .btn_login,
-    .btn_start {
+    .btn_start,
+    .nav {
       @include button-40;
     }
 
@@ -66,13 +57,14 @@
 }
 
 .desk_LMS {
-  padding: set-calc(12) set-calc(24);
+  padding: set-calc(12) set-calc(calc($p-page-desk-s));
   backdrop-filter: blur(set-calc(0));
   border-bottom: 1px solid transparent;
 
   .btn_login,
   .btn_buy,
-  .btn_start {
+  .btn_start,
+  .nav {
     @include button-40;
   }
 
@@ -83,10 +75,9 @@
   @include set-media(md) {
     padding: set-calc(12) set-calc($p-page-mob-s);
 
-    border-radius: 0;
-    backdrop-filter: blur(set-calc(15));
-    background-color: var(--color-background-glassy-inverted-d);
-    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(set-calc($blur-16));
+    background-color: var(--color-card-glassy);
+    border-bottom: 0.5px solid var(--border);
   }
 }
 
@@ -95,53 +86,85 @@
 
   display: flex;
   justify-content: center;
-  height: set-calc(44);
+  align-items: center;
+  gap: set-calc(2);
+
+  height: set-calc(48);
+  @include rounded(48);
+
+  padding: 0 set-calc(16);
+  background: var(--color-background-glassy-b, rgba(0, 0, 0, 0.05));
   
   cursor: pointer;
 
   &__name {
-    @include set-typography(28, 28, 500);
+    @include set-typography(20, 20, 500);
     font-family: $font-family-normal;
     font-feature-settings: 'ss01' on;
-    letter-spacing: set-calc(-0.66);
-
     align-self: center;
 
     @include set-media(md) {
-      @include set-typography(26, 26, 500);
+      display: none;
     }
   }
 
   &__icon {
-    @include icon-size(24);
-    color: var(--color-accent-promo-background);
+    display: none;
   }
 
   @include set-media(md) {
-    height: set-calc(36);
+    padding: 0 0;
+    background: transparent;
+
+    &__icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  
+      width: set-calc(40);
+      height: set-calc(40);
+  
+      @include rounded(40);
+      background: var(--color-content-primary);
+  
+      svg {
+        display: block;
+  
+        width: set-calc(21.5);
+        height: set-calc(21.5);
+        color: var(--color-content-inverted-primary);
+      }
+    }
   }
 }
 
 .menu {
   display: flex;
   align-items: baseline;
-  gap: set-calc(40);
+  flex: 1 1;
 
-  margin-left: auto;
+  padding-left: set-calc(24);
+
+  @include set-media(md) {
+
+  padding-left: auto;
+  }
 }
 
 .menu__section {
   position: relative;
 
   display: flex;
+  justify-content: flex-start;
   align-items: baseline;
-  gap: set-calc(8);
+  gap: set-calc(6);
 
-  margin-left: auto;
+  margin-right: auto;
 
   @include set-media(md) {
     width: 100%;
     justify-content: space-between;
+    gap: set-calc(8);
   }
 
   .dropdown {
@@ -151,6 +174,11 @@
       display: none;
     }
   }
+
+  .nav {
+    @include btn;
+    @include button-invisible;
+  }
 }
 
 .menu__btns {
@@ -158,10 +186,10 @@
 
   display: flex;
   align-items: baseline;
-  gap: set-calc(12);
+  gap: set-calc(6);
 
   @include set-media(md) {
-    margin-left: auto;
+    gap: set-calc(8);
   }
 
   .btn_start {
@@ -180,10 +208,8 @@
   
   .btn_buy {
     @include btn;
-    @include button-3d($color-palette-primary-300, $color-palette-primary-300, $color-palette-primary-400, $color-palette-primary-400, 0.9);
+    @include button-primary;
     width: max-content;
-  
-    color: $color-content-inverted-primary-light;
   }
 
   .btn_back {
@@ -191,7 +217,7 @@
   
     @include set-media(md) {
       @include icon-button-40;
-      @include icon-button-secondary;
+      @include icon-button-invisible;
     }
   }
 }

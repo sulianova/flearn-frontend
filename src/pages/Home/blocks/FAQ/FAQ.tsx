@@ -55,6 +55,15 @@ function FAQ() {
       </div>
       <div className={classes.list}>
         {data.map((qa, index) => <Card key={index} {...qa}/>)}
+        <div className={classes.note}>
+          <span>{t('note1')}</span>
+          <Link
+            to={t('noteLink')}
+            target='_blank'
+          >
+            {t('note2')}
+          </Link>
+        </div>
       </div>
     </>
   );

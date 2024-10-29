@@ -41,15 +41,6 @@ export default function Header(props: IProps) {
           </div>
         )}
         <div className={classes.actions__note}>{t('note')}</div>
-        <div className={classes.image}>
-          <Img
-            src={{
-              mobile: "/png/Home/3d_secutiry_pointer.png",
-              desktop: "/png/Home/3d_secutiry_pointer.png",
-            }}
-            alt=""
-          />
-      </div>
       </div>
       <div className={classes.image}>
         <Img

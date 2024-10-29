@@ -3,13 +3,22 @@
   "logo": "Flearn",
   "oferta": "Оферта и договор",
   "header": {
-    "my": "мoe обучение",
-    "logo": "Flearn",
-    "freeZone": "бесплатно",
-    "catalogue": "все курсы",
-    "login": {
-      "signIn": "Войти",
-      "profile": "Профиль"
+    "logo": "flearn",
+    "menu": {
+      "myCourses": "Мои курсы",
+      "pricing": "Цены",
+      "courses": "Курсы",
+      "socialValidation": "Отзывы"
+    },
+    "btns": {
+      "login": {
+        "signIn": "Войти",
+        "profile": "Профиль"
+      },
+      "start": {
+        "pro": "Flearn PRO",
+        "free": "Учиться бесплатно"
+      }
     }
   },
   "footer": {

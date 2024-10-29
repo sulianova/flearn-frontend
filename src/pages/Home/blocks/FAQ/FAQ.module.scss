@@ -2,9 +2,11 @@
 
 .header {
   @include header;
-  
-  a {
-    @include key-link;
+
+  margin-right: set-calc(40);
+
+  @include set-media(md) {
+    margin-right: set-calc(0);
   }
 }
 
@@ -21,5 +23,27 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+  }
+
+  .note {
+    display: flex;
+    flex-wrap: wrap;
+    gap: set-calc(8);
+    padding: set-calc(24) set-calc(16) 0;
+
+    @include set-media(md) {
+      padding: set-calc(16) set-calc(8) 0;
+    }
+
+    span {
+      @include font-18-ui;
+
+      color: var(--color-content-primary);
+    }
+
+    a {
+      @include key-link;
+      @include font-18-ui;
+    }
   }
 }

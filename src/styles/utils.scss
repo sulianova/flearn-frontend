@@ -366,15 +366,9 @@
   }
 }
 
-@mixin button-invisible (
-  $height,
-  $border-radius
-) {
+@mixin button-invisible {
   color: var(--color-content-primary);
   background-color: transparent;
-
-  height: set-calc($height);
-  border-radius: set-calc($border-radius);
 
   &:hover {
     background-color: var(--color-background-glassy-b);

@@ -74,31 +74,41 @@ export default function Header({ variant, visible }: Readonly<IProps>, { onNotAu
          {(urlSection.name === 'Home' || isMobile) && (
             <Link className={classes.logo} to={URLSections.Home.index}>
               <div className={classes.logo__name}>{t('logo')}</div>
+              <div className={classes.logo__icon}>
+                <Icon icon="Pro"/>
+              </div>
             </Link>
          )}
           <div className={classes.menu}>
-              {(user && Boolean(userCourses.length) && !isMobile) && (urlSection.name !== 'Study') && (
-                <div className={classes.menu__section}>
-                  <Dropdown
-                    content={({ close }) => (
-                      <CoursesDropdownContent
-                        courses={userCourses}
-                        lastStudiedCourse={lastStudiedCourse}
-                        close={close}
-                      />
-                    )}
-                    children={({ open, close, opened }) => {
-                      currentCloseCourseDropdown.current = close;
-                      return (
-                        <div className={cx({ dropdown: true, dropdown_isOpened: opened })} onClick={opened ? close : open}>
-                          <span className={classes.dropdown__content}>Мои курсы</span>
-                          <Icon icon='ChevronDown'/>
-                        </div>
-                      );
-                    }}
-                  />
-                </div>
+            <div className={classes.menu__section}>
+              {(!isMobile) && (urlSection.name == 'Home') && (
+                <>
+                  <Link className={classes.nav}>{t('menu.pricing')}</Link>
+                  <Link className={classes.nav}>{t('menu.courses')}</Link>
+                  <Link className={classes.nav}>{t('menu.socialValidation')}</Link>
+                </>
               )}
+              {(user && Boolean(userCourses.length) && !isMobile) && (urlSection.name !== 'Study') && (urlSection.name !== 'Home')&& (
+                <Dropdown
+                  content={({ close }) => (
+                    <CoursesDropdownContent
+                      courses={userCourses}
+                      lastStudiedCourse={lastStudiedCourse}
+                      close={close}
+                    />
+                  )}
+                  children={({ open, close, opened }) => {
+                    currentCloseCourseDropdown.current = close;
+                    return (
+                      <div className={cx({ dropdown: true, dropdown_isOpened: opened })} onClick={opened ? close : open}>
+                        <span className={classes.dropdown__content}>Мои курсы</span>
+                        <Icon icon='ChevronDown'/>
+                      </div>
+                    );
+                  }}
+                />
+              )}
+            </div>
             <div className={classes.menu__btns}>
               { user ?
                 <>
@@ -107,25 +117,25 @@ export default function Header({ variant, visible }: Readonly<IProps>, { onNotAu
                       className={cx({ btn_login: true})}
                       to={URLSections.EmptyProfile.to()}
                     >
-                      {t('login.profile')}
+                      {t('btns.login.profile')}
                     </Link>
                   )}
                   {(urlSection.name !== 'Home') && (
                     <div className={cx({ btn_start: true})} onClick={() => setBuyPopupIsOpened(true)}>
-                      Flearn PRO
+                      {t('btns.start.pro')}
                     </div>
                   )}
                 </>
                 : 
                   <> 
                     <div className={cx({ btn_login: true})} onClick={() => authService.authenticate()}>
-                      {t('login.signIn')}
+                      {t('btns.login.signIn')}
                     </div>
                     <div
                       className={cx({ btn_start: true})}
                       onClick={onNotAuthedClick}
                     >
-                      Учиться бесплатно
+                      {t('btns.start.free')}
                     </div>
                   </>
               }

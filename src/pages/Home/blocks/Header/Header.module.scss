@@ -17,7 +17,7 @@
   gap: set-calc(60);
 
   @include set-media(md) {
-    height: set-calc(730);
+    height: set-calc(750);
 
     margin-top: 0;
     padding: set-calc(24);
@@ -85,25 +85,6 @@
   @include set-media(md) {
     width: 100%;
     gap: set-calc(8);
-  }
-
-  .image {
-    position: absolute;
-
-    right: set-calc(12.152);
-    bottom: set-calc(17.444);
-  
-    width: set-calc(41.5);
-    height: set-calc(47.5);
-  
-    img {
-      width: 100%;
-      height: auto;
-    }
-  
-    @include set-media(md) {
-      display: none;
-    }
   }
 }
 

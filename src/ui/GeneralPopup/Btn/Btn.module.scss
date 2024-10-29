@@ -15,7 +15,7 @@
   }
 
   &_invisible {
-    @include button-invisible($height: 54, $border-radius: 12);
+    @include button-invisible;
     width: max-content;
   }
 }
