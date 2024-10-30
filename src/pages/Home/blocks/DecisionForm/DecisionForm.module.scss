@@ -35,10 +35,13 @@
 
 .switch {
   @include switch-label-24-on;
+  .label {
+    color: $color-content-primary-light;
+  }
 
   &_off {
     .label {
-      color: var(--color-content-tertiary);
+      color: $color-content-secondary-light;
     }
     .icon {
       @include switch-off;
