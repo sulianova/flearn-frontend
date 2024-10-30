@@ -1491,6 +1491,7 @@
   }
 
   &_selected {
+    pointer-events: none;
     background: var(--color-content-primary);
     color: var(--color-content-inverted-primary);
   }
@@ -1525,6 +1526,7 @@
   }
 
   &_selected {
+    pointer-events: none;
     background: $bc;
     color: var(--color-content-primary);
   }
@@ -1558,6 +1560,7 @@
   }
 
   &_selected {
+    pointer-events: none;
     background: transparent;
     border: 2px solid var(--color-content-primary);
   }
@@ -1589,6 +1592,7 @@
   }
 
   &_selected {
+    pointer-events: none;
     background: var(--color-accent-promo-background);
     color: var(--color-content-primary);
   }

@@ -1,13 +1,36 @@
 import classNames from 'classnames/bind';
-import classes from './About.module.scss';
-import Img from 'ui/Img/Img';
+import { useEffect } from 'react';
 
 import { formatI18nT } from 'shared';
+import { useIsMobile, useTabSwitcher } from 'hooks';
+import Img from 'ui/Img/Img';
+
+import classes from './About.module.scss';
 
 const cx = classNames.bind(classes);
 const t = formatI18nT('home.about');
 
+const tabsProps: { card_photo?: boolean }[] = [
+  {},
+  {card_photo: true},
+  {},
+  {card_photo: true},
+  {},
+];
+const D_SLIDE_MS = 5_000;
 export default function RequestConsultationBanner() {
+  const isMobile = useIsMobile();
+  const {tab, setTab, setNextTab, setPrevTab} = useTabSwitcher(tabsProps.length);
+
+  useEffect(() => {
+    if (!isMobile) {
+      return;
+    }
+
+    const timer = setTimeout(setNextTab, D_SLIDE_MS - 50);
+    return () => clearTimeout(timer);
+  }, [isMobile, tab, setNextTab]);
+
   return (
     <>
       <div data-bcalternate></div>
@@ -16,75 +39,28 @@ export default function RequestConsultationBanner() {
       </div>
       <div className={classes.tabs}>
           <div className={classes.tabsMenu}>
-            <button className={cx({ tab: true, tab_selected: true })}>{t('tabs.tab1.tabTitle')}</button>
-            <button className={cx({ tab: true, tab_selected: false })}>{t('tabs.tab2.tabTitle')}</button>
-            <button className={cx({ tab: true, tab_selected: false })}>{t('tabs.tab3.tabTitle')}</button>
-            <button className={cx({ tab: true, tab_selected: false })}>{t('tabs.tab4.tabTitle')}</button>
-            <button className={cx({ tab: true, tab_selected: false })}>{t('tabs.tab5.tabTitle')}</button>
+            {tabsProps.map((_, index) => (
+              <button
+                className={cx({ tab: true, tab_selected: index === tab })}
+                onClick={() => setTab(index)}
+              >
+                {t(`tabs.tab${index + 1}.tabTitle`)}
+              </button>
+            ))}
           </div>
-          <div className={cx({ card: true})} id="tab1">
+          <div className={cx({ card: true, ...tabsProps[tab]})}>
+            <div className={classes.slideButtonsContainer}>
+              <button onClick={setPrevTab}/>
+              <button onClick={setNextTab}/>
+            </div>
             <div className={classes.slideControl}>
-              <div className={cx({ item: true, item_active: true })}></div>
-              <div className={cx({ item: true, item_active: false })}></div>
-              <div className={cx({ item: true, item_active: false })}></div>
-              <div className={cx({ item: true, item_active: false })}></div>
-              <div className={cx({ item: true, item_active: false })}></div>
+              {tabsProps.map((_, index) => (
+                <div className={cx({ item: true, item_active: index === tab })}/>
+              ))}
             </div>
             <div className={classes.content}>
-              <div className={classes.content__title}>{t('tabs.tab1.title')}</div>
-              <div className={classes.content__description}>{t('tabs.tab1.description')}</div>
-            </div>
-          </div>
-          <div className={cx({ card: true, card_photo: true})} id="tab2">
-          <div className={classes.slideControl}>
-              <div className={cx({ item: true, item_active: false })}></div>
-              <div className={cx({ item: true, item_active: true })}></div>
-              <div className={cx({ item: true, item_active: false })}></div>
-              <div className={cx({ item: true, item_active: false })}></div>
-              <div className={cx({ item: true, item_active: false })}></div>
-            </div>
-            <div className={classes.content}>
-              <div className={classes.content__title}>{t('tabs.tab2.title')}</div>
-              <div className={classes.content__description}>{t('tabs.tab2.description')}</div>
-            </div>
-          </div>
-          <div className={cx({ card: true})} id="tab3">
-          <div className={classes.slideControl}>
-              <div className={cx({ item: true, item_active: false })}></div>
-              <div className={cx({ item: true, item_active: false })}></div>
-              <div className={cx({ item: true, item_active: true })}></div>
-              <div className={cx({ item: true, item_active: false })}></div>
-              <div className={cx({ item: true, item_active: false })}></div>
-            </div>
-            <div className={classes.content}>
-              <div className={classes.content__title}>{t('tabs.tab3.title')}</div>
-              <div className={classes.content__description}>{t('tabs.tab3.description')}</div>
-            </div>
-          </div>
-          <div className={cx({ card: true, card_photo: true})} id="tab4">
-          <div className={classes.slideControl}>
-              <div className={cx({ item: true, item_active: false })}></div>
-              <div className={cx({ item: true, item_active: false })}></div>
-              <div className={cx({ item: true, item_active: false })}></div>
-              <div className={cx({ item: true, item_active: true })}></div>
-              <div className={cx({ item: true, item_active: false })}></div>
-            </div>
-            <div className={classes.content}>
-              <div className={classes.content__title}>{t('tabs.tab4.title')}</div>
-              <div className={classes.content__description}>{t('tabs.tab4.description')}</div>
-            </div>
-          </div>
-          <div className={cx({ card: true})} id="tab5">
-          <div className={classes.slideControl}>
-              <div className={cx({ item: true, item_active: false })}></div>
-              <div className={cx({ item: true, item_active: false })}></div>
-              <div className={cx({ item: true, item_active: false })}></div>
-              <div className={cx({ item: true, item_active: false })}></div>
-              <div className={cx({ item: true, item_active: true })}></div>
-            </div>
-            <div className={classes.content}>
-              <div className={classes.content__title}>{t('tabs.tab5.title')}</div>
-              <div className={classes.content__description}>{t('tabs.tab5.description')}</div>
+              <div className={classes.content__title}>{t(`tabs.tab${tab + 1}.title`)}</div>
+              <div className={classes.content__description}>{t(`tabs.tab${tab + 1}.description`)}</div>
             </div>
           </div>
         </div>

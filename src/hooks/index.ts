@@ -8,3 +8,4 @@ export * from './isMounted';
 export * from './memoize';
 export * from './theme';
 export * from './URLSection';
+export * from './tabsSwitcher';

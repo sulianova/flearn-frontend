@@ -40,6 +40,7 @@
 }
 
 .card {
+  position: relative;
   display: flex;
   flex-direction: column;
 
@@ -79,6 +80,21 @@
 
     .content {
       gap: set-calc(12);
+    }
+  }
+
+  .slideButtonsContainer {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    display: flex;
+
+    button {
+      height: 100%;
+      width: 50%;
     }
   }
 }
