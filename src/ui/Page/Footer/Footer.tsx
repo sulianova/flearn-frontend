@@ -27,37 +27,26 @@ interface IProps {
 function Footer({ variant, type =  EFooter.Default }: IProps) {
 
   return (
-    <div className={cx({ wrapper: true, [`wrapper_${variant}`]: true })}>
-      {
-        type === EFooter.Big && (
-          <div className={cx({ row: true, card: true })}>
-            <div className={classes.logo}>
-                <div className={classes.logo}>{i18n.t('logoLong')}</div>
-            </div>
-            <div className={classes.creators}>
-              <Link className={classes.person} to={t('creatorDesign.link')}  target='_blank'>
-                <span className={classes.person__title}>{t('creatorDesign.title')}</span>
-                <span className={classes.person__name}>{t('creatorDesign.name')}</span>
-              </Link>
-              <Link className={classes.person} to={t('creatorFrontend.link')} target='_blank'>
-                <span className={classes.person__title}>{t('creatorFrontend.title')}</span>
-                <span className={classes.person__name}>{t('creatorFrontend.name')}</span>
-              </Link>
-            </div>
+    <div className={cx({ wrapper: true })}>
+      <div className={cx({ card: true })}>
+        <div className={classes.content}>
+          <div className={classes.creators}>
+            <Link className={classes.person} to={t('designer.link')}  target='_blank'>
+              <span className={classes.person__title}>{t('designer.title')}</span>
+              <span className={classes.person__name}>{t('designer.name')}</span>
+            </Link>
+            <Link className={classes.person} to={t('developer.link')} target='_blank'>
+              <span className={classes.person__title}>{t('developer.title')}</span>
+              <span className={classes.person__name}>{t('developer.name')}</span>
+            </Link>
+          </div>
+          <div className={cx({ documents: true })}>
+            <p className={classes.copyright}>{t('copyright')}</p>
+            <Link to={URLSections.Static.Policy.index} target='_blank'>{t('documentsPrivacyPolicy.title')}</Link>
+            <Link to={URLSections.Static.Oferta.index} target='_blank'>{t('documentsTermsOfUse.title')}</Link>
+          </div>
         </div>
-        )
-      }
-      <div className={cx({ row: true, card: false })}>
-        <div className={cx({ contacts: true, col: true })}>
-          <p className={classes.copyright}>{t('copyright')}</p>
-          <Link to={t('emailTo')} className='key-link' target='_blank'>{t('email')}</Link>
-          <p>{t('emailComment')}</p>
-        </div>
-        <div className={cx({ documents: true, col: true })}>
-          <Link to={URLSections.Static.Policy.index} className='s-hoverable' target='_blank'>{t('documentsPrivacyPolicy.title')}</Link>
-          <Link to={URLSections.Static.Oferta.index} className='s-hoverable' target='_blank'>{t('documentsTermsOfUse.title')}</Link>
-        </div>
-        <div className={cx({ social: true, col: false })}>
+        <div className={cx({ social: true })}>
           <Link
             className={cx({ social__link: true })}
             to={t('socialTelegram.link')}
@@ -76,7 +65,11 @@ function Footer({ variant, type =  EFooter.Default }: IProps) {
             target='_blank'>
               <Icon icon='Vk'/>
           </Link>
-      </div>
+        </div>
+        <div className={cx({ contacts: true })}>
+          <Link to={t('emailTo')} className='key-link' target='_blank'>{t('email')}</Link>
+          <p>{t('emailComment')}</p>
+        </div>
       </div>
     </div>
   );

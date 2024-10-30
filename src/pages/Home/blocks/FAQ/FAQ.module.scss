@@ -3,7 +3,7 @@
 .header {
   @include header;
 
-  margin-right: set-calc(40);
+  margin-right: set-calc(80);
 
   @include set-media(md) {
     margin-right: set-calc(0);

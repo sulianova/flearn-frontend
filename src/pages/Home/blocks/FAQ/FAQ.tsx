@@ -38,10 +38,6 @@ const data: QA[] = [
     question: `${t('item7.question')}`,
     answer: `${t('item7.answer')}`,
   },
-  {
-    question: `${t('item8.question')}`,
-    answer: `${t('item8.answer')}`,
-  },
 ];
 
 

@@ -82,7 +82,7 @@ export default function Home() {
         variant={EPageVariant.WEB}
         header
         footer={EFooter.Big}
-        backgroundColor='var(--color-background-default)'
+        backgroundColor='var(--color-background-alternate)'
       >
         {blocks.map(block => (
           <div className={classes.section} key={block.key}>
