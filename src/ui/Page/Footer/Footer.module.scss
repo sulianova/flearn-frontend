@@ -7,6 +7,10 @@
 
   flex: 1 1;
   padding: 0 set-calc($p-page-desk-l) set-calc(40);
+
+  @include set-media(md) {
+    padding: set-calc(24) set-calc($p-page-mob-l) set-calc(16);
+  }
 }
 
 .card {
@@ -19,6 +23,16 @@
 
   border-radius: set-calc(40);
   border: 1px solid var(--border);
+
+  @include set-media(md) {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: set-calc(24);
+
+    padding: 0 0;
+    border-radius: 0;
+    border: none;
+  }
 }
 
 .content {
@@ -35,6 +49,10 @@
   justify-content: flex-end;
   align-items: flex-start;
   gap: set-calc(8);
+
+  @include set-media(md) {
+    display: none;
+  }
 }
 
 .person {
@@ -58,6 +76,10 @@
 .copyright {
   @include font-12-ui;
   color: var(--color-background-glassy-d);
+
+  @include set-media(md) {
+    @include font-14-ui;
+  }
 }
 
 .documents {
@@ -68,31 +90,81 @@
     @include s-hoverable;
     @include font-12-ui;
     color: var(--color-background-glassy-d);
+
+    @include set-media(md) {
+      @include font-14-ui;
+    }
+  }
+
+  @include set-media(md) {
+    flex-direction: column;
+    gap: set-calc(8);
+  }
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: set-calc(8);
+
+  @include set-media(md) {
+    justify-content: flex-start;
+    gap: set-calc(10);
   }
 }
 
 .social {
   display: flex;
-  align-items: end;
-  justify-content: end;
-
-  flex: 1 1;
-  gap: set-calc(10);
-
-  @include set-media(md) {
-    justify-content: start;
-  }
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: set-calc(6);
 
   &__link {
-    @include btn;
     @include icon-button-40;
     @include icon-button-secondary;
 
-    border-radius: 50%;
+    width: set-calc(40);
+
+    @include set-media(md) {
+      @include icon-button-primary;
+    }
+  }
+
+  @include set-media(md) {
+    justify-content: flex-start;
+
+
+    width: 100%;
+    margin-bottom: set-calc(24);
   }
 }
 
-.contacts {
-  gap: set-calc(6);
-  padding: 0 set-calc(8);
+.email {
+  width: 100%;
+
+  @include font-14-ui;
+  color: var(--color-content-primary);
+  text-align: end;
+
+  @include set-media(md) {
+    text-align: start;
+
+    @include font-32-header;
+  }
+}
+
+.emailComment {
+  width: 100%;
+
+  @include font-12-ui;
+  color: var(--color-background-glassy-d);
+  text-align: end;
+
+  @include set-media(md) {
+    @include font-14-ui;
+    text-align: start;
+    color: var(--color-content-secondary);
+  }
 }

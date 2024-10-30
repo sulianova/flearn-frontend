@@ -13,12 +13,6 @@
   }
 }
 
-.section:last-child {
-  @include set-media(md) {
-    margin-bottom: 0;
-  }
-}
-
 [data-header] + .section:has([data-bcalternate]) {
   padding-top: set-calc(120);
 
@@ -119,5 +113,12 @@
 
   @include set-media(md) {
    flex-direction: column;
+  }
+}
+
+.section:last-child {
+  @include set-media(md) {
+    margin-bottom: 0;
+    padding-bottom: set-calc(24);
   }
 }

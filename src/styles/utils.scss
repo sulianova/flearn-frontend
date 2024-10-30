@@ -556,11 +556,15 @@
 }
 
 @mixin icon-button-64 {
+  @include icon-size(32);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   height: set-calc(64);
   padding: 0 set-calc(16);
   border-radius: set-calc($border-radius-12);
-
-  @include icon-size(32);
 
   svg {
     transition-property: all;
@@ -576,11 +580,15 @@
 }
 
 @mixin icon-button-40 {
+  @include icon-size(24);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   height: set-calc(40);
   padding: 0 set-calc(8);
   border-radius: set-calc($border-radius-8);
-
-  @include icon-size(24);
 
   svg {
     transition-property: all;
@@ -596,12 +604,16 @@
 }
 
 @mixin icon-button-32 {
+  @include icon-size(20);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   height: set-calc(32);
   padding: 0 set-calc(6);
   border-radius: set-calc($border-radius-6);
-
-  @include icon-size(20);
-
+  
   svg {
     transition-property: all;
     transition-duration: $d-hover;
@@ -686,6 +698,28 @@
     &:hover,
     &:active {
       background: transparent;
+    }
+  }
+}
+
+@mixin icon-button-primary {
+  background: var(--color-content-primary);
+  color: var(--color-content-inverted-primary);
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &:disabled {
+    background: var(--color-background-glassy-c);
+    color: var(--color-background-glassy-d);
+  }
+
+  @include set-media(md) {
+    &:hover,
+    &:active {
+      background: var(--color-content-primary);
+      opacity: 1;
     }
   }
 }

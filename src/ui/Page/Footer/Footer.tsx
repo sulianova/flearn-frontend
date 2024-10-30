@@ -46,29 +46,29 @@ function Footer({ variant, type =  EFooter.Default }: IProps) {
             <Link to={URLSections.Static.Oferta.index} target='_blank'>{t('documentsTermsOfUse.title')}</Link>
           </div>
         </div>
-        <div className={cx({ social: true })}>
-          <Link
-            className={cx({ social__link: true })}
-            to={t('socialTelegram.link')}
-            target='_blank'>
-              <Icon icon='Telegram'/>
-            </Link>
-          <Link 
-            className={cx({ social__link: true })}
-            to={t('socialTiktok.link')}
-            target='_blank'>
-              <Icon icon='Tiktok'/>
-          </Link>
-          <Link 
-            className={cx({ social__link: true })}
-            to={t('socialVk.link')}
-            target='_blank'>
-              <Icon icon='Vk'/>
-          </Link>
-        </div>
         <div className={cx({ contacts: true })}>
-          <Link to={t('emailTo')} className='key-link' target='_blank'>{t('email')}</Link>
-          <p>{t('emailComment')}</p>
+          <div className={cx({ social: true })}>
+            <Link
+              className={cx({ social__link: true })}
+              to={t('socialTelegram.link')}
+              target='_blank'>
+                <Icon icon='Telegram'/>
+              </Link>
+            <Link 
+              className={cx({ social__link: true })}
+              to={t('socialTiktok.link')}
+              target='_blank'>
+                <Icon icon='Tiktok'/>
+            </Link>
+            <Link 
+              className={cx({ social__link: true })}
+              to={t('socialVk.link')}
+              target='_blank'>
+                <Icon icon='Vk'/>
+            </Link>
+          </div>
+          <Link to={t('emailTo')} className={classes.email} target='_blank'>{t('email')}</Link>
+          <p className={classes.emailComment}>{t('emailComment')}</p>
         </div>
       </div>
     </div>
