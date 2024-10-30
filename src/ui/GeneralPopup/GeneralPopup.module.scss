@@ -30,6 +30,8 @@
   @include icon-button-40;
   @include icon-button-invisible;
 
+  width: set-calc(40);
+
   position: absolute;
   top: set-calc(16);
   right: set-calc(16);

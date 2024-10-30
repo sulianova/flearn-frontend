@@ -17,6 +17,7 @@ import Link from 'ui/Link/Link';
 
 import CoursesDropdownContent from './CoursesDropdownContent/CoursesDropdownContent';
 import MobileMenuPopup from './MobileMenuPopup/MobileMenuPopup';
+import SignupToFlearnPopup from 'components/SignupToFlearnPopup/SignupToFlearnPopup';
 import { EPageVariant } from '../Page';
 
 import classes from './header.module.scss';
@@ -29,11 +30,7 @@ interface IProps {
   visible: boolean
 }
 
-interface IProps2 {
-  onNotAuthedClick: () => void
-}
-
-export default function Header({ variant, visible }: Readonly<IProps>, { onNotAuthedClick }: IProps2) {
+export default function Header({ variant, visible }: Readonly<IProps>) {
   const urlSection = useURLSection();
   const isMobile = useIsMobile();
 
@@ -47,6 +44,9 @@ export default function Header({ variant, visible }: Readonly<IProps>, { onNotAu
   const currentCloseCourseDropdown = useRef<() => void>();
   const [mobMenuIsOpened, setMobMenuIsOpened] = useState(false);
   const [buyPopupIsOpened, setBuyPopupIsOpened] = useState(false);
+
+  const [popupVisible, setPopupVisible] = useState(false);
+  const onNotAuthedClick = () => setPopupVisible(true);
 
   useEffect(() => {
     if (!visible) {
@@ -69,6 +69,11 @@ export default function Header({ variant, visible }: Readonly<IProps>, { onNotAu
         />
       )}
       {buyPopupIsOpened && user && <BuyPopup user={user} close={() => setBuyPopupIsOpened(false)}/>}
+      {popupVisible &&
+        <SignupToFlearnPopup
+          close={() => setPopupVisible(false)}
+        />
+      }
       <div className={headerClass}>
         <div className={cx({ desk: true, [`desk_${variant}`]: true })}>
          {(urlSection.name === 'Home' || isMobile) && (

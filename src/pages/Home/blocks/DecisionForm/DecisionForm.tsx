@@ -124,7 +124,7 @@ export default function DecisionForm(props: IProps) {
             )}
           </div>
           <div className={classes.price}>
-            <span className={classes.price__number}>{t('card.priceRub.quarterly_1m')}</span>
+            <span className={classes.price__number}>{t(`card.priceRub.${isQuarterly ? 'quarterly' : 'monthly'}_1m`)}</span>
           </div>
           <div className={classes.subtitle}>
             <span>{t(`card.subtitle.pro_${isQuarterly ? 'quarterly' : 'monthly'}`)}</span>
@@ -135,12 +135,21 @@ export default function DecisionForm(props: IProps) {
               </>
             )}
           </div>
-          <Link
+          {authService.isAuthenticated ? (
+           <Link
              className={classes.btn}
              to={props.linkToFreeCourse}
            >
              <div className={classes.text}>{t('card.btn.pro')}</div>
            </Link>
+          ) : (
+           <div
+             className={classes.btn}
+             onClick={props.onNotAuthedClick}
+           >
+             <div className={classes.text}>{t('card.btn.pro')}</div>
+           </div>
+         )}
           <div className={classes.description}>{t('card.description.pro')}</div>
           <ul className={classes.list}>
             <li className={classes.item}>
