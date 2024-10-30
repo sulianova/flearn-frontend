@@ -45,6 +45,8 @@ export default function DecisionForm(props: IProps) {
   const [popupOption, setPopupOption] = useState<keyof ICourseData['productOptions'] | null>(null);
   const user = userService.useAuthedUser();
 
+  const [isQuarterly, setIsQuarterly] = useState(true);
+
   return (
     <>
       <div data-bcpink/>
@@ -53,7 +55,10 @@ export default function DecisionForm(props: IProps) {
         <div className={classes.header__description}>{t('home.description')}</div>
       </div>
       <div className={classes.switchWrapper}>
-        <div className={cx({ switch: true, switch_off: false })}>
+        <div
+          className={cx({ switch: true, switch_off: !isQuarterly })}
+          onClick={() => setIsQuarterly(!isQuarterly)}
+        >
           <div className={classes.label}>{t('home.switchLabel')}</div>
           <div className={classes.icon}>
             <div className={classes.fill}></div>
@@ -114,15 +119,21 @@ export default function DecisionForm(props: IProps) {
         <div className={cx({ plan: true, pro: true})}>
           <div className={classes.planHeader}>
             <div className={classes.subscriptionPlan}>{t('card.subscriptionType.pro')}</div>
-            <div className={classes.discount}>{t('card.discount.3m')}</div>
+            {isQuarterly && (
+              <div className={classes.discount}>{t('card.discount.3m')}</div>
+            )}
           </div>
           <div className={classes.price}>
             <span className={classes.price__number}>{t('card.priceRub.quarterly_1m')}</span>
           </div>
           <div className={classes.subtitle}>
-            <span>{t('card.subtitle.pro_quarterly')}</span>
-            <span>{t('card.priceRub.monthly_3m')}</span>
-            <span>{t('card.priceRub.quarterly_3m')}</span>
+            <span>{t(`card.subtitle.pro_${isQuarterly ? 'quarterly' : 'monthly'}`)}</span>
+            {isQuarterly && (
+              <>
+                <span>{t('card.priceRub.monthly_3m')}</span>
+                <span>{t('card.priceRub.quarterly_3m')}</span>
+              </>
+            )}
           </div>
           <Link
              className={classes.btn}
