@@ -2,17 +2,19 @@
 
 .card {
   position: relative;
+
   display: flex;
   flex-direction: column;
 
   width: 100%;
+  height: set-calc(276);
   padding: set-calc(40);
 
   border-radius: set-calc(40);
   background: var(--color-accent-promo-background);
 
   @include set-media(md) {
-    height: set-calc(600);
+    height: set-calc(620);
 
     padding: set-calc(24);
     border-radius: set-calc(32);
@@ -24,11 +26,14 @@
 .content {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 
   width: set-calc(651);
-  gap: set-calc(40);
+  height: 100%;
 
   @include set-media(md) {
+    justify-content: flex-start;
+    gap: set-calc(32);
     width: 100%;
   }
 }
@@ -55,8 +60,29 @@
 
   min-width: set-calc(320);
 
+  z-index: 100;
+
   @include set-media(md) {
     width: max-content;
     min-width: unset;
+  }
+}
+
+.image {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  width: set-calc(784/2);
+  height: set-calc(552/2);
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  @include set-media(md) {
+    width: set-calc(796/2);
+    height: set-calc(772/2);
   }
 }

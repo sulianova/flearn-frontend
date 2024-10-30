@@ -51,7 +51,7 @@ export default function InputField(props: IProps) {
         id={getId()}
         name={variant.toLocaleLowerCase()}
         type={type[variant]}
-        placeholder={i18n.t(`input${variant}.placeholder`)}
+        placeholder={i18n.t(`form.input${variant}.placeholder`)}
         className={cx({
           input: true,
           empty: !value,

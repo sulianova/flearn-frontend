@@ -3,6 +3,7 @@ import { i18n } from 'shared';
 import { authService } from 'services/auth.service';
 import Link from 'ui/Link/Link';
 import { formatI18nT } from 'shared';
+import Img from 'ui/Img/Img';
 
 import classes from './BannerStart.module.scss'; 
 const t = formatI18nT('home.bannerStart');
@@ -34,6 +35,15 @@ export default function BannerStart(props: IProps) {
                 </div>
               )}
           </div>
+        </div>
+        <div className={classes.image}>
+          <Img
+            src={{
+              mobile: "/png/Home/bannerStart_mob.png",
+              desktop: "/png/Home/bannerStart_desk.png",
+            }}
+            alt=""
+          />
         </div>
       </div>
   );
