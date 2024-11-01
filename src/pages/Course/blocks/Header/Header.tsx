@@ -5,7 +5,7 @@ import { URLSections } from 'router';
 
 import { type IUserData } from 'services/user.service';
 import { type ILessonData } from 'services/lesson.service';
-import { type ICourseData } from 'services/course.service';
+import { isIconPNG, type ICourseData } from 'services/course.service';
 import { type TAccess } from 'services/userAccess.service';
 
 import BuyPopup from 'components/BuyPopup/BuyPopup';
@@ -14,6 +14,7 @@ import Link from 'ui/Link/Link';
 import Icon from 'ui/Icon/Icon';
 
 import classes from './Header.module.scss'
+import Img from 'ui/Img/Img';
 
 interface IProps {
   currentCourse: ICourseData
@@ -52,9 +53,19 @@ export default function Header(props: IProps) {
             </div>
           </div>
           <div className={classes.headerImage}>
-            <Icon {...currentCourse.icon}/>
+            {isIconPNG(currentCourse.icon.icon) ? (
+              <Img
+                src={currentCourse.icon.icon}
+                alt={currentCourse.icon.icon}
+              />
+            ) : (
+              <Icon
+                icon={currentCourse.icon.icon}
+                color={currentCourse.icon.color}
+              />
+            )}
           </div>
-          <div className={classes.shareLink}><Icon icon='Share'/></div>
+          {/* <div className={classes.shareLink}><Icon icon='Share'/></div> */}
         </div>
         <div className={classes.actions}>
           <div className={classes.actionsBtn}>

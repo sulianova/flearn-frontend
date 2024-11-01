@@ -67,7 +67,7 @@ export default function Course() {
         <Page 
           variant={EPageVariant.LMS}
           header
-          footer
+          footer={false}
           backgroundColor='var(--color-background-alternate)'
         >
           <div className={classes.coursesPage}>

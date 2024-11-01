@@ -88,8 +88,16 @@
       }
     
       .course {
-        @include icon-size(64);
-        position: relative;
+        width: set-calc(64);
+        height: set-calc(64);
+
+        z-index: 2;
+      
+        img {
+          width: 100%;
+          height: auto;
+          z-index: 2;
+        }
       }
     }
   
@@ -165,9 +173,16 @@
   }
 
   .course {
-    @include icon-size(100);
-    position: relative;
+    width: set-calc(100);
+    height: set-calc(100);
+
     z-index: 2;
+  
+    img {
+      width: 100%;
+      height: auto;
+      z-index: 2;
+    }
   }
   
   @include set-media(md) {

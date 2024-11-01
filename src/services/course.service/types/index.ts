@@ -16,6 +16,10 @@ export interface IFetchCourseProps {
   userId?: string
 }
 
+export function isIconPNG(icon: TIcon | `${string}.png`): icon is `${string}.png` {
+  return icon.endsWith('.png');
+}
+
 interface ICourseDataCommon {
   id: string
   type: 'course' | 'intensive' | 'webinar'
@@ -38,7 +42,7 @@ interface ICourseDataCommon {
   level: 'beginner' | 'intermediate' | 'advanced'
   telegramLink: string
   icon: {
-    icon: TIcon
+    icon: TIcon | `${string}.png`;
     color?: string
   }
 }

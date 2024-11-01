@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import classnames from 'classnames/bind';
 
-import type { ICourseCardInfo } from 'services/course.service';
+import { isIconPNG, type ICourseCardInfo } from 'services/course.service';
 import { emailService } from 'services/email.service';
 import { userService } from 'services/user.service';
 import { i18n } from 'shared';
@@ -11,6 +11,7 @@ import Link from 'ui/Link/Link';
 import Icon from 'ui/Icon/Icon';
 
 import classes from './CourseCardExtended.module.scss';
+import Img from 'ui/Img/Img';
 const cx = classnames.bind(classes);
 
 interface IProps {
@@ -23,7 +24,19 @@ export default function CourseCardExtended({ course, isHorizontal }: Readonly<IP
   const content = (
     <>
       <div className={classes.icon}>
-        <div className={classes.course}><Icon {...course.icon}/></div>
+        <div className={classes.course}>
+          {isIconPNG(course.icon.icon) ? (
+            <Img
+              src={course.icon.icon}
+              alt={course.icon.icon}
+            />
+          ) : (
+            <Icon
+              icon={course.icon.icon}
+              color={course.icon.color}
+            />
+          )}
+        </div>
         <div className={classes.star_18}> <Icon icon='Pro'/></div>
         <div className={classes.star_12}> <Icon icon='Pro'/></div>
       </div>

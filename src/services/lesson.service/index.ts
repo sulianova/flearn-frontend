@@ -258,14 +258,9 @@ class LessonService {
             lessons: sortedLessons
               .map(lesson => {
                 const solved = progress?.[lesson.id]?.solved ?? false;
-                const canBeAccessed =
-                  dependencies.authedUser && dependencies.authedUser.role === 'support' ? true
-                  : (dependencies.courseAccess ?? 'FREE') === 'FREE' && lesson.isFree ? true
-                  : (dependencies.courseAccess ?? 'FREE') !== 'FREE' && !lesson.isFree
-                  // : !firstNotLearnedLesson ? true
-                  // : firstNotLearnedLesson.topicOrder === lesson.topicOrder
-                  //   ? firstNotLearnedLesson.orderInTopic >= lesson.orderInTopic
-                  //   : firstNotLearnedLesson.topicOrder > lesson.topicOrder;
+                const canBeAccessed = lesson.isFree
+                  || dependencies.authedUser?.role === 'support'
+                  || (dependencies.courseAccess ?? 'FREE') !== 'FREE';
                 return { ...lesson, canBeAccessed, solved };
               }),
             dependencies,

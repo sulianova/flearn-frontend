@@ -15,7 +15,7 @@ export default function Profile() {
     <Page 
       variant={EPageVariant.LMS}
       header
-      footer
+      footer={false}
       backgroundColor='var(--color-background-alternate)'
     >
       <div className={classes.page}>

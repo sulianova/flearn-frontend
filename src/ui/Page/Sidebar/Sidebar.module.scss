@@ -22,17 +22,16 @@
   flex-direction: column;
   height: 100%;
 
-  padding: set-calc(12) set-calc(4);
+  padding: set-calc(12) set-calc(8);
 }
 
 .header {
-  @include icon-size(28);
-  align-items: center;
+  @include btn;
+  @include icon-button-40;
+  @include icon-button-invisible-secondary;
 
-  padding: 0 set-calc(10);
+  width: set-calc(40);
   margin-bottom: set-calc(24);
-
-  cursor: pointer;
 }
 
 .items {
@@ -53,6 +52,8 @@
   @include btn;
   @include icon-button-40;
   @include icon-button-invisible-secondary;
+
+  width: set-calc(40);
 }
 
 .item[data-user-wrapper] {

@@ -7,6 +7,8 @@ import Link from 'ui/Link/Link';
 import Icon from 'ui/Icon/Icon';
 
 import classes from './Header.module.scss';
+import { isIconPNG } from 'services/course.service';
+import Img from 'ui/Img/Img';
 
 export default function Header() {
   const lastStudiedCourse = userCourseProgressService.useLastStudiedCourse();
@@ -35,7 +37,17 @@ export default function Header() {
       <div className={classes.headerTitle}>Продолжить обучение</div>
       <div className={classes.header}>
         <div className={classes.headerImage}>
-          <Icon {...lastStudiedCourse.icon}/>
+          {isIconPNG(lastStudiedCourse.icon.icon) ? (
+            <Img
+              src={lastStudiedCourse.icon.icon}
+              alt={lastStudiedCourse.icon.icon}
+            />
+          ) : (
+            <Icon
+              icon={lastStudiedCourse.icon.icon}
+              color={lastStudiedCourse.icon.color}
+            />
+          )}
         </div>
         <div className={classes.headerContent}>
           <div className={classes.title}>{lastStudiedCourse.title}</div>

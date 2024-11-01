@@ -1,4 +1,4 @@
-import type { ICourseCardInfo } from 'services/course.service';
+import { isIconPNG, type ICourseCardInfo } from 'services/course.service';
 import { i18n } from 'shared';
 import { URLSections } from 'router';
 import { formatDate } from 'utils';
@@ -21,14 +21,17 @@ export default function CourseCardBase({ course }: Readonly<IProps>) {
   const content = (
     <>
       <div className={classes.icon}>
-        <Img
-          src={{
-            mobile: "/png/3d_emoji_Robot.png",
-            desktop: "/png/3d_emoji_Robot.png",
-          }}
-          alt=""
-        />
-        {/* <div className={classes.course}><Icon {...course.icon}/></div> */}
+        {isIconPNG(course.icon.icon) ? (
+          <Img
+            src={course.icon.icon}
+            alt={course.icon.icon}
+          />
+        ) : (
+          <Icon
+            icon={course.icon.icon}
+            color={course.icon.color}
+          />
+        )}
       </div>
       <div className={classes.content}>
         <div className={classes.title}>{course.title}</div>
