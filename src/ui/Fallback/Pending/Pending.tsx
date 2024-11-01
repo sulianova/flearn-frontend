@@ -18,7 +18,7 @@ export default function Pending(props: IProps) {
   );
 
   return (
-    <Page variant={variant} header footer>
+    <Page variant={variant} header footer={false}>
       <div className={classes._}>
         {content}
       </div>
