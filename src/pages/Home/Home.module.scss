@@ -13,14 +13,6 @@
   }
 }
 
-[data-header] + .section:has([data-bcalternate]) {
-  padding-top: set-calc(120);
-
-  @include set-media(md) {
-    padding-top: set-calc(64);
-  }
-}
-
 .section:has([data-bcalternate]) {
   margin-bottom: 0;
 

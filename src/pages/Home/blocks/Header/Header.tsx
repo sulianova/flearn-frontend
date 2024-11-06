@@ -15,7 +15,7 @@ const t = formatI18nT('home.header');
 
 export default function Header(props: IProps) {
   return (
-    <div data-header className={classes.header}>
+    <div data-bcalternate className={classes.header}>
       <div className={classes.content}>
         <div className={classes.tagsBlock}>
           <div className={classes.tag}>{t('tag1')}</div>
