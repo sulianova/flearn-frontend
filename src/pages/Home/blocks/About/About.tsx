@@ -62,6 +62,15 @@ export default function RequestConsultationBanner() {
               <div className={classes.content__title}>{t(`tabs.tab${tab + 1}.title`)}</div>
               <div className={classes.content__description}>{t(`tabs.tab${tab + 1}.description`)}</div>
             </div>
+            <div className={classes.image}>
+              <Img
+                src={{
+                  mobile: `/png/Home/about_tab${tab + 1}_mob.png`,
+                  desktop: `/png/Home/about_tab${tab + 1}_desk.png`,
+                }}
+                alt=""
+              />
+            </div>
           </div>
         </div>
         <div className={classes.list}>

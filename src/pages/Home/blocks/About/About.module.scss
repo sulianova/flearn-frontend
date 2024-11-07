@@ -57,6 +57,8 @@
 
     max-width: set-calc(460);
 
+    z-index: 100;
+
     &__title {
       @include font-28-header;
       font-family: $font-family-medium;
@@ -66,6 +68,24 @@
     &__description {
       @include font-18-paragraph;
       color: var(--color-content-primary);
+    }
+  }
+
+  .image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    img {
+      display: block;
+
+      height: set-calc(400);
+      width: auto;
+
+      @include set-media(md) {
+        height: auto;
+        width: 100%;
+      }
     }
   }
 
@@ -93,8 +113,17 @@
     display: flex;
 
     button {
-      height: 100%;
-      width: 50%;
+      display: none;
+    }
+
+    @include set-media(md) {
+      button {
+        display: block;
+        z-index: 200;
+
+        height: 100%;
+        width: 50%;
+      }
     }
   }
 }
@@ -102,6 +131,7 @@
 .card_photo {
   background-color: $color-palette-black-700;
   background-position: center center;
+  background-size: contain;
 
   .content {
     &__title {
@@ -113,12 +143,9 @@
     }
   }
 
-  img {
-    width: 100%;
-    display: block;
-  }
-
   .slideControl {
+    z-index: 100;
+
     .item {
       background-color: $color-background-glassy-c-dark;
     }
