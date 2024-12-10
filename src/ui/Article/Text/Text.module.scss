@@ -1,7 +1,7 @@
 @import 'styles/index';
 
 .text {
-  @include font-20-normal-article;
+  @include font-20-article;
   font-family: $font-family-article;
   color: var(--color-content-paragraph-primary);
   

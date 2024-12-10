@@ -10,7 +10,7 @@ import useShowBanner from "./useShowBanner";
 import { v4 } from "uuid";
 import UserAccessService, { userAccessService } from "services/userAccess.service";
 
-const PROMO_POPUP_HIDE_MS = 10_000;
+const PROMO_POPUP_HIDE_MS = MS_PER_MINUTE * 60;
 
 class DiscountService {
   protected discountS = new Subject<{ type: 'updated' }>();
@@ -21,7 +21,7 @@ class DiscountService {
   public useShowBanner = useShowBanner;
 
   constructor() {
-    this.init();
+    // this.init();
   }
 
   public async get(email: string) {

@@ -18,8 +18,8 @@
 
   @include set-media(md) {
     margin: set-calc(30) 0 set-calc(16);
-    width: set-calc(390);
-    left: set-calc(-12);
+    width: set-calc(100%, true, -2 * $p-page-mob-l);
+    left: set-calc(0);
   }
 }
 
@@ -56,6 +56,7 @@
 .imageCaption {
   @include font-16-paragraph;
   color: var(--color-content-paragraph-primary);
+  font-family: $font-family-article;
   text-align: center;
 
   max-width: set-calc(700);

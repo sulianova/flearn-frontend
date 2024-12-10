@@ -149,7 +149,7 @@
   }
 }
 
-@mixin font-20-normal-article {
+@mixin font-20-article {
   @include set-typography(20, 34, 500);
 
   @include set-media(md) {

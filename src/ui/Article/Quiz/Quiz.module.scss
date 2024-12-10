@@ -88,12 +88,12 @@
 
 .quizSubtitle {
   color: var(--color-content-paragraph-primary);
-  @include font-20-normal-article;
+  @include font-20-article;
 }
 
 .quizDescription {
   color: var(--color-content-paragraph-primary);
-  @include font-20-normal-article;
+  @include font-20-article;
 }
 
 .quizImage {

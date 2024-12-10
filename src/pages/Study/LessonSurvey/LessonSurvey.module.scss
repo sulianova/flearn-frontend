@@ -31,7 +31,7 @@
   border-radius: set-calc($border-radius-16);
   background-color: transparent;
 
-  @include font-20-normal-article;
+  @include font-20-article;
   color: var(--color-content-primary);
 
   @include set-media(md) {
@@ -81,7 +81,7 @@
 
 .surveyDescription {
   color: var(--color-content-paragraph-primary);
-  @include font-20-normal-article;
+  @include font-20-article;
   font-family: $font-family-article;
 }
 
@@ -124,7 +124,7 @@
 }
 
 .cardTitle {
-  @include font-20-normal-article;
+  @include font-20-article;
   font-family: $font-family-article;
 
   margin-bottom: set-calc(12);
