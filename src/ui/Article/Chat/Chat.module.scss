@@ -104,10 +104,6 @@
   color: var(--color-content-primary);
 
   word-break: break-word;
-
-  @include set-media(md) {
-    @include set-typography(18, 26, 500);
-  }
 }
 
 .btnWrapper {
@@ -118,10 +114,6 @@
   align-items: center;
 
   margin: set-calc(40) 0 set-calc(20);
-
-  @include set-media(md) {
-    margin: set-calc(30) 0 set-calc(16);
-  }
 }
 
 .button {

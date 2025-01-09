@@ -30,6 +30,10 @@
   backdrop-filter: blur(set-calc($blur-16));
   background-color: var(--color-card-glassy);
 
+  .menu__section {
+    margin-right: auto;
+  }
+
   .btn_login,
   .btn_start,
   .nav {
@@ -37,7 +41,8 @@
   }
 
   .dropdown {
-    @include dropdown-small;
+    @include dropdown-48;
+    @include dropdown-primary;
   }
 
   @include set-media(md) {
@@ -51,7 +56,7 @@
     }
 
     .dropdown {
-      @include dropdown-extra-small;
+      @include dropdown-40;
     }
   }
 }
@@ -61,6 +66,10 @@
   backdrop-filter: blur(set-calc(0));
   border-bottom: 1px solid transparent;
 
+  .menu__section {
+    margin-left: auto;
+  }
+
   .btn_login,
   .btn_buy,
   .btn_start,
@@ -68,8 +77,13 @@
     @include button-40;
   }
 
+  .logo {
+    height: set-calc(40);
+  }
+
   .dropdown {
-    @include dropdown-extra-small;
+    @include dropdown-40;
+    @include dropdown-secondary;
   }
 
   @include set-media(md) {
@@ -104,7 +118,7 @@
     align-self: center;
 
     @include set-media(md) {
-      display: none;
+      @include set-typography(24, 24, 500);
     }
   }
 
@@ -113,28 +127,7 @@
   }
 
   @include set-media(md) {
-    padding: 0 0;
     background: transparent;
-
-    &__icon {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-  
-      width: set-calc(40);
-      height: set-calc(40);
-  
-      @include rounded(40);
-      background: var(--color-content-primary);
-  
-      svg {
-        display: block;
-  
-        width: set-calc(21.5);
-        height: set-calc(21.5);
-        color: var(--color-content-inverted-primary);
-      }
-    }
   }
 }
 
@@ -143,11 +136,10 @@
   align-items: baseline;
   flex: 1 1;
 
-  padding-left: set-calc(24);
+  gap: set-calc(6);
 
   @include set-media(md) {
-
-  padding-left: auto;
+  gap: set-calc(8);
   }
 }
 
@@ -158,8 +150,6 @@
   justify-content: flex-start;
   align-items: baseline;
   gap: set-calc(6);
-
-  margin-right: auto;
 
   @include set-media(md) {
     width: 100%;
@@ -189,6 +179,7 @@
   gap: set-calc(6);
 
   @include set-media(md) {
+    display: none;
     gap: set-calc(8);
   }
 
@@ -219,6 +210,29 @@
       @include icon-button-40;
       @include icon-button-invisible;
     }
+  }
+}
+
+.menuBtn {
+
+  display: none;
+
+  @include set-media(md) {
+    @include icon-size(24);
+
+    display: flex;
+    justify-content: center;
+  
+    padding: set-calc(8) set-calc(8);
+    width: set-calc(40);
+    height: set-calc(40);
+    opacity: 1;
+  
+    color: var(--color-content-inverted-primary);
+    background-color: var(--color-background-btn);
+    border-radius: 50%;
+  
+    box-shadow: $shadow-small-default;
   }
 }
 

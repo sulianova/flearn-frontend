@@ -88,8 +88,8 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
             <div className={classes.menu__section}>
               {(!isMobile) && (urlSection.name == 'Home') && (
                 <>
-                  <Link className={classes.nav}>{t('menu.pricing')}</Link>
                   <Link className={classes.nav}>{t('menu.courses')}</Link>
+                  <Link className={classes.nav}>{t('menu.pricing')}</Link>
                   <Link className={classes.nav}>{t('menu.socialValidation')}</Link>
                 </>
               )}
@@ -153,6 +153,13 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
                   </Link>
               )}
             </div>
+            <div className={classes.btnWrapperRight}>
+              {urlSection.name !== 'Home' && user && (
+                <div className={classes.menuBtn} onClick={() => setMobMenuIsOpened(o => !o)}>
+                  <Icon icon='List'/>
+                </div>
+              )}
+          </div>
           </div>
           </div>
       </div>

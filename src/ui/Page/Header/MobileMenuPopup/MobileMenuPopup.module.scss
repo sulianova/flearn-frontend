@@ -14,17 +14,18 @@
   display: none;
 
   @include set-media(md) {
-    @include icon-button-40;
+    display: flex;
+    @include icon-size(24);
 
     position: absolute;
     top: 0;
     right: 0;
     z-index: 1;
 
-    height: set-calc(72);
-    width: set-calc(72);
+    height: set-calc(64);
+    width: set-calc(64);
 
-    padding: set-calc(24) set-calc(24);
+    padding: set-calc(20) set-calc(20);
   }
 }
 
@@ -39,7 +40,19 @@
 
   width: 100%;
   height: max-content;
-  padding: set-calc(24) set-calc(16) set-calc(16);
+  padding: set-calc(0) set-calc(16) set-calc(16);
+}
+
+.headerTitle {
+  display: flex;
+  min-height: set-calc(64);
+  justify-content: space-between;
+  align-items: center;
+
+  flex: 1 0 0;
+
+  @include font-28-header;
+  font-family: $font-family-medium;
 }
 
 .actions {

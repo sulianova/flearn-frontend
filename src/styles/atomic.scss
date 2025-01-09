@@ -57,7 +57,7 @@
   @include set-typography(20, 20, 500);
 
   @include set-media(md) {
-    @include set-typography(16, 16, 500);
+    @include set-typography(18, 18, 500);
   }
 }
 
@@ -90,6 +90,14 @@
 
   @include set-media(md) {
     @include set-typography(16, 24, 500);
+  }
+}
+
+@mixin font-18-header {
+  @include set-typography(18, 24, 500);
+
+  @include set-media(md) {
+    @include set-typography(16, 20, 500);
   }
 }
 
@@ -154,6 +162,14 @@
 
   @include set-media(md) {
     @include set-typography(18, 30, 500);
+  }
+}
+
+@mixin font-26-article {
+  @include set-typography(26, 28, 500);
+
+  @include set-media(md) {
+    @include set-typography(22, 24, 500);
   }
 }
 

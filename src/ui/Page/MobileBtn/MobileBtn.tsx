@@ -69,8 +69,8 @@ export default function MobileBtn({ course, variant, visible, onNotAuthedClick }
           close={() => setPopupVisible(false)}
         />
       }
-      <div className={classes.wrapper}>
-          {/* {(
+      {/* <div className={classes.wrapper}>
+          {(
             urlSection.name === 'Home' && (authService.isAuthenticated ? (
               <Link
                 className={classes.btnLink}
@@ -86,7 +86,7 @@ export default function MobileBtn({ course, variant, visible, onNotAuthedClick }
                 Начать учиться бесплатно
               </div>
             ))
-          )} */}
+          )}
           <div className={classes.btnWrapperRight}>
               {urlSection.name !== 'Home' && user && (
                 <div className={classes.menuBtn} onClick={() => setMobMenuIsOpened(o => !o)}>
@@ -94,7 +94,7 @@ export default function MobileBtn({ course, variant, visible, onNotAuthedClick }
                 </div>
               )}
           </div>
-      </div>
+      </div> */}
     </>
   );
 }

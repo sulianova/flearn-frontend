@@ -139,6 +139,7 @@ export default function MobileMenuPopup(props: Readonly<IProps>) {
               <Icon icon='Cross' />
             </div>
               <div className={classes.content}>
+                <div className={classes.headerTitle}>Меню</div>
                 {user &&  urlSection.name !== 'Study' &&(
                     <div className={classes.userEmail}>{user.email}</div>
                 )}

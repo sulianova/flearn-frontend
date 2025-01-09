@@ -29,7 +29,6 @@ export default function ProgramBlocks({ course }: IProps) {
     teacherGallery,
     studentResults,
     studentsWorks,
-    faq,
     feedbacks,
   } = course.content;
   const blocks: JSX.Element[] = [
