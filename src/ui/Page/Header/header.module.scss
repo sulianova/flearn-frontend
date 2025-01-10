@@ -156,6 +156,8 @@
   align-items: baseline;
   gap: set-calc(6);
 
+  margin-left: set-calc(24);
+
   @include set-media(md) {
     width: 100%;
     justify-content: space-between;
@@ -237,8 +239,6 @@
     color: var(--color-content-inverted-primary);
     background-color: var(--color-background-btn);
     border-radius: 50%;
-  
-    box-shadow: $shadow-small-default;
   }
 }
 

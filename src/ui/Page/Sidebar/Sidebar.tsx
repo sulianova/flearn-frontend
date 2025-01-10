@@ -37,7 +37,7 @@ function Sidebar() {
             className={classes.header}
             to={URLSections.Home.index}
           >
-            <Icon icon='Logo' />
+            <Icon icon='BrandPro' />
           </Link>
         {(urlSection.name === 'Study' || urlSection.name === 'EmptyProfile' || urlSection.name === 'Courses' || urlSection.name === 'Course') && (
           <ul className={classes.items}>

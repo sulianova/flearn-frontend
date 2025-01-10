@@ -127,7 +127,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
                   )}
               { user ?
                 <>
-                  {!isMobile && (urlSection.name === 'Home') && 
+                  {(urlSection.name === 'Home') && 
                     (<Link
                       className={cx({ btn_login: true})}
                       to={URLSections.EmptyProfile.to()}
@@ -143,7 +143,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
                 </>
                 : 
                   <> 
-                    {(!isMobile) && (
+                    {(urlSection.name === 'Home') && (
                       <>
                         <div className={cx({ btn_login: true})} onClick={() => authService.authenticate()}>
                           {t('btns.login.signIn')}

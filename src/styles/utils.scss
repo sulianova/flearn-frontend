@@ -115,13 +115,13 @@
 
 @mixin is-grid-12 {
   display: grid;
-  grid-gap: set-calc($gap-8);
+  grid-gap: set-calc(4);
   grid-template-columns: repeat(12,minmax(0,1fr));
 
   @include set-media(md) {
     display: flex;
     flex-direction: column;
-    grid-gap: set-calc(gap-8);
+    grid-gap: set-calc(4);
   }
 }
 
@@ -263,6 +263,20 @@
     gap: set-calc(16);
     padding: 0 set-calc(8);
     margin-bottom: set-calc(24);
+  }
+}
+
+//section
+@mixin section-title {
+  display: flex;
+  padding: 0 set-calc(8) set-calc(16);
+
+  color: var(--color-content-paragraph-primary);
+  @include font-18-ui;
+  text-transform: uppercase;
+
+  @include set-media(md) {
+    @include font-14-ui;
   }
 }
 

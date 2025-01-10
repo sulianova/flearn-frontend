@@ -56,4 +56,7 @@ export * from './Pro';
 export * from './BrandPro';
 export * from './Magic';
 export * from './UserIcon';
-export * from './Logout'
+export * from './Logout';
+export * from './CourseImagePlaceholder';
+export * from './ChevronLeft';
+export * from './ChevronRight'

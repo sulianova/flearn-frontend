@@ -8,11 +8,10 @@
   justify-content: center;
   align-items: center;
 
-  padding: set-calc(40);
   width: set-calc(280);
   min-width: set-calc(250);
   max-width: set-calc(280);
-  gap: set-calc(20);
+  gap: set-calc(16);
 
   background-color: transparent;
   transform-origin: center center;
@@ -20,7 +19,7 @@
   &:hover {
     cursor: pointer;
     .background {
-      transform: scale(1.02);
+      // transform: scale(1.02);
       box-shadow: $shadow-medium-hovered;
     }
 
@@ -126,7 +125,18 @@
 
 .icon {
   position: relative;
-  margin-bottom: set-calc(20);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+  width: 100%;
+  height: set-calc(200);
+  padding: set-calc(16);
+  background: var(--color-background-violet);
+
+  border-radius: set-calc(32) set-calc(32) 0 0;
 
   .course {
     width: set-calc(132);
@@ -160,6 +170,8 @@
 
   gap: set-calc(10);
   flex: 1 1;
+
+  padding: 0 set-calc(40) set-calc(40);
 
   @include set-media(md) {
     justify-content: start;
@@ -243,7 +255,7 @@
       width: set-calc(3);
       height: set-calc(3);
       border-radius: 50%;
-      background-color: var(--color-content-secondary);
+      background-color: var(--color-content-tertiary);
       transform: translate3d(0, -50%, 0);
     }
   }
@@ -266,7 +278,6 @@
   transform-origin: center center;
   overflow: hidden;
 
-  border: 1px solid var(--color-card-border);
   border-radius: set-calc($border-radius-32);
   background: var(--color-card);
 

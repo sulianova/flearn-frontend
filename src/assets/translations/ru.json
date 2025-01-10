@@ -71,6 +71,10 @@
     "header": {
       "menu": "Меню"
     },
+    "allCourses": "Все курсы",
+    "profile": "Профиль",
+    "darkTheme": "Темная тема",
+    "logout": "Выйти из профиля",
     "btns": {
       "login": {
         "signIn": "Войти",

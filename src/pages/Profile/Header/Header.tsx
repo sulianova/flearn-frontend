@@ -15,27 +15,30 @@ export default function Header() {
 
   if (!lastStudiedCourse) {
     return (
-      <div className={classes.headerWrapper}>
-        <div className={classes.headerTitle}>Продолжить обучение</div>
-        <div className={classes.header}>Начните курс, и он появится здесь</div>
+      <div className={classes.emptyCard}>
+         <div className={classes.emptyCard__icon}>
+            <Icon
+              icon={'CourseImagePlaceholder'}
+            />
+        </div>
+        <div className={classes.content}>
+          <div className={classes.content__title}>Когда начнете учиться, курс появится здесь</div>
+          <div className={classes.content__description}>Выберите курс, чтобы начать учиться</div>
+        </div>
         <div className={classes.actions}>
-          <div className={classes.actionsBtn}>
-            <Link
-              className={classes.currentLessonButton}
-              to={URLSections.Courses.to()}
-            >
-              Выбрать курс
-            </Link>
-          </div>
+          <Link
+            className={classes.actions__btn}
+            to={URLSections.Courses.to()}
+          >
+            Выбрать курс
+          </Link>
         </div>
       </div>
     );
   }
 
   return (
-    <div className={classes.headerWrapper}>
-      <div className={classes.headerTitle}>Продолжить обучение</div>
-      <div className={classes.header}>
+    <div className={classes.card}>
         <div className={classes.headerImage}>
           {isIconPNG(lastStudiedCourse.icon.icon) ? (
             <Img
@@ -49,30 +52,32 @@ export default function Header() {
             />
           )}
         </div>
-        <div className={classes.headerContent}>
-          <div className={classes.title}>{lastStudiedCourse.title}</div>
+        <div className={classes.content}>
+          <div className={classes.content__title}>{lastStudiedCourse.title}</div>
+          <div className={classes.content__description}>{lastStudiedCourse.introDescription}</div>
           <div className={classes.meta}>
-              <p className={classes.metaData_ItemText}>
+              {/* <p className={classes.meta__item}>
                 {i18n.t(`catalogue.card.info.${lastStudiedCourse.level}`)}
-              </p>
-              <p className={classes.metaData_ItemText}>
+              </p> */}
+              <p className={classes.meta_item}>
                 {i18n.t(`duration.${lastStudiedCourse.metaData.lessonsDuration.unit}`, { count: lastStudiedCourse.metaData.lessonsDuration.value })}
               </p>
-              <p className={classes.metaData_ItemText}>
+              <p className={classes.meta__item}>
                 {i18n.t('lesson.p', { count: lastStudiedCourse.metaData.lessonsAmount })}
               </p>
           </div>
         </div>
-      </div>
       <div className={classes.actions}>
-        <div className={classes.actionsBtn}>
           <Link
             className={classes.currentLessonButton}
             to={URLSections.Course.to({ courseId: lastStudiedCourse.id })}
           >
             Продолжить учиться
           </Link>
-        </div>
+          <div className={classes.nextLesson}>
+            <div className={classes.nextLesson__subTitle}>Следующий урок</div>
+            <div className={classes.nextLesson__title}>Следующий урок</div>
+          </div>
       </div>
     </div>
   );

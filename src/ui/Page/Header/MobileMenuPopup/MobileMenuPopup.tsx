@@ -180,7 +180,7 @@ export default function MobileMenuPopup(props: Readonly<IProps>) {
                       <span className={classes.item__content__icon}>
                         {(urlSection.name == 'EmptyProfile' ? (<Icon icon="HomeFill"/>) : (<Icon icon="Home"/>))}
                       </span>
-                      <span className={classes.item__content__text}>Профиль</span>
+                      <span className={classes.item__content__text}>{t('profile')}</span>
                     </div>
                   </Link>
                 )}
@@ -193,7 +193,7 @@ export default function MobileMenuPopup(props: Readonly<IProps>) {
                       <span className={classes.item__content__icon}>
                         {(urlSection.name !== 'EmptyProfile' ? (<Icon icon="CourseFill"/>) : (<Icon icon="Course"/>))}
                       </span>
-                      <span className={classes.item__content__text}>Все курсы</span>
+                      <span className={classes.item__content__text}>{t('allCourses')}</span>
                     </div>
                   </Link>
                 </div>
@@ -201,7 +201,7 @@ export default function MobileMenuPopup(props: Readonly<IProps>) {
                   <div className={cx({ item: true })} onClick={() => frontendSettingsService.update({ theme: theme === 'light' ? 'dark' : 'light' })}>
                     <div className={classes.item__content}>
                       <span className={classes.item__content__icon}><Icon icon="Night"/></span>
-                      <span className={classes.item__content__text}>Темная тема</span>
+                      <span className={classes.item__content__text}>{t('darkTheme')}</span>
                     </div>
                     <div className={cx({ switch: true, switch_off: theme === 'light' })}>
                       <div className={classes.icon}>
@@ -219,7 +219,7 @@ export default function MobileMenuPopup(props: Readonly<IProps>) {
                           onClick={() => authService.logout().then(() => navigate(URLSections.Home.index))}
                         >
                           <span className={classes.item__content__icon}><Icon icon="Logout"/></span>
-                          <span className={classes.item__content__text}>Выйти из профиля</span>
+                          <span className={classes.item__content__text}>{t('logout')}</span>
                         </div>
                       </div>
                   </div>

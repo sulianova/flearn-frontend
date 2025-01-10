@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: end;
 
   flex: 1 1;
   padding: 0 set-calc($p-page-desk-l) set-calc(40);

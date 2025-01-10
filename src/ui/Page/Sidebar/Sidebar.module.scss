@@ -27,10 +27,10 @@
 
 .header {
   @include btn;
-  @include icon-button-40;
-  @include icon-button-invisible-secondary;
+  @include icon-size(32);
 
   width: set-calc(40);
+
   margin-bottom: set-calc(24);
 }
 

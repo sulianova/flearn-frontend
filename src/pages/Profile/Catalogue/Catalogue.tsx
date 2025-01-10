@@ -4,6 +4,7 @@ import { courseService, dummyCourses } from 'services/course.service';
 
 import CourseCard from 'components/CourseCard/CourseCard';
 import Spinner from 'ui/Spinner/Spinner';
+import Icon from 'ui/Icon/Icon';
 
 import classes from './Catalogue.module.scss';
 
@@ -30,11 +31,20 @@ export default function Catalogue() {
   }
 
   return (
-    <>
-      <h2 className={classes.section__title}>Что еще вам может понравиться</h2>
-      <div className={classes.list}>
-        {courses.map(course => <CourseCard.EXTENDED key={course.id} course={course} isHorizontal={true}/>)}
+    <div className={classes.catalogueWrapper}>
+      <div className={classes.section__title}>Все курсы</div>
+      <div className={classes.btnGroup}>
+        <div className={classes.btn}>
+          <Icon icon='ChevronLeft'/>
+        </div>
+        <div className={classes.btn}>
+          <Icon icon='ChevronRight'/>
+        </div>
       </div>
-    </>
+      <div className={classes.group}>
+        {courses.map(course => <CourseCard.EXTENDED key={course.id} course={course} isHorizontal={false}/>)}
+        {courses.map(course => <CourseCard.EXTENDED key={course.id} course={course} isHorizontal={false}/>)}
+      </div>
+    </div>
   );
 }

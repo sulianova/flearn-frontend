@@ -15,7 +15,7 @@ export default function Profile() {
     <Page 
       variant={EPageVariant.LMS}
       header
-      footer={false}
+      footer={true}
       backgroundColor='var(--color-background-alternate)'
     >
       <div className={classes.page}>
@@ -27,7 +27,6 @@ export default function Profile() {
                 </div>
               ))}
           </div>
-          <aside className={classes.asideWrapper}></aside>
         </div>
       </div>
     </Page>

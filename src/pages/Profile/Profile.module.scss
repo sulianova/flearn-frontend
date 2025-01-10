@@ -4,15 +4,13 @@
   display: flex;
   position: relative;
   flex-direction: column;
+
   width: 100%;
-  max-width: set-calc(1080);
-  margin: set-calc(32) auto set-calc(32) 0;
+  max-width: set-calc(1328);
+  margin: set-calc(32) auto set-calc(40);
 
   @include set-media(md) {
-    left: set-calc(-$p-page-mob-s);
-    width: set-calc(2 * $p-page-mob-s, true, 100%);
-
-    margin: 0 auto set-calc(24);
+    margin: set-calc(24) auto;
   }
 }
 
@@ -30,7 +28,7 @@
 .main {
   display: flex;
   flex-direction: column;
-  gap: set-calc(64);
+  gap: set-calc(80);
 
   flex-grow: 1;
   max-width: 100%;
@@ -38,14 +36,12 @@
   @include set-media(md) {
 
     width: 100%;
-    gap: set-calc(40);
+    gap: set-calc(64);
   }
 }
 
 .asideWrapper {
-  flex-shrink: 0;
-  margin-left: set-calc(40);
-  width: set-calc(360);
+  grid-column: span 4;
 
   @include set-media(md) {
     margin-left: 0;
@@ -54,6 +50,5 @@
 }
 
 .section {
-  display: block;
-  position: relative;
+  @include is-grid-12;
 }
