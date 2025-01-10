@@ -67,6 +67,21 @@
         "link": "https://www.tiktok.com/@sofiulyanova"
       }
   },
+  "mobileMenu": {
+    "header": {
+      "menu": "Меню"
+    },
+    "btns": {
+      "login": {
+        "signIn": "Войти",
+        "profile": "Профиль"
+      },
+      "start": {
+        "pro": "Flearn PRO",
+        "free": "Учиться бесплатно"
+      }
+    }
+  },
   "form": {
     "inputName": {
       "placeholder": "Имя"

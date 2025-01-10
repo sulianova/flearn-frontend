@@ -54,4 +54,6 @@ export * from './Checkmark';
 export * from './CheckmarkFill';
 export * from './Pro';
 export * from './BrandPro';
-export * from './Magic'
+export * from './Magic';
+export * from './UserIcon';
+export * from './Logout'

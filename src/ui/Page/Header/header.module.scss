@@ -78,7 +78,12 @@
   }
 
   .logo {
-    height: set-calc(40);
+    display: none;
+
+    @include set-media(md) {
+      display: flex;
+      height: set-calc(40);
+    }
   }
 
   .dropdown {
@@ -139,7 +144,7 @@
   gap: set-calc(6);
 
   @include set-media(md) {
-  gap: set-calc(8);
+    justify-content: space-between;
   }
 }
 
@@ -178,11 +183,6 @@
   align-items: baseline;
   gap: set-calc(6);
 
-  @include set-media(md) {
-    display: none;
-    gap: set-calc(8);
-  }
-
   .btn_start {
     @include btn;
     @include button-primary;
@@ -209,12 +209,18 @@
     @include set-media(md) {
       @include icon-button-40;
       @include icon-button-invisible;
+      width: set-calc(40);
+      margin-right: auto;
     }
+  }
+
+  @include set-media(md) {
+    flex: 1 1;
+    justify-content: end;
   }
 }
 
 .menuBtn {
-
   display: none;
 
   @include set-media(md) {

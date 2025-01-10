@@ -11,6 +11,7 @@ import { ILessonData } from 'services/lesson.service';
 import { IUserData } from 'services/user.service';
 import { URLSections } from 'router';
 import { frontendSettingsService } from 'services/frontendSettings.service';
+import SignupToFlearnPopup from 'components/SignupToFlearnPopup/SignupToFlearnPopup';
 
 import BuyPopup from 'components/BuyPopup/BuyPopup';
 import Icon from 'ui/Icon/Icon';
@@ -21,7 +22,7 @@ import classes from './MobileMenuPopup.module.scss';
 
 const cx = classnames.bind(classes);
 
-const t = formatI18nT('header');
+const t = formatI18nT('mobileMenu');
 
 interface IProps {
   user: IUserData | null
@@ -41,6 +42,8 @@ export default function MobileMenuPopup(props: Readonly<IProps>) {
   const navigate = useNavigate();
   const [buyPopupIsOpened, setBuyPopupIsOpened] = useState(false);
   const currentCourse = courseService.useCurrentCourse();
+  const [popupVisible, setPopupVisible] = useState(false);
+  const onNotAuthedClick = () => setPopupVisible(true);
 
   const mobMenuLessonsList = topicLessons?.map(lesson => (
     <Link
@@ -90,7 +93,7 @@ export default function MobileMenuPopup(props: Readonly<IProps>) {
       to={URLSections.Home.index}
       onClick={close}
     >
-      Все курсы
+      {t('btns.login.profile')}
     </Link>
   );
   const buyCourseBtn = (
@@ -98,7 +101,7 @@ export default function MobileMenuPopup(props: Readonly<IProps>) {
         className={classes.actions__btn}
         onClick={() => setBuyPopupIsOpened(true)}
       >
-        Купить полный курс
+        {t('btns.start.pro')}
       </div>
   );
   const mobMenuLoginBtn = (
@@ -106,16 +109,24 @@ export default function MobileMenuPopup(props: Readonly<IProps>) {
       className={classes.actions__btn}
       onClick={() => authService.authenticate()}
     >
-      {t('login.signIn')}
+      {t('btns.login.signIn')}
     </div>
   );
+  const mobMenuStartFreeBtn = (
+    <div
+      className={classes.actions__btn}
+      onClick={onNotAuthedClick}
+    >
+      {t('btns.start.free')}
+    </div>
+  )
   const mobMenuFirstNotSolvedLessonProfileBtn = (
     <Link
       className={classes.actions__btn}
       to={URLSections.Profile.to({ courseId: lastStudiedCourse?.id ?? 'how-to-draw' })}
       onClick={close}
     >
-      {t('login.profile')}
+      {t('btns.login.profile')}
     </Link>
   );
   const mobMenuCurrentLessonProfileBtn = (
@@ -124,13 +135,18 @@ export default function MobileMenuPopup(props: Readonly<IProps>) {
       to={URLSections.Profile.to({ courseId: courseId! })}
       onClick={close}
     >
-      {t('login.profile')}
+      {t('brns.login.profile')}
     </Link>
   );
 
   return (
     <>
       {buyPopupIsOpened && user && <BuyPopup user={user} close={() => setBuyPopupIsOpened(false)}/>}
+      {popupVisible &&
+        <SignupToFlearnPopup
+          close={() => setPopupVisible(false)}
+        />
+      }
       <Popup
         close={close}
         children={startClosingProcess => (
@@ -139,58 +155,84 @@ export default function MobileMenuPopup(props: Readonly<IProps>) {
               <Icon icon='Cross' />
             </div>
               <div className={classes.content}>
-                <div className={classes.headerTitle}>Меню</div>
-                {user &&  urlSection.name !== 'Study' &&(
-                    <div className={classes.userEmail}>{user.email}</div>
+                <div className={classes.header}>{t('header.menu')}</div>
+                {user && (
+                    <div className={classes.userWrapper}>
+                      <div className={classes.user}>
+                        <div className={classes.user__icon}>
+                          <Icon icon='UserIcon' />
+                        </div>
+                        <div className={classes.user__content}>
+                          <div className={classes.user__content__name}>{user.displayName}</div>
+                          <div className={classes.user__content__email}>{user.email}</div>
+                        </div>
+                      </div>
+                    </div>
                 )}
-                  {!user ? null :
-                      urlSection.name === 'Study' ? (<>
-                      <div className={classes.itemsGroup}>
-                        <div className={classes.header}><div className={classes.title}>{currentLesson?.topic}</div></div>
-                        {mobMenuLessonsList}
-                      </div>
-                      </>) : (<>
-                        {/* {mobMenuCoursesList} */}
-                      </>)
-                    }
                 <div className={classes.itemsGroup}>
-                  {isMobile && (
-                    <div className={cx({ item: true })} onClick={() => frontendSettingsService.update({ theme: theme === 'light' ? 'dark' : 'light' })}>
-                      {theme === 'dark' ?
-                        (<>
-                          <span className={classes.item__text}>Светлая тема</span>
-                          <span className={classes.item__icon}><Icon icon="Day"/></span>
-                        </>
-                        )
-                      : (
-                        <>
-                          <span className={classes.item__text}>Темная тема</span>
-                          <span className={classes.item__icon}><Icon icon="Night"/></span>
-                        </>
-                        )}
+                {user && (
+                  <Link
+                    className={cx({ item: true })}
+                    to={URLSections.EmptyProfile.to()}
+                    onClick={close}
+                  >
+                    <div className={classes.item__content}>
+                      <span className={classes.item__content__icon}>
+                        {(urlSection.name == 'EmptyProfile' ? (<Icon icon="HomeFill"/>) : (<Icon icon="Home"/>))}
+                      </span>
+                      <span className={classes.item__content__text}>Профиль</span>
                     </div>
-                  )}
-                  {user &&  urlSection.name === 'Profile' && (
-                    <div className={cx({ item: true })}>
-                      <div
-                        className={classes.itemTitle}
-                        style={{width: 'max-content'}}
-                        onClick={() => authService.logout().then(() => navigate(URLSections.Home.index))}
-                      >
-                        Выйти из профиля
+                  </Link>
+                )}
+                  <Link
+                    className={cx({ item: true })}
+                    to={URLSections.Courses.to()}
+                    onClick={close}
+                  >
+                    <div className={classes.item__content}>
+                      <span className={classes.item__content__icon}>
+                        {(urlSection.name !== 'EmptyProfile' ? (<Icon icon="CourseFill"/>) : (<Icon icon="Course"/>))}
+                      </span>
+                      <span className={classes.item__content__text}>Все курсы</span>
+                    </div>
+                  </Link>
+                </div>
+                <div className={classes.itemsGroup}>
+                  <div className={cx({ item: true })} onClick={() => frontendSettingsService.update({ theme: theme === 'light' ? 'dark' : 'light' })}>
+                    <div className={classes.item__content}>
+                      <span className={classes.item__content__icon}><Icon icon="Night"/></span>
+                      <span className={classes.item__content__text}>Темная тема</span>
+                    </div>
+                    <div className={cx({ switch: true, switch_off: theme === 'light' })}>
+                      <div className={classes.icon}>
+                        <div className={classes.fill}></div>
+                        <div className={classes.switchPin}></div>
                       </div>
                     </div>
-                  )}
+                  </div>
                 </div>
+                {user && (
+                  <div className={classes.itemsGroup}>
+                      <div className={cx({ item: true })}>
+                        <div
+                          className={classes.item__content}
+                          onClick={() => authService.logout().then(() => navigate(URLSections.Home.index))}
+                        >
+                          <span className={classes.item__content__icon}><Icon icon="Logout"/></span>
+                          <span className={classes.item__content__text}>Выйти из профиля</span>
+                        </div>
+                      </div>
+                  </div>
+                )}
                 <div className={classes.actions}>
-                  {!user ? mobMenuLoginBtn :
+                  {!user ? mobMenuStartFreeBtn :
                       {
-                        'Home': mobMenuFirstNotSolvedLessonProfileBtn,
+                        'Home': buyCourseBtn,
                         'Landing': mobMenuFirstNotSolvedLessonProfileBtn,
-                        'Courses': mobMenuFirstNotSolvedLessonProfileBtn,
-                        'Course': mobMenuFirstNotSolvedLessonProfileBtn,
+                        'Courses': buyCourseBtn,
+                        'Course': buyCourseBtn,
                         'Profile': buyCourseBtn,
-                        'EmptyProfile': homeBtn,
+                        'EmptyProfile': buyCourseBtn,
                         'Study': buyCourseBtn,
                         'Other': null,
                       }[urlSection.name]

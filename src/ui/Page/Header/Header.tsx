@@ -76,7 +76,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
       }
       <div className={headerClass}>
         <div className={cx({ desk: true, [`desk_${variant}`]: true })}>
-         {(urlSection.name === 'Home' || isMobile) && (
+         {(urlSection.name !== 'Study') && (
             <Link className={classes.logo} to={URLSections.Home.index}>
               <div className={classes.logo__name}>{t('logo')}</div>
               <div className={classes.logo__icon}>
@@ -85,15 +85,16 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
             </Link>
          )}
           <div className={classes.menu}>
+          {(!isMobile) && (
             <div className={classes.menu__section}>
-              {(!isMobile) && (urlSection.name == 'Home') && (
+              {(urlSection.name == 'Home') && (
                 <>
                   <Link className={classes.nav}>{t('menu.courses')}</Link>
                   <Link className={classes.nav}>{t('menu.pricing')}</Link>
                   <Link className={classes.nav}>{t('menu.socialValidation')}</Link>
                 </>
               )}
-              {(user && Boolean(userCourses.length) && !isMobile) && (urlSection.name !== 'Study') && (urlSection.name !== 'Home')&& (
+              {(user && Boolean(userCourses.length)) && (urlSection.name !== 'Study') && (urlSection.name !== 'Home')&& (
                 <Dropdown
                   content={({ close }) => (
                     <CoursesDropdownContent
@@ -114,10 +115,19 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
                 />
               )}
             </div>
+          )}
             <div className={classes.menu__btns}>
+                  {isMobile && (urlSection.name == 'Study') && (
+                    <Link
+                      className={classes.btn_back}
+                      to={URLSections.Course.to({ courseId: urlSection.params.courseId })}
+                    >
+                      <Icon icon='ArrowButton' />
+                    </Link>
+                  )}
               { user ?
                 <>
-                  {(urlSection.name === 'Home') && 
+                  {!isMobile && (urlSection.name === 'Home') && 
                     (<Link
                       className={cx({ btn_login: true})}
                       to={URLSections.EmptyProfile.to()}
@@ -125,7 +135,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
                       {t('btns.login.profile')}
                     </Link>
                   )}
-                  {(urlSection.name !== 'Home') && (
+                  {!isMobile && (urlSection.name !== 'Home') && (
                     <div className={cx({ btn_start: true})} onClick={() => setBuyPopupIsOpened(true)}>
                       {t('btns.start.pro')}
                     </div>
@@ -133,28 +143,24 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
                 </>
                 : 
                   <> 
-                    <div className={cx({ btn_login: true})} onClick={() => authService.authenticate()}>
-                      {t('btns.login.signIn')}
-                    </div>
-                    <div
-                      className={cx({ btn_start: true})}
-                      onClick={onNotAuthedClick}
-                    >
-                      {t('btns.start.free')}
-                    </div>
+                    {(!isMobile) && (
+                      <>
+                        <div className={cx({ btn_login: true})} onClick={() => authService.authenticate()}>
+                          {t('btns.login.signIn')}
+                        </div>
+                        <div
+                          className={cx({ btn_start: true})}
+                          onClick={onNotAuthedClick}
+                        >
+                          {t('btns.start.free')}
+                        </div>
+                      </>
+                    )}
                   </>
               }
-              {(urlSection.name === 'Study') && (
-                  <Link
-                    className={classes.btn_back}
-                    to={URLSections.Course.to({ courseId: urlSection.params.courseId })}
-                  >
-                    <Icon icon='ArrowButton' />
-                  </Link>
-              )}
             </div>
             <div className={classes.btnWrapperRight}>
-              {urlSection.name !== 'Home' && user && (
+              {urlSection.name !== 'Home'  && (
                 <div className={classes.menuBtn} onClick={() => setMobMenuIsOpened(o => !o)}>
                   <Icon icon='List'/>
                 </div>
