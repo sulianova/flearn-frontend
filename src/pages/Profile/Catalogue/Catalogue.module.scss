@@ -57,8 +57,11 @@
     display: flex;
     flex-flow: row nowrap;
     gap: set-calc(2);
-    overflow-x: scroll;
 
-    padding: 0 set-calc(8);
+    left: set-calc(-$p-page-mob-m);
+    width: set-calc(2 * $p-page-mob-m, true, 100%);
+    padding: 0 set-calc($p-page-mob-m) set-calc(40);
+
+    overflow-x: scroll;
   }
 }

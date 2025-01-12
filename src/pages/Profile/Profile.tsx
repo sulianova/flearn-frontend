@@ -2,13 +2,15 @@ import Page, { EPageVariant } from 'ui/Page/Page';
 
 import Header from './Header/Header';
 import Catalogue from './Catalogue/Catalogue';
+import Resources from './Resources/Resources';
 
 import classes from './Profile.module.scss';
 
 export default function Profile() {
   const blocks: JSX.Element[] = [
     <Header/>,
-    <Catalogue/>
+    <Catalogue/>,
+    <Resources/>
   ].filter(c => c !== undefined);
 
   return (

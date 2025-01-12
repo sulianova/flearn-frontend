@@ -1,0 +1,54 @@
+@import 'styles/index';
+
+.wrapper {
+  grid-column: span 12;
+}
+
+.section__title {
+  @include section-title;
+}
+
+.list {
+  @include is-grid-12;
+
+  gap: set-calc(4);
+}
+
+.item {
+  @include btn;
+
+  grid-column: span 4;
+
+  display: flex;
+  justify-content: start;
+  align-items: center;
+
+  height: set-calc(56);
+  gap: set-calc(8);
+
+  padding: 0 set-calc(16);
+  border-radius: set-calc(12);
+  border: 1px solid var(--border);
+
+  &__icon {
+    @include icon-size(24);
+  }
+
+  &__text {
+    color: var(--color-content-secondary);
+    text-align: center;
+
+    @include font-18-ui;
+  }
+
+  &:hover {
+    background-color: var(--color-background-glassy-a);
+    transform: scale(1);
+  }
+
+  @include set-media(md) {
+    &:hover {
+      background-color: transparent;
+    }
+  }
+}
