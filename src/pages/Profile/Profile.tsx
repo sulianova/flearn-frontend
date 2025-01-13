@@ -20,15 +20,13 @@ export default function Profile() {
       footer={true}
       backgroundColor='var(--color-background-alternate)'
     >
-      <div className={classes.page}>
-        <div className={classes.page__content}>
-          <div className={classes.main}>
+      <div className={classes.profilePage}>
+        <div className={classes.profilePage__content}>
               {blocks.map((block, index) => (
                 <div key={index} className={classes.section}>
                   {block}
                 </div>
               ))}
-          </div>
         </div>
       </div>
     </Page>

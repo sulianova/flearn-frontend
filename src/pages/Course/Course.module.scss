@@ -4,32 +4,26 @@
   display: flex;
   position: relative;
   flex-direction: column;
+
   width: 100%;
-  max-width: set-calc(1080);
-  margin: set-calc(32) auto set-calc(52) 0;
+  max-width: set-calc(1328);
+  margin: set-calc(32) auto set-calc(40);
 
   @include set-media(md) {
-    left: set-calc(-$p-page-mob-s);
-    width: set-calc(2 * $p-page-mob-s, true, 100%);
-
-    margin: 0 auto set-calc(24);
+    margin: set-calc(24) auto;
   }
 }
 
-.coursesPageContent {
+.coursesPage__content {
   display: flex;
   flex-direction: column;
   width: 100%;
 
-  gap: set-calc(64);
-
-  @include set-media(md) {
-    gap: set-calc(40);
-  }
-
+  gap: set-calc(40);
 }
 
 .section {
-  display: block;
   position: relative;
+
+  display: block;
 }

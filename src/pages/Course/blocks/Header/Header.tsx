@@ -31,9 +31,8 @@ export default function Header(props: IProps) {
 
   return (
     <>
-      <div className={classes.header}>
-        <div className={classes.headerWrapper}>
-          <div className={classes.headerContent}>
+      <div className={classes.card}>
+          <div className={classes.card__content}>
             <div className={classes.title}>{currentCourse.title}</div>
             <div className={classes.description}>{currentCourse.introDescription}</div>
             <div className={classes.metaData}>
@@ -52,7 +51,7 @@ export default function Header(props: IProps) {
               </div>
             </div>
           </div>
-          <div className={classes.headerImage}>
+          <div className={classes.card__image}>
             {isIconPNG(currentCourse.icon.icon) ? (
               <Img
                 src={currentCourse.icon.icon}
@@ -66,8 +65,7 @@ export default function Header(props: IProps) {
             )}
           </div>
           {/* <div className={classes.shareLink}><Icon icon='Share'/></div> */}
-        </div>
-        <div className={classes.actions}>
+          <div className={classes.actions}>
           <div className={classes.actionsBtn}>
             {!authedUser || !currentCourseAccess ?
             (

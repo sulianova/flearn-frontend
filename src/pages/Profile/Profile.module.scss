@@ -1,6 +1,6 @@
 @import 'styles/index';
 
-.page {
+.profilePage {
   display: flex;
   position: relative;
   flex-direction: column;
@@ -14,18 +14,7 @@
   }
 }
 
-.page__content {
-  display: flex;
-
-  @include set-media(md) {
-    flex-direction: column;
-
-    width: 100%;
-    gap: set-calc(40);
-  }
-}
-
-.main {
+.profilePage__content {
   display: flex;
   flex-direction: column;
   gap: set-calc(80);
@@ -40,14 +29,14 @@
   }
 }
 
-.asideWrapper {
-  grid-column: span 4;
+// .asideWrapper {
+//   grid-column: span 4;
 
-  @include set-media(md) {
-    margin-left: 0;
-    width: 100%;
-  }
-}
+//   @include set-media(md) {
+//     margin-left: 0;
+//     width: 100%;
+//   }
+// }
 
 .section {
   @include is-grid-12;

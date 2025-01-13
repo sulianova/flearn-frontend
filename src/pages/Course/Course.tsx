@@ -71,7 +71,7 @@ export default function Course() {
           backgroundColor='var(--color-background-alternate)'
         >
           <div className={classes.coursesPage}>
-            <div className={classes.coursesPageContent}>
+            <div className={classes.coursesPage__content}>
               <Header
                 currentCourse={currentCourse}
                 courseLessons={courseLessons}
