@@ -1,29 +1,27 @@
 @import 'styles/index';
 
 .section__title {
-  position: relative;
-
-  margin-bottom: set-calc(32);
-  padding-left: set-calc(16);
-
-  @include font-32-header;
-  font-family: $font-family-bold;
-
-  @include set-media(md) {
-    margin-bottom: set-calc(16);
-    padding-left: set-calc(8);
-  }
+  @include section-title;
 }
 
 .wrapper {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: set-calc(16);
+  display: flex;
+  gap: set-calc(4);
+  overflow: hidden;
+
+  padding: set-calc(10) 0 set-calc(40) set-calc(16);
 
   @include set-media(md) {
+    position: relative;
+    
     display: flex;
-    flex-direction: column;
-    gap: set-calc(16);
+    flex-flow: row nowrap;
+    gap: set-calc(2);
+
+    left: set-calc(-$p-page-mob-m);
+    width: set-calc(2 * $p-page-mob-m, true, 100%);
+    padding: 0 set-calc($p-page-mob-m) set-calc(40);
+
+    overflow-x: scroll;
   }
 }

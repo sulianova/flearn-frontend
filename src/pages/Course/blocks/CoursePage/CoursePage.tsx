@@ -1,5 +1,5 @@
 import classnames from 'classnames/bind';
-import { useMemo } from 'react';
+import { useEffect, useRef, useMemo, useState } from 'react';
 
 import { URLSections } from 'router';
 import { type IUserData } from 'services/user.service';
@@ -105,7 +105,7 @@ export default function CoursePage(props: IProps) {
           <aside className={classes.asideWrapper}>
             <div className={classes.aside}>
               <div className={classes.asideSection}>
-                <div className={classes.sectionSubtitle}>Ключевые навыки</div>
+                <div className={classes.section__title}>Теги</div>
                 <div className={classes.chipsSmall}>
                   {courseTags
                     .map(tag => (
@@ -152,6 +152,14 @@ function Topics(props: { topics: ITopic[] }) {
 
 function Topic(props: { topic: ITopic }) {
   const { topic } = props;
+  const [isExpanded, setIsExpanded] = useState(true);
+    const [height, setHeight] = useState(0);
+    const ref = useRef<HTMLDivElement>(null);
+  
+    useEffect(() => {
+      setHeight(isExpanded ? (ref.current?.scrollHeight ?? 0) : 0);
+    }, [isExpanded]);
+
   return (
     <div className={classes.level}>
       <div className={classes.level__header}>
@@ -162,13 +170,22 @@ function Topic(props: { topic: ITopic }) {
         </div>
         <div className={classes.header__content}>
           <div className={classes.header__content__title}>
-            <div className={classes.header__content__title__text}>{topic.title}</div>
-            <div className={classes.header__content__title__icon}><Icon icon='ChevronDown'/></div>
+            <div className={classes.level__title}>{topic.title}</div>
+            <div 
+              className={cx({ level__arrow: true, arrow_expended: isExpanded })}
+              onClick={() => setIsExpanded(!isExpanded)}
+            >
+              <Icon icon='ChevronDown'/>
+            </div>
           </div>
           <div className={classes.header__content__description}></div>
         </div>
       </div>
-        <div className={classes.list}>
+        <div
+          className={cx({ list: true, list_expended: isExpanded })}
+          ref={ref}
+          style={{ height }}
+        >
           {topic.lessons.map(lesson => (
             <LessonCard
               key={lesson.id}
@@ -190,10 +207,8 @@ function LessonCard(props: { lesson: ILessonData & { solved: boolean, canBeAcces
   const content = (
     <button className={cx({ item: true, featured: lesson.isFirstUnsolved, disabled: !lesson.canBeAccessed })} disabled={!lesson.canBeAccessed}>
       <div className={classes.item__content}>
-        <div className={classes.imageWrapper}>
-          <div className={classes.image}>
-            <Icon icon={lesson.icon}/>
-          </div>
+        <div className={classes.item__image}>
+          <Icon icon={lesson.icon}/>
         </div>
         <div className={classes.item__title}>
           {lesson.title}

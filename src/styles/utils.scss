@@ -274,9 +274,11 @@
   color: var(--color-content-paragraph-primary);
   @include font-18-ui;
   text-transform: uppercase;
+  font-family: $font-family-normal;
 
   @include set-media(md) {
     @include font-14-ui;
+    font-family: $font-family-medium;
   }
 }
 
@@ -1602,12 +1604,12 @@
 
 @mixin chips-outline {
   background: transparent;
-  color: var(--color-content-primary);
+  color: var(--color-content-paragraph-primary);
   border: 1px solid var(--color-background-glassy-d);
 
   &:hover {
     background: var(--color-background-glassy-a);
-    border: 2px solid var(--color-background-glassy-d);
+    border: 1px solid var(--color-background-glassy-d);
   }
 
   &:disabled {

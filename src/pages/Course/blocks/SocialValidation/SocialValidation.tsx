@@ -15,11 +15,9 @@ interface IProps {
 function SocialValidation({ feedbacks }: IProps) {
   return (
     <>
-          <h2 className={cx({ sectionTitle: true })} >100+ учеников любят flearn</h2>
+      <div className={cx({ section__title: true })} >100+ учеников любят flearn</div>
       <div className={classes.list}>
-        {feedbacks.map((feedback, index) =>
-          <Item key={index} feedback={feedback}/>
-        )}
+          <Item/>
       </div>
     </>
   );

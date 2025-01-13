@@ -19,7 +19,7 @@ interface IProps {
 function Description({ type, description }: IProps) {
   return (
     <>
-      <h2 className={classes.sectionTitle}>{t(`title.${type}`)}</h2>
+      <div className={classes.section__title}>{t(`title.${type}`)}</div>
       <div className={classes.list}>
         {description.map((d, index) => (
           <Item key={index} {...d}/>

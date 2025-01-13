@@ -1,10 +1,12 @@
 @import 'styles/index';
 
 ._ {
-  width: calc(33% - 16px);
-  padding: set-calc(24);
-  border-radius: set-calc($border-radius-20);
-  background-color: var(--color-card);
+  width: calc(33% - 4px);
+
+  padding: set-calc(40);
+  border-radius: set-calc($border-radius-40);
+  background-color: var(--color-background-default);
+
   border: 1px solid var(--color-card-border);
 
   @include set-media(md) {

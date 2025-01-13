@@ -3,58 +3,34 @@
 .item {
   display: flex;
   flex-direction: column;
-  width: calc(33.3% - set-calc(16));
+  gap: set-calc(16);
 
-  border-radius: set-calc($border-radius-20);
-  border: 1px solid var(--color-card-border);
-  background-color: var(--color-card);
-  padding: set-calc(24);
+  padding: set-calc(40);
+  width: 100%;
+  height: max-content;
+
+  border-radius: set-calc($border-radius-40);
+  background-color: var(--color-background-default);
+
 
   @include set-media(md) {
     width: 100%;
-    padding: set-calc(16);
+    padding: set-calc(24);
   }
 }
 
 .ratingStars {
   display: flex;
   align-items: center;
-
-  margin-bottom: set-calc(16);
 }
 
 .ratingStar {
-  width: set-calc(24);
-  height: set-calc(24);
+  @include icon-size(24);
   color: $color-highlight-gold;
-  -webkit-tap-highlight-color: transparent;
-
-  svg {
-    width: 100%;
-    fill: currentColor;
-  }
 }
 
-.feedbackAuthor {
-  position: relative;
-
-  display: flex;
-  flex-direction: column;
-  color: var(--color-content-paragraph-primary);
-
-  @include set-typography(14, 22, 500);
-
-  span {
-    font-family: $font-family-bold;
-    color: var(--color-content-primary);
-  }
-
-  @include set-media(md) {
-  }
-}
-
-.feedbackQuote {
-  @include set-typography(16, 26, 500);
+.feedback {
+  @include font-16-paragraph;
   color: var(--color-content-paragraph-primary);
   overflow: hidden;
 
@@ -67,4 +43,61 @@
   p:not(:last-child) {
     padding-bottom: set-calc(16);
   }
+}
+
+.user {
+  display: flex;
+  align-items: flex-start;
+  gap: set-calc(12);
+}
+
+.image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+
+  width: set-calc(64);
+  height: set-calc(64);
+
+  @include rounded(64);
+  background: var(--color-accent-promo-background, #F8DB46);
+
+  img {
+    width: set-calc(74);
+    height: set-calc(74);
+  }
+}
+
+.text {
+  display: flex;
+  padding-top: set-calc(14);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: set-calc(8);
+}
+
+.name {
+  @include font-14-ui;
+  color: var(--color-content-primary);
+  font-family: $font-family-bold;
+}
+
+.description {
+  @include font-14-ui;
+  color: var(--color-content-tertiary);
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+
+  width: calc(33.3% - set-calc(8));
+  gap: set-calc(4);
+
+@include set-media(md) {
+  width: 100%;
+}
 }
