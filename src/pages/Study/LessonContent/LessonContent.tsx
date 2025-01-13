@@ -26,7 +26,7 @@ interface IProps {
   lesson: ILessonData
   user: IUserData | null
   courseAccess: TAccess
-  progress: TUserCourseProgress
+  progress: TUserCourseProgress['lessons']
 }
 
 export default function LessonContent(props: IProps) {

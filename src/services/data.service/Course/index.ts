@@ -5,7 +5,6 @@ import type { IUserDataDB } from 'services/user.service';
 import { courseConverter } from './courseConverter';
 
 import { ECommonErrorTypes } from 'types';
-import { TUserCourseProgressDB } from 'services/userCourseProgress.service';
 import userCourseProgress from '../UserCourseProgress';
 
 class Course {
@@ -20,6 +19,7 @@ class Course {
   }
 
   public async getAll(filter: { ids?: string[], userId?: string }): Promise<ICourseData[]> {
+    console.log('getAll', { filter });
     let usersCoursesIds: string[] | undefined;
     if (filter.userId) {
       const user = await firebaseService.getDoc<IUserDataDB>(firebaseService.Collections.User, filter.userId);

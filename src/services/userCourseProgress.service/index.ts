@@ -30,13 +30,18 @@ class UserCourseProgressService {
 
   public async markLessonAsRead(courseId: string, userEmail: string, lessonId: string) {
     try {
-      const progress = await dataService.userCourseProgress.get(courseId, userEmail).catch(_err => null) ?? {};
+      const progress = await dataService.userCourseProgress.get(courseId, userEmail).catch(_err => undefined);
       const newProgress: TUserCourseProgress = {
-        ...progress,
-        [lessonId]: {
-          solved: true,
-          solvedQuizesAmount: progress[lessonId]?.solvedQuizesAmount ?? 0,
-          lastSolvedAt: new Date(),
+        course: {
+          lastVisitedAt: new Date(),
+        },
+        lessons: {
+          ...progress?.lessons,
+          [lessonId]: {
+            solved: true,
+            solvedQuizesAmount: progress?.lessons[lessonId]?.solvedQuizesAmount ?? 0,
+            lastSolvedAt: new Date(),
+          },
         },
       };
       await dataService.userCourseProgress.set({ courseId, userEmail, progress: newProgress });
@@ -50,13 +55,18 @@ class UserCourseProgressService {
   public async saveLessonProgress(params: { courseId: string, userEmail: string, lessonId: string, unlockedBlocks: number}) {
     try {
       const { courseId, userEmail, lessonId, unlockedBlocks } = params;
-      const progress = await dataService.userCourseProgress.get(courseId, userEmail).catch(_err => null) ?? {};
+      const progress = await dataService.userCourseProgress.get(courseId, userEmail).catch(_err => undefined);
       const newProgress: TUserCourseProgress = {
-        ...progress,
-        [lessonId]: {
-          solved: false,
-          solvedQuizesAmount: unlockedBlocks,
-          lastSolvedAt: new Date(),
+        course: {
+          lastVisitedAt: new Date(),
+        },
+        lessons: {
+          ...progress?.lessons,
+          [lessonId]: {
+            solved: false,
+            solvedQuizesAmount: unlockedBlocks,
+            lastSolvedAt: new Date(),
+          },
         },
       };
       await dataService.userCourseProgress.set({ courseId, userEmail, progress: newProgress });
@@ -69,7 +79,7 @@ class UserCourseProgressService {
 
   public async isLessonSolved(courseId: string, userEmail: string, lessonId: string) {
     try {
-      return (await dataService.userCourseProgress.get(courseId, userEmail))[lessonId]?.solved ?? false;
+      return (await dataService.userCourseProgress.get(courseId, userEmail))?.lessons[lessonId]?.solved ?? false;
     } catch (error) {
       console.log('Failed to check id lesson is solved');
       throw error;
@@ -82,24 +92,18 @@ class UserCourseProgressService {
       if (!authedUser) {
         throw new Error('Not authenticated');
       }
-      // const accessedCoursesIds = (await dataService.access.getAll({ email: authedUser.email })).map(({ id }) => id);
-      // const randomAccessedCourseId = accessedCoursesIds.at(0);
-      const userCourseProgreses = await dataService.userCourseProgress.getAll(authedUser.email);
-      const lastSolvedLessonProgress = userCourseProgreses
-        .map(p => {
-          const courseId = p.courseId;
-          const lessonIds = safeObjectKeys(p.progress);
-          return lessonIds.map(lessonId => ({ courseId, lessonId, ...p.progress[lessonId] }));
-        })
-        .flat()
-        .sort((a, b) => +a.lastSolvedAt - +b.lastSolvedAt)
-        .at(-1);
 
-      if (!lastSolvedLessonProgress) {
+      const userCourseProgreses = await dataService.userCourseProgress.getAll(authedUser.email);
+      console.log('fetchLastStudiedCourse', { userCourseProgreses });
+      const lastVisitedCourseId = userCourseProgreses
+        .sort((a, b) => +a.progress.course.lastVisitedAt - +b.progress.course.lastVisitedAt)
+        .at(-1)?.courseId;
+
+      if (!lastVisitedCourseId) {
         return null;
       }
-      const { courseId } = lastSolvedLessonProgress;
-      return (await courseService._fetch({ ids: [courseId] })).at(0) ?? null;
+
+      return (await courseService._fetch({ ids: [lastVisitedCourseId] })).at(0) ?? null;
     } catch (error) {
       console.log('Fetch first last studied course', { error });
       throw error;

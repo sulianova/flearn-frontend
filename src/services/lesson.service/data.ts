@@ -11,7 +11,7 @@ export function getData(filter: Partial<IFetchLessonsProps>) {
 }
 
 const lessonData11: ILessonDataDB = {
-  id: 'About_3QFOpt',
+  id: 'About',
   courseId: 'how-to-draw',
   title: 'Привет!',
   type: 'Theory',
@@ -192,7 +192,7 @@ const lessonData11: ILessonDataDB = {
 }
 
 const lessonData12: ILessonDataDB = {
-  id: 'AboutProgram_ITUg9y',
+  id: 'AboutProgram',
   courseId: 'how-to-draw',
   title: 'Подробнее о платной программе',
   type: 'Theory',
@@ -348,7 +348,7 @@ const lessonData12: ILessonDataDB = {
 }
 
 const lessonData13: ILessonDataDB = {
-  id: 'SupportTeam_voQiUx',
+  id: 'SupportTeam',
   courseId: 'how-to-draw',
   title: 'Команда сопровождения',
   type: 'Theory',
@@ -534,7 +534,7 @@ const lessonData13: ILessonDataDB = {
 }
 
 const lessonData14: ILessonDataDB = {
-  id: 'FAQ_Xs0Qb5',
+  id: 'FAQ',
   courseId: 'how-to-draw',
   title: 'Частые вопросы и ответы на них',
   type: 'Theory',
@@ -5893,7 +5893,7 @@ const lessonData91: ILessonDataDB = {
 }
 
 const lessonDataFYS11: ILessonDataDB = {
-  id: 'About_3v4PD7',
+  id: 'About',
   courseId: 'finding-your-style',
   title: 'Привет!',
   type: 'Theory',
@@ -6013,7 +6013,7 @@ const lessonDataFYS11: ILessonDataDB = {
 }
 
 const lessonDataFYS12: ILessonDataDB = {
-  id: 'AboutProgram_8S9m4K',
+  id: 'AboutProgram',
   courseId: 'finding-your-style',
   title: 'Подробнее о платной программе',
   type: 'Theory',
@@ -6169,7 +6169,7 @@ const lessonDataFYS12: ILessonDataDB = {
 }
 
 const lessonDataFYS13: ILessonDataDB = {
-  id: 'SupportTeam_xHG827',
+  id: 'SupportTeam',
   courseId: 'finding-your-style',
   title: 'Команда сопровождения',
   type: 'Theory',
@@ -6355,7 +6355,7 @@ const lessonDataFYS13: ILessonDataDB = {
 }
 
 const lessonDataFYS14: ILessonDataDB = {
-  id: 'FAQ_MaijCs',
+  id: 'FAQ',
   courseId: 'finding-your-style',
   title: 'Частые вопросы и ответы на них',
   type: 'Theory',

@@ -257,7 +257,7 @@ class LessonService {
           {
             lessons: sortedLessons
               .map(lesson => {
-                const solved = progress?.[lesson.id]?.solved ?? false;
+                const solved = progress?.lessons[lesson.id]?.solved ?? false;
                 const canBeAccessed = lesson.isFree
                   || dependencies.authedUser?.role === 'support'
                   || (dependencies.courseAccess ?? 'FREE') !== 'FREE';
