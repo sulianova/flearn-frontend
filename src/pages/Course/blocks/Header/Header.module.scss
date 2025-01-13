@@ -17,50 +17,6 @@
   }
 }
 
-.shareLink {
-  @include btn;
-
-  position: absolute;
-  right: set-calc(32);
-  bottom: set-calc(32);
-
-  display: inline-flex;
-  flex-shrink: 0;
-  align-self: center;
-  margin-left: set-calc(32);
-  width: set-calc(44);
-  border-radius: set-calc($border-radius-10);
-
-  -webkit-tap-highlight-color: transparent;
-  color: var(--color-content-secondary);
-
-  &:hover {
-    background-color: var(--color-background-glassy-b);
-
-    svg path {
-      fill: var(--color-content-primary);
-    }
-  }
-
-  &:active {
-    background-color: var(--color-background-glassy-c);
-  }
-
-  svg {
-    flex-shrink: 0;
-    width: set-calc(24);
-    height: set-calc(44);
-
-    path {
-      fill: currentColor;
-    }
-  }
-
-  @include set-media(md) {
-    display: none;
-  }
-}
-
 .card__image {
   grid-column: 8 / -1;
   grid-row: span 2;
@@ -87,31 +43,30 @@
   flex-direction: column;
   flex: 1 1;
 
+  gap: set-calc(16);
+
   padding-top: set-calc(40);
 }
 
 .title {
-  @include set-typography(40, 40, 500);
+  @include font-40-header;
   font-family: $font-family-bold;
-  max-width: set-calc(700);
-
-  margin: 0 0 set-calc(24);
 }
 
 .description {
   @include font-18-paragraph;
-  color: var(--color-content-paragraph-secondary);
-  max-width: set-calc(700);
-
-  margin: 0 0 set-calc(32);
 }
 
 .metaData {
   display: flex;
   flex-wrap: wrap;
+
+  gap: set-calc(6);
+
+  padding-top: set-calc(8);
 }
 
-.metaData_Item {
+.metaData__item {
   position: relative;
 
   display: flex;
@@ -124,23 +79,18 @@
   border-radius: set-calc( calc(36 / 2));
 
   color: var(--color-content-paragraph-secondary);
+}
 
-  &:not(:last-child) {
-    margin-right: set-calc(6);
-  }
-
-  &Text {
+.metaData__text {
   @include font-14-ui;
     color: inherit;
     white-space: nowrap;
   }
-}
 
 .actions {
   grid-column: span 7;
 
   display: flex;
-  padding-left: set-calc(8);
 }
 
 .actionsBtn {
@@ -154,21 +104,7 @@
 .currentLessonButton {
   @include btn;
   @include button-48;
+  @include button-black;
 
-  position: relative;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  gap: set-calc(8);
-  min-width: set-calc(160);
-
-  color: $color-content-inverted-primary-light;
-  background-color: var(--primary-color);
-
-  &:hover {
-    background-color: var(--primary-color-hover);
-    cursor: pointer;
-  }
+  min-width: set-calc(305);
 }
