@@ -154,8 +154,21 @@ function Topic(props: { topic: ITopic }) {
   const { topic } = props;
   return (
     <div className={classes.level}>
-      <div className={classes.levelTitle}>{topic.title}</div>
-        <div className={classes.wrapper}>
+      <div className={classes.level__header}>
+        <div className={classes.header__meta}>
+          <div className={classes.header__meta__number}>Модуль 1</div>
+          <div className={classes.header__meta__state}>Завершен</div>
+          <div className={classes.header__meta__type}>После оплаты</div>
+        </div>
+        <div className={classes.header__content}>
+          <div className={classes.header__content__title}>
+            <div className={classes.header__content__title__text}>{topic.title}</div>
+            <div className={classes.header__content__title__icon}><Icon icon='ChevronDown'/></div>
+          </div>
+          <div className={classes.header__content__description}></div>
+        </div>
+      </div>
+        <div className={classes.list}>
           {topic.lessons.map(lesson => (
             <LessonCard
               key={lesson.id}
@@ -176,24 +189,14 @@ function LessonCard(props: { lesson: ILessonData & { solved: boolean, canBeAcces
   
   const content = (
     <button className={cx({ item: true, featured: lesson.isFirstUnsolved, disabled: !lesson.canBeAccessed })} disabled={!lesson.canBeAccessed}>
-      <div className={classes.imageWrapper}>
-        <div className={classes.image}>
-          <Icon icon={lesson.icon}/>
-        </div>
-      </div>
-      <div className={classes.itemBody}>
-        <div className={classes.itemBodyContainer}>
-          <div className={classes.titleContainer}>
-            <h2 className={classes.title}>
-              {lesson.title}
-            </h2>
+      <div className={classes.item__content}>
+        <div className={classes.imageWrapper}>
+          <div className={classes.image}>
+            <Icon icon={lesson.icon}/>
           </div>
         </div>
-        <div className={classes.info}>
-          <div className={classes.infoMain}>
-            {/* <span className={classes.infoItem}>{i18n.t('lesson.p', { count: 1 })}</span> */}
-            <span className={classes.infoItem}>{totalDurationStr}</span>
-          </div>
+        <div className={classes.item__title}>
+          {lesson.title}
         </div>
       </div>
       {lesson.canBeAccessed ? (
@@ -206,7 +209,6 @@ function LessonCard(props: { lesson: ILessonData & { solved: boolean, canBeAcces
       </div>
       )}
       <div className={classes.itemPopover}>Учиться</div>
-      <div className={classes.background}></div>
     </button>
   );
 
