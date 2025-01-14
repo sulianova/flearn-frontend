@@ -1,32 +1,9 @@
 @import 'styles/index';
 
 .section__title {
-  position: relative;
-
-  margin-bottom: set-calc(32);
-  padding-left: set-calc(16);
-
-  @include font-32-header;
-  font-family: $font-family-bold;
-
-  @include set-media(md) {
-    margin-bottom: set-calc(16);
-    padding-left: set-calc(8);
-  }
+  @include section-title;
 }
 
 .list {
-  position: relative;
-
-  display: flex;
-  flex-direction: column;
-  gap: set-calc(8);
-
-  @include set-media(md) {
-    position: relative;
-
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
+  @include is-grid-12;
 }

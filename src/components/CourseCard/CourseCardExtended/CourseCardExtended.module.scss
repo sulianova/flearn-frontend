@@ -42,19 +42,31 @@
   }
 
   &_horizontal {
+
+    display: flex;
     align-items: flex-start;
-    min-width: set-calc(380);
-    width: set-calc(380);
+    justify-content: center;
+
+    flex-direction: row-reverse;
+
+    width: 100%;
+    min-width: set-calc(320);
+    max-width: set-calc(440);
   
-    gap: set-calc(12);
+    gap: set-calc(8);
     padding: set-calc(24) set-calc(16) set-calc(32);
-  
-    flex-direction: row;
-    min-height: unset;
+
+    @include set-media(md) {
+      width: 100%;
+    }
   
     .icon {
       position: relative;
       background: transparent;
+
+      padding: 0;
+      height: unset;
+      width: max-content;
 
       .course {
         width: set-calc(88);
@@ -70,13 +82,14 @@
       }
     }
   
-    .contant {
+    .content {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
       gap: set-calc(6);
-      flex: 1 0 0;
+
+      padding: 0;
     }
   
     .title {
@@ -84,10 +97,11 @@
       text-align: start;
 
       @include set-typography(20, 24, 500);
+      font-family: $font-family-medium;
 
       display: -webkit-box;
       -webkit-box-orient: vertical;
-      -webkit-line-clamp: 1;
+      -webkit-line-clamp: 2;
       word-break: break-word;
       overflow: hidden;
     

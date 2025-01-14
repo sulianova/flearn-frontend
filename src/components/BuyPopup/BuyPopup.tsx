@@ -2,6 +2,7 @@ import classnames from 'classnames/bind';
 import { useEffect, useState } from 'react';
 
 import type { TCourseProductOptionTypes } from 'services/course.service';
+import { lessonService } from 'services/lesson.service';
 import type { IUserData } from 'services/user.service';
 
 import Decision from './steps/Decision';
@@ -13,6 +14,8 @@ import Icon from 'ui/Icon/Icon';
 
 import classes from './BuyPopup.module.scss';
 import { analyticsService } from 'services/analytics.service';
+
+import SignupToFlearnPopup from 'components/SignupToFlearnPopup/SignupToFlearnPopup';
 
 const cx = classnames.bind(classes);
 
@@ -29,13 +32,18 @@ type TStep =
 export default function BuyPopup({ close, user }: IProps) {
   const [chosenProductOptionType, setChosenProductOptionType] = useState<TCourseProductOptionTypes | undefined> ( undefined);
   const [step, setStep] = useState<TStep>('DECISION');
+    const firstLesson = lessonService.useLessons({ courseId: 'how-to-draw', topicOrder: 1, orderInTopic: 1 }).at(0);
+  const linkToFreeCourse = firstLesson
+  const [popupVisible, setPopupVisible] = useState(false);
+  const onNotAuthedClick = () => setPopupVisible(true);
 
   useEffect(() => {
     analyticsService.logEvent({ type: analyticsService.event.FormStartBuyCourse });
   }, []);
 
   return (
-    <Popup
+    <>
+        <Popup
       close={close}
       children={startClosingProcess => (
         <div className={classes.__}>
@@ -56,7 +64,7 @@ export default function BuyPopup({ close, user }: IProps) {
           <div className={classes.body}>
             <div className={classes.header}>
               <div className={classes.stepWidget}>
-                <div className={cx({ stepWidgetItem: true, stepWidgetItemDesk: true, active: step === 'DECISION' })}>о курсе</div>
+                <div className={cx({ stepWidgetItem: true, stepWidgetItemDesk: true, active: step === 'DECISION' })}>о подписке</div>
                 <div className={cx({ stepWidgetItem: true, stepWidgetItemDesk: true, active: step === 'PAYMENT' })}>способы оплаты</div>
                 <div className={cx({ stepWidgetItem: true, stepWidgetItemDesk: true, active: step === 'ORDER_INFO' })}>подтверждение</div>
                 <div className={cx({ stepWidgetItem: true, stepWidgetItemMob: true, active: step === 'DECISION' })}>1</div>
@@ -66,10 +74,13 @@ export default function BuyPopup({ close, user }: IProps) {
             </div>
             {step === 'DECISION' &&
               <Decision
+                key='DecisionForm'
+                // linkToFreeCourse={linkToFreeCourse}
+                onNotAuthedClick={onNotAuthedClick}
                 next={productOptionType => {
-                  setStep('PAYMENT');
-                  setChosenProductOptionType(productOptionType);
-                }}
+                setStep('PAYMENT');
+                setChosenProductOptionType(productOptionType);
+              }}
               />
             }
             {step === 'PAYMENT' &&
@@ -84,5 +95,11 @@ export default function BuyPopup({ close, user }: IProps) {
         </div>
       )}
     />
+    {popupVisible &&
+      <SignupToFlearnPopup
+        close={() => setPopupVisible(false)}
+      />
+    }
+    </>
   );
 }

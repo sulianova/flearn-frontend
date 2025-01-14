@@ -1,327 +1,275 @@
 @import 'styles/index';
 
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 0 set-calc($p-page-desk-l);
+  margin-bottom: set-calc(120);
+
+  @include set-media(md) {
+    padding: 0 set-calc($p-page-mob-m);
+    margin-bottom: set-calc(64);
+  }
+}
+
 .header {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
+  gap: set-calc(24);
+  padding: 0 set-calc(16);
+
+  margin-bottom: set-calc(24);
+
   @include set-media(md) {
-    margin-top: set-calc(24);
+    gap: set-calc(16);
   }
 }
 
-.headerTitle {
-  position: relative;
-
-  padding-bottom: set-calc(24);
-
-  @include set-typography(56, 60, 500);
+.header__title {
+  @include font-60-header;
   font-family: $font-family-bold;
   text-align: center;
 
   @include set-media(md) {
-    padding-bottom: set-calc(16);
 
-    @include set-typography(28, 32, 500);
+    @include font-56-header;
   }
 }
 
-.headerDescription {
-  position: relative;
+.header__description {
 
-  margin-bottom: set-calc(40);
-  max-width: set-calc(800);
-
-  @include set-typography(24, 36, 500);
-  color: var(--color-content-paragraph-primary);
+  color: var(--color-content-tertiary);
+  @include font-20-paragraph;
   text-align: center;
 
   @include set-media(md) {
-    margin-bottom: set-calc(16);
-    width: 85%;
 
-    @include set-typography(14, 18, 500);
+    @include font-18-paragraph;
   }
 }
 
-.commonFlowRow {
-  @include set-media(md) {
-    position: relative;
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    padding: 0 set-calc(16) set-calc(16);
-  }
-}
-
-.wrapper {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: center;
-  grid-gap: set-calc(16);
-  padding: set-calc(24) 0 0;
-
-  @include set-media(md) {
-    position: relative;
-
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-
-    width: set-calc(16, true, 100%);
-    left: set-calc(-8);
-    padding: set-calc(32) set-calc(8) set-calc(16);
-  }
-}
-
-.block {
-  position: relative;
-
+.switchWrapper {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-
-  width: min(380px, 80vw);
-
-  padding: set-calc(40);
-  background-color: var(--color-card);
-  border-radius: set-calc($border-radius-32);
-  border: 1px solid var(--border);
-
-  @include set-media(md) {
-    padding: set-calc(32);
-    flex-grow: 1;
-
-    min-width: 100%;
-    min-height: unset;
-
-    // box-shadow: 0 0 0 2px $color-palette-black-200, 0 2px 0 2px $color-palette-black-200;
-    border-radius: set-calc($border-radius-20);
-    // background-color: var(--color-card);
-    // -webkit-tap-highlight-color: transparent;
-    // cursor: pointer;
-
-    transition: box-shadow $d-hover ease-in, background-color $d-hover ease-in;
-  }
+  align-items: center;
 }
 
-.block:first-child {
-  background-color: var(--color-content-background-primary);
-
-  .courseName {
-    color: var(--color-content-inverted-primary);
-  }
-
-  .title {
-    color: var(--color-content-inverted-secondary);
-    font-family: $font-family-normal;
-  }
-
-  .paymentSummary {
-    .creditPrice {
-      color: var(--color-content-inverted-primary);
-    }
-  
-    .creditWas {
-      color: var(--color-accent-promo-background);
-
-      s:after {
-        border-bottom: set-calc(1.5) solid  var(--color-accent-promo-background);
-  
-        @include set-media(md) {
-          border-bottom: set-calc(1) solid var(--color-accent-promo-background);
-        }
-      }
-    }
-  
-    .discountTag {
-      color: $color-content-primary-light;
-      background: var(--color-accent-promo-background);
-    }
-  }
-
-  .itemIcon {
-    color: var(--color-accent-promo-background);
-
-    svg {
-      path {
-        fill: $color-content-primary-light;
-      }
-    }
-  }
-
-  .itemText {
-    color: var(--color-content-inverted-secondary);
-    font-family: $font-family-normal;
-  }
-
-  .cardBtn {
+.switch {
+  @include switch-label-24-on;
+  .label {
     color: $color-content-primary-light;
+  }
 
-    background: var(--color-accent-promo-background);
-    border: none;
-  
-    &:hover {
-      cursor: pointer;
-      background: var(--primary-color-hover);
-      border: none;
+  &_off {
+    .label {
+      color: $color-content-secondary-light;
     }
-
-    @include set-media(md) {
-      &:hover {
-        background: var(--color-accent-promo-background);
+    .icon {
+      @include switch-off;
+  
+      .switchPin {
+        transform: translate(set-calc(-20), 0);
       }
     }
   }
 }
 
-.courseName {
-  position: relative;
 
-  margin-bottom: set-calc(32);
-  width: max-content;
-
-  @include font-28-header;
-  font-family: $font-family-bold;
-  color: var(--color-content-primary);
-}
-
-.title {
-  max-width: 95%;
-  word-break: break-word;
-  margin: 0 0 set-calc(16);
-
-  @include set-typography(14, 20, 500);
-  color: var(--color-content-paragraph-secondary);
-}
-
-.pricingCheckList {
-  flex: 1;
-  display: block;
-  padding-left: 0;
-  list-style: none;
-}
-
-.pricingCheckListItem {
-  position: relative;
-
-  display: flex;
-  align-items: start;
-  gap: set-calc(12);
-}
-
-.pricingCheckListItem:not(:last-child) {
-  margin-bottom: set-calc(16);
-}
-
-.itemIcon {
+.group {
   display: flex;
   justify-content: center;
-  align-items: center;
+  gap: set-calc(16);
 
-  margin-top: set-calc(2);
-
-  color: var(--color-content-secondary);
-
-  svg {
-    width: set-calc(20);
-    height: set-calc(20);
-
-    path {
-      fill: var(--color-content-inverted-primary);
-    }
-  }
+  padding-top: set-calc(40);
 
   @include set-media(md) {
-    svg {
-      width: set-calc(18);
-      height: set-calc(18);
-    }
+    flex-direction: column-reverse;
+    padding-top: set-calc(24);
+    gap: set-calc(8);
   }
 }
 
-.itemText {
-  @include set-typography(14, 20, 500);
-  color: var(--color-content-paragraph-secondary);
+.plan {
+  display: flex;
+  flex-direction: column;
+  gap: set-calc(12);
+
+  width: set-calc(440);
+  padding: set-calc(40);
+
+  border-radius: set-calc(40);
+
+  @include set-media(md) {
+    width: 100%;
+    padding: set-calc(24);
+    border-radius: set-calc(32);
+  }
 }
 
-.cardBtn {
-  @include btn;
+.free {
+  border: 1px solid $color-content-primary-light;
+  background-color: transparent;
 
-  position: relative;
+  color: $color-content-primary-light;
 
+  .btn {
+    @include button-outline($color-content-primary-light, var(--color-background-pink));
+  }
+
+  .item__icon {
+    background-color: $color-content-primary-light;
+    color: $color-content-inverted-primary-light;
+  }
+}
+
+.pro {
+  border: 1px solid var(--color-card-border, rgba(255, 255, 255, 0.10));
+  background: var(--color-card, #262626);
+
+  .btn {
+    @include button-primary;
+  }
+}
+
+.planHeader {
   display: flex;
-  justify-content: center;
+  min-height: set-calc(32);
+  justify-content: space-between;
   align-items: center;
+}
 
-  padding: 0 set-calc(32);
-
-  color: var(--color-content-paragraph-secondary);
-  font-family: $font-family-medium;
+.subscriptionPlan {
   @include font-16-ui;
 
-  height: set-calc(64);
-  background-color: transparent;
-  border-radius: set-calc($border-radius-16);
-  border: 1px solid var(--color-content-paragraph-secondary);
-
-  &:hover {
-    cursor: pointer;
-    background-color: var(--color-content-background-primary);
-    border-color: transparent;
-    color: var(--color-content-inverted-primary);
-  }
-
   @include set-media(md) {
-    &:hover {
-      background-color: transparent;
-      border-color: var(--color-content-paragraph-secondary);
-      color: var(--color-content-paragraph-secondary);
+    @include font-14-ui;
+  }
+}
+
+.discount {
+  @include bage;
+  @include bage-32;
+
+  background: var(--primary-color);
+  color: $color-content-inverted-primary-light;
+}
+
+.price {
+  display: flex;
+  padding-top: set-calc(8);
+  align-items: baseline;
+  align-self: stretch;
+
+  font-family: $font-family-bold;
+
+  &__number {
+    @include font-36-header;
+
+    @include set-media(md) {
+      @include font-56-header;
     }
   }
-}
 
-.paymentSummary {
-  display: flex;
-  justify-content: space-between;
-
-  margin: set-calc(60) 0 set-calc(20);
-
-  @include set-media(md) {
-
+  &__frequency {
+    @include font-16-ui;
   }
 }
 
-.discountTags {
+.subtitle {
   display: flex;
-  align-items: end;
-  justify-content: flex-end;
-  flex-wrap: wrap;
+  align-items: center;
   gap: set-calc(4);
+
+  padding-bottom: set-calc(16);
+
+  @include font-14-ui;
+
+  span {
+    font-size: inherit;
+    line-height: inherit;
+
+    opacity: 0.8;
+  }
+
+  span:not(:first-child) {
+    color: var(--primary-color);
+    opacity: 1;
+  }
+
+  span:nth-child(2n) {
+    text-decoration: line-through;
+  }
+
+  span:nth-child(3n) {
+    font-family: $font-family-bold;
+  }
+
 }
 
-.discountTag {
+.btn {
+  @include btn;
+  @include button-56;
+}
+
+.description {
+  display: flex;
+  padding: set-calc(8) 0 set-calc(24) 0;
+  justify-content: center;
+  align-items: center;
+
+  @include font-16-paragraph;
+  opacity: 0.8;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+
+  gap: set-calc(24);
+  padding-bottom: set-calc(16);
+
+  @include set-media(md) {
+    padding-bottom: set-calc(8);
+  }
+}
+
+.item {
+  display: flex;
+  align-items: baseline;
+  gap: set-calc(12);
+
+  opacity: 0.8;
+}
+
+.item__icon {
   display: flex;
   justify-content: center;
   align-items: center;
 
-  padding: 0 set-calc(8);
-  height: set-calc(30);
+  @include icon-size(14);
+  width: set-calc(20);
+  height: set-calc(20);
+  @include rounded(20);
 
-  background: var(--color-content-background-secondary);
-  border-radius: calc(set-calc(30) / 2);
-  
-  color: var(--color-content-inverted-secondary);
-  font-family: $font-family-medium;
+  color: var(--color-content-inverted-primary);
+  background: var(--color-content-primary);
+  padding: set-calc(3);
 
-  @include font-14-ui;
-  text-align: start;
+  &_pro {
+    background: var(--primary-color);
+  }
 }
 
-.creditWas {
+.item__text {
+  @include font-16-paragraph;
+}
+
+.priceQuarterly_3m {
   display: block;
 
   color: var(--color-content-background-secondary);
@@ -344,7 +292,7 @@
   }
 }
 
-.creditPrice {
+.priceMonthly_3m {
   position: relative;
   @include set-typography(28, 28, 500);
   font-family: $font-family-bold;
@@ -353,4 +301,18 @@
   letter-spacing: -0.05rem;
   color: var(--color-content-primary);
   align-self: flex-end;
+}
+
+.conditionDescription {
+  display: flex;
+  justify-content: center;
+  gap: set-calc(4);
+
+  color: $color-content-paragraph-primary-light;
+  text-align: center;
+  padding-top: set-calc(24);
+
+  @include set-media(md) {
+    padding-top: set-calc(16);
+  }
 }

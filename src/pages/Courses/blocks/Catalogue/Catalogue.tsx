@@ -26,9 +26,9 @@ export default function Catalogue() {
 
   return (
     <>
-      <h2 className={classes.section__title}>Курсы</h2>
+      <div className={classes.section__title}>Курсы</div>
       <div className={classes.wrapper}>
-        {courses.map(course => <CourseCard.EXTENDED key={course.id} course={course}/>)}
+        {courses.map(course => <CourseCard.EXTENDED key={course.id} course={course} isHorizontal={true}/>)}
       </div>
     </>
   );
