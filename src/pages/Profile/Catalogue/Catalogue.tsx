@@ -33,17 +33,17 @@ export default function Catalogue() {
   return (
     <div className={classes.catalogueWrapper}>
       <div className={classes.section__title}>Все курсы</div>
-      <div className={classes.btnGroup}>
+      {/* <div className={classes.btnGroup}>
         <div className={classes.btn}>
           <Icon icon='ChevronLeft'/>
         </div>
         <div className={classes.btn}>
           <Icon icon='ChevronRight'/>
         </div>
-      </div>
+      </div> */}
       <div className={classes.group}>
         {courses.map(course => <CourseCard.EXTENDED key={course.id} course={course} isHorizontal={false}/>)}
-        {courses.map(course => <CourseCard.EXTENDED key={course.id} course={course} isHorizontal={false}/>)}
+        {/* {courses.map(course => <CourseCard.EXTENDED key={course.id} course={course} isHorizontal={false}/>)} */}
       </div>
     </div>
   );

@@ -9,8 +9,8 @@ import classes from './Profile.module.scss';
 export default function Profile() {
   const blocks: JSX.Element[] = [
     <Header/>,
+    <Resources/>,
     <Catalogue/>,
-    <Resources/>
   ].filter(c => c !== undefined);
 
   return (

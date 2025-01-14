@@ -278,7 +278,7 @@
 
   @include set-media(md) {
     @include font-14-ui;
-    font-family: $font-family-medium;
+    color: var(--color-content-paragraph-secondary);
   }
 }
 
