@@ -12,17 +12,17 @@
   padding: set-calc(40);
 
   background: var(--primary-color);
-  border-radius: set-calc($border-radius-32);
+  border-radius: set-calc($border-radius-40);
 
   @include set-media(md) {
     padding: set-calc(24);
-    border-radius: set-calc($border-radius-20);
+    border-radius: set-calc($border-radius-32);
   }
 }
 
 .title {
   @include  font-40-header;
-  font-family: $font-family-bold;
+  font-family: $font-family-medium;
   color: $color-content-inverted-primary-light;
 
   margin-bottom: set-calc(20);
@@ -36,14 +36,13 @@
 }
 
 .desc {
-  @include set-typography(18, 26, 500);
+  @include font-18-paragraph;
   color: $color-content-inverted-primary-light;
   width: 50%;
 
   margin-bottom: set-calc(40);
 
   @include set-media(md) {
-    @include set-typography(16, 24, 500);
     width: 100%;
     margin-bottom: set-calc(24);
   }
@@ -61,37 +60,9 @@
 .actionsBtn {
   @include btn;
   @include button-56;
-
-  border: 2px solid $color-content-inverted-primary-light;
-
-  .text {
-    @include font-20-ui;
-    color: $color-content-inverted-primary-light;
-    font-family: $font-family-bold;
-
-    @include set-media(md) {
-      @include set-typography(18, 18, 500);
-    }
-  }
-
-  &:hover {
-    background: $color-content-inverted-primary-light;
-
-    .text {
-      color: var(--primary-color);
-    }
-  }
+  @include button-outline($color-content-inverted-primary-light, var(--primary-color));
 
   @include set-media(md) {
     width: 100%;
-    border-width: 1.5px;
-
-    &:hover {
-      background: transparent;
-  
-      .text {
-        color: $color-content-inverted-primary-light;
-      }
-    }
   }
 }

@@ -34,10 +34,10 @@ export default function Courses() {
     !user && <SocialValidation
       key='SocialValidation'
     />,
-    !user && <BannerStart
-      key='BannerStart'
-      onNotAuthedClick={onNotAuthedClick}
-    />,
+    // !user && <BannerStart
+    //   key='BannerStart'
+    //   onNotAuthedClick={onNotAuthedClick}
+    // />,
     <FAQ
       key='FAQ'
     />,

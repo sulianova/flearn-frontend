@@ -12,7 +12,7 @@
     left: set-calc(-$p-page-mob-s);
     width: set-calc(2 * $p-page-mob-s, true, 100%);
 
-    margin: 0 auto set-calc(24);
+    margin: set-calc(24) auto;
   }
 }
 

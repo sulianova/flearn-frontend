@@ -21,6 +21,9 @@ import SignupToFlearnPopup from 'components/SignupToFlearnPopup/SignupToFlearnPo
 import { EPageVariant } from '../Page';
 
 import classes from './header.module.scss';
+import { CatalogueID } from 'pages/Home/blocks/Catalogue/Catalogue';
+import { PricingID } from 'pages/Home/blocks/DecisionForm/DecisionForm';
+import { SocialValidationID } from 'pages/Home/blocks/SocialValidation/SocialValidation';
 
 const cx = classnames.bind(classes);
 const t = formatI18nT('header');
@@ -89,9 +92,24 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
             <div className={classes.menu__section}>
               {(urlSection.name == 'Home') && (
                 <>
-                  <Link className={classes.nav}>{t('menu.courses')}</Link>
-                  <Link className={classes.nav}>{t('menu.pricing')}</Link>
-                  <Link className={classes.nav}>{t('menu.socialValidation')}</Link>
+                  <a
+                    className={classes.nav}
+                    href={`/#${CatalogueID}`}
+                  >
+                    {t('menu.courses')}
+                  </a>
+                  <a
+                    className={classes.nav}
+                    href={`/#${PricingID}`}
+                  >
+                    {t('menu.pricing')}
+                  </a>
+                  <a
+                    className={classes.nav}
+                    href={`/#${SocialValidationID}`}
+                  >
+                    {t('menu.socialValidation')}
+                  </a>
                 </>
               )}
               {(user && Boolean(userCourses.length)) && (urlSection.name !== 'Study') && (urlSection.name !== 'Home')&& (
@@ -117,14 +135,14 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
             </div>
           )}
             <div className={classes.menu__btns}>
-                  {isMobile && (urlSection.name == 'Study') && (
-                    <Link
-                      className={classes.btn_back}
-                      to={URLSections.Course.to({ courseId: urlSection.params.courseId })}
-                    >
-                      <Icon icon='ArrowButton' />
-                    </Link>
-                  )}
+              {isMobile && (urlSection.name == 'Study') && (
+                <Link
+                  className={classes.btn_back}
+                  to={URLSections.Course.to({ courseId: urlSection.params.courseId })}
+                >
+                  <Icon icon='ArrowButton' />
+                </Link>
+              )}
               { user ?
                 <>
                   {(urlSection.name === 'Home') && 
@@ -143,7 +161,7 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
                 </>
                 : 
                   <> 
-                    {(urlSection.name === 'Home') && (
+                    {(urlSection.name !== 'Study') && !isMobile && (
                       <>
                         <div className={cx({ btn_login: true})} onClick={() => authService.authenticate()}>
                           {t('btns.login.signIn')}

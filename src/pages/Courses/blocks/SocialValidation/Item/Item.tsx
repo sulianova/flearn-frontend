@@ -1,4 +1,5 @@
 import type { ICourseFeedback } from 'services/course.service';
+import { formatI18nT } from 'shared';
 
 import Text from 'ui/Text/Text';
 
@@ -6,7 +7,10 @@ import Icon from 'ui/Icon/Icon';
 import classNames from 'classnames/bind';
 import classes from './Item.module.scss';
 
+import Img from 'ui/Img/Img';
+
 const cx = classNames.bind(classes);
+const t = formatI18nT('socialValidation');
 
 interface IProps {
   feedback: ICourseFeedback
@@ -15,6 +19,7 @@ interface IProps {
 export default function Item() {
   return (
     <>
+      <div className={classes.column}>
         <div className={cx({ item: true })}>
           <div className={classes.ratingStars}>
             <div className={classes.ratingStar}><Icon icon='Star'/></div>
@@ -23,15 +28,26 @@ export default function Item() {
             <div className={classes.ratingStar}><Icon icon='Star'/></div>
             <div className={classes.ratingStar}><Icon icon='Star'/></div>
           </div>
-          <div className={classes.feedbackQuote}>
-            <p>Всё, что было обещано — было в курсе: поддержка преподавателя, обратная связь по домашнему заданию буквально на каждый рисунок, помощь с любым творческим вопросом, сомнениями, сильная мотивация и опора. Понравилось, что курс с момента открытия подробный: есть цитаты и изображения, которые прикладываются для удобства. Автор детально изъясняется, а в конце ждёт видео, где показывается процесс рисования котиков с подсказками: как лучше сделать при рисовании своих котиков.</p>
-            <div className={classes.feedbackAuthor}>
-              <span>Светлана Блок</span>
-              «Композиция: как выделить главное»
+          <div className={classes.feedback}>
+            <p>{t('feedback8.content')}</p>
+          </div>
+          <div className={classes.user}>
+            <div className={classes.image}>
+              <Img
+                src={{
+                  mobile: "/png/3d_Designer.png",
+                  desktop: "/png/3d_Designer.png",
+                }}
+                alt=""
+              />
+            </div>
+            <div className={classes.text}>
+              <div className={classes.name}>{t('feedback8.name')}</div>
+              <div className={classes.description}>{t('feedback8.description')}</div>
             </div>
           </div>
         </div>
-        <div className={classes.item}>
+        <div className={cx({ item: true })}>
           <div className={classes.ratingStars}>
             <div className={classes.ratingStar}><Icon icon='Star'/></div>
             <div className={classes.ratingStar}><Icon icon='Star'/></div>
@@ -39,15 +55,28 @@ export default function Item() {
             <div className={classes.ratingStar}><Icon icon='Star'/></div>
             <div className={classes.ratingStar}><Icon icon='Star'/></div>
           </div>
-          <div className={classes.feedbackQuote}>
-            <p>Я научилась более системно относиться к проработке иллюстраций. Обычно я рисую бездумно, по вдохновению, и обычно по первому эскизу. Но благодаря курсу я смогла вспомнить о том, как важно словами формулировать идею, рисовать как можно больше эскизов, заранее подбирать референсы. И конечно я поняла, что насмотренность — наше все. Очень классно было рассказано о том как анализировать чужие работы, просто смотреть недостаточно.</p>
-            <div className={classes.feedbackAuthor}>
-              <span>Анастасия Баранова</span>
-              «Как найти стиль»
+          <div className={classes.feedback}>
+            <p>{t('feedback10.content')}</p>
+          </div>
+          <div className={classes.user}>
+            <div className={classes.image}>
+              <Img
+                src={{
+                  mobile: "/png/3d_Illustrator.png",
+                  desktop: "/png/3d_Illustrator.png",
+                }}
+                alt=""
+              />
+            </div>
+            <div className={classes.text}>
+              <div className={classes.name}>{t('feedback10.name')}</div>
+              <div className={classes.description}>{t('feedback10.description')}</div>
             </div>
           </div>
         </div>
-        <div className={classes.item}>
+      </div>
+      <div className={classes.column}>
+        <div className={cx({ item: true })}>
           <div className={classes.ratingStars}>
             <div className={classes.ratingStar}><Icon icon='Star'/></div>
             <div className={classes.ratingStar}><Icon icon='Star'/></div>
@@ -55,15 +84,109 @@ export default function Item() {
             <div className={classes.ratingStar}><Icon icon='Star'/></div>
             <div className={classes.ratingStar}><Icon icon='Star'/></div>
           </div>
-          <div className={classes.feedbackQuote}>
-            <p>Интенсив получился очень интересный, много материала на подумать. Мои представления о серии несколько расширились. Раньше мне казалось, что все работы должны быть чуть ли не одинаковыми, чтоб считаться серией.</p>
-            <p>Мне оказалось очень сложно делать много вариантов одного и того же, я на первом же более-менее удачном залипаю и не могу уйти. Пример с кружочком, который по разному изменяется по разным осям, мне очень помог не останавливаться на одном-двух эскизах.</p>
-            <div className={classes.feedbackAuthor}>
-              <span>Dora Zeev</span>
-              «Как найти стиль»
+          <div className={classes.feedback}>
+            <p>{t('feedback1.content')}</p>
+          </div>
+          <div className={classes.user}>
+            <div className={classes.image}>
+              <Img
+                src={{
+                  mobile: "/png/3d_Hobbi.png",
+                  desktop: "/png/3d_Hobbi.png",
+                }}
+                alt=""
+              />
+            </div>
+            <div className={classes.text}>
+              <div className={classes.name}>{t('feedback1.name')}</div>
+              <div className={classes.description}>{t('feedback1.description')}</div>
             </div>
           </div>
         </div>
+        <div className={cx({ item: true })}>
+          <div className={classes.ratingStars}>
+            <div className={classes.ratingStar}><Icon icon='Star'/></div>
+            <div className={classes.ratingStar}><Icon icon='Star'/></div>
+            <div className={classes.ratingStar}><Icon icon='Star'/></div>
+            <div className={classes.ratingStar}><Icon icon='Star'/></div>
+            <div className={classes.ratingStar}><Icon icon='Star'/></div>
+          </div>
+          <div className={classes.feedback}>
+            <p>{t('feedback5.content')}</p>
+          </div>
+          <div className={classes.user}>
+            <div className={classes.image}>
+              <Img
+                src={{
+                  mobile: "/png/3d_Illustrator.png",
+                  desktop: "/png/3d_Illustrator.png",
+                }}
+                alt=""
+              />
+            </div>
+            <div className={classes.text}>
+              <div className={classes.name}>{t('feedback5.name')}</div>
+              <div className={classes.description}>{t('feedback5.description')}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className={classes.column}>
+        <div className={cx({ item: true })}>
+          <div className={classes.ratingStars}>
+            <div className={classes.ratingStar}><Icon icon='Star'/></div>
+            <div className={classes.ratingStar}><Icon icon='Star'/></div>
+            <div className={classes.ratingStar}><Icon icon='Star'/></div>
+            <div className={classes.ratingStar}><Icon icon='Star'/></div>
+            <div className={classes.ratingStar}><Icon icon='Star'/></div>
+          </div>
+          <div className={classes.feedback}>
+            <p>{t('feedback9.content')}</p>
+          </div>
+          <div className={classes.user}>
+            <div className={classes.image}>
+              <Img
+                src={{
+                  mobile: "/png/3d_Designer.png",
+                  desktop: "/png/3d_Designer.png",
+                }}
+                alt=""
+              />
+            </div>
+            <div className={classes.text}>
+              <div className={classes.name}>{t('feedback9.name')}</div>
+              <div className={classes.description}>{t('feedback9.description')}</div>
+            </div>
+          </div>
+        </div>
+        <div className={cx({ item: true })}>
+          <div className={classes.ratingStars}>
+            <div className={classes.ratingStar}><Icon icon='Star'/></div>
+            <div className={classes.ratingStar}><Icon icon='Star'/></div>
+            <div className={classes.ratingStar}><Icon icon='Star'/></div>
+            <div className={classes.ratingStar}><Icon icon='Star'/></div>
+            <div className={classes.ratingStar}><Icon icon='Star'/></div>
+          </div>
+          <div className={classes.feedback}>
+            <p>{t('feedback7.content')}</p>
+          </div>
+          <div className={classes.user}>
+            <div className={classes.image}>
+              <Img
+                src={{
+                  mobile: "/png/3d_Hobbi.png",
+                  desktop: "/png/3d_Hobbi.png",
+                }}
+                alt=""
+              />
+            </div>
+            <div className={classes.text}>
+              <div className={classes.name}>{t('feedback7.name')}</div>
+              <div className={classes.description}>{t('feedback7.description')}</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

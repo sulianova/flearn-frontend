@@ -8,11 +8,12 @@ export default SocialValidation;
 
 const cx = classNames.bind(classes);
 const t = formatI18nT('socialValidation');
+export const SocialValidationID = 'SocialValidation';
 
 function SocialValidation() {
   return (
     <>
-      <div data-bcalternate></div>
+      <div data-bcalternate id={SocialValidationID}></div>
       <div className={classes.header}>
         <h2 className={cx({ header__title: true })}><span>{t('title1')}</span><span>{t('title2')}</span></h2>
       </div>

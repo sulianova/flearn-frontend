@@ -14,6 +14,7 @@ interface IProps {
 }
 
 const t = formatI18nT('catalogue');
+export const CatalogueID = 'Catalogue';
 
 export default function Catalogue(props: IProps) {
   const allRealCourses = courseService.useCourses();
@@ -32,7 +33,7 @@ export default function Catalogue(props: IProps) {
 
   return (
     <>
-      <div data-bcred/>
+      <div data-bcred id={CatalogueID}/>
       <div className={classes.header}>
         <h2 className={classes.header__title}>{t('title')}</h2>
         <div className={classes.header__description}>{t('description')}</div>

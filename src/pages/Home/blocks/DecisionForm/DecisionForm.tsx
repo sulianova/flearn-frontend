@@ -23,6 +23,7 @@ import classes from './DecisionForm.module.scss';
 
 const cx = classNames.bind(classes);
 const t = formatI18nT('decision');
+export const PricingID = 'Pricing';
 
 interface IProps {
   linkToFreeCourse: string
@@ -49,7 +50,7 @@ export default function DecisionForm(props: IProps) {
 
   return (
     <>
-      <div data-bcpink/>
+      <div data-bcpink id={PricingID}/>
       <div className={classes.header}>
         <div className={classes.header__title}>{t('home.title')}</div>
         <div className={classes.header__description}>{t('home.description')}</div>

@@ -11,9 +11,7 @@ const cx = classNames.bind(classes);
 function SocialValidation() {
   return (
     <>
-      <div className={classes.header}>
-        <h2 className={cx({ headerTitle: true })} >100+ учеников любят flearn</h2>
-      </div>
+      <div className={cx({ section__title: true })} >100+ учеников любят flearn</div>
       <div className={classes.list}>
           <Item/>
       </div>
