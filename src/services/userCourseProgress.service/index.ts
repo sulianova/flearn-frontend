@@ -1,16 +1,16 @@
 import { BehaviorSubject, Subject, merge } from 'rxjs';
 
 import { dataService } from 'services/data.service';
-
 import { TCurrentCourseProgressBSValue, type TActionS, type TUserCourseProgress } from './types';
 import { authService } from 'services';
-import { safeObjectKeys } from 'utils';
 import useLastStudiedCourse from './useLastStudiedCourse';
 import { courseService, ICourseData } from 'services/course.service';
 import { locationService } from 'services/location.service';
 import { userService } from 'services/user.service';
+import { type ILessonData, lessonService } from 'services/lesson.service';
 
 import useCurrentCourseProgress from './useCurrentCourseProgress';
+import useFirstNotSolvedLesson from './useFirstNotSolvedLesson';
 
 export type { TProgress, TProgressDB, TUserCourseProgress, TUserCourseProgressDB } from './types';
 
@@ -18,10 +18,12 @@ class UserCourseProgressService {
   public userCourseProgresS = new Subject<TActionS>();
   public useLastStudiedCourse = useLastStudiedCourse;
   public useCurrentCourseProgress = useCurrentCourseProgress;
+  public useFirstNotSolvedLesson = useFirstNotSolvedLesson;
 
   constructor() {
     this.initLastStudiedCourseBS();
     this.initCurrentCourseProgressBS();
+    this.initFirstNotSolvedLessonBS();
   }
 
   public get currentCourseProgress() {
@@ -110,6 +112,42 @@ class UserCourseProgressService {
     }
   }
 
+  private async fetchFirstNotSolvedLesson() {
+    try {
+      const authedUser = authService.user;
+      if (!authedUser) {
+        throw new Error('Not authenticated');
+      }
+
+      const userCourseProgreses = await dataService.userCourseProgress.getAll(authedUser.email);
+      const lastVisitedCourseProgress = userCourseProgreses
+        .filter(p => p.progress.course.lastVisitedAt !== null)
+        .sort((a, b) => +a.progress.course.lastVisitedAt! - +b.progress.course.lastVisitedAt!)
+        .at(-1);
+
+      if (!lastVisitedCourseProgress) {
+        return null;
+      }
+
+      const lessons = await lessonService.fetch({ courseId: lastVisitedCourseProgress.courseId });
+      const sortedLessons = lessons.slice()
+        .sort((a, b) => {
+          const key = a.topicOrder !== b.topicOrder ? 'topicOrder' : 'orderInTopic';
+          return a[key] - b[key];
+        });
+
+      return sortedLessons
+        .map(lesson => ({
+          ...lesson,
+          solved: lastVisitedCourseProgress.progress.lessons[lesson.id]?.solved ?? false,
+        }))
+        .find(lesson => !lesson.solved) ?? null;
+    } catch (error) {
+      console.log('Fetch first last studied course', { error });
+      throw error;
+    }
+  }
+
   protected initLastStudiedCourseBS() {
     merge(
       this.userCourseProgresS,
@@ -180,7 +218,31 @@ class UserCourseProgressService {
     }
   }
 
+  protected initFirstNotSolvedLessonBS() {
+    merge(
+      this.userCourseProgresS,
+      authService.firebaseUserBS,
+    )
+    .subscribe(() => {
+      const user = authService.user;
+      if (!user) {
+        this._firstNotSolvedLessonBS.next(null);
+        return;
+      }
+
+      this.fetchFirstNotSolvedLesson()
+        .then(lesson => {
+          this._firstNotSolvedLessonBS.next(lesson);
+        })
+        .catch(error => {
+          console.log('Failed to fetch FirstNotSolvedLesson for _firstNotSolvedLessonBS', { error, user });
+          this._lastStudiedCourseBS.next(null);
+        })
+    });
+  }
+
   protected _lastStudiedCourseBS = new BehaviorSubject<ICourseData | null>(null);
+  protected _firstNotSolvedLessonBS = new BehaviorSubject<ILessonData | null>(null);
   protected _currentCourseProgressBS = new BehaviorSubject<TCurrentCourseProgressBSValue | null>(null);
 }
 

@@ -12,6 +12,7 @@ import Img from 'ui/Img/Img';
 
 export default function Header() {
   const lastStudiedCourse = userCourseProgressService.useLastStudiedCourse();
+  const firstNotSolvedLesson = userCourseProgressService.useFirstNotSolvedLesson();
 
   if (!lastStudiedCourse) {
     return (
@@ -74,10 +75,12 @@ export default function Header() {
           >
             Продолжить учиться
           </Link>
-          <div className={classes.nextLesson}>
-            <div className={classes.nextLesson__subTitle}>Следующий урок</div>
-            <div className={classes.nextLesson__title}>Следующий урок</div>
-          </div>
+          {firstNotSolvedLesson && (
+            <div className={classes.nextLesson}>
+              <div className={classes.nextLesson__subTitle}>Следующий урок</div>
+              <div className={classes.nextLesson__title}>{firstNotSolvedLesson.title}</div>
+            </div>
+          )}
       </div>
     </div>
   );
