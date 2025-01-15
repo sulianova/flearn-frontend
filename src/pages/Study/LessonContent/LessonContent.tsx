@@ -1,3 +1,4 @@
+import { i18n } from 'shared';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
@@ -101,8 +102,21 @@ export default function LessonContent(props: IProps) {
           }}
         />
       )}
-      <div className={classes._}>
-        <h1 className={classes.title}>{lesson.title}</h1>
+      <div className={classes.wrapper}>
+        <div className={classes.card}>
+          <div className={classes.content}>
+            <div className={classes.content__title}>{lesson.title}</div>
+            <div className={classes.content__description}>{lesson.title}</div>
+            <div className={classes.content__meta}>
+              <p className={classes.meta_item}>
+                {i18n.t(`duration.${lesson.duration.unit}`, { count: lesson.duration.value })}
+              </p>
+            </div>
+          </div>
+          <div className={classes.actions}>
+            <button className={classes.actions__btn}>Пройти квиз</button>
+          </div>
+        </div>
         <Article
           key={lessonId}
           blocks={lesson.content}

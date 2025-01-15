@@ -492,6 +492,7 @@
   },
   "duration": {
     "minute": "{{count}} $t(minute.p, {\"count\": {{count}} })",
+    "minutes": "{{count}} $t(minute.p, {\"count\": {{count}} })",
     "hour": "{{count}} $t(hour.p, {\"count\": {{count}} })",
     "day": "{{count}} $t(day.p, {\"count\": {{count}} })",
     "week": "{{count}} $t(week.p, {\"count\": {{count}} })"

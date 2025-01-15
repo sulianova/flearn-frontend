@@ -28,12 +28,12 @@
   padding: set-calc(40);
   border-radius: set-calc($border-radius-40);
   border: 1px solid var(--border);
+  background-color: var(--color-background-glassy-a);
 
   @include font-20-article;
   font-family: $font-family-article;
   color: var(--color-content-primary);
 
-  text-align: center;
   overflow-wrap: break-word;
 
   p,

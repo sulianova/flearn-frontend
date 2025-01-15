@@ -40,7 +40,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: set-calc(8);
+  gap: set-calc(16);
+}
+
+.items:nth-child(3) {
+  margin-top: set-calc(16);
 }
 
 .items:last-child {
