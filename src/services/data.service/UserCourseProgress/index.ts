@@ -9,14 +9,10 @@ class UserCourseProgress {
       const userCourseProgress = await this._get(courseId, userEmail);
       const globalCourseLessonsProgress = await this._getGlobalCourseLessonsProgress(userEmail);
 
-      if (!userCourseProgress) {
-        return undefined;
-      }
-
       return {
-        ...userCourseProgress,
+        course: { ...userCourseProgress?.course ?? { lastVisitedAt: null } },
         lessons: {
-          ...userCourseProgress.lessons,
+          ...userCourseProgress?.lessons,
           ...globalCourseLessonsProgress,
         },
       };
@@ -33,26 +29,23 @@ class UserCourseProgress {
       const coursesIds = (await firebaseService.getDocs<{ id: string }>(firebaseService.Collections.UserCourseProgress, []))
         .map(p => p.id)
         .filter(id => id !== GlobalCourseId);
-      console.log('UserCourseProgress.getAll', { coursesIds });
+
       const globalCourseLessonsProgress = await this._getGlobalCourseLessonsProgress(userEmail);
-      console.log('UserCourseProgress.getAll', { globalCourseLessonsProgress });
-      const userCourseProgresses = await Promise.all(coursesIds.map(courseId =>
+      return await Promise.all(coursesIds.map(courseId =>
         firebaseService
           .getDoc<TUserCourseProgressDB>(firebaseService.Collections.UserCourseProgress, courseId, null, { collection: 'users', id: userEmail })
-          .then(res => (console.log('UserCourseProgress.getAll then', { res }), res))
           .then(progress => progress && userCourseProgressConverter.fromFirestore(progress))
-          .then(progress => progress && ({
+          .then(progress => ({
             progress: {
-              ...progress,
+              course: { ...progress?.course ?? { lastVisitedAt: null } },
               lessons: {
-                ...progress.lessons,
+                ...progress?.lessons,
                 ...globalCourseLessonsProgress,
               },
             },
             courseId,
           }))
       ));
-      return userCourseProgresses.filter(p => p !== undefined);
     } catch (error) {
       console.log('Failed to get all user course progresses');
       throw error;

@@ -122,7 +122,6 @@ function LessonSurvey<Survey extends TSurvey>(props: IProps<Survey>) {
               disabled={isPending || (!answer || (Array.isArray(answer) && answer.length === 0))}
               className={classes.submitButton}
               onClick={() => {
-                console.log('click')
                 setIsPending(true);
                 surveyAnswersService.saveSurveyAnswers({
                   answers: answers as TSurveyAnswers,

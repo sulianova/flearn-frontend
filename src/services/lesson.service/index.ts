@@ -251,8 +251,6 @@ class LessonService {
             return a[key] - b[key];
           });
 
-        // const firstNotLearnedLesson = sortedLessons.find(l => !progress || !progress[l.id]);
-
         this._courseLessonsBS.next(
           {
             lessons: sortedLessons

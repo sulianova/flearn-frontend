@@ -14,13 +14,13 @@ export type TProgressDB = {
 
 export type TUserCourseProgress = {
   course: {
-    lastVisitedAt: Date
+    lastVisitedAt: Date | null
   };
   lessons: Record<TLessonId, TProgress>;
 };
 export type TUserCourseProgressDB = {
   course: {
-    lastVisitedAt: string
+    lastVisitedAt: string | null
   };
   lessons: Record<TLessonId, TProgressDB>
 };

@@ -12,7 +12,8 @@ export const userCourseProgressConverter = {
     });
     return {
       course: {
-        lastVisitedAt: dateFR2DB(userCourseProgress.course.lastVisitedAt),
+        lastVisitedAt: userCourseProgress.course.lastVisitedAt === null
+          ? null : dateFR2DB(userCourseProgress.course.lastVisitedAt),
       },
       lessons: Object.fromEntries(entries),
     };
@@ -23,9 +24,11 @@ export const userCourseProgressConverter = {
       const v = userCourseProgressDB.lessons[k];
       return [k, { ...v, lastSolvedAt: dateDB2FR(v.lastSolvedAt) }] as const;
     });
+
     return {
       course: {
-        lastVisitedAt: dateDB2FR(userCourseProgressDB.course.lastVisitedAt),
+        lastVisitedAt: userCourseProgressDB.course.lastVisitedAt === null
+          ? null : dateDB2FR(userCourseProgressDB.course.lastVisitedAt),
       },
       lessons: Object.fromEntries(entries),
     };

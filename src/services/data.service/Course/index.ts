@@ -19,7 +19,6 @@ class Course {
   }
 
   public async getAll(filter: { ids?: string[], userId?: string }): Promise<ICourseData[]> {
-    console.log('getAll', { filter });
     let usersCoursesIds: string[] | undefined;
     if (filter.userId) {
       const user = await firebaseService.getDoc<IUserDataDB>(firebaseService.Collections.User, filter.userId);
@@ -27,7 +26,9 @@ class Course {
         throw new Error(ECommonErrorTypes.FailedToFindData);
       }
       const progresses = await userCourseProgress.getAll(user.email);
-      usersCoursesIds = progresses.map(a => a.courseId);
+      usersCoursesIds = progresses
+        .filter(p => p.progress.course.lastVisitedAt !== null)
+        .map(p => p.courseId);
       if (usersCoursesIds.length === 0) {
         return [];
       }

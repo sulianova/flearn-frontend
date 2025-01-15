@@ -94,9 +94,9 @@ class UserCourseProgressService {
       }
 
       const userCourseProgreses = await dataService.userCourseProgress.getAll(authedUser.email);
-      console.log('fetchLastStudiedCourse', { userCourseProgreses });
       const lastVisitedCourseId = userCourseProgreses
-        .sort((a, b) => +a.progress.course.lastVisitedAt - +b.progress.course.lastVisitedAt)
+        .filter(p => p.progress.course.lastVisitedAt !== null)
+        .sort((a, b) => +a.progress.course.lastVisitedAt! - +b.progress.course.lastVisitedAt!)
         .at(-1)?.courseId;
 
       if (!lastVisitedCourseId) {

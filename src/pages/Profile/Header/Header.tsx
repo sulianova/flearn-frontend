@@ -13,8 +13,6 @@ import Img from 'ui/Img/Img';
 export default function Header() {
   const lastStudiedCourse = userCourseProgressService.useLastStudiedCourse();
 
-  console.log({ lastStudiedCourse });
-
   if (!lastStudiedCourse) {
     return (
       <div className={classes.emptyCard}>
