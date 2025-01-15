@@ -143,7 +143,7 @@ class UserCourseProgressService {
       .subscribe(() => {
         const user = userService.authedUserBS.getValue();
         const section = locationService.URLSectionBS.getValue();
-        if (!user || (section.name !== 'Profile' && section.name !== 'Study')) {
+        if (!user || (section.name !== 'Profile' && section.name !== 'Study' && section.name !== 'Course')) {
           this._currentCourseProgressBS.next(null);
           return;
         }
