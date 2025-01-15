@@ -12,8 +12,18 @@ export type TProgressDB = {
   lastSolvedAt: string
 };
 
-export type TUserCourseProgress = Record<TLessonId, TProgress>;
-export type TUserCourseProgressDB = Record<TLessonId, TProgressDB>;
+export type TUserCourseProgress = {
+  course: {
+    lastVisitedAt: Date | null
+  };
+  lessons: Record<TLessonId, TProgress>;
+};
+export type TUserCourseProgressDB = {
+  course: {
+    lastVisitedAt: string | null
+  };
+  lessons: Record<TLessonId, TProgressDB>
+};
 
 export type TActionS = { type: 'updated', payload: { courseId: string, lessonId: string } };
 
@@ -22,5 +32,5 @@ export type  TCurrentCourseProgressBSValue = {
     userEmail: string
     courseId: string
   }
-  value: TUserCourseProgress
+  value: TUserCourseProgress | undefined
 };

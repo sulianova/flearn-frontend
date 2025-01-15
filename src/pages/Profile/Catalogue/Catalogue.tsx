@@ -9,16 +9,15 @@ import Icon from 'ui/Icon/Icon';
 import classes from './Catalogue.module.scss';
 
 export default function Catalogue() {
-  const userCourses = courseService.useUserCourses();
   const allCourses = courseService.useCourses();
   const courses = useMemo(() => {
-    const excludeIds = ['illustration', 'how-to-draw-free', ...(userCourses ?? []).map(c => c.id)];
+    const excludeIds = ['illustration', 'how-to-draw-free'];
     return [...allCourses
       .filter(course => !excludeIds.includes(course.id))
       .map(c => ({ isDummy: false, ...c })), ...dummyCourses];
-  }, [allCourses, userCourses]);
+  }, [allCourses]);
 
-  if (!userCourses || !allCourses.length) {
+  if (!allCourses.length) {
     return (
       <div className={classes.spinnerWrapper}>
         <Spinner variant='global'/>

@@ -5,19 +5,32 @@ import type { TUserCourseProgress, TUserCourseProgressDB } from 'services/userCo
 
 export const userCourseProgressConverter = {
   toFirestore: (userCourseProgress: TUserCourseProgress): TUserCourseProgressDB => {
-    const keys = safeObjectKeys(userCourseProgress);
+    const keys = safeObjectKeys(userCourseProgress.lessons);
     const entries = keys.map(k => {
-      const v = userCourseProgress[k];
+      const v = userCourseProgress.lessons[k];
       return [k, { ...v, lastSolvedAt: dateFR2DB(v.lastSolvedAt) }] as const;
     });
-    return Object.fromEntries(entries);
+    return {
+      course: {
+        lastVisitedAt: userCourseProgress.course.lastVisitedAt === null
+          ? null : dateFR2DB(userCourseProgress.course.lastVisitedAt),
+      },
+      lessons: Object.fromEntries(entries),
+    };
   },
   fromFirestore: (userCourseProgressDB: TUserCourseProgressDB): TUserCourseProgress => {
-    const keys = safeObjectKeys(userCourseProgressDB);
+    const keys = safeObjectKeys(userCourseProgressDB.lessons);
     const entries = keys.map(k => {
-      const v = userCourseProgressDB[k];
+      const v = userCourseProgressDB.lessons[k];
       return [k, { ...v, lastSolvedAt: dateDB2FR(v.lastSolvedAt) }] as const;
     });
-    return Object.fromEntries(entries);
+
+    return {
+      course: {
+        lastVisitedAt: userCourseProgressDB.course.lastVisitedAt === null
+          ? null : dateDB2FR(userCourseProgressDB.course.lastVisitedAt),
+      },
+      lessons: Object.fromEntries(entries),
+    };
   },
 };

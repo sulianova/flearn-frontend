@@ -35,8 +35,8 @@ export default function LessonContainer(props: IProps) {
 
     (async () => {
       const progress = await dataService.userCourseProgress.get(courseId, user.email);
-      const isNewUser = Object.keys(progress).length === 0;
-      if (!progress[lessonId]) {
+      const isNewUser = !progress;
+      if (!progress?.lessons[lessonId]) {
         // on the background
         userCourseProgressService.saveLessonProgress({ courseId, lessonId, userEmail: user.email, unlockedBlocks: 0 })
       }
@@ -75,7 +75,7 @@ function Lesson({ section }: IProps) {
   const currentCourse = courseService.useCurrentCourse();
   const currentLesson = lessonService.useCurrentLesson();
   const currentCourseAccess = userAccessService.useAccess();
-  const progress = userCourseProgressService.useCurrentCourseProgress() ?? {};
+  const progress = userCourseProgressService.useCurrentCourseProgress();
 
   if (!currentCourse || !currentLesson || !currentCourseAccess) {
     return (
@@ -117,7 +117,7 @@ function Lesson({ section }: IProps) {
             courseAccess={currentCourseAccess}
             lesson={currentLesson}
             user={authedUser}
-            progress={progress}
+            progress={progress?.lessons ?? {}}
           />)
         }
         {section === 'results' &&

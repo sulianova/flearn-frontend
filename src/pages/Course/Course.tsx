@@ -1,10 +1,11 @@
 
 import Page, { EPageVariant } from 'ui/Page/Page';
 
-import { type IUserData, userService } from 'services/user.service';
-import { type ILessonData, lessonService } from 'services/lesson.service';
-import { type ICourseData, courseService } from 'services/course.service';
-import { type TAccess, userAccessService } from 'services/userAccess.service';
+import { userService } from 'services/user.service';
+import { lessonService } from 'services/lesson.service';
+import { courseService } from 'services/course.service';
+import { userAccessService } from 'services/userAccess.service';
+import { userCourseProgressService } from 'services/userCourseProgress.service';
 
 import Header from './blocks/Header/Header';
 import CoursePage from './blocks/CoursePage/CoursePage';
@@ -19,9 +20,10 @@ export default function Course() {
   const authedUser = userService.useAuthedUser();
   const currentCourse = courseService.useCurrentCourse();
   const currentCourseAccess = userAccessService.useAccess();
+  const currentCourseProgress = userCourseProgressService.useCurrentCourseProgress();
   const courseLessons = lessonService.useCourseLessons();
 
-  if (!currentCourse || !courseLessons) {
+  if (!currentCourse || !courseLessons || !currentCourseProgress) {
     return (
       <Fallback.Pending
         text='Loading course'
@@ -76,6 +78,7 @@ export default function Course() {
                 currentCourse={currentCourse}
                 courseLessons={courseLessons}
                 currentCourseAccess={currentCourseAccess}
+                currentCourseProgress={currentCourseProgress}
                 authedUser={authedUser}
               />
               {blocks.map((block, index) => (

@@ -5,7 +5,6 @@ import type { IUserDataDB } from 'services/user.service';
 import { courseConverter } from './courseConverter';
 
 import { ECommonErrorTypes } from 'types';
-import { TUserCourseProgressDB } from 'services/userCourseProgress.service';
 import userCourseProgress from '../UserCourseProgress';
 
 class Course {
@@ -27,7 +26,9 @@ class Course {
         throw new Error(ECommonErrorTypes.FailedToFindData);
       }
       const progresses = await userCourseProgress.getAll(user.email);
-      usersCoursesIds = progresses.map(a => a.courseId);
+      usersCoursesIds = progresses
+        .filter(p => p.progress.course.lastVisitedAt !== null)
+        .map(p => p.courseId);
       if (usersCoursesIds.length === 0) {
         return [];
       }

@@ -7,6 +7,7 @@ import { type IUserData } from 'services/user.service';
 import { type ILessonData } from 'services/lesson.service';
 import { isIconPNG, type ICourseData } from 'services/course.service';
 import { type TAccess } from 'services/userAccess.service';
+import { TUserCourseProgress } from 'services/userCourseProgress.service';
 
 import BuyPopup from 'components/BuyPopup/BuyPopup';
 import SignupToCoursePopup from 'components/SignupToCoursePopup/SignupToCoursePopup';
@@ -19,12 +20,13 @@ import Img from 'ui/Img/Img';
 interface IProps {
   currentCourse: ICourseData
   courseLessons: Array<ILessonData & { solved: boolean, canBeAccessed: boolean }>
-  currentCourseAccess: TAccess | null
+  currentCourseAccess: TAccess
+  currentCourseProgress: TUserCourseProgress
   authedUser: IUserData | null
 }
 
 export default function Header(props: IProps) {
-  const { currentCourse, courseLessons, currentCourseAccess, authedUser } = props;
+  const { currentCourse, courseLessons, currentCourseAccess, currentCourseProgress, authedUser } = props;
   const firstNotSolvedLesson = (courseLessons.find(l => !l.solved) || courseLessons.at(-1))!;
   const [signupToCoursePopupIsOpened, setSignupToCoursePopupIsOpened] = useState(false);
   const [buyCoursePopupIsOpened, setBuyCoursePopupIsOpened] = useState(false);
@@ -63,7 +65,7 @@ export default function Header(props: IProps) {
           </div>
           <div className={classes.actions}>
           <div className={classes.actionsBtn}>
-            {!authedUser || !currentCourseAccess ?
+            {!authedUser || currentCourseProgress.course.lastVisitedAt === null ?
             (
               <div
                 className={classes.currentLessonButton}

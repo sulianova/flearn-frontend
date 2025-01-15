@@ -19,7 +19,7 @@ interface ITopic {
   order: number
   icon: ILessonData['topicIcon']
   isFree: boolean
-  // isSolved: boolean
+  isSolved: boolean
   // isFirstUnsolved: boolean
   // isUnderDevelopment: boolean
   lessons: (ILessonData & { solved: boolean, canBeAccessed: boolean, isFirstUnsolved: boolean })[]
@@ -48,6 +48,7 @@ export default function CoursePage(props: IProps) {
             order: lessonData.topicOrder,
             icon: lessonData.topicIcon,
             isFree: lessonData.isFree,
+            isSolved: lessonData.solved,
             // isSolved: lessonData.solved,
             // isFirstUnsolved: Boolean(firstUnolvedLesson && lessonData.id === firstUnolvedLesson.id),
             // isUnderDevelopment: lessonData.isUnderDevelopment,
@@ -56,6 +57,7 @@ export default function CoursePage(props: IProps) {
         } else {
           const topic = acc.get(key)!;
           topic.isFree &&= lessonData.isFree;
+          topic.isSolved &&= lessonData.solved;
           // topic.isSolved &&= lessonData.solved;
           // topic.isFirstUnsolved ||= Boolean(firstNotSolvedLesson && lessonData.id === firstNotSolvedLesson.id);
           // topic.isUnderDevelopment &&= lessonData.isUnderDevelopment;
@@ -152,21 +154,25 @@ function Topics(props: { topics: ITopic[] }) {
 
 function Topic(props: { topic: ITopic }) {
   const { topic } = props;
-  const [isExpanded, setIsExpanded] = useState(true);
-    const [height, setHeight] = useState(0);
-    const ref = useRef<HTMLDivElement>(null);
-  
-    useEffect(() => {
-      setHeight(isExpanded ? (ref.current?.scrollHeight ?? 0) : 0);
-    }, [isExpanded]);
+  const [isExpanded, setIsExpanded] = useState(!topic.isSolved);
+  const [height, setHeight] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setHeight(isExpanded ? (ref.current?.scrollHeight ?? 0) : 0);
+  }, [isExpanded]);
 
   return (
     <div className={classes.level}>
       <div className={classes.level__header}>
         <div className={classes.header__meta}>
           <div className={classes.header__meta__number}>Модуль 1</div>
-          <div className={classes.header__meta__state}>Завершен</div>
-          <div className={classes.header__meta__type}>После оплаты</div>
+          {topic.isSolved && (
+            <div className={classes.header__meta__state}>Завершен</div>
+          )}
+          {!topic.isFree && (
+            <div className={classes.header__meta__type}>После оплаты</div>
+          )}
         </div>
         <div className={classes.header__content}>
           <div className={classes.header__content__title}>

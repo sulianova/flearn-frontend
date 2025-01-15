@@ -251,13 +251,11 @@ class LessonService {
             return a[key] - b[key];
           });
 
-        // const firstNotLearnedLesson = sortedLessons.find(l => !progress || !progress[l.id]);
-
         this._courseLessonsBS.next(
           {
             lessons: sortedLessons
               .map(lesson => {
-                const solved = progress?.[lesson.id]?.solved ?? false;
+                const solved = progress?.lessons[lesson.id]?.solved ?? false;
                 const canBeAccessed = lesson.isFree
                   || dependencies.authedUser?.role === 'support'
                   || (dependencies.courseAccess ?? 'FREE') !== 'FREE';
