@@ -39,7 +39,7 @@
   flex-direction: column;
   
   color: $color-content-inverted-primary-light;
-  padding: set-calc(120) set-calc($p-page-desk-l) set-calc(120);
+  padding: set-calc(120) set-calc($p-page-desk-l);
 
   @include set-media(md) {
     padding: set-calc(64) 0 set-calc(64) set-calc($p-page-mob-s);
@@ -55,7 +55,7 @@
   display: flex;
   flex-direction: column;
   
-  padding: set-calc(120) set-calc($p-page-desk-l) set-calc(120);
+  padding: set-calc(120) set-calc($p-page-desk-l);
 
   @include set-media(md) {
     padding: set-calc(64) set-calc($p-page-mob-s);
