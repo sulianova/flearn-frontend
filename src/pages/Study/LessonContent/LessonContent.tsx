@@ -106,16 +106,16 @@ export default function LessonContent(props: IProps) {
         <div className={classes.card}>
           <div className={classes.content}>
             <div className={classes.content__title}>{lesson.title}</div>
-            <div className={classes.content__description}>{lesson.title}</div>
+            {/* <div className={classes.content__description}>{lesson.title}</div> */}
             <div className={classes.content__meta}>
               <p className={classes.meta_item}>
                 {i18n.t(`duration.${lesson.duration.unit}`, { count: lesson.duration.value })}
               </p>
             </div>
           </div>
-          <div className={classes.actions}>
+          {/* <div className={classes.actions}>
             <button className={classes.actions__btn}>Пройти квиз</button>
-          </div>
+          </div> */}
         </div>
         <Article
           key={lessonId}

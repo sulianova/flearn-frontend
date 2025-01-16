@@ -62,12 +62,12 @@
 .switch {
   @include switch-label-24-on;
   .label {
-    color: $color-content-primary-light;
+    color: var(--color-content-primary);
   }
 
   &_off {
     .label {
-      color: $color-content-secondary-light;
+      color: var(--color-content-secondary);
     }
     .icon {
       @include switch-off;
@@ -78,7 +78,6 @@
     }
   }
 }
-
 
 .group {
   display: flex;
@@ -112,18 +111,20 @@
 }
 
 .free {
-  border: 1px solid $color-content-primary-light;
+  opacity: 0.8;
+  
+  border: 1px solid var(--color-content-primary);
   background-color: transparent;
 
-  color: $color-content-primary-light;
+  color: var(--color-content-primary);
 
   .btn {
-    @include button-outline($color-content-primary-light, var(--color-background-pink));
+    @include button-outline(var(--color-content-primary), var(--color-background-alternate));
   }
 
   .item__icon {
-    background-color: $color-content-primary-light;
-    color: $color-content-inverted-primary-light;
+    background-color: var(--color-content-primary);
+    color: var(--color-content-inverted-primary);
   }
 }
 
@@ -308,7 +309,7 @@
   justify-content: center;
   gap: set-calc(4);
 
-  color: $color-content-paragraph-primary-light;
+  color: var(--color-content-paragraph-primary);
   text-align: center;
   padding-top: set-calc(24);
 

@@ -300,7 +300,7 @@ const courseDB1: TCourseDataDBWithoutMeta = {
 
 const courseDB2: TCourseDataDBWithoutMeta = {
   id: 'finding-your-style',
-  type: 'intensive',
+  type: 'course',
   isUnderDevelopment: false,
   title: 'Стиль в иллюстрации',
   startDate: '2024.05.16 21:00:00 GMT',

@@ -12,7 +12,7 @@
   @include font-18-paragraph;
   color: var(--color-content-primary);
 
-  padding: set-calc(32);
+  padding: set-calc(40);
   width: set-calc(480);
 
   @include set-media(md) {
@@ -33,8 +33,8 @@
   width: set-calc(40);
 
   position: absolute;
-  top: set-calc(16);
-  right: set-calc(16);
+  top: set-calc(20);
+  right: set-calc(20);
 
   z-index: 1;
 

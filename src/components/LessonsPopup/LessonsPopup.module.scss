@@ -9,7 +9,7 @@
 
   color: var(--color-content-primary);
 
-  padding: set-calc(32);
+  padding: set-calc(40);
   
   width: set-calc(560);
   min-height: set-calc(600);
@@ -26,9 +26,11 @@
   @include icon-button-40;
   @include icon-button-invisible;
 
+  width: set-calc(40);
+
   position: absolute;
-  top: set-calc(16);
-  right: set-calc(16);
+  top: set-calc(20);
+  right: set-calc(20);
 
   z-index: 1;
 
