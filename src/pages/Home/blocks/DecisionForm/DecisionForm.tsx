@@ -79,12 +79,12 @@ export default function DecisionForm(props: IProps) {
             <span>{t('card.subtitle.free')}</span>
           </div>
           {authService.isAuthenticated ? (
-           <Link
-             className={classes.btn}
-             to={props.linkToFreeCourse}
-           >
+            <button
+              disabled
+              className={classes.btn}
+            >
              <div className={classes.text}>{t('card.btn.freeUser')}</div>
-           </Link>
+           </button>
           ) : (
            <div
              className={classes.btn}

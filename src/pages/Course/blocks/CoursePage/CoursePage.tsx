@@ -15,6 +15,7 @@ import classes from './CoursePage.module.scss';
 const cx = classnames.bind(classes);
 
 interface ITopic {
+  index: number
   title: string
   order: number
   icon: ILessonData['topicIcon']
@@ -44,6 +45,7 @@ export default function CoursePage(props: IProps) {
 
         if (!acc.has(key)) {
           acc.set(key, {
+            index: 0,
             title: lessonData.topic,
             order: lessonData.topicOrder,
             icon: lessonData.topicIcon,
@@ -68,7 +70,8 @@ export default function CoursePage(props: IProps) {
         return acc;
       }, new Map() as Map<string, ITopic>)
       .values()]
-      .sort((a, b) => a.order - b.order);
+      .sort((a, b) => a.order - b.order)
+      .map((topic, index) => ({ ...topic, index }))
   }, [courseLessons]);
 
   const freeTopics = topics.filter(topic => topic.isFree);
@@ -166,7 +169,7 @@ function Topic(props: { topic: ITopic }) {
     <div className={classes.level}>
       <div className={classes.level__header}>
         <div className={classes.header__meta}>
-          <div className={classes.header__meta__number}>Модуль 1</div>
+          <div className={classes.header__meta__number}>{`Модуль ${topic.index}`}</div>
           {topic.isSolved && (
             <div className={classes.header__meta__state}>Завершен</div>
           )}

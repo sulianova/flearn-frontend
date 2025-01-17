@@ -1,10 +1,9 @@
 import { useMemo } from 'react';
 
-import { courseService, dummyCourses } from 'services/course.service';
+import { courseService } from 'services/course.service';
 
 import CourseCard from 'components/CourseCard/CourseCard';
 import Spinner from 'ui/Spinner/Spinner';
-import Icon from 'ui/Icon/Icon';
 
 import classes from './Catalogue.module.scss';
 
@@ -12,9 +11,9 @@ export default function Catalogue() {
   const allCourses = courseService.useCourses();
   const courses = useMemo(() => {
     const excludeIds = ['illustration', 'how-to-draw-free'];
-    return [...allCourses
+    return allCourses
       .filter(course => !excludeIds.includes(course.id))
-      .map(c => ({ isDummy: false, ...c })), ...dummyCourses];
+      .map(c => ({ isDummy: false, ...c }));
   }, [allCourses]);
 
   if (!allCourses.length) {

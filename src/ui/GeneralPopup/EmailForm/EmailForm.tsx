@@ -39,16 +39,16 @@ export default function EmailForm({ submitText, handleSubmit }: IProps) {
             value={formData.email}
             className={cx({ input: true })}
             onChange={v => setFormData(d => ({ ...d, email: v }))}
+            onBlur={() => setFormData(d => ({ ...d, emailValid: d.email !== '' }))}
             state={formData.emailValid ? 'idle' : 'error'}
-            onBlur={() => setFormData(d => ({ ...d, emailValid: true }))}
             caption={formData.emailValid ? undefined : 'Введите верный email'}
           />
           {formData.state.type === 'Error' && <span className={classes.Error}>{formData.state.error.message}</span>}
           <button
-            className={cx({ submitButton: true, [`is${formData.state.type}`]: true })}
             type="submit"
-            disabled={!isValid(formData)}
+            disabled={!formData.emailValid}
             onClick={() => submit({ formData, setFormData, handleSubmit })}
+            className={cx({ submitButton: true, [`is${formData.state.type}`]: true })}
           >
             <div className={classes.content}>
               {
