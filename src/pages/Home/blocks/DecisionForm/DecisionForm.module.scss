@@ -92,6 +92,12 @@
 
   .btn {
     @include button-outline($color-content-primary-light, var(--color-background-pink));
+
+    &:disabled {
+      color: $color-background-glassy-d-light;
+      background: $color-background-glassy-a-light;
+      border-color: $color-background-glassy-d-light;
+    }
   }
 
   .item__icon {

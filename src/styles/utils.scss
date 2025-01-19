@@ -444,6 +444,12 @@
     color: $bc-color;
   }
 
+  &:disabled {
+    color:  var(--color-background-glassy-d);
+    background:  var(--color-background-glassy-a);
+    border-color:  var(--color-background-glassy-d);
+  }
+
   @include set-media(md) {
 
     &:hover {
