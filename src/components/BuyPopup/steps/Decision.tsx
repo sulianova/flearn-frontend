@@ -14,6 +14,7 @@ import { getDiscount } from './utils';
 
 import { authService } from 'services/auth.service';
 import { userService, type IUserData } from 'services/user.service';
+import { MONTHLY_ORDER_URL, QUARTERLY_ORDER_URL } from 'utils/order';
 
 const cx = classnames.bind(classes);
 const t = formatI18nT('decision');
@@ -166,21 +167,13 @@ export default function Decision(props: IProps) {
             </>
           )}
         </div>
-        {authService.isAuthenticated ? (
-         <Link
-           className={classes.btn}
-          //  to={props.linkToFreeCourse}
-         >
-           <div className={classes.text}>{t('card.btn.pro')}</div>
-         </Link>
-        ) : (
-         <div
-           className={classes.btn}
-           onClick={props.onNotAuthedClick}
-         >
-           <div className={classes.text}>{t('card.btn.pro')}</div>
-         </div>
-       )}
+        <Link
+          target='_blank'
+          className={classes.btn}
+          to={isQuarterly ? QUARTERLY_ORDER_URL : MONTHLY_ORDER_URL}
+        >
+          <div className={classes.text}>{t('card.btn.pro')}</div>
+        </Link>
         <div className={classes.description}>{t('card.description.pro')}</div>
         <ul className={classes.list}>
           <li className={classes.item}>
