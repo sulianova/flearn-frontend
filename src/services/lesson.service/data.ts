@@ -6170,2244 +6170,6 @@ const lessonDataFYS13: ILessonDataDB = {
   ]
 }
 
-// const lessonDataFYS21: ILessonDataDB = {
-//   id: 'CommercialIllustrator_2Q1wTR',
-//   courseId: 'finding-your-style',
-//   title: 'Кто такой иллюстратор и чем он занимается',
-//   type: 'Theory',
-//   icon: 'Lesson',
-//   topic: 'Иллюстрация как профессия',
-//   topicOrder: 2,
-//   topicIcon: 'Lesson',
-//   orderInTopic: 1,
-//   duration: {
-//     unit: 'minutes',
-//     value: 5
-//   },
-//   isFree: true,
-//   isUnderDevelopment: false,
-//   content: [
-//     {
-//       type: 'textImportant',
-//       text: 'В конце бесплатного модуля вы сможете сдать на проверку свой самостоятельный проект. Не упустите возможность получить обратную связь от ревьюера и узнать, как работает команда сопровождения в flearn.',
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'p',
-//           content: [
-//             {
-//               tag: 'span',
-//               content: 'Добро пожаловать на вводную часть курса ',
-//             },
-//             {
-//               tag: 'span',
-//               content: '«Композиция: как выделить главное»! ',
-//               props: { className: 'bold'},
-//             },
-//             {
-//               tag: 'span',
-//               content: 'Совсем скоро вы сделаете свою первую иллюстрацию для рекламного баннера. Но для начала давайте узнаем, кто такой иллюстратор и чем он занимается.',
-//             }
-//           ],
-//         },
-//         {
-//           tag: 'p',
-//           content: [
-//             {
-//               tag: 'span',
-//               content: 'Иллюстратор ',
-//               props: { className: 'bold'},
-//             },
-//             {
-//               tag: 'span',
-//               content: 'помогает компаниям и людям выделиться среди конкурентов, привлечь новую аудиторию, сделать текст нагляднее и проще.',
-//             },
-//           ]
-//         },
-//         {
-//           tag: 'p',
-//           content: 'Работы иллюстраторов можно увидеть в книгах, журналах, на обложках альбомов, в рекламе, а также в цифровых продуктах, таких как веб-сайты и приложения. Главная задача иллюстратора — передать идеи, эмоции и информацию через изображения.'
-//         }
-//       ]
-//     },
-//     {
-//       type: 'chat',
-//       chat: {
-//         blocks: [
-//           {
-//             showThisBlockButtonContent: '',
-//             messages: [],
-//           },
-//           {
-//             showThisBlockButtonContent: 'А можешь показать на примере?',
-//             messages: [
-//               {
-//                 sender: { isSelf: true },
-//                 content: 'А можешь показать на примере?'
-//               },
-//               {
-//                 sender: { name: 'Соня Ульянова', isSelf: false },
-//                 content: 'Конечно!'
-//               },
-//             ],
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'title',
-//       title: 'Пример из упаковки продуктов'
-//     },
-//     {
-//       type: 'text',
-//       text: 'Malika Favr известна своими минималистичными и яркими работами. Её иллюстрации часто используются в рекламных плакатах и упаковке продуктов, чтобы привлечь внимание своей уникальной стилистикой.'
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'sephora1.webp',
-//         alt: 'sephora1',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Malika Favr для Sephora',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.malikafavre.com/' },
-//           }
-//         ]
-//       },
-//     },
-//     {
-//       type: 'title',
-//       title: 'Пример из книжкой иллюстрации'
-//     },
-//     {
-//       type: 'text',
-//       text: 'Возьмём, например, книгу от издательства Поляндрия «Моё босоногое племя. Прощай, бетон!» Иллюстратор, Стефан Николе, придумал иллюстрации, которые помогают детям и взрослым лучше понять и почувствовать сюжет книги. Его рисунки не только дополняют текст, но и создают особую атмосферу, увлекая читателя.'
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'polyandria1.webp',
-//         alt: 'polyandria1',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Поляндрия',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://polyandria.ru/catalog/novinki/moye-bosonogoe-plemya-proshchay-beton/' },
-//           }
-//         ]
-//       },
-//     },
-//     {
-//       type: 'text',
-//       text: 'Дальше мы подробнее посмотрим, как иллюстрации используются в'
-//     },
-//     {
-//       type: 'list',
-//       items: [
-//         'цифровых продуктах;',
-//         'рекламе;',
-//         'упаковке;',
-//         'оформлении пространств;',
-//         'книгах и журналах.'
-//       ]
-//     }
-//   ],
-// }
-
-// const lessonDataFYS22: ILessonDataDB = {
-//   id: 'IT_fed4TU',
-//   courseId: 'finding-your-style',
-//   title: 'Цифровые продукты',
-//   type: 'Theory',
-//   icon: 'Lesson',
-//   topic: 'Иллюстрация как профессия',
-//   topicOrder: 2,
-//   topicIcon: 'Lesson',
-//   orderInTopic: 2,
-//   duration: {
-//     unit: 'minutes',
-//     value: 10
-//   },
-//   isFree: true,
-//   isUnderDevelopment: false,
-//   content: [
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'p',
-//           content: 'Иллюстрации в IT могут значительно улучшить пользовательский опыт, помочь визуализировать данные и сделать сложные идеи понятными и доступными. Вот несколько примеров их использования.'
-//         },
-//         {
-//           tag: 'p',
-//           content: [
-//             {
-//               tag: 'span',
-//               content: 'Помогают быстро ориентироваться в приложении. ',
-//               props: { className: 'bold'},
-//             },
-//             {
-//               tag: 'span',
-//               content: 'Представьте, что вы пользуетесь мобильным приложением для доставки еды. На главном экране вы видите иконки разных категорий: пицца, суши, бургеры и т.д. Эти иконки помогают пользователю быстро найти нужный раздел, делая взаимодействие с приложением интуитивно понятным и приятным.',
-//             },
-//           ]
-//         },
-//       ]
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'Vkusvill.webp',
-//         alt: 'Vkusvill',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Vkusvill',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://vkusvill.ru/' },
-//           }
-//         ]
-//       },
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'p',
-//           content: [
-//             {
-//               tag: 'span',
-//               content: 'Визуализируют данные. ',
-//               props: { className: 'bold'},
-//             },
-//             {
-//               tag: 'span',
-//               content: 'В приложениях для аналитики или финансов инфографика помогает легко и понятно представить сложные данные. Например, приложение для учета личных финансов может показывать ваши расходы в виде диаграмм и графиков, где каждый сектор или столбец иллюстрирован иконками продуктов, услуг и т.д.',
-//             }
-//           ]
-//         },
-//       ]
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'PaulaCruz1.webp',
-//         alt: 'PaulaCruz1',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Paula Cruz',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/paulacruz' },
-//           }
-//         ]
-//       },
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'p',
-//           content: [
-//             {
-//               tag: 'span',
-//               content: 'Сопровождают онбординг, первоначальное обучение пользователя. ',
-//               props: { className: 'bold'},
-//             },
-//             {
-//               tag: 'span',
-//               content: 'Иногда текст сложно понять без визуальной поддержки. Например, когда вы впервые открываете новое приложение, то часто видите серию экранов, объясняющих его основные функции. Иллюстрации на этих экранах помогают понять, что и как делать.',
-//             }
-//           ]
-//         },
-//       ]
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'IvanHaidutski.webp',
-//         alt: 'IvanHaidutski',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Ivan Haidutski',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/ivanhaidutski' },
-//           }
-//         ]
-//       },
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'p',
-//           content: [
-//             {
-//               tag: 'span',
-//               content: 'Повышают вовлеченность пользователей с помощью геймификации. ',
-//               props: { className: 'bold'},
-//             },
-//             {
-//               tag: 'span',
-//               content: 'Например, в образовательных приложениях можно встретить дружелюбных интерактивных персонажей, которые помогают проходить обучение, вовлекают в процесс и дают обратную связь.',
-//             }
-//           ]
-//         },
-//       ]
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'MinHeo1.webp',
-//         alt: 'MinHeo1',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Min Heo',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://minstudio.cargo.site/index' },
-//           }
-//         ]
-//       },
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'p',
-//           content: [
-//             {
-//               tag: 'span',
-//               content: 'Объясняют сложные идеи. ',
-//               props: { className: 'bold'},
-//             },
-//             {
-//               tag: 'span',
-//               content: 'Например, Dropbox использует иллюстрации, чтобы объяснить, как работает их облачное хранилище и какие функции оно предлагает. Схемы и картинки делают процесс понятным даже для новичков.',
-//             }
-//           ]
-//         },
-//       ],
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'dropbox.webp',
-//         alt: 'dropbox',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'DropBox',
-//             props: { className: 's-hoverable' },
-//           }
-//         ]
-//       },
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'span',
-//           content: 'Делают бренд узнаваемым. ',
-//           props: {className: ' bold'}
-//         },
-//         {
-//           tag: 'span',
-//           content: 'Например, у Duolingo, платформы для изучения английского, есть главный персонаж — зеленый совенок. Этот совенок делает бренд легко узнаваемым и запоминающимся, а также придает компании дружелюбный и доступный вид.'
-//         }
-//       ]
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'duolingo.webp',
-//         alt: 'duolingo',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'duolingo',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://ru.duolingo.com' },
-//           }
-//         ]
-//       }
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'span',
-//           content: 'Создают эмоциональную связь с аудиторией. ',
-//           props: {className: ' bold'}
-//         },
-//         {
-//           tag: 'span',
-//           content: 'Headspace использует яркие и простые иллюстрации, чтобы сделать медитацию доступной и приятной. Картинки помогают создать расслабляющую атмосферу и настроить пользователя на позитивный лад. Дизайнеры выбрали минималистичный стиль, чтобы медитация казалась интересной и привлекательной для широкой аудитории.'
-//         }
-//       ]
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'headspace2.webp',
-//         alt: 'headspace2',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Headspace',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://organizations.headspace.com/employers?origin=nav&_gl=1*9e6e41*_gcl_au*NDUyNTQ1MTU3LjE3MjE3NDU2MjY.*FPAU*NDUyNTQ1MTU3LjE3MjE3NDU2MjY.' },
-//           }
-//         ]
-//       }
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'span',
-//           content: 'Транслируют эмоции и настроение. ',
-//           props: {className: ' bold'}
-//         },
-//         {
-//           tag: 'span',
-//           content: 'Например, компания Airbnb использует иллюстрации, чтобы создать дух путешествий и открытий. Иллюстраторы выбирают яркие, насыщенные цвета, чтобы вызвать у пользователей чувство приключения и исследовательского духа.'
-//         }
-//       ]
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'airbnb.webp',
-//         alt: 'airbnb',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'airbnb',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://ru.airbnb.com/giftcards' },
-//           }
-//         ]
-//       }
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'span',
-//           content: 'Усиливают коммуникацию с брендом. ',
-//           props: {className: ' bold'}
-//         },
-//         {
-//           tag: 'span',
-//           content: 'Google Doodles – это временные изменения логотипа Google, которые отражают важные события, праздники и юбилеи. Художники вдохновляются культурными событиями и историческими личностями, создавая уникальные и узнаваемые образы.'
-//         }
-//       ]
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'GoogleDoodle2.webp',
-//         alt: 'GoogleDoodle2',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Google Doodles',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://doodles.google/' },
-//           }
-//         ]
-//       }
-//     },
-//     {
-//       type: 'chat',
-//       chat: {
-//         blocks: [
-//           {
-//             showThisBlockButtonContent: '',
-//             messages: [
-//               {
-//                 sender: { name: 'Соня Ульянова', isSelf: false },
-//                 content: 'Вот вроде и все. Дальше будет пара вопросов, чтобы закрепить материал. Готовы?'
-//               },
-//             ],
-//           },
-//           {
-//             showThisBlockButtonContent: 'Ага) Давай вопросы!',
-//             messages: [
-//               {
-//                 sender: { isSelf: true },
-//                 content: 'Ага) Давай вопросы!'
-//               }
-//             ],
-//           },
-//         ]
-//       }
-//     },
-//     {
-//       type: 'quiz',
-//       steps: [
-//         {
-//           type: 'SELECT',
-//           variant: 'RADIO',
-//           title: '1/2. Почему важно учитывать пользовательский опыт при создании иллюстраций?',
-//           options: [
-//             {
-//               value: 'Чтобы иллюстрации выглядели профессионально.',
-//               shouldBeSelected: false,
-//             },
-//             {
-//               value: 'Чтобы приложение было интуитивно понятным и удобным.',
-//               shouldBeSelected: true,
-//             },
-//             {
-//               value: 'Чтобы уменьшить количество иллюстраций в приложении.',
-//               shouldBeSelected: false,
-//             },
-//           ],
-//         },
-//         {
-//           type: 'SELECT',
-//           variant: 'CHECKBOX',
-//           title: '2/2. Зачем разрабочики приложений используют иллюстрации в интерфейсе? Выберите все верные варианты ответа.',
-//           description: 'Иллюстрации…',
-//           options: [
-//             {
-//               value: 'улучшают производительность приложения.',
-//               shouldBeSelected: false,
-//             },
-//             {
-//               value: 'помогают пользователям лучше ориентироваться в приложении.',
-//               shouldBeSelected: true,
-//             },
-//             {
-//               value: 'заменяют текстовые инструкции наглядными визуальными образами.',
-//               shouldBeSelected: true,
-//             },
-//           ],
-//         },
-//       ]
-//     },
-//     {
-//       type: 'chat',
-//       chat: {
-//         blocks: [
-//           {
-//             showThisBlockButtonContent: '',
-//             messages: [
-//               {
-//                 sender: { name: 'Соня Ульянова', isSelf: false },
-//                 content: 'Отлично! Я подобрала еще несколько примеров того, как иллюстрации используются в IT. Смотрим?'
-//               },
-//             ],
-//           },
-//           {
-//             showThisBlockButtonContent: 'Да, конечно!',
-//             messages: [
-//               {
-//                 sender: { isSelf: true },
-//                 content: 'Да, конечно!'
-//               }
-//             ],
-//           },
-//         ]
-//       }
-//     },
-//     {
-//       type: 'gallery',
-//       maxHeightPx: 900,
-//       images: [
-//         {
-//           id: 'headspace1.webp',
-//           alt: 'headspace1',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Headspace',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://organizations.headspace.com/employers?origin=nav&_gl=1*9e6e41*_gcl_au*NDUyNTQ1MTU3LjE3MjE3NDU2MjY.*FPAU*NDUyNTQ1MTU3LjE3MjE3NDU2MjY.' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'GoogleDoodle1.webp',
-//           alt: 'GoogleDoodle1',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Google Doodles',
-//               props: { className: 'key-link', target: "_blank", to: 'https://doodles.google/' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'ShukaDesign1.webp',
-//           alt: 'ShukaDesign1',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Shuka Design',
-//               props: { className: 'key-link', target: "_blank", to: 'http://shuka.design' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'ShukaDesign2.webp',
-//           alt: 'ShukaDesign2',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Shuka Design',
-//               props: { className: 'key-link', target: "_blank", to: 'http://shuka.design' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'ShukaDesign3.webp',
-//           alt: 'ShukaDesign3',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Shuka Design',
-//               props: { className: 'key-link', target: "_blank", to: 'http://shuka.design' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'ShukaDesign4.webp',
-//           alt: 'ShukaDesign4',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Shuka Design',
-//               props: { className: 'key-link', target: "_blank", to: 'http://shuka.design' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'ShukaDesign8.webp',
-//           alt: 'ShukaDesign8',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Shuka Design',
-//               props: { className: 'key-link', target: "_blank", to: 'http://shuka.design' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'ShukaDesign9.webp',
-//           alt: 'ShukaDesign9',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Shuka Design',
-//               props: { className: 'key-link', target: "_blank", to: 'http://shuka.design' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'naitori4.webp',
-//           alt: 'naitori4',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'naitori',
-//               props: { className: 'key-link', target: "_blank", to: 'https://naitori.ru/#next' },
-//             }
-//           ]
-//         },
-//       ]
-//     },
-//     {
-//       type: 'chat',
-//       chat: {
-//         blocks: [
-//           {
-//             showThisBlockButtonContent: '',
-//             messages: [
-//               {
-//                 sender: { name: 'Соня Ульянова', isSelf: false },
-//                 content: 'Мы разобрались с тем, как иллюстрации улучшают мобильные приложения. Готовы продолжить?'
-//               },
-//             ],
-//           },
-//           {
-//             showThisBlockButtonContent: 'Да, конечно! Давай посмотрим, где еще нужны иллюстрации.',
-//             messages: [
-//               {
-//                 sender: { isSelf: true },
-//                 content: 'Да, конечно! Давай посмотрим, где еще нужны иллюстрации.'
-//               },
-//               {
-//                 sender: { name: 'Соня Ульянова', isSelf: false },
-//                 content: 'Супер, тогда переходим к иллюстрациям в рекламе.'
-//               },
-//             ],
-//           },
-//         ]
-//       }
-//     },
-//   ]
-// }
-
-// const lessonDataFYS23: ILessonDataDB = {
-//   id: 'Marketing_28EO3M',
-//   courseId: 'finding-your-style',
-//   title: 'Реклама',
-//   type: 'Theory',
-//   icon: 'Lesson',
-//   topic: 'Иллюстрация как профессия',
-//   topicOrder: 2,
-//   topicIcon: 'Lesson',
-//   orderInTopic: 3,
-//   duration: {
-//     unit: 'minutes',
-//     value: 10
-//   },
-//   isFree: true,
-//   isUnderDevelopment: false,
-//   content: [
-//     {
-//       type: 'text',
-//       text: 'Иллюстрации помогают привлечь внимание, быстро донести сообщение и создать эмоциональную связь с потенциальными клиентами. Давайте посмотрим на несколько примеров.',
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'p',
-//           content: [
-//             {
-//               tag: 'span',
-//               content: 'Помогают отстроиться от конкурентов. ',
-//               props: { className: 'bold'},
-//             },
-//             {
-//               tag: 'span',
-//               content: 'Иллюстрации создают уникальный визуальный стиль, который выделяет бренд среди конкурентов. Например, L\'Occitane использует яркие иллюстрации на упаковке, чтобы подчеркнуть индивидуальность. Такой подход помогает бренду запомниться и привлечь внимание клиентов.',
-//             }
-//           ]
-//         },
-//       ],
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'StevenWilson3.webp',
-//         alt: 'StevenWilson3',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Steven Wilson',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/stevenwilsonstudio' },
-//           }
-//         ]
-//       },
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'p',
-//           content: [
-//             {
-//               tag: 'span',
-//               content: 'Усиливают бренд. ',
-//               props: { className: 'bold'},
-//             },
-//             {
-//               tag: 'span',
-//               content: 'Иллюстрации создают приятные визуальные ассоциации с продуктом. Например, Mickey Mouse – один из самых узнаваемых маскотов в мире. Его образ вызывает улыбку и усиливает эмоциональную связь с брендом.',
-//             }
-//           ]
-//         },
-//       ],
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'ZaraMickeyMouse2.webp',
-//         alt: 'ZaraMickeyMouse2',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Футболка с Mickey Mouse в Zara',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.zara.com/rs/sr/majica-mickey-mouse---disney-p07878778.html' },
-//           }
-//         ]
-//       },
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'p',
-//           content: [
-//             {
-//               tag: 'span',
-//               content: 'Привлекают внимание. ',
-//               props: { className: 'bold'},
-//             },
-//             {
-//               tag: 'span',
-//               content: 'Объявления с картинками привлекают внимание гораздо быстрее, чем текст. Например, афиши для музыкальных фестивалей или выставок часто используют яркие иллюстрации, чтобы задать настроение и создать запоминающееся впечатление у зрителей.',
-//             }
-//           ]
-//         },
-//       ],
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'AmandaLobos4.webp',
-//         alt: 'AmandaLobos4',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Amanda Lobos',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
-//           }
-//         ]
-//       },
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'p',
-//           content: [
-//             {
-//               tag: 'span',
-//               content: 'Помогают с принятием решений. ',
-//               props: { className: 'bold'},
-//             },
-//             {
-//               tag: 'span',
-//               content: 'Иллюстрации помогают людям быстрее решать, покупать ли продукт. Например, в рекламе психологических услуг картинки могут показать, как работает терапия, и помочь понять, подходит ли она вам.',
-//             }
-//           ]
-//         },
-//       ],
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'yasno.live.webp',
-//         alt: 'yasno.live',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Реклама психологических услуг Ясно',
-//             props: { className: 's-hoverable', target: "_blank", to: 'ej&utm_term=ясно%20лайв&gad_source=1&gclid=CjwKCAjwqf20BhBwEiwAt7dtdSi3vhYAjsS2MYP_bfWtYmGeJpShiyTYZ1uzOYvELEcATDeVpwOn-RoCQNsQAvD_BwE' },
-//           }
-//         ]
-//       },
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'p',
-//           content: [
-//             {
-//               tag: 'span',
-//               content: 'Объясняют сложные идеи. ',
-//               props: { className: 'bold'},
-//             },
-//             {
-//               tag: 'span',
-//               content: 'Иллюстрации помогают легче понять сложную информацию. Например, медицинские компании используют картинки, чтобы показать, как действует лекарство или как работает медицинский прибор. Такие картинки помогают людям лучше понять продукт и его преимущества.',
-//             }
-//           ]
-//         },
-//       ],
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'SusannaRumiz3.webp',
-//         alt: 'SusannaRumiz3',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Промоматериалы для Komoot. Приложение, чтобы спланировать маршрут и устроить хайкинг',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/susannarumiz/projects' },
-//           }
-//         ]
-//       },
-//     },
-//     {
-//       type: 'chat',
-//       chat: {
-//         blocks: [
-//           {
-//             showThisBlockButtonContent: '',
-//             messages: [
-//               {
-//                 sender: { name: 'Соня Ульянова', isSelf: false },
-//                 content: 'Это все, что я хотела рассказать об иллюстрациях в рекламе. А теперь давайте немного попрактикуемся. Готовы?'
-//               },
-//             ],
-//           },
-//           {
-//             showThisBlockButtonContent: 'Да, давай практиковаться!)',
-//             messages: [
-//               {
-//                 sender: { isSelf: true },
-//                 content: 'Да, давай практиковаться!)'
-//               }
-//             ],
-//           },
-//         ]
-//       }
-//     },
-//     {
-//       type: 'quiz',
-//       steps: [
-//         {
-//           type: 'SELECT',
-//           variant: 'RADIO',
-//           title: '1/2. Перед вами реклама Adidas. Подумайте, на какую группу людей она ориентирована.',
-//           image: {
-//             id: 'adidas1.webp',
-//             alt: 'adidas1',
-//           },
-//           options: [
-//             {
-//               value: 'Любят спортивный стиль и всегда в курсе новых моделей кроссовок.',
-//               shouldBeSelected: false,
-//             },
-//             {
-//               value: 'Студенты из Азии, которые интересуются современным искусством и музыкой.',
-//               shouldBeSelected: true,
-//             },
-//             {
-//               value: 'Профессионально занимаются спортом.',
-//               shouldBeSelected: false,
-//             },
-//           ],
-//         },
-//         {
-//           type: 'SELECT',
-//           variant: 'RADIO',
-//           title: '2/2. Перед вами реклама Adidas. Подумайте, на какую группу людей она ориентирована.',
-//           image: {
-//             id: 'adidas3.webp',
-//             alt: 'adidas3',
-//           },
-//           options: [
-//             {
-//               value: 'Любят вечеринки и музыкальные фестивали, возраст до 35 лет.',
-//               shouldBeSelected: true,
-//             },
-//             {
-//               value: 'Не одеваются в Adidas, но следят за релизами эксклюзивных коллекций кроссовок,  возраст до 30 лет.',
-//               shouldBeSelected: false,
-//             },
-//             {
-//               value: 'Раньше профессионально занимались спортом, средний возраст — 45-60 лет.',
-//               shouldBeSelected: false,
-//             },
-//           ],
-//         },
-//       ]
-//     },
-//     {
-//       type: 'chat',
-//       chat: {
-//         blocks: [
-//           {
-//             showThisBlockButtonContent: '',
-//             messages: [
-//               {
-//                 sender: { name: 'Соня Ульянова', isSelf: false },
-//                 content: 'Отлично! Я подобрала еще несколько примеров того, как иллюстрации используются в рекламе. Смотрим?'
-//               },
-//             ],
-//           },
-//           {
-//             showThisBlockButtonContent: 'Да, конечно!',
-//             messages: [
-//               {
-//                 sender: { isSelf: true },
-//                 content: 'Да, конечно!'
-//               }
-//             ],
-//           },
-//         ]
-//       }
-//     },
-//     {
-//       type: 'gallery',
-//       maxHeightPx: 4_300,
-//       images: [
-//         {
-//           id: 'SummerSymphiny.webp',
-//           alt: 'SummerSymphiny',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Summer Symphiny',
-//               props: { className: 'key-link'},
-//             }
-//           ]
-//         },
-//         {
-//           id: 'AmandaLobos6.webp',
-//           alt: 'AmandaLobos6',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Amanda Lobos',
-//               props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'AmandaLobos7.webp',
-//           alt: 'AmandaLobos7',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Amanda Lobos',
-//               props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'AmandaLobos8.webp',
-//           alt: 'AmandaLobos8',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Amanda Lobos',
-//               props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'AmandaLobos9.webp',
-//           alt: 'AmandaLobos9',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Amanda Lobos',
-//               props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'okchizh1.webp',
-//           alt: 'okchizh1',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Юля Чиж',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://okchizh.art/' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'StevenWilson1.webp',
-//           alt: 'StevenWilson1',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Steven Wilson',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/stevenwilsonstudio' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'StevenWilson2.webp',
-//           alt: 'StevenWilson2',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Steven Wilson',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/stevenwilsonstudio' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'ETolsma2.webp',
-//           alt: 'ETolsma2',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'E. Tolsma',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/ellistolsma' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'AmandaLobos3.webp',
-//           alt: 'AmandaLobos3',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Amanda Lobos',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'IlyaMilstein5.webp',
-//           alt: 'IlyaMilstein5',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Ilya Milstein',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.ilyamilstein.com/' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'IlyaMilstein7.webp',
-//           alt: 'IlyaMilstein7',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Ilya Milstein',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.ilyamilstein.com/' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'sasha.ananas.sktch.webp',
-//           alt: 'sasha.ananas.sktch',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Sasha Ananas',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/sasha.ananas.sktch/' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'BarboraIdesova1.webp',
-//           alt: 'BarboraIdesová1',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Barbora Idesová',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/barboraidesova' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'BarboraIdesova2.webp',
-//           alt: 'BarboraIdesová2',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Barbora Idesová',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/barboraidesova' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'BarboraIdesova3.webp',
-//           alt: 'BarboraIdesová3',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Barbora Idesová',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/barboraidesova' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'BarboraIdesova4.webp',
-//           alt: 'BarboraIdesová4',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Barbora Idesová',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/barboraidesova' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'BarboraIdesova5.webp',
-//           alt: 'BarboraIdesová5',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Barbora Idesová',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/barboraidesova' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'BarboraIdesova6.webp',
-//           alt: 'BarboraIdesová6',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Barbora Idesová',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/barboraidesova' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'BarboraIdesova7.webp',
-//           alt: 'BarboraIdesová7',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Barbora Idesová',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/barboraidesova' },
-//             }
-//           ]
-//         },
-//       ]
-//     },
-//   ]
-// }
-
-// const lessonDataFYS24: ILessonDataDB = {
-//   id: 'Products_303ES4',
-//   courseId: 'finding-your-style',
-//   title: 'Коллаборации',
-//   type: 'Theory',
-//   icon: 'Lesson',
-//   topic: 'Иллюстрация как профессия',
-//   topicOrder: 2,
-//   topicIcon: 'Lesson',
-//   orderInTopic: 4,
-//   duration: {
-//     unit: 'minutes',
-//     value: 10
-//   },
-//   isFree: true,
-//   isUnderDevelopment: false,
-//   content: [
-//     {
-//       type: 'chat',
-//       chat: {
-//         blocks: [
-//           {
-//             showThisBlockButtonContent: '',
-//             messages: [
-//               {
-//                 sender: { name: 'Соня Ульянова', isSelf: false },
-//                 content: 'Иллюстраторы рисуют не только для рекламных компаний. Бывает так, что совместная работа иллюстратора и компании переходит в нечто большее.'
-//               },
-//               {
-//                 sender: { name: 'Соня Ульянова', isSelf: false },
-//                 content: 'Так появляются лимитированные линейки.'
-//               },
-//             ],
-//           },
-//           {
-//             showThisBlockButtonContent: 'Звучит интересно. Покажешь примеры?',
-//             messages: [
-//               {
-//                 sender: { isSelf: true },
-//                 content: 'Звучит интересно. Покажешь примеры?'
-//               },
-//               {
-//                 sender: { name: 'Соня Ульянова', isSelf: false },
-//                 content: 'Конечно)'
-//               },
-//             ],
-//           },
-//         ]
-//       }
-//     },
-//     {
-//       type: 'title',
-//       title: 'Иллюстрации для продуктов',
-//     },
-//     {
-//       type: 'text',
-//       text: 'Когда бренды и иллюстраторы работают вместе, они могут создавать уникальные и запоминающиеся продукты. Эти совместные проекты дают иллюстраторам новые возможности для творчества и развития. Давайте посмотрим несколько примеров таких коллабораций.'
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'span',
-//           content: 'Привлекают новую аудиторию. ',
-//           props: {className: 'bold'}
-//         },
-//         {
-//           tag: 'span',
-//           content: 'Gucci часто работает с иллюстраторами, чтобы создавать уникальные коллекции. Один из самых запоминающихся проектов был с британской художницей Unskilled Worker. Она стала известна благодаря своим необычным и ярким портретам. В результате их сотрудничества появилась линия одежды и аксессуаров с красочными иллюстрациями, которые помогли привлечь новую аудиторию.'
-//         }
-//       ]
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'unskilledworker3.webp',
-//         alt: 'unskilledworker3',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Unskilled Worker',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://unskilledworker.co.uk/work/' },
-//           }
-//         ]
-//       }
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'span',
-//           content: 'Повышают популярность в соц.сетях. ',
-//           props: {className: 'bold'}
-//         },
-//         {
-//           tag: 'span',
-//           content: 'Известные бренды, как Coca-Cola, работают с художниками, чтобы создать брендированные стикеры для соц. сетей. Эти стикеры могут быть на тему праздников, новых продуктов или акций компании. Они не только привлекают внимание к бренду, но и побуждают людей делиться ими с друзьями, что повышает популярность бренда.'
-//         }
-//       ]
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'okchizh7.webp',
-//         alt: 'okchizh7',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Юля Чиж',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://okchizh.art/' },
-//           }
-//         ]
-//       }
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'span',
-//           content: 'Стимулируют людей чаще покупать продукты. ',
-//           props: {className: 'bold'}
-//         },
-//         {
-//           tag: 'span',
-//           content: 'Starbucks часто работает с иллюстраторами, чтобы создавать уникальные дизайны для своих подарочных карт. Каждый сезон или праздник может быть представлен новой серией карт с оригинальными рисунками. Эти карты становятся не только практичным подарком, но и предметом коллекционирования, что побуждает людей покупать их снова и снова.'
-//         }
-//       ]
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'BeyaRebai1.webp',
-//         alt: 'BeyaRebai1',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Beya Rebai',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.beyarebai.com/' },
-//           }
-//         ]
-//       }
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'span',
-//           content: 'Создают эмоциональную связь. ',
-//           props: {className: 'bold'}
-//         },
-//         {
-//           tag: 'span',
-//           content: 'Disney часто работает с дизайнерами и иллюстраторами, чтобы вместе создавать уникальные украшения. Например, вместе с Pandora они сделали коллекцию бижутерии с персонажами из известных мультфильмов Disney. Рисунки и иллюстрации любимых персонажей создают настроение, которые особенно радует фанатов.'
-//         }
-//       ]
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'pandora.jpg',
-//         alt: 'pandora',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'DISNEY X PANDORA',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.pandorashop.rs/rs/proizvodi/disney-collection' },
-//           }
-//         ]
-//       }
-//     },
-//     {
-//       type: 'chat',
-//       chat: {
-//         blocks: [
-//           {
-//             showThisBlockButtonContent: '',
-//             messages: [
-//               {
-//                 sender: { name: 'Соня Ульянова', isSelf: false },
-//                 content: 'Про продукты все) Я подобрала еще несколько примеров для вдохновения. Смотрим?'
-//               },
-//             ],
-//           },
-//           {
-//             showThisBlockButtonContent: 'Конечно!',
-//             messages: [
-//               {
-//                 sender: { isSelf: true },
-//                 content: 'Конечно!'
-//               }
-//             ],
-//           },
-//         ]
-//       }
-//     },
-//     {
-//       type: 'gallery',
-//       maxHeightPx: 2_900,
-//       images: [
-//         {
-//           id: 'okchizh3.webp',
-//           alt: 'okchizh3',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Юля Чиж',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://okchizh.art/' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'okchizh8.webp',
-//           alt: 'okchizh8',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Юля Чиж',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://okchizh.art/' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'unskilledworker1.webp',
-//           alt: 'unskilledworker1',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Unskilled Worker',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://unskilledworker.co.uk/work/' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'unskilledworker2.webp',
-//           alt: 'unskilledworker2',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Unskilled Worker',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://unskilledworker.co.uk/work/' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'unskilledworker4.webp',
-//           alt: 'unskilledworker4',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Unskilled Worker',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://unskilledworker.co.uk/work/' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'SusannaRumiz5.webp',
-//           alt: 'SusannaRumiz5',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Susanna Rumiz',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/susannarumiz/projects' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'AmandaLobos1.webp',
-//           alt: 'AmandaLobos1',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Amanda Lobos',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'AmandaLobos2.webp',
-//           alt: 'AmandaLobos2',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Amanda Lobos',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'AsahiNagata3.webp',
-//           alt: 'AsahiNagata3',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Asahi Nagata',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/nagataae6d8' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'AsahiNagata5.webp',
-//           alt: 'AsahiNagata5',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Asahi Nagata',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/nagataae6d8' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'MinHeo2.webp',
-//           alt: 'MinHeo2',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Min Heo',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://minstudio.cargo.site/' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'dyreborgstudio.webp',
-//           alt: 'dyreborgstudio',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'INA DYREBORG',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.dyreborgstudio.com/' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'projectswatches1.webp',
-//           alt: 'projectswatches1',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Projects Watches',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/projectswatches/' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'projectswatches2.webp',
-//           alt: 'projectswatches2',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Projects Watches',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/projectswatches/' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'projectswatches3.webp',
-//           alt: 'projectswatches3',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Projects Watches',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/projectswatches/' },
-//             }
-//           ]
-//         },
-//       ]
-//     },
-//   ]
-// }
-
-// const lessonDataFYS25: ILessonDataDB = {
-//   id: 'Packaging_80wfHs',
-//   courseId: 'finding-your-style',
-//   title: 'Упаковка',
-//   type: 'Theory',
-//   icon: 'Lesson',
-//   topic: 'Иллюстрация как профессия',
-//   topicOrder: 2,
-//   topicIcon: 'Lesson',
-//   orderInTopic: 5,
-//   duration: {
-//     unit: 'minutes',
-//     value: 10
-//   },
-//   isFree: true,
-//   isUnderDevelopment: false,
-//   content: [
-//     {
-//       type: 'text',
-//       text: 'Упаковка — первое, что видит клиент, и от того, насколько она привлекательна и понятна, зависит решение о покупке. Давайте посмотрим, как это работает.'
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'span',
-//           content: 'Привлекают внимание. ',
-//           props: {className: ' bold'}
-//         },
-//         {
-//           tag: 'span',
-//           content: 'Представьте себе полки в магазине, полные товаров. Задача иллюстратора – сделать так, чтобы покупатель обратил внимание именно на ваш продукт. Например, летом 2024 сеть магазинов "Вкусвилл" вместе с фестивалем для иллюстраторов "Морс" провели конкурс для художников. Им нужно было придумать иллюстрации для упаковок напитка "Морс". В результате в магазинах появились яркие и запоминающиеся баночки, которые сразу бросались в глаза покупателям.'
-//         }
-//       ]
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'mors.webp',
-//         alt: 'mors',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'МОРС',
-//             props: { className: 's-hoverable'},
-//           }
-//         ]
-//       }
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'span',
-//           content: 'Объясняют особенности продукта. ',
-//           props: {className: ' bold'}
-//         },
-//         {
-//           tag: 'span',
-//           content: 'Компания "Moo Free" делает вкусный веганский шоколад и хочет, чтобы их упаковка понравилась и детям, и взрослым. Поэтому они пригласили иллюстратора Сандру Дикманн, которая нарисовала яркие и забавные картинки с животными. Эти иллюстрации не только привлекают внимание детей, но и ясно показывают, что шоколад не содержит молока и подходит для людей с аллергией. Благодаря таким картинкам, покупатели сразу понимают, что это веселый и безопасный продукт для всей семьи.'
-//         }
-//       ]
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'MooFree.webp',
-//         alt: 'MooFree',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Moo Free',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.moofreechocolates.com/' },
-//           }
-//         ]
-//       }
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'span',
-//           content: 'Усиливают связь с брендом. ',
-//           props: {className: ' bold'}
-//         },
-//         {
-//           tag: 'span',
-//           content: 'Компания "Ben & Jerry\'s" известна своим креативным подходом к упаковке мороженого. Художник Вуди Джексон создал узнаваемые иллюстрации коров и сельской местности для их упаковок. Эти изображения не только создают ощущение деревенской простоты и натуральности, но и подчёркивают философию компании — использовать качественные и экологически чистые ингредиенты. Когда покупатель видит упаковку "Ben & Jerry\'s", он сразу понимает, что этот продукт произведён с заботой о природе.'
-//         }
-//       ]
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'benjerry.webp',
-//         alt: 'benjerry',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Ben & Jerry',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.benjerry.com/' },
-//           }
-//         ]
-//       }
-//     },
-//     {
-//       type: 'gallery',
-//       maxHeightPx: 2_400,
-//       images: [
-//         {
-//           id: 'NastyaChernish.webp',
-//           alt: 'NastyaChernish',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Настя Черныш',
-//               props: { className: 's-hoverable' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'ETolsma3.webp',
-//           alt: 'ETolsma3',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'E. Tolsma',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/ellistolsma' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'ETolsma4.webp',
-//           alt: 'ETolsma4',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'E. Tolsma',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/ellistolsma' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'ETolsma5.webp',
-//           alt: 'ETolsma5',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'E. Tolsma',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/ellistolsma' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'ETolsma6.webp',
-//           alt: 'ETolsma6',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'E. Tolsma',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/ellistolsma' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'SusannaRumiz4.webp',
-//           alt: 'SusannaRumiz4',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Susanna Rumiz',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/susannarumiz/projects' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'NickLiefhebber2.webp',
-//           alt: 'NickLiefhebber2',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Nick Liefhebber',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/Liefhebber' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'NickLiefhebber8.webp',
-//           alt: 'NickLiefhebber8',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Nick Liefhebber',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/Liefhebber' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'NickLiefhebber6.webp',
-//           alt: 'NickLiefhebber6',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Nick Liefhebber',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/Liefhebber' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'NatashaBayduzha4.webp',
-//           alt: 'NatashaBayduzha4',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Natasha Bayduzha',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/NataBayduzha' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'NatashaBayduzha2.webp',
-//           alt: 'NatashaBayduzha2',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Natasha Bayduzha',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/NataBayduzha' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'AmandaLobos14.webp',
-//           alt: 'AmandaLobos14',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Amanda Lobos',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'AsahiNagata7.webp',
-//           alt: 'AsahiNagata7',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Asahi Nagata',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/nagataae6d8' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'IlyaMilstein1.webp',
-//           alt: 'IlyaMilstein1',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Ilya Milstein',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.ilyamilstein.com/' },
-//             }
-//           ]
-//         },
-//       ]
-//     },
-//   ]
-// }
-
-// const lessonDataFYS26: ILessonDataDB = {
-//   id: 'Murals_V2hxRJ',
-//   courseId: 'finding-your-style',
-//   title: 'Оформление пространств',
-//   type: 'Theory',
-//   icon: 'Lesson',
-//   topic: 'Иллюстрация как профессия',
-//   topicOrder: 2,
-//   topicIcon: 'Lesson',
-//   orderInTopic: 6,
-//   duration: {
-//     unit: 'minutes',
-//     value: 10
-//   },
-//   isFree: true,
-//   isUnderDevelopment: false,
-//   content: [
-//     {
-//       type: 'text',
-//       text: 'Му́рал – это изображение, созданное прямо на поверхности стены или потолка. Му́ралы могут быть нарисованы внутри зданий, например, в офисах, школах или ресторанах, а могут украшать фасады домов, стены гаражей и другие наружные поверхности.'
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'span',
-//           content: 'Создают атмосферу. ',
-//           props: {className: ' bold'}
-//         },
-//         {
-//           tag: 'span',
-//           content: 'Starbucks любят украшать свои помещения яркими муралами. Один из известных художников, с которым они работали, — Rohan Dahotre. Его работы можно найти по всему миру, и каждая из них уникальна. Например, в Индии он создал огромный мурал с изображением местной флоры и фауны. Этот мурал не только привлекает внимание прохожих, но и создаёт неповторимую атмосферу для посетителей кафе.'
-//         }
-//       ]
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'RohanDahotre1.webp',
-//         alt: 'RohanDahotre1',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Rohan Dahotre',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/RohanSharadDahotre' },
-//           }
-//         ]
-//       }
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'span',
-//           content: 'Привлекают внимание. ',
-//           props: {className: ' bold'}
-//         },
-//         {
-//           tag: 'span',
-//           content: 'Летний фестиваль в Буэнос-Айресе под названием «Amor de Verano» каждый год устраивает выставки, концерты и мастер-классы. В 2018 году они пригласили художника Себастьяна Кури, чтобы он создал для них особый образ. Вместе со своей командой Себастьян нарисовал огромную фреску, которая покрыла весь фасад здания. Эти иллюстрации должны были привлечь внимание к фестивалю и создать атмосферу юной, наивной влюбленности.'
-//         }
-//       ]
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'SebastianCuri1.webp',
-//         alt: 'SebastianCuri1',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Sebastian Curi',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/sebastiancuri' },
-//           }
-//         ]
-//       }
-//     },
-//     {
-//       type: 'gallery',
-//       maxHeightPx: 1_550,
-//       images: [
-//         {
-//           id: 'ETolsma1.webp',
-//           alt: 'ETolsma1',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'E. Tolsma',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/ellistolsma' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'NickLiefhebber4.webp',
-//           alt: 'NickLiefhebber4',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Nick Liefhebber',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/Liefhebber' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'NatashaBayduzha1.webp',
-//           alt: 'NatashaBayduzha1',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Natasha Bayduzha',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/NataBayduzha' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'RohanDahotre2.webp',
-//           alt: 'RohanDahotre2',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Rohan Dahotre',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/RohanSharadDahotre' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'StudioZwupp6.webp',
-//           alt: 'StudioZwupp6',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Studio Zwupp',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zwupp' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'StudioZwupp7.webp',
-//           alt: 'StudioZwupp7',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Studio Zwupp',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zwupp' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'okchizh6.webp',
-//           alt: 'okchizh6',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Юля Чиж',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://okchizh.art/' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'okchizh5.webp',
-//           alt: 'okchizh5',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Юля Чиж',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://okchizh.art/' },
-//             }
-//           ]
-//         },
-//       ]
-//     },
-//   ]
-// }
-
-// const lessonDataFYS27: ILessonDataDB = {
-//   id: 'Editorial_K8Bu8i',
-//   courseId: 'finding-your-style',
-//   title: 'Книги и журналы',
-//   type: 'Theory',
-//   icon: 'Lesson',
-//   topic: 'Иллюстрация как профессия',
-//   topicOrder: 2,
-//   topicIcon: 'Lesson',
-//   orderInTopic: 7,
-//   duration: {
-//     unit: 'minutes',
-//     value: 10
-//   },
-//   isFree: true,
-//   isUnderDevelopment: false,
-//   content: [
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'span',
-//           content: 'Привлекают внимание. ',
-//           props: {className: ' bold'}
-//         },
-//         {
-//           tag: 'span',
-//           content: 'Например, обложка книги «Там гораздо лучше», Виолен Беро — арт-объект, который сначала цепляет формой, а потом содержанием.'
-//         }
-//       ]
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'polyandria4.webp',
-//         alt: 'polyandria4',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Поляндрия',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://polyandria.ru/noage/' },
-//           }
-//         ]
-//       }
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'span',
-//           content: 'Помогают создать имидж книги и издательства. ',
-//           props: {className: ' bold'}
-//         },
-//         {
-//           tag: 'span',
-//           content: 'Иллюстрации на обложках книг делают их особенными и легко узнаваемыми. Например, книги серии NoAge x Есть смысл, сделанные вместе с издательством «Есть смысл», объединены в концептуальную серию. Благодаря этому их сразу можно заметить на полке и отличить от других книг NoAge. У этих книг мягкая обложка с клапанами, которые закрывают лицевую сторону и название книги. Штрихкод растянут от лицевой сторонки до края задней, что нарушает ожидание читателя.'
-//         }
-//       ]
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'polyandria3.webp',
-//         alt: 'polyandria3',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Поляндрия',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://polyandria.ru/noage/' },
-//           }
-//         ]
-//       }
-//     },
-//     {
-//       type: 'gallery',
-//       maxHeightPx: 2_600,
-//       images: [
-//         {
-//           id: 'aplusabooks2.webp',
-//           alt: 'aplusabooks2',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'А + А',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://aplusabooks.ru/' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'aplusabooks1.webp',
-//           alt: 'aplusabooks1',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'А + А',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://aplusabooks.ru/' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'samokatbook1.webp',
-//           alt: 'samokatbook1',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Самокат',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://samokatbook.ru/' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'samokatbook2.webp',
-//           alt: 'samokatbook2',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Самокат',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://samokatbook.ru/' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'samokatbook3.webp',
-//           alt: 'samokatbook3',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Самокат',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://samokatbook.ru/' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'polyandria3.webp',
-//           alt: 'polyandria3',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Поляндрия',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://polyandria.ru/noage/' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'polyandria1.webp',
-//           alt: 'polyandria1',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Поляндрия',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://polyandria.ru/noage/' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'polyandria.webp',
-//           alt: 'polyandria',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Поляндрия',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://polyandria.ru/noage/' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'AmandaLobos13.webp',
-//           alt: 'AmandaLobos13',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Amanda Lobos',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'bayduzha6.webp',
-//           alt: 'bayduzha6',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Наташа Байдужа',
-//               props: { className: 's-hoverable', target: "_blank", to: 'http://bayduzha.com/' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'polyandria.no.age2.webp',
-//           alt: 'polyandria.no.age2',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Polyandria NoAge',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://polyandria.ru/noage/?fbclid=PAZXh0bgNhZW0CMTEAAabAi9e6KyC7CAY-L2drZK5r471d00tMEufQpVFfQC-qVHTJY-cOJBfRyL4_aem_ZmFrZWR1bW15MTZieXRlcw' },
-//             }
-//           ]
-//         },
-//         {
-//           id: 'ta_boris.webp',
-//           alt: 'ta_boris',
-//           caption: [
-//             {
-//               tag: 'a',
-//               content: 'Таня Борисова',
-//               props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/ta_boris/' },
-//             }
-//           ]
-//         },
-//       ]
-//     },
-//   ]
-// }
-
-// const lessonDataFYS28: ILessonDataDB = {
-//   id: 'CommercialIllustratorSummary_CV9ZUs',
-//   courseId: 'finding-your-style',
-//   title: 'Итоги модуля',
-//   type: 'Theory',
-//   icon: 'Lesson',
-//   topic: 'Иллюстрация как профессия',
-//   topicOrder: 2,
-//   topicIcon: 'Lesson',
-//   orderInTopic: 8,
-//   duration: {
-//     unit: 'minutes',
-//     value: 5
-//   },
-//   isFree: true,
-//   isUnderDevelopment: false,
-//   content: [
-
-//   ]
-// }
-
 const lessonDataFYS21: ILessonDataDB = {
   id: 'Illustration_6BedkV',
   courseId: 'finding-your-style',
@@ -14255,6 +12017,2244 @@ const lessonDataFYS5: ILessonDataDB = {
         },
       ]
     },
+  ]
+}
+
+const lessonDataCI21: ILessonDataDB = {
+  id: 'CommercialIllustrator_2Q1wTR',
+  courseId: 'commercial-illustrator',
+  title: 'Кто такой иллюстратор и чем он занимается',
+  type: 'Theory',
+  icon: 'Lesson',
+  topic: 'Иллюстрация как профессия',
+  topicOrder: 2,
+  topicIcon: 'Lesson',
+  orderInTopic: 1,
+  duration: {
+    unit: 'minutes',
+    value: 5
+  },
+  isFree: true,
+  isUnderDevelopment: false,
+  content: [
+    {
+      type: 'textImportant',
+      text: 'В конце бесплатного модуля вы сможете сдать на проверку свой самостоятельный проект. Не упустите возможность получить обратную связь от ревьюера и узнать, как работает команда сопровождения в flearn.',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Добро пожаловать на вводную часть курса ',
+            },
+            {
+              tag: 'span',
+              content: '«Композиция: как выделить главное»! ',
+              props: { className: 'bold'},
+            },
+            {
+              tag: 'span',
+              content: 'Совсем скоро вы сделаете свою первую иллюстрацию для рекламного баннера. Но для начала давайте узнаем, кто такой иллюстратор и чем он занимается.',
+            }
+          ],
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Иллюстратор ',
+              props: { className: 'bold'},
+            },
+            {
+              tag: 'span',
+              content: 'помогает компаниям и людям выделиться среди конкурентов, привлечь новую аудиторию, сделать текст нагляднее и проще.',
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: 'Работы иллюстраторов можно увидеть в книгах, журналах, на обложках альбомов, в рекламе, а также в цифровых продуктах, таких как веб-сайты и приложения. Главная задача иллюстратора — передать идеи, эмоции и информацию через изображения.'
+        }
+      ]
+    },
+    {
+      type: 'chat',
+      chat: {
+        blocks: [
+          {
+            showThisBlockButtonContent: '',
+            messages: [],
+          },
+          {
+            showThisBlockButtonContent: 'А можешь показать на примере?',
+            messages: [
+              {
+                sender: { isSelf: true },
+                content: 'А можешь показать на примере?'
+              },
+              {
+                sender: { name: 'Соня Ульянова', isSelf: false },
+                content: 'Конечно!'
+              },
+            ],
+          },
+        ],
+      },
+    },
+    {
+      type: 'title',
+      title: 'Пример из упаковки продуктов'
+    },
+    {
+      type: 'text',
+      text: 'Malika Favr известна своими минималистичными и яркими работами. Её иллюстрации часто используются в рекламных плакатах и упаковке продуктов, чтобы привлечь внимание своей уникальной стилистикой.'
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'sephora1.webp',
+        alt: 'sephora1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Malika Favr для Sephora',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.malikafavre.com/' },
+          }
+        ]
+      },
+    },
+    {
+      type: 'title',
+      title: 'Пример из книжкой иллюстрации'
+    },
+    {
+      type: 'text',
+      text: 'Возьмём, например, книгу от издательства Поляндрия «Моё босоногое племя. Прощай, бетон!» Иллюстратор, Стефан Николе, придумал иллюстрации, которые помогают детям и взрослым лучше понять и почувствовать сюжет книги. Его рисунки не только дополняют текст, но и создают особую атмосферу, увлекая читателя.'
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'polyandria1.webp',
+        alt: 'polyandria1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Поляндрия',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://polyandria.ru/catalog/novinki/moye-bosonogoe-plemya-proshchay-beton/' },
+          }
+        ]
+      },
+    },
+    {
+      type: 'text',
+      text: 'Дальше мы подробнее посмотрим, как иллюстрации используются в'
+    },
+    {
+      type: 'list',
+      items: [
+        'цифровых продуктах;',
+        'рекламе;',
+        'упаковке;',
+        'оформлении пространств;',
+        'книгах и журналах.'
+      ]
+    }
+  ],
+}
+
+const lessonDataCI22: ILessonDataDB = {
+  id: 'IT_fed4TU',
+  courseId: 'commercial-illustrator',
+  title: 'Цифровые продукты',
+  type: 'Theory',
+  icon: 'Lesson',
+  topic: 'Иллюстрация как профессия',
+  topicOrder: 2,
+  topicIcon: 'Lesson',
+  orderInTopic: 2,
+  duration: {
+    unit: 'minutes',
+    value: 10
+  },
+  isFree: true,
+  isUnderDevelopment: false,
+  content: [
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Иллюстрации в IT могут значительно улучшить пользовательский опыт, помочь визуализировать данные и сделать сложные идеи понятными и доступными. Вот несколько примеров их использования.'
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Помогают быстро ориентироваться в приложении. ',
+              props: { className: 'bold'},
+            },
+            {
+              tag: 'span',
+              content: 'Представьте, что вы пользуетесь мобильным приложением для доставки еды. На главном экране вы видите иконки разных категорий: пицца, суши, бургеры и т.д. Эти иконки помогают пользователю быстро найти нужный раздел, делая взаимодействие с приложением интуитивно понятным и приятным.',
+            },
+          ]
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'Vkusvill.webp',
+        alt: 'Vkusvill',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Vkusvill',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://vkusvill.ru/' },
+          }
+        ]
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Визуализируют данные. ',
+              props: { className: 'bold'},
+            },
+            {
+              tag: 'span',
+              content: 'В приложениях для аналитики или финансов инфографика помогает легко и понятно представить сложные данные. Например, приложение для учета личных финансов может показывать ваши расходы в виде диаграмм и графиков, где каждый сектор или столбец иллюстрирован иконками продуктов, услуг и т.д.',
+            }
+          ]
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'PaulaCruz1.webp',
+        alt: 'PaulaCruz1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Paula Cruz',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/paulacruz' },
+          }
+        ]
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Сопровождают онбординг, первоначальное обучение пользователя. ',
+              props: { className: 'bold'},
+            },
+            {
+              tag: 'span',
+              content: 'Иногда текст сложно понять без визуальной поддержки. Например, когда вы впервые открываете новое приложение, то часто видите серию экранов, объясняющих его основные функции. Иллюстрации на этих экранах помогают понять, что и как делать.',
+            }
+          ]
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'IvanHaidutski.webp',
+        alt: 'IvanHaidutski',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Ivan Haidutski',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/ivanhaidutski' },
+          }
+        ]
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Повышают вовлеченность пользователей с помощью геймификации. ',
+              props: { className: 'bold'},
+            },
+            {
+              tag: 'span',
+              content: 'Например, в образовательных приложениях можно встретить дружелюбных интерактивных персонажей, которые помогают проходить обучение, вовлекают в процесс и дают обратную связь.',
+            }
+          ]
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'MinHeo1.webp',
+        alt: 'MinHeo1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Min Heo',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://minstudio.cargo.site/index' },
+          }
+        ]
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Объясняют сложные идеи. ',
+              props: { className: 'bold'},
+            },
+            {
+              tag: 'span',
+              content: 'Например, Dropbox использует иллюстрации, чтобы объяснить, как работает их облачное хранилище и какие функции оно предлагает. Схемы и картинки делают процесс понятным даже для новичков.',
+            }
+          ]
+        },
+      ],
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'dropbox.webp',
+        alt: 'dropbox',
+        caption: [
+          {
+            tag: 'a',
+            content: 'DropBox',
+            props: { className: 's-hoverable' },
+          }
+        ]
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Делают бренд узнаваемым. ',
+          props: {className: ' bold'}
+        },
+        {
+          tag: 'span',
+          content: 'Например, у Duolingo, платформы для изучения английского, есть главный персонаж — зеленый совенок. Этот совенок делает бренд легко узнаваемым и запоминающимся, а также придает компании дружелюбный и доступный вид.'
+        }
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'duolingo.webp',
+        alt: 'duolingo',
+        caption: [
+          {
+            tag: 'a',
+            content: 'duolingo',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://ru.duolingo.com' },
+          }
+        ]
+      }
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Создают эмоциональную связь с аудиторией. ',
+          props: {className: ' bold'}
+        },
+        {
+          tag: 'span',
+          content: 'Headspace использует яркие и простые иллюстрации, чтобы сделать медитацию доступной и приятной. Картинки помогают создать расслабляющую атмосферу и настроить пользователя на позитивный лад. Дизайнеры выбрали минималистичный стиль, чтобы медитация казалась интересной и привлекательной для широкой аудитории.'
+        }
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'headspace2.webp',
+        alt: 'headspace2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Headspace',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://organizations.headspace.com/employers?origin=nav&_gl=1*9e6e41*_gcl_au*NDUyNTQ1MTU3LjE3MjE3NDU2MjY.*FPAU*NDUyNTQ1MTU3LjE3MjE3NDU2MjY.' },
+          }
+        ]
+      }
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Транслируют эмоции и настроение. ',
+          props: {className: ' bold'}
+        },
+        {
+          tag: 'span',
+          content: 'Например, компания Airbnb использует иллюстрации, чтобы создать дух путешествий и открытий. Иллюстраторы выбирают яркие, насыщенные цвета, чтобы вызвать у пользователей чувство приключения и исследовательского духа.'
+        }
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'airbnb.webp',
+        alt: 'airbnb',
+        caption: [
+          {
+            tag: 'a',
+            content: 'airbnb',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://ru.airbnb.com/giftcards' },
+          }
+        ]
+      }
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Усиливают коммуникацию с брендом. ',
+          props: {className: ' bold'}
+        },
+        {
+          tag: 'span',
+          content: 'Google Doodles – это временные изменения логотипа Google, которые отражают важные события, праздники и юбилеи. Художники вдохновляются культурными событиями и историческими личностями, создавая уникальные и узнаваемые образы.'
+        }
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'GoogleDoodle2.webp',
+        alt: 'GoogleDoodle2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Google Doodles',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://doodles.google/' },
+          }
+        ]
+      }
+    },
+    {
+      type: 'chat',
+      chat: {
+        blocks: [
+          {
+            showThisBlockButtonContent: '',
+            messages: [
+              {
+                sender: { name: 'Соня Ульянова', isSelf: false },
+                content: 'Вот вроде и все. Дальше будет пара вопросов, чтобы закрепить материал. Готовы?'
+              },
+            ],
+          },
+          {
+            showThisBlockButtonContent: 'Ага) Давай вопросы!',
+            messages: [
+              {
+                sender: { isSelf: true },
+                content: 'Ага) Давай вопросы!'
+              }
+            ],
+          },
+        ]
+      }
+    },
+    {
+      type: 'quiz',
+      steps: [
+        {
+          type: 'SELECT',
+          variant: 'RADIO',
+          title: '1/2. Почему важно учитывать пользовательский опыт при создании иллюстраций?',
+          options: [
+            {
+              value: 'Чтобы иллюстрации выглядели профессионально.',
+              shouldBeSelected: false,
+            },
+            {
+              value: 'Чтобы приложение было интуитивно понятным и удобным.',
+              shouldBeSelected: true,
+            },
+            {
+              value: 'Чтобы уменьшить количество иллюстраций в приложении.',
+              shouldBeSelected: false,
+            },
+          ],
+        },
+        {
+          type: 'SELECT',
+          variant: 'CHECKBOX',
+          title: '2/2. Зачем разрабочики приложений используют иллюстрации в интерфейсе? Выберите все верные варианты ответа.',
+          description: 'Иллюстрации…',
+          options: [
+            {
+              value: 'улучшают производительность приложения.',
+              shouldBeSelected: false,
+            },
+            {
+              value: 'помогают пользователям лучше ориентироваться в приложении.',
+              shouldBeSelected: true,
+            },
+            {
+              value: 'заменяют текстовые инструкции наглядными визуальными образами.',
+              shouldBeSelected: true,
+            },
+          ],
+        },
+      ]
+    },
+    {
+      type: 'chat',
+      chat: {
+        blocks: [
+          {
+            showThisBlockButtonContent: '',
+            messages: [
+              {
+                sender: { name: 'Соня Ульянова', isSelf: false },
+                content: 'Отлично! Я подобрала еще несколько примеров того, как иллюстрации используются в IT. Смотрим?'
+              },
+            ],
+          },
+          {
+            showThisBlockButtonContent: 'Да, конечно!',
+            messages: [
+              {
+                sender: { isSelf: true },
+                content: 'Да, конечно!'
+              }
+            ],
+          },
+        ]
+      }
+    },
+    {
+      type: 'gallery',
+      maxHeightPx: 900,
+      images: [
+        {
+          id: 'headspace1.webp',
+          alt: 'headspace1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Headspace',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://organizations.headspace.com/employers?origin=nav&_gl=1*9e6e41*_gcl_au*NDUyNTQ1MTU3LjE3MjE3NDU2MjY.*FPAU*NDUyNTQ1MTU3LjE3MjE3NDU2MjY.' },
+            }
+          ]
+        },
+        {
+          id: 'GoogleDoodle1.webp',
+          alt: 'GoogleDoodle1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Google Doodles',
+              props: { className: 'key-link', target: "_blank", to: 'https://doodles.google/' },
+            }
+          ]
+        },
+        {
+          id: 'ShukaDesign1.webp',
+          alt: 'ShukaDesign1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Shuka Design',
+              props: { className: 'key-link', target: "_blank", to: 'http://shuka.design' },
+            }
+          ]
+        },
+        {
+          id: 'ShukaDesign2.webp',
+          alt: 'ShukaDesign2',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Shuka Design',
+              props: { className: 'key-link', target: "_blank", to: 'http://shuka.design' },
+            }
+          ]
+        },
+        {
+          id: 'ShukaDesign3.webp',
+          alt: 'ShukaDesign3',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Shuka Design',
+              props: { className: 'key-link', target: "_blank", to: 'http://shuka.design' },
+            }
+          ]
+        },
+        {
+          id: 'ShukaDesign4.webp',
+          alt: 'ShukaDesign4',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Shuka Design',
+              props: { className: 'key-link', target: "_blank", to: 'http://shuka.design' },
+            }
+          ]
+        },
+        {
+          id: 'ShukaDesign8.webp',
+          alt: 'ShukaDesign8',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Shuka Design',
+              props: { className: 'key-link', target: "_blank", to: 'http://shuka.design' },
+            }
+          ]
+        },
+        {
+          id: 'ShukaDesign9.webp',
+          alt: 'ShukaDesign9',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Shuka Design',
+              props: { className: 'key-link', target: "_blank", to: 'http://shuka.design' },
+            }
+          ]
+        },
+        {
+          id: 'naitori4.webp',
+          alt: 'naitori4',
+          caption: [
+            {
+              tag: 'a',
+              content: 'naitori',
+              props: { className: 'key-link', target: "_blank", to: 'https://naitori.ru/#next' },
+            }
+          ]
+        },
+      ]
+    },
+    {
+      type: 'chat',
+      chat: {
+        blocks: [
+          {
+            showThisBlockButtonContent: '',
+            messages: [
+              {
+                sender: { name: 'Соня Ульянова', isSelf: false },
+                content: 'Мы разобрались с тем, как иллюстрации улучшают мобильные приложения. Готовы продолжить?'
+              },
+            ],
+          },
+          {
+            showThisBlockButtonContent: 'Да, конечно! Давай посмотрим, где еще нужны иллюстрации.',
+            messages: [
+              {
+                sender: { isSelf: true },
+                content: 'Да, конечно! Давай посмотрим, где еще нужны иллюстрации.'
+              },
+              {
+                sender: { name: 'Соня Ульянова', isSelf: false },
+                content: 'Супер, тогда переходим к иллюстрациям в рекламе.'
+              },
+            ],
+          },
+        ]
+      }
+    },
+  ]
+}
+
+const lessonDataCI23: ILessonDataDB = {
+  id: 'Marketing_28EO3M',
+  courseId: 'commercial-illustrator',
+  title: 'Реклама',
+  type: 'Theory',
+  icon: 'Lesson',
+  topic: 'Иллюстрация как профессия',
+  topicOrder: 2,
+  topicIcon: 'Lesson',
+  orderInTopic: 3,
+  duration: {
+    unit: 'minutes',
+    value: 10
+  },
+  isFree: true,
+  isUnderDevelopment: false,
+  content: [
+    {
+      type: 'text',
+      text: 'Иллюстрации помогают привлечь внимание, быстро донести сообщение и создать эмоциональную связь с потенциальными клиентами. Давайте посмотрим на несколько примеров.',
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Помогают отстроиться от конкурентов. ',
+              props: { className: 'bold'},
+            },
+            {
+              tag: 'span',
+              content: 'Иллюстрации создают уникальный визуальный стиль, который выделяет бренд среди конкурентов. Например, L\'Occitane использует яркие иллюстрации на упаковке, чтобы подчеркнуть индивидуальность. Такой подход помогает бренду запомниться и привлечь внимание клиентов.',
+            }
+          ]
+        },
+      ],
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'StevenWilson3.webp',
+        alt: 'StevenWilson3',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Steven Wilson',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/stevenwilsonstudio' },
+          }
+        ]
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Усиливают бренд. ',
+              props: { className: 'bold'},
+            },
+            {
+              tag: 'span',
+              content: 'Иллюстрации создают приятные визуальные ассоциации с продуктом. Например, Mickey Mouse – один из самых узнаваемых маскотов в мире. Его образ вызывает улыбку и усиливает эмоциональную связь с брендом.',
+            }
+          ]
+        },
+      ],
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ZaraMickeyMouse2.webp',
+        alt: 'ZaraMickeyMouse2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Футболка с Mickey Mouse в Zara',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.zara.com/rs/sr/majica-mickey-mouse---disney-p07878778.html' },
+          }
+        ]
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Привлекают внимание. ',
+              props: { className: 'bold'},
+            },
+            {
+              tag: 'span',
+              content: 'Объявления с картинками привлекают внимание гораздо быстрее, чем текст. Например, афиши для музыкальных фестивалей или выставок часто используют яркие иллюстрации, чтобы задать настроение и создать запоминающееся впечатление у зрителей.',
+            }
+          ]
+        },
+      ],
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AmandaLobos4.webp',
+        alt: 'AmandaLobos4',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Amanda Lobos',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
+          }
+        ]
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Помогают с принятием решений. ',
+              props: { className: 'bold'},
+            },
+            {
+              tag: 'span',
+              content: 'Иллюстрации помогают людям быстрее решать, покупать ли продукт. Например, в рекламе психологических услуг картинки могут показать, как работает терапия, и помочь понять, подходит ли она вам.',
+            }
+          ]
+        },
+      ],
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'yasno.live.webp',
+        alt: 'yasno.live',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Реклама психологических услуг Ясно',
+            props: { className: 's-hoverable', target: "_blank", to: 'ej&utm_term=ясно%20лайв&gad_source=1&gclid=CjwKCAjwqf20BhBwEiwAt7dtdSi3vhYAjsS2MYP_bfWtYmGeJpShiyTYZ1uzOYvELEcATDeVpwOn-RoCQNsQAvD_BwE' },
+          }
+        ]
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Объясняют сложные идеи. ',
+              props: { className: 'bold'},
+            },
+            {
+              tag: 'span',
+              content: 'Иллюстрации помогают легче понять сложную информацию. Например, медицинские компании используют картинки, чтобы показать, как действует лекарство или как работает медицинский прибор. Такие картинки помогают людям лучше понять продукт и его преимущества.',
+            }
+          ]
+        },
+      ],
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'SusannaRumiz3.webp',
+        alt: 'SusannaRumiz3',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Промоматериалы для Komoot. Приложение, чтобы спланировать маршрут и устроить хайкинг',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/susannarumiz/projects' },
+          }
+        ]
+      },
+    },
+    {
+      type: 'chat',
+      chat: {
+        blocks: [
+          {
+            showThisBlockButtonContent: '',
+            messages: [
+              {
+                sender: { name: 'Соня Ульянова', isSelf: false },
+                content: 'Это все, что я хотела рассказать об иллюстрациях в рекламе. А теперь давайте немного попрактикуемся. Готовы?'
+              },
+            ],
+          },
+          {
+            showThisBlockButtonContent: 'Да, давай практиковаться!)',
+            messages: [
+              {
+                sender: { isSelf: true },
+                content: 'Да, давай практиковаться!)'
+              }
+            ],
+          },
+        ]
+      }
+    },
+    {
+      type: 'quiz',
+      steps: [
+        {
+          type: 'SELECT',
+          variant: 'RADIO',
+          title: '1/2. Перед вами реклама Adidas. Подумайте, на какую группу людей она ориентирована.',
+          image: {
+            id: 'adidas1.webp',
+            alt: 'adidas1',
+          },
+          options: [
+            {
+              value: 'Любят спортивный стиль и всегда в курсе новых моделей кроссовок.',
+              shouldBeSelected: false,
+            },
+            {
+              value: 'Студенты из Азии, которые интересуются современным искусством и музыкой.',
+              shouldBeSelected: true,
+            },
+            {
+              value: 'Профессионально занимаются спортом.',
+              shouldBeSelected: false,
+            },
+          ],
+        },
+        {
+          type: 'SELECT',
+          variant: 'RADIO',
+          title: '2/2. Перед вами реклама Adidas. Подумайте, на какую группу людей она ориентирована.',
+          image: {
+            id: 'adidas3.webp',
+            alt: 'adidas3',
+          },
+          options: [
+            {
+              value: 'Любят вечеринки и музыкальные фестивали, возраст до 35 лет.',
+              shouldBeSelected: true,
+            },
+            {
+              value: 'Не одеваются в Adidas, но следят за релизами эксклюзивных коллекций кроссовок,  возраст до 30 лет.',
+              shouldBeSelected: false,
+            },
+            {
+              value: 'Раньше профессионально занимались спортом, средний возраст — 45-60 лет.',
+              shouldBeSelected: false,
+            },
+          ],
+        },
+      ]
+    },
+    {
+      type: 'chat',
+      chat: {
+        blocks: [
+          {
+            showThisBlockButtonContent: '',
+            messages: [
+              {
+                sender: { name: 'Соня Ульянова', isSelf: false },
+                content: 'Отлично! Я подобрала еще несколько примеров того, как иллюстрации используются в рекламе. Смотрим?'
+              },
+            ],
+          },
+          {
+            showThisBlockButtonContent: 'Да, конечно!',
+            messages: [
+              {
+                sender: { isSelf: true },
+                content: 'Да, конечно!'
+              }
+            ],
+          },
+        ]
+      }
+    },
+    {
+      type: 'gallery',
+      maxHeightPx: 4_300,
+      images: [
+        {
+          id: 'SummerSymphiny.webp',
+          alt: 'SummerSymphiny',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Summer Symphiny',
+              props: { className: 'key-link'},
+            }
+          ]
+        },
+        {
+          id: 'AmandaLobos6.webp',
+          alt: 'AmandaLobos6',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Amanda Lobos',
+              props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
+            }
+          ]
+        },
+        {
+          id: 'AmandaLobos7.webp',
+          alt: 'AmandaLobos7',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Amanda Lobos',
+              props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
+            }
+          ]
+        },
+        {
+          id: 'AmandaLobos8.webp',
+          alt: 'AmandaLobos8',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Amanda Lobos',
+              props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
+            }
+          ]
+        },
+        {
+          id: 'AmandaLobos9.webp',
+          alt: 'AmandaLobos9',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Amanda Lobos',
+              props: { className: 'key-link', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
+            }
+          ]
+        },
+        {
+          id: 'okchizh1.webp',
+          alt: 'okchizh1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Юля Чиж',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://okchizh.art/' },
+            }
+          ]
+        },
+        {
+          id: 'StevenWilson1.webp',
+          alt: 'StevenWilson1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Steven Wilson',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/stevenwilsonstudio' },
+            }
+          ]
+        },
+        {
+          id: 'StevenWilson2.webp',
+          alt: 'StevenWilson2',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Steven Wilson',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/stevenwilsonstudio' },
+            }
+          ]
+        },
+        {
+          id: 'ETolsma2.webp',
+          alt: 'ETolsma2',
+          caption: [
+            {
+              tag: 'a',
+              content: 'E. Tolsma',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/ellistolsma' },
+            }
+          ]
+        },
+        {
+          id: 'AmandaLobos3.webp',
+          alt: 'AmandaLobos3',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Amanda Lobos',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
+            }
+          ]
+        },
+        {
+          id: 'IlyaMilstein5.webp',
+          alt: 'IlyaMilstein5',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Ilya Milstein',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.ilyamilstein.com/' },
+            }
+          ]
+        },
+        {
+          id: 'IlyaMilstein7.webp',
+          alt: 'IlyaMilstein7',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Ilya Milstein',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.ilyamilstein.com/' },
+            }
+          ]
+        },
+        {
+          id: 'sasha.ananas.sktch.webp',
+          alt: 'sasha.ananas.sktch',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Sasha Ananas',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/sasha.ananas.sktch/' },
+            }
+          ]
+        },
+        {
+          id: 'BarboraIdesova1.webp',
+          alt: 'BarboraIdesová1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Barbora Idesová',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/barboraidesova' },
+            }
+          ]
+        },
+        {
+          id: 'BarboraIdesova2.webp',
+          alt: 'BarboraIdesová2',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Barbora Idesová',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/barboraidesova' },
+            }
+          ]
+        },
+        {
+          id: 'BarboraIdesova3.webp',
+          alt: 'BarboraIdesová3',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Barbora Idesová',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/barboraidesova' },
+            }
+          ]
+        },
+        {
+          id: 'BarboraIdesova4.webp',
+          alt: 'BarboraIdesová4',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Barbora Idesová',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/barboraidesova' },
+            }
+          ]
+        },
+        {
+          id: 'BarboraIdesova5.webp',
+          alt: 'BarboraIdesová5',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Barbora Idesová',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/barboraidesova' },
+            }
+          ]
+        },
+        {
+          id: 'BarboraIdesova6.webp',
+          alt: 'BarboraIdesová6',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Barbora Idesová',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/barboraidesova' },
+            }
+          ]
+        },
+        {
+          id: 'BarboraIdesova7.webp',
+          alt: 'BarboraIdesová7',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Barbora Idesová',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/barboraidesova' },
+            }
+          ]
+        },
+      ]
+    },
+  ]
+}
+
+const lessonDataCI24: ILessonDataDB = {
+  id: 'Products_303ES4',
+  courseId: 'commercial-illustrator',
+  title: 'Коллаборации',
+  type: 'Theory',
+  icon: 'Lesson',
+  topic: 'Иллюстрация как профессия',
+  topicOrder: 2,
+  topicIcon: 'Lesson',
+  orderInTopic: 4,
+  duration: {
+    unit: 'minutes',
+    value: 10
+  },
+  isFree: true,
+  isUnderDevelopment: false,
+  content: [
+    {
+      type: 'chat',
+      chat: {
+        blocks: [
+          {
+            showThisBlockButtonContent: '',
+            messages: [
+              {
+                sender: { name: 'Соня Ульянова', isSelf: false },
+                content: 'Иллюстраторы рисуют не только для рекламных компаний. Бывает так, что совместная работа иллюстратора и компании переходит в нечто большее.'
+              },
+              {
+                sender: { name: 'Соня Ульянова', isSelf: false },
+                content: 'Так появляются лимитированные линейки.'
+              },
+            ],
+          },
+          {
+            showThisBlockButtonContent: 'Звучит интересно. Покажешь примеры?',
+            messages: [
+              {
+                sender: { isSelf: true },
+                content: 'Звучит интересно. Покажешь примеры?'
+              },
+              {
+                sender: { name: 'Соня Ульянова', isSelf: false },
+                content: 'Конечно)'
+              },
+            ],
+          },
+        ]
+      }
+    },
+    {
+      type: 'title',
+      title: 'Иллюстрации для продуктов',
+    },
+    {
+      type: 'text',
+      text: 'Когда бренды и иллюстраторы работают вместе, они могут создавать уникальные и запоминающиеся продукты. Эти совместные проекты дают иллюстраторам новые возможности для творчества и развития. Давайте посмотрим несколько примеров таких коллабораций.'
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Привлекают новую аудиторию. ',
+          props: {className: 'bold'}
+        },
+        {
+          tag: 'span',
+          content: 'Gucci часто работает с иллюстраторами, чтобы создавать уникальные коллекции. Один из самых запоминающихся проектов был с британской художницей Unskilled Worker. Она стала известна благодаря своим необычным и ярким портретам. В результате их сотрудничества появилась линия одежды и аксессуаров с красочными иллюстрациями, которые помогли привлечь новую аудиторию.'
+        }
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'unskilledworker3.webp',
+        alt: 'unskilledworker3',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Unskilled Worker',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://unskilledworker.co.uk/work/' },
+          }
+        ]
+      }
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Повышают популярность в соц.сетях. ',
+          props: {className: 'bold'}
+        },
+        {
+          tag: 'span',
+          content: 'Известные бренды, как Coca-Cola, работают с художниками, чтобы создать брендированные стикеры для соц. сетей. Эти стикеры могут быть на тему праздников, новых продуктов или акций компании. Они не только привлекают внимание к бренду, но и побуждают людей делиться ими с друзьями, что повышает популярность бренда.'
+        }
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'okchizh7.webp',
+        alt: 'okchizh7',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Юля Чиж',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://okchizh.art/' },
+          }
+        ]
+      }
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Стимулируют людей чаще покупать продукты. ',
+          props: {className: 'bold'}
+        },
+        {
+          tag: 'span',
+          content: 'Starbucks часто работает с иллюстраторами, чтобы создавать уникальные дизайны для своих подарочных карт. Каждый сезон или праздник может быть представлен новой серией карт с оригинальными рисунками. Эти карты становятся не только практичным подарком, но и предметом коллекционирования, что побуждает людей покупать их снова и снова.'
+        }
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'BeyaRebai1.webp',
+        alt: 'BeyaRebai1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Beya Rebai',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.beyarebai.com/' },
+          }
+        ]
+      }
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Создают эмоциональную связь. ',
+          props: {className: 'bold'}
+        },
+        {
+          tag: 'span',
+          content: 'Disney часто работает с дизайнерами и иллюстраторами, чтобы вместе создавать уникальные украшения. Например, вместе с Pandora они сделали коллекцию бижутерии с персонажами из известных мультфильмов Disney. Рисунки и иллюстрации любимых персонажей создают настроение, которые особенно радует фанатов.'
+        }
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'pandora.jpg',
+        alt: 'pandora',
+        caption: [
+          {
+            tag: 'a',
+            content: 'DISNEY X PANDORA',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.pandorashop.rs/rs/proizvodi/disney-collection' },
+          }
+        ]
+      }
+    },
+    {
+      type: 'chat',
+      chat: {
+        blocks: [
+          {
+            showThisBlockButtonContent: '',
+            messages: [
+              {
+                sender: { name: 'Соня Ульянова', isSelf: false },
+                content: 'Про продукты все) Я подобрала еще несколько примеров для вдохновения. Смотрим?'
+              },
+            ],
+          },
+          {
+            showThisBlockButtonContent: 'Конечно!',
+            messages: [
+              {
+                sender: { isSelf: true },
+                content: 'Конечно!'
+              }
+            ],
+          },
+        ]
+      }
+    },
+    {
+      type: 'gallery',
+      maxHeightPx: 2_900,
+      images: [
+        {
+          id: 'okchizh3.webp',
+          alt: 'okchizh3',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Юля Чиж',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://okchizh.art/' },
+            }
+          ]
+        },
+        {
+          id: 'okchizh8.webp',
+          alt: 'okchizh8',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Юля Чиж',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://okchizh.art/' },
+            }
+          ]
+        },
+        {
+          id: 'unskilledworker1.webp',
+          alt: 'unskilledworker1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Unskilled Worker',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://unskilledworker.co.uk/work/' },
+            }
+          ]
+        },
+        {
+          id: 'unskilledworker2.webp',
+          alt: 'unskilledworker2',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Unskilled Worker',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://unskilledworker.co.uk/work/' },
+            }
+          ]
+        },
+        {
+          id: 'unskilledworker4.webp',
+          alt: 'unskilledworker4',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Unskilled Worker',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://unskilledworker.co.uk/work/' },
+            }
+          ]
+        },
+        {
+          id: 'SusannaRumiz5.webp',
+          alt: 'SusannaRumiz5',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Susanna Rumiz',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/susannarumiz/projects' },
+            }
+          ]
+        },
+        {
+          id: 'AmandaLobos1.webp',
+          alt: 'AmandaLobos1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Amanda Lobos',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
+            }
+          ]
+        },
+        {
+          id: 'AmandaLobos2.webp',
+          alt: 'AmandaLobos2',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Amanda Lobos',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
+            }
+          ]
+        },
+        {
+          id: 'AsahiNagata3.webp',
+          alt: 'AsahiNagata3',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Asahi Nagata',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/nagataae6d8' },
+            }
+          ]
+        },
+        {
+          id: 'AsahiNagata5.webp',
+          alt: 'AsahiNagata5',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Asahi Nagata',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/nagataae6d8' },
+            }
+          ]
+        },
+        {
+          id: 'MinHeo2.webp',
+          alt: 'MinHeo2',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Min Heo',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://minstudio.cargo.site/' },
+            }
+          ]
+        },
+        {
+          id: 'dyreborgstudio.webp',
+          alt: 'dyreborgstudio',
+          caption: [
+            {
+              tag: 'a',
+              content: 'INA DYREBORG',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.dyreborgstudio.com/' },
+            }
+          ]
+        },
+        {
+          id: 'projectswatches1.webp',
+          alt: 'projectswatches1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Projects Watches',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/projectswatches/' },
+            }
+          ]
+        },
+        {
+          id: 'projectswatches2.webp',
+          alt: 'projectswatches2',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Projects Watches',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/projectswatches/' },
+            }
+          ]
+        },
+        {
+          id: 'projectswatches3.webp',
+          alt: 'projectswatches3',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Projects Watches',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/projectswatches/' },
+            }
+          ]
+        },
+      ]
+    },
+  ]
+}
+
+const lessonDataCI25: ILessonDataDB = {
+  id: 'Packaging_80wfHs',
+  courseId: 'commercial-illustrator',
+  title: 'Упаковка',
+  type: 'Theory',
+  icon: 'Lesson',
+  topic: 'Иллюстрация как профессия',
+  topicOrder: 2,
+  topicIcon: 'Lesson',
+  orderInTopic: 5,
+  duration: {
+    unit: 'minutes',
+    value: 10
+  },
+  isFree: true,
+  isUnderDevelopment: false,
+  content: [
+    {
+      type: 'text',
+      text: 'Упаковка — первое, что видит клиент, и от того, насколько она привлекательна и понятна, зависит решение о покупке. Давайте посмотрим, как это работает.'
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Привлекают внимание. ',
+          props: {className: ' bold'}
+        },
+        {
+          tag: 'span',
+          content: 'Представьте себе полки в магазине, полные товаров. Задача иллюстратора – сделать так, чтобы покупатель обратил внимание именно на ваш продукт. Например, летом 2024 сеть магазинов "Вкусвилл" вместе с фестивалем для иллюстраторов "Морс" провели конкурс для художников. Им нужно было придумать иллюстрации для упаковок напитка "Морс". В результате в магазинах появились яркие и запоминающиеся баночки, которые сразу бросались в глаза покупателям.'
+        }
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'mors.webp',
+        alt: 'mors',
+        caption: [
+          {
+            tag: 'a',
+            content: 'МОРС',
+            props: { className: 's-hoverable'},
+          }
+        ]
+      }
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Объясняют особенности продукта. ',
+          props: {className: ' bold'}
+        },
+        {
+          tag: 'span',
+          content: 'Компания "Moo Free" делает вкусный веганский шоколад и хочет, чтобы их упаковка понравилась и детям, и взрослым. Поэтому они пригласили иллюстратора Сандру Дикманн, которая нарисовала яркие и забавные картинки с животными. Эти иллюстрации не только привлекают внимание детей, но и ясно показывают, что шоколад не содержит молока и подходит для людей с аллергией. Благодаря таким картинкам, покупатели сразу понимают, что это веселый и безопасный продукт для всей семьи.'
+        }
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'MooFree.webp',
+        alt: 'MooFree',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Moo Free',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.moofreechocolates.com/' },
+          }
+        ]
+      }
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Усиливают связь с брендом. ',
+          props: {className: ' bold'}
+        },
+        {
+          tag: 'span',
+          content: 'Компания "Ben & Jerry\'s" известна своим креативным подходом к упаковке мороженого. Художник Вуди Джексон создал узнаваемые иллюстрации коров и сельской местности для их упаковок. Эти изображения не только создают ощущение деревенской простоты и натуральности, но и подчёркивают философию компании — использовать качественные и экологически чистые ингредиенты. Когда покупатель видит упаковку "Ben & Jerry\'s", он сразу понимает, что этот продукт произведён с заботой о природе.'
+        }
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'benjerry.webp',
+        alt: 'benjerry',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Ben & Jerry',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.benjerry.com/' },
+          }
+        ]
+      }
+    },
+    {
+      type: 'gallery',
+      maxHeightPx: 2_400,
+      images: [
+        {
+          id: 'NastyaChernish.webp',
+          alt: 'NastyaChernish',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Настя Черныш',
+              props: { className: 's-hoverable' },
+            }
+          ]
+        },
+        {
+          id: 'ETolsma3.webp',
+          alt: 'ETolsma3',
+          caption: [
+            {
+              tag: 'a',
+              content: 'E. Tolsma',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/ellistolsma' },
+            }
+          ]
+        },
+        {
+          id: 'ETolsma4.webp',
+          alt: 'ETolsma4',
+          caption: [
+            {
+              tag: 'a',
+              content: 'E. Tolsma',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/ellistolsma' },
+            }
+          ]
+        },
+        {
+          id: 'ETolsma5.webp',
+          alt: 'ETolsma5',
+          caption: [
+            {
+              tag: 'a',
+              content: 'E. Tolsma',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/ellistolsma' },
+            }
+          ]
+        },
+        {
+          id: 'ETolsma6.webp',
+          alt: 'ETolsma6',
+          caption: [
+            {
+              tag: 'a',
+              content: 'E. Tolsma',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/ellistolsma' },
+            }
+          ]
+        },
+        {
+          id: 'SusannaRumiz4.webp',
+          alt: 'SusannaRumiz4',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Susanna Rumiz',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/susannarumiz/projects' },
+            }
+          ]
+        },
+        {
+          id: 'NickLiefhebber2.webp',
+          alt: 'NickLiefhebber2',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Nick Liefhebber',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/Liefhebber' },
+            }
+          ]
+        },
+        {
+          id: 'NickLiefhebber8.webp',
+          alt: 'NickLiefhebber8',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Nick Liefhebber',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/Liefhebber' },
+            }
+          ]
+        },
+        {
+          id: 'NickLiefhebber6.webp',
+          alt: 'NickLiefhebber6',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Nick Liefhebber',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/Liefhebber' },
+            }
+          ]
+        },
+        {
+          id: 'NatashaBayduzha4.webp',
+          alt: 'NatashaBayduzha4',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Natasha Bayduzha',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/NataBayduzha' },
+            }
+          ]
+        },
+        {
+          id: 'NatashaBayduzha2.webp',
+          alt: 'NatashaBayduzha2',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Natasha Bayduzha',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/NataBayduzha' },
+            }
+          ]
+        },
+        {
+          id: 'AmandaLobos14.webp',
+          alt: 'AmandaLobos14',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Amanda Lobos',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
+            }
+          ]
+        },
+        {
+          id: 'AsahiNagata7.webp',
+          alt: 'AsahiNagata7',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Asahi Nagata',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/nagataae6d8' },
+            }
+          ]
+        },
+        {
+          id: 'IlyaMilstein1.webp',
+          alt: 'IlyaMilstein1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Ilya Milstein',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.ilyamilstein.com/' },
+            }
+          ]
+        },
+      ]
+    },
+  ]
+}
+
+const lessonDataCI26: ILessonDataDB = {
+  id: 'Murals_V2hxRJ',
+  courseId: 'commercial-illustrator',
+  title: 'Оформление пространств',
+  type: 'Theory',
+  icon: 'Lesson',
+  topic: 'Иллюстрация как профессия',
+  topicOrder: 2,
+  topicIcon: 'Lesson',
+  orderInTopic: 6,
+  duration: {
+    unit: 'minutes',
+    value: 10
+  },
+  isFree: true,
+  isUnderDevelopment: false,
+  content: [
+    {
+      type: 'text',
+      text: 'Му́рал – это изображение, созданное прямо на поверхности стены или потолка. Му́ралы могут быть нарисованы внутри зданий, например, в офисах, школах или ресторанах, а могут украшать фасады домов, стены гаражей и другие наружные поверхности.'
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Создают атмосферу. ',
+          props: {className: ' bold'}
+        },
+        {
+          tag: 'span',
+          content: 'Starbucks любят украшать свои помещения яркими муралами. Один из известных художников, с которым они работали, — Rohan Dahotre. Его работы можно найти по всему миру, и каждая из них уникальна. Например, в Индии он создал огромный мурал с изображением местной флоры и фауны. Этот мурал не только привлекает внимание прохожих, но и создаёт неповторимую атмосферу для посетителей кафе.'
+        }
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'RohanDahotre1.webp',
+        alt: 'RohanDahotre1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Rohan Dahotre',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/RohanSharadDahotre' },
+          }
+        ]
+      }
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Привлекают внимание. ',
+          props: {className: ' bold'}
+        },
+        {
+          tag: 'span',
+          content: 'Летний фестиваль в Буэнос-Айресе под названием «Amor de Verano» каждый год устраивает выставки, концерты и мастер-классы. В 2018 году они пригласили художника Себастьяна Кури, чтобы он создал для них особый образ. Вместе со своей командой Себастьян нарисовал огромную фреску, которая покрыла весь фасад здания. Эти иллюстрации должны были привлечь внимание к фестивалю и создать атмосферу юной, наивной влюбленности.'
+        }
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'SebastianCuri1.webp',
+        alt: 'SebastianCuri1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Sebastian Curi',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/sebastiancuri' },
+          }
+        ]
+      }
+    },
+    {
+      type: 'gallery',
+      maxHeightPx: 1_550,
+      images: [
+        {
+          id: 'ETolsma1.webp',
+          alt: 'ETolsma1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'E. Tolsma',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/ellistolsma' },
+            }
+          ]
+        },
+        {
+          id: 'NickLiefhebber4.webp',
+          alt: 'NickLiefhebber4',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Nick Liefhebber',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/Liefhebber' },
+            }
+          ]
+        },
+        {
+          id: 'NatashaBayduzha1.webp',
+          alt: 'NatashaBayduzha1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Natasha Bayduzha',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/NataBayduzha' },
+            }
+          ]
+        },
+        {
+          id: 'RohanDahotre2.webp',
+          alt: 'RohanDahotre2',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Rohan Dahotre',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/RohanSharadDahotre' },
+            }
+          ]
+        },
+        {
+          id: 'StudioZwupp6.webp',
+          alt: 'StudioZwupp6',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Studio Zwupp',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zwupp' },
+            }
+          ]
+        },
+        {
+          id: 'StudioZwupp7.webp',
+          alt: 'StudioZwupp7',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Studio Zwupp',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zwupp' },
+            }
+          ]
+        },
+        {
+          id: 'okchizh6.webp',
+          alt: 'okchizh6',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Юля Чиж',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://okchizh.art/' },
+            }
+          ]
+        },
+        {
+          id: 'okchizh5.webp',
+          alt: 'okchizh5',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Юля Чиж',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://okchizh.art/' },
+            }
+          ]
+        },
+      ]
+    },
+  ]
+}
+
+const lessonDataCI27: ILessonDataDB = {
+  id: 'Editorial_K8Bu8i',
+  courseId: 'commercial-illustrator',
+  title: 'Книги и журналы',
+  type: 'Theory',
+  icon: 'Lesson',
+  topic: 'Иллюстрация как профессия',
+  topicOrder: 2,
+  topicIcon: 'Lesson',
+  orderInTopic: 7,
+  duration: {
+    unit: 'minutes',
+    value: 10
+  },
+  isFree: true,
+  isUnderDevelopment: false,
+  content: [
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Привлекают внимание. ',
+          props: {className: ' bold'}
+        },
+        {
+          tag: 'span',
+          content: 'Например, обложка книги «Там гораздо лучше», Виолен Беро — арт-объект, который сначала цепляет формой, а потом содержанием.'
+        }
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'polyandria4.webp',
+        alt: 'polyandria4',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Поляндрия',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://polyandria.ru/noage/' },
+          }
+        ]
+      }
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Помогают создать имидж книги и издательства. ',
+          props: {className: ' bold'}
+        },
+        {
+          tag: 'span',
+          content: 'Иллюстрации на обложках книг делают их особенными и легко узнаваемыми. Например, книги серии NoAge x Есть смысл, сделанные вместе с издательством «Есть смысл», объединены в концептуальную серию. Благодаря этому их сразу можно заметить на полке и отличить от других книг NoAge. У этих книг мягкая обложка с клапанами, которые закрывают лицевую сторону и название книги. Штрихкод растянут от лицевой сторонки до края задней, что нарушает ожидание читателя.'
+        }
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'polyandria3.webp',
+        alt: 'polyandria3',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Поляндрия',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://polyandria.ru/noage/' },
+          }
+        ]
+      }
+    },
+    {
+      type: 'gallery',
+      maxHeightPx: 2_600,
+      images: [
+        {
+          id: 'aplusabooks2.webp',
+          alt: 'aplusabooks2',
+          caption: [
+            {
+              tag: 'a',
+              content: 'А + А',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://aplusabooks.ru/' },
+            }
+          ]
+        },
+        {
+          id: 'aplusabooks1.webp',
+          alt: 'aplusabooks1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'А + А',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://aplusabooks.ru/' },
+            }
+          ]
+        },
+        {
+          id: 'samokatbook1.webp',
+          alt: 'samokatbook1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Самокат',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://samokatbook.ru/' },
+            }
+          ]
+        },
+        {
+          id: 'samokatbook2.webp',
+          alt: 'samokatbook2',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Самокат',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://samokatbook.ru/' },
+            }
+          ]
+        },
+        {
+          id: 'samokatbook3.webp',
+          alt: 'samokatbook3',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Самокат',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://samokatbook.ru/' },
+            }
+          ]
+        },
+        {
+          id: 'polyandria3.webp',
+          alt: 'polyandria3',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Поляндрия',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://polyandria.ru/noage/' },
+            }
+          ]
+        },
+        {
+          id: 'polyandria1.webp',
+          alt: 'polyandria1',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Поляндрия',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://polyandria.ru/noage/' },
+            }
+          ]
+        },
+        {
+          id: 'polyandria.webp',
+          alt: 'polyandria',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Поляндрия',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://polyandria.ru/noage/' },
+            }
+          ]
+        },
+        {
+          id: 'AmandaLobos13.webp',
+          alt: 'AmandaLobos13',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Amanda Lobos',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/maisdeumlobo' },
+            }
+          ]
+        },
+        {
+          id: 'bayduzha6.webp',
+          alt: 'bayduzha6',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Наташа Байдужа',
+              props: { className: 's-hoverable', target: "_blank", to: 'http://bayduzha.com/' },
+            }
+          ]
+        },
+        {
+          id: 'polyandria.no.age2.webp',
+          alt: 'polyandria.no.age2',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Polyandria NoAge',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://polyandria.ru/noage/?fbclid=PAZXh0bgNhZW0CMTEAAabAi9e6KyC7CAY-L2drZK5r471d00tMEufQpVFfQC-qVHTJY-cOJBfRyL4_aem_ZmFrZWR1bW15MTZieXRlcw' },
+            }
+          ]
+        },
+        {
+          id: 'ta_boris.webp',
+          alt: 'ta_boris',
+          caption: [
+            {
+              tag: 'a',
+              content: 'Таня Борисова',
+              props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/ta_boris/' },
+            }
+          ]
+        },
+      ]
+    },
+  ]
+}
+
+const lessonDataCI28: ILessonDataDB = {
+  id: 'CommercialIllustratorSummary_CV9ZUs',
+  courseId: 'commercial-illustrator',
+  title: 'Итоги модуля',
+  type: 'Theory',
+  icon: 'Lesson',
+  topic: 'Иллюстрация как профессия',
+  topicOrder: 2,
+  topicIcon: 'Lesson',
+  orderInTopic: 8,
+  duration: {
+    unit: 'minutes',
+    value: 5
+  },
+  isFree: true,
+  isUnderDevelopment: false,
+  content: [
+
   ]
 }
 
