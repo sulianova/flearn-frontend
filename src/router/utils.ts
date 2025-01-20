@@ -82,7 +82,6 @@ export const URLSections = {
           lessonId: res[2],
         };
     },
-
     Results: {
       index: '/study/:courseId/:lessonId/results',
       to: (props: { courseId: string, lessonId: string } & IBaseProps) =>
@@ -97,6 +96,21 @@ export const URLSections = {
             lessonId: res[2],
           };
       },
+    },
+  },
+  Play: {
+    index: '/study/:courseId/:lessonId/play',
+    to: (props: { courseId: string, lessonId: string } & IBaseProps) =>
+      assemble({ ...props, path: `/study/${props.courseId}/${props.lessonId}/play` }),
+    regex: /^\/study\/([^\/]+)\/([^\/]+)\/play$/,
+    getParams(pathname: string) {
+      const res = this.regex.exec(pathname);
+      return !res
+        ? null
+        : {
+          courseId: res[1],
+          lessonId: res[2],
+        };
     },
   },
 

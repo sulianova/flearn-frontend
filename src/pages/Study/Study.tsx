@@ -17,9 +17,10 @@ import classes from './Study.module.scss';
 import LessonContent from './LessonContent/LessonContent';
 import LessonUppload from './LessonUppload/LessonUppload';
 import LessonHeader from './LessonHeader/LessonHeader';
+import Play from './Play/Play';
 
 interface IProps {
-  section: 'task' | 'results'
+  section: 'task' | 'results' | 'play'
 }
 
 export default function LessonContainer(props: IProps) {
@@ -77,6 +78,8 @@ function Lesson({ section }: IProps) {
   const currentCourseAccess = userAccessService.useAccess();
   const progress = userCourseProgressService.useCurrentCourseProgress();
 
+  console.log('Lesson', { currentCourse, currentLesson, currentCourseAccess })
+
   if (!currentCourse || !currentLesson || !currentCourseAccess) {
     return (
       <Fallback.Pending
@@ -93,6 +96,20 @@ function Lesson({ section }: IProps) {
       >
         Это платный урок. Купите курс, чтобы получить доступ.
       </Fallback.Info>
+    );
+  }
+
+  if (section === "play") {
+    return (
+      <Page
+        variant={EPageVariant.LMS}
+        header={false}
+        footer={false}
+        backgroundColor='var(--color-background-default)'
+        scrollToTopDependencie={lessonId}
+      >
+        <Play/>
+      </Page>
     );
   }
 

@@ -6186,6 +6186,7 @@ const lessonDataFYS21: ILessonDataDB = {
   },
   isFree: false,
   isUnderDevelopment: false,
+  hasQuiz: true,
   content: [
     // {
     //   type: 'video',

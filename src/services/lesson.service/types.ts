@@ -24,6 +24,7 @@ interface ILessonDataCommon {
   isFree: boolean
   isUnderDevelopment: boolean
   survey?: TSurvey
+  hasQuiz?: boolean
 }
 
 export interface ILessonData extends ILessonDataCommon {

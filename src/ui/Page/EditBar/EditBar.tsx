@@ -50,6 +50,12 @@ export default function EditBar() {
       lessonId ? () => lessonService.upload({ id: lessonId }) : undefined,
       lessonId ? 'Upload lesson' : undefined,
     ],
+    'Play': [
+      lessonSource,
+      () => lessonService.changeSource(lessonSource === 'local' ? 'remote' : 'local'),
+      lessonId ? () => lessonService.upload({ id: lessonId }) : undefined,
+      lessonId ? 'Upload lesson' : undefined,
+    ],
   } as const)[urlSection.name];
 
   return (

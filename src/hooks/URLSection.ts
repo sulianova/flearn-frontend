@@ -22,6 +22,8 @@ export function useURLSection(): TURLSectionObj {
       return { name: 'EmptyProfile', params: URLSections.EmptyProfile.getParams(pathname)! };
     } else if (URLSections.Study.regex.test(pathname)) {
       return { name: 'Study', params: URLSections.Study.getParams(pathname)! };
+    } else if (URLSections.Play.regex.test(pathname)) {
+      return { name: 'Play', params: URLSections.Play.getParams(pathname)! };
     } else {
       return { name: 'Other', params: {} };
     }

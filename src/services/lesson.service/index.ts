@@ -149,7 +149,7 @@ class LessonService {
       const section = locationService.URLSection;
       const courseLessons = this._courseLessonsBS.getValue().lessons;
 
-      if (section.name !== 'Study' || !courseLessons) {
+      if ((section.name !== 'Study' && section.name !== 'Play') || !courseLessons) {
         this._currentLessonBS.next(null);
         this._nextLessonBS.next(null);
         return;
@@ -182,7 +182,7 @@ class LessonService {
         section: locationService.URLSection,
       };
 
-      if ((dependencies.section.name !== 'Course' && dependencies.section.name !== 'Profile' && dependencies.section.name !== 'Study')) {
+      if ((dependencies.section.name !== 'Course' && dependencies.section.name !== 'Profile' && dependencies.section.name !== 'Study' && dependencies.section.name !== 'Play')) {
         this._courseLessonsRawBS.next({ lessons: null, dependencies });
         return;
       }
@@ -191,7 +191,7 @@ class LessonService {
       const prevDependencies = this._courseLessonsRawBS.getValue().dependencies;
       if (prevDependencies
         && prevDependencies.source === dependencies.source
-        && (prevDependencies.section.name === 'Course' || prevDependencies.section.name === 'Profile' || prevDependencies.section.name === 'Study')
+        && (prevDependencies.section.name === 'Course' || prevDependencies.section.name === 'Profile' || prevDependencies.section.name === 'Study' || prevDependencies.section.name === 'Play')
         && prevDependencies.section.params.courseId === dependencies.section.params.courseId
       ) {
         return;
@@ -204,7 +204,7 @@ class LessonService {
         this._courseLessonsRawBS.next({ lessons: null, dependencies });
       } else if (
         prevDependencies
-        && (prevDependencies.section.name === 'Course' || prevDependencies.section.name === 'Profile' || prevDependencies.section.name === 'Study')
+        && (prevDependencies.section.name === 'Course' || prevDependencies.section.name === 'Profile' || prevDependencies.section.name === 'Study' || prevDependencies.section.name === 'Play')
         && prevDependencies.section.params.courseId !== dependencies.section.params.courseId
       ) {
         // trigger spinner
@@ -237,7 +237,7 @@ class LessonService {
         };
 
         const { lessons, dependencies: rawDependencies } = this._courseLessonsRawBS.getValue();
-        if (!lessons || !rawDependencies || (rawDependencies.section.name !== 'Course' && rawDependencies.section.name !== 'Profile' && rawDependencies.section.name !== 'Study')) {
+        if (!lessons || !rawDependencies || (rawDependencies.section.name !== 'Course' && rawDependencies.section.name !== 'Profile' && rawDependencies.section.name !== 'Study' && rawDependencies.section.name !== 'Play')) {
           this._courseLessonsBS.next({ lessons: null, dependencies });
           return;
         }

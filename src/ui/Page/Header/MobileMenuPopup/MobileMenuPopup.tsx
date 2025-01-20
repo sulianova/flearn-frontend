@@ -81,6 +81,7 @@ export default function MobileMenuPopup(props: Readonly<IProps>) {
             'Profile': course.id === lastStudiedCourse?.id,
             'EmptyProfile': course.id === lastStudiedCourse?.id,
             'Study': false,
+            'Play': false,
             'Other': false,
           }[urlSection.name]
         })} key={course.id}>
@@ -234,6 +235,7 @@ export default function MobileMenuPopup(props: Readonly<IProps>) {
                         'Profile': buyCourseBtn,
                         'EmptyProfile': buyCourseBtn,
                         'Study': buyCourseBtn,
+                        'Play': buyCourseBtn,
                         'Other': null,
                       }[urlSection.name]
                     }

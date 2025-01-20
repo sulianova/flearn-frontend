@@ -18,7 +18,7 @@ const t = formatI18nT('courseLesson');
 const cx = classNames.bind(classes);
 
 interface IProps {
-  section: 'task' | 'results' | 'my-work'
+  section: 'task' | 'results'
 }
 
 function LessonHeader(props: IProps) {

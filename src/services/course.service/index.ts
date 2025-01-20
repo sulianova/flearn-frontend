@@ -139,6 +139,7 @@ class CourseService {
         && section.name !== 'Course'
         && section.name !== 'Profile'
         && section.name !== 'Study'
+        && section.name !== 'Play'
       ) {
         this._currentCourseBS.next(null);
         return;

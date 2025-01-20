@@ -21,6 +21,7 @@ import classes from './LessonContent.module.scss';
 import { authService } from 'services';
 import { discountService } from 'services/discount.service';
 import { MIN_PER_DAY } from 'utils';
+import Link from 'ui/Link/Link';
 
 interface IProps {
   course: ICourseData
@@ -113,9 +114,16 @@ export default function LessonContent(props: IProps) {
               </p>
             </div>
           </div>
-          {/* <div className={classes.actions}>
-            <button className={classes.actions__btn}>Пройти квиз</button>
-          </div> */}
+          {lesson.hasQuiz && (
+            <div className={classes.actions}>
+              <Link
+                className={classes.actions__btn}
+                to={URLSections.Play.to({ courseId, lessonId })}
+              >
+                Пройти квиз
+              </Link>
+            </div>
+          )}
         </div>
         <Article
           key={lessonId}

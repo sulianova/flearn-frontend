@@ -37,6 +37,7 @@ export default function CoursesDropdownContent({ courses, lastStudiedCourse, clo
                   'Profile': course.id === lastStudiedCourse?.id,
                   'EmptyProfile': course.id === courseId,
                   'Study': course.id === courseId,
+                  'Play': course.id === courseId,
                   'Other': course.id === courseId,
                 }[urlSection.name]
               })}
