@@ -29,6 +29,10 @@ function Sidebar() {
   const [lessonsPopupVisible, setLessonsPopupVisible] = useState(false);
   const [userPopupVisible, setUserPopupVisible] = useState(false);
 
+  if (urlSection.name === 'Play') {
+    return null;
+  }
+
   return (
     <>
       <div className={classes.__}>
