@@ -16,9 +16,9 @@
   width: set-calc(480);
 
   @include set-media(md) {
-    min-height: 100vh;
-    min-height: -webkit-fill-available;
-    min-height: fill-available;
+    // min-height: 100vh;
+    // min-height: -webkit-fill-available;
+    // min-height: fill-available;
 
     padding: set-calc(24);
     width: 100%;

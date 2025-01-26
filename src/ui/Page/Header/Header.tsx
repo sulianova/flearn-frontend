@@ -174,6 +174,19 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
                         </div>
                       </>
                     )}
+                      {(urlSection.name == 'Home') && isMobile && (
+                      <>
+                        <div className={cx({ btn_login: true})} onClick={() => authService.authenticate()}>
+                          {t('btns.login.signIn')}
+                        </div>
+                        <div
+                          className={cx({ btn_start: true})}
+                          onClick={onNotAuthedClick}
+                        >
+                          {t('btns.start.free')}
+                        </div>
+                      </>
+                    )}
                   </>
               }
             </div>
