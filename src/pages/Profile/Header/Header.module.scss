@@ -16,10 +16,7 @@
   @include set-media(md) {
     gap: set-calc(16);
 
-    padding: 0;
-    border-radius: set-calc($border-radius-20);
-    background-color: transparent;
-    border: none;
+    padding: set-calc(24);
 
   }
 }
