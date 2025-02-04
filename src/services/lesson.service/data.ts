@@ -6297,101 +6297,7 @@ const lessonDataFYS21: ILessonDataDB = {
     },
     {
       type: 'title',
-      title: 'Пластический сюжет',
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Пластический сюжет = попытка показать стилизацию, утрировать ощущение от картинки. Утрируем всегда то, что можем проговорить. Некий аспект, который нам важен.',
-        },
-      ]
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Пластический сюжет рассказывает о том, как рисовать:',
-          props: { className: 'listHeader' },
-        },
-        {
-          tag: 'p',
-          content: 'цветовая палитра',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'техника',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'формат, размер листа',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'формообразование',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'логика построения пространства',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'фактура',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'светотень',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'количество воздуха в листе',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'температура',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'контрастность',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'синестезия',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'ритмы',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'скорость, с которой делается вещь, легкость',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'динамика в листе',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'умение рисовать',
-          props: { className: 'listItem' },
-        },
-      ]
+      title: 'Пластическая идея',
     },
     {
       type: 'image',
@@ -6408,17 +6314,170 @@ const lessonDataFYS21: ILessonDataDB = {
       },
     },
     {
-      type: 'title',
-      title: 'Пластический и литературный сюжет могут дополнять друг друга',
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Пластическая идея — это попытка показать стилизацию, утрировать ощущение от картинки. Утрируем всегда то, что можем проговорить. Некий аспект, который нам важен.',
+        },
+      ]
     },
     {
       type: 'text',
       text: [
         {
           tag: 'p',
-          content: 'Игривый и легкий персонаж, игривая и легкая интонация рисунка в работе John Patrick Byrne.',
+          content: 'Пластический сюжет рассказывает о том, как рисовать:',
         },
       ]
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: 'цветовая палитра',
+        },
+        {
+          tag: 'p',
+          content: 'техника',
+        },
+        {
+          tag: 'p',
+          content: 'формат, размер листа',
+        },
+        {
+          tag: 'p',
+          content: 'формообразование',
+        },
+        {
+          tag: 'p',
+          content: 'логика построения пространства',
+        },
+        {
+          tag: 'p',
+          content: 'фактура',
+        },
+        {
+          tag: 'p',
+          content: 'светотень',
+        },
+        {
+          tag: 'p',
+          content: 'количество воздуха в листе',
+        },
+        {
+          tag: 'p',
+          content: 'температура',
+        },
+        {
+          tag: 'p',
+          content: 'контрастность',
+        },
+        {
+          tag: 'p',
+          content: 'синестезия',
+        },
+        {
+          tag: 'p',
+          content: 'ритмы',
+        },
+        {
+          tag: 'p',
+          content: 'скорость, с которой делается вещь, легкость',
+        },
+        {
+          tag: 'p',
+          content: 'динамика в листе',
+        },
+        {
+          tag: 'p',
+          content: 'умение рисовать.',
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Сюжет важнее пластической идеи',
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AmyHwang1.webp',
+        alt: 'AmyHwang1',
+        caption: [
+          {
+            tag: 'p',
+            content: '“Between shorter daylight hours and longer times for getting dressed, it’s easier to stay inside.”',
+          },
+          {
+            tag: 'a',
+            content: 'Cartoon by Amy Hwang',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.newyorker.com/cartoon/a60949' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Значимость пластической идеи и сюжета различается в зависимости от задачи автора. Когда автору нужно сделать сложную мысль простой, он использует ясный, минималистичный визуальный язык. Например, карикатуры в журнале NewYorker — это простые чёрно-белые рисунки с остроумными подписями, которые передают сложные идеи через минимализм.',
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Пластическая идея важнее сюжета',
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'MashaTitova.webp',
+        alt: 'MashaTitova',
+        caption: [
+          {
+            tag: 'p',
+            content: 'Masha Titova’s “The Art of Music”. The magazine publishes its first synesthetic, collaborative, and interactive cover.',
+          },
+          {
+            tag: 'a',
+            content: 'Art by Masha Titova',
+            props: { className: 's-hoverable', target: "_blank", to: 'http://www.newyorker.com/contributors/masha-titova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Когда автору нужно создать ощущение, а не передать мысль, он использует визуальные средства выразительности. Например, иллюстрация Марии Титовой на обложке музыкального выпуска журнала The New Yorker.',
+        },
+      ]
+    },
+    {
+      type: 'quote',
+      quote: [
+        {
+          tag: 'p',
+          content: 'Эта работа про разнообразные элементы как музыкальные стили, соединяющиеся в великолепном миксе «звуков», формирующих окружающее пространство как красивую и уродливую параллельную реальность.',
+        },
+        {
+          tag: 'p',
+          content: '… я сосредоточилась на ритме и расположении элементов на обложке, играя с различиями в форме и масштабе. Было очень весело перемещать и масштабировать фигуры, добиваясь разных звуков кавера: нежных и резких, шумных и громких.',
+        },
+        {
+          tag: 'p',
+          content: 'Мария Титова',
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Пластическая идея и сюжет дополняют друг друга',
     },
     {
       type: 'image',
@@ -6438,27 +6497,22 @@ const lessonDataFYS21: ILessonDataDB = {
       text: [
         {
           tag: 'p',
-          content: 'John Patrick Byrne открывает нестереотипную сторону персонажа.  В фильмах Тильда Суинтон обычно играет холодную злодейку, как в фильме Хроники Нарнии или Докторе Стрэйнже. Но ее муж John Patrick Byrne, изображает Тильду игривой и легкой. Такой, какую он знает ее в жизни.',
+          content: 'При работе над персонажами, пластическая идея и сюжет часто работают вместе. Например, Игривый и легкий персонаж, игривая и легкая интонация рисунка в работе Патрика Бирна.',
+        },
+        {
+          tag: 'p',
+          content: 'Художник открывает нестереотипную сторону персонажа.  В фильмах Тильда Суинтон обычно играет холодную злодейку, как в фильме Хроники Нарнии или Докторе Стрэйнже. Но ее муж Патрик Бирн изображает Тильду игривой и легкой. Такой, какую он знает ее в жизни.',
         },
       ]
     },
     {
       type: 'title',
-      title: 'Пластический и литературный сюжет могут контрастировать друг с другом',
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Zhiyong Jing создает конфликт между интонацией и самой историей. Литературный сюжет про криминал. И супер спокойная интонация наивной живописи.',
-        },
-      ]
+      title: 'Пластическая идея и сюжет спорят друг с другом',
     },
     {
       type: 'image',
       imageData: {
-        id: 'ZhiyongJing6.webp',
+        id: 'ZhiyongJing7.jpg',
         alt: 'ZhiyongJing6',
         caption: [
           {
@@ -6469,6 +6523,62 @@ const lessonDataFYS21: ILessonDataDB = {
         ],
       },
     },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Противопоставление идеи и исполнения создают напряжение. Например, Zhiyong Jing создает конфликт между интонацией и самой историей. Литературный сюжет про криминал. И супер спокойная интонация наивной живописи.',
+        },
+        {
+          tag: 'p',
+          content: 'Каждый из примеров показывает, как иллюстрация решает конкретные задачи: рассказывает историю, погружает в атмосферу или создает запоминающийся образ. И чтобы решить эти задача, автор подбирает необходимый набор инструментов. ',
+        },
+      ]
+    },
+  ],
+  survey: {
+    0: {
+      type: 'SELECT',
+      variant: 'CARD',
+      subtitle: 'Хотим зафиксировать цель, с которой вы проходите бесплатные уроки. А в конце спросим, получилось ли её достичь.',
+      description: 'Выберите цель:',
+      options: [
+        {
+          title: 'Пройти и оплатить',
+          subtitle: 'Подготовиться к платным урокам',
+        },
+        {
+          title: 'Попробовать формат',
+          subtitle: 'Понять, понравится ли мне учеба в flearn',
+        },
+        {
+          title: 'Пройти только бесплатные уроки',
+          subtitle: 'Бесплатно научиться чему-нибудь новому',
+        },
+      ],
+    },
+  }
+}
+
+const lessonDataFYS22: ILessonDataDB = {
+  id: 'Series_1JYKwX',
+  courseId: 'finding-your-style',
+  title: 'Серия',
+  type: 'Theory',
+  icon: 'Lesson',
+  topic: 'Что такое иллюстрация, серия, стиль',
+  topicOrder: 2,
+  topicIcon: 'Lesson',
+  orderInTopic: 2,
+  duration: {
+    unit: 'hours',
+    value: 1
+  },
+  isFree: false,
+  isUnderDevelopment: false,
+  hasQuiz: false,
+  content: [
     {
       type: 'title',
       title: 'Серия',
@@ -7504,28 +7614,6 @@ const lessonDataFYS21: ILessonDataDB = {
       ]
     },
   ],
-  survey: {
-    0: {
-      type: 'SELECT',
-      variant: 'CARD',
-      subtitle: 'Хотим зафиксировать цель, с которой вы проходите бесплатные уроки. А в конце спросим, получилось ли её достичь.',
-      description: 'Выберите цель:',
-      options: [
-        {
-          title: 'Пройти и оплатить',
-          subtitle: 'Подготовиться к платным урокам',
-        },
-        {
-          title: 'Попробовать формат',
-          subtitle: 'Понять, понравится ли мне учеба в flearn',
-        },
-        {
-          title: 'Пройти только бесплатные уроки',
-          subtitle: 'Бесплатно научиться чему-нибудь новому',
-        },
-      ],
-    },
-  }
 }
 
 // const lessonDataFYS22: ILessonDataDB = {
@@ -14281,7 +14369,7 @@ export const allLessons = [
   lessonDataFYS12,
   lessonDataFYS13,
   lessonDataFYS21,
-  // lessonDataFYS22,
+  lessonDataFYS22,
   // lessonDataFYS23,
   lessonDataFYS3,
   lessonDataFYS4,

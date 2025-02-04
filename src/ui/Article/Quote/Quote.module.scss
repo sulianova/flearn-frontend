@@ -5,8 +5,8 @@
   color: var(--color-content-primary);
   margin: set-calc(20) 0 set-calc(40);
 
-  width: set-calc(780);
-  left: set-calc(-40);
+  // width: set-calc(780);
+  // left: set-calc(-40);
 
   @include set-media(md) {
     margin: set-calc(30) 0 set-calc(30);
