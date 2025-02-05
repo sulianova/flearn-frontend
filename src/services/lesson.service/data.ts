@@ -6438,10 +6438,6 @@ const lessonDataFYS21: ILessonDataDB = {
         alt: 'MashaTitova',
         caption: [
           {
-            tag: 'p',
-            content: 'Masha Titova’s “The Art of Music”. The magazine publishes its first synesthetic, collaborative, and interactive cover.',
-          },
-          {
             tag: 'a',
             content: 'Art by Masha Titova',
             props: { className: 's-hoverable', target: "_blank", to: 'http://www.newyorker.com/contributors/masha-titova' },
@@ -6580,10 +6576,6 @@ const lessonDataFYS22: ILessonDataDB = {
   hasQuiz: false,
   content: [
     {
-      type: 'title',
-      title: 'Серия',
-    },
-    {
       type: 'text',
       text: [
         {
@@ -6594,120 +6586,169 @@ const lessonDataFYS22: ILessonDataDB = {
     },
     {
       type: 'title',
-      title: 'Что объединяет рисунки',
+      title: 'Чем серия отличается от иллюстраци',
     },
     {
       type: 'text',
       text: [
         {
           tag: 'p',
-          content: 'Литературный сюжет:',
-          props: { className: 'listHeader' },
-        },
-        {
-          tag: 'p',
-          content: 'сколько в рисунке персонажей',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'что персонажи делают',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'какое время суток',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'мы в комнате или в лесу',
-          props: { className: 'listItem' },
+          content: 'В отличие от одиночной иллюстрации, серия передает одну идею через несколько работ. Например:',
         },
       ]
     },
     {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: 'Одна картинка с лесом — это иллюстрация.',
+        },
+        {
+          tag: 'p',
+          content: 'Набор иллюстраций, где лес изображен в разное время суток или сезоны — это серия.',
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Что объединяет работы в серию',
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'Zulma.webp',
+        alt: 'zulma',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Книги издательства Zulma',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.zulma.fr/' },
+          },
+        ],
+      },
+    },
+    {
       type: 'text',
       text: [
         {
           tag: 'p',
-          content: 'Пластический сюжет:',
-          props: { className: 'listHeader' },
+          content: 'На всех книгах издательства Zulma стоит треугольная плашка. Она дает понять, что книги относятся к одному и тому же издательству. При этом иллюстрации на обложках значительно различаются между собой.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'tapiorum.jpg',
+        alt: 'tapiorum',
+        caption: [
+          {
+            tag: 'a',
+            content: 'tapiorum',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/tapiorum/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Студия tapiorum делает керамическую посуду: кружки, тарелки, вазы, подсвечники. В серии с грибами форма, размер, расположение и количество грибов различаются в зависимости от предмета. Самого факта наличия гриба — достаточно, чтобы сохранить серийность.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'tinayuartist2.jpeg',
+        alt: 'tinayuartist2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Tina',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/tapiorum/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Серия скульптур “Зодиак” от китайской художница Тины. Мы видим три общие линии: литературный сюжет, форма, материал. Каждая фигурка изображает один из знаков зодиака. Каждая фигурка — это голова человека в шапке или маске животного. Все фигурки сделаны из керамики, в схожей манере.',
         },
         {
           tag: 'p',
+          content: 'Суммируем, объединять работы в серию будут любые варианты литературного сюжета и пластической идеи:',
+        },
+      ]
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
           content: 'цветовая палитра',
-          props: { className: 'listItem' },
         },
         {
           tag: 'p',
           content: 'техника',
-          props: { className: 'listItem' },
         },
         {
           tag: 'p',
           content: 'формат, размер листа',
-          props: { className: 'listItem' },
         },
         {
           tag: 'p',
           content: 'формообразование',
-          props: { className: 'listItem' },
         },
         {
           tag: 'p',
           content: 'логика построения пространства',
-          props: { className: 'listItem' },
         },
         {
           tag: 'p',
           content: 'фактура',
-          props: { className: 'listItem' },
         },
         {
           tag: 'p',
           content: 'светотень',
-          props: { className: 'listItem' },
         },
         {
           tag: 'p',
           content: 'количество воздуха в листе',
-          props: { className: 'listItem' },
         },
         {
           tag: 'p',
           content: 'температура',
-          props: { className: 'listItem' },
         },
         {
           tag: 'p',
           content: 'контрастность',
-          props: { className: 'listItem' },
         },
         {
           tag: 'p',
           content: 'синестезия',
-          props: { className: 'listItem' },
         },
         {
           tag: 'p',
           content: 'ритмы',
-          props: { className: 'listItem' },
         },
         {
           tag: 'p',
           content: 'скорость, с которой делается вещь, легкость',
-          props: { className: 'listItem' },
         },
         {
           tag: 'p',
           content: 'динамика в листе',
-          props: { className: 'listItem' },
         },
         {
           tag: 'p',
-          content: 'умение рисовать',
-          props: { className: 'listItem' },
+          content: 'умение рисовать.',
         },
       ]
     },
@@ -6723,207 +6764,27 @@ const lessonDataFYS22: ILessonDataDB = {
           content: 'Все, что не константа. Чтобы серия получилась, автор должен выбрать набор параметров, которые он зафиксирует — это станет единой интонацией серии. И определиться с параметрами, за счет которых он сделает серию разнообразной.',
         },
       ]
-    },
-    {
-      type: 'title',
-      title: 'Примеры серий',
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'hannaleejoshi_Seria2.webp',
-        alt: 'hannaleejoshi_Seria2',
-        caption: [
-          {
-            tag: 'a',
-            content: 'H A N N A / 이 한 나',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/hannaleejoshi/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'ZhiyongJing_Seria1.webp',
-        alt: 'ZhiyongJing_Seria1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Zhiyong Jing',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.jingzhiyong.com/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'MashaTitova_Seria1.webp',
-        alt: 'MashaTitova_Seria1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Masha Titova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/mashatitovaprint' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'hannaleejoshi_Seria1.webp',
-        alt: 'hannaleejoshi_Seria1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'H A N N A / 이 한 나',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/hannaleejoshi/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'NadiiaZhelieznova_Seria1.webp',
-        alt: 'NadiiaZhelieznova_Seria1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Nadiia Zhelieznova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zhelieznova' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'MikeLee_Seria1.webp',
-        alt: 'MikeLee_Seria1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Mike Lee',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.mikelee.one/group-exhibitions-1' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'JustasJelisejevas_Seria1.webp',
-        alt: 'JustasJelisejevas_Seria1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Justas Jelisejevas',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/JustasJ' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'AlenaDemchenko_Seria2.webp',
-        alt: 'AlenaDemchenko_Seria2',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Alena Demchenko',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/alenademchenko' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'AlenaDemchenko_Seria4.webp',
-        alt: 'AlenaDemchenko_Seria4',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Alena Demchenko',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/alenademchenko' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'AlenaDemchenko_Seria3.webp',
-        alt: 'AlenaDemchenko_Seria3',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Alena Demchenko',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/alenademchenko' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'AnnaFadeeva_Seria1.webp',
-        alt: 'AnnaFadeeva_Seria1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Anna Fadeeva',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/sofislon' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'ZhenyaMoroz_Seria2.webp',
-        alt: 'ZhenyaMoroz_Seria2',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Zhenya Moroz',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/9a95f1c4' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'EddyRosas_Seria1.webp',
-        alt: 'EddyRosas_Seria1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Eddy Rosas',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/ertilu' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'JuditZengővári_Seria1.webp',
-        alt: 'JuditZengővári_Seria1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Judit Zengővári',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/juditzengovari' },
-          },
-        ],
-      },
-    },
+    }
+  ],
+}
+
+const lessonDataFYS23: ILessonDataDB = {
+  id: 'Style_oPVK1S',
+  courseId: 'finding-your-style',
+  title: 'Стиль',
+  type: 'Theory',
+  icon: 'Lesson',
+  topic: 'Что такое иллюстрация, серия, стиль',
+  topicOrder: 3,
+  topicIcon: 'Lesson',
+  orderInTopic: 1,
+  duration: {
+    unit: 'hours',
+    value: 1
+  },
+  isFree: false,
+  isUnderDevelopment: false,
+  content: [
     {
       type: 'title',
       title: 'Стиль',
@@ -7615,1359 +7476,6 @@ const lessonDataFYS22: ILessonDataDB = {
     },
   ],
 }
-
-// const lessonDataFYS22: ILessonDataDB = {
-//   id: 'IllustrationSeriesStyle_C4qFhu',
-//   courseId: 'finding-your-style',
-//   title: 'Что такое иллюстрация, серия, стиль',
-//   type: 'Theory',
-//   icon: 'Lesson',
-//   topic: 'Что такое иллюстрация, серия, стиль',
-//   topicOrder: 3,
-//   topicIcon: 'Lesson',
-//   orderInTopic: 1,
-//   duration: {
-//     unit: 'hours',
-//     value: 1
-//   },
-//   isFree: false,
-//   isUnderDevelopment: false,
-//   content: [
-//     {
-//       type: 'video',
-//       videoData: {
-//         src: 'https://www.youtube.com/embed/AewDkjBBW64?si=i7wLe8W9y7eFwFu1',
-//         title: 'YouTube video player',
-//       },
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'p',
-//           content: 'Иллюстрации складываются в серии. Серии собираются в авторский стиль. От маленького к большому. Поэтому и мы начнем с самого маленького элемента — одной картинки. И первый вопрос, который появляется в голове, когда мы садимся рисовать — про что будет картинка?',
-//         },
-//       ]
-//     },
-//     {
-//       type: 'title',
-//       title: 'Помимо сходства в рисунке всегда должно быть что-то еще',
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'p',
-//           content: 'Одного сходства или узнавания недостаточно, чтобы рисунок состоялся. Важный вопрос, который стоит перед художником — “Про что картинка?” Нельзя просто сказать — я нарисовала похоже. Фотография все равно будет более похожа. Что мы можем сказать, что не может сказать фотография?',
-//         },
-//       ]
-//     },
-//     {
-//       type: 'quote',
-//       quote: [
-//         {
-//           tag: 'p',
-//           content: '… изображение никогда не равно прототипу (нарисованная трубка — это не трубка), в нем всегда появляется дистанция, метаморфоза; она-то и становится предметом искусства.',
-//         },
-//         {
-//           tag: 'p',
-//           content: 'Виктор Меламед, “Машинерия портрета”.',
-//         },
-//       ]
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'p',
-//           content: 'Впечатление, которое мы получаем от иллюстрации складывается из двух вещей: литературного и пластического сюжета.',
-//         },
-//       ]
-//     },
-//     {
-//       type: 'title',
-//       title: 'Литературный сюжет',
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'p',
-//           content: 'У любой картинки есть пересказываемая часть — литературный сюжет. Есть не пересказываемая — пластический сюжет.',
-//         },
-//         {
-//           tag: 'p',
-//           content: 'Литературный сюжет рассказывает о том, что происходит в рисунке:',
-//           props: { className: 'listHeader' },
-//         },
-//         {
-//           tag: 'p',
-//           content: 'сколько в рисунке персонажей',
-//           props: { className: 'listItem' },
-//         },
-//         {
-//           tag: 'p',
-//           content: 'что персонажи делают',
-//           props: { className: 'listItem' },
-//         },
-//         {
-//           tag: 'p',
-//           content: 'какое время суток',
-//           props: { className: 'listItem' },
-//         },
-//         {
-//           tag: 'p',
-//           content: 'мы в комнате или в лесу',
-//           props: { className: 'listItem' },
-//         },
-//       ]
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'TomGauld1.webp',
-//         alt: 'TomGauld1',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Tom Gauld',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.tomgauld.com' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'title',
-//       title: 'Пластический сюжет',
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'p',
-//           content: 'Пластический сюжет = попытка показать стилизацию, утрировать ощущение от картинки. Утрируем всегда то, что можем проговорить. Некий аспект, который нам важен.',
-//         },
-//       ]
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'p',
-//           content: 'Пластический сюжет рассказывает о том, как рисовать:',
-//           props: { className: 'listHeader' },
-//         },
-//         {
-//           tag: 'p',
-//           content: 'цветовая палитра',
-//           props: { className: 'listItem' },
-//         },
-//         {
-//           tag: 'p',
-//           content: 'техника',
-//           props: { className: 'listItem' },
-//         },
-//         {
-//           tag: 'p',
-//           content: 'формат, размер листа',
-//           props: { className: 'listItem' },
-//         },
-//         {
-//           tag: 'p',
-//           content: 'формообразование',
-//           props: { className: 'listItem' },
-//         },
-//         {
-//           tag: 'p',
-//           content: 'логика построения пространства',
-//           props: { className: 'listItem' },
-//         },
-//         {
-//           tag: 'p',
-//           content: 'фактура',
-//           props: { className: 'listItem' },
-//         },
-//         {
-//           tag: 'p',
-//           content: 'светотень',
-//           props: { className: 'listItem' },
-//         },
-//         {
-//           tag: 'p',
-//           content: 'количество воздуха в листе',
-//           props: { className: 'listItem' },
-//         },
-//         {
-//           tag: 'p',
-//           content: 'температура',
-//           props: { className: 'listItem' },
-//         },
-//         {
-//           tag: 'p',
-//           content: 'контрастность',
-//           props: { className: 'listItem' },
-//         },
-//         {
-//           tag: 'p',
-//           content: 'синестезия',
-//           props: { className: 'listItem' },
-//         },
-//         {
-//           tag: 'p',
-//           content: 'ритмы',
-//           props: { className: 'listItem' },
-//         },
-//         {
-//           tag: 'p',
-//           content: 'скорость, с которой делается вещь, легкость',
-//           props: { className: 'listItem' },
-//         },
-//         {
-//           tag: 'p',
-//           content: 'динамика в листе',
-//           props: { className: 'listItem' },
-//         },
-//         {
-//           tag: 'p',
-//           content: 'умение рисовать',
-//           props: { className: 'listItem' },
-//         },
-//       ]
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'CharleyHarper6.jpeg',
-//         alt: 'CharleyHarper6',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Charley Harper',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/charleyharperart/?hl=en' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'title',
-//       title: 'Пластический и литературный сюжет могут дополнять друг друга',
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'p',
-//           content: 'Игривый и легкий персонаж, игривая и легкая интонация рисунка в работе John Patrick Byrne.',
-//         },
-//       ]
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'JohnPatrickByrne.webp',
-//         alt: 'JohnPatrickByrne',
-//         caption: [
-//           {
-//             tag: 'p',
-//             content: 'John Patrick Byrne',
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'p',
-//           content: 'John Patrick Byrne открывает нестереотипную сторону персонажа.  В фильмах Тильда Суинтон обычно играет холодную злодейку, как в фильме Хроники Нарнии или Докторе Стрэйнже. Но ее муж John Patrick Byrne, изображает Тильду игривой и легкой. Такой, какую он знает ее в жизни.',
-//         },
-//       ]
-//     },
-//     {
-//       type: 'title',
-//       title: 'Пластический и литературный сюжет могут контрастировать друг с другом',
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'p',
-//           content: 'Zhiyong Jing создает конфликт между интонацией и самой историей. Литературный сюжет про криминал. И супер спокойная интонация наивной живописи.',
-//         },
-//       ]
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'ZhiyongJing6.webp',
-//         alt: 'ZhiyongJing6',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Zhiyong Jing',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.jingzhiyong.com/' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'title',
-//       title: 'Серия',
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'p',
-//           content: 'Серия — группа работ, объединенных интонацией, средствами выразительности, форматом, материалом. Рисунки внутри серии должны быть достаточно похожими, чтобы их можно было объединить в группу. Рисунки должны отличаться между собой, чтобы серию было интересно разглядывать, изучать. Обычно серия начинается от 3-5 работ.',
-//         },
-//       ]
-//     },
-//     {
-//       type: 'title',
-//       title: 'Что объединяет рисунки',
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'p',
-//           content: 'Литературный сюжет:',
-//           props: { className: 'listHeader' },
-//         },
-//         {
-//           tag: 'p',
-//           content: 'сколько в рисунке персонажей',
-//           props: { className: 'listItem' },
-//         },
-//         {
-//           tag: 'p',
-//           content: 'что персонажи делают',
-//           props: { className: 'listItem' },
-//         },
-//         {
-//           tag: 'p',
-//           content: 'какое время суток',
-//           props: { className: 'listItem' },
-//         },
-//         {
-//           tag: 'p',
-//           content: 'мы в комнате или в лесу',
-//           props: { className: 'listItem' },
-//         },
-//       ]
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'p',
-//           content: 'Пластический сюжет:',
-//           props: { className: 'listHeader' },
-//         },
-//         {
-//           tag: 'p',
-//           content: 'цветовая палитра',
-//           props: { className: 'listItem' },
-//         },
-//         {
-//           tag: 'p',
-//           content: 'техника',
-//           props: { className: 'listItem' },
-//         },
-//         {
-//           tag: 'p',
-//           content: 'формат, размер листа',
-//           props: { className: 'listItem' },
-//         },
-//         {
-//           tag: 'p',
-//           content: 'формообразование',
-//           props: { className: 'listItem' },
-//         },
-//         {
-//           tag: 'p',
-//           content: 'логика построения пространства',
-//           props: { className: 'listItem' },
-//         },
-//         {
-//           tag: 'p',
-//           content: 'фактура',
-//           props: { className: 'listItem' },
-//         },
-//         {
-//           tag: 'p',
-//           content: 'светотень',
-//           props: { className: 'listItem' },
-//         },
-//         {
-//           tag: 'p',
-//           content: 'количество воздуха в листе',
-//           props: { className: 'listItem' },
-//         },
-//         {
-//           tag: 'p',
-//           content: 'температура',
-//           props: { className: 'listItem' },
-//         },
-//         {
-//           tag: 'p',
-//           content: 'контрастность',
-//           props: { className: 'listItem' },
-//         },
-//         {
-//           tag: 'p',
-//           content: 'синестезия',
-//           props: { className: 'listItem' },
-//         },
-//         {
-//           tag: 'p',
-//           content: 'ритмы',
-//           props: { className: 'listItem' },
-//         },
-//         {
-//           tag: 'p',
-//           content: 'скорость, с которой делается вещь, легкость',
-//           props: { className: 'listItem' },
-//         },
-//         {
-//           tag: 'p',
-//           content: 'динамика в листе',
-//           props: { className: 'listItem' },
-//         },
-//         {
-//           tag: 'p',
-//           content: 'умение рисовать',
-//           props: { className: 'listItem' },
-//         },
-//       ]
-//     },
-//     {
-//       type: 'title',
-//       title: 'Что дает разнообразие',
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'p',
-//           content: 'Все, что не константа. Чтобы серия получилась, автор должен выбрать набор параметров, которые он зафиксирует — это станет единой интонацией серии. И определиться с параметрами, за счет которых он сделает серию разнообразной.',
-//         },
-//       ]
-//     },
-//     {
-//       type: 'title',
-//       title: 'Примеры серий',
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'hannaleejoshi_Seria2.webp',
-//         alt: 'hannaleejoshi_Seria2',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'H A N N A / 이 한 나',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/hannaleejoshi/' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'ZhiyongJing_Seria1.webp',
-//         alt: 'ZhiyongJing_Seria1',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Zhiyong Jing',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.jingzhiyong.com/' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'MashaTitova_Seria1.webp',
-//         alt: 'MashaTitova_Seria1',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Masha Titova',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/mashatitovaprint' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'hannaleejoshi_Seria1.webp',
-//         alt: 'hannaleejoshi_Seria1',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'H A N N A / 이 한 나',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/hannaleejoshi/' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'NadiiaZhelieznova_Seria1.webp',
-//         alt: 'NadiiaZhelieznova_Seria1',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Nadiia Zhelieznova',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zhelieznova' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'MikeLee_Seria1.webp',
-//         alt: 'MikeLee_Seria1',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Mike Lee',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.mikelee.one/group-exhibitions-1' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'JustasJelisejevas_Seria1.webp',
-//         alt: 'JustasJelisejevas_Seria1',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Justas Jelisejevas',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/JustasJ' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'AlenaDemchenko_Seria2.webp',
-//         alt: 'AlenaDemchenko_Seria2',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Alena Demchenko',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/alenademchenko' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'AlenaDemchenko_Seria4.webp',
-//         alt: 'AlenaDemchenko_Seria4',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Alena Demchenko',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/alenademchenko' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'AlenaDemchenko_Seria3.webp',
-//         alt: 'AlenaDemchenko_Seria3',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Alena Demchenko',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/alenademchenko' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'AnnaFadeeva_Seria1.webp',
-//         alt: 'AnnaFadeeva_Seria1',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Anna Fadeeva',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/sofislon' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'ZhenyaMoroz_Seria2.webp',
-//         alt: 'ZhenyaMoroz_Seria2',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Zhenya Moroz',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/9a95f1c4' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'EddyRosas_Seria1.webp',
-//         alt: 'EddyRosas_Seria1',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Eddy Rosas',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/ertilu' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'JuditZengővári_Seria1.webp',
-//         alt: 'JuditZengővári_Seria1',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Judit Zengővári',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/juditzengovari' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'title',
-//       title: 'Стиль',
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'p',
-//           content: 'Стиль — набор готовых пластических решений. То есть как бы серия серий. Стиль собирается из ценностей, которые перетекают из одного проекта в другой. Если взять все-все работы художника и составить диаграмму того, что он считает важным, мы получим его стиль. При этом, наличие стиля не означает, что все работы будут одинаковыми. В зависимости от задачи, автор меняет набор инструментов.',
-//         },
-//         {
-//           tag: 'p',
-//           content: 'Разные работы Маши Шишовой.',
-//         },
-//       ]
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'MashaShishova1.webp',
-//         alt: 'MashaShishova1',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Masha Shishova',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/MariaShishova' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'MashaShishova2.webp',
-//         alt: 'MashaShishova2',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Masha Shishova',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/MariaShishova' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'MashaShishova3.webp',
-//         alt: 'MashaShishova3',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Masha Shishova',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/MariaShishova' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'MashaShishova4.webp',
-//         alt: 'MashaShishova4',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Masha Shishova',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/MariaShishova' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'p',
-//           content: 'Разные работы Тима Бискап.',
-//         },
-//       ]
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'TimBiskup1.webp',
-//         alt: 'TimBiskup1',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Tim Biskup',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.timbiskup.com/wop' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'TimBiskup2.webp',
-//         alt: 'TimBiskup2',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Tim Biskup',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.timbiskup.com/wop' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'TimBiskup3.webp',
-//         alt: 'TimBiskup3',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Tim Biskup',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.timbiskup.com/wop' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'TimBiskup4.webp',
-//         alt: 'TimBiskup4',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Tim Biskup',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.timbiskup.com/wop' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'TimBiskup5.webp',
-//         alt: 'TimBiskup5',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Tim Biskup',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.timbiskup.com/wop' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'TimBiskup6.webp',
-//         alt: 'TimBiskup6',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Tim Biskup',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.timbiskup.com/wop' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'p',
-//           content: 'Разные работы Димы Горелышева.',
-//         },
-//       ]
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'DmitriyGorelyshev1.webp',
-//         alt: 'DmitriyGorelyshev1',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Dmitriy Gorelyshev',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/gdmitry' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'DmitriyGorelyshev2.webp',
-//         alt: 'DmitriyGorelyshev2',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Dmitriy Gorelyshev',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/gdmitry' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'DmitriyGorelyshev3.webp',
-//         alt: 'DmitriyGorelyshev3',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Dmitriy Gorelyshev',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/gdmitry' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'DmitriyGorelyshev4.webp',
-//         alt: 'DmitriyGorelyshev4',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Dmitriy Gorelyshev',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/gdmitry' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'DmitriyGorelyshev5.webp',
-//         alt: 'DmitriyGorelyshev5',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Dmitriy Gorelyshev',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/gdmitry' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'DmitriyGorelyshev6.webp',
-//         alt: 'DmitriyGorelyshev6',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Dmitriy Gorelyshev',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/gdmitry' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'DmitriyGorelyshev7.webp',
-//         alt: 'DmitriyGorelyshev7',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Dmitriy Gorelyshev',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/gdmitry' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'DmitriyGorelyshev8.webp',
-//         alt: 'DmitriyGorelyshev8',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Dmitriy Gorelyshev',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/gdmitry' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'DmitriyGorelyshev9.webp',
-//         alt: 'DmitriyGorelyshev9',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Dmitriy Gorelyshev',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/gdmitry' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'DmitriyGorelyshev10.webp',
-//         alt: 'DmitriyGorelyshev10',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Dmitriy Gorelyshev',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/gdmitry' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'p',
-//           content: 'Разные работы Nadiia Zhelieznova.',
-//         },
-//       ]
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'NadiiaZhelieznova1.webp',
-//         alt: 'NadiiaZhelieznova1',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Nadiia Zhelieznova',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zhelieznova' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'NadiiaZhelieznova2.webp',
-//         alt: 'NadiiaZhelieznova2',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Nadiia Zhelieznova',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zhelieznova' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'NadiiaZhelieznova3.webp',
-//         alt: 'NadiiaZhelieznova3',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Nadiia Zhelieznova',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zhelieznova' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'NadiiaZhelieznova4.webp',
-//         alt: 'NadiiaZhelieznova4',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Nadiia Zhelieznova',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zhelieznova' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'title',
-//       title: 'Как найти свой стиль',
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'p',
-//           content: 'Стиль формируется сам собой, меняется и трансформируется. А чтобы помочь этому процессу, можно перед каждой следующей иллюстрацией задавать себе вопрос — а из чего будет состоять моя работа? Что для меня важно?',
-//         },
-//       ]
-//     },
-//     {
-//       type: 'title',
-//       title: 'Лозунги и метафоры',
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'p',
-//           content: 'Творческие ценности и интересы удобно формулировать в лозунги и метафоры. Формулировка из 2-4 слов поможет сконцентрироваться на нужном, обрежет лишнее.',
-//         },
-//         {
-//           tag: 'p',
-//           content: 'Тесная, шумная тусовка Брехт Эванса.',
-//         },
-//       ]
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'BrechtEvens1.webp',
-//         alt: 'BrechtEvens1',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'BRECHT EVENS',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.brechtevens.com/illustration/2017/9/17/vinyl-cover-unik-ubik' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'BrechtEvens2.webp',
-//         alt: 'BrechtEvens2',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'BRECHT EVENS',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.brechtevens.com/illustration/2017/9/17/vinyl-cover-unik-ubik' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'BrechtEvens3.webp',
-//         alt: 'BrechtEvens3',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'BRECHT EVENS',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.brechtevens.com/illustration/2017/9/17/vinyl-cover-unik-ubik' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'BrechtEvens4.webp',
-//         alt: 'BrechtEvens4',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'BRECHT EVENS',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.brechtevens.com/illustration/2017/9/17/vinyl-cover-unik-ubik' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'BrechtEvens5.webp',
-//         alt: 'BrechtEvens5',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'BRECHT EVENS',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.brechtevens.com/illustration/2017/9/17/vinyl-cover-unik-ubik' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'p',
-//           content: 'Уютное, родное пространство Анны Десницкой.',
-//         },
-//       ]
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'AnnaDesnitskaya1.webp',
-//         alt: 'AnnaDesnitskaya1',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Anna Desnitskaya',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/anyadesnitskaya/?g=5' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'AnnaDesnitskaya2.webp',
-//         alt: 'AnnaDesnitskaya2',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Anna Desnitskaya',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/anyadesnitskaya/?g=5' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'AnnaDesnitskaya3.webp',
-//         alt: 'AnnaDesnitskaya3',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Anna Desnitskaya',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/anyadesnitskaya/?g=5' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'AnnaDesnitskaya4.webp',
-//         alt: 'AnnaDesnitskaya4',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Anna Desnitskaya',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/anyadesnitskaya/?g=5' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'AnnaDesnitskaya5.webp',
-//         alt: 'AnnaDesnitskaya5',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Anna Desnitskaya',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/anyadesnitskaya/?g=5' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'AnnaDesnitskaya6.webp',
-//         alt: 'AnnaDesnitskaya6',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Anna Desnitskaya',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/anyadesnitskaya/?g=5' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'p',
-//           content: 'Скрежет когтей, шибуршание шерсти от Léo Forest.',
-//         },
-//       ]
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'LéoForest1.webp',
-//         alt: 'LéoForest1',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Léo Forest',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/leo___forest/' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'LéoForest2.webp',
-//         alt: 'LéoForest2',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Léo Forest',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/leo___forest/' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'image',
-//       imageData: {
-//         id: 'LéoForest3.webp',
-//         alt: 'LéoForest3',
-//         caption: [
-//           {
-//             tag: 'a',
-//             content: 'Léo Forest',
-//             props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/leo___forest/' },
-//           },
-//         ],
-//       },
-//     },
-//     {
-//       type: 'title',
-//       title: 'Сформулируйте свой лозунг из 2-4 слов',
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'p',
-//           content: 'Придумайте лозунг для серии, которую будете рисовать на интенсиве.',
-//         },
-//         {
-//           tag: 'p',
-//           content: 'Можно подобрать лозунг, который хорошо описывает ваши прошлые рисунки. Тогда на интенсиве будет задача — а как усилить сформулированное впечатление?',
-//         },
-//         {
-//           tag: 'p',
-//           content: 'Можно сформулировать лозунг вашего любимого художника. Тогда задача будет другая. Как создать сформулированное впечатление в моих собственных работах, используя те навыки, которые у меня уже есть?',
-//         },
-//         {
-//           tag: 'p',
-//           content: 'Лозунг описывает ощущения, эмоции. По нему мы будем выстраивать пластический сюжет. Например,',
-//           props: { className: 'listHeader' },
-//         },
-//         {
-//           tag: 'p',
-//           content: 'Теплое, родное пространство',
-//           props: { className: 'listItem' },
-//         },
-//         {
-//           tag: 'p',
-//           content: 'Шумно и тесно',
-//           props: { className: 'listItem' },
-//         },
-//         {
-//           tag: 'p',
-//           content: 'Скрежет ногтей по стеклу',
-//           props: { className: 'listItem' },
-//         },
-//         {
-//           tag: 'p',
-//           content: 'Один в большом пространстве',
-//           props: { className: 'listItem' },
-//         },
-//         {
-//           tag: 'p',
-//           content: 'Холодный, леденящий душу сквозняк',
-//           props: { className: 'listItem' },
-//         },
-//       ]
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'p',
-//           content: 'Бывает так, что лозунг задает направление. Вначале мы придумываем формулировку, потом под нее ищем инструменты. Бывает наоборот. Путем экспериментов мы находим интересное визуальное решение. Анализируем его, формулируем для себя в виде лозунга. И после этого развиваем. Делайте то, что ближе. Правильного пути нет, есть ваш путь.',
-//         },
-//         {
-//           tag: 'p',
-//           content: 'Пришлите свои идеи в телеграм-чат группы.',
-//           props: { className: 'listHeader' },
-//         },
-//       ]
-//     },
-//   ],
-//   survey: {
-//     0: {
-//       type: 'SELECT',
-//       variant: 'CARD',
-//       subtitle: 'Хотим зафиксировать цель, с которой вы проходите бесплатные уроки. А в конце спросим, получилось ли её достичь.',
-//       description: 'Выберите цель:',
-//       options: [
-//         {
-//           title: 'Пройти и оплатить',
-//           subtitle: 'Подготовиться к платным урокам',
-//         },
-//         {
-//           title: 'Попробовать формат',
-//           subtitle: 'Понять, понравится ли мне учеба в flearn',
-//         },
-//         {
-//           title: 'Пройти только бесплатные уроки',
-//           subtitle: 'Бесплатно научиться чему-нибудь новому',
-//         },
-//       ],
-//     },
-//   }
-// }
 
 const lessonDataFYS3: ILessonDataDB = {
   id: 'Narrative_ stPfNE',
@@ -14370,7 +12878,7 @@ export const allLessons = [
   lessonDataFYS13,
   lessonDataFYS21,
   lessonDataFYS22,
-  // lessonDataFYS23,
+  lessonDataFYS23,
   lessonDataFYS3,
   lessonDataFYS4,
   lessonDataFYS5,
