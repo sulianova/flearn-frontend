@@ -35,12 +35,14 @@
 
   width: 100%;
 
+  padding: set-calc(12);
   border-radius: set-calc($border-radius-40);
   border: 1px solid var(--border);
   background-color: var(--color-background-alternate);
   overflow: hidden;
 
   @include set-media(md) {
+    padding: set-calc(8);
     border-radius: set-calc($border-radius-20);
   }
 }
@@ -50,12 +52,16 @@
   max-height: set-calc(600);
   width: 100%;
 
+  border-radius: set-calc($border-radius-40);
+
   object-fit: contain;
   object-position: top center;
   cursor: zoom-in;
 
   @include set-media(md) {
     width: 100%;
+
+    border-radius: set-calc($border-radius-20);
   }
 }
 

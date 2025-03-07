@@ -6586,7 +6586,7 @@ const lessonDataFYS22: ILessonDataDB = {
     },
     {
       type: 'title',
-      title: 'Чем серия отличается от иллюстраци',
+      title: 'Чем серия отличается от иллюстрации',
     },
     {
       type: 'text',
@@ -6775,9 +6775,9 @@ const lessonDataFYS23: ILessonDataDB = {
   type: 'Theory',
   icon: 'Lesson',
   topic: 'Что такое иллюстрация, серия, стиль',
-  topicOrder: 3,
+  topicOrder: 2,
   topicIcon: 'Lesson',
-  orderInTopic: 1,
+  orderInTopic: 3,
   duration: {
     unit: 'hours',
     value: 1
@@ -6786,395 +6786,46 @@ const lessonDataFYS23: ILessonDataDB = {
   isUnderDevelopment: false,
   content: [
     {
-      type: 'title',
-      title: 'Стиль',
-    },
-    {
       type: 'text',
       text: [
         {
           tag: 'p',
-          content: 'Стиль — набор готовых пластических решений. То есть как бы серия серий. Стиль собирается из ценностей, которые перетекают из одного проекта в другой. Если взять все-все работы художника и составить диаграмму того, что он считает важным, мы получим его стиль. При этом, наличие стиля не означает, что все работы будут одинаковыми. В зависимости от задачи, автор меняет набор инструментов.',
-        },
-        {
-          tag: 'p',
-          content: 'Разные работы Маши Шишовой.',
+          content: 'То, что автор осознанно повторяет в своих работах — и есть его стиль.',
         },
       ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'MashaShishova1.webp',
-        alt: 'MashaShishova1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Masha Shishova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/MariaShishova' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'MashaShishova2.webp',
-        alt: 'MashaShishova2',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Masha Shishova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/MariaShishova' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'MashaShishova3.webp',
-        alt: 'MashaShishova3',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Masha Shishova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/MariaShishova' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'MashaShishova4.webp',
-        alt: 'MashaShishova4',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Masha Shishova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/MariaShishova' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Разные работы Тима Бискап.',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'TimBiskup1.webp',
-        alt: 'TimBiskup1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Tim Biskup',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.timbiskup.com/wop' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'TimBiskup2.webp',
-        alt: 'TimBiskup2',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Tim Biskup',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.timbiskup.com/wop' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'TimBiskup3.webp',
-        alt: 'TimBiskup3',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Tim Biskup',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.timbiskup.com/wop' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'TimBiskup4.webp',
-        alt: 'TimBiskup4',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Tim Biskup',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.timbiskup.com/wop' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'TimBiskup5.webp',
-        alt: 'TimBiskup5',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Tim Biskup',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.timbiskup.com/wop' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'TimBiskup6.webp',
-        alt: 'TimBiskup6',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Tim Biskup',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.timbiskup.com/wop' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Разные работы Димы Горелышева.',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'DmitriyGorelyshev1.webp',
-        alt: 'DmitriyGorelyshev1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Dmitriy Gorelyshev',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/gdmitry' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'DmitriyGorelyshev2.webp',
-        alt: 'DmitriyGorelyshev2',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Dmitriy Gorelyshev',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/gdmitry' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'DmitriyGorelyshev3.webp',
-        alt: 'DmitriyGorelyshev3',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Dmitriy Gorelyshev',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/gdmitry' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'DmitriyGorelyshev4.webp',
-        alt: 'DmitriyGorelyshev4',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Dmitriy Gorelyshev',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/gdmitry' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'DmitriyGorelyshev5.webp',
-        alt: 'DmitriyGorelyshev5',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Dmitriy Gorelyshev',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/gdmitry' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'DmitriyGorelyshev6.webp',
-        alt: 'DmitriyGorelyshev6',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Dmitriy Gorelyshev',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/gdmitry' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'DmitriyGorelyshev7.webp',
-        alt: 'DmitriyGorelyshev7',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Dmitriy Gorelyshev',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/gdmitry' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'DmitriyGorelyshev8.webp',
-        alt: 'DmitriyGorelyshev8',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Dmitriy Gorelyshev',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/gdmitry' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'DmitriyGorelyshev9.webp',
-        alt: 'DmitriyGorelyshev9',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Dmitriy Gorelyshev',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/gdmitry' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'DmitriyGorelyshev10.webp',
-        alt: 'DmitriyGorelyshev10',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Dmitriy Gorelyshev',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/gdmitry' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Разные работы Nadiia Zhelieznova.',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'NadiiaZhelieznova1.webp',
-        alt: 'NadiiaZhelieznova1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Nadiia Zhelieznova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zhelieznova' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'NadiiaZhelieznova2.webp',
-        alt: 'NadiiaZhelieznova2',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Nadiia Zhelieznova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zhelieznova' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'NadiiaZhelieznova3.webp',
-        alt: 'NadiiaZhelieznova3',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Nadiia Zhelieznova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zhelieznova' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'NadiiaZhelieznova4.webp',
-        alt: 'NadiiaZhelieznova4',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Nadiia Zhelieznova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zhelieznova' },
-          },
-        ],
-      },
     },
     {
       type: 'title',
-      title: 'Как найти свой стиль',
+      title: 'От частного к общему: иллюстрация, серия, стиль',
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DmitriyGorelyshev.webp',
+        alt: 'DmitriyGorelyshev',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Дмитрий Горелышев',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://t.me/s/dima_gorelyshev?before=2439' },
+          },
+        ],
+      },
     },
     {
       type: 'text',
       text: [
         {
           tag: 'p',
-          content: 'Стиль формируется сам собой, меняется и трансформируется. А чтобы помочь этому процессу, можно перед каждой следующей иллюстрацией задавать себе вопрос — а из чего будет состоять моя работа? Что для меня важно?',
+          content: 'Иллюстрация может быть выполнена в определённом стиле, но это не означает, что такой стиль будет прослеживаться во всех работах автора.',
+        },
+        {
+          tag: 'p',
+          content: 'Серия позволяет увидеть стиль автора, но не равна ему. В серии используется единый подход к технике, цвету и композиции. Однако этот подход конкретный, как пример, состоящий из цифр: 2 + 4. В то время, как стиль — это уравнение с переменными: x + 2x.',
+        },
+        {
+          tag: 'p',
+          content: 'Стиль — это как бы серия серий. Он собирается из ценностей, которые перетекают из одного проекта в другой. Если взять все-все работы художника и составить диаграмму того, что он считает важным, мы получим его стиль. При этом, наличие стиля не означает, что все работы будут одинаковыми. В зависимости от задачи, автор меняет набор инструментов.',
         },
       ]
     },
@@ -7210,62 +6861,6 @@ const lessonDataFYS23: ILessonDataDB = {
       },
     },
     {
-      type: 'image',
-      imageData: {
-        id: 'BrechtEvens2.webp',
-        alt: 'BrechtEvens2',
-        caption: [
-          {
-            tag: 'a',
-            content: 'BRECHT EVENS',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.brechtevens.com/illustration/2017/9/17/vinyl-cover-unik-ubik' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'BrechtEvens3.webp',
-        alt: 'BrechtEvens3',
-        caption: [
-          {
-            tag: 'a',
-            content: 'BRECHT EVENS',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.brechtevens.com/illustration/2017/9/17/vinyl-cover-unik-ubik' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'BrechtEvens4.webp',
-        alt: 'BrechtEvens4',
-        caption: [
-          {
-            tag: 'a',
-            content: 'BRECHT EVENS',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.brechtevens.com/illustration/2017/9/17/vinyl-cover-unik-ubik' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'BrechtEvens5.webp',
-        alt: 'BrechtEvens5',
-        caption: [
-          {
-            tag: 'a',
-            content: 'BRECHT EVENS',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.brechtevens.com/illustration/2017/9/17/vinyl-cover-unik-ubik' },
-          },
-        ],
-      },
-    },
-    {
       type: 'text',
       text: [
         {
@@ -7279,76 +6874,6 @@ const lessonDataFYS23: ILessonDataDB = {
       imageData: {
         id: 'AnnaDesnitskaya1.webp',
         alt: 'AnnaDesnitskaya1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Anna Desnitskaya',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/anyadesnitskaya/?g=5' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'AnnaDesnitskaya2.webp',
-        alt: 'AnnaDesnitskaya2',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Anna Desnitskaya',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/anyadesnitskaya/?g=5' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'AnnaDesnitskaya3.webp',
-        alt: 'AnnaDesnitskaya3',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Anna Desnitskaya',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/anyadesnitskaya/?g=5' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'AnnaDesnitskaya4.webp',
-        alt: 'AnnaDesnitskaya4',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Anna Desnitskaya',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/anyadesnitskaya/?g=5' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'AnnaDesnitskaya5.webp',
-        alt: 'AnnaDesnitskaya5',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Anna Desnitskaya',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/anyadesnitskaya/?g=5' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'AnnaDesnitskaya6.webp',
-        alt: 'AnnaDesnitskaya6',
         caption: [
           {
             tag: 'a',
@@ -7382,33 +6907,34 @@ const lessonDataFYS23: ILessonDataDB = {
       },
     },
     {
-      type: 'image',
-      imageData: {
-        id: 'LéoForest2.webp',
-        alt: 'LéoForest2',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Léo Forest',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/leo___forest/' },
-          },
-        ],
-      },
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Стиль формируется сам собой, меняется и трансформируется. А чтобы помочь этому процессу, можно перед каждой следующей иллюстрацией задавать себе вопрос — а из чего будет состоять моя работа? Что для меня важно?',
+        },
+      ]
     },
-    {
-      type: 'image',
-      imageData: {
-        id: 'LéoForest3.webp',
-        alt: 'LéoForest3',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Léo Forest',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/leo___forest/' },
-          },
-        ],
-      },
-    },
+  ],
+}
+
+const lessonDataFYS24: ILessonDataDB = {
+  id: 'Slogan_oPV91S',
+  courseId: 'finding-your-style',
+  title: 'Лозунг',
+  type: 'Practice',
+  icon: 'Lesson',
+  topic: 'Что такое иллюстрация, серия, стиль',
+  topicOrder: 2,
+  topicIcon: 'Lesson',
+  orderInTopic: 4,
+  duration: {
+    unit: 'hours',
+    value: 1
+  },
+  isFree: false,
+  isUnderDevelopment: false,
+  content: [
     {
       type: 'title',
       title: 'Сформулируйте свой лозунг из 2-4 слов',
@@ -7431,33 +6957,32 @@ const lessonDataFYS23: ILessonDataDB = {
         {
           tag: 'p',
           content: 'Лозунг описывает ощущения, эмоции. По нему мы будем выстраивать пластический сюжет. Например,',
-          props: { className: 'listHeader' },
         },
+      ]
+    },
+    {
+      type: 'list',
+      items: [
         {
           tag: 'p',
           content: 'Теплое, родное пространство',
-          props: { className: 'listItem' },
         },
         {
           tag: 'p',
           content: 'Шумно и тесно',
-          props: { className: 'listItem' },
         },
         {
           tag: 'p',
           content: 'Скрежет ногтей по стеклу',
-          props: { className: 'listItem' },
         },
         {
           tag: 'p',
           content: 'Один в большом пространстве',
-          props: { className: 'listItem' },
         },
         {
           tag: 'p',
           content: 'Холодный, леденящий душу сквозняк',
-          props: { className: 'listItem' },
-        },
+        }
       ]
     },
     {
@@ -7470,11 +6995,10 @@ const lessonDataFYS23: ILessonDataDB = {
         {
           tag: 'p',
           content: 'Пришлите свои идеи в телеграм-чат группы.',
-          props: { className: 'listHeader' },
         },
       ]
     },
-  ],
+  ]
 }
 
 const lessonDataFYS3: ILessonDataDB = {
@@ -12879,6 +12403,7 @@ export const allLessons = [
   lessonDataFYS21,
   lessonDataFYS22,
   lessonDataFYS23,
+  lessonDataFYS24,
   lessonDataFYS3,
   lessonDataFYS4,
   lessonDataFYS5,
