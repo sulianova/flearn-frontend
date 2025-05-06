@@ -108,13 +108,13 @@ export default function LessonContent(props: IProps) {
           <div className={classes.content}>
             <div className={classes.content__title}>{lesson.title}</div>
             {/* <div className={classes.content__description}>{lesson.title}</div> */}
-            <div className={classes.content__meta}>
+            {/* <div className={classes.content__meta}>
               <p className={classes.meta_item}>
                 {i18n.t(`duration.${lesson.duration.unit}`, { count: lesson.duration.value })}
               </p>
-            </div>
+            </div> */}
           </div>
-          {lesson.hasQuiz && (
+          {/* {lesson.hasQuiz && (
             <div className={classes.actions}>
               <Link
                 className={classes.actions__btn}
@@ -123,7 +123,7 @@ export default function LessonContent(props: IProps) {
                 Пройти квиз
               </Link>
             </div>
-          )}
+          )} */}
         </div>
         <Article
           key={lessonId}
