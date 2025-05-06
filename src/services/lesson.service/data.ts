@@ -1,5 +1,6 @@
 import { text } from 'stream/consumers';
 import type { IFetchLessonsProps, ILessonDataDB } from './types';
+import classNames from 'classnames';
 
 export function getData(filter: Partial<IFetchLessonsProps>) {
   return allLessons
@@ -7696,15 +7697,875 @@ const lessonDataFYS33: ILessonDataDB = {
     },
     {
       type: 'title',
-      title: 'Генераторы в иллюстрации'
+      title: 'Пример 1'
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Генератор: ',
+              props: { className: 'keyText' }
+            },
+            {
+              tag: 'span',
+              content: 'игрушки живут своей жизнью'
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Фиксировано: ',
+              props: { className: 'keyText' }
+            },
+            {
+              tag: 'span',
+              content: 'тема — «детские игрушки»'
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Меняем: ',
+              props: { className: 'keyText' }
+            },
+            {
+              tag: 'span',
+              content: 'комнаты, ситуации, время суток'
+            },
+          ]
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'BrockDavis7.webp',
+        alt: 'BrockDavis7',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Brock Davis',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/laserbread' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'BrockDavis6.webp',
+        alt: 'BrockDavis6',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Brock Davis',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/laserbread' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'title',
+      title: 'Пример 2'
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Генератор: ',
+              props: { className: 'keyText' }
+            },
+            {
+              tag: 'span',
+              content: ' еда как персонаж'
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Фиксировано: ',
+              props: { className: 'keyText' }
+            },
+            {
+              tag: 'span',
+              content: 'герой — еда'
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Меняем: ',
+              props: { className: 'keyText' }
+            },
+            {
+              tag: 'span',
+              content: 'жизненные роли, среду, стиль'
+            },
+          ]
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'BrockDavis1.webp',
+        alt: 'BrockDavis1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Brock Davis',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/laserbread' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'BrockDavis8.webp',
+        alt: 'BrockDavis8',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Brock Davis',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/laserbread' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'title',
+      title: 'Пример 3'
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Генератор: ',
+              props: { className: 'keyText' }
+            },
+            {
+              tag: 'span',
+              content: 'праздники и существа'
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Фиксировано: ',
+              props: { className: 'keyText' }
+            },
+            {
+              tag: 'span',
+              content: 'темы праздников'
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Меняем: ',
+              props: { className: 'keyText' }
+            },
+            {
+              tag: 'span',
+              content: 'кто герой (осьминог, кактус, человек), что происходит'
+            },
+          ]
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'EdwardSteed1.webp',
+        alt: 'EdwardSteed1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Edward Steed',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.newyorker.com/contributors/edward-steed' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'title',
+      title: 'Пример 4'
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Генератор: ',
+              props: { className: 'keyText' }
+            },
+            {
+              tag: 'span',
+              content: 'овощи с человеческими чертами'
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Фиксировано: ',
+              props: { className: 'keyText' }
+            },
+            {
+              tag: 'span',
+              content: 'персонажи — овощи'
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Меняем: ',
+              props: { className: 'keyText' }
+            },
+            {
+              tag: 'span',
+              content: 'социальную роль, контекст, эмоции'
+            },
+          ]
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'IlyaKazakov10.webp',
+        alt: 'IlyaKazakov10',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Ilya Kazakov',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/ilyakazakov' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'IlyaKazakov9.webp',
+        alt: 'IlyaKazakov9',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Ilya Kazakov',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/ilyakazakov' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'title',
+      title: 'Пример 5'
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Генератор: ',
+              props: { className: 'keyText' }
+            },
+            {
+              tag: 'span',
+              content: 'весна в разное время'
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Фиксировано: ',
+              props: { className: 'keyText' }
+            },
+            {
+              tag: 'span',
+              content: 'идея — «приход весны»'
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Меняем: ',
+              props: { className: 'keyText' }
+            },
+            {
+              tag: 'span',
+              content: 'время суток, месяц, температуру'
+            },
+          ]
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DavidHockney1.webp',
+        alt: 'DavidHockney1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'David Hockney',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.hockney.com/works/digital/arrival-of-spring-woldgate' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DavidHockney2.webp',
+        alt: 'DavidHockney2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'David Hockney',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.hockney.com/works/digital/arrival-of-spring-woldgate' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DavidHockney3.webp',
+        alt: 'DavidHockney3',
+        caption: [
+          {
+            tag: 'a',
+            content: 'David Hockney',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.hockney.com/works/digital/arrival-of-spring-woldgate' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'title',
+      title: 'Пример 6'
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Генератор: ',
+              props: { className: 'keyText' }
+            },
+            {
+              tag: 'span',
+              content: 'животные с человеческими чертами'
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Фиксировано: ',
+              props: { className: 'keyText' }
+            },
+            {
+              tag: 'span',
+              content: 'персонажи — животные'
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Меняем: ',
+              props: { className: 'keyText' }
+            },
+            {
+              tag: 'span',
+              content: 'социальную роль, контекст, эмоции'
+            },
+          ]
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'SashaAnanas1.webp',
+        alt: 'SashaAnanas1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Sasha Ananas',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/sasha.ananas.sktch/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'SashaAnanas2.webp',
+        alt: 'SashaAnanas2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Sasha Ananas',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/sasha.ananas.sktch/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'SashaAnanas3.webp',
+        alt: 'SashaAnanas3',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Sasha Ananas',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/sasha.ananas.sktch/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'title',
+      title: 'Пример 7'
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Генератор: ',
+              props: { className: 'keyText' }
+            },
+            {
+              tag: 'span',
+              content: 'криминальная жизнь в бытовых условиях'
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Фиксировано: ',
+              props: { className: 'keyText' }
+            },
+            {
+              tag: 'span',
+              content: 'настроение — тревога'
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Меняем: ',
+              props: { className: 'keyText' }
+            },
+            {
+              tag: 'span',
+              content: 'антураж, детали, героев'
+            },
+          ]
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ZhiyongJing2.webp',
+        alt: 'ZhiyongJing2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Zhiyong Jing',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.jingzhiyong.com/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ZhiyongJing5.webp',
+        alt: 'ZhiyongJing5',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Zhiyong Jing',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.jingzhiyong.com/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ZhiyongJing6.webp',
+        alt: 'ZhiyongJing6',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Zhiyong Jing',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.jingzhiyong.com/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: 'Генератор сюжетов — это рабочий инструмент, а не творческий трюк. Он нужен, чтобы:'
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: 'избежать страха белого листа, когда не знаете, с чего начать;'
+        },
+        {
+          tag: 'p',
+          content: 'придумать серию, которая выглядит цельно, но не скучно;'
+        },
+        {
+          tag: 'p',
+          content: 'научиться работать с ограничением как с точкой роста — фиксируя один элемент, вы открываете свободу в остальном.'
+        }
+      ]
     }
   ]
 }
 
-const lessonDataFYS4: ILessonDataDB = {
-  id: 'VisualConcept_WeYEGw',
+const lessonDataFYS34: ILessonDataDB = {
+  id: 'Practice_tIcrup',
   courseId: 'finding-your-style',
-  title: 'Пластический сюжет: как рисовать',
+  title: 'Практика. Литературный сюжет',
+  type: 'Practice',
+  icon: 'Lesson',
+  topic: 'Как сделана иллюстрация. Литературный сюжет',
+  topicOrder: 3,
+  topicIcon: 'Lesson',
+  orderInTopic: 4,
+  duration: {
+    unit: 'hours',
+    value: 1
+  },
+  isFree: false,
+  isUnderDevelopment: false,
+  content: [
+    {
+      type: 'text',
+      text: 'В этом задании вы шаг за шагом придумаете идею для серии. Наша цель — не одна картинка, а серия работ, объединённых общей логикой или героем.'
+    },
+    {
+      type: 'title',
+      title: 'Шаг 1. Выберите, что вы фиксируете'
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Чтобы запустить генератор, начните с одного устойчивого элемента.'
+        },
+        {
+          tag: 'p',
+          content: 'Выберите только один из вариантов ниже:'
+        },
+      ]
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: 'Герой, например, кот, робот, бабушка, осьминог'
+        },
+        {
+          tag: 'p',
+          content: 'Тема, например, страх, взросление, одиночество, сезон года'
+        },
+        {
+          tag: 'p',
+          content: 'Среда, например, общественный транспорт, спальня, дно океана'
+        },
+        {
+          tag: 'p',
+          content: 'Настроение, например, тревога, радость, абсурд, ностальгия'
+        },
+        {
+          tag: 'p',
+          content: 'Объект или пара объектов, например, «чайник и кактус», «рыба и велосипед»'
+        }
+      ]
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Запишите, что вы выбираете',
+          props: { className: 'keyText' }
+        }
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Шаг 2. Придумайте 5 сюжетных вариантов'
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Теперь составьте 5 коротких описаний сцен, в которых сохраняется ваш фиксированный элемент, а остальное меняется.'
+        },
+        {
+          tag: 'p',
+          content: 'Пишите в духе: «Герой делает Х в ситуации Y».'
+        },
+        {
+          tag: 'p',
+          content: 'Пример:',
+          props: { className: 'keyText' }
+        },
+        {
+          tag: 'p',
+          content: 'Если фиксируем героя — робот-почтальон:'
+        },
+      ]
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: 'Доставляет письма исчезающим домам'
+        },
+        {
+          tag: 'p',
+          content: 'Ошибается и влюбляется в ящик'
+        },
+        {
+          tag: 'p',
+          content: 'Работает в городе, где никто не умеет читать'
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Шаг 3. Посмотрите на них как на серию'
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: 'Есть ли в этих сценах повторяющаяся логика?'
+        },
+        {
+          tag: 'p',
+          content: 'Хочется ли вам развить одну из идей в визуальный образ?'
+        },
+        {
+          tag: 'p',
+          content: 'Какая сцена кажется вам самой сильной — с неё можно будет начать эскизы.'
+        }
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Шаг 4. Сформулируйте литературный сюжет вашей серии'
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Сделайте одно предложение, в котором будет понятно:',
+        }
+      ]
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: 'Кто в ней герой или что объединяет сцены?'
+        },
+        {
+          tag: 'p',
+          content: 'Что с ним происходит?'
+        },
+        {
+          tag: 'p',
+          content: 'Какой характер у этой серии: ироничный, тревожный, нежный, абсурдный?'
+        }
+      ]
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Примеры',
+          props: { className: 'keyText' }
+        }
+      ]
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: 'Все мои иллюстрации — про странные праздники, в которых участвуют морские существа.'
+        },
+        {
+          tag: 'p',
+          content: 'Это серия о том, как обычные предметы неожиданно обретают жизнь.'
+        }
+      ]
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Запишите ваш итоговый сюжет.',
+          props: { className: 'keyText' }
+        }
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Итог'
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'По итогам упражнения у вас должен быть:',
+        }
+      ]
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: 'выбранный принцип генератора,'
+        },
+        {
+          tag: 'p',
+          content: '5 идей для сюжетов,'
+        },
+        {
+          tag: 'p',
+          content: 'и финальная формулировка вашего литературного сюжета для серии.'
+        }
+      ]
+    },
+    {
+      type: 'text',
+      text: 'Этот сюжет вы и будете реализовывать в иллюстрациях в рамках курса.'
+    },
+    {
+      type: 'title',
+      title: 'Как оформить результат'
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: '1. Оформите ответы в Google Docs, Figma, Miro или любом удобном сервисе.',
+        },
+        {
+          tag: 'p',
+          content: '2. Включите доступ по ссылке на просмотр.',
+        },
+        {
+          tag: 'p',
+          content: '3. Прикрепите ссылку в задание модуля.',
+        },
+        {
+          tag: 'p',
+          content: '4. Проверьте, что доступ открыт — иначе преподаватель не сможет прочитать и дать обратную связь.',
+        },
+      ]
+    },
+  ]
+}
+
+const lessonDataFYS41: ILessonDataDB = {
+  id: 'PlasticPlot_giToya',
+  courseId: 'finding-your-style',
+  title: 'Пластический сюжет',
   type: 'Theory',
   icon: 'Lesson',
   topic: 'Пластический сюжет: как рисовать',
@@ -7719,1693 +8580,26 @@ const lessonDataFYS4: ILessonDataDB = {
   isUnderDevelopment: false,
   content: [
     {
-      type: 'video',
-      videoData: {
-        src: 'https://www.youtube.com/embed/C76aFfYdNgs?si=1fq8amy5YpCpUhQX',
-        title: 'YouTube video player',
-      },
-    },
-    {
       type: 'text',
       text: [
         {
           tag: 'p',
-          content: 'В этом уроке мы подробнее разберем кирпичики пластической идеи. Посмотрим, как разные иллюстраторы используют их в своих работах.',
+          content: 'Иллюстрация работает не только за счёт сюжета, но и благодаря тому, как она сделана. Цвет, форма, ритм, композиция, техника исполнения — всё это кирпичики, из которых складывается пластическая идея.'
         },
         {
           tag: 'p',
-          content: 'Визуальные инструменты выразительности — широкая тема. В одном уроке невозможно охватить каждый инструмент, даже по верхам. Хорошая новость в том, что чтобы быть иллюстратором, искать свой стиль, не нужно знать и владеть всем этим арсеналом. Достаточно разобраться в том, что вам близко, интересно, во что хочется закопаться.',
+          content: 'Пластическая идея отвечает за интонацию и ощущение от работы. Иногда мы не можем сразу сформулировать сюжет, но чётко чувствуем: рисунок кажется тяжёлым, быстрым, уютным, тревожным, холодным. Это всё — результат работы пластической идеи.'
         },
+        {
+          tag: 'p',
+          content: 'Пластическая идея — это язык иллюстрации. Она рассказывает, как именно подан сюжет. Если сюжет — это содержание, то пластическая идея — форма подачи. Как голос в аудиокниге или режиссура в кино.'
+        }
       ]
     },
     {
       type: 'title',
-      title: 'Что входит в пластический сюжет',
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'На первом уроке мы уже затрагивали тему пластического сюжета. Если попытаться обобщить все возможные инструменты, то получится следующий список:',
-        },
-        {
-          tag: 'p',
-          content: 'Композиция: ритмы, массы',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'Контрасты: выделение главного, иерархия, интонация',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'Форма: силуэт, контрформа, формообразование',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'Цвет: хроматический контраст, светлотный контраст, контраст насыщенности, контраст пестрого-однотонного ',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'Пространство: ковровая композиция, фронтальная проекция, регистры, поднятый пол, изометрическое пространство, обратная перспектива, совмещение нескольких точек зрения',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'Техника: коллаж, живопись, цифровое рисование, скульптура, вышивка',
-          props: { className: 'listItem' },
-        },
-      ]
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Любая комбинация этих навыков позволяет заниматься иллюстрацией на профессиональном уровне. Можно углубиться в одно направление, можно по верхам владеть каждым инструментом. Стоит идти по тому пути, который интересен, с которым хочется работать на регулярной основе. Есть большой пласт художников, который вообще не использует цвет или не работает с формой. И это не мешает им быть иллюстраторами.',
-        },
-        {
-          tag: 'p',
-          content: 'Дальше разберем несколько примеров того, как иллюстраторы используют различные пластические инструменты в своих работах.',
-        },
-      ]
-    },
-    {
-      type: 'title',
-      title: 'Поиск пластической идеи на примере изучения формы',
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'От одного референса можно пойти разными путями.',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'VictorMelamed1.webp',
-        alt: 'VictorMelamed1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Victor Melamed',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/melamed' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Первый — разбиение фигуры на более простые формы.',
-        },
-        {
-          tag: 'p',
-          content: 'Второй — работа с силуэтом.',
-        },
-        {
-          tag: 'p',
-          content: 'Третий — логика конструктора, модуля.',
-        },
-        {
-          tag: 'p',
-          content: 'Четвертый — акцент на контрформе (треугольники).',
-        },
-        {
-          tag: 'p',
-          content: 'Последний — стилизация через метафору (перевернутый самолет).',
-        },
-      ]
-    },
-    {
-      type: 'title',
-      title: 'Форма: формообразование',
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Формообразование отвечает на вопрос, из каких материалов будет состоять наш придуманный мир. Например, я создаю мир из пластилина, все в нем будет пластилиновое. Я создаю мир из стекла, все будет стеклянное. Часто формообразование создает узнаваемость художника.',
-        },
-        {
-          tag: 'p',
-          content: 'Nadiia Zhelieznova делает своих персонажей текучими.',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'NadiiaZhelieznova5.webp',
-        alt: 'NadiiaZhelieznova5',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Nadiia Zhelieznova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zhelieznova' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'NadiiaZhelieznova6.webp',
-        alt: 'NadiiaZhelieznova6',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Nadiia Zhelieznova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zhelieznova' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'NadiiaZhelieznova7.webp',
-        alt: 'NadiiaZhelieznova7',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Nadiia Zhelieznova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zhelieznova' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'NadiiaZhelieznova8.webp',
-        alt: 'NadiiaZhelieznova8',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Nadiia Zhelieznova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zhelieznova' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Сравнивает животных с корягой дерева.',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'NadiiaZhelieznova1.webp',
-        alt: 'NadiiaZhelieznova1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Nadiia Zhelieznova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zhelieznova' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'NadiiaZhelieznova2.webp',
-        alt: 'NadiiaZhelieznova2',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Nadiia Zhelieznova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zhelieznova' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'NadiiaZhelieznova3.webp',
-        alt: 'NadiiaZhelieznova3',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Nadiia Zhelieznova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zhelieznova' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'NadiiaZhelieznova4.webp',
-        alt: 'NadiiaZhelieznova4',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Nadiia Zhelieznova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zhelieznova' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Elicia Edijanto рисует работы в тумане.',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'EliciaEdijanto1.webp',
-        alt: 'EliciaEdijanto1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Elicia Edijanto',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/eliciaedijanto' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'EliciaEdijanto2.webp',
-        alt: 'EliciaEdijanto2',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Elicia Edijanto',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/eliciaedijanto' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Формообразование Mike Lee напоминает плавящийся воск.',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'MikeLee1.webp',
-        alt: 'MikeLee1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Mike Lee',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.mikelee.one/group-exhibitions-1' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'MikeLee2.webp',
-        alt: 'MikeLee2',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Mike Lee',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.mikelee.one/group-exhibitions-1' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Слегка кривоватая, дрожащая линия создает ощущение ручной работы. Это особенно живо смотрится в цифровых рисунках.',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'MattHouston2.webp',
-        alt: 'MattHouston2',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Matt Houston',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/mg.houston/?hl=en' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'MattHouston3.webp',
-        alt: 'MattHouston3',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Matt Houston',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/mg.houston/?hl=en' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'title',
-      title: 'Форма: модульность',
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Модуль — это логика движения самого контура. Правила сборки могут более или менее жесткими, зависит от автора.',
-        },
-        {
-          tag: 'p',
-          content: 'Чем меньше модуль картинки, тем скучнее игра. Самый маленький модуль — пиксель.',
-        },
-        {
-          tag: 'p',
-          content: 'Чем модуль крупнее — тем больше пространства для метаморфоз. Все детали нужно уложить, за этим интересно наблюдать.',
-        },
-        {
-          tag: 'p',
-          content: 'Riccardo Guasco собирает рисунок из долек. В этой форме сразу заложен пластический контраст. Есть прямота и круглота, они друг другу контрастируют.',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'RiccardoGuasco2.webp',
-        alt: 'RiccardoGuasco2',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Riccardo Guasco',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/guascoriccardo/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'RiccardoGuasco1.webp',
-        alt: 'RiccardoGuasco1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Riccardo Guasco',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/guascoriccardo/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'RiccardoGuasco3.webp',
-        alt: 'RiccardoGuasco3',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Riccardo Guasco',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/guascoriccardo/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'RiccardoGuasco5.webp',
-        alt: 'RiccardoGuasco5',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Riccardo Guasco',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/guascoriccardo/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'RiccardoGuasco6.webp',
-        alt: 'RiccardoGuasco6',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Riccardo Guasco',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/guascoriccardo/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'RiccardoGuasco7.webp',
-        alt: 'RiccardoGuasco7',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Riccardo Guasco',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/guascoriccardo/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Charley Harper идет до предела стилизации. На всем пути верно изображает животное, не превращает в котика с глазками.',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'CharleyHarper6.jpeg',
-        alt: 'CharleyHarper6',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Charley Harper',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/charleyharperart/?hl=en' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'CharleyHarper2.webp',
-        alt: 'CharleyHarper2',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Charley Harper',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/charleyharperart/?hl=en' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Пластическая идея для каждого животного своя, свой подход.',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'CharleyHarper3.webp',
-        alt: 'CharleyHarper3',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Charley Harper',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/charleyharperart/?hl=en' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'CharleyHarper8.webp',
-        alt: 'CharleyHarper8',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Charley Harper',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/charleyharperart/?hl=en' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'MashaTitova1.webp',
-        alt: 'MashaTitova1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Masha Titova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/mashatitovaprint' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'MashaTitova2.webp',
-        alt: 'MashaTitova2',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Masha Titova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/mashatitovaprint' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'title',
-      title: 'Форма: силуэт',
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Силуэт — заполненный или пустой контур, произвольной формы. Работа с силуэтом — движение от абстракции к фигуративу. Аналогично массам, автора в первую очередь волнует впечатление, во вторую — реалистичность.',
-        },
-        {
-          tag: 'p',
-          content: 'Например, Маша Шишова в своих работах идет от силуэта, формы. И затем вписывает в него фигуратив.',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'MashaShishova5.webp',
-        alt: 'MashaShishova5',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Masha Shishova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/MariaShishova' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'MashaShishova6.webp',
-        alt: 'MashaShishova6',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Masha Shishova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/MariaShishova' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'MashaShishova7.webp',
-        alt: 'MashaShishova7',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Masha Shishova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/MariaShishova' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'BrechtEvens6.webp',
-        alt: 'BrechtEvens6',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Brecht Evens',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/brecht_evens_/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'BrechtEvens7.webp',
-        alt: 'BrechtEvens7',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Brecht Evens',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/brecht_evens_/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'BrechtEvens8.webp',
-        alt: 'BrechtEvens8',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Brecht Evens',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/brecht_evens_/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'AlHirschfeld1.webp',
-        alt: 'AlHirschfeld1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Al Hirschfeld',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.alhirschfeldfoundationshop.org/stage/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'AlHirschfeld3.webp',
-        alt: 'AlHirschfeld3',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Al Hirschfeld',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.alhirschfeldfoundationshop.org/stage/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'AlHirschfeld5.webp',
-        alt: 'AlHirschfeld5',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Al Hirschfeld',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.alhirschfeldfoundationshop.org/stage/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'SonjaGajic1.jpeg',
-        alt: 'SonjaGajic1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Sonja Gajić',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://sonjagajicart.com/aquarelles/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'NADIIAZHELIEZNOVA1.jpeg',
-        alt: 'NADIIAZHELIEZNOVA1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Nadiia Zhelieznova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zhelieznova' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'ClareYoungs6.webp',
-        alt: 'ClareYoungs6',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Clare Youngs',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.clareyoungs.co.uk/shop' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'ClareYoungs7.webp',
-        alt: 'ClareYoungs7',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Clare Youngs',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.clareyoungs.co.uk/shop' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'title',
-      title: 'Форма: контрформа',
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Контрформа — пространство, обволакивающее силуэт, антисилуэт.',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'CarlaPetelski1.jpeg',
-        alt: 'CarlaPetelski1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Carla Petelski',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/carlapetelski' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'SveinNyhus4.webp',
-        alt: 'SveinNyhus4',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Svein Nyhus',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://sveinnyhus.blogspot.com/p/summary-in-english-signed-a2-size.html' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'SveinNyhus3.webp',
-        alt: 'SveinNyhus3',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Svein Nyhus',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://sveinnyhus.blogspot.com/p/summary-in-english-signed-a2-size.html' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'SveinNyhus2.webp',
-        alt: 'SveinNyhus2',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Svein Nyhus',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://sveinnyhus.blogspot.com/p/summary-in-english-signed-a2-size.html' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'SveinNyhus1.webp',
-        alt: 'SveinNyhus1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Svein Nyhus',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://sveinnyhus.blogspot.com/p/summary-in-english-signed-a2-size.html' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'escher3.webp',
-        alt: 'escher3',
-        caption: [
-          {
-            tag: 'a',
-            content: 'M.C. Escher',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://mcescher.com/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'escher2.webp',
-        alt: 'escher2',
-        caption: [
-          {
-            tag: 'a',
-            content: 'M.C. Escher',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://mcescher.com/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'escher1.webp',
-        alt: 'escher1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'M.C. Escher',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://mcescher.com/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'mcescher7.webp',
-        alt: 'mcescher7',
-        caption: [
-          {
-            tag: 'a',
-            content: 'M.C. Escher',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://mcescher.com/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'mcescher8.webp',
-        alt: 'mcescher8',
-        caption: [
-          {
-            tag: 'a',
-            content: 'M.C. Escher',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://mcescher.com/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'ClareYoungs1.webp',
-        alt: 'ClareYoungs1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Clare Youngs',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.clareyoungs.co.uk/shop' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'ClareYoungs2.webp',
-        alt: 'ClareYoungs2',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Clare Youngs',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.clareyoungs.co.uk/shop' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'title',
-      title: 'Контраст',
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Разница - это средство выразительности. Если разница велика - это контраст. Если мала - нюанс. Когда мы подчеркиваем разницу - размеров, форм, яркости, чего угодно - мы делаем рисунок более выразительным.',
-        },
-        {
-          tag: 'p',
-          content: 'Контраст — большая разница в листе. Объемное и плоское, фактурное и однородное, толстое и тонюсенькое, заполненное и пустое, чб и цветное, пятно и линия. С помощью контраста можно направить внимание зрителя, выделить главное в листе, разделить планы, объединить персонажей.',
-        },
-        {
-          tag: 'p',
-          content: 'Нюанс — едва заметная разница. Она обогащает рисунок, наполняет его деталями.',
-        },
-        {
-          tag: 'p',
-          content: 'Акцент — самый сильный контраст в листе. Акцент всегда маленький, всегда один.',
-        },
-        {
-          tag: 'p',
-          content: 'Например, если тона в рисунке отличаются слабо, рисунок нюансный:',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'AndrewGraves1.webp',
-        alt: 'AndrewGraves1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Andrew Graves',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.andrewjgraves.com/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'NadyaDrobysheva2.webp',
-        alt: 'NadyaDrobysheva2',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Nadya Drobysheva',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/nadyadrobysheva' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Если тона в рисунке отличаются сильно, рисунок контрастный:',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'ArinaSerebriakova1.webp',
-        alt: 'ArinaSerebriakova1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Arina Serebriakova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/ri.silver/?g=5' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'ArinaSerebriakova2.webp',
-        alt: 'ArinaSerebriakova2',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Arina Serebriakova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/ri.silver/?g=5' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Разница в рисунке — способ разнобразить иллюстрацию, привлечь внимание зрителя к нужному месту.',
-        },
-        {
-          tag: 'p',
-          content: 'Главное можно выделить с помощью временных ограничений. На рисунке ниже я за 5 минут нарисовала задний план: деревья, электрический столб. А затем 15 минут аккуратно рисовала забор: много-много точных параллельных линий. В итоге забор читается другим слоем, явно отличится от заднего плана.',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'SofiUlianova1.jpg',
-        alt: 'SofiUlianova1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Sofiia Ulianova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/sofiulianova' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Главное можно выделить с помощью разницы в толщине линии.',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'SofiUlianova2.jpg',
-        alt: 'SofiUlianova2',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Sofiia Ulianova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/sofiulianova' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'ELENAFEKLISTOVA2.jpeg',
-        alt: 'ELENAFEKLISTOVA2',
-        caption: [
-          {
-            tag: 'a',
-            content: 'ELENA FEKLISTOVA',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/e.feklistova/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Главное можно выделить с помощью различия в задачах, которые решают линии. Толстая линия — силуэт, тонкая линия — фактура, форма.',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'ELENAFEKLISTOVA5.jpeg',
-        alt: 'ELENAFEKLISTOVA5',
-        caption: [
-          {
-            tag: 'a',
-            content: 'ELENA FEKLISTOVA',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/e.feklistova/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Акцент — способ притянуть внимание зрителя в одну точку. В иллюстрации ниже акцент — линейные реснички в пятновом рисунке птицы.',
-        },
-      ]
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Акцент линией в пятновом рисунке. Контраст по светлоте.',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'ArinaSerebriakova.webp',
-        alt: 'ArinaSerebriakova',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Arina Serebriakova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/ri.silver/?g=5' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'title',
-      title: 'Композиция',
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Композиция — организация листа, которую автор делает сознательно и целенаправленно. На композицию влияют: размер, форма масс, их взаимодействие друг с другом и с пустым пространством листа.',
-        },
-        {
-          tag: 'p',
-          content: 'Масса может равняться одному объекту.',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'MashaShishova9.webp',
-        alt: 'MashaShishova9',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Masha Shishova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/MariaShishova' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Масса может состоять из нескольких объектов. В этом случае несколько объектов воспринимаются как одна масса.',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'MashaShishova6.webp',
-        alt: 'MashaShishova6',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Masha Shishova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/MariaShishova' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Масса может быть частью объекта. Купальник — масса, но он лишь часть тела девушки.',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'АлександрДейнека1.webp',
-        alt: 'АлександрДейнека1',
-        caption: [
-          {
-            tag: 'p',
-            content: 'Александр Дейнека',
-          },
-        ],
-      },
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Объекты объединяются в одну массу, когда они схожи по какому-то признаку: светлота, цвет, техника исполнения.',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'StasyaSokolovskaya1.webp',
-        alt: 'StasyaSokolovskaya1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Stasya Sokolovskaya',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/stasyasokolovska/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Четкие границы массы могут упрощать чтение сюжета.',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'LorenzoMattotti1.jpeg',
-        alt: 'LorenzoMattotti1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Lorenzo Mattotti',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.mattotti.com/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Масса может затруднять восприятие. Абстрактная масса — хороший способ устранения. Мощный куб некера.',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'MashaShishova8.webp',
-        alt: 'MashaShishova8',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Masha Shishova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/MariaShishova' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Персонажи рифмуются с деревьями, встают в один ряд, создают равномерный ритм.',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'LorenzoMattotti2.webp',
-        alt: 'LorenzoMattotti2',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Lorenzo Mattotti',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.mattotti.com/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Масса и фигуратив (объект) — два инструмента художника. Их необязательно жестко привязывать друг к другу. Иллюстратор может в любую форму врисовать нужный ему сюжет.',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'MašaAvramović2.webp',
-        alt: 'MašaAvramović2',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Maša Avramović',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/mashta' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'title',
-      title: 'Как учиться инструментам, из которых складывается пластический сюжет',
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Смотреть много-много разных работ. В разных техниках, с отличной интонацией, в разных форматах. Смотреть иллюстраторов в близкой для вас технике. Смотреть дизайнеров, скульпторов, которые используют совершенно непривычные инструменты. Я знаю много историй, когда человек приходил в Британку с маслом, а уходил уверенным керамистом.',
-        },
-        {
-          tag: 'p',
-          content: 'Анализировать работы, которые вызывают сильные эмоции: приятные, жуткие, разочаровывающие, бодрящие. Финальная цель работы иллюстратора — эмоции, которые он смог вызвать у зрителей. И эти эмоции необязательно должны быть приятными.',
-        },
-        {
-          tag: 'p',
-          content: 'Ходить на мастер-классы и курсы к иллюстраторам, у которых хотите научиться конкретным инструментам. Например, в Простой школе проходят небольшие курсы, на которых иллюстраторы рассказывают о специфичных техниках и подходах. Такой курс — хороший способ узнать от первого лица о том, как думает иллюстратор.',
-        },
-      ]
-    },
-    {
-      type: 'title',
-      title: 'Дневник наблюдений, анализируем иллюстрации свои и чужие',
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Дневник наблюдений — это небольшая анкета, которая помогает связать ощущения зрителя и инструменты автора. Она состоит из трех блоков: “Что я вижу?”, “Что я чувствую?”, “Как автор это сделал?”',
-        },
-        {
-          tag: 'p',
-          content: 'Ниже пример такой анкеты для анализа композиции. Первый раз я познакомилась с этим подходом на курсах у Марины Бородиной и Натальи Гриценко. Сейчас они преподают иллюстрацию в НИУ ВШЭ.',
-        },
-        {
-          tag: 'p',
-          content: [
-            {
-              tag: 'strong',
-              content: 'Что я вижу',
-            },
-          ],
-        },
-        {
-          tag: 'p',
-          content: 'Буквально опишите массы и их положения в листе. Говорите о том, что видите перед собой.',
-          props: { className: 'listHeader' },
-        },
-        {
-          tag: 'p',
-          content: 'Сколько масс мы видим? Масса состоит из одного объекта или из нескольких? Если из нескольких — почему мы воспринимаем их одной массой?',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'Сколько места каждая масса занимает в листе? Большая она или маленькая, насколько?',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'Где масса расположена относительно центра, краев листа, других масс?',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'Чем массы похожи, чем отличаются?',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'Как массы взаимодействуют? Загораживают друг друга, соприкасаются, сливаются, находятся на расстоянии?',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'Насколько массы однородные? Насколько они темные или светлые?',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'Какой массы формы?',
-          props: { className: 'listItem' },
-        },
-      ]
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: [
-            {
-              tag: 'strong',
-              content: 'Что я чувствую',
-            },
-          ],
-        },
-        {
-          tag: 'p',
-          content: 'Опишите свои впечатления. Говорите о том, что чувствуете, когда смотрите на иллюстрацию.',
-          props: { className: 'listHeader' },
-        },
-        {
-          tag: 'p',
-          content: 'Масса тяжелая или легкая?',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'Масса подвижная или нет? Если подвижная — в каком направлении движется? Как быстро движется?',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'Как далеко масса расположена от зрителя? Как я могу охарактеризовать ее взаимодействие со зрителем?',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'Как масса взаимодействует с пространством? Что мы видим — простор или тесноту, покой, движение, ситуацию',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'Как массы взаимодействуют? Они движутся? Вместе или по отдельности? Друг на друга, на зрителя, в противоположном или одном направлении? Что происходит между ними? Какое ощущение это вызывает?',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'Что я чувствую?',
-          props: { className: 'listItem' },
-        },
-      ]
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: [
-            {
-              tag: 'strong',
-              content: 'Как автор это сделал',
-            },
-          ],
-        },
-        {
-          tag: 'p',
-          content: 'Прочитайте ваши ответы на первые два раздела. Сопоставьте то, что вы видите, с тем, что чувствуете. Предположите связи первого со вторым.',
-        },
-        {
-          tag: 'p',
-          content: 'По этой схеме я разбирала иллюстрации других художников, когда рисовала серии в Британке. Ниже кусочек такого разбора. Я опустила первые два блока, попробуйте самостоятельно ответить на вопросы "что я вижу?" и "что я чувствую?"',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'LorenzoMattotti21.jpeg',
-        alt: 'LorenzoMattotti21',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Lorenzo Mattotti',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.mattotti.com/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'gconspect.png',
-        alt: 'gconspect',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Графический конспект',
-          },
-        ],
-      },
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          props: { className: 'listHeader' },
-          content: [
-            {
-              tag: 'strong',
-              content: 'Как автор это сделал',
-            },
-          ],
-        },
-        {
-          tag: 'p',
-          content: [
-            {
-              tag: 'strong',
-              content: 'Первая масса тяжелая, нависающая. ',
-            },
-            {
-              tag: 'span',
-              content: 'Первая масса закрывает верхнюю часть листа, вытягивается к центру вниз.',
-            },
-          ],
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: [
-            {
-              tag: 'strong',
-              content: 'Вторая масса устойчивая. ',
-            },
-            {
-              tag: 'span',
-              content: 'Расположена по центру, симметрична.',
-            },
-          ],
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: [
-            {
-              tag: 'strong',
-              content: 'Третья масса тяжелая, устойчивая. ',
-            },
-            {
-              tag: 'span',
-              content: 'Масса сплошная, полностью закрывает нижнюю границу листа.',
-            },
-          ],
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: [
-            {
-              tag: 'strong',
-              content: 'Вторая масса статична, зажата. ',
-            },
-            {
-              tag: 'span',
-              content: 'Две тяжелые массы, которые закрывают верх и низ листа. Вторая масса симметричная в центре листа.',
-            },
-          ],
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: [
-            {
-              tag: 'strong',
-              content: 'Давление, тревога, тяжесть. ',
-            },
-            {
-              tag: 'span',
-              content: 'Две тяжелые массы, которые закрывают верх и низ листа. Первая масса едва касается второй, что создает напряжение, давление. Жест движения объектов конфликтует со статичностью силуэта.',
-            },
-          ],
-          props: { className: 'listItem' },
-        },
-      ]
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Последний блок анкеты можно воспринимать как прямые инструкции к действию, использовать их в своих следующих работах.',
-        },
-      ]
-    },
-    {
-      type: 'title',
-      title: 'Выберите одно-два средства выразительности, из которых сложится пластический сюжет',
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Что-то зафиксируйте, чтобы серия смотрелась цельной. Что-то меняйте, чтобы за серией было интересно наблюдать. Например,',
-          props: { className: 'listHeader' },
-        },
-        {
-          tag: 'p',
-          content: 'Постоянное: цветовая палитра (голубого и индиго — много, розового — мало, розовым выделяю главное), модульность (все объекты стремятся стать треугольниками)',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'Меняется: персонажи, которых я рисую',
-          props: { className: 'listItem' },
-        },
-      ]
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Берите те инструменты, с которыми уже работали, знаете, как ими управлять. Цель серии — подсобрать и оформить наши текущие навыки, а не научиться новым.',
-        },
-        {
-          tag: 'p',
-          content: 'Лозунг должен помочь ограничить набор инструментов. Что стоит оставить, чтобы получилось задуманное вами впечатление от рисунка? От чего можно отказаться?',
-        },
-      ]
-    },
+      title: 'Из чего состоит пластическая идея'
+    }
   ]
 }
 
@@ -11938,6 +11132,7 @@ export const allLessons = [
   lessonDataFYS31,
   lessonDataFYS32,
   lessonDataFYS33,
-  lessonDataFYS4,
+  lessonDataFYS34,
+  lessonDataFYS41,
   lessonDataFYS5,
 ];
