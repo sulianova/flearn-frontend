@@ -29,6 +29,7 @@ body.light {
   --color-background-btn-hover: var(--color-background-btn-hover-light);
   --color-background-violet: var(--color-background-violet-light);
   --color-background-pink: var(--color-background-pink-light);
+  --color-background-pink-violet: var(--color-background-pink-violet-light);
 
   --color-accent-alert: var(--color-accent-alert-light);
   --color-accent-info: var(--color-accent-info-light);
@@ -76,6 +77,8 @@ body.dark {
   --color-background-btn-hover: var(--color-background-btn-hover-dark);
   --color-background-violet: var(--color-background-violet-dark);
   --color-background-pink: var(--color-background-pink-dark);
+  --color-background-pink-violet: var(--color-background-pink-violet-dark);
+
   --color-accent-alert: var(--color-accent-alert-dark);
   --color-accent-info: var(--color-accent-info-dark);
   --color-accent-success: var(--color-accent-success-dark);

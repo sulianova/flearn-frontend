@@ -8599,7 +8599,1251 @@ const lessonDataFYS41: ILessonDataDB = {
     {
       type: 'title',
       title: 'Из чего состоит пластическая идея'
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'RiccardoGuasco5.webp',
+        alt: 'RiccardoGuasco5',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Riccardo Guasco',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/guascoriccardo/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: 'Это может быть любая комбинация визуальных инструментов:'
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Цвет: ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'палитра, контрасты, насыщенность, температура.',
+            }
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Форма: ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'силуэты, модульность, текучесть, угловатость.',
+            }
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Композиция: ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'массы, ритмы, расположение, движение.',
+            }
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Пространство: ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'ковровая плоскость, перспектива, ракурсы.',
+            }
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Техника: ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'живопись, коллаж, графика, цифровая или ручная.',
+            }
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Фактура: ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'гладкое, шероховатое, пустое, насыщенное.',
+            }
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Темп и ритм: ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'быстрые линии, плотность штрихов, паузы.',
+            }
+          ]
+        }
+      ]
+    },
+    {
+      type: 'text',
+      text: 'Чем точнее художник осознаёт, какие средства он использует — тем увереннее иллюстрация.'
+    },
+    {
+      type: 'title',
+      title: 'Как применять это на практике'
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'MashaTitova1.webp',
+        alt: 'MashaTitova1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Masha Titova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/mashatitovaprint' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Необязательно владеть всеми инструментами.'
+        },
+        {
+          tag: 'p',
+          content: 'Можно сосредоточиться на одном-двух и использовать их осознанно:'
+        }
+      ]
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: 'Кто-то работает только с формой, почти без цвета.'
+        },
+        {
+          tag: 'p',
+          content: 'Кто-то делает акцент на фактуре.'
+        },
+        {
+          tag: 'p',
+          content: 'Кто-то — на цветовых решениях и нюансах освещения.'
+        }
+      ]
+    },
+    {
+      type: 'text',
+      text: 'Ваша задача — выбрать, что вам интересно, и развивать это.'
+    },
+    {
+      type: 'quote',
+      quote: 'Пластическая идея — это ваш авторский голос. Чем точнее он сформулирован, тем узнаваемее и выразительнее ваша работа.'
+    },
+    {
+      type: 'textImportant',
+      text: [
+        {
+          tag: 'p',
+          content: 'Пластическая идея — это то, как нарисована иллюстрация.'
+        },
+        {
+          tag: 'p',
+          content: 'Она складывается из цвета, формы, композиции, техники и других визуальных решений.'
+        },
+        {
+          tag: 'p',
+          content: 'Она формирует настроение, интонацию и эмоциональное впечатление.'
+        },
+        {
+          tag: 'p',
+          content: 'Не нужно владеть всем сразу. Найдите то, что вам интересно, и углубляйтесь.'
+        },
+        {
+          tag: 'p',
+          content: 'Пластическая идея делает вашу иллюстрацию уникальной даже при простом сюжете.'
+        }
+      ]
     }
+  ]
+}
+
+const lessonDataFYS42: ILessonDataDB = {
+  id: 'Shape_FrAbij',
+  courseId: 'finding-your-style',
+  title: 'Работа с формой: от референса к стилизации',
+  type: 'Theory',
+  icon: 'Lesson',
+  topic: 'Пластический сюжет: как рисовать',
+  topicOrder: 4,
+  topicIcon: 'Lesson',
+  orderInTopic: 2,
+  duration: {
+    unit: 'hours',
+    value: 1
+  },
+  isFree: false,
+  isUnderDevelopment: false,
+  content: [
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Форма — это один из первых и самых сильных выразительных инструментов в иллюстрации. Мы видим её до цвета, до сюжета, до фактуры. Именно форма создаёт первое впечатление, задаёт настроение и часто определяет, насколько выразительной будет работа.'
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Но что значит «работать с формой»? Это значит — не просто срисовывать, '
+            },
+            {
+              tag: 'span',
+              content: 'а осознанно стилизовать. ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'Искать тот способ изображения, который соответствует вашей идее.'
+            }
+          ]
+        }
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'VictorMelamed1.webp',
+        alt: 'VictorMelamed1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Victor Melamed',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/melamed' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: '1. Геометризация',
+          props: { className: 'keyText'}
+        },
+        {
+          tag: 'p',
+          content: 'Фигура разбита на простые формы: круги, треугольники, прямоугольники. Такой приём помогает упростить и структурировать изображение, делая его конструктивным и понятным.',
+        },
+        {
+          tag: 'p',
+          content: '2. Силуэт',
+          props: { className: 'keyText'}
+        },
+        {
+          tag: 'p',
+          content: 'Здесь главное — выразительный контур. Вся форма читается одним пятном. Такой подход делает изображение заметным и легко узнаваемым с первого взгляда.',
+        },
+        {
+          tag: 'p',
+          content: '3. Модульная логика',
+          props: { className: 'keyText'}
+        },
+        {
+          tag: 'p',
+          content: 'Фигура собрана из повторяющихся элементов, как из конструктора. Этот приём задаёт ритм, делает форму «собранной» и организованной.',
+        },
+        {
+          tag: 'p',
+          content: '4. Контрформа',
+          props: { className: 'keyText'}
+        },
+        {
+          tag: 'p',
+          content: 'Фокус смещён с фигуры на пространство вокруг неё. Например, треугольник между рукой и телом становится самостоятельным выразительным элементом.',
+        },
+        {
+          tag: 'p',
+          content: '5. Метафорическая стилизация',
+          props: { className: 'keyText'}
+        },
+        {
+          tag: 'p',
+          content: 'Форма переосмыслена через метафору. Персонаж напоминает перевёрнутый самолёт — такой подход создаёт новый образ, усиливает впечатление.',
+        }
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Геометризация'
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'RiccardoGuasco1.webp',
+        alt: 'RiccardoGuasco1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Riccardo Guasco',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/guascoriccardo/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Что это: ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'разбиение сложной формы на простые геометрические элементы: круги, квадраты, треугольники.',
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Что даёт: ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'конструктивность, чёткость, логичность. Такая форма легко читается и запоминается.',
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Пример: ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'фигура построена из овалов и прямоугольников, напоминает героев Малевича или персонажей в изометрии.',
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Антипример: ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'фигура срисована с фотографии, формы повторяют реальность, но не работают как единое целое. Нет стилизации — нет выразительности.',
+            },
+          ]
+        }
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Поиск выразительного силуэта'
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'NADIIAZHELIEZNOVA1.jpeg',
+        alt: 'NADIIAZHELIEZNOVA1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Nadiia Zhelieznova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zhelieznova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Что это: ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'обобщение формы до одного силуэта, который будет узнаваем даже без деталей.',
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Что даёт: ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'узнаваемость, быстроту считывания. Особенно важно для книжной и журнальной иллюстрации, когда у зрителя мало времени.',
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Пример: ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'силуэт с активными углами или характерным изгибом, например, как у персонажей Тима Бартона.',
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Антипример: ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'слишком мелкие детали в силуэте, нечёткие края, «плюшевый» контур — такой силуэт расплывается, не держит внимание.',
+            },
+          ]
+        }
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Логика конструктора или модуля'
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'CharleyHarper8.webp',
+        alt: 'CharleyHarper8',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Charley Harper',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/charleyharperart/?hl=en' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Что это: ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'форма собирается из повторяющихся элементов. У каждого объекта — одна логика сборки.',
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Что даёт: ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'ритм, ощущение упорядоченности, интерес в деталях.',
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Пример: ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'персонаж собран из «лепестков», каждый новый образ — вариация на один модуль. Как у Riccardo Guasco или Charley Harper.',
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Антипример: ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'детали не поддерживают друг друга, форма «разваливается», ощущается случайной.',
+            },
+          ]
+        }
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Работа с контрформой'
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'escher2.webp',
+        alt: 'escher2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'M.C. Escher',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://mcescher.com/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Что это: ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'фокус не на самой фигуре, а на пространстве вокруг неё — между руками, ногами, предметами.',
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Что даёт: ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'воздух, лёгкость, графическую выразительность. Контрформа — отличный способ управлять вниманием.',
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Пример: ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'между рукой и телом — чёткий треугольник. Он создаёт ритм и усиливает позу.',
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Антипример: ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'все элементы слиплись в одно пятно, между ними нет воздуха, нет направлений. Форма кажется тяжёлой и неразборчивой.',
+            },
+          ]
+        }
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Метафорическая стилизация'
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'NadiiaZhelieznova6.webp',
+        alt: 'NadiiaZhelieznova6',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Nadiia Zhelieznova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zhelieznova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Что это: ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'фигура стилизуется не по форме, а по смыслу или образу. Иллюстратор видит в герое дерево, рыбу, самолёт — и рисует его так.',
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Что даёт: ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'авторское высказывание, настроение, глубину.',
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Пример: ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'персонаж — как кактус. И не только внешне: поза, форма, линия — всё подчёркивает его колючесть.',
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Антипример: ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'Антипример: случайное превращение — персонаж стал вертолётом, но почему — неясно. Нет связи между формой и идеей.',
+            },
+          ]
+        }
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Как выбрать подход'
+    },
+    {
+      type: 'text',
+      text: 'Если вы только начинаете, попробуйте один референс и сделайте из него 3–4 разных стилизации. Например:'
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: 'геометрическая,'
+        },
+        {
+          tag: 'p',
+          content: 'силуэтная,'
+        },
+        {
+          tag: 'p',
+          content: 'модульная,'
+        },
+        {
+          tag: 'p',
+          content: 'метафорическая.'
+        },
+      ]
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Сравните: как меняется настроение? Что ближе вам? Где вы чувствуете интерес?'
+        },
+        {
+          tag: 'p',
+          content: 'Каждый из этих путей — возможность выразить идею. Но важно не просто «украсить» форму, а сделать её осмысленной. Форма работает, когда она работает на смысл.'
+        }
+      ]
+    },
+    {
+      type: 'textImportant',
+      text: [
+        {
+          tag: 'p',
+          content: 'Форма — один из главных выразительных инструментов. Именно она создаёт первое впечатление.'
+        },
+        {
+          tag: 'p',
+          content: 'Один и тот же референс можно стилизовать десятками способов.'
+        },
+        {
+          tag: 'p',
+          content: 'Основные подходы: геометризация, силуэт, модуль, контрформа, метафора.'
+        },
+        {
+          tag: 'p',
+          content: 'Форма работает тогда, когда помогает донести вашу идею. Не украсьте — а выразите.'
+        },
+        {
+          tag: 'p',
+          content: 'Начинайте с малого: выберите одну стратегию и попробуйте применить её к нескольким рисункам. Затем сравните эффект.'
+        }
+      ]
+    }
+  ]
+}
+
+const lessonDataFYS43: ILessonDataDB = {
+  id: 'Contrast_bResPA',
+  courseId: 'finding-your-style',
+  title: 'Контраст: как выделить главное',
+  type: 'Theory',
+  icon: 'Lesson',
+  topic: 'Пластический сюжет: как рисовать',
+  topicOrder: 4,
+  topicIcon: 'Lesson',
+  orderInTopic: 3,
+  duration: {
+    unit: 'hours',
+    value: 1
+  },
+  isFree: false,
+  isUnderDevelopment: false,
+  content: [
+    {
+      type: 'text',
+      text: 'Разница - это средство выразительности. Она помогает выделить главное, организовать композицию, усилить эмоциональное воздействие. Если разница велика - это контраст. Если мала - нюанс. Когда мы подчеркиваем разницу - размеров, форм, яркости, чего угодно - мы делаем рисунок более выразительным.'
+    },
+    {
+      type: 'title',
+      title: 'Что такое контраст'
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ArinaSerebriakova2.webp',
+        alt: 'ArinaSerebriakova2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Arina Serebriakova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/ri.silver/?g=5' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Контраст — это '
+        },
+        {
+          tag: 'span',
+          content: 'большая разница между элементами на листе. ',
+          props: { className: 'keyText'}
+        },
+        {
+          tag: 'span',
+          content: 'Он может проявляться в:'
+        },
+      ]
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: 'светлоте: светлое и тёмное,'
+        },
+        {
+          tag: 'p',
+          content: 'цвете: насыщенное и блеклое,'
+        },
+        {
+          tag: 'p',
+          content: 'форме: острое и округлое,'
+        },
+        {
+          tag: 'p',
+          content: 'фактуре: гладкое и шероховатое,'
+        },
+        {
+          tag: 'p',
+          content: 'размере: большое и маленькое,'
+        },
+        {
+          tag: 'p',
+          content: 'линии: толстая и тонкая,'
+        },
+        {
+          tag: 'p',
+          content: 'плотности: пустое и заполненное пространство,'
+        },
+        {
+          tag: 'p',
+          content: 'технике: жесткое и мягкое, пятно и линия.'
+        }
+      ]
+    },
+    {
+      type: 'text',
+      text: 'С помощью контраста можно направить внимание зрителя, выделить главное в листе, разделить планы, объединить персонажей.'
+    },
+    {
+      type: 'title',
+      title: 'Что такое нюанс'
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'AndrewGraves1.webp',
+        alt: 'AndrewGraves1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Andrew Graves',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.andrewjgraves.com/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Нюанс — это '
+            },
+            {
+              tag: 'span',
+              content: 'тонкая, почти незаметная разница. ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'В рисунке нюансы проявляются в оттенках цвета, в ритмах, в фактуре. Это не инструмент “в лоб”, но именно нюансы наполняют рисунок глубиной, делают его сложным, деликатным, медитативным.'
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: 'Например, в работе Andrew Graves  тоновые различия минимальны, но они создают атмосферу тишины, мягкости, лёгкой грусти.'
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Что такое акцент'
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'NataliaMoryzeva3.jpeg',
+        alt: 'NataliaMoryzeva3',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Natalia Moryzeva',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/yantarem/?hl=en' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Акцент — это '
+            },
+            {
+              tag: 'span',
+              content: 'самая сильная разница ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'в изображении. Это точка, в которую вы хотите притянуть внимание зрителя. Акцент всегда один, и он работает именно потому, что контрастен остальной части рисунка.'
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: 'Например, в работе Натальи паучок сделан линейно — это и есть акцент. Всё остальное работает как фон, на его фоне эта деталь буквально "вспыхивает".'
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Как создавать контраст'
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Контраст времени',
+          props: { className: 'keyText'}
+        },
+        {
+          tag: 'p',
+          content: 'Главное можно выделить с помощью временных ограничений. На рисунке ниже я за 5 минут нарисовала задний план: деревья, электрический столб. А затем 15 минут аккуратно рисовала забор: много-много точных параллельных линий. В итоге забор читается другим слоем, явно отличится от заднего плана.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'SofiUlianova1.jpg',
+        alt: 'SofiUlianova1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Sofiia Ulianova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/sofiulianova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Контраст толщины линии',
+          props: { className: 'keyText'}
+        },
+        {
+          tag: 'p',
+          content: 'Главное можно выделить с помощью разницы в толщине линии. Толстая линия задаёт форму, тонкая — показывает детали.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'SofiUlianova2.jpg',
+        alt: 'SofiUlianova2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Sofiia Ulianova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/sofiulianova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Контраст задач в рисунке',
+          props: { className: 'keyText'}
+        },
+        {
+          tag: 'p',
+          content: 'Главное можно выделить с помощью различия в задачах, которые решают линии. Толстая линия — силуэт, тонкая линия — фактура, форма.',
+        },
+      ]
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'ELENAFEKLISTOVA5.jpeg',
+        alt: 'ELENAFEKLISTOVA5',
+        caption: [
+          {
+            tag: 'a',
+            content: 'ELENA FEKLISTOVA',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/e.feklistova/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'title',
+      title: 'Как использовать контраст в работе'
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: 'Прежде чем рисовать, решите: где вы хотите, чтобы зритель задержал взгляд?'
+        },
+        {
+          tag: 'p',
+          content: 'Создайте контраст в этом месте.'
+        },
+        {
+          tag: 'p',
+          content: 'Не переборщите: если всё контрастно, ничего не будет главным.'
+        },
+        {
+          tag: 'p',
+          content: 'Добавьте нюансы — они обогатят изображение.'
+        },
+        {
+          tag: 'p',
+          content: 'Найдите один акцент — он станет эмоциональной точкой входа.'
+        }
+      ]
+    },
+    {
+      type: 'textImportant',
+      text: [
+        {
+          tag: 'p',
+          content: 'Контраст — это большая разница. Он усиливает выразительность, структурирует рисунок, привлекает внимание.'
+        },
+        {
+          tag: 'p',
+          content: 'Нюанс — это едва уловимая разница. Он добавляет глубину и сложность.'
+        },
+        {
+          tag: 'p',
+          content: 'Акцент — самый сильный контраст. Он должен быть один и работать как фокус.'
+        },
+        {
+          tag: 'p',
+          content: 'Контраст можно создавать через цвет, светлоту, размер, ритм, технику, фактуру, время, линию и многое другое.'
+        }
+      ]
+    }
+  ]
+}
+
+const lessonDataFYS44: ILessonDataDB = {
+  id: 'Composition_hIxEkI',
+  courseId: 'finding-your-style',
+  title: 'Композиция',
+  type: 'Theory',
+  icon: 'Lesson',
+  topic: 'Пластический сюжет: как рисовать',
+  topicOrder: 4,
+  topicIcon: 'Lesson',
+  orderInTopic: 4,
+  duration: {
+    unit: 'hours',
+    value: 1
+  },
+  isFree: false,
+  isUnderDevelopment: false,
+  content: [
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Композиция — это то, как вы собираете элементы на листе, как они взаимодействуют между собой и с пустым пространством. Это архитектура вашей иллюстрации, её основа. Даже если рисунок спонтанный или хаотичный, он всё равно строится на композиционных решениях — осознанных или интуитивных.'
+        },
+        {
+          tag: 'p',
+          content: 'Зачем нужна композиция',
+          props: { className: 'keyText'}
+        }
+      ]
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: 'Помогает выделить главное в изображении'
+        },
+        {
+          tag: 'p',
+          content: 'Создаёт движение, напряжение или покой'
+        },
+        {
+          tag: 'p',
+          content: 'Помогает управлять вниманием зрителя'
+        },
+        {
+          tag: 'p',
+          content: 'Формирует ритм, плотность, интонацию'
+        },
+        {
+          tag: 'p',
+          content: 'Делает рисунок читаемым и выразительным'
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Композиция — это взаимодействие масс'
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'NadiiaZhelieznova5.png',
+        alt: 'NadiiaZhelieznova5',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Nadiia Zhelieznova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zhelieznova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: 'Представьте, что вы расставляете мебель в комнате:'
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Стол, диван, кресло — это '
+            },
+            {
+              tag: 'span',
+              content: 'массы.',
+              props: { className: 'keyText'}
+            }
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Расстановка, расстояния между ними, их размер и форма — это '
+            },
+            {
+              tag: 'span',
+              content: 'композиция.',
+              props: { className: 'keyText'}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      type: 'text',
+      text: 'На листе всё работает так же. Массы — это строительный материал. Композиция — это способ сложить из них гармоничное (или нарочно дисгармоничное) целое.'
+    },
+    {
+      type: 'title',
+      title: 'Что такое масса'
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'MashaShishova6.webp',
+        alt: 'MashaShishova6',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Masha Shishova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/MariaShishova' },
+          },
+        ],
+      },
+    },
   ]
 }
 
@@ -11134,5 +12378,8 @@ export const allLessons = [
   lessonDataFYS33,
   lessonDataFYS34,
   lessonDataFYS41,
+  lessonDataFYS42,
+  lessonDataFYS43,
+  lessonDataFYS44,
   lessonDataFYS5,
 ];

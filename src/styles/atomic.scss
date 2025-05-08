@@ -165,8 +165,8 @@
   }
 }
 
-@mixin font-26-article {
-  @include set-typography(26, 28, 500);
+@mixin font-28-article {
+  @include set-typography(28, 32, 500);
 
   @include set-media(md) {
     @include set-typography(22, 24, 500);

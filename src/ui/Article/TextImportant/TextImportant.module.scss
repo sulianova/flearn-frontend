@@ -21,7 +21,7 @@
   padding: set-calc(40);
   border-radius: set-calc($border-radius-40);
   border: 1px solid var(--border);
-  background-color: var(--color-background-glassy-a);
+  background-color: var(--color-background-pink-violet);
 
   @include font-20-article;
   font-family: $font-family-article;
@@ -33,7 +33,7 @@
   span {
     @include font-20-article;
     font-family: $font-family-article;
-    color: var(--color-content-paragraph-primary);
+    color: var(--color-content-primary);
   }
 
   @include set-media(md) {
