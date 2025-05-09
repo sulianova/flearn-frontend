@@ -8373,7 +8373,7 @@ const lessonDataFYS41: ILessonDataDB = {
   title: 'Пластический сюжет',
   type: 'Theory',
   icon: {
-    icon: '/png/3d_emoji_HuggingFace.png',
+    icon: '/png/3d_abstract_CubeWireframe.png',
   },
   topic: 'Пластический сюжет: как рисовать',
   topicOrder: 4,
@@ -8622,7 +8622,7 @@ const lessonDataFYS42: ILessonDataDB = {
   title: 'Работа с формой: от референса к стилизации',
   type: 'Theory',
   icon: {
-    icon: '/png/3d_emoji_HuggingFace.png',
+    icon: '/png/3d_abstract_Abstract3.png',
   },
   topic: 'Пластический сюжет: как рисовать',
   topicOrder: 4,
@@ -9197,7 +9197,7 @@ const lessonDataFYS43: ILessonDataDB = {
   title: 'Контраст: как выделить главное',
   type: 'Theory',
   icon: {
-    icon: '/png/3d_emoji_HuggingFace.png',
+    icon: '/png/3d_hands_2.png',
   },
   topic: 'Пластический сюжет: как рисовать',
   topicOrder: 4,
@@ -9528,7 +9528,7 @@ const lessonDataFYS44: ILessonDataDB = {
   title: 'Композиция',
   type: 'Theory',
   icon: {
-    icon: '/png/3d_emoji_HuggingFace.png',
+    icon: '/png/3d_abstract_Emitter.png',
   },
   topic: 'Пластический сюжет: как рисовать',
   topicOrder: 4,
@@ -9869,7 +9869,7 @@ const lessonDataFYS45: ILessonDataDB = {
   title: 'Как массы взаимодействуют друг с другом',
   type: 'Theory',
   icon: {
-    icon: '/png/3d_emoji_HuggingFace.png',
+    icon: '/png/3d_hands_11.png',
   },
   topic: 'Пластический сюжет: как рисовать',
   topicOrder: 4,
@@ -10540,7 +10540,7 @@ const lessonDataFYS46: ILessonDataDB = {
   title: 'Как развивать визуальное мышление',
   type: 'Theory',
   icon: {
-    icon: '/png/3d_emoji_HuggingFace.png',
+    icon: '/png/3d_abstract_HexagonalSphere.png',
   },
   topic: 'Пластический сюжет: как рисовать',
   topicOrder: 4,
@@ -10670,7 +10670,7 @@ const lessonDataFYS47: ILessonDataDB = {
   title: 'Практика. Пластический сюжет',
   type: 'Practice',
   icon: {
-    icon: '/png/3d_emoji_HuggingFace.png',
+    icon: '/png/3d_hands_7.png',
   },
   topic: 'Пластический сюжет: как рисовать',
   topicOrder: 4,
