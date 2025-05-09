@@ -4,10 +4,11 @@ import { useEffect, useRef, useMemo, useState } from 'react';
 import { URLSections } from 'router';
 import { type IUserData } from 'services/user.service';
 import { type ILessonData } from 'services/lesson.service';
-import { type ICourseData } from 'services/course.service';
+import { isIconPNG, type ICourseData } from 'services/course.service';
 import { type TAccess } from 'services/userAccess.service';
 
 import Icon from 'ui/Icon/Icon';
+import Img from 'ui/Img/Img';
 import Link from 'ui/Link/Link';
 
 import classes from './CoursePage.module.scss';
@@ -217,7 +218,17 @@ function LessonCard(props: { lesson: ILessonData & { solved: boolean, canBeAcces
     <button className={cx({ item: true, featured: lesson.isFirstUnsolved, disabled: !lesson.canBeAccessed })} disabled={!lesson.canBeAccessed}>
       <div className={classes.item__content}>
         <div className={classes.item__image}>
-          <Icon icon={lesson.icon}/>
+          {isIconPNG(lesson.icon.icon) ? (
+              <Img
+                src={lesson.icon.icon}
+                alt={lesson.icon.icon}
+              />
+            ) : (
+              <Icon
+                icon={lesson.icon.icon}
+                color={lesson.icon.color}
+              />
+            )}
         </div>
         <div className={classes.item__title}>
           {lesson.title}

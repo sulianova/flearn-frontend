@@ -294,11 +294,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: set-calc(6);
   padding-left: set-calc(12);
 
-  svg {
-    width: set-calc(40);
+  & > * {
+    width: set-calc(66);
     aspect-ratio: auto 1;
   }
 }

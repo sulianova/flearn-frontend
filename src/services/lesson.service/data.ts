@@ -16,7 +16,9 @@ const lessonData11: ILessonDataDB = {
   courseId: 'how-to-draw',
   title: 'Привет!',
   type: 'Theory',
-  icon: 'FAQ',
+  icon: {
+    icon: '/png/3d_emoji_HuggingFace.png',
+  },
   topic: 'Как устроено обучение',
   topicOrder: 1,
   topicIcon: 'FAQ',
@@ -230,7 +232,9 @@ const lessonData12: ILessonDataDB = {
   courseId: 'how-to-draw',
   title: 'Команда сопровождения',
   type: 'Theory',
-  icon: 'FAQ',
+  icon: {
+    icon: '/png/3d_emoji_Clap.png',
+  },
   topic: 'Как устроено обучение',
   topicOrder: 1,
   topicIcon: 'FAQ',
@@ -376,7 +380,9 @@ const lessonData13: ILessonDataDB = {
   courseId: 'how-to-draw',
   title: 'Частые вопросы и ответы на них',
   type: 'Theory',
-  icon: 'FAQ',
+  icon: {
+    icon: '/png/3d_emoji_ThinkingFace1.png',
+  },
   topic: 'Как устроено обучение',
   topicOrder: 1,
   topicIcon: 'FAQ',
@@ -543,7 +549,9 @@ const lessonData21: ILessonDataDB = {
   courseId: 'how-to-draw',
   title: 'Упражнения, чтобы разрисоваться',
   type: 'Theory',
-  icon: 'Lesson',
+  icon: {
+    icon: '/png/3d_emoji_HuggingFace.png',
+  },
   topic: 'Линия',
   topicOrder: 2,
   topicIcon: 'Lesson',
@@ -949,7 +957,9 @@ const lessonData22: ILessonDataDB = {
   courseId: 'how-to-draw',
   title: 'Линия: знакомство',
   type: 'Theory',
-  icon: 'Lesson',
+  icon: {
+    icon: '/png/3d_emoji_HuggingFace.png',
+  },
   topic: 'Линия',
   topicOrder: 2,
   topicIcon: 'Lesson',
@@ -1564,7 +1574,9 @@ const lessonData23: ILessonDataDB = {
   courseId: 'how-to-draw',
   title: 'Линия: как рисовать объемно',
   type: 'Theory',
-  icon: 'Lesson',
+  icon: {
+    icon: '/png/3d_emoji_HuggingFace.png',
+  },
   topic: 'Линия',
   topicOrder: 2,
   topicIcon: 'Lesson',
@@ -1784,7 +1796,9 @@ const lessonData24: ILessonDataDB = {
   courseId: 'how-to-draw',
   title: 'Как рисовать похоже',
   type: 'Theory',
-  icon: 'Lesson',
+  icon: {
+    icon: '/png/3d_emoji_HuggingFace.png',
+  },
   topic: 'Линия',
   topicOrder: 2,
   topicIcon: 'Lesson',
@@ -2117,7 +2131,9 @@ const lessonData25: ILessonDataDB = {
   courseId: 'how-to-draw',
   title: 'Как рисовать похоже. Линия',
   type: 'Theory',
-  icon: 'Lesson',
+  icon: {
+    icon: '/png/3d_emoji_HuggingFace.png',
+  },
   topic: 'Линия',
   topicOrder: 2,
   topicIcon: 'Lesson',
@@ -2359,261 +2375,14 @@ const lessonData25: ILessonDataDB = {
   ],
 };
 
-// const lessonData26: ILessonDataDB = {
-//   id: 'StudyProcess_Omtryq',
-//   courseId: 'how-to-draw',
-//   title: 'Процесс обучения',
-//   type: 'Theory',
-//   icon: 'Lesson',
-//   topic: 'Линия',
-//   topicOrder: 4,
-//   topicIcon: 'Lesson',
-//   orderInTopic: 6,
-//   duration: {
-//     unit: 'minutes',
-//     value: 5
-//   },
-//   isFree: false,
-//   isUnderDevelopment: false,
-//   content: [
-//     {
-//       type: 'chat',
-//       chat: {
-//         blocks: [
-//           {
-//             showThisBlockButtonContent: '',
-//             messages: [
-//               {
-//                 sender: { name: 'Соня Ульянова', isSelf: false },
-//                 content: 'Cтолкнуться с трудностями, особенно в первые недели обучения, — это нормально.'
-//               },
-//               {
-//                 sender: { name: 'Соня Ульянова', isSelf: false },
-//                 content: 'Давайте попробуем разобраться, что может с этим помочь.'
-//               },
-//             ],
-//           },
-//           {
-//             showThisBlockButtonContent: 'А давай!',
-//             messages: [
-//               {
-//                 sender: { isSelf: true },
-//                 content: 'А давай!'
-//               },
-
-//             ],
-//           },
-//         ]
-//       }
-//     },
-//     {
-//       type: 'title',
-//       title: 'Учитесь так, как хочется'
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'p',
-//           content: 'У каждого из нас свой уникальный опыт, свои ожидания от обучения и свои цели относительно рисования. Есть силы только на то, чтобы посмотреть учебник — отлично, значит сейчас этого достаточно.'
-//         },
-//       ]
-//     },
-//     {
-//       type: 'chat',
-//       chat: {
-//         blocks: [
-//           {
-//             showThisBlockButtonContent: '',
-//             messages: [
-//             ],
-//           },
-//           {
-//             showThisBlockButtonContent: 'Подожди, а как же «регулярная практика», «много повторений». Разве это не обязательно?',
-//             messages: [
-//               {
-//                 sender: { isSelf: true },
-//                 content: 'Подожди, а как же «регулярная практика», «много повторений». Разве это не обязательно?'
-//               },
-//               {
-//                 sender: { name: 'Соня Ульянова', isSelf: false },
-//                 content: 'Регулярная практика и повторения — это отлично. Но фишка в том, что тренировать можно миллион разных вещей. Да еще и в разных последовательностях.'
-//               },
-//               {
-//                 sender: { name: 'Соня Ульянова', isSelf: false },
-//                 content: 'Поэтому прислушивайтесь к себе. Задавайте вопросы. И выбирайте то, что вам нужно.'
-//               },
-//             ],
-//           },
-//         ]
-//       }
-//     },
-//     {
-//       type: 'title',
-//       title: 'Беспокойтесь о количестве, а не качестве'
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'p',
-//           content: 'Над одной работой слишком много трясешься, боишься исправлять, принимать радикальные решения. В большинстве случаев полезнее сделать следующий рисунок, чем сидеть и думать, как улучшить старый.'
-//         },
-//         {
-//           tag: 'p',
-//           content: 'Когда работа одна, ее легко испортить. Когда работ 10, среди них можно выбрать.'
-//         }
-//       ]
-//     },
-//     {
-//       type: 'chat',
-//       chat: {
-//         blocks: [
-//           {
-//             showThisBlockButtonContent: '',
-//             messages: [
-//             ],
-//           },
-//           {
-//             showThisBlockButtonContent: 'Да я и одну-то работу рисую 1-2 недели. Как успеть сделать 10?',
-//             messages: [
-//               {
-//                 sender: { isSelf: true },
-//                 content: 'Да я и одну-то работу еле могу нарисовать. Как успеть сделать 10?'
-//               },
-//               {
-//                 sender: { name: 'Соня Ульянова', isSelf: false },
-//                 content: 'Переход от 2 рисунков к 10 действительно непростой. Возможно, что-то придется изменить. Рисовать эскизы размером 2х2 см, использовать 3 цвета вместо 6, взять другие материалы.'
-//               },
-//               {
-//                 sender: { name: 'Соня Ульянова', isSelf: false },
-//                 content: 'Но в итоге, все это развяжет нам руки. И у нас появится способ быстро перебирать разные идеи, находить нестандартные решения.'
-//               },
-//             ],
-//           },
-//         ]
-//       }
-//     },
-//     {
-//       type: 'title',
-//       title: 'Мыслите серией'
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'p',
-//           content: 'Одна удачная работа может быть случайностью. 5 удачных работ — признак того, что автор умело использует визуальное решение.'
-//         },
-//         {
-//           tag: 'p',
-//           content: 'Когда вы нашли удачный прием, попробуйте повторить его еще в 4-5 рисунках. Изучайте возможности этого приема: выкручивайте его на максимум, наоборот, приглушайте.'
-//         }
-//       ]
-//     },
-//     {
-//       type: 'chat',
-//       chat: {
-//         blocks: [
-//           {
-//             showThisBlockButtonContent: '',
-//             messages: [
-//             ],
-//           },
-//           {
-//             showThisBlockButtonContent: 'Постой, а что такое серия?',
-//             messages: [
-//               {
-//                 sender: { isSelf: true },
-//                 content: 'Постой, а что такое серия?'
-//               },
-//               {
-//                 sender: { name: 'Соня Ульянова', isSelf: false },
-//                 content: 'Серия — группа работ, объединенных интонацией, средствами выразительности, форматом, материалом.'
-//               },
-//               {
-//                 sender: { name: 'Соня Ульянова', isSelf: false },
-//                 content: 'Рисунки внутри серии должны быть достаточно похожими, чтобы их можно было объединить в группу.'
-//               },
-//               {
-//                 sender: { name: 'Соня Ульянова', isSelf: false },
-//                 content: 'Рисунки должны отличаться между собой, чтобы серию было интересно разглядывать, изучать.'
-//               },
-//               {
-//                 sender: { name: 'Соня Ульянова', isSelf: false },
-//                 content: 'Если пойдете на платную программу, то мы подробно разберем эту тему)'
-//               },
-//             ],
-//           },
-//         ]
-//       }
-//     },
-//     {
-//       type: 'title',
-//       title: 'Задавайте вопросы'
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'p',
-//           content: 'Мы лучше понимаем то, что можем сформулировать. Поэтому верно заданный вопрос — половина успеха. Сразу после того, как появилась мысль — “не получилось”. Задайте вопросы — что я делала? Чего я хотела? Как я планировала этого достичь? В какой момент рисунок перестал работать?'
-//         },
-//       ]
-//     },
-//     {
-//       type: 'title',
-//       title: 'Может, что-то ещё?'
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'p',
-//           content: 'Если у вас есть вопросы по организации обучения, вы можете задать их куратору.'
-//         },
-//         {
-//           tag: 'p',
-//           content: 'Чем может помочь куратор:'
-//         }
-//       ]
-//     },
-//     {
-//       type: 'list',
-//       items: [
-//         'Расскажет о профессии и программе обучения.',
-//         'Опишет учебный процесс и ответит на все вопросы.',
-//         'Вместе с вами рассчитает нагрузку и оценит, подойдет ли для вас этот курс.'
-//       ]
-//     },
-//     {
-//       type: 'text',
-//       text: [
-//         {
-//           tag: 'p',
-//           content: [
-//             {
-//               tag: 'span',
-//               content: 'Если хотите поговорить с куратором, напишите нам '
-//             },
-//             {
-//               tag: 'a',
-//               content: 'в телеграм.',
-//               props: { className: 'key-link', target: "_blank", to: 'https://t.me/ulianova_sofia' },
-//             },
-//           ]
-//         }
-//       ]
-//     }
-//   ]
-// }
-
 const lessonData26: ILessonDataDB = {
   id: 'HowToDrawSimilarPictureLine_t6qrnq_Practice_iqln35',
   courseId: 'how-to-draw',
   title: 'Практика первой недели',
   type: 'Practice',
-  icon: 'Lesson',
+  icon: {
+    icon: '/png/3d_emoji_HuggingFace.png',
+  },
   topic: 'Линия',
   topicOrder: 2,
   topicIcon: 'Lesson',
@@ -2989,7 +2758,9 @@ const lessonData31: ILessonDataDB = {
   courseId: 'how-to-draw',
   title: 'Про разницу между линией и пятном',
   type: 'Theory',
-  icon: 'Lesson',
+  icon: {
+    icon: '/png/3d_emoji_HuggingFace.png',
+  },
   topic: 'Пятно',
   topicOrder: 3,
   topicIcon: 'Lesson',
@@ -3128,7 +2899,9 @@ const lessonData32: ILessonDataDB = {
   courseId: 'how-to-draw',
   title: 'Пятно: знакомство',
   type: 'Theory',
-  icon: 'Lesson',
+  icon: {
+    icon: '/png/3d_emoji_HuggingFace.png',
+  },
   topic: 'Пятно',
   topicOrder: 3,
   topicIcon: 'Lesson',
@@ -3902,7 +3675,9 @@ const lessonData33: ILessonDataDB = {
   courseId: 'how-to-draw',
   title: 'Как рисовать похоже. Пятно',
   type: 'Theory',
-  icon: 'Lesson',
+  icon: {
+    icon: '/png/3d_emoji_HuggingFace.png',
+  },
   topic: 'Пятно',
   topicOrder: 3,
   topicIcon: 'Lesson',
@@ -4062,7 +3837,9 @@ const lessonData34: ILessonDataDB = {
   courseId: 'how-to-draw',
   title: 'Как рисовать объемно. Пятно',
   type: 'Theory',
-  icon: 'Lesson',
+  icon: {
+    icon: '/png/3d_emoji_HuggingFace.png',
+  },
   topic: 'Пятно',
   topicOrder: 3,
   topicIcon: 'Lesson',
@@ -4165,7 +3942,9 @@ const lessonData35: ILessonDataDB = {
   courseId: 'how-to-draw',
   title: 'Практика второй недели',
   type: 'Practice',
-  icon: 'Lesson',
+  icon: {
+    icon: '/png/3d_emoji_HuggingFace.png',
+  },
   topic: 'Пятно',
   topicOrder: 3,
   topicIcon: 'Lesson',
@@ -4545,7 +4324,9 @@ const lessonData41: ILessonDataDB = {
   courseId: 'how-to-draw',
   title: 'Линия и пятно: как совмещать',
   type: 'Theory',
-  icon: 'Lesson',
+  icon: {
+    icon: '/png/3d_emoji_HuggingFace.png',
+  },
   topic: 'Линия и пятно',
   topicOrder: 4,
   topicIcon: 'Lesson',
@@ -5153,7 +4934,9 @@ const lessonData42: ILessonDataDB = {
   courseId: 'how-to-draw',
   title: 'Как выделить главное: контраст, нюанс',
   type: 'Theory',
-  icon: 'Lesson',
+  icon: {
+    icon: '/png/3d_emoji_HuggingFace.png',
+  },
   topic: 'Линия и пятно',
   topicOrder: 4,
   topicIcon: 'Lesson',
@@ -5345,7 +5128,9 @@ const lessonData43: ILessonDataDB = {
   courseId: 'how-to-draw',
   title: 'Практика третьей недели',
   type: 'Practice',
-  icon: 'Lesson',
+  icon: {
+    icon: '/png/3d_emoji_HuggingFace.png',
+  },
   topic: 'Линия и пятно',
   topicOrder: 4,
   topicIcon: 'Lesson',
@@ -5649,7 +5434,9 @@ const lessonDataFYS11: ILessonDataDB = {
   courseId: 'finding-your-style',
   title: 'Привет!',
   type: 'Theory',
-  icon: 'Lesson',
+  icon: {
+    icon: '/png/3d_emoji_HuggingFace.png',
+  },
   topic: 'Как устроено обучение',
   topicOrder: 1,
   topicIcon: 'FAQ',
@@ -5863,7 +5650,9 @@ const lessonDataFYS12: ILessonDataDB = {
   courseId: 'finding-your-style',
   title: 'Команда сопровождения',
   type: 'Theory',
-  icon: 'Lesson',
+  icon: {
+    icon: '/png/3d_emoji_Clap.png',
+  },
   topic: 'Как устроено обучение',
   topicOrder: 1,
   topicIcon: 'FAQ',
@@ -6009,7 +5798,9 @@ const lessonDataFYS13: ILessonDataDB = {
   courseId: 'finding-your-style',
   title: 'Частые вопросы и ответы на них',
   type: 'Theory',
-  icon: 'Lesson',
+  icon: {
+    icon: '/png/3d_emoji_ThinkingFace1.png',
+  },
   topic: 'Как устроено обучение',
   topicOrder: 1,
   topicIcon: 'FAQ',
@@ -6176,7 +5967,9 @@ const lessonDataFYS21: ILessonDataDB = {
   courseId: 'finding-your-style',
   title: 'Иллюстрация',
   type: 'Theory',
-  icon: 'Lesson',
+  icon: {
+    icon: '/png/3d_emoji_HuggingFace.png',
+  },
   topic: 'Что такое иллюстрация, серия, стиль',
   topicOrder: 2,
   topicIcon: 'Lesson',
@@ -6634,7 +6427,9 @@ const lessonDataFYS22: ILessonDataDB = {
   courseId: 'finding-your-style',
   title: 'Серия',
   type: 'Theory',
-  icon: 'Lesson',
+  icon: {
+    icon: '/png/3d_emoji_HuggingFace.png',
+  },
   topic: 'Что такое иллюстрация, серия, стиль',
   topicOrder: 2,
   topicIcon: 'Lesson',
@@ -6946,7 +6741,9 @@ const lessonDataFYS23: ILessonDataDB = {
   courseId: 'finding-your-style',
   title: 'Стиль',
   type: 'Theory',
-  icon: 'Lesson',
+  icon: {
+    icon: '/png/3d_emoji_HuggingFace.png',
+  },
   topic: 'Что такое иллюстрация, серия, стиль',
   topicOrder: 2,
   topicIcon: 'Lesson',
@@ -7170,7 +6967,9 @@ const lessonDataFYS31: ILessonDataDB = {
   courseId: 'finding-your-style',
   title: 'Сюжет есть всегда',
   type: 'Theory',
-  icon: 'Lesson',
+  icon: {
+    icon: '/png/3d_emoji_HuggingFace.png',
+  },
   topic: 'Как сделана иллюстрация. Литературный сюжет',
   topicOrder: 3,
   topicIcon: 'Lesson',
@@ -7367,7 +7166,9 @@ const lessonDataFYS32: ILessonDataDB = {
   courseId: 'finding-your-style',
   title: 'Визуальный конфликт как основа сюжета',
   type: 'Theory',
-  icon: 'Lesson',
+  icon: {
+    icon: '/png/3d_emoji_HuggingFace.png',
+  },
   topic: 'Как сделана иллюстрация. Литературный сюжет',
   topicOrder: 3,
   topicIcon: 'Lesson',
@@ -7619,7 +7420,9 @@ const lessonDataFYS33: ILessonDataDB = {
   courseId: 'finding-your-style',
   title: 'Как придумать сюжет: от идеи к серии',
   type: 'Theory',
-  icon: 'Lesson',
+  icon: {
+    icon: '/png/3d_emoji_HuggingFace.png',
+  },
   topic: 'Как сделана иллюстрация. Литературный сюжет',
   topicOrder: 3,
   topicIcon: 'Lesson',
@@ -8305,7 +8108,9 @@ const lessonDataFYS34: ILessonDataDB = {
   courseId: 'finding-your-style',
   title: 'Практика. Литературный сюжет',
   type: 'Practice',
-  icon: 'Lesson',
+  icon: {
+    icon: '/png/3d_emoji_HuggingFace.png',
+  },
   topic: 'Как сделана иллюстрация. Литературный сюжет',
   topicOrder: 3,
   topicIcon: 'Lesson',
@@ -8567,7 +8372,9 @@ const lessonDataFYS41: ILessonDataDB = {
   courseId: 'finding-your-style',
   title: 'Пластический сюжет',
   type: 'Theory',
-  icon: 'Lesson',
+  icon: {
+    icon: '/png/3d_emoji_HuggingFace.png',
+  },
   topic: 'Пластический сюжет: как рисовать',
   topicOrder: 4,
   topicIcon: 'Lesson',
@@ -8814,7 +8621,9 @@ const lessonDataFYS42: ILessonDataDB = {
   courseId: 'finding-your-style',
   title: 'Работа с формой: от референса к стилизации',
   type: 'Theory',
-  icon: 'Lesson',
+  icon: {
+    icon: '/png/3d_emoji_HuggingFace.png',
+  },
   topic: 'Пластический сюжет: как рисовать',
   topicOrder: 4,
   topicIcon: 'Lesson',
@@ -9387,7 +9196,9 @@ const lessonDataFYS43: ILessonDataDB = {
   courseId: 'finding-your-style',
   title: 'Контраст: как выделить главное',
   type: 'Theory',
-  icon: 'Lesson',
+  icon: {
+    icon: '/png/3d_emoji_HuggingFace.png',
+  },
   topic: 'Пластический сюжет: как рисовать',
   topicOrder: 4,
   topicIcon: 'Lesson',
@@ -9716,7 +9527,9 @@ const lessonDataFYS44: ILessonDataDB = {
   courseId: 'finding-your-style',
   title: 'Композиция',
   type: 'Theory',
-  icon: 'Lesson',
+  icon: {
+    icon: '/png/3d_emoji_HuggingFace.png',
+  },
   topic: 'Пластический сюжет: как рисовать',
   topicOrder: 4,
   topicIcon: 'Lesson',
@@ -9844,16 +9657,1487 @@ const lessonDataFYS44: ILessonDataDB = {
         ],
       },
     },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Масса — это '
+            },
+            {
+              tag: 'span',
+              content: 'заполненная область на листе, ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'которая воспринимается как одно пятно. Не важно, один это объект или несколько — главное, что зритель считывает это как '
+            },
+            {
+              tag: 'span',
+              content: 'единое целое.',
+              props: { className: 'keyText'}
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: 'Масса может быть:'
+        }
+      ]
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: 'одним объектом,'
+        },
+        {
+          tag: 'p',
+          content: 'группой объектов,'
+        },
+        {
+          tag: 'p',
+          content: 'частью объекта.'
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Масса — один объект'
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'MashaShishova9.webp',
+        alt: 'MashaShishova9',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Masha Shishova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/MariaShishova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: 'Масса может равняться одному объекту. У Masha Shishova: фигура девушки — одна масса.'
+    },
+    {
+      type: 'title',
+      title: 'Масса — несколько объектов'
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'StasyaSokolovskaya1.webp',
+        alt: 'StasyaSokolovskaya1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Stasya Sokolovskaya',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/stasyasokolovska/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: 'Масса может состоять из нескольких объектов. У Stasya Sokolovskaya: группа предметов — одна масса благодаря общему цвету и светлоте.'
+    },
+    {
+      type: 'title',
+      title: 'Масса — часть объекта'
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'АлександрДейнека1.webp',
+        alt: 'АлександрДейнека1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Александр Дейнека',
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: 'Масса может быть частью объекта. У Дейнеки: купальник читается как отдельная масса, хотя это часть тела.'
+    },
+    {
+      type: 'title',
+      title: 'Масса или фигуратив'
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'MashaShishova8.webp',
+        alt: 'MashaShishova8',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Masha Shishova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/MariaShishova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: 'Масса — это абстрактное пятно. Фигуратив — это изображённый объект (например, дерево, человек, предмет). Иллюстратор может:'
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: 'либо подчинить массу объекту — фигура = масса,'
+        },
+        {
+          tag: 'p',
+          content: 'либо вписать объект в абстрактную форму и разрушить узнаваемость.'
+        }
+      ]
+    },
+    {
+      type: 'text',
+      text: 'Это создаёт интересные возможности для стилизации, ритма и работы с пространством.'
+    },
+    {
+      type: 'title',
+      title: 'Как тренировать композицию'
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: 'Ставьте себе ограничения: рисовать на квадратном, вытянутом формате, с одной большой массой, с симметрией или без неё.'
+        },
+        {
+          tag: 'p',
+          content: 'Смотрите, как устроены работы других художников. Обводите массы на кальке или в Procreate.'
+        },
+        {
+          tag: 'p',
+          content: 'Разбирайте, какие массы притягивают взгляд, какие — создают фон, а какие — «молчат».'
+        }
+      ]
+    },
+    {
+      type: 'textImportant',
+      text: [
+        {
+          tag: 'p',
+          content: 'Композиция — это то, как вы собираете изображение на листе.'
+        },
+        {
+          tag: 'p',
+          content: 'Масса — это единица композиции. Масса может быть объектом, группой или пятном.'
+        },
+        {
+          tag: 'p',
+          content: 'Композиция = взаимодействие масс. Важно их расположение, размер, форма и воздух между ними.'
+        },
+        {
+          tag: 'p',
+          content: 'Массы могут быть конкретными или абстрактными — и в том, и в другом случае они управляют вниманием.'
+        },
+        {
+          tag: 'p',
+          content: 'Композиция влияет на настроение, читаемость и выразительность работы.'
+        },
+        {
+          tag: 'p',
+          content: 'Композицию можно тренировать — с помощью наблюдения, ограничений и разборов.'
+        }
+      ]
+    }
   ]
 }
 
-const lessonDataFYS5: ILessonDataDB = {
-  id: 'FindingYourStyle_Practice_ t4jUts',
+const lessonDataFYS45: ILessonDataDB = {
+  id: 'Connections_SPUjor',
   courseId: 'finding-your-style',
-  title: 'Финальное задание',
+  title: 'Как массы взаимодействуют друг с другом',
+  type: 'Theory',
+  icon: {
+    icon: '/png/3d_emoji_HuggingFace.png',
+  },
+  topic: 'Пластический сюжет: как рисовать',
+  topicOrder: 4,
+  topicIcon: 'Lesson',
+  orderInTopic: 5,
+  duration: {
+    unit: 'hours',
+    value: 1
+  },
+  isFree: false,
+  isUnderDevelopment: false,
+  content: [
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'После того как мы разобрались, что такое масса и как она формирует композицию, важно научиться видеть отношения между массами. Ведь именно эти отношения управляют вниманием зрителя, создают ритм, иерархию и настроение в иллюстрации.'
+        },
+        {
+          tag: 'p',
+          content: 'В этом уроке вы узнаете:'
+        }
+      ]
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: 'как размер масс влияет на восприятие,'
+        },
+        {
+          tag: 'p',
+          content: 'как работают форма и направление,'
+        },
+        {
+          tag: 'p',
+          content: 'как создаётся ритм через повторения,'
+        },
+        {
+          tag: 'p',
+          content: 'какую роль играет пустота.'
+        }
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Размер и иерархия'
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'NadiiaZhelieznova9.webp',
+        alt: 'adiiaZhelieznova9',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Nadiia Zhelieznova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zhelieznova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Масса на листе воспринимается не сама по себе, а в сравнении с другими массами, пустым пространством и границами листа. Один и тот же объект может казаться огромным или крошечным — всё зависит от окружения.'
+        },
+        {
+          tag: 'p',
+          content: 'Композиция работает за счёт соотношений. Именно они создают визуальную иерархию: порядок, в котором глаз зрителя считывает изображение.'
+        },
+        {
+          tag: 'p',
+          content: 'Как работает размер массы:'
+        }
+      ]
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Одна большая масса ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: '— создаёт устойчивую, собранную композицию.',
+            }
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Несколько больших масс ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: '— могут конкурировать за внимание, создавать напряжение.',
+            }
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Много маленьких масс ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'дают ощущение ритма или «шума», но без фокуса могут рассыпать восприятие.',
+            }
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Контраст размеров ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: '— помогает выстроить иерархию: сначала главное, потом второстепенное.',
+            }
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Массы примерно одного размера ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: '— визуально уравновешивают друг друга, но лишают композицию акцента.',
+            }
+          ]
+        }
+      ]
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Например, в иллюстрации Nadiia Zhelieznova композиция построена на крупной оранжевой массе, которая занимает весь лист. Внутри этой массы работает '
+            },
+            {
+              tag: 'span',
+              content: 'иерархия деталей.',
+              props: { className: 'keyText'}
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: 'Морда зверя — главный визуальный акцент. Она выделяется:'
+        }
+      ]
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: 'тоном — самый контрастный участок рисунка,'
+        },
+        {
+          tag: 'p',
+          content: 'цветом — яркая тёплая область, обрамлённая темными пятнами,'
+        },
+        {
+          tag: 'p',
+          content: 'детализацией — проработаны глаза, зубы.'
+        }
+      ]
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Маленький белый персонаж внутри зверя — тоже заметен, но он скорее служит смысловым акцентом, дополняющим рассказ.'
+        },
+        {
+          tag: 'p',
+          content: 'Глаз зрителя сначала цепляется за большую форму, затем концентрируется на морде, а потом начинает исследовать второстепенные детали.'
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Этот пример показывает, как '
+            },
+            {
+              tag: 'span',
+              content: 'размер массы ',
+              props: {className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'определяет структуру, а '
+            },
+            {
+              tag: 'span',
+              content: 'внутренние контрасты ',
+              props: {className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: '— формируют точку фокуса.'
+            },
+          ]
+        }
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Форма и направление'
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'LorenzoMattotti2.webp',
+        alt: 'LorenzoMattotti2',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Lorenzo Mattotti',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.mattotti.com/' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'span',
+          content: 'Массы в композиции бывают разной формы — круглые, угловатые, вытянутые, острые. Каждая из них несёт своё '
+        },
+        {
+          tag: 'span',
+          content: 'настроение:',
+          props: { className: 'keyText'}
+        }
+      ]
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: 'округлая форма — мягкость, плавность, безопасность,'
+        },
+        {
+          tag: 'p',
+          content: 'угловатая — острота, напряжение, конфликт,'
+        },
+        {
+          tag: 'p',
+          content: 'вытянутая — грациозность, динамика,'
+        },
+        {
+          tag: 'p',
+          content: 'сжатая или асимметричная — неловкость, дискомфорт.'
+        }
+      ]
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Но особенно важно — '
+            },
+            {
+              tag: 'span',
+              content: 'в каком направлении работает масса. ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'Именно направление ведёт взгляд зрителя по листу и задаёт движение композиции.'
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: 'Основные направления:'
+        }
+      ]
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Горизонталь ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: ' — ощущение покоя, устойчивости, широты.'
+            }
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Вертикаль',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: ' — статичность, напряжение, строгость'
+            }
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Диагональ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: ' — энергия, тревожность, активность, движение.'
+            }
+          ]
+        }
+      ]
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Например, в иллюстрации Lorenzo Mattotti на переднем плане — одна вытянутая вертикальная масса: фигуры героев объединены в общее пятно. Эта масса стройная, устремлённая вверх, создаёт ощущение устойчивости и сосредоточенности.'
+        },
+        {
+          tag: 'p',
+          content: 'Фон построен на повторяющихся вертикалях деревьев, которые усиливают ощущение покоя и глубины.'
+        },
+        {
+          tag: 'p',
+          content: 'А вот диагональные красные плоскости, ведущие в перспективу, придают сцене движение и драматизм, словно сжимают композицию к центру.'
+        },
+        {
+          tag: 'p',
+          content: 'Таким образом, взаимодействие вертикалей и диагоналей формирует напряжённую, но уравновешенную композицию.'
+        }
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Ритм и повторение'
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'BenShahn1.webp',
+        alt: 'BenShahn1',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Ben Shahn',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://en.wikipedia.org/wiki/Ben_Shahn' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Когда массы в иллюстрации '
+            },
+            {
+              tag: 'span',
+              content: 'повторяются,',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: ' они создают ритм. Это могут быть повторы форм, направлений, размеров, цветов, светлот или даже пауз между элементами.'
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: 'Повтор может быть:'
+        }
+      ]
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'однородным',
+              props: { className: 'keyText' }
+            },
+            {
+              tag: 'span',
+              content: ' — когда повторяется одна и та же форма, например, круги или линии,',
+            }
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'разнородным',
+              props: { className: 'keyText' }
+            },
+            {
+              tag: 'span',
+              content: ' — когда сочетаются несколько типов элементов, например, прямоугольники + линии + цветовые пятна,',
+            }
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'идентичным',
+              props: { className: 'keyText' }
+            },
+            {
+              tag: 'span',
+              content: ' — элементы абсолютно одинаковы,',
+            }
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'вариативным',
+              props: { className: 'keyText' }
+            },
+            {
+              tag: 'span',
+              content: ' — элементы схожи, но каждый немного отличается.',
+            }
+          ]
+        }
+      ]
+    },
+    {
+      type: 'text',
+      text: 'Задачи, которые можно решить с помощью ритма:'
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: 'задать основу, структуру иллюстрации,'
+        },
+        {
+          tag: 'p',
+          content: 'управлять скоростью восприятия — ускорять или замедлять движение взгляда по изображению,'
+        },
+        {
+          tag: 'p',
+          content: 'задать движение, динамику в рисунке.'
+        }
+      ]
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'На иллюстрации Ben Shahn мы видим ряды пустых продуктовых корзин. Все они похожи — прямоугольная форма, решётка, ножки. Но ни одна не повторяет другую дословно: одна наклонена, другая деформирована, линии идут под разными углами.'
+        },
+        {
+          tag: 'p',
+          content: 'Это живой ритм, который делает композицию пластичной и дышащей. Повторение не механическое — в нём есть вариативность.'
+        }
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Взаимодействие с пустотой'
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'NadiiaZhelieznova10.webp',
+        alt: 'NadiiaZhelieznova10',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Nadiia Zhelieznova',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/zhelieznova' },
+          },
+        ],
+      },
+    },
+    {
+      type: 'text',
+      text: 'Пустота в листе — это активная часть композиции. Она:'
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'создаёт '
+            },
+            {
+              tag: 'span',
+              content: 'паузы и дыхание ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'между объектами,'
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'помогает '
+            },
+            {
+              tag: 'span',
+              content: 'структурировать пространство,',
+              props: { className: 'keyText'}
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'делает изображение '
+            },
+            {
+              tag: 'span',
+              content: 'читаемым и выразительным,',
+              props: { className: 'keyText'}
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'помогает '
+            },
+            {
+              tag: 'span',
+              content: 'подчеркнуть форму ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: '— через контур, вырез, силуэт.'
+            },
+          ]
+        }
+      ]
+    },
+    {
+      type: 'text',
+      text: 'Например, в иллюстрации Nadiia Zhelieznova практически нет пустоты. Пространство сжато, формы сплетены друг с другом. Такое решение работает на содержание:'
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: 'Иллюстрация выглядит тревожно и напряжённо.'
+        },
+        {
+          tag: 'p',
+          content: 'Композиция становится плотной и замкнутой, словно пространство схлопывается.'
+        }
+      ]
+    },
+    {
+      type: 'text',
+      text: 'Даже те участки, где остаётся светлая бумага, — это не воздух, а вырезанные щели, через которые с трудом «дышит» изображение.'
+    },
+    {
+      type: 'textImportant',
+      text: [
+        {
+          tag: 'p',
+          content: 'Размер массы задаёт её визуальный вес и иерархию.'
+        },
+        {
+          tag: 'p',
+          content: 'Форма и направление определяют настроение и движение взгляда.'
+        },
+        {
+          tag: 'p',
+          content: 'Ритм рождается в повторении — и оживает через вариативность.'
+        },
+        {
+          tag: 'p',
+          content: 'Пустота может структурировать композицию — или подчеркнуть её сжатость.'
+        },
+        {
+          tag: 'p',
+          content: 'Композиция — это взаимодействие масс. А значит, главное — не просто формы, а отношения между ними.'
+        }
+      ]
+    }
+  ]
+}
+
+const lessonDataFYS46: ILessonDataDB = {
+  id: 'HowToPaint_zoJosp',
+  courseId: 'finding-your-style',
+  title: 'Как развивать визуальное мышление',
+  type: 'Theory',
+  icon: {
+    icon: '/png/3d_emoji_HuggingFace.png',
+  },
+  topic: 'Пластический сюжет: как рисовать',
+  topicOrder: 4,
+  topicIcon: 'Lesson',
+  orderInTopic: 6,
+  duration: {
+    unit: 'hours',
+    value: 1
+  },
+  isFree: false,
+  isUnderDevelopment: false,
+  content: [
+    {
+      type: 'title',
+      title:'Смотреть много и разное'
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Чем шире кругозор, тем богаче наш внутренний визуальный словарь.'
+        },
+        {
+          tag: 'p',
+          content: 'Что смотреть:'
+        }
+      ]
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: 'Иллюстраторов, работающих в похожей технике — чтобы найти нюансы, близкие вам.'
+        },
+        {
+          tag: 'p',
+          content: 'Художников, работающих непохоже — чтобы расширять границы.'
+        },
+        {
+          tag: 'p',
+          content: 'Дизайнеров, керамистов, скульпторов — чтобы найти неочевидные решения.'
+        }
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Анализировать работы, которые вызывают эмоции'
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Если работа вас зацепила — это сигнал. Даже если эмоция неприятная — важно понять, '
+            },
+            {
+              tag: 'span',
+              content: 'почему ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'вы отреагировали.'
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Цель иллюстрации — '
+            },
+            {
+              tag: 'span',
+              content: 'вызвать отклик. ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'И чтобы самому уметь его создавать, важно понимать, как это работает у других.'
+            },
+          ]
+        }
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Учиться конкретным инструментам'
+    },
+    {
+      type: 'text',
+      text: 'Не бойтесь повторять. Короткие мастер-классы и лекции — отличный способ заглянуть в процесс. Особенно полезны курсы по конкретным приёмам: линогравюра, коллаж с акварелью, цветной карандаш. Или курсы по композиции, серийности, работе с текстом.'
+    },
+    {
+      type: 'textImportant',
+      text: [
+        {
+          tag: 'p',
+          content: 'Насмотренность делает язык иллюстратора богаче и выразительнее.'
+        },
+        {
+          tag: 'p',
+          content: 'Анализ эмоций учит понимать, что работает и почему.'
+        },
+        {
+          tag: 'p',
+          content: 'Обучение у практиков даёт конкретные инструменты.'
+        },
+        {
+          tag: 'p',
+          content: 'Смотреть, думать, учиться — три простых действия, которые ведут к сильной авторской позиции.'
+        }
+      ]
+    }
+  ]
+}
+
+const lessonDataFYS47: ILessonDataDB = {
+  id: 'Practice_vEchiT',
+  courseId: 'finding-your-style',
+  title: 'Практика. Пластический сюжет',
   type: 'Practice',
-  icon: 'Lesson',
-  topic: 'Финальное задание',
+  icon: {
+    icon: '/png/3d_emoji_HuggingFace.png',
+  },
+  topic: 'Пластический сюжет: как рисовать',
+  topicOrder: 4,
+  topicIcon: 'Lesson',
+  orderInTopic: 7,
+  duration: {
+    unit: 'hours',
+    value: 1
+  },
+  isFree: false,
+  isUnderDevelopment: false,
+  content: [
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'В этом упражнении вы шаг за шагом создадите пластическую концепцию серии — то, как серия будет выглядеть визуально: какой в ней будет цвет, ритм, форма, композиция.'
+        },
+        {
+          tag: 'p',
+          content: 'Наша цель — не просто красивая картинка, а цельная серия иллюстраций, в которой повторяются выразительные приёмы.'
+        },
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Шаг 1. Выберите основу пластического сюжета'
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Чтобы серия получилась собранной, начните с одного или двух '
+            },
+            {
+              tag: 'span',
+              content: 'средств выразительности, ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'которые будут повторяться от картинки к картинке.'
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: 'Выберите только 1–2 из списка:'
+        }
+      ]
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Цветовая палитра, ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'например: много индиго и голубого, немного розового; главное — всегда розовое'
+            }
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Модульность, ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'например, все формы состоят из капель и треугольников'
+            }
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Композиция, ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'например: пустота всегда вверху, объекты — внизу'
+            }
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Форма, ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'например: все фигуры округлые, нет острых углов'
+            }
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Ритм и повторы, ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'например: повторяющиеся элементы — окна, пятна, направления'
+            }
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Фактура или материал, ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'например: всё выглядит как вырезанное из ткани'
+            }
+          ]
+        }
+      ]
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Запишите, что вы фиксируете',
+          props: { className: 'keyText'}
+        },
+        {
+          tag: 'p',
+          content: 'Подумайте, как выбранные приёмы помогут передать настроение серии: тревожность, абсурд, нежность, строгость.'
+        }
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Шаг 2. Выберите, что будет меняться'
+    },
+    {
+      type: 'text',
+      text: 'Чтобы серия не стала монотонной, добавьте переменную часть. Это может быть:'
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+           content: 'Герои'
+        },
+        {
+          tag: 'p',
+           content: 'Обстановка'
+        },
+        {
+          tag: 'p',
+           content: 'Сюжет'
+        },
+        {
+          tag: 'p',
+           content: 'Поза персонажа'
+        },
+        {
+          tag: 'p',
+           content: 'Мелкие детали'
+        }
+      ]
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Опишите, '
+            },
+            {
+              tag: 'span',
+              content: 'что будет меняться от картинки к картинке',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: ' — это и создаст ощущение развития.'
+            },
+          ]
+        }
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Шаг 3. Проверьте выразительность и цельность'
+    },
+    {
+      type: 'text',
+      text: 'Посмотрите на выбранные вами приёмы:'
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: 'Будет ли эта серия узнаваемой?'
+        },
+        {
+          tag: 'p',
+          content: 'Будет ли она живой — за счёт того, что меняется?'
+        },
+        {
+          tag: 'p',
+          content: 'Помогают ли выбранные выразительные средства передать характер серии?'
+        },
+      ]
+    },
+    {
+      type: 'text',
+      text: 'Если сомневаетесь — сократите инструменты. Лучше одно выразительное решение, чем три случайных.'
+    },
+     {
+      type: 'title',
+      title: 'Шаг 4. Сформулируйте пластическую идею серии'
+     },
+     {
+      type: 'text',
+      text: 'Сделайте 1–2 предложения, в которых будет ясно:'
+     },
+     {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Что объединяет ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'серию визуально?'
+            }
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Что в ней меняется?',
+              props: { className: 'keyText'}
+            }
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'Какой '
+            },
+            {
+              tag: 'span',
+              content: 'характер ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'у рисунков: спокойный, шумный, плотный, воздушный?'
+            }
+          ]
+        }
+      ]
+     },
+     {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Примеры:',
+          props: { className: 'keyText'}
+        }
+      ]
+     },
+     {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: 'В этой серии всегда один и тот же модуль — каплевидная форма, из неё я собираю разных существ.'
+        },
+        {
+          tag: 'p',
+          content: 'Цветовая палитра ограничена: всё в зелёных и чёрных пятнах, с одним ярким акцентом.'
+        },
+        {
+          tag: 'p',
+          content: 'Все сцены сделаны как плотная сетка из мелких объектов, в которой глаз теряется — хочется передать ощущение перегруженности.'
+        }
+      ]
+     },
+     {
+      type: 'title',
+      title: 'Итог'
+     },
+     {
+      type: 'text',
+      text: 'По результатам у вас должно быть:'
+     },
+     {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: '1–2 фиксированных выразительных средства,',
+          props: { className: 'keyText'}
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'понимание, '
+            },
+            {
+              tag: 'span',
+              content: 'что будет меняться ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'в серии,'
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'сформулированная '
+            },
+            {
+              tag: 'span',
+              content: 'пластическая идея вашей серии.',
+              props: { className: 'keyText'}
+            },
+          ]
+        }
+      ]
+    },
+    {
+      type: 'text',
+      text: 'Эта идея поможет вам в следующих заданиях, когда вы будете делать эскизы и финальные работы.'
+    },
+    {
+      type: 'title',
+      title: 'Как оформить результат'
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: '1. формите ответы в '
+            },
+            {
+              tag: 'span',
+              content: 'Google Docs, Figma, Miro ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'или другом удобном формате.'
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: '2. Убедитесь, что вы указали:'
+        }
+      ]
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: 'фиксированные средства,'
+        },
+        {
+          tag: 'p',
+          content: 'переменные элементы,'
+        },
+        {
+          tag: 'p',
+          content: 'краткое описание пластического сюжета.'
+        }
+      ]
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: '3. Включите '
+            },
+            {
+              tag: 'span',
+              content: 'доступ по ссылке ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: 'и прикрепите её в задании модуля.'
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: '4. Проверьте, что ссылка открывается — иначе преподаватель не сможет дать обратную связь.'
+        }
+      ]
+    },
+  ]
+}
+
+const lessonDataFYS51: ILessonDataDB = {
+  id: 'Practice_ t4jUts',
+  courseId: 'finding-your-style',
+  title: 'Практика. Как найти стиль',
+  type: 'Practice',
+  icon: {
+    icon: '/png/3d_emoji_HuggingFace.png',
+  },
+  topic: 'Финальный бриф',
   topicOrder: 5,
   topicIcon: 'Lesson',
   orderInTopic: 1,
@@ -9869,51 +11153,243 @@ const lessonDataFYS5: ILessonDataDB = {
       text: [
         {
           tag: 'p',
-          content: 'В этом задании будем учиться делать серию рисунков, в которой используются наши сильные стороны.',
+          content: 'В этом задании вы соберёте всё, что мы изучили на курсе — и создадите серию иллюстраций, основанную на ваших сильных сторонах, интересах и выразительных приёмах.'
         },
         {
           tag: 'p',
-          content: 'В итоге нам нужно получить 3-5 графических работ, объединенных одной интонацией (пластической идеей) и одним литературным сюжетом.',
+          content: 'Цель — 3–5 графических работ, объединённых одной интонацией (пластической идеей) и одним литературным сюжетом.'
+        }
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Шаг 1. Сформулируйте лозунг серии'
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Это короткая фраза, которая описывает ощущение, эмоцию или настроение серии. Она задаёт интонацию — и помогает принять верные визуальные решения.'
+        },
+        {
+          tag: 'p',
+          content: 'Примеры:'
+        },
+      ]
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: 'Один в большом пространстве'
+        },
+        {
+          tag: 'p',
+          content: 'Шумно и тесно'
+        },
+        {
+          tag: 'p',
+          content: 'Скрежет ногтей по стеклу'
+        },
+        {
+          tag: 'p',
+          content: 'Пространство после пожара'
+        }
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Шаг 2. Выберите литературный сюжет'
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Это логика, которая объединит сцены в серию. Повторяющийся образ, тема или персонаж.'
+        },
+        {
+          tag: 'p',
+          content: 'Примеры:'
+        },
+      ]
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: 'Звери, которые стесняются своей шерсти'
+        },
+        {
+          tag: 'p',
+          content: 'Город, где все окна заколочены'
+        },
+        {
+          tag: 'p',
+          content: 'Обычные предметы, уставшие от своей функции'
+        },
+        {
+          tag: 'p',
+          content: 'Парадные портреты нелепых монстров'
+        }
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Шаг 3. Выберите пластические приёмы'
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Зафиксируйте 1–2 выразительных инструмента, которые будут повторяться во всей серии:'
+        },
+      ]
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: 'ограниченная палитра, например, только синий и серый,'
+        },
+        {
+          tag: 'p',
+          content: 'форма, например, всё строится из треугольников,'
+        },
+        {
+          tag: 'p',
+          content: 'композиционное правило, например, пустота в центре,'
+        },
+        {
+          tag: 'p',
+          content: 'материал или фактура.'
+        }
+      ]
+    },
+    {
+      type: 'text',
+      text: 'Меняйте всё остальное — персонажей, сюжеты, обстановку — но не нарушайте выбранную визуальную логику.'
+    },
+    {
+      type: 'title',
+      title: 'Шаг 4. Нарисуйте 5–10 работ'
+    },
+    {
+      type: 'text',
+      text: 'На этом этапе важна масса, а не чистота исполнения. Рисуйте быстро, экспериментируйте, проверяйте идеи. Позже серию можно будет доработать.'
+    },
+    {
+      type: 'title',
+      title: 'Шаг 5. Отберите 3–5 работ, которые:'
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'лучше всего передают ваш '
+            },
+            {
+              tag: 'span',
+              content: 'лозунг,',
+              props: { className: 'keyText'}
+            }
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'раскрывают '
+            },
+            {
+              tag: 'span',
+              content: 'литературный сюжет,',
+              props: { className: 'keyText'}
+            }
+          ]
+        },
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: 'работают как '
+            },
+            {
+              tag: 'span',
+              content: 'цельная серия.',
+              props: { className: 'keyText'}
+            }
+          ]
         },
       ]
     },
     {
       type: 'title',
-      title: 'Как действовать',
+      title: 'Итог'
+    },
+    {
+      type: 'text',
+      text: 'По результатам у вас должны быть:'
     },
     {
       type: 'text',
       text: [
         {
           tag: 'p',
-          content: '1. Сформулируйте лозунг для своей серии. Лозунг описывает ощущения, эмоции. По нему мы будем выстраивать пластический сюжет. Например,',
-          props: { className: 'listHeader' },
+          content: [
+            {
+              tag: 'span',
+              content: 'Фотографии или сканы',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: ' всех рисунков, включая черновики и неудачи.',
+            },
+          ]
         },
         {
           tag: 'p',
-          content: 'Теплое, родное пространство',
-          props: { className: 'listItem' },
+          content: [
+            {
+              tag: 'span',
+              content: 'Краткое описание:',
+              props: { className: 'keyText'}
+            },
+          ]
+        },
+      ]
+    },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: 'Какой у вас лозунг?'
         },
         {
           tag: 'p',
-          content: 'Шумно и тесно',
-          props: { className: 'listItem' },
+          content: 'В чём литературный сюжет?'
         },
         {
           tag: 'p',
-          content: 'Скрежет ногтей по стеклу',
-          props: { className: 'listItem' },
+          content: 'Какие пластические приёмы вы выбрали?'
         },
         {
           tag: 'p',
-          content: 'Один в большом пространстве',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'Холодный, леденящий душу сквозняк',
-          props: { className: 'listItem' },
-        },
+          content: 'Что получилось, а что нет?'
+        }
       ]
     },
     {
@@ -9921,193 +11397,172 @@ const lessonDataFYS5: ILessonDataDB = {
       text: [
         {
           tag: 'p',
-          content: '2. Выберите литературный сюжет. Например,',
-          props: { className: 'listHeader' },
+          content: [
+            {
+              tag: 'span',
+              content: 'Ваши наблюдения:',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: ' что вы поняли о себе, о своей технике, о своём стиле.',
+            },
+          ]
         },
         {
           tag: 'p',
-          content: 'Неподходящие животные с крыльями',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'Несимметричные животные',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'Фон отдельно, а персонажи все перемешаны',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'Парадные портреты нелепых монстров',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'Части тела как растения',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'Проблемы из женских журналов, преувеличенные до перебора',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'Да, но',
-          props: { className: 'listItem' },
-        },
-      ]
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: '3. Выберите одно-два средства выразительности, из которых сложится пластический сюжет. Что-то зафиксируйте, чтобы серия смотрелась цельной. Что-то меняйте, чтобы за серией было интересно наблюдать. Например,',
-          props: { className: 'listHeader' },
-        },
-        {
-          tag: 'p',
-          content: 'Постоянное: цветовая палитра (голубого и индиго — много, розового — мало, розовым выделяю главное), модульность (все объекты стремятся стать треугольниками)',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'Меняется: персонажи, которых я рисую',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'Берите те инструменты, с которыми уже работали, знаете, как ими управлять. Цель серии — подсобрать и оформить наши текущие навыки, а не научиться новым.',
-        },
-      ]
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: '4. Нарисуйте 5-10 работ. Думайте о количестве, а не качестве. На первом этапе мы экспериментируем, ищем идеи, собираем материал. После интенсивна серию можно перерисовать и доработать. Сейчас — главное разобраться, в каком направлении двигаться.',
-        },
-        {
-          tag: 'p',
-          content: '5. Разложите все работы перед глазами, отберите 3-5, которые лучше всего отражают первоначальную задумку.',
-        },
+          content: [
+            {
+              tag: 'span',
+              content: 'Вопросы к преподавателю,',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: ' если они есть.',
+            },
+          ]
+        }
       ]
     },
     {
       type: 'title',
-      title: 'Что выкладываем',
+      title: 'Советы'
     },
     {
       type: 'text',
       text: [
         {
           tag: 'p',
-          content: '1. Сфотографируйте рисунки и приложите к заданию. Выкладывайте все, что есть:',
-          props: {className: 'listHeader'}
+          content: [
+            {
+              tag: 'span',
+              content: 'Любая степень реалистичности подходит.',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: ' Рисуйте, как вам комфортно.',
+            },
+          ]
         },
         {
           tag: 'p',
-          content: 'в получившихся рисунках отметим и запомним удачные приемы;',
-          props: {className: 'listItem'}
+          content: [
+            {
+              tag: 'span',
+              content: 'Рисуйте привычными для вас материалами.',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: ' На интенсиве нет цели освоить новый материал или технику. Рисуйте теми материалами, к которым привыкли. Если вы никогда не рисовали, возьмите черную тушь для пятна, ручку — для линии.',
+            },
+          ]
         },
         {
           tag: 'p',
-          content: 'в неполучившихся разберем, что не нравится, вместе придумаем, как улучшить.',
-          props: {className: 'listItem'}
-        },
-      ]
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: '2. Расскажите, что за чем делали, в какой последовательности рисовали. Что получилось, а что нет. Что понравилось, что осталось непонятным.',
-        },
-        {
-          tag: 'p',
-          content: '3. Задайте вопросы.',
-        },
-      ]
-    },
-    {
-      type: 'title',
-      title: 'Необязательно точь в точь перерисовывать каждую деталь',
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Фотоаппарат справится с этим лучше, чем человек. Если мы хотим, чтобы наш рисунок не оценивали по тому как точно мы повторили каждую деталь, нужно придумать что-то новое. Например, заметить что силуэт чайника напоминает кошку, нарисовать чайник который одновременно чайник и кошка.',
-        },
-        {
-          tag: 'p',
-          content: 'Если рисунок критикуют за огрехи в анатомии, перспективе, значит у автора не получилось впечатлить зрителя. Зрителю скучно, но он не знает к чему придраться, поэтому говорит о самом простом — отличии рисунка от фото.',
-        },
-      ]
-    },
-    {
-      type: 'quote',
-      quote: [
-        {
-          tag: 'p',
-          content: '… изображение никогда не равно прототипу (нарисованная трубка — это не трубка), в нем всегда появляется дистанция, метаморфоза; она-то и становится предметом искусства.',
-        },
-        {
-          tag: 'p',
-          content: 'Виктор Меламед, Машинерия портрета.',
-        },
-      ],
-    },
-    {
-      type: 'title',
-      title: 'Любая степень реалистичности подходит. Рисуйте, как вам комфортно',
-    },
-    {
-      type: 'quote',
-      quote: [
-        {
-          tag: 'p',
-          content: 'Если представить ось, на одном конце которой смайл, а на другом — реалистичный портрет, то чем ближе мы к полюсу реалистичного портрета, тем важнее убедительность светотени, анатомии, пространства, тем выше цена ошибки и склонность зрителя судить работу по уровню технических навыков. Двигаясь в обратную сторону, мы получаем больше свободы, больше возможностей для вовлечения в портрет посторонних форм и знаков, для метаморфоз, метафор и подмен, для жонглирования формой и контрформой. Здесь размыта граница межу графикой и письменным языком. … Простота не освобождает от ответственности за убедительность портрета, но создает другие категории ответственности, другие сценарии взаимодействия со зрителем, другие правила игры.',
-        },
-        {
-          tag: 'p',
-          content: 'Виктор Меламед, Машинерия портрета.',
-        },
-      ],
-    },
-    {
-      type: 'title',
-      title: 'Рисуйте привычными для вас материалами',
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'На этом курсе нет цели освоить новый материал или технику. Рисуйте теми материалами, к которым привыкли. Если вы никогда не рисовали, возьмите черную тушь для пятна, ручку — для линии.',
-        },
+          content: [
+            {
+              tag: 'span',
+              content: 'Не стесняйтесь загружать свои работы.',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: ' Часто так бывает, что нам больше нравятся рисунки других, чем свои собственные. Поэтому важно делиться работами. Работа, которая кажется нам скучной, может удивит и вдохновит кого-то другого. А после этого может и мы сами сможем заметить в ней что-то интересное.',
+            },
+          ]
+        }
       ]
     },
     {
       type: 'title',
-      title: 'Не стесняйтесь загружать свои работы',
+      title: 'Как оформить результат'
     },
     {
       type: 'text',
       text: [
         {
           tag: 'p',
-          content: 'Часто так бывает, что нам больше нравятся рисунки других, чем свои собственные. Поэтому важно делиться работами. Работа, которая кажется нам скучной, может удивит и вдохновит кого-то другого. А после этого может и мы сами сможем заметить в ней что-то интересное.',
+          content: [
+            {
+              tag: 'span',
+              content: '1. '
+            },
+            {
+              tag: 'span',
+              content: 'Оформите всё в одном файле: Google Docs, Figma, Miro',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: ' или любой другой удобный сервис.'
+            },
+          ]
         },
+        {
+          tag: 'p',
+          content: '2. Добавьте в этот файл:'
+        }
       ]
     },
+    {
+      type: 'list',
+      items: [
+        {
+          tag: 'p',
+          content: 'Лозунг серии'
+        },
+        {
+          tag: 'p',
+          content: 'Описание литературного сюжета'
+        },
+        {
+          tag: 'p',
+          content: 'Какие выразительные приёмы вы выбрали'
+        },
+        {
+          tag: 'p',
+          content: 'Иллюстрации: финальные и черновые'
+        },
+        {
+          tag: 'p',
+          content: 'Ваши наблюдения: что получилось, что нет, что было сложно'
+        },
+        {
+          tag: 'p',
+          content: 'Вопросы к преподавателю, если есть'
+        }
+      ]
+    },
+    {
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: [
+            {
+              tag: 'span',
+              content: '3. Включите '
+            },
+            {
+              tag: 'span',
+              content: 'доступ по ссылке. ',
+              props: { className: 'keyText'}
+            },
+            {
+              tag: 'span',
+              content: ' Убедитесь, что ссылка открыта.'
+            },
+          ]
+        },
+        {
+          tag: 'p',
+          content: '4. Прикрепите ссылку к финальному заданию модуля.'
+        }
+      ]
+    }
   ]
 }
 
@@ -10116,7 +11571,9 @@ const lessonDataCI21: ILessonDataDB = {
   courseId: 'commercial-illustrator',
   title: 'Кто такой иллюстратор и чем он занимается',
   type: 'Theory',
-  icon: 'Lesson',
+  icon: {
+    icon: '/png/3d_emoji_HuggingFace.png',
+  },
   topic: 'Иллюстрация как профессия',
   topicOrder: 2,
   topicIcon: 'Lesson',
@@ -10263,7 +11720,9 @@ const lessonDataCI22: ILessonDataDB = {
   courseId: 'commercial-illustrator',
   title: 'Цифровые продукты',
   type: 'Theory',
-  icon: 'Lesson',
+  icon: {
+    icon: '/png/3d_emoji_HuggingFace.png',
+  },
   topic: 'Иллюстрация как профессия',
   topicOrder: 2,
   topicIcon: 'Lesson',
@@ -10792,7 +12251,9 @@ const lessonDataCI23: ILessonDataDB = {
   courseId: 'commercial-illustrator',
   title: 'Реклама',
   type: 'Theory',
-  icon: 'Lesson',
+  icon: {
+    icon: '/png/3d_emoji_HuggingFace.png',
+  },
   topic: 'Иллюстрация как профессия',
   topicOrder: 2,
   topicIcon: 'Lesson',
@@ -11308,7 +12769,9 @@ const lessonDataCI24: ILessonDataDB = {
   courseId: 'commercial-illustrator',
   title: 'Коллаборации',
   type: 'Theory',
-  icon: 'Lesson',
+  icon: {
+    icon: '/png/3d_emoji_HuggingFace.png',
+  },
   topic: 'Иллюстрация как профессия',
   topicOrder: 2,
   topicIcon: 'Lesson',
@@ -11677,7 +13140,9 @@ const lessonDataCI25: ILessonDataDB = {
   courseId: 'commercial-illustrator',
   title: 'Упаковка',
   type: 'Theory',
-  icon: 'Lesson',
+  icon: {
+    icon: '/png/3d_emoji_HuggingFace.png',
+  },
   topic: 'Иллюстрация как профессия',
   topicOrder: 2,
   topicIcon: 'Lesson',
@@ -11945,7 +13410,9 @@ const lessonDataCI26: ILessonDataDB = {
   courseId: 'commercial-illustrator',
   title: 'Оформление пространств',
   type: 'Theory',
-  icon: 'Lesson',
+  icon: {
+    icon: '/png/3d_emoji_HuggingFace.png',
+  },
   topic: 'Иллюстрация как профессия',
   topicOrder: 2,
   topicIcon: 'Lesson',
@@ -12119,7 +13586,9 @@ const lessonDataCI27: ILessonDataDB = {
   courseId: 'commercial-illustrator',
   title: 'Книги и журналы',
   type: 'Theory',
-  icon: 'Lesson',
+  icon: {
+    icon: '/png/3d_emoji_HuggingFace.png',
+  },
   topic: 'Иллюстрация как профессия',
   topicOrder: 2,
   topicIcon: 'Lesson',
@@ -12333,7 +13802,9 @@ const lessonDataCI28: ILessonDataDB = {
   courseId: 'commercial-illustrator',
   title: 'Итоги модуля',
   type: 'Theory',
-  icon: 'Lesson',
+  icon: {
+    icon: '/png/3d_emoji_HuggingFace.png',
+  },
   topic: 'Иллюстрация как профессия',
   topicOrder: 2,
   topicIcon: 'Lesson',
@@ -12381,5 +13852,8 @@ export const allLessons = [
   lessonDataFYS42,
   lessonDataFYS43,
   lessonDataFYS44,
-  lessonDataFYS5,
+  lessonDataFYS45,
+  lessonDataFYS46,
+  lessonDataFYS47,
+  lessonDataFYS51,
 ];
