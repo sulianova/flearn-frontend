@@ -5968,7 +5968,7 @@ const lessonDataFYS21: ILessonDataDB = {
   title: 'Иллюстрация',
   type: 'Theory',
   icon: {
-    icon: '/png/3d_ food_Cherry.png',
+    icon: '/png/3d_food_Cherry.png',
   },
   topic: 'Что такое иллюстрация, серия, стиль',
   topicOrder: 2,
