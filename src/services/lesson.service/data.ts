@@ -5968,7 +5968,7 @@ const lessonDataFYS21: ILessonDataDB = {
   title: 'Иллюстрация',
   type: 'Theory',
   icon: {
-    icon: '/png/3d_emoji_HuggingFace.png',
+    icon: '/png/3d_ food_Cherry.png',
   },
   topic: 'Что такое иллюстрация, серия, стиль',
   topicOrder: 2,
@@ -6428,7 +6428,7 @@ const lessonDataFYS22: ILessonDataDB = {
   title: 'Серия',
   type: 'Theory',
   icon: {
-    icon: '/png/3d_emoji_HuggingFace.png',
+    icon: '/png/3d_food_ChocolateCake.png',
   },
   topic: 'Что такое иллюстрация, серия, стиль',
   topicOrder: 2,
@@ -6742,7 +6742,7 @@ const lessonDataFYS23: ILessonDataDB = {
   title: 'Стиль',
   type: 'Theory',
   icon: {
-    icon: '/png/3d_emoji_HuggingFace.png',
+    icon: '/png/3d_emoji_SmilingFaceWithSunglasses.png',
   },
   topic: 'Что такое иллюстрация, серия, стиль',
   topicOrder: 2,
