@@ -6968,7 +6968,7 @@ const lessonDataFYS31: ILessonDataDB = {
   title: 'Сюжет есть всегда',
   type: 'Theory',
   icon: {
-    icon: '/png/3d_emoji_HuggingFace.png',
+    icon: '/png/3d_food_Lollipop.png',
   },
   topic: 'Как сделана иллюстрация. Литературный сюжет',
   topicOrder: 3,
@@ -7167,7 +7167,7 @@ const lessonDataFYS32: ILessonDataDB = {
   title: 'Визуальный конфликт как основа сюжета',
   type: 'Theory',
   icon: {
-    icon: '/png/3d_emoji_HuggingFace.png',
+    icon: '/png/3d_emoji_ExplodingHead.png',
   },
   topic: 'Как сделана иллюстрация. Литературный сюжет',
   topicOrder: 3,
@@ -7421,7 +7421,7 @@ const lessonDataFYS33: ILessonDataDB = {
   title: 'Как придумать сюжет: от идеи к серии',
   type: 'Theory',
   icon: {
-    icon: '/png/3d_emoji_HuggingFace.png',
+    icon: '/png/3d_emoji_FaceWithMonocle.png',
   },
   topic: 'Как сделана иллюстрация. Литературный сюжет',
   topicOrder: 3,
@@ -8109,7 +8109,7 @@ const lessonDataFYS34: ILessonDataDB = {
   title: 'Практика. Литературный сюжет',
   type: 'Practice',
   icon: {
-    icon: '/png/3d_emoji_HuggingFace.png',
+    icon: '/png/3d_hands_7.png',
   },
   topic: 'Как сделана иллюстрация. Литературный сюжет',
   topicOrder: 3,
