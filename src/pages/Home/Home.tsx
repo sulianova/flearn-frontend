@@ -15,6 +15,7 @@ import StudyProcess from './blocks/StudyProcess/StudyProcess';
 import Community from './blocks/Community/Community';
 import FAQ from './blocks/FAQ/FAQ';
 import SocialValidation from './blocks/SocialValidation/SocialValidation';
+import type { ICourseData } from 'services/course.service';
 
 import classes from './Home.module.scss';
 import SignupToFlearnPopup from 'components/SignupToFlearnPopup/SignupToFlearnPopup';
@@ -36,7 +37,7 @@ export default function Home() {
 
   const [submited, setSubmited] = useState(false);
 
-  const blocks = [
+  const blocks: JSX.Element[] = [
     <Header
     onNotAuthedClick={onNotAuthedClick}
     />,

@@ -11135,7 +11135,7 @@ const lessonDataFYS51: ILessonDataDB = {
   title: 'Практика. Как найти стиль',
   type: 'Practice',
   icon: {
-    icon: '/png/3d_emoji_HuggingFace.png',
+    icon: '/png/3d_emoji_SmilingFaceWithSunglasses.png',
   },
   topic: 'Финальный бриф',
   topicOrder: 5,
