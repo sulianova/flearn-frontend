@@ -1,5 +1,6 @@
 import { useGetId } from 'hooks';
 import { formatI18nT } from 'shared';
+import InputField from 'ui/Form/Input/InputField';
 
 import classes from './Input.module.scss';
 
@@ -13,22 +14,14 @@ interface IProps {
 }
 
 function Input(props: Readonly<IProps>) {
-  const getId = useGetId();
   return (
     <div className={classes._}>
-      <div className={classes.content}>
-        <label
-          htmlFor={getId('contentInput')}
-        >
-        </label>
-        <input
-          id={getId('contentInput')}
-          placeholder='Ссылка на задание'
-          type='text'
-          value={props.value}
-          onChange={e => props.onChange(e.target.value)}
-        />
-      </div>
+      <InputField
+        variant='Link'
+        value={props.value}
+        className={classes.input}
+        caption={'Ссылка на задание'}
+      />
     </div>
   );
 }

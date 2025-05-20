@@ -95,6 +95,9 @@
     },
     "inputEmail": {
       "placeholder": "email@gmail.com"
+    },
+    "inputLink": {
+      "placeholder": "https://"
     }
   },
   "home": {

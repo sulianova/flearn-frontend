@@ -12,7 +12,7 @@ export interface IProps
   extends Omit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>,
   'onChange' | 'id' | 'type' | 'name' | 'placeholder' >
 {
-  variant: 'Name' | 'Email' | 'Phone'
+  variant: 'Name' | 'Email' | 'Phone' | 'Link'
   value?: string
   onChange?: (v: string) => void
   state?: 'idle' | 'error'
@@ -24,6 +24,7 @@ const type = {
   'Name': 'text',
   'Email': 'email',
   'Phone': 'tel',
+  'Link': 'text'
 } as const;
 
 export default function InputField(props: IProps) {

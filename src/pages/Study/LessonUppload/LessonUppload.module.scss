@@ -1,11 +1,16 @@
 @import 'styles/index';
 
-._ {
+.__ {
   position: relative;
-  width: set-calc(700);
+  margin: set-calc(60) 0 set-calc(40);
+
+  width: set-calc(780);
+  left: set-calc(40);
 
   @include set-media(md) {
+    margin: set-calc(30) 0 set-calc(30);
     width: 100%;
+    left: 0;
   }
 }
 
@@ -14,23 +19,15 @@
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  border: set-calc(1.3) solid var(--border);
-  border-radius: set-calc($border-radius-20);
-  z-index: 100;
-  margin-top: set-calc(64);
-  width: set-calc(764);
-  left: set-calc(-32);
-  padding: set-calc(32);
 
+  padding: set-calc(40);
+  border-radius: set-calc($border-radius-40);
+  border: 1px solid var(--border);
 
   @include set-media(md) {
-    width: set-calc(398);
-    left: set-calc(-8);
-
-    margin-top: 0;
-    padding: set-calc(24) set-calc(16);
+    padding: set-calc(16);
+    border-radius: set-calc($border-radius-20);
   }
 }
 
@@ -48,7 +45,6 @@
 
 .link {
   margin-bottom: set-calc(16);
-  width: 100%;
 
   @include font-18-paragraph;
   text-align: center;
@@ -61,83 +57,60 @@
 
 .linkForm {
   position: relative;
-  width: 100%;
   display: flex;
+  gap: set-calc(8);
+
+  width: 100%;
+
+  color: currentColor;
 
   @include set-media(md) {
     order: 3;
     flex-direction: column;
+
+    margin-bottom: set-calc(16);
   }
 }
 
-.error {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.input {
+  @include input;
+  @include input-medium;
 
-  margin: 0 set-calc(16) 0 0;
-  padding: set-calc(4) set-calc(24);
-  border-radius: set-calc(15);
   width: 100%;
-
-  color: var(--color-accent-alert);
-  white-space: pre-line;
-  text-align: center;
 }
 
 .submit {
   display: flex;
-  flex: 0 1 auto;
-  flex-direction: column;
-  justify-content: end;
 
   @include set-media(md) {
     width: 100%;
   }
 }
 
-.submitBtn {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-  min-width: set-calc(132);
+.submitButton {
+  @include btn;
+  @include button-48;
+  @include button-primary;
 
-  user-select: none;
-  transition-timing-function: ease-in-out;
-  transition-duration: .1s;
-  transition-property: transform, background-color, border-color, color;
-  border: none;
-  outline: none;
-  height: set-calc(50);
-  padding: set-calc(16);
-
-
-  color: var(--color-content-inverted-primary);
-  @include font-16-ui;
-
-  background: var(--color-content-background-primary);
-  border-radius: set-calc($border-radius-8);
-  cursor: pointer;
-
-  transition: background-color $d-hover ease-in-out, color ease-in-out $d-hover;
+  width: 100%;
 
   @include set-media(md) {
-    width: 100%;
-    height: unset;
-    padding: set-calc(20) set-calc(24);
+    margin-top: set-calc(8);
   }
 }
 
-.submitBtn:hover {
-  background-color: var(--color-content-background-secondary);
-}
-
-.isDisabled {
-  color: var(--color-content-tertiary);
-  background: var(--color-background-glassy-c);
-
+.isSuccess {
   pointer-events: none;
+  background-color: var(--color-accent-success);
+  color: var(--color-content-inverted-primary);
+}
+
+.Error {
+  color: var(--color-accent-alert);
+  @include font-14-ui;
+
+  margin-top: set-calc(6);
+  margin-left: set-calc(4);
 }
 
 .statusProgress {
@@ -296,7 +269,7 @@
   }
 
   .finishIcon {
-    color: $color-palette-white-1000;
+    color: var(--color-content-inverted-primary);
     background-color: var(--primary-color);
   }
  }

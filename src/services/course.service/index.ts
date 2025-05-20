@@ -134,6 +134,7 @@ class CourseService {
   protected initCurrentCourseBS() {
     const refetch = () => {
       const section = locationService.URLSection;
+      console.log('section', section )
       if (
         section.name !== 'Landing'
         && section.name !== 'Course'

@@ -55,6 +55,8 @@ export default function LessonContainer(props: IProps) {
     })();
   }, [courseId, lessonId]);
 
+  console.log('nitFinished', { initFinished })
+
   if (!initFinished) {
     return (
       <Fallback.Pending
@@ -113,6 +115,8 @@ function Lesson({ section }: IProps) {
     );
   }
 
+  console.log({ homework, authedUser });
+
   return (
     <Page
       variant={EPageVariant.LMS}
@@ -143,7 +147,6 @@ function Lesson({ section }: IProps) {
             user={authedUser}
           />
         }
-        {/* {section === 'results' && canShowResults && <LessonWorks/>} */}
       </div>
     </Page>
   );

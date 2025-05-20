@@ -72,7 +72,7 @@ export const URLSections = {
     index: '/study/:courseId/:lessonId',
     to: (props: { courseId: string, lessonId: string } & IBaseProps) =>
       assemble({ ...props, path: `/study/${props.courseId}/${props.lessonId}` }),
-    regex: /^\/study\/([^\/]+)\/([^\/]+)$/,
+    regex: /^\/study\/([^\/]+)\/([^\/]+)/,
     getParams(pathname: string) {
       const res = this.regex.exec(pathname);
       return !res
