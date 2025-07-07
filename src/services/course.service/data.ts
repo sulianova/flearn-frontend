@@ -16,7 +16,7 @@ const courseDB1: TCourseDataDBWithoutMeta = {
   id: 'how-to-draw',
   type: 'course',
   isUnderDevelopment: false,
-  title: 'Композиция: как выделить главное',
+  title: 'Линия и пятно: как рисовать',
   startDate: '2024.05.26 21:00:00 GMT',
   endDate: '2024.06.23 20:59:00 GMT',
   accessDeadline: '2024.06.23 20:59:00 GMT',
