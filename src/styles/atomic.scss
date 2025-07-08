@@ -158,7 +158,7 @@
 }
 
 @mixin font-20-article {
-  @include set-typography(20, 34, 500);
+  @include set-typography(20, 30, 500);
 
   @include set-media(md) {
     @include set-typography(18, 30, 500);
