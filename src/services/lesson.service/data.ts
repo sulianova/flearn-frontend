@@ -1134,7 +1134,7 @@ const lessonData21: ILessonDataDB = {
         {
           tag: 'a',
           content: 'Книга простое рисование Димы Горелышева',
-          props: { className: 'link', target: "_blank", to: 'https://vk.com/wall-100760089_6620?ysclid=lo5fawz49e843963862' },
+          props: { className: 'key-link', target: "_blank", to: 'https://vk.com/wall-100760089_6620?ysclid=lo5fawz49e843963862' },
         },
       ]
     },
@@ -1144,7 +1144,7 @@ const lessonData21: ILessonDataDB = {
 const lessonData22: ILessonDataDB = {
   id: 'LineIntroduction_gBpaFa',
   courseId: 'how-to-draw',
-  title: 'Линия: знакомство',
+  title: 'Свойства линии. Как разнообразить рисунок',
   type: 'Theory',
   icon: {
     icon: '/png/3d_emoji_HuggingFace.png',
@@ -1157,7 +1157,7 @@ const lessonData22: ILessonDataDB = {
     unit: 'hours',
     value: 1
   },
-  isFree: false,
+  isFree: true,
   isUnderDevelopment: false,
   content: [
     {
@@ -1165,130 +1165,50 @@ const lessonData22: ILessonDataDB = {
       text: [
         {
           tag: 'p',
-          content: 'Линия и пятно — два основных приема в рисовании. Любой рисунок состоит из линий, пятен и их комбинаций. Если разобраться, как их рисовать, получится нарисовать все, что угодно.',
+          content: 'Линия и пятно — два основных приёма в рисовании. Любой рисунок состоит из их комбинаций. Освоив их, вы сможете нарисовать всё что угодно — понятно и убедительно.',
         },
         {
           tag: 'p',
-          content: 'Основные свойства линий: контроль, светлота, толщина. Ниже посмотрим, как с помощью этих свойств, можно разнообразить свои рисунки.',
+          content: 'В этом уроке разберём линию как выразительное средство. У линии есть три свойства: контроль, светлота и толщина. Посмотрим, как эти свойства помогают разнообразить рисунок.',
         },
       ]
     },
     {
       type: 'title',
-      title: 'Контроль, моторика',
+      title: 'Контроль',
+    },
+    {
+      type: 'image',
+      imageData: {
+        id: 'DimaGorelyshev35.jpg',
+        alt: 'DimaGorelyshev35',
+        caption: [
+          {
+            tag: 'a',
+            content: 'Дмитрий Горелышев',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
+          },
+        ],
+      },
     },
     {
       type: 'text',
       text: [
         {
           tag: 'p',
-          content: 'Линия может быть точной, контролируемой:',
-        },
+          content: 'Контроль — это степень управления линией. Линия может быть точной и чёткой или свободной и живой. На примере выше видно, как художник выделяет главное с помощью разного контроля: основная часть нарисована точной линией, дверь подчеркнута дрожащей, плохо контролируемой линией для акцента.',
+        }
       ]
     },
     {
-      type: 'image',
-      imageData: {
-        id: 'DimaGorelyshev29.jpg',
-        alt: 'DimaGorelyshev29',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Dima Gorelyshev',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'DimaGorelyshev9.jpg',
-        alt: 'DimaGorelyshev9',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Dima Gorelyshev',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'DimaGorelyshev26.jpg',
-        alt: 'DimaGorelyshev26',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Dima Gorelyshev',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'MashaTitova5.png',
-        alt: 'MashaTitova5',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Masha Titova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/mashatitovaprint' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'MashaTitova6.png',
-        alt: 'MashaTitova6',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Masha Titova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/mashatitovaprint' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'MashaTitova7.png',
-        alt: 'MashaTitova7',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Masha Titova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/mashatitovaprint' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'SashaAnanas1.jpeg',
-        alt: 'SashaAnanas1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Sasha Ananas',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/sasha.ananas.sktch/' },
-          },
-        ],
-      },
+      type: 'title',
+      title: 'Точная линия',
     },
     {
       type: 'image',
       imageData: {
         id: 'SashaAnanas2.jpeg',
-        alt: 'SashaAnanas2',
+        alt: 'ashaAnanas2',
         caption: [
           {
             tag: 'a',
@@ -1303,9 +1223,21 @@ const lessonData22: ILessonDataDB = {
       text: [
         {
           tag: 'p',
-          content: 'Линия может быть случайной, живой:',
+          content: 'Точная линия — это линия с высоким уровнем контроля. Ее используют, чтобы рассказать о строении объекта, передать объём. В рисунках с точной линией считывается ощущение порядка и продуманности.',
         },
+        {
+          tag: 'p',
+          content: 'Для точной линии нужен подходящий инструмент: твёрдый карандаш, линер или перо, которые позволяют вести линию ровно и уверенно. Такая работа требует внимания и сосредоточенности — её не сделаешь наспех.',
+        },
+        {
+          tag: 'p',
+          content: 'Чтобы рисунок был убедительным, художник должен понимать, что он рисует. Перед рисунком полезно внимательно рассмотреть предмет, разобрать его на части и понять, как они соединяются. Попробовать представить предмет в голове без опоры на натуру. После этого можно переходить к листу. Рисовать то, что уже понятно. Такой подход превращает линию из простой обводки в язык, который объясняет форму и структуру. Линия становится осмысленной и читаемой для зрителя, потому что сначала вы сами поняли, что хотите сказать.',
+        }
       ]
+    },
+    {
+      type: 'title',
+      title: 'Живая линия',
     },
     {
       type: 'image',
@@ -1322,116 +1254,44 @@ const lessonData22: ILessonDataDB = {
       },
     },
     {
-      type: 'image',
-      imageData: {
-        id: 'DimaGorelyshev41.jpg',
-        alt: 'DimaGorelyshev41',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Dima Gorelyshev',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
-          },
-        ],
-      },
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Живая линия даёт больше экспрессии и свободы. Чтобы получить её, художник намеренно снижает уровень контроля. Можно держать карандаш в кулаке, рисовать другой рукой, пользоваться большой кистью с водой, держать инструмент за самый конец, рисовать без отрыва от бумаги или с ограничением по времени.',
+        },
+        {
+          tag: 'p',
+          content: 'Низкий контроль над инструментом не означает, что автор плохо рисует или не понимает, что рисует. Низкий контроль дает линии больше живости и свободы. Но даже в этом случае рисунок по прежнему должен быть убедительным.',
+        }
+      ]
     },
     {
-      type: 'image',
-      imageData: {
-        id: 'VictoriaSemykina2.jpg',
-        alt: 'VictoriaSemykina2',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Victoria Semykina',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/viksa' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'VictoriaSemykina3.jpg',
-        alt: 'VictoriaSemykina3',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Victoria Semykina',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/viksa' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'VictoriaSemykina1.jpg',
-        alt: 'VictoriaSemykina1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Victoria Semykina',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/viksa' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'VictoriaSemykina4.jpg',
-        alt: 'VictoriaSemykina4',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Victoria Semykina',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/viksa' },
-          },
-        ],
-      },
+      type: 'title',
+      title: 'Как сохранить убедительность',
     },
     {
       type: 'text',
       text: [
         {
           tag: 'p',
-          content: 'Регулируя контроль над инструментом, можно выделять главное в рисунке. Например, на рисунке ниже, основная часть рассказана точной линией. Главное — дверь, выделена дрожащей, плохо контролируемой линией.',
-        },
+          content: 'Чтобы получить убедительную картинку с плохо контролируемым материалом, нужно увеличить количество итераций. Тогда мы получим легкость плюс убедительность. Чтобы нарисовать убедительную кошку легкой, летящей линий. Нужно нарисовать 10 минутных рисунков разных кошек. И выбрать среди них один, самый лучший.',
+        }
       ]
     },
     {
-      type: 'image',
-      imageData: {
-        id: 'DimaGorelyshev35.jpg',
-        alt: 'DimaGorelyshev35',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Dima Gorelyshev',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
-          },
-        ],
-      },
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Время, потраченное на рисунок, влияет на точность линий. На рисунке ниже я за 5 минут нарисовала задний план: деревья, электрический столб. А затем 15 минут аккуратно рисовала забор: много-много точных параллельных линий. В итоге забор читается другим слоем, явно отличится от заднего плана.',
-        },
-      ]
+      type: 'title',
+      title: 'Время как инструмент',
     },
     {
       type: 'image',
       imageData: {
         id: 'SofiUlianova1.jpg',
-        alt: 'SofiUlianova1',
+        alt: 'SofiUlianova',
         caption: [
           {
             tag: 'a',
-            content: 'Sofia Ulianova',
+            content: 'Sofiia Ulianova',
             props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/sofiulianova' },
           },
         ],
@@ -1442,79 +1302,13 @@ const lessonData22: ILessonDataDB = {
       text: [
         {
           tag: 'p',
-          content: 'Чтобы нарисовать живую, случайную линию, нужно ограничить контроль над инструментом.',
-          props: { className: 'listHeader' },
-        },
-        {
-          tag: 'p',
-          content: 'Взять карандаш в кулак.',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'Рисовать левой рукой.',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'Рисовать плохоуправляемым материалом: круглой кисточкой, кисточкой большого размера, кисточкой с большим количеством воды, держать кисть за самый край, держать карандаш в кулаке.',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'Не отрывать руку от листа на протяжении всего рисования.',
-          props: { className: 'listItem' },
-        },
-        {
-          tag: 'p',
-          content: 'Рисовать с ограничением по времени: за 1 минуту, за 3 минуты.',
-          props: { className: 'listItem' },
-        },
-      ],
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Низкий контроль над инструментом не означает, что автор плохо рисует или не понимает, что рисует. Низкий контроль дает линии больше живости и свободы. Но даже в этом случае рисунок по прежнему должен быть убедительным.',
-        },
-        {
-          tag: 'p',
-          content: 'Чтобы получить убедительную картинку с плохо контролируемым материалом, нужно увеличить количество итераций. Тогда мы получим легкость + убедительность. Чтобы нарисовать убедительную кошку легкой, летящей линий. Нужно нарисовать 10 минутных рисунков разных кошек. И выбрать среди них один, самый лучший.',
-        },
+          content: 'Время, потраченное на рисунок, меняет характер линии. На этом рисунке деревья, столбы набросаны за 5 минут — линии свободные и условные. Забор рисовался 15 минут — линии точные и параллельные. Чем больше времени — тем выше уровень контроля и детализации.',
+        }
       ]
     },
     {
       type: 'title',
       title: 'Тон: темное, светлое',
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Тон — светлота линии. Самый светлый тон — белый, самый темный — черный.',
-        },
-        {
-          tag: 'p',
-          content: 'Более темной линией можно выделить детали, привлечь внимание к главному.',
-        },
-      ]
-    },
-    {
-      type: 'image',
-      imageData: {
-        id: 'DimaGorelyshev41.jpg',
-        alt: 'DimaGorelyshev41',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Dima Gorelyshev',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/dima_gorelyshev/' },
-          },
-        ],
-      },
     },
     {
       type: 'image',
@@ -1535,32 +1329,35 @@ const lessonData22: ILessonDataDB = {
       text: [
         {
           tag: 'p',
-          content: 'Чтобы осветлить линию, можно изменить нажим, взять другой цвет карандаша, разбавить краску водой или добавить в нее белил.',
+          content: 'Тон — это светлота линии. Он определяет, насколько линия светлая или тёмная по сравнению с фоном. Самый светлый тон — белый, самый тёмный — чёрный. Управляя тоном линии, художник может задавать характер рисунка и распределять акценты.',
+        },
+        {
+          tag: 'p',
+          content: 'В рисунке внимание притягивает не сам по себе тёмный или светлый тон, а контраст и разница между тонами. На светлом фоне тёмная линия будет заметнее, а на тёмной заливке выделится светлая. Важно соотношение тонов и пропорции: небольшая по площади деталь с другим тоном сразу привлекает взгляд зрителя.',
+        },
+        {
+          tag: 'p',
+          content: 'Тон помогает отделять главное от второстепенного. Линии с большим контрастом к фону лучше читаются и могут подчеркивать значимые детали — контур формы, важные элементы, ключевые точки композиции. Менее контрастные линии могут уходить на второй план, создавая глубину и поддерживая общую цельность рисунка.',
+        },
+        {
+          tag: 'p',
+          content: 'Художник может регулировать светлоту линии во время работы. Для этого можно изменять нажим, использовать разные твёрдости карандашей, работать цветными материалами, разбавлять краску водой или добавлять белила для осветления.',
+        },
+        {
+          tag: 'p',
+          content: 'Управление тоном линии — это способ построить иерархию и направлять внимание зрителя. Работая с контрастами и соотношениями тонов, можно сделать изображение более выразительным, убедительным и понятным.',
         },
       ]
     },
-    {
+        {
       type: 'title',
-      title: 'Толстое, тонкое',
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: 'Есть карандаши, кисти, которые могут менять толщину линии в зависимости от нажима. Есть моноширинные инструменты, например, линеры. Тогда чтобы изменить толщину, нужно взять другой линер.',
-        },
-        {
-          tag: 'p',
-          content: 'С помощью разной толщины можно привлечь внимание, выделить главное.',
-        },
-      ]
+      title: 'Толщина линии',
     },
     {
       type: 'image',
       imageData: {
         id: 'nastya_q3.jpeg',
-        alt: 'nastya_q1',
+        alt: 'nastya_q3',
         caption: [
           {
             tag: 'a',
@@ -1571,27 +1368,29 @@ const lessonData22: ILessonDataDB = {
       },
     },
     {
-      type: 'image',
-      imageData: {
-        id: 'SofiUlianova2.jpg',
-        alt: 'SofiUlianova2',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Sofiia Ulianova',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.behance.net/sofiulianova' },
-          },
-        ],
-      },
-    },
-    {
       type: 'text',
       text: [
         {
           tag: 'p',
-          content: 'Разной толщиной линии можно разделить рисунок на планы. Более толстые линии — передний план, более легкие, тонкие — задний.',
+          content: 'С помощью толщины можно показать, что в рисунке главное, а что второстепенное. Более толстая линия часто воспринимается как более близкая, тяжелая и важная, а тонкая — как лёгкая, дальняя или менее значимая.',
+        },
+        {
+          tag: 'p',
+          content: 'Художник может менять толщину линии во время работы. Например, карандаш или кисть реагируют на силу нажима — мягкий нажим даёт тонкую линию, сильный — более толстую. Это позволяет плавно изменять толщину даже в одном мазке.',
+        },
+        {
+          tag: 'p',
+          content: 'Для материалов с постоянной толщиной, например линеров, толщину выбирают заранее. Чтобы получить разные веса линий, художник может использовать несколько инструментов с разным размером пера. Это помогает задавать структуру и расставлять акценты в рисунке.',
+        },
+        {
+          tag: 'p',
+          content: 'Правильное использование толщины делает изображение понятным и выразительным. Оно помогает зрителю быстро понять, что в рисунке главное, а что служит поддержкой и дополнением.',
         },
       ]
+    },
+    {
+      type: 'title',
+      title: 'Разделить планы',
     },
     {
       type: 'image',
@@ -1608,29 +1407,28 @@ const lessonData22: ILessonDataDB = {
       },
     },
     {
-      type: 'image',
-      imageData: {
-        id: 'KirillZiman12.jpeg',
-        alt: 'KirillZiman12',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Kirill Ziman',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/kirillziman/' },
-          },
-        ],
-      },
+      type: 'text',
+      text: [
+        {
+          tag: 'p',
+          content: 'Разная толщина линии помогает разделить рисунок на планы. Более толстые линии можно использовать для переднего плана, чтобы сделать его заметнее и ближе к зрителю. Лёгкие и тонкие линии подойдут для заднего плана и фона, позволяя сохранить глубину и не перегружать композицию. Это простой и эффективный способ создать ощущение пространства на плоском листе.',
+        }
+      ]
+    },
+    {
+      type: 'title',
+      title: 'Показать объем',
     },
     {
       type: 'image',
       imageData: {
-        id: 'ELENAFEKLISTOVA2.jpeg',
-        alt: 'ELENAFEKLISTOVA2',
+        id: 'VaryaYakovleva3.jpeg',
+        alt: 'VaryaYakovleva3',
         caption: [
           {
             tag: 'a',
-            content: 'ELENA FEKLISTOVA',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/e.feklistova/?g=5' },
+            content: 'Varya Yakovleva',
+            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/varya__yakovleva/?g=5' },
           },
         ],
       },
@@ -1640,9 +1438,13 @@ const lessonData22: ILessonDataDB = {
       text: [
         {
           tag: 'p',
-          content: 'Толстые и тонкие линии могут решать разные задачи. Толстые — ритмы. Тонкие — фигуратив, детали.',
-        },
+          content: 'Контроль толщины линии помогает показать объём и положение объекта в пространстве. Линии, которые ближе к зрителю, могут быть толще и темнее. Те, что дальше — легче и тоньше. Такой приём делает форму более убедительной и помогает зрителю «прочитать» глубину и перспективу в рисунке.',
+        }
       ]
+    },
+    {
+      type: 'title',
+      title: 'Создать несколько слоев информации',
     },
     {
       type: 'image',
@@ -1663,9 +1465,13 @@ const lessonData22: ILessonDataDB = {
       text: [
         {
           tag: 'p',
-          content: 'Толстые — силуэт. Тонкие — детали.',
-        },
+          content: 'Толщина линии помогает разделить рисунок на слои информации. Толстые линии могут задавать общий ритм композиции, удерживать форму и силуэт. Тонкие линии подходят для фигуративных элементов и проработки деталей. Это даёт рисунку структуру и помогает управлять вниманием зрителя.',
+        }
       ]
+    },
+    {
+      type: 'title',
+      title: 'Разделить силуэт и детали',
     },
     {
       type: 'image',
@@ -1686,9 +1492,13 @@ const lessonData22: ILessonDataDB = {
       text: [
         {
           tag: 'p',
-          content: 'Толстые — силуэт, тонкие — фактура.',
-        },
+          content: 'Толстая линия хорошо работает для обозначения силуэта и формы объекта. Она помогает сразу понять его контур и основную массу. Тонкие линии полезны для прорисовки деталей, фактур, мелких элементов. Такое сочетание делает изображение читаемым и помогает зрителю сразу увидеть как общее, так и частное.',
+        }
       ]
+    },
+    {
+      type: 'title',
+      title: 'Разделить форму и фактуру',
     },
     {
       type: 'image',
@@ -1705,56 +1515,31 @@ const lessonData22: ILessonDataDB = {
       },
     },
     {
-      type: 'image',
-      imageData: {
-        id: 'ELENAFEKLISTOVA1.jpg',
-        alt: 'ELENAFEKLISTOVA1',
-        caption: [
-          {
-            tag: 'a',
-            content: 'ELENA FEKLISTOVA',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/e.feklistova/?g=5' },
-          },
-        ],
-      },
-    },
-    {
       type: 'text',
       text: [
         {
           tag: 'p',
-          content: 'Контролируя толщину, можно показать, как объект расположен в пространстве. То, что ближе к зрителю — толще, темнее. Дальше — легче, тоньше.',
-        },
+          content: 'Использование толщины линии позволяет добавлять в рисунок фактуру и ритм. Толстые линии могут задать крупные пятна и направления движения. Тонкие линии помогают разнообразить поверхность, показать материалы и детали. Благодаря этому рисунок становится более живым и интересным для рассматривания.',
+        }
       ]
     },
     {
-      type: 'image',
-      imageData: {
-        id: 'VaryaYakovleva3.jpeg',
-        alt: 'VaryaYakovleva3',
-        caption: [
-          {
-            tag: 'a',
-            content: 'Varya Yakovleva',
-            props: { className: 's-hoverable', target: "_blank", to: 'https://www.instagram.com/varya__yakovleva/?g=5' },
-          },
-        ],
-      },
+      type: 'textImportant',
+      text: [
+        {
+          tag: 'p',
+          content: 'В этом уроке мы разобрали линию как выразительное средство. У линии есть три основных свойства: контроль, светлота (тон) и толщина. Эти характеристики помогают управлять вниманием зрителя, объяснять форму и строение объекта и придавать рисунку настроение.',
+        },
+                {
+          tag: 'p',
+          content: 'Контроль определяет степень управляемости линии — она может быть чёткой и точной или живой и экспрессивной. Светлота линии задаёт её тон и помогает работать с контрастом и акцентами. Толщина линии помогает строить планы, передавать объём и разделять информацию на разные слои.',
+        },
+                {
+          tag: 'p',
+          content: 'Чтобы использовать линию осознанно, важно пробовать разные приёмы, понимать задачи рисунка и выбирать подходящий инструмент. В итоге линия перестаёт быть просто контуром и становится языком, на котором художник говорит со зрителем.',
+        }
+      ]
     },
-    // {
-    //   type: 'title',
-    //   title: 'Дополнительно',
-    // },
-    // {
-    //   type: 'text',
-    //   text: [
-    //     {
-    //       tag: 'a',
-    //       content: 'Про 4 типа линии: силуэт, конструкция, форма, фактура',
-    //       props: { className: 'link', target: "_blank", to: 'https://kruzhokskorogorisunka.ru/202377.html?ysclid=lo5eh1vgp6502216306' },
-    //     },
-    //   ]
-    // }
   ]
 }
 
