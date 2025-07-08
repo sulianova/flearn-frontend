@@ -16,11 +16,11 @@
 }
 
 .quoteWrapper {
-  padding: set-calc(8) set-calc(24);
+  padding: set-calc(0) set-calc(24);
   border-left: set-calc(4) solid var(--color-content-paragraph-primary);
 
   @include set-media(md) {
-    padding: set-calc(8) set-calc(24);
+    padding: set-calc(0) set-calc(24);
   }
 }
 

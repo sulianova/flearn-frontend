@@ -13,10 +13,10 @@
   opacity: 1;
   transition: opacity $d-hover ease-in-out;
 
-  margin: set-calc(40) 0 set-calc(20);
+  margin: set-calc(30) 0 set-calc(20);
 
   @include set-media(md) {
-    margin: set-calc(30) 0 set-calc(16);
+    margin: set-calc(20) 0 set-calc(16);
     width: set-calc(100%, true, -2 * $p-page-mob-l);
     left: set-calc(0);
   }
@@ -74,7 +74,6 @@
   max-width: set-calc(700);
 
   margin-top: set-calc(8);
-  margin-bottom: set-calc(16);
 }
 
 .imageCaption > * {
