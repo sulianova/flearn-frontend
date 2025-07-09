@@ -90,7 +90,7 @@ function LessonUppload({ user, homework }: IProps) {
             <div className={classes.statusProgressStepLine}></div>
             <div className={classes.statusProgressStepContent}>
               <div className={classes.statusProgressStepContentLabel}>
-                <span className='isDesktop'>Отправка задания</span>
+                <span className='isDesktop'>Вы рисуете</span>
                 <span className='isMobile'>1</span>
               </div>
             </div>
@@ -102,7 +102,7 @@ function LessonUppload({ user, homework }: IProps) {
             <div className={classes.statusProgressStepLine}></div>
             <div className={classes.statusProgressStepContent}>
               <div className={classes.statusProgressStepContentLabel}>
-                <span className='isDesktop'>Проверка</span>
+                <span className='isDesktop'>Мы проверяем</span>
                 <span className='isMobile'>2</span>
               </div>
             </div>

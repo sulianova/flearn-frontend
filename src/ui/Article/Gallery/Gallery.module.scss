@@ -13,14 +13,14 @@
 
   max-height: set-calc(var(--gallery-max-height, 2000));
 
-  width: set-calc(1524);
+  width: set-calc(1400);
   left: set-calc(-420);
   margin: set-calc(40) set-calc(8) set-calc(100);
 
   @include set-media(md) {
     margin: set-calc(30) 0 set-calc(16);
-    width: set-calc(390);
-    left: set-calc(-12);
+    width: 100%;
+    left: 0;
     max-height: max-content;
 
     gap: set-calc(6);
