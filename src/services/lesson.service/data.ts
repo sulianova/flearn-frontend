@@ -2175,7 +2175,7 @@ const lessonData26: ILessonDataDB = {
         },
       ]
     },
-        {
+    {
       type: 'title',
       title: 'Дополнительно *',
     },
@@ -2196,127 +2196,6 @@ const lessonData26: ILessonDataDB = {
         },
       ]
     },
-        {
-      type: 'title',
-      title: 'Итог'
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: [
-            {
-              tag: 'span',
-              content: 'Фотографии или сканы',
-              props: { className: 'keyText'}
-            },
-            {
-              tag: 'span',
-              content: ' всех рисунков, включая черновики и неудачи.',
-            },
-          ]
-        },
-        {
-          tag: 'p',
-          content: [
-            {
-              tag: 'span',
-              content: 'Краткое описание:',
-              props: { className: 'keyText'}
-            },
-            {
-              tag: 'span',
-              content: ' какую тему выбрали? Какие задачи перед собой ставили? что получилось, а что нет?',
-            },
-          ]
-        },
-      ]
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: [
-            {
-              tag: 'span',
-              content: 'Ваши наблюдения:',
-              props: { className: 'keyText'}
-            },
-            {
-              tag: 'span',
-              content: ' что вы поняли о себе, о своей технике, о точках роста.',
-            },
-          ]
-        },
-        {
-          tag: 'p',
-          content: [
-            {
-              tag: 'span',
-              content: 'Вопросы к преподавателю,',
-              props: { className: 'keyText'}
-            },
-            {
-              tag: 'span',
-              content: ' если они есть.',
-            },
-          ]
-        }
-      ]
-    },
-    {
-      type: 'title',
-      title: 'Советы'
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: [
-            {
-              tag: 'span',
-              content: 'Любая степень реалистичности подходит.',
-              props: { className: 'keyText'}
-            },
-            {
-              tag: 'span',
-              content: ' Рисуйте, как вам комфортно.',
-            },
-          ]
-        },
-        {
-          tag: 'p',
-          content: [
-            {
-              tag: 'span',
-              content: 'Рисуйте привычными для вас материалами.',
-              props: { className: 'keyText'}
-            },
-            {
-              tag: 'span',
-              content: ' На интенсиве нет цели освоить новый материал или технику. Рисуйте теми материалами, к которым привыкли. Если вы никогда не рисовали, возьмите черную тушь для пятна, ручку — для линии.',
-            },
-          ]
-        },
-        {
-          tag: 'p',
-          content: [
-            {
-              tag: 'span',
-              content: 'Не стесняйтесь загружать свои работы.',
-              props: { className: 'keyText'}
-            },
-            {
-              tag: 'span',
-              content: ' Часто так бывает, что нам больше нравятся рисунки других, чем свои собственные. Поэтому важно делиться работами. Работа, которая кажется нам скучной, может удивит и вдохновит кого-то другого. А после этого может и мы сами сможем заметить в ней что-то интересное.',
-            },
-          ]
-        }
-      ]
-    },
     {
       type: 'title',
       title: 'Как оформить результат'
@@ -2329,11 +2208,11 @@ const lessonData26: ILessonDataDB = {
           content: [
             {
               tag: 'span',
-              content: '1. '
+              content: '1. Оформите всё в одном файле:'
             },
             {
               tag: 'span',
-              content: 'Оформите всё в одном файле: Google Docs, Figma, Miro',
+              content: ' Google Docs, Figma, Miro',
               props: { className: 'keyText'}
             },
             {
@@ -2353,11 +2232,7 @@ const lessonData26: ILessonDataDB = {
       items: [
         {
           tag: 'p',
-          content: 'Тему'
-        },
-        {
-          tag: 'p',
-          content: 'Иллюстрации: финальные и черновые'
+          content: 'Фотографии или сканы всех рисунков, включая черновики и неудачи.'
         },
         {
           tag: 'p',
@@ -2403,136 +2278,136 @@ const lessonData26: ILessonDataDB = {
     //     title: 'YouTube video player',
     //   },
     // },
-    {
-      type: 'title',
-      title: 'Примеры линейных рисунков',
-    },
-    {
-      type: 'gallery',
-      maxHeightPx: 5000,
-      images: [
-        {
-          id: 'LineCat1.jpg',
-          alt: 'LineCat1',
-        },
-        {
-          id: 'LineCat2.jpg',
-          alt: 'LineCat2',
-        },
-        {
-          id: 'LineCat3.jpg',
-          alt: 'LineCat3',
-        },
-        {
-          id: 'LineCat4.jpg',
-          alt: 'LineCat4',
-        },
-        {
-          id: 'LineCat5.jpg',
-          alt: 'LineCat5',
-        },
-        {
-          id: 'LineCat6.jpg',
-          alt: 'LineCat6',
-        },
-        {
-          id: 'LineCat7.jpg',
-          alt: 'LineCat7',
-        },
-        {
-          id: 'LineCat8.jpg',
-          alt: 'LineCat8',
-        },
-        {
-          id: 'LineCat9.jpg',
-          alt: 'LineCat9',
-        },
-        {
-          id: 'LineCat10.jpg',
-          alt: 'LineCat10',
-        },
-        {
-          id: 'LineCat11.jpg',
-          alt: 'LineCat11',
-        },
-        {
-          id: 'LineCat12.jpg',
-          alt: 'LineCat12',
-        },
-        {
-          id: 'LineCat13.jpg',
-          alt: 'LineCat13',
-        },
-        {
-          id: 'LineCat14.jpg',
-          alt: 'LineCat14',
-        },
-        {
-          id: 'LineCat15.jpg',
-          alt: 'LineCat15',
-        },
-        {
-          id: 'LineCat16.jpg',
-          alt: 'LineCat16',
-        },
-        {
-          id: 'LineCat17.jpg',
-          alt: 'LineCat17',
-        },
-        {
-          id: 'LineCat18.jpg',
-          alt: 'LineCat18',
-        },
-        {
-          id: 'LineCat19.jpg',
-          alt: 'LineCat19',
-        },
-        {
-          id: 'LineCat20.jpg',
-          alt: 'LineCat20',
-        },
-        {
-          id: 'LineCat21.jpg',
-          alt: 'LineCat21',
-        },
-        {
-          id: 'LineCat22.jpg',
-          alt: 'LineCat22',
-        },
-        {
-          id: 'LineCat23.jpg',
-          alt: 'LineCat23',
-        },
-        {
-          id: 'LineCat24.jpg',
-          alt: 'LineCat24',
-        },
-        {
-          id: 'LineCat25.jpg',
-          alt: 'LineCat25',
-        },
-        {
-          id: 'LineCat26.jpg',
-          alt: 'LineCat26',
-        },
-        {
-          id: 'LineCat27.jpg',
-          alt: 'LineCat27',
-        },
-        {
-          id: 'LineCat28.jpg',
-          alt: 'LineCat28',
-        },
-        {
-          id: 'LineCat29.jpg',
-          alt: 'LineCat29',
-        },
-        {
-          id: 'LineCat30.jpg',
-          alt: 'LineCat30',
-        },
-      ]
-    },
+    // {
+    //   type: 'title',
+    //   title: 'Примеры линейных рисунков',
+    // },
+    // {
+    //   type: 'gallery',
+    //   maxHeightPx: 5000,
+    //   images: [
+    //     {
+    //       id: 'LineCat1.jpg',
+    //       alt: 'LineCat1',
+    //     },
+    //     {
+    //       id: 'LineCat2.jpg',
+    //       alt: 'LineCat2',
+    //     },
+    //     {
+    //       id: 'LineCat3.jpg',
+    //       alt: 'LineCat3',
+    //     },
+    //     {
+    //       id: 'LineCat4.jpg',
+    //       alt: 'LineCat4',
+    //     },
+    //     {
+    //       id: 'LineCat5.jpg',
+    //       alt: 'LineCat5',
+    //     },
+    //     {
+    //       id: 'LineCat6.jpg',
+    //       alt: 'LineCat6',
+    //     },
+    //     {
+    //       id: 'LineCat7.jpg',
+    //       alt: 'LineCat7',
+    //     },
+    //     {
+    //       id: 'LineCat8.jpg',
+    //       alt: 'LineCat8',
+    //     },
+    //     {
+    //       id: 'LineCat9.jpg',
+    //       alt: 'LineCat9',
+    //     },
+    //     {
+    //       id: 'LineCat10.jpg',
+    //       alt: 'LineCat10',
+    //     },
+    //     {
+    //       id: 'LineCat11.jpg',
+    //       alt: 'LineCat11',
+    //     },
+    //     {
+    //       id: 'LineCat12.jpg',
+    //       alt: 'LineCat12',
+    //     },
+    //     {
+    //       id: 'LineCat13.jpg',
+    //       alt: 'LineCat13',
+    //     },
+    //     {
+    //       id: 'LineCat14.jpg',
+    //       alt: 'LineCat14',
+    //     },
+    //     {
+    //       id: 'LineCat15.jpg',
+    //       alt: 'LineCat15',
+    //     },
+    //     {
+    //       id: 'LineCat16.jpg',
+    //       alt: 'LineCat16',
+    //     },
+    //     {
+    //       id: 'LineCat17.jpg',
+    //       alt: 'LineCat17',
+    //     },
+    //     {
+    //       id: 'LineCat18.jpg',
+    //       alt: 'LineCat18',
+    //     },
+    //     {
+    //       id: 'LineCat19.jpg',
+    //       alt: 'LineCat19',
+    //     },
+    //     {
+    //       id: 'LineCat20.jpg',
+    //       alt: 'LineCat20',
+    //     },
+    //     {
+    //       id: 'LineCat21.jpg',
+    //       alt: 'LineCat21',
+    //     },
+    //     {
+    //       id: 'LineCat22.jpg',
+    //       alt: 'LineCat22',
+    //     },
+    //     {
+    //       id: 'LineCat23.jpg',
+    //       alt: 'LineCat23',
+    //     },
+    //     {
+    //       id: 'LineCat24.jpg',
+    //       alt: 'LineCat24',
+    //     },
+    //     {
+    //       id: 'LineCat25.jpg',
+    //       alt: 'LineCat25',
+    //     },
+    //     {
+    //       id: 'LineCat26.jpg',
+    //       alt: 'LineCat26',
+    //     },
+    //     {
+    //       id: 'LineCat27.jpg',
+    //       alt: 'LineCat27',
+    //     },
+    //     {
+    //       id: 'LineCat28.jpg',
+    //       alt: 'LineCat28',
+    //     },
+    //     {
+    //       id: 'LineCat29.jpg',
+    //       alt: 'LineCat29',
+    //     },
+    //     {
+    //       id: 'LineCat30.jpg',
+    //       alt: 'LineCat30',
+    //     },
+    //   ]
+    // },
   ]
 }
 
