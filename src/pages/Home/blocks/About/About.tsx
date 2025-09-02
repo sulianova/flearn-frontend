@@ -15,7 +15,6 @@ const tabsProps: { card_photo?: boolean }[] = [
   {card_photo: true},
   {},
   {card_photo: true},
-  {},
 ];
 const D_SLIDE_MS = 5_000;
 export default function RequestConsultationBanner() {

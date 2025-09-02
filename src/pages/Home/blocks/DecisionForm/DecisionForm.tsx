@@ -154,10 +154,10 @@ export default function DecisionForm(props: IProps) {
               <div className={cx({ item__icon: true, item__icon_pro: true})}><Icon icon='Pro'/></div>
               <div className={classes.item__text}>{t('card.list.pro.item2')}</div>
             </li>
-            <li className={classes.item}>
+            {/* <li className={classes.item}>
               <div className={cx({ item__icon: true, item__icon_pro: true})}><Icon icon='Pro'/></div>
               <div className={classes.item__text}>{t('card.list.pro.item3')}</div>
-            </li>
+            </li> */}
             <li className={classes.item}>
               <div className={classes.item__icon}><Icon icon='CheckmarkFill'/></div>
               <div className={classes.item__text}>{t('card.list.both.item1')}</div>
