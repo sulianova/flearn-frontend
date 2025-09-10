@@ -112,10 +112,10 @@ export default function DecisionForm(props: IProps) {
               <div className={classes.item__icon}><Icon icon='CheckmarkFill'/></div>
               <div className={classes.item__text}>{t('card.list.both.item3')}</div>
             </li>
-            <li className={classes.item}>
+            {/* <li className={classes.item}>
               <div className={classes.item__icon}><Icon icon='CheckmarkFill'/></div>
               <div className={classes.item__text}>{t('card.list.both.item4')}</div>
-            </li>
+            </li> */}
           </ul>
         </div>
         <div className={cx({ plan: true, pro: true})}>
@@ -170,10 +170,10 @@ export default function DecisionForm(props: IProps) {
               <div className={classes.item__icon}><Icon icon='CheckmarkFill'/></div>
               <div className={classes.item__text}>{t('card.list.both.item3')}</div>
             </li>
-            <li className={classes.item}>
+            {/* <li className={classes.item}>
               <div className={classes.item__icon}><Icon icon='CheckmarkFill'/></div>
               <div className={classes.item__text}>{t('card.list.both.item4')}</div>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>
