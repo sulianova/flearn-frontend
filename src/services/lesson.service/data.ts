@@ -10788,7 +10788,7 @@ const lessonDataFYS47: ILessonDataDB = {
 }
 
 const lessonDataFYS51: ILessonDataDB = {
-  id: 'Practice_ t4jUts',
+  id: 'Practice_t4jUts',
   courseId: 'finding-your-style',
   title: 'Практика. Как найти стиль',
   type: 'Practice',
@@ -11074,57 +11074,6 @@ const lessonDataFYS51: ILessonDataDB = {
             {
               tag: 'span',
               content: ' если они есть.',
-            },
-          ]
-        }
-      ]
-    },
-    {
-      type: 'title',
-      title: 'Советы'
-    },
-    {
-      type: 'text',
-      text: [
-        {
-          tag: 'p',
-          content: [
-            {
-              tag: 'span',
-              content: 'Любая степень реалистичности подходит.',
-              props: { className: 'keyText'}
-            },
-            {
-              tag: 'span',
-              content: ' Рисуйте, как вам комфортно.',
-            },
-          ]
-        },
-        {
-          tag: 'p',
-          content: [
-            {
-              tag: 'span',
-              content: 'Рисуйте привычными для вас материалами.',
-              props: { className: 'keyText'}
-            },
-            {
-              tag: 'span',
-              content: ' На интенсиве нет цели освоить новый материал или технику. Рисуйте теми материалами, к которым привыкли. Если вы никогда не рисовали, возьмите черную тушь для пятна, ручку — для линии.',
-            },
-          ]
-        },
-        {
-          tag: 'p',
-          content: [
-            {
-              tag: 'span',
-              content: 'Не стесняйтесь загружать свои работы.',
-              props: { className: 'keyText'}
-            },
-            {
-              tag: 'span',
-              content: ' Часто так бывает, что нам больше нравятся рисунки других, чем свои собственные. Поэтому важно делиться работами. Работа, которая кажется нам скучной, может удивит и вдохновит кого-то другого. А после этого может и мы сами сможем заметить в ней что-то интересное.',
             },
           ]
         }
