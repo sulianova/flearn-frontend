@@ -60,12 +60,6 @@ function Footer({ variant, type =  EFooter.Default }: IProps) {
               target='_blank'>
                 <Icon icon='Tiktok'/>
             </Link>
-            <Link 
-              className={cx({ social__link: true })}
-              to={t('socialVk.link')}
-              target='_blank'>
-                <Icon icon='Vk'/>
-            </Link>
           </div>
           <Link to={t('emailTo')} className={classes.email} target='_blank'>{t('email')}</Link>
           <p className={classes.emailComment}>{t('emailComment')}</p>

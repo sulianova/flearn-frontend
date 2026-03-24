@@ -71,7 +71,7 @@ export default function RequestConsultationBanner() {
             </div>
           </div>
         </div>
-        <div className={classes.list}>
+        {/* <div className={classes.list}>
           <div className={classes.item}>
             <div className={classes.image}>
               <Img
@@ -117,7 +117,7 @@ export default function RequestConsultationBanner() {
               <div className={classes.content__description}>{t('list.item3.description')}</div>
             </div>
           </div>
-        </div>
+        </div> */}
     </>
   );
 }

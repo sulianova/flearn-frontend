@@ -44,11 +44,11 @@ export default function Home() {
     <About 
     key='About'
     />,
-    <BannerStart
-    key='BannerStart'
-    linkToFreeCourse={linkToFreeCourse}
-    onNotAuthedClick={onNotAuthedClick}
-    />,
+    // <BannerStart
+    // key='BannerStart'
+    // linkToFreeCourse={linkToFreeCourse}
+    // onNotAuthedClick={onNotAuthedClick}
+    // />,
     <StudyProcess 
       key='StudyProcess'
     />,
@@ -57,24 +57,24 @@ export default function Home() {
       linkToFreeCourse={linkToFreeCourse}
       onNotAuthedClick={onNotAuthedClick}
     />,
-    <Community
-    key='Community'
-    />,
+    // <Community
+    // key='Community'
+    // />,
     <SocialValidation
       key='SocialValidation'
     />,
-    <DecisionForm
-      key='DecisionForm'
-      linkToFreeCourse={linkToFreeCourse}
-      onNotAuthedClick={onNotAuthedClick}
-      next={productOptionType => {
-      setStep('PAYMENT');
-      setChosenProductOptionType(productOptionType);
-      }}
-    />,
-    <FAQ
-      key='FAQ'
-    />,
+    // <DecisionForm
+    //   key='DecisionForm'
+    //   linkToFreeCourse={linkToFreeCourse}
+    //   onNotAuthedClick={onNotAuthedClick}
+    //   next={productOptionType => {
+    //   setStep('PAYMENT');
+    //   setChosenProductOptionType(productOptionType);
+    //   }}
+    // />,
+    // <FAQ
+    //   key='FAQ'
+    // />,
   ];
 
   return (

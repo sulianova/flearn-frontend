@@ -13,31 +13,7 @@ const data: QA[] = [
   {
     question: `${t('item1.question')}`,
     answer: `${t('item1.answer')}`,
-  },
-  {
-    question: `${t('item2.question')}`,
-    answer: `${t('item2.answer')}`,
-  },
-  {
-    question: `${t('item3.question')}`,
-    answer: `${t('item3.answer')}`,
-  },
-  {
-    question: `${t('item4.question')}`,
-    answer: `${t('item4.answer')}`,
-  },
-  {
-    question: `${t('item5.question')}`,
-    answer: `${t('item5.answer')}`,
-  },
-  {
-    question: `${t('item6.question')}`,
-    answer: `${t('item6.answer')}`,
-  },
-  {
-    question: `${t('item7.question')}`,
-    answer: `${t('item7.answer')}`,
-  },
+  }
 ];
 
 

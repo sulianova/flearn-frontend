@@ -98,12 +98,12 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
                   >
                     {t('menu.courses')}
                   </a>
-                  <a
+                  {/* <a
                     className={classes.nav}
                     href={`/#${PricingID}`}
                   >
                     {t('menu.pricing')}
-                  </a>
+                  </a> */}
                   <a
                     className={classes.nav}
                     href={`/#${SocialValidationID}`}
@@ -153,11 +153,11 @@ export default function Header({ variant, visible }: Readonly<IProps>) {
                       {t('btns.login.profile')}
                     </Link>
                   )}
-                  {!isMobile && (urlSection.name !== 'Home') && (
+                  {/* {!isMobile && (urlSection.name !== 'Home') && (
                     <div className={cx({ btn_start: true})} onClick={() => setBuyPopupIsOpened(true)}>
                       {t('btns.start.pro')}
                     </div>
-                  )}
+                  )} */}
                 </>
                 : 
                   <> 
