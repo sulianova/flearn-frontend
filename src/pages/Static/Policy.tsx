@@ -5,11 +5,9 @@ export default function Policy() {
     return (
         <Page variant={EPageVariant.WEB} header footer>
             <h3 className={classes.H3}>Политика конфиденциальности</h3>
-
             <p>
             Последнее обновление: 10 июня 2026 года.
             </p>
-
             <h4>I. Общие положения</h4>
 
             <p>
