@@ -38,9 +38,9 @@ export default function Courses() {
     //   key='BannerStart'
     //   onNotAuthedClick={onNotAuthedClick}
     // />,
-    <FAQ
-      key='FAQ'
-    />,
+    // <FAQ
+    //   key='FAQ'
+    // />,
   ].filter(c => c !== false);
 
   return (
