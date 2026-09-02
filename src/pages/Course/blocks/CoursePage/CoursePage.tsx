@@ -175,7 +175,7 @@ function Topic(props: { topic: ITopic }) {
             <div className={classes.header__meta__state}>Завершен</div>
           )}
           {!topic.isFree && (
-            <div className={classes.header__meta__type}>После оплаты</div>
+            <div className={classes.header__meta__type}>Скоро</div>
           )}
         </div>
         <div className={classes.header__content}>

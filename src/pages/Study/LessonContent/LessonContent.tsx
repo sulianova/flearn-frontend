@@ -171,7 +171,8 @@ export default function LessonContent(props: IProps) {
                     if (nextLesson === null) {
                       navigate(URLSections.Course.to({ courseId: course.id }));
                     } else if (!nextLesson.isFree && courseAccess === 'FREE' && user.role === 'user') {
-                      setBuyPopupIsOpened(true);
+                      navigate(URLSections.Course.to({ courseId: course.id }));
+                      //setBuyPopupIsOpened(true);
                     } else {
                       navigate(URLSections.Study.to({ courseId: course.id, lessonId: nextLesson.id }));
                     }
